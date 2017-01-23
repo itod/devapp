@@ -1,0 +1,22 @@
+[.]
+scm = git
+
+[lib/PEGKit]
+repository = git@github.com:itod/pegkit.git
+scm = git
+path = lib/PEGKit
+
+[lib/TDAppKit]
+repository = git@github.com:itod/tdappkit.git
+scm = git
+path = lib/TDAppKit
+
+[lib/TDTemplateEngine]
+repository = git@github.com:itod/tdtemplateengine.git
+scm = git
+path = lib/TDTemplateEngine
+
+[lib/OkudaKit]
+repository = git@github.com:itod/okuda.git
+scm = git
+path = lib/OkudaKit
