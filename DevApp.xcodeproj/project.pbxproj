@@ -19,6 +19,8 @@
 		D3369A011E36B92300FEB7BF /* TDTemplateEngine.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = D33699F21E36B8B800FEB7BF /* TDTemplateEngine.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D3369A021E36B92A00FEB7BF /* PEGKit.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = D33699D41E36B8AE00FEB7BF /* PEGKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D3369A031E36B92F00FEB7BF /* OkudaKit.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = D33699C71E36B8A800FEB7BF /* OkudaKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		D3369A361E36BA2B00FEB7BF /* TDThreadUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3369A311E36BA0600FEB7BF /* TDThreadUtils.framework */; };
+		D3369A371E36BA3000FEB7BF /* TDThreadUtils.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = D3369A311E36BA0600FEB7BF /* TDThreadUtils.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -141,6 +143,27 @@
 			remoteGlobalIDString = 8DC2EF4F0486A6940098B216;
 			remoteInfo = OkudaKit;
 		};
+		D3369A301E36BA0600FEB7BF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D3369A201E36BA0600FEB7BF /* TDThreadUtils.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = D3C0C7411A641526004C8B9A;
+			remoteInfo = TDThreadUtils;
+		};
+		D3369A321E36BA0600FEB7BF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D3369A201E36BA0600FEB7BF /* TDThreadUtils.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = D3C0C74C1A641527004C8B9A;
+			remoteInfo = TDThreadUtilsTests;
+		};
+		D3369A341E36BA2400FEB7BF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D3369A201E36BA0600FEB7BF /* TDThreadUtils.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = D3C0C7401A641526004C8B9A;
+			remoteInfo = TDThreadUtils;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -150,6 +173,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 7;
 			files = (
+				D3369A371E36BA3000FEB7BF /* TDThreadUtils.framework in Copy Frameworks */,
 				D3369A011E36B92300FEB7BF /* TDTemplateEngine.framework in Copy Frameworks */,
 				D3369A021E36B92A00FEB7BF /* PEGKit.framework in Copy Frameworks */,
 				D3369A031E36B92F00FEB7BF /* OkudaKit.framework in Copy Frameworks */,
@@ -174,6 +198,7 @@
 		D33699CA1E36B8AD00FEB7BF /* PEGKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = PEGKit.xcodeproj; path = lib/PEGKit/PEGKit.xcodeproj; sourceTree = "<group>"; };
 		D33699DF1E36B8B300FEB7BF /* TDAppKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = TDAppKit.xcodeproj; path = lib/TDAppKit/TDAppKit.xcodeproj; sourceTree = "<group>"; };
 		D33699EB1E36B8B800FEB7BF /* TDTemplateEngine.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = TDTemplateEngine.xcodeproj; path = lib/TDTemplateEngine/TDTemplateEngine.xcodeproj; sourceTree = "<group>"; };
+		D3369A201E36BA0600FEB7BF /* TDThreadUtils.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = TDThreadUtils.xcodeproj; path = lib/TDThreadUtils/TDThreadUtils.xcodeproj; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -181,6 +206,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D3369A361E36BA2B00FEB7BF /* TDThreadUtils.framework in Frameworks */,
 				D33699FF1E36B8ED00FEB7BF /* TDTemplateEngine.framework in Frameworks */,
 				D33699FE1E36B8ED00FEB7BF /* PEGKit.framework in Frameworks */,
 				D33699FD1E36B8ED00FEB7BF /* OkudaKit.framework in Frameworks */,
@@ -193,6 +219,7 @@
 		D336999E1E36B78800FEB7BF = {
 			isa = PBXGroup;
 			children = (
+				D3369A201E36BA0600FEB7BF /* TDThreadUtils.xcodeproj */,
 				D33699DF1E36B8B300FEB7BF /* TDAppKit.xcodeproj */,
 				D33699EB1E36B8B800FEB7BF /* TDTemplateEngine.xcodeproj */,
 				D33699CA1E36B8AD00FEB7BF /* PEGKit.xcodeproj */,
@@ -276,6 +303,15 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		D3369A211E36BA0600FEB7BF /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D3369A311E36BA0600FEB7BF /* TDThreadUtils.framework */,
+				D3369A331E36BA0600FEB7BF /* TDThreadUtilsTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -291,6 +327,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				D3369A351E36BA2400FEB7BF /* PBXTargetDependency */,
 				D33699F81E36B8DD00FEB7BF /* PBXTargetDependency */,
 				D33699FA1E36B8DD00FEB7BF /* PBXTargetDependency */,
 				D33699FC1E36B8DD00FEB7BF /* PBXTargetDependency */,
@@ -342,6 +379,10 @@
 				{
 					ProductGroup = D33699EC1E36B8B800FEB7BF /* Products */;
 					ProjectRef = D33699EB1E36B8B800FEB7BF /* TDTemplateEngine.xcodeproj */;
+				},
+				{
+					ProductGroup = D3369A211E36BA0600FEB7BF /* Products */;
+					ProjectRef = D3369A201E36BA0600FEB7BF /* TDThreadUtils.xcodeproj */;
 				},
 			);
 			projectRoot = "";
@@ -450,6 +491,20 @@
 			remoteRef = D33699F51E36B8B800FEB7BF /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
+		D3369A311E36BA0600FEB7BF /* TDThreadUtils.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = TDThreadUtils.framework;
+			remoteRef = D3369A301E36BA0600FEB7BF /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		D3369A331E36BA0600FEB7BF /* TDThreadUtilsTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = TDThreadUtilsTests.xctest;
+			remoteRef = D3369A321E36BA0600FEB7BF /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 /* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
@@ -493,6 +548,11 @@
 			isa = PBXTargetDependency;
 			name = OkudaKit;
 			targetProxy = D33699FB1E36B8DD00FEB7BF /* PBXContainerItemProxy */;
+		};
+		D3369A351E36BA2400FEB7BF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = TDThreadUtils;
+			targetProxy = D3369A341E36BA2400FEB7BF /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 

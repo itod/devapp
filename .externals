@@ -20,3 +20,8 @@ path = lib/TDTemplateEngine
 repository = git@github.com:itod/okuda.git
 scm = git
 path = lib/OkudaKit
+
+[lib/TDThreadUtils]
+repository = git@github.com:itod/threadutils.git
+scm = git
+path = lib/TDThreadUtils
