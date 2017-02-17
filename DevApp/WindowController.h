@@ -1,5 +1,5 @@
 //
-//  Document.h
+//  WindowController.h
 //  DevApp
 //
 //  Created by Todd Ditchendorf on 23.01.17.
@@ -8,10 +8,6 @@
 
 #import <Cocoa/Cocoa.h>
 
-@class WindowController;
-
-@interface Document : NSDocument
-
-@property (nonatomic, retain) WindowController *windowController;
+@interface WindowController : NSWindowController
+- (instancetype)init;
 @end
-

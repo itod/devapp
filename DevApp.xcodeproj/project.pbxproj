@@ -10,7 +10,6 @@
 		D33699AC1E36B78900FEB7BF /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D33699AB1E36B78900FEB7BF /* AppDelegate.m */; };
 		D33699AF1E36B78900FEB7BF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D33699AE1E36B78900FEB7BF /* main.m */; };
 		D33699B21E36B78900FEB7BF /* Document.m in Sources */ = {isa = PBXBuildFile; fileRef = D33699B11E36B78900FEB7BF /* Document.m */; };
-		D33699B51E36B78900FEB7BF /* Document.xib in Resources */ = {isa = PBXBuildFile; fileRef = D33699B31E36B78900FEB7BF /* Document.xib */; };
 		D33699B71E36B78900FEB7BF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D33699B61E36B78900FEB7BF /* Assets.xcassets */; };
 		D33699BA1E36B78900FEB7BF /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = D33699B81E36B78900FEB7BF /* MainMenu.xib */; };
 		D33699FD1E36B8ED00FEB7BF /* OkudaKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D33699C71E36B8A800FEB7BF /* OkudaKit.framework */; };
@@ -19,8 +18,133 @@
 		D3369A011E36B92300FEB7BF /* TDTemplateEngine.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = D33699F21E36B8B800FEB7BF /* TDTemplateEngine.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D3369A021E36B92A00FEB7BF /* PEGKit.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = D33699D41E36B8AE00FEB7BF /* PEGKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D3369A031E36B92F00FEB7BF /* OkudaKit.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = D33699C71E36B8A800FEB7BF /* OkudaKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		D3369A361E36BA2B00FEB7BF /* TDThreadUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3369A311E36BA0600FEB7BF /* TDThreadUtils.framework */; };
-		D3369A371E36BA3000FEB7BF /* TDThreadUtils.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = D3369A311E36BA0600FEB7BF /* TDThreadUtils.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		D3369A3B1E36BB1300FEB7BF /* WindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = D3369A391E36BB1300FEB7BF /* WindowController.m */; };
+		D3369A3D1E36BB2800FEB7BF /* WindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D3369A3F1E36BB2800FEB7BF /* WindowController.xib */; };
+		D3369AA31E36BEED00FEB7BF /* EDUpdatePreferences.xib in Resources */ = {isa = PBXBuildFile; fileRef = D3369A481E36BEED00FEB7BF /* EDUpdatePreferences.xib */; };
+		D3369AA41E36BEED00FEB7BF /* IDEAppearancePreferences.xib in Resources */ = {isa = PBXBuildFile; fileRef = D3369A4A1E36BEED00FEB7BF /* IDEAppearancePreferences.xib */; };
+		D3369AA51E36BEED00FEB7BF /* IDEGeneralPreferences.xib in Resources */ = {isa = PBXBuildFile; fileRef = D3369A4C1E36BEED00FEB7BF /* IDEGeneralPreferences.xib */; };
+		D3369AA61E36BEED00FEB7BF /* IDETabsPreferences.xib in Resources */ = {isa = PBXBuildFile; fileRef = D3369A4E1E36BEED00FEB7BF /* IDETabsPreferences.xib */; };
+		D3369AA71E36BEED00FEB7BF /* OAPreferencesWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = D3369A501E36BEED00FEB7BF /* OAPreferencesWindow.xib */; };
+		D3369AA81E36BEED00FEB7BF /* EDUpdatePreferences.m in Sources */ = {isa = PBXBuildFile; fileRef = D3369A531E36BEED00FEB7BF /* EDUpdatePreferences.m */; };
+		D3369AAB1E36BEED00FEB7BF /* IDEAppearancePreferences.m in Sources */ = {isa = PBXBuildFile; fileRef = D3369A591E36BEED00FEB7BF /* IDEAppearancePreferences.m */; };
+		D3369AAC1E36BEED00FEB7BF /* IDEApplication.m in Sources */ = {isa = PBXBuildFile; fileRef = D3369A5B1E36BEED00FEB7BF /* IDEApplication.m */; };
+		D3369AAD1E36BEED00FEB7BF /* IDEBasePreferences.m in Sources */ = {isa = PBXBuildFile; fileRef = D3369A5D1E36BEED00FEB7BF /* IDEBasePreferences.m */; };
+		D3369AAE1E36BEED00FEB7BF /* IDEDefaultFontTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = D3369A5F1E36BEED00FEB7BF /* IDEDefaultFontTextField.m */; };
+		D3369AAF1E36BEED00FEB7BF /* IDEDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = D3369A611E36BEED00FEB7BF /* IDEDocument.m */; };
+		D3369AB01E36BEED00FEB7BF /* IDEDocumentController.m in Sources */ = {isa = PBXBuildFile; fileRef = D3369A631E36BEED00FEB7BF /* IDEDocumentController.m */; };
+		D3369AB11E36BEED00FEB7BF /* IDEGeneralPreferences.m in Sources */ = {isa = PBXBuildFile; fileRef = D3369A651E36BEED00FEB7BF /* IDEGeneralPreferences.m */; };
+		D3369AB31E36BEED00FEB7BF /* IDEMainWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = D3369A6A1E36BEED00FEB7BF /* IDEMainWindow.m */; };
+		D3369AB41E36BEED00FEB7BF /* IDEMainWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = D3369A6C1E36BEED00FEB7BF /* IDEMainWindowController.m */; };
+		D3369AB71E36BEED00FEB7BF /* IDETabsPreferences.m in Sources */ = {isa = PBXBuildFile; fileRef = D3369A721E36BEED00FEB7BF /* IDETabsPreferences.m */; };
+		D3369AB81E36BEED00FEB7BF /* IDEUberView.m in Sources */ = {isa = PBXBuildFile; fileRef = D3369A741E36BEED00FEB7BF /* IDEUberView.m */; };
+		D3369AB91E36BEED00FEB7BF /* IDEUberViewSplitView.m in Sources */ = {isa = PBXBuildFile; fileRef = D3369A761E36BEED00FEB7BF /* IDEUberViewSplitView.m */; };
+		D3369ABA1E36BEED00FEB7BF /* IDEUserDefaults.m in Sources */ = {isa = PBXBuildFile; fileRef = D3369A781E36BEED00FEB7BF /* IDEUserDefaults.m */; };
+		D3369ABD1E36BEED00FEB7BF /* NSArray-OFExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = D3369A7D1E36BEED00FEB7BF /* NSArray-OFExtensions.m */; };
+		D3369ABE1E36BEED00FEB7BF /* NSBundle-OAExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = D3369A7F1E36BEED00FEB7BF /* NSBundle-OAExtensions.m */; };
+		D3369ABF1E36BEED00FEB7BF /* NSImage-OAExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = D3369A811E36BEED00FEB7BF /* NSImage-OAExtensions.m */; };
+		D3369AC01E36BEED00FEB7BF /* NSMutableArray-OFExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = D3369A831E36BEED00FEB7BF /* NSMutableArray-OFExtensions.m */; };
+		D3369AC11E36BEED00FEB7BF /* NSObject-OFExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = D3369A851E36BEED00FEB7BF /* NSObject-OFExtensions.m */; };
+		D3369AC21E36BEED00FEB7BF /* NSString-OFReplacement.m in Sources */ = {isa = PBXBuildFile; fileRef = D3369A871E36BEED00FEB7BF /* NSString-OFReplacement.m */; };
+		D3369AC31E36BEED00FEB7BF /* NSString-OFSimpleMatching.m in Sources */ = {isa = PBXBuildFile; fileRef = D3369A891E36BEED00FEB7BF /* NSString-OFSimpleMatching.m */; };
+		D3369AC41E36BEED00FEB7BF /* NSToolbar-OAExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = D3369A8B1E36BEED00FEB7BF /* NSToolbar-OAExtensions.m */; };
+		D3369AC51E36BEED00FEB7BF /* OAPreferenceClient.m in Sources */ = {isa = PBXBuildFile; fileRef = D3369A8D1E36BEED00FEB7BF /* OAPreferenceClient.m */; };
+		D3369AC61E36BEED00FEB7BF /* OAPreferenceClientRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = D3369A8F1E36BEED00FEB7BF /* OAPreferenceClientRecord.m */; };
+		D3369AC71E36BEED00FEB7BF /* OAPreferenceController.m in Sources */ = {isa = PBXBuildFile; fileRef = D3369A911E36BEED00FEB7BF /* OAPreferenceController.m */; };
+		D3369AC81E36BEED00FEB7BF /* OAPreferencesIconView.m in Sources */ = {isa = PBXBuildFile; fileRef = D3369A931E36BEED00FEB7BF /* OAPreferencesIconView.m */; };
+		D3369AC91E36BEED00FEB7BF /* OAPreferencesNextButton.png in Resources */ = {isa = PBXBuildFile; fileRef = D3369A941E36BEED00FEB7BF /* OAPreferencesNextButton.png */; };
+		D3369ACA1E36BEED00FEB7BF /* OAPreferencesPreviousButton.png in Resources */ = {isa = PBXBuildFile; fileRef = D3369A951E36BEED00FEB7BF /* OAPreferencesPreviousButton.png */; };
+		D3369ACB1E36BEED00FEB7BF /* OAPreferencesToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = D3369A971E36BEED00FEB7BF /* OAPreferencesToolbar.m */; };
+		D3369ACC1E36BEED00FEB7BF /* OAPreferencesWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = D3369A991E36BEED00FEB7BF /* OAPreferencesWindow.m */; };
+		D3369ACD1E36BEED00FEB7BF /* OBObject.m in Sources */ = {isa = PBXBuildFile; fileRef = D3369A9C1E36BEED00FEB7BF /* OBObject.m */; };
+		D3369ACE1E36BEED00FEB7BF /* OFObject.m in Sources */ = {isa = PBXBuildFile; fileRef = D3369A9E1E36BEED00FEB7BF /* OFObject.m */; };
+		D3369ACF1E36BEED00FEB7BF /* OFPreference.m in Sources */ = {isa = PBXBuildFile; fileRef = D3369AA01E36BEED00FEB7BF /* OFPreference.m */; };
+		D3369B161E36C25A00FEB7BF /* TKDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = D3369AF11E36C25A00FEB7BF /* TKDocument.m */; };
+		D3369B171E36C25A00FEB7BF /* TKDocument+Scripting.m in Sources */ = {isa = PBXBuildFile; fileRef = D3369AF31E36C25A00FEB7BF /* TKDocument+Scripting.m */; };
+		D3369B181E36C25A00FEB7BF /* TKDocumentController.m in Sources */ = {isa = PBXBuildFile; fileRef = D3369AF51E36C25A00FEB7BF /* TKDocumentController.m */; };
+		D3369B191E36C25A00FEB7BF /* TKMainWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = D3369AF71E36C25A00FEB7BF /* TKMainWindow.m */; };
+		D3369B1A1E36C25A00FEB7BF /* TKMainWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = D3369AF91E36C25A00FEB7BF /* TKMainWindowController.m */; };
+		D3369B1B1E36C25A00FEB7BF /* TKOverflowButton.m in Sources */ = {isa = PBXBuildFile; fileRef = D3369AFB1E36C25A00FEB7BF /* TKOverflowButton.m */; };
+		D3369B1C1E36C25A00FEB7BF /* TKTabListItem.m in Sources */ = {isa = PBXBuildFile; fileRef = D3369AFD1E36C25A00FEB7BF /* TKTabListItem.m */; };
+		D3369B1D1E36C25A00FEB7BF /* TKTabListItemFlatStyleCloseButton.m in Sources */ = {isa = PBXBuildFile; fileRef = D3369AFF1E36C25A00FEB7BF /* TKTabListItemFlatStyleCloseButton.m */; };
+		D3369B1E1E36C25A00FEB7BF /* TKTabListItemFlatStyleOverflowButton.m in Sources */ = {isa = PBXBuildFile; fileRef = D3369B011E36C25A00FEB7BF /* TKTabListItemFlatStyleOverflowButton.m */; };
+		D3369B1F1E36C25A00FEB7BF /* TKTabListItemStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = D3369B031E36C25A00FEB7BF /* TKTabListItemStyle.m */; };
+		D3369B211E36C25A00FEB7BF /* TKTabListItemStyleFlat.m in Sources */ = {isa = PBXBuildFile; fileRef = D3369B071E36C25A00FEB7BF /* TKTabListItemStyleFlat.m */; };
+		D3369B221E36C25A00FEB7BF /* TKTabListItemStyleMerged.m in Sources */ = {isa = PBXBuildFile; fileRef = D3369B091E36C25A00FEB7BF /* TKTabListItemStyleMerged.m */; };
+		D3369B231E36C25A00FEB7BF /* TKTabModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D3369B0B1E36C25A00FEB7BF /* TKTabModel.m */; };
+		D3369B241E36C25A00FEB7BF /* TKTabModel+Scripting.m in Sources */ = {isa = PBXBuildFile; fileRef = D3369B0D1E36C25A00FEB7BF /* TKTabModel+Scripting.m */; };
+		D3369B251E36C25A00FEB7BF /* TKTabsListView.m in Sources */ = {isa = PBXBuildFile; fileRef = D3369B0F1E36C25A00FEB7BF /* TKTabsListView.m */; };
+		D3369B261E36C25A00FEB7BF /* TKTabsListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D3369B111E36C25A00FEB7BF /* TKTabsListViewController.m */; };
+		D3369B271E36C25A00FEB7BF /* TKTabsListViewControllerView.m in Sources */ = {isa = PBXBuildFile; fileRef = D3369B131E36C25A00FEB7BF /* TKTabsListViewControllerView.m */; };
+		D3369B281E36C25A00FEB7BF /* TKUserDefaults.m in Sources */ = {isa = PBXBuildFile; fileRef = D3369B151E36C25A00FEB7BF /* TKUserDefaults.m */; };
+		D3369BC01E36C73800FEB7BF /* DOMElement+TDAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = D3369B6E1E36C73700FEB7BF /* DOMElement+TDAdditions.m */; };
+		D3369BC11E36C73800FEB7BF /* DOMHTMLCollection+TDAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = D3369B6F1E36C73700FEB7BF /* DOMHTMLCollection+TDAdditions.m */; };
+		D3369BC21E36C73800FEB7BF /* DOMHTMLOptionsCollection+TDAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = D3369B701E36C73700FEB7BF /* DOMHTMLOptionsCollection+TDAdditions.m */; };
+		D3369BC31E36C73800FEB7BF /* DOMNode+TDAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = D3369B711E36C73700FEB7BF /* DOMNode+TDAdditions.m */; };
+		D3369BC41E36C73800FEB7BF /* DOMNodeList+TDAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = D3369B721E36C73700FEB7BF /* DOMNodeList+TDAdditions.m */; };
+		D3369BC51E36C73800FEB7BF /* NSAppleEventDescriptor+NDAppleScriptObject.m in Sources */ = {isa = PBXBuildFile; fileRef = D3369B731E36C73700FEB7BF /* NSAppleEventDescriptor+NDAppleScriptObject.m */; };
+		D3369BC61E36C73800FEB7BF /* NSAppleEventDescriptor+TDAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = D3369B741E36C73700FEB7BF /* NSAppleEventDescriptor+TDAdditions.m */; };
+		D3369BC71E36C73800FEB7BF /* NSArray+TDAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = D3369B751E36C73700FEB7BF /* NSArray+TDAdditions.m */; };
+		D3369BC81E36C73800FEB7BF /* NSBezierPath+TDAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = D3369B761E36C73700FEB7BF /* NSBezierPath+TDAdditions.m */; };
+		D3369BC91E36C73800FEB7BF /* NSDate+TDAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = D3369B771E36C73700FEB7BF /* NSDate+TDAdditions.m */; };
+		D3369BCA1E36C73800FEB7BF /* NSEvent+TDAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = D3369B781E36C73700FEB7BF /* NSEvent+TDAdditions.m */; };
+		D3369BCB1E36C73800FEB7BF /* NSImage+TDAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = D3369B791E36C73700FEB7BF /* NSImage+TDAdditions.m */; };
+		D3369BCC1E36C73800FEB7BF /* NSString+TDAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = D3369B7A1E36C73700FEB7BF /* NSString+TDAdditions.m */; };
+		D3369BCD1E36C73800FEB7BF /* NSURL+NDCarbonUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = D3369B7C1E36C73700FEB7BF /* NSURL+NDCarbonUtilities.m */; };
+		D3369BCE1E36C73800FEB7BF /* NSURLRequest+TDAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = D3369B7D1E36C73700FEB7BF /* NSURLRequest+TDAdditions.m */; };
+		D3369BCF1E36C73800FEB7BF /* TDBar.m in Sources */ = {isa = PBXBuildFile; fileRef = D3369B7F1E36C73700FEB7BF /* TDBar.m */; };
+		D3369BD01E36C73800FEB7BF /* TDBarItem.m in Sources */ = {isa = PBXBuildFile; fileRef = D3369B801E36C73700FEB7BF /* TDBarItem.m */; };
+		D3369BD11E36C73800FEB7BF /* TDClipView.m in Sources */ = {isa = PBXBuildFile; fileRef = D3369B821E36C73700FEB7BF /* TDClipView.m */; };
+		D3369BD21E36C73800FEB7BF /* TDColorView.m in Sources */ = {isa = PBXBuildFile; fileRef = D3369B831E36C73700FEB7BF /* TDColorView.m */; };
+		D3369BD31E36C73800FEB7BF /* TDComboField.m in Sources */ = {isa = PBXBuildFile; fileRef = D3369B841E36C73700FEB7BF /* TDComboField.m */; };
+		D3369BD41E36C73800FEB7BF /* TDComboFieldCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D3369B861E36C73700FEB7BF /* TDComboFieldCell.m */; };
+		D3369BD51E36C73800FEB7BF /* TDComboFieldListItem.m in Sources */ = {isa = PBXBuildFile; fileRef = D3369B881E36C73700FEB7BF /* TDComboFieldListItem.m */; };
+		D3369BD61E36C73800FEB7BF /* TDComboFieldListView.m in Sources */ = {isa = PBXBuildFile; fileRef = D3369B8A1E36C73800FEB7BF /* TDComboFieldListView.m */; };
+		D3369BD71E36C73800FEB7BF /* TDComboFieldTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = D3369B8C1E36C73800FEB7BF /* TDComboFieldTextView.m */; };
+		D3369BD81E36C73800FEB7BF /* TDDraggableBar.m in Sources */ = {isa = PBXBuildFile; fileRef = D3369B8D1E36C73800FEB7BF /* TDDraggableBar.m */; };
+		D3369BD91E36C73800FEB7BF /* TDDropTargetView.m in Sources */ = {isa = PBXBuildFile; fileRef = D3369B8E1E36C73800FEB7BF /* TDDropTargetView.m */; };
+		D3369BDA1E36C73800FEB7BF /* TDFlippedColorView.m in Sources */ = {isa = PBXBuildFile; fileRef = D3369B8F1E36C73800FEB7BF /* TDFlippedColorView.m */; };
+		D3369BDB1E36C73800FEB7BF /* TDFlippedView.m in Sources */ = {isa = PBXBuildFile; fileRef = D3369B901E36C73800FEB7BF /* TDFlippedView.m */; };
+		D3369BDC1E36C73800FEB7BF /* TDGutterView.m in Sources */ = {isa = PBXBuildFile; fileRef = D3369B911E36C73800FEB7BF /* TDGutterView.m */; };
+		D3369BDD1E36C73800FEB7BF /* TDHintButton.m in Sources */ = {isa = PBXBuildFile; fileRef = D3369B921E36C73800FEB7BF /* TDHintButton.m */; };
+		D3369BDE1E36C73800FEB7BF /* TDHintView.m in Sources */ = {isa = PBXBuildFile; fileRef = D3369B931E36C73800FEB7BF /* TDHintView.m */; };
+		D3369BDF1E36C73800FEB7BF /* TDJSUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = D3369B941E36C73800FEB7BF /* TDJSUtils.m */; };
+		D3369BE01E36C73800FEB7BF /* TDLine.m in Sources */ = {isa = PBXBuildFile; fileRef = D3369B951E36C73800FEB7BF /* TDLine.m */; };
+		D3369BE11E36C73800FEB7BF /* TDListItem.m in Sources */ = {isa = PBXBuildFile; fileRef = D3369B961E36C73800FEB7BF /* TDListItem.m */; };
+		D3369BE21E36C73800FEB7BF /* TDListItemQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = D3369B981E36C73800FEB7BF /* TDListItemQueue.m */; };
+		D3369BE31E36C73800FEB7BF /* TDListView.m in Sources */ = {isa = PBXBuildFile; fileRef = D3369B991E36C73800FEB7BF /* TDListView.m */; };
+		D3369BE41E36C73800FEB7BF /* TDRegisterWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = D3369B9A1E36C73800FEB7BF /* TDRegisterWindowController.m */; };
+		D3369BE51E36C73800FEB7BF /* TDScroller.m in Sources */ = {isa = PBXBuildFile; fileRef = D3369B9B1E36C73800FEB7BF /* TDScroller.m */; };
+		D3369BE61E36C73800FEB7BF /* TDScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = D3369B9C1E36C73800FEB7BF /* TDScrollView.m */; };
+		D3369BE71E36C73800FEB7BF /* TDSemaphore.m in Sources */ = {isa = PBXBuildFile; fileRef = D3369B9D1E36C73800FEB7BF /* TDSemaphore.m */; };
+		D3369BE81E36C73800FEB7BF /* TDShadowView.m in Sources */ = {isa = PBXBuildFile; fileRef = D3369B9F1E36C73800FEB7BF /* TDShadowView.m */; };
+		D3369BE91E36C73800FEB7BF /* TDSourceCodeTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = D3369BA01E36C73800FEB7BF /* TDSourceCodeTextView.m */; };
+		D3369BEA1E36C73800FEB7BF /* TDStatusBarButton.m in Sources */ = {isa = PBXBuildFile; fileRef = D3369BA11E36C73800FEB7BF /* TDStatusBarButton.m */; };
+		D3369BEB1E36C73800FEB7BF /* TDStatusBarButtonCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D3369BA21E36C73800FEB7BF /* TDStatusBarButtonCell.m */; };
+		D3369BEC1E36C73800FEB7BF /* TDStatusBarPopUpView.m in Sources */ = {isa = PBXBuildFile; fileRef = D3369BA31E36C73800FEB7BF /* TDStatusBarPopUpView.m */; };
+		D3369BED1E36C73800FEB7BF /* TDTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = D3369BA41E36C73800FEB7BF /* TDTabBar.m */; };
+		D3369BEE1E36C73800FEB7BF /* TDTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = D3369BA51E36C73800FEB7BF /* TDTabBarController.m */; };
+		D3369BEF1E36C73800FEB7BF /* TDTabBarControllerView.m in Sources */ = {isa = PBXBuildFile; fileRef = D3369BA71E36C73800FEB7BF /* TDTabBarControllerView.m */; };
+		D3369BF01E36C73800FEB7BF /* TDTabBarItem.m in Sources */ = {isa = PBXBuildFile; fileRef = D3369BA81E36C73800FEB7BF /* TDTabBarItem.m */; };
+		D3369BF11E36C73800FEB7BF /* TDTabbedDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = D3369BA91E36C73800FEB7BF /* TDTabbedDocument.m */; };
+		D3369BF21E36C73800FEB7BF /* TDTabbedDocumentController.m in Sources */ = {isa = PBXBuildFile; fileRef = D3369BAA1E36C73800FEB7BF /* TDTabbedDocumentController.m */; };
+		D3369BF31E36C73800FEB7BF /* TDTabbedWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = D3369BAB1E36C73800FEB7BF /* TDTabbedWindow.m */; };
+		D3369BF41E36C73800FEB7BF /* TDTabbedWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = D3369BAC1E36C73800FEB7BF /* TDTabbedWindowController.m */; };
+		D3369BF51E36C73800FEB7BF /* TDTabListItem.m in Sources */ = {isa = PBXBuildFile; fileRef = D3369BAD1E36C73800FEB7BF /* TDTabListItem.m */; };
+		D3369BF61E36C73800FEB7BF /* TDTabListItemStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = D3369BAF1E36C73800FEB7BF /* TDTabListItemStyle.m */; };
+		D3369BF71E36C73800FEB7BF /* TDTabListItemStyleBrowser.m in Sources */ = {isa = PBXBuildFile; fileRef = D3369BB11E36C73800FEB7BF /* TDTabListItemStyleBrowser.m */; };
+		D3369BF81E36C73800FEB7BF /* TDTabModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D3369BB21E36C73800FEB7BF /* TDTabModel.m */; };
+		D3369BF91E36C73800FEB7BF /* TDTabsListView.m in Sources */ = {isa = PBXBuildFile; fileRef = D3369BB41E36C73800FEB7BF /* TDTabsListView.m */; };
+		D3369BFA1E36C73800FEB7BF /* TDTabsListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D3369BB51E36C73800FEB7BF /* TDTabsListViewController.m */; };
+		D3369BFB1E36C73800FEB7BF /* TDTabViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D3369BB61E36C73800FEB7BF /* TDTabViewController.m */; };
+		D3369BFC1E36C73800FEB7BF /* TDUberView.m in Sources */ = {isa = PBXBuildFile; fileRef = D3369BB71E36C73800FEB7BF /* TDUberView.m */; };
+		D3369BFD1E36C73800FEB7BF /* TDUberViewSplitView.m in Sources */ = {isa = PBXBuildFile; fileRef = D3369BB91E36C73800FEB7BF /* TDUberViewSplitView.m */; };
+		D3369BFE1E36C73800FEB7BF /* TDUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = D3369BBA1E36C73800FEB7BF /* TDUtils.m */; };
+		D3369BFF1E36C73800FEB7BF /* TDView.m in Sources */ = {isa = PBXBuildFile; fileRef = D3369BBB1E36C73800FEB7BF /* TDView.m */; };
+		D3369C001E36C73800FEB7BF /* TDViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D3369BBC1E36C73800FEB7BF /* TDViewController.m */; };
+		D3369C011E36C73800FEB7BF /* TDViewControllerView.m in Sources */ = {isa = PBXBuildFile; fileRef = D3369BBD1E36C73800FEB7BF /* TDViewControllerView.m */; };
+		D3369C021E36C73800FEB7BF /* WebScriptObject+TDAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = D3369BBE1E36C73800FEB7BF /* WebScriptObject+TDAdditions.m */; };
+		D3369C031E36C73800FEB7BF /* WebView+TDAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = D3369BBF1E36C73800FEB7BF /* WebView+TDAdditions.m */; };
+		D3369C071E36C75F00FEB7BF /* TDRegisterWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = D3369C051E36C75F00FEB7BF /* TDRegisterWindow.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -80,27 +204,6 @@
 			remoteGlobalIDString = D338302F171C923700CCE513;
 			remoteInfo = ParserGenApp;
 		};
-		D33699E51E36B8B300FEB7BF /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = D33699DF1E36B8B300FEB7BF /* TDAppKit.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 8DC2EF5B0486A6940098B216;
-			remoteInfo = TDAppKit;
-		};
-		D33699E71E36B8B300FEB7BF /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = D33699DF1E36B8B300FEB7BF /* TDAppKit.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = D31CBFE910EFB9630013347D;
-			remoteInfo = ListViewDemoApp;
-		};
-		D33699E91E36B8B300FEB7BF /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = D33699DF1E36B8B300FEB7BF /* TDAppKit.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = D36E1F5B11703E8300110DBA;
-			remoteInfo = ComboFieldDemoApp;
-		};
 		D33699F11E36B8B800FEB7BF /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D33699EB1E36B8B800FEB7BF /* TDTemplateEngine.xcodeproj */;
@@ -143,27 +246,6 @@
 			remoteGlobalIDString = 8DC2EF4F0486A6940098B216;
 			remoteInfo = OkudaKit;
 		};
-		D3369A301E36BA0600FEB7BF /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = D3369A201E36BA0600FEB7BF /* TDThreadUtils.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = D3C0C7411A641526004C8B9A;
-			remoteInfo = TDThreadUtils;
-		};
-		D3369A321E36BA0600FEB7BF /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = D3369A201E36BA0600FEB7BF /* TDThreadUtils.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = D3C0C74C1A641527004C8B9A;
-			remoteInfo = TDThreadUtilsTests;
-		};
-		D3369A341E36BA2400FEB7BF /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = D3369A201E36BA0600FEB7BF /* TDThreadUtils.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = D3C0C7401A641526004C8B9A;
-			remoteInfo = TDThreadUtils;
-		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -173,7 +255,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 7;
 			files = (
-				D3369A371E36BA3000FEB7BF /* TDThreadUtils.framework in Copy Frameworks */,
 				D3369A011E36B92300FEB7BF /* TDTemplateEngine.framework in Copy Frameworks */,
 				D3369A021E36B92A00FEB7BF /* PEGKit.framework in Copy Frameworks */,
 				D3369A031E36B92F00FEB7BF /* OkudaKit.framework in Copy Frameworks */,
@@ -190,15 +271,264 @@
 		D33699AE1E36B78900FEB7BF /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		D33699B01E36B78900FEB7BF /* Document.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Document.h; sourceTree = "<group>"; };
 		D33699B11E36B78900FEB7BF /* Document.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Document.m; sourceTree = "<group>"; };
-		D33699B41E36B78900FEB7BF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/Document.xib; sourceTree = "<group>"; };
 		D33699B61E36B78900FEB7BF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D33699B91E36B78900FEB7BF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		D33699BB1E36B78900FEB7BF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D33699C11E36B8A800FEB7BF /* OkudaKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = OkudaKit.xcodeproj; path = lib/OkudaKit/OkudaKit.xcodeproj; sourceTree = "<group>"; };
 		D33699CA1E36B8AD00FEB7BF /* PEGKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = PEGKit.xcodeproj; path = lib/PEGKit/PEGKit.xcodeproj; sourceTree = "<group>"; };
-		D33699DF1E36B8B300FEB7BF /* TDAppKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = TDAppKit.xcodeproj; path = lib/TDAppKit/TDAppKit.xcodeproj; sourceTree = "<group>"; };
 		D33699EB1E36B8B800FEB7BF /* TDTemplateEngine.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = TDTemplateEngine.xcodeproj; path = lib/TDTemplateEngine/TDTemplateEngine.xcodeproj; sourceTree = "<group>"; };
-		D3369A201E36BA0600FEB7BF /* TDThreadUtils.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = TDThreadUtils.xcodeproj; path = lib/TDThreadUtils/TDThreadUtils.xcodeproj; sourceTree = "<group>"; };
+		D3369A381E36BB1300FEB7BF /* WindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WindowController.h; sourceTree = "<group>"; };
+		D3369A391E36BB1300FEB7BF /* WindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WindowController.m; sourceTree = "<group>"; };
+		D3369A3E1E36BB2800FEB7BF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/WindowController.xib; sourceTree = "<group>"; };
+		D3369A491E36BEED00FEB7BF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/EDUpdatePreferences.xib; sourceTree = "<group>"; };
+		D3369A4B1E36BEED00FEB7BF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/IDEAppearancePreferences.xib; sourceTree = "<group>"; };
+		D3369A4D1E36BEED00FEB7BF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/IDEGeneralPreferences.xib; sourceTree = "<group>"; };
+		D3369A4F1E36BEED00FEB7BF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/IDETabsPreferences.xib; sourceTree = "<group>"; };
+		D3369A511E36BEED00FEB7BF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/OAPreferencesWindow.xib; sourceTree = "<group>"; };
+		D3369A521E36BEED00FEB7BF /* EDUpdatePreferences.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EDUpdatePreferences.h; sourceTree = "<group>"; };
+		D3369A531E36BEED00FEB7BF /* EDUpdatePreferences.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EDUpdatePreferences.m; sourceTree = "<group>"; };
+		D3369A581E36BEED00FEB7BF /* IDEAppearancePreferences.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDEAppearancePreferences.h; sourceTree = "<group>"; };
+		D3369A591E36BEED00FEB7BF /* IDEAppearancePreferences.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IDEAppearancePreferences.m; sourceTree = "<group>"; };
+		D3369A5A1E36BEED00FEB7BF /* IDEApplication.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDEApplication.h; sourceTree = "<group>"; };
+		D3369A5B1E36BEED00FEB7BF /* IDEApplication.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IDEApplication.m; sourceTree = "<group>"; };
+		D3369A5C1E36BEED00FEB7BF /* IDEBasePreferences.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDEBasePreferences.h; sourceTree = "<group>"; };
+		D3369A5D1E36BEED00FEB7BF /* IDEBasePreferences.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IDEBasePreferences.m; sourceTree = "<group>"; };
+		D3369A5E1E36BEED00FEB7BF /* IDEDefaultFontTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDEDefaultFontTextField.h; sourceTree = "<group>"; };
+		D3369A5F1E36BEED00FEB7BF /* IDEDefaultFontTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IDEDefaultFontTextField.m; sourceTree = "<group>"; };
+		D3369A601E36BEED00FEB7BF /* IDEDocument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDEDocument.h; sourceTree = "<group>"; };
+		D3369A611E36BEED00FEB7BF /* IDEDocument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IDEDocument.m; sourceTree = "<group>"; };
+		D3369A621E36BEED00FEB7BF /* IDEDocumentController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDEDocumentController.h; sourceTree = "<group>"; };
+		D3369A631E36BEED00FEB7BF /* IDEDocumentController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IDEDocumentController.m; sourceTree = "<group>"; };
+		D3369A641E36BEED00FEB7BF /* IDEGeneralPreferences.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDEGeneralPreferences.h; sourceTree = "<group>"; };
+		D3369A651E36BEED00FEB7BF /* IDEGeneralPreferences.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IDEGeneralPreferences.m; sourceTree = "<group>"; };
+		D3369A691E36BEED00FEB7BF /* IDEMainWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDEMainWindow.h; sourceTree = "<group>"; };
+		D3369A6A1E36BEED00FEB7BF /* IDEMainWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IDEMainWindow.m; sourceTree = "<group>"; };
+		D3369A6B1E36BEED00FEB7BF /* IDEMainWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDEMainWindowController.h; sourceTree = "<group>"; };
+		D3369A6C1E36BEED00FEB7BF /* IDEMainWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IDEMainWindowController.m; sourceTree = "<group>"; };
+		D3369A711E36BEED00FEB7BF /* IDETabsPreferences.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDETabsPreferences.h; sourceTree = "<group>"; };
+		D3369A721E36BEED00FEB7BF /* IDETabsPreferences.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IDETabsPreferences.m; sourceTree = "<group>"; };
+		D3369A731E36BEED00FEB7BF /* IDEUberView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDEUberView.h; sourceTree = "<group>"; };
+		D3369A741E36BEED00FEB7BF /* IDEUberView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IDEUberView.m; sourceTree = "<group>"; };
+		D3369A751E36BEED00FEB7BF /* IDEUberViewSplitView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDEUberViewSplitView.h; sourceTree = "<group>"; };
+		D3369A761E36BEED00FEB7BF /* IDEUberViewSplitView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IDEUberViewSplitView.m; sourceTree = "<group>"; };
+		D3369A771E36BEED00FEB7BF /* IDEUserDefaults.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDEUserDefaults.h; sourceTree = "<group>"; };
+		D3369A781E36BEED00FEB7BF /* IDEUserDefaults.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IDEUserDefaults.m; sourceTree = "<group>"; };
+		D3369A7C1E36BEED00FEB7BF /* NSArray-OFExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray-OFExtensions.h"; sourceTree = "<group>"; };
+		D3369A7D1E36BEED00FEB7BF /* NSArray-OFExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray-OFExtensions.m"; sourceTree = "<group>"; };
+		D3369A7E1E36BEED00FEB7BF /* NSBundle-OAExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSBundle-OAExtensions.h"; sourceTree = "<group>"; };
+		D3369A7F1E36BEED00FEB7BF /* NSBundle-OAExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSBundle-OAExtensions.m"; sourceTree = "<group>"; };
+		D3369A801E36BEED00FEB7BF /* NSImage-OAExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSImage-OAExtensions.h"; sourceTree = "<group>"; };
+		D3369A811E36BEED00FEB7BF /* NSImage-OAExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSImage-OAExtensions.m"; sourceTree = "<group>"; };
+		D3369A821E36BEED00FEB7BF /* NSMutableArray-OFExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableArray-OFExtensions.h"; sourceTree = "<group>"; };
+		D3369A831E36BEED00FEB7BF /* NSMutableArray-OFExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableArray-OFExtensions.m"; sourceTree = "<group>"; };
+		D3369A841E36BEED00FEB7BF /* NSObject-OFExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject-OFExtensions.h"; sourceTree = "<group>"; };
+		D3369A851E36BEED00FEB7BF /* NSObject-OFExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject-OFExtensions.m"; sourceTree = "<group>"; };
+		D3369A861E36BEED00FEB7BF /* NSString-OFReplacement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString-OFReplacement.h"; sourceTree = "<group>"; };
+		D3369A871E36BEED00FEB7BF /* NSString-OFReplacement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString-OFReplacement.m"; sourceTree = "<group>"; };
+		D3369A881E36BEED00FEB7BF /* NSString-OFSimpleMatching.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString-OFSimpleMatching.h"; sourceTree = "<group>"; };
+		D3369A891E36BEED00FEB7BF /* NSString-OFSimpleMatching.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString-OFSimpleMatching.m"; sourceTree = "<group>"; };
+		D3369A8A1E36BEED00FEB7BF /* NSToolbar-OAExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSToolbar-OAExtensions.h"; sourceTree = "<group>"; };
+		D3369A8B1E36BEED00FEB7BF /* NSToolbar-OAExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSToolbar-OAExtensions.m"; sourceTree = "<group>"; };
+		D3369A8C1E36BEED00FEB7BF /* OAPreferenceClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OAPreferenceClient.h; sourceTree = "<group>"; };
+		D3369A8D1E36BEED00FEB7BF /* OAPreferenceClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OAPreferenceClient.m; sourceTree = "<group>"; };
+		D3369A8E1E36BEED00FEB7BF /* OAPreferenceClientRecord.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OAPreferenceClientRecord.h; sourceTree = "<group>"; };
+		D3369A8F1E36BEED00FEB7BF /* OAPreferenceClientRecord.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OAPreferenceClientRecord.m; sourceTree = "<group>"; };
+		D3369A901E36BEED00FEB7BF /* OAPreferenceController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OAPreferenceController.h; sourceTree = "<group>"; };
+		D3369A911E36BEED00FEB7BF /* OAPreferenceController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OAPreferenceController.m; sourceTree = "<group>"; };
+		D3369A921E36BEED00FEB7BF /* OAPreferencesIconView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OAPreferencesIconView.h; sourceTree = "<group>"; };
+		D3369A931E36BEED00FEB7BF /* OAPreferencesIconView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OAPreferencesIconView.m; sourceTree = "<group>"; };
+		D3369A941E36BEED00FEB7BF /* OAPreferencesNextButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = OAPreferencesNextButton.png; sourceTree = "<group>"; };
+		D3369A951E36BEED00FEB7BF /* OAPreferencesPreviousButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = OAPreferencesPreviousButton.png; sourceTree = "<group>"; };
+		D3369A961E36BEED00FEB7BF /* OAPreferencesToolbar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OAPreferencesToolbar.h; sourceTree = "<group>"; };
+		D3369A971E36BEED00FEB7BF /* OAPreferencesToolbar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OAPreferencesToolbar.m; sourceTree = "<group>"; };
+		D3369A981E36BEED00FEB7BF /* OAPreferencesWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OAPreferencesWindow.h; sourceTree = "<group>"; };
+		D3369A991E36BEED00FEB7BF /* OAPreferencesWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OAPreferencesWindow.m; sourceTree = "<group>"; };
+		D3369A9A1E36BEED00FEB7BF /* OBDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OBDefines.h; sourceTree = "<group>"; };
+		D3369A9B1E36BEED00FEB7BF /* OBObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OBObject.h; sourceTree = "<group>"; };
+		D3369A9C1E36BEED00FEB7BF /* OBObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OBObject.m; sourceTree = "<group>"; };
+		D3369A9D1E36BEED00FEB7BF /* OFObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OFObject.h; sourceTree = "<group>"; };
+		D3369A9E1E36BEED00FEB7BF /* OFObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OFObject.m; sourceTree = "<group>"; };
+		D3369A9F1E36BEED00FEB7BF /* OFPreference.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OFPreference.h; sourceTree = "<group>"; };
+		D3369AA01E36BEED00FEB7BF /* OFPreference.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OFPreference.m; sourceTree = "<group>"; };
+		D3369AF01E36C25A00FEB7BF /* TKDocument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TKDocument.h; path = lib/TabKit/TKDocument.h; sourceTree = SOURCE_ROOT; };
+		D3369AF11E36C25A00FEB7BF /* TKDocument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TKDocument.m; path = lib/TabKit/TKDocument.m; sourceTree = SOURCE_ROOT; };
+		D3369AF21E36C25A00FEB7BF /* TKDocument+Scripting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "TKDocument+Scripting.h"; path = "lib/TabKit/TKDocument+Scripting.h"; sourceTree = SOURCE_ROOT; };
+		D3369AF31E36C25A00FEB7BF /* TKDocument+Scripting.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "TKDocument+Scripting.m"; path = "lib/TabKit/TKDocument+Scripting.m"; sourceTree = SOURCE_ROOT; };
+		D3369AF41E36C25A00FEB7BF /* TKDocumentController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TKDocumentController.h; path = lib/TabKit/TKDocumentController.h; sourceTree = SOURCE_ROOT; };
+		D3369AF51E36C25A00FEB7BF /* TKDocumentController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TKDocumentController.m; path = lib/TabKit/TKDocumentController.m; sourceTree = SOURCE_ROOT; };
+		D3369AF61E36C25A00FEB7BF /* TKMainWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TKMainWindow.h; path = lib/TabKit/TKMainWindow.h; sourceTree = SOURCE_ROOT; };
+		D3369AF71E36C25A00FEB7BF /* TKMainWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TKMainWindow.m; path = lib/TabKit/TKMainWindow.m; sourceTree = SOURCE_ROOT; };
+		D3369AF81E36C25A00FEB7BF /* TKMainWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TKMainWindowController.h; path = lib/TabKit/TKMainWindowController.h; sourceTree = SOURCE_ROOT; };
+		D3369AF91E36C25A00FEB7BF /* TKMainWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TKMainWindowController.m; path = lib/TabKit/TKMainWindowController.m; sourceTree = SOURCE_ROOT; };
+		D3369AFA1E36C25A00FEB7BF /* TKOverflowButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TKOverflowButton.h; path = lib/TabKit/TKOverflowButton.h; sourceTree = SOURCE_ROOT; };
+		D3369AFB1E36C25A00FEB7BF /* TKOverflowButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TKOverflowButton.m; path = lib/TabKit/TKOverflowButton.m; sourceTree = SOURCE_ROOT; };
+		D3369AFC1E36C25A00FEB7BF /* TKTabListItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TKTabListItem.h; path = lib/TabKit/TKTabListItem.h; sourceTree = SOURCE_ROOT; };
+		D3369AFD1E36C25A00FEB7BF /* TKTabListItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TKTabListItem.m; path = lib/TabKit/TKTabListItem.m; sourceTree = SOURCE_ROOT; };
+		D3369AFE1E36C25A00FEB7BF /* TKTabListItemFlatStyleCloseButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TKTabListItemFlatStyleCloseButton.h; path = lib/TabKit/TKTabListItemFlatStyleCloseButton.h; sourceTree = SOURCE_ROOT; };
+		D3369AFF1E36C25A00FEB7BF /* TKTabListItemFlatStyleCloseButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TKTabListItemFlatStyleCloseButton.m; path = lib/TabKit/TKTabListItemFlatStyleCloseButton.m; sourceTree = SOURCE_ROOT; };
+		D3369B001E36C25A00FEB7BF /* TKTabListItemFlatStyleOverflowButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TKTabListItemFlatStyleOverflowButton.h; path = lib/TabKit/TKTabListItemFlatStyleOverflowButton.h; sourceTree = SOURCE_ROOT; };
+		D3369B011E36C25A00FEB7BF /* TKTabListItemFlatStyleOverflowButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TKTabListItemFlatStyleOverflowButton.m; path = lib/TabKit/TKTabListItemFlatStyleOverflowButton.m; sourceTree = SOURCE_ROOT; };
+		D3369B021E36C25A00FEB7BF /* TKTabListItemStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TKTabListItemStyle.h; path = lib/TabKit/TKTabListItemStyle.h; sourceTree = SOURCE_ROOT; };
+		D3369B031E36C25A00FEB7BF /* TKTabListItemStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TKTabListItemStyle.m; path = lib/TabKit/TKTabListItemStyle.m; sourceTree = SOURCE_ROOT; };
+		D3369B041E36C25A00FEB7BF /* TKTabListItemStyleBrowser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TKTabListItemStyleBrowser.h; path = lib/TabKit/TKTabListItemStyleBrowser.h; sourceTree = SOURCE_ROOT; };
+		D3369B051E36C25A00FEB7BF /* TKTabListItemStyleBrowser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TKTabListItemStyleBrowser.m; path = lib/TabKit/TKTabListItemStyleBrowser.m; sourceTree = SOURCE_ROOT; };
+		D3369B061E36C25A00FEB7BF /* TKTabListItemStyleFlat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TKTabListItemStyleFlat.h; path = lib/TabKit/TKTabListItemStyleFlat.h; sourceTree = SOURCE_ROOT; };
+		D3369B071E36C25A00FEB7BF /* TKTabListItemStyleFlat.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TKTabListItemStyleFlat.m; path = lib/TabKit/TKTabListItemStyleFlat.m; sourceTree = SOURCE_ROOT; };
+		D3369B081E36C25A00FEB7BF /* TKTabListItemStyleMerged.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TKTabListItemStyleMerged.h; path = lib/TabKit/TKTabListItemStyleMerged.h; sourceTree = SOURCE_ROOT; };
+		D3369B091E36C25A00FEB7BF /* TKTabListItemStyleMerged.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TKTabListItemStyleMerged.m; path = lib/TabKit/TKTabListItemStyleMerged.m; sourceTree = SOURCE_ROOT; };
+		D3369B0A1E36C25A00FEB7BF /* TKTabModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TKTabModel.h; path = lib/TabKit/TKTabModel.h; sourceTree = SOURCE_ROOT; };
+		D3369B0B1E36C25A00FEB7BF /* TKTabModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TKTabModel.m; path = lib/TabKit/TKTabModel.m; sourceTree = SOURCE_ROOT; };
+		D3369B0C1E36C25A00FEB7BF /* TKTabModel+Scripting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "TKTabModel+Scripting.h"; path = "lib/TabKit/TKTabModel+Scripting.h"; sourceTree = SOURCE_ROOT; };
+		D3369B0D1E36C25A00FEB7BF /* TKTabModel+Scripting.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "TKTabModel+Scripting.m"; path = "lib/TabKit/TKTabModel+Scripting.m"; sourceTree = SOURCE_ROOT; };
+		D3369B0E1E36C25A00FEB7BF /* TKTabsListView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TKTabsListView.h; path = lib/TabKit/TKTabsListView.h; sourceTree = SOURCE_ROOT; };
+		D3369B0F1E36C25A00FEB7BF /* TKTabsListView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TKTabsListView.m; path = lib/TabKit/TKTabsListView.m; sourceTree = SOURCE_ROOT; };
+		D3369B101E36C25A00FEB7BF /* TKTabsListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TKTabsListViewController.h; path = lib/TabKit/TKTabsListViewController.h; sourceTree = SOURCE_ROOT; };
+		D3369B111E36C25A00FEB7BF /* TKTabsListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TKTabsListViewController.m; path = lib/TabKit/TKTabsListViewController.m; sourceTree = SOURCE_ROOT; };
+		D3369B121E36C25A00FEB7BF /* TKTabsListViewControllerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TKTabsListViewControllerView.h; path = lib/TabKit/TKTabsListViewControllerView.h; sourceTree = SOURCE_ROOT; };
+		D3369B131E36C25A00FEB7BF /* TKTabsListViewControllerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TKTabsListViewControllerView.m; path = lib/TabKit/TKTabsListViewControllerView.m; sourceTree = SOURCE_ROOT; };
+		D3369B141E36C25A00FEB7BF /* TKUserDefaults.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TKUserDefaults.h; path = lib/TabKit/TKUserDefaults.h; sourceTree = SOURCE_ROOT; };
+		D3369B151E36C25A00FEB7BF /* TKUserDefaults.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TKUserDefaults.m; path = lib/TabKit/TKUserDefaults.m; sourceTree = SOURCE_ROOT; };
+		D3369B311E36C61F00FEB7BF /* DevApp-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "DevApp-Prefix.pch"; sourceTree = "<group>"; };
+		D3369B351E36C72E00FEB7BF /* DOMElement+TDAdditions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "DOMElement+TDAdditions.h"; path = "lib/TDAppKit/include/TDAppKit/DOMElement+TDAdditions.h"; sourceTree = SOURCE_ROOT; };
+		D3369B361E36C72E00FEB7BF /* DOMHTMLCollection+TDAdditions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "DOMHTMLCollection+TDAdditions.h"; path = "lib/TDAppKit/include/TDAppKit/DOMHTMLCollection+TDAdditions.h"; sourceTree = SOURCE_ROOT; };
+		D3369B371E36C72E00FEB7BF /* DOMHTMLOptionsCollection+TDAdditions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "DOMHTMLOptionsCollection+TDAdditions.h"; path = "lib/TDAppKit/include/TDAppKit/DOMHTMLOptionsCollection+TDAdditions.h"; sourceTree = SOURCE_ROOT; };
+		D3369B381E36C72E00FEB7BF /* DOMNode+TDAdditions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "DOMNode+TDAdditions.h"; path = "lib/TDAppKit/include/TDAppKit/DOMNode+TDAdditions.h"; sourceTree = SOURCE_ROOT; };
+		D3369B391E36C72E00FEB7BF /* DOMNodeList+TDAdditions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "DOMNodeList+TDAdditions.h"; path = "lib/TDAppKit/include/TDAppKit/DOMNodeList+TDAdditions.h"; sourceTree = SOURCE_ROOT; };
+		D3369B3A1E36C72E00FEB7BF /* NSAppleEventDescriptor+NDAppleScriptObject.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "NSAppleEventDescriptor+NDAppleScriptObject.h"; path = "lib/TDAppKit/include/TDAppKit/NSAppleEventDescriptor+NDAppleScriptObject.h"; sourceTree = SOURCE_ROOT; };
+		D3369B3B1E36C72E00FEB7BF /* NSAppleEventDescriptor+TDAdditions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "NSAppleEventDescriptor+TDAdditions.h"; path = "lib/TDAppKit/include/TDAppKit/NSAppleEventDescriptor+TDAdditions.h"; sourceTree = SOURCE_ROOT; };
+		D3369B3C1E36C72E00FEB7BF /* NSArray+TDAdditions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "NSArray+TDAdditions.h"; path = "lib/TDAppKit/include/TDAppKit/NSArray+TDAdditions.h"; sourceTree = SOURCE_ROOT; };
+		D3369B3D1E36C72E00FEB7BF /* NSBezierPath+TDAdditions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "NSBezierPath+TDAdditions.h"; path = "lib/TDAppKit/include/TDAppKit/NSBezierPath+TDAdditions.h"; sourceTree = SOURCE_ROOT; };
+		D3369B3E1E36C72E00FEB7BF /* NSDate+TDAdditions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "NSDate+TDAdditions.h"; path = "lib/TDAppKit/include/TDAppKit/NSDate+TDAdditions.h"; sourceTree = SOURCE_ROOT; };
+		D3369B3F1E36C72E00FEB7BF /* NSEvent+TDAdditions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "NSEvent+TDAdditions.h"; path = "lib/TDAppKit/include/TDAppKit/NSEvent+TDAdditions.h"; sourceTree = SOURCE_ROOT; };
+		D3369B401E36C72E00FEB7BF /* NSImage+TDAdditions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "NSImage+TDAdditions.h"; path = "lib/TDAppKit/include/TDAppKit/NSImage+TDAdditions.h"; sourceTree = SOURCE_ROOT; };
+		D3369B411E36C72E00FEB7BF /* NSString+TDAdditions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "NSString+TDAdditions.h"; path = "lib/TDAppKit/include/TDAppKit/NSString+TDAdditions.h"; sourceTree = SOURCE_ROOT; };
+		D3369B421E36C72E00FEB7BF /* NSURL+NDCarbonUtilities.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "NSURL+NDCarbonUtilities.h"; path = "lib/TDAppKit/include/TDAppKit/NSURL+NDCarbonUtilities.h"; sourceTree = SOURCE_ROOT; };
+		D3369B431E36C72E00FEB7BF /* NSURLRequest+TDAdditions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "NSURLRequest+TDAdditions.h"; path = "lib/TDAppKit/include/TDAppKit/NSURLRequest+TDAdditions.h"; sourceTree = SOURCE_ROOT; };
+		D3369B441E36C72E00FEB7BF /* TDAppKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = TDAppKit.h; path = lib/TDAppKit/include/TDAppKit/TDAppKit.h; sourceTree = SOURCE_ROOT; };
+		D3369B451E36C72E00FEB7BF /* TDBar.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = TDBar.h; path = lib/TDAppKit/include/TDAppKit/TDBar.h; sourceTree = SOURCE_ROOT; };
+		D3369B461E36C72E00FEB7BF /* TDBarItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = TDBarItem.h; path = lib/TDAppKit/include/TDAppKit/TDBarItem.h; sourceTree = SOURCE_ROOT; };
+		D3369B471E36C72E00FEB7BF /* TDColorView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = TDColorView.h; path = lib/TDAppKit/include/TDAppKit/TDColorView.h; sourceTree = SOURCE_ROOT; };
+		D3369B481E36C72E00FEB7BF /* TDComboField.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = TDComboField.h; path = lib/TDAppKit/include/TDAppKit/TDComboField.h; sourceTree = SOURCE_ROOT; };
+		D3369B491E36C72E00FEB7BF /* TDDraggableBar.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = TDDraggableBar.h; path = lib/TDAppKit/include/TDAppKit/TDDraggableBar.h; sourceTree = SOURCE_ROOT; };
+		D3369B4A1E36C72E00FEB7BF /* TDDropTargetView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = TDDropTargetView.h; path = lib/TDAppKit/include/TDAppKit/TDDropTargetView.h; sourceTree = SOURCE_ROOT; };
+		D3369B4B1E36C72E00FEB7BF /* TDFlippedColorView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = TDFlippedColorView.h; path = lib/TDAppKit/include/TDAppKit/TDFlippedColorView.h; sourceTree = SOURCE_ROOT; };
+		D3369B4C1E36C72E00FEB7BF /* TDFlippedView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = TDFlippedView.h; path = lib/TDAppKit/include/TDAppKit/TDFlippedView.h; sourceTree = SOURCE_ROOT; };
+		D3369B4D1E36C72E00FEB7BF /* TDGutterView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = TDGutterView.h; path = lib/TDAppKit/include/TDAppKit/TDGutterView.h; sourceTree = SOURCE_ROOT; };
+		D3369B4E1E36C72E00FEB7BF /* TDHintButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = TDHintButton.h; path = lib/TDAppKit/include/TDAppKit/TDHintButton.h; sourceTree = SOURCE_ROOT; };
+		D3369B4F1E36C72E00FEB7BF /* TDHintView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = TDHintView.h; path = lib/TDAppKit/include/TDAppKit/TDHintView.h; sourceTree = SOURCE_ROOT; };
+		D3369B501E36C72E00FEB7BF /* TDJSUtils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = TDJSUtils.h; path = lib/TDAppKit/include/TDAppKit/TDJSUtils.h; sourceTree = SOURCE_ROOT; };
+		D3369B511E36C72E00FEB7BF /* TDLine.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = TDLine.h; path = lib/TDAppKit/include/TDAppKit/TDLine.h; sourceTree = SOURCE_ROOT; };
+		D3369B521E36C72E00FEB7BF /* TDListItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = TDListItem.h; path = lib/TDAppKit/include/TDAppKit/TDListItem.h; sourceTree = SOURCE_ROOT; };
+		D3369B531E36C72E00FEB7BF /* TDListView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = TDListView.h; path = lib/TDAppKit/include/TDAppKit/TDListView.h; sourceTree = SOURCE_ROOT; };
+		D3369B541E36C72E00FEB7BF /* TDRegisterWindowController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = TDRegisterWindowController.h; path = lib/TDAppKit/include/TDAppKit/TDRegisterWindowController.h; sourceTree = SOURCE_ROOT; };
+		D3369B551E36C72E00FEB7BF /* TDScroller.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = TDScroller.h; path = lib/TDAppKit/include/TDAppKit/TDScroller.h; sourceTree = SOURCE_ROOT; };
+		D3369B561E36C72E00FEB7BF /* TDScrollView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = TDScrollView.h; path = lib/TDAppKit/include/TDAppKit/TDScrollView.h; sourceTree = SOURCE_ROOT; };
+		D3369B571E36C72E00FEB7BF /* TDSemaphore.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = TDSemaphore.h; path = lib/TDAppKit/include/TDAppKit/TDSemaphore.h; sourceTree = SOURCE_ROOT; };
+		D3369B581E36C72E00FEB7BF /* TDSourceCodeTextView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = TDSourceCodeTextView.h; path = lib/TDAppKit/include/TDAppKit/TDSourceCodeTextView.h; sourceTree = SOURCE_ROOT; };
+		D3369B591E36C72E00FEB7BF /* TDStatusBarButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = TDStatusBarButton.h; path = lib/TDAppKit/include/TDAppKit/TDStatusBarButton.h; sourceTree = SOURCE_ROOT; };
+		D3369B5A1E36C72E00FEB7BF /* TDStatusBarButtonCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = TDStatusBarButtonCell.h; path = lib/TDAppKit/include/TDAppKit/TDStatusBarButtonCell.h; sourceTree = SOURCE_ROOT; };
+		D3369B5B1E36C72E00FEB7BF /* TDStatusBarPopUpView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = TDStatusBarPopUpView.h; path = lib/TDAppKit/include/TDAppKit/TDStatusBarPopUpView.h; sourceTree = SOURCE_ROOT; };
+		D3369B5C1E36C72E00FEB7BF /* TDTabBar.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = TDTabBar.h; path = lib/TDAppKit/include/TDAppKit/TDTabBar.h; sourceTree = SOURCE_ROOT; };
+		D3369B5D1E36C72E00FEB7BF /* TDTabBarController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = TDTabBarController.h; path = lib/TDAppKit/include/TDAppKit/TDTabBarController.h; sourceTree = SOURCE_ROOT; };
+		D3369B5E1E36C72E00FEB7BF /* TDTabBarItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = TDTabBarItem.h; path = lib/TDAppKit/include/TDAppKit/TDTabBarItem.h; sourceTree = SOURCE_ROOT; };
+		D3369B5F1E36C72E00FEB7BF /* TDTabbedDocument.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = TDTabbedDocument.h; path = lib/TDAppKit/include/TDAppKit/TDTabbedDocument.h; sourceTree = SOURCE_ROOT; };
+		D3369B601E36C72E00FEB7BF /* TDTabbedDocumentController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = TDTabbedDocumentController.h; path = lib/TDAppKit/include/TDAppKit/TDTabbedDocumentController.h; sourceTree = SOURCE_ROOT; };
+		D3369B611E36C72E00FEB7BF /* TDTabbedWindow.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = TDTabbedWindow.h; path = lib/TDAppKit/include/TDAppKit/TDTabbedWindow.h; sourceTree = SOURCE_ROOT; };
+		D3369B621E36C72E00FEB7BF /* TDTabbedWindowController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = TDTabbedWindowController.h; path = lib/TDAppKit/include/TDAppKit/TDTabbedWindowController.h; sourceTree = SOURCE_ROOT; };
+		D3369B631E36C72E00FEB7BF /* TDTabListItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = TDTabListItem.h; path = lib/TDAppKit/include/TDAppKit/TDTabListItem.h; sourceTree = SOURCE_ROOT; };
+		D3369B641E36C72E00FEB7BF /* TDTabModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = TDTabModel.h; path = lib/TDAppKit/include/TDAppKit/TDTabModel.h; sourceTree = SOURCE_ROOT; };
+		D3369B651E36C72E00FEB7BF /* TDTabsListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = TDTabsListViewController.h; path = lib/TDAppKit/include/TDAppKit/TDTabsListViewController.h; sourceTree = SOURCE_ROOT; };
+		D3369B661E36C72E00FEB7BF /* TDTabViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = TDTabViewController.h; path = lib/TDAppKit/include/TDAppKit/TDTabViewController.h; sourceTree = SOURCE_ROOT; };
+		D3369B671E36C72E00FEB7BF /* TDUberView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = TDUberView.h; path = lib/TDAppKit/include/TDAppKit/TDUberView.h; sourceTree = SOURCE_ROOT; };
+		D3369B681E36C72E00FEB7BF /* TDUtils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = TDUtils.h; path = lib/TDAppKit/include/TDAppKit/TDUtils.h; sourceTree = SOURCE_ROOT; };
+		D3369B691E36C72E00FEB7BF /* TDView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = TDView.h; path = lib/TDAppKit/include/TDAppKit/TDView.h; sourceTree = SOURCE_ROOT; };
+		D3369B6A1E36C72E00FEB7BF /* TDViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = TDViewController.h; path = lib/TDAppKit/include/TDAppKit/TDViewController.h; sourceTree = SOURCE_ROOT; };
+		D3369B6B1E36C72E00FEB7BF /* TDViewControllerView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = TDViewControllerView.h; path = lib/TDAppKit/include/TDAppKit/TDViewControllerView.h; sourceTree = SOURCE_ROOT; };
+		D3369B6C1E36C72E00FEB7BF /* WebScriptObject+TDAdditions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "WebScriptObject+TDAdditions.h"; path = "lib/TDAppKit/include/TDAppKit/WebScriptObject+TDAdditions.h"; sourceTree = SOURCE_ROOT; };
+		D3369B6D1E36C72E00FEB7BF /* WebView+TDAdditions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "WebView+TDAdditions.h"; path = "lib/TDAppKit/include/TDAppKit/WebView+TDAdditions.h"; sourceTree = SOURCE_ROOT; };
+		D3369B6E1E36C73700FEB7BF /* DOMElement+TDAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "DOMElement+TDAdditions.m"; path = "lib/TDAppKit/src/DOMElement+TDAdditions.m"; sourceTree = SOURCE_ROOT; };
+		D3369B6F1E36C73700FEB7BF /* DOMHTMLCollection+TDAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "DOMHTMLCollection+TDAdditions.m"; path = "lib/TDAppKit/src/DOMHTMLCollection+TDAdditions.m"; sourceTree = SOURCE_ROOT; };
+		D3369B701E36C73700FEB7BF /* DOMHTMLOptionsCollection+TDAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "DOMHTMLOptionsCollection+TDAdditions.m"; path = "lib/TDAppKit/src/DOMHTMLOptionsCollection+TDAdditions.m"; sourceTree = SOURCE_ROOT; };
+		D3369B711E36C73700FEB7BF /* DOMNode+TDAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "DOMNode+TDAdditions.m"; path = "lib/TDAppKit/src/DOMNode+TDAdditions.m"; sourceTree = SOURCE_ROOT; };
+		D3369B721E36C73700FEB7BF /* DOMNodeList+TDAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "DOMNodeList+TDAdditions.m"; path = "lib/TDAppKit/src/DOMNodeList+TDAdditions.m"; sourceTree = SOURCE_ROOT; };
+		D3369B731E36C73700FEB7BF /* NSAppleEventDescriptor+NDAppleScriptObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSAppleEventDescriptor+NDAppleScriptObject.m"; path = "lib/TDAppKit/src/NSAppleEventDescriptor+NDAppleScriptObject.m"; sourceTree = SOURCE_ROOT; };
+		D3369B741E36C73700FEB7BF /* NSAppleEventDescriptor+TDAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSAppleEventDescriptor+TDAdditions.m"; path = "lib/TDAppKit/src/NSAppleEventDescriptor+TDAdditions.m"; sourceTree = SOURCE_ROOT; };
+		D3369B751E36C73700FEB7BF /* NSArray+TDAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSArray+TDAdditions.m"; path = "lib/TDAppKit/src/NSArray+TDAdditions.m"; sourceTree = SOURCE_ROOT; };
+		D3369B761E36C73700FEB7BF /* NSBezierPath+TDAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSBezierPath+TDAdditions.m"; path = "lib/TDAppKit/src/NSBezierPath+TDAdditions.m"; sourceTree = SOURCE_ROOT; };
+		D3369B771E36C73700FEB7BF /* NSDate+TDAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSDate+TDAdditions.m"; path = "lib/TDAppKit/src/NSDate+TDAdditions.m"; sourceTree = SOURCE_ROOT; };
+		D3369B781E36C73700FEB7BF /* NSEvent+TDAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSEvent+TDAdditions.m"; path = "lib/TDAppKit/src/NSEvent+TDAdditions.m"; sourceTree = SOURCE_ROOT; };
+		D3369B791E36C73700FEB7BF /* NSImage+TDAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSImage+TDAdditions.m"; path = "lib/TDAppKit/src/NSImage+TDAdditions.m"; sourceTree = SOURCE_ROOT; };
+		D3369B7A1E36C73700FEB7BF /* NSString+TDAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSString+TDAdditions.m"; path = "lib/TDAppKit/src/NSString+TDAdditions.m"; sourceTree = SOURCE_ROOT; };
+		D3369B7B1E36C73700FEB7BF /* NSURL+NDCarbonUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSURL+NDCarbonUtilities.h"; path = "lib/TDAppKit/src/NSURL+NDCarbonUtilities.h"; sourceTree = SOURCE_ROOT; };
+		D3369B7C1E36C73700FEB7BF /* NSURL+NDCarbonUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSURL+NDCarbonUtilities.m"; path = "lib/TDAppKit/src/NSURL+NDCarbonUtilities.m"; sourceTree = SOURCE_ROOT; };
+		D3369B7D1E36C73700FEB7BF /* NSURLRequest+TDAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSURLRequest+TDAdditions.m"; path = "lib/TDAppKit/src/NSURLRequest+TDAdditions.m"; sourceTree = SOURCE_ROOT; };
+		D3369B7E1E36C73700FEB7BF /* TDAppKit_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TDAppKit_Prefix.pch; path = lib/TDAppKit/src/TDAppKit_Prefix.pch; sourceTree = SOURCE_ROOT; };
+		D3369B7F1E36C73700FEB7BF /* TDBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TDBar.m; path = lib/TDAppKit/src/TDBar.m; sourceTree = SOURCE_ROOT; };
+		D3369B801E36C73700FEB7BF /* TDBarItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TDBarItem.m; path = lib/TDAppKit/src/TDBarItem.m; sourceTree = SOURCE_ROOT; };
+		D3369B811E36C73700FEB7BF /* TDClipView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TDClipView.h; path = lib/TDAppKit/src/TDClipView.h; sourceTree = SOURCE_ROOT; };
+		D3369B821E36C73700FEB7BF /* TDClipView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TDClipView.m; path = lib/TDAppKit/src/TDClipView.m; sourceTree = SOURCE_ROOT; };
+		D3369B831E36C73700FEB7BF /* TDColorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TDColorView.m; path = lib/TDAppKit/src/TDColorView.m; sourceTree = SOURCE_ROOT; };
+		D3369B841E36C73700FEB7BF /* TDComboField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TDComboField.m; path = lib/TDAppKit/src/TDComboField.m; sourceTree = SOURCE_ROOT; };
+		D3369B851E36C73700FEB7BF /* TDComboFieldCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TDComboFieldCell.h; path = lib/TDAppKit/src/TDComboFieldCell.h; sourceTree = SOURCE_ROOT; };
+		D3369B861E36C73700FEB7BF /* TDComboFieldCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TDComboFieldCell.m; path = lib/TDAppKit/src/TDComboFieldCell.m; sourceTree = SOURCE_ROOT; };
+		D3369B871E36C73700FEB7BF /* TDComboFieldListItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TDComboFieldListItem.h; path = lib/TDAppKit/src/TDComboFieldListItem.h; sourceTree = SOURCE_ROOT; };
+		D3369B881E36C73700FEB7BF /* TDComboFieldListItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TDComboFieldListItem.m; path = lib/TDAppKit/src/TDComboFieldListItem.m; sourceTree = SOURCE_ROOT; };
+		D3369B891E36C73800FEB7BF /* TDComboFieldListView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TDComboFieldListView.h; path = lib/TDAppKit/src/TDComboFieldListView.h; sourceTree = SOURCE_ROOT; };
+		D3369B8A1E36C73800FEB7BF /* TDComboFieldListView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TDComboFieldListView.m; path = lib/TDAppKit/src/TDComboFieldListView.m; sourceTree = SOURCE_ROOT; };
+		D3369B8B1E36C73800FEB7BF /* TDComboFieldTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TDComboFieldTextView.h; path = lib/TDAppKit/src/TDComboFieldTextView.h; sourceTree = SOURCE_ROOT; };
+		D3369B8C1E36C73800FEB7BF /* TDComboFieldTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TDComboFieldTextView.m; path = lib/TDAppKit/src/TDComboFieldTextView.m; sourceTree = SOURCE_ROOT; };
+		D3369B8D1E36C73800FEB7BF /* TDDraggableBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TDDraggableBar.m; path = lib/TDAppKit/src/TDDraggableBar.m; sourceTree = SOURCE_ROOT; };
+		D3369B8E1E36C73800FEB7BF /* TDDropTargetView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TDDropTargetView.m; path = lib/TDAppKit/src/TDDropTargetView.m; sourceTree = SOURCE_ROOT; };
+		D3369B8F1E36C73800FEB7BF /* TDFlippedColorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TDFlippedColorView.m; path = lib/TDAppKit/src/TDFlippedColorView.m; sourceTree = SOURCE_ROOT; };
+		D3369B901E36C73800FEB7BF /* TDFlippedView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TDFlippedView.m; path = lib/TDAppKit/src/TDFlippedView.m; sourceTree = SOURCE_ROOT; };
+		D3369B911E36C73800FEB7BF /* TDGutterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TDGutterView.m; path = lib/TDAppKit/src/TDGutterView.m; sourceTree = SOURCE_ROOT; };
+		D3369B921E36C73800FEB7BF /* TDHintButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TDHintButton.m; path = lib/TDAppKit/src/TDHintButton.m; sourceTree = SOURCE_ROOT; };
+		D3369B931E36C73800FEB7BF /* TDHintView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TDHintView.m; path = lib/TDAppKit/src/TDHintView.m; sourceTree = SOURCE_ROOT; };
+		D3369B941E36C73800FEB7BF /* TDJSUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TDJSUtils.m; path = lib/TDAppKit/src/TDJSUtils.m; sourceTree = SOURCE_ROOT; };
+		D3369B951E36C73800FEB7BF /* TDLine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TDLine.m; path = lib/TDAppKit/src/TDLine.m; sourceTree = SOURCE_ROOT; };
+		D3369B961E36C73800FEB7BF /* TDListItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TDListItem.m; path = lib/TDAppKit/src/TDListItem.m; sourceTree = SOURCE_ROOT; };
+		D3369B971E36C73800FEB7BF /* TDListItemQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TDListItemQueue.h; path = lib/TDAppKit/src/TDListItemQueue.h; sourceTree = SOURCE_ROOT; };
+		D3369B981E36C73800FEB7BF /* TDListItemQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TDListItemQueue.m; path = lib/TDAppKit/src/TDListItemQueue.m; sourceTree = SOURCE_ROOT; };
+		D3369B991E36C73800FEB7BF /* TDListView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TDListView.m; path = lib/TDAppKit/src/TDListView.m; sourceTree = SOURCE_ROOT; };
+		D3369B9A1E36C73800FEB7BF /* TDRegisterWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TDRegisterWindowController.m; path = lib/TDAppKit/src/TDRegisterWindowController.m; sourceTree = SOURCE_ROOT; };
+		D3369B9B1E36C73800FEB7BF /* TDScroller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TDScroller.m; path = lib/TDAppKit/src/TDScroller.m; sourceTree = SOURCE_ROOT; };
+		D3369B9C1E36C73800FEB7BF /* TDScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TDScrollView.m; path = lib/TDAppKit/src/TDScrollView.m; sourceTree = SOURCE_ROOT; };
+		D3369B9D1E36C73800FEB7BF /* TDSemaphore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TDSemaphore.m; path = lib/TDAppKit/src/TDSemaphore.m; sourceTree = SOURCE_ROOT; };
+		D3369B9E1E36C73800FEB7BF /* TDShadowView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TDShadowView.h; path = lib/TDAppKit/src/TDShadowView.h; sourceTree = SOURCE_ROOT; };
+		D3369B9F1E36C73800FEB7BF /* TDShadowView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TDShadowView.m; path = lib/TDAppKit/src/TDShadowView.m; sourceTree = SOURCE_ROOT; };
+		D3369BA01E36C73800FEB7BF /* TDSourceCodeTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TDSourceCodeTextView.m; path = lib/TDAppKit/src/TDSourceCodeTextView.m; sourceTree = SOURCE_ROOT; };
+		D3369BA11E36C73800FEB7BF /* TDStatusBarButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TDStatusBarButton.m; path = lib/TDAppKit/src/TDStatusBarButton.m; sourceTree = SOURCE_ROOT; };
+		D3369BA21E36C73800FEB7BF /* TDStatusBarButtonCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TDStatusBarButtonCell.m; path = lib/TDAppKit/src/TDStatusBarButtonCell.m; sourceTree = SOURCE_ROOT; };
+		D3369BA31E36C73800FEB7BF /* TDStatusBarPopUpView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TDStatusBarPopUpView.m; path = lib/TDAppKit/src/TDStatusBarPopUpView.m; sourceTree = SOURCE_ROOT; };
+		D3369BA41E36C73800FEB7BF /* TDTabBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TDTabBar.m; path = lib/TDAppKit/src/TDTabBar.m; sourceTree = SOURCE_ROOT; };
+		D3369BA51E36C73800FEB7BF /* TDTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TDTabBarController.m; path = lib/TDAppKit/src/TDTabBarController.m; sourceTree = SOURCE_ROOT; };
+		D3369BA61E36C73800FEB7BF /* TDTabBarControllerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TDTabBarControllerView.h; path = lib/TDAppKit/src/TDTabBarControllerView.h; sourceTree = SOURCE_ROOT; };
+		D3369BA71E36C73800FEB7BF /* TDTabBarControllerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TDTabBarControllerView.m; path = lib/TDAppKit/src/TDTabBarControllerView.m; sourceTree = SOURCE_ROOT; };
+		D3369BA81E36C73800FEB7BF /* TDTabBarItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TDTabBarItem.m; path = lib/TDAppKit/src/TDTabBarItem.m; sourceTree = SOURCE_ROOT; };
+		D3369BA91E36C73800FEB7BF /* TDTabbedDocument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TDTabbedDocument.m; path = lib/TDAppKit/src/TDTabbedDocument.m; sourceTree = SOURCE_ROOT; };
+		D3369BAA1E36C73800FEB7BF /* TDTabbedDocumentController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TDTabbedDocumentController.m; path = lib/TDAppKit/src/TDTabbedDocumentController.m; sourceTree = SOURCE_ROOT; };
+		D3369BAB1E36C73800FEB7BF /* TDTabbedWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TDTabbedWindow.m; path = lib/TDAppKit/src/TDTabbedWindow.m; sourceTree = SOURCE_ROOT; };
+		D3369BAC1E36C73800FEB7BF /* TDTabbedWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TDTabbedWindowController.m; path = lib/TDAppKit/src/TDTabbedWindowController.m; sourceTree = SOURCE_ROOT; };
+		D3369BAD1E36C73800FEB7BF /* TDTabListItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TDTabListItem.m; path = lib/TDAppKit/src/TDTabListItem.m; sourceTree = SOURCE_ROOT; };
+		D3369BAE1E36C73800FEB7BF /* TDTabListItemStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TDTabListItemStyle.h; path = lib/TDAppKit/src/TDTabListItemStyle.h; sourceTree = SOURCE_ROOT; };
+		D3369BAF1E36C73800FEB7BF /* TDTabListItemStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TDTabListItemStyle.m; path = lib/TDAppKit/src/TDTabListItemStyle.m; sourceTree = SOURCE_ROOT; };
+		D3369BB01E36C73800FEB7BF /* TDTabListItemStyleBrowser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TDTabListItemStyleBrowser.h; path = lib/TDAppKit/src/TDTabListItemStyleBrowser.h; sourceTree = SOURCE_ROOT; };
+		D3369BB11E36C73800FEB7BF /* TDTabListItemStyleBrowser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TDTabListItemStyleBrowser.m; path = lib/TDAppKit/src/TDTabListItemStyleBrowser.m; sourceTree = SOURCE_ROOT; };
+		D3369BB21E36C73800FEB7BF /* TDTabModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TDTabModel.m; path = lib/TDAppKit/src/TDTabModel.m; sourceTree = SOURCE_ROOT; };
+		D3369BB31E36C73800FEB7BF /* TDTabsListView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TDTabsListView.h; path = lib/TDAppKit/src/TDTabsListView.h; sourceTree = SOURCE_ROOT; };
+		D3369BB41E36C73800FEB7BF /* TDTabsListView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TDTabsListView.m; path = lib/TDAppKit/src/TDTabsListView.m; sourceTree = SOURCE_ROOT; };
+		D3369BB51E36C73800FEB7BF /* TDTabsListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TDTabsListViewController.m; path = lib/TDAppKit/src/TDTabsListViewController.m; sourceTree = SOURCE_ROOT; };
+		D3369BB61E36C73800FEB7BF /* TDTabViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TDTabViewController.m; path = lib/TDAppKit/src/TDTabViewController.m; sourceTree = SOURCE_ROOT; };
+		D3369BB71E36C73800FEB7BF /* TDUberView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TDUberView.m; path = lib/TDAppKit/src/TDUberView.m; sourceTree = SOURCE_ROOT; };
+		D3369BB81E36C73800FEB7BF /* TDUberViewSplitView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TDUberViewSplitView.h; path = lib/TDAppKit/src/TDUberViewSplitView.h; sourceTree = SOURCE_ROOT; };
+		D3369BB91E36C73800FEB7BF /* TDUberViewSplitView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TDUberViewSplitView.m; path = lib/TDAppKit/src/TDUberViewSplitView.m; sourceTree = SOURCE_ROOT; };
+		D3369BBA1E36C73800FEB7BF /* TDUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TDUtils.m; path = lib/TDAppKit/src/TDUtils.m; sourceTree = SOURCE_ROOT; };
+		D3369BBB1E36C73800FEB7BF /* TDView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TDView.m; path = lib/TDAppKit/src/TDView.m; sourceTree = SOURCE_ROOT; };
+		D3369BBC1E36C73800FEB7BF /* TDViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TDViewController.m; path = lib/TDAppKit/src/TDViewController.m; sourceTree = SOURCE_ROOT; };
+		D3369BBD1E36C73800FEB7BF /* TDViewControllerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TDViewControllerView.m; path = lib/TDAppKit/src/TDViewControllerView.m; sourceTree = SOURCE_ROOT; };
+		D3369BBE1E36C73800FEB7BF /* WebScriptObject+TDAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "WebScriptObject+TDAdditions.m"; path = "lib/TDAppKit/src/WebScriptObject+TDAdditions.m"; sourceTree = SOURCE_ROOT; };
+		D3369BBF1E36C73800FEB7BF /* WebView+TDAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "WebView+TDAdditions.m"; path = "lib/TDAppKit/src/WebView+TDAdditions.m"; sourceTree = SOURCE_ROOT; };
+		D3369C061E36C75F00FEB7BF /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = lib/TDAppKit/en.lproj/TDRegisterWindow.xib; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -206,7 +536,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D3369A361E36BA2B00FEB7BF /* TDThreadUtils.framework in Frameworks */,
 				D33699FF1E36B8ED00FEB7BF /* TDTemplateEngine.framework in Frameworks */,
 				D33699FE1E36B8ED00FEB7BF /* PEGKit.framework in Frameworks */,
 				D33699FD1E36B8ED00FEB7BF /* OkudaKit.framework in Frameworks */,
@@ -219,8 +548,6 @@
 		D336999E1E36B78800FEB7BF = {
 			isa = PBXGroup;
 			children = (
-				D3369A201E36BA0600FEB7BF /* TDThreadUtils.xcodeproj */,
-				D33699DF1E36B8B300FEB7BF /* TDAppKit.xcodeproj */,
 				D33699EB1E36B8B800FEB7BF /* TDTemplateEngine.xcodeproj */,
 				D33699CA1E36B8AD00FEB7BF /* PEGKit.xcodeproj */,
 				D33699C11E36B8A800FEB7BF /* OkudaKit.xcodeproj */,
@@ -240,11 +567,17 @@
 		D33699A91E36B78900FEB7BF /* DevApp */ = {
 			isa = PBXGroup;
 			children = (
+				D3369B331E36C71B00FEB7BF /* TDAppKit */,
+				D3369A461E36BEED00FEB7BF /* IDEKit */,
+				D3369AE71E36C25000FEB7BF /* TabKit */,
+				D3369A451E36BEBA00FEB7BF /* ThreadUtils */,
 				D33699AA1E36B78900FEB7BF /* AppDelegate.h */,
 				D33699AB1E36B78900FEB7BF /* AppDelegate.m */,
 				D33699B01E36B78900FEB7BF /* Document.h */,
 				D33699B11E36B78900FEB7BF /* Document.m */,
-				D33699B31E36B78900FEB7BF /* Document.xib */,
+				D3369A381E36BB1300FEB7BF /* WindowController.h */,
+				D3369A391E36BB1300FEB7BF /* WindowController.m */,
+				D3369A3F1E36BB2800FEB7BF /* WindowController.xib */,
 				D33699B61E36B78900FEB7BF /* Assets.xcassets */,
 				D33699B81E36B78900FEB7BF /* MainMenu.xib */,
 				D33699BB1E36B78900FEB7BF /* Info.plist */,
@@ -256,6 +589,7 @@
 		D33699AD1E36B78900FEB7BF /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				D3369B311E36C61F00FEB7BF /* DevApp-Prefix.pch */,
 				D33699AE1E36B78900FEB7BF /* main.m */,
 			);
 			name = "Supporting Files";
@@ -283,16 +617,6 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		D33699E01E36B8B300FEB7BF /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				D33699E61E36B8B300FEB7BF /* TDAppKit.framework */,
-				D33699E81E36B8B300FEB7BF /* ListViewDemoApp.app */,
-				D33699EA1E36B8B300FEB7BF /* FooBarDemoApp.app */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
 		D33699EC1E36B8B800FEB7BF /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -303,13 +627,329 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		D3369A211E36BA0600FEB7BF /* Products */ = {
+		D3369A451E36BEBA00FEB7BF /* ThreadUtils */ = {
 			isa = PBXGroup;
 			children = (
-				D3369A311E36BA0600FEB7BF /* TDThreadUtils.framework */,
-				D3369A331E36BA0600FEB7BF /* TDThreadUtilsTests.xctest */,
 			);
-			name = Products;
+			name = ThreadUtils;
+			sourceTree = "<group>";
+		};
+		D3369A461E36BEED00FEB7BF /* IDEKit */ = {
+			isa = PBXGroup;
+			children = (
+				D3369A771E36BEED00FEB7BF /* IDEUserDefaults.h */,
+				D3369A781E36BEED00FEB7BF /* IDEUserDefaults.m */,
+				D3369A5A1E36BEED00FEB7BF /* IDEApplication.h */,
+				D3369A5B1E36BEED00FEB7BF /* IDEApplication.m */,
+				D3369A621E36BEED00FEB7BF /* IDEDocumentController.h */,
+				D3369A631E36BEED00FEB7BF /* IDEDocumentController.m */,
+				D3369A601E36BEED00FEB7BF /* IDEDocument.h */,
+				D3369A611E36BEED00FEB7BF /* IDEDocument.m */,
+				D3369A6B1E36BEED00FEB7BF /* IDEMainWindowController.h */,
+				D3369A6C1E36BEED00FEB7BF /* IDEMainWindowController.m */,
+				D3369A691E36BEED00FEB7BF /* IDEMainWindow.h */,
+				D3369A6A1E36BEED00FEB7BF /* IDEMainWindow.m */,
+				D3369AD21E36BF9D00FEB7BF /* UberView */,
+				D3369AD11E36BF9300FEB7BF /* PrefPanes */,
+				D3369A7B1E36BEED00FEB7BF /* OAPreferences */,
+			);
+			name = IDEKit;
+			path = lib/IDEKit;
+			sourceTree = SOURCE_ROOT;
+		};
+		D3369A7B1E36BEED00FEB7BF /* OAPreferences */ = {
+			isa = PBXGroup;
+			children = (
+				D3369A501E36BEED00FEB7BF /* OAPreferencesWindow.xib */,
+				D3369A7C1E36BEED00FEB7BF /* NSArray-OFExtensions.h */,
+				D3369A7D1E36BEED00FEB7BF /* NSArray-OFExtensions.m */,
+				D3369A7E1E36BEED00FEB7BF /* NSBundle-OAExtensions.h */,
+				D3369A7F1E36BEED00FEB7BF /* NSBundle-OAExtensions.m */,
+				D3369A801E36BEED00FEB7BF /* NSImage-OAExtensions.h */,
+				D3369A811E36BEED00FEB7BF /* NSImage-OAExtensions.m */,
+				D3369A821E36BEED00FEB7BF /* NSMutableArray-OFExtensions.h */,
+				D3369A831E36BEED00FEB7BF /* NSMutableArray-OFExtensions.m */,
+				D3369A841E36BEED00FEB7BF /* NSObject-OFExtensions.h */,
+				D3369A851E36BEED00FEB7BF /* NSObject-OFExtensions.m */,
+				D3369A861E36BEED00FEB7BF /* NSString-OFReplacement.h */,
+				D3369A871E36BEED00FEB7BF /* NSString-OFReplacement.m */,
+				D3369A881E36BEED00FEB7BF /* NSString-OFSimpleMatching.h */,
+				D3369A891E36BEED00FEB7BF /* NSString-OFSimpleMatching.m */,
+				D3369A8A1E36BEED00FEB7BF /* NSToolbar-OAExtensions.h */,
+				D3369A8B1E36BEED00FEB7BF /* NSToolbar-OAExtensions.m */,
+				D3369A8C1E36BEED00FEB7BF /* OAPreferenceClient.h */,
+				D3369A8D1E36BEED00FEB7BF /* OAPreferenceClient.m */,
+				D3369A8E1E36BEED00FEB7BF /* OAPreferenceClientRecord.h */,
+				D3369A8F1E36BEED00FEB7BF /* OAPreferenceClientRecord.m */,
+				D3369A901E36BEED00FEB7BF /* OAPreferenceController.h */,
+				D3369A911E36BEED00FEB7BF /* OAPreferenceController.m */,
+				D3369A921E36BEED00FEB7BF /* OAPreferencesIconView.h */,
+				D3369A931E36BEED00FEB7BF /* OAPreferencesIconView.m */,
+				D3369A941E36BEED00FEB7BF /* OAPreferencesNextButton.png */,
+				D3369A951E36BEED00FEB7BF /* OAPreferencesPreviousButton.png */,
+				D3369A961E36BEED00FEB7BF /* OAPreferencesToolbar.h */,
+				D3369A971E36BEED00FEB7BF /* OAPreferencesToolbar.m */,
+				D3369A981E36BEED00FEB7BF /* OAPreferencesWindow.h */,
+				D3369A991E36BEED00FEB7BF /* OAPreferencesWindow.m */,
+				D3369A9A1E36BEED00FEB7BF /* OBDefines.h */,
+				D3369A9B1E36BEED00FEB7BF /* OBObject.h */,
+				D3369A9C1E36BEED00FEB7BF /* OBObject.m */,
+				D3369A9D1E36BEED00FEB7BF /* OFObject.h */,
+				D3369A9E1E36BEED00FEB7BF /* OFObject.m */,
+				D3369A9F1E36BEED00FEB7BF /* OFPreference.h */,
+				D3369AA01E36BEED00FEB7BF /* OFPreference.m */,
+			);
+			path = OAPreferences;
+			sourceTree = "<group>";
+		};
+		D3369AD11E36BF9300FEB7BF /* PrefPanes */ = {
+			isa = PBXGroup;
+			children = (
+				D3369A521E36BEED00FEB7BF /* EDUpdatePreferences.h */,
+				D3369A531E36BEED00FEB7BF /* EDUpdatePreferences.m */,
+				D3369A481E36BEED00FEB7BF /* EDUpdatePreferences.xib */,
+				D3369A581E36BEED00FEB7BF /* IDEAppearancePreferences.h */,
+				D3369A591E36BEED00FEB7BF /* IDEAppearancePreferences.m */,
+				D3369A4A1E36BEED00FEB7BF /* IDEAppearancePreferences.xib */,
+				D3369A5C1E36BEED00FEB7BF /* IDEBasePreferences.h */,
+				D3369A5D1E36BEED00FEB7BF /* IDEBasePreferences.m */,
+				D3369A5E1E36BEED00FEB7BF /* IDEDefaultFontTextField.h */,
+				D3369A5F1E36BEED00FEB7BF /* IDEDefaultFontTextField.m */,
+				D3369A641E36BEED00FEB7BF /* IDEGeneralPreferences.h */,
+				D3369A4C1E36BEED00FEB7BF /* IDEGeneralPreferences.xib */,
+				D3369A651E36BEED00FEB7BF /* IDEGeneralPreferences.m */,
+				D3369A711E36BEED00FEB7BF /* IDETabsPreferences.h */,
+				D3369A721E36BEED00FEB7BF /* IDETabsPreferences.m */,
+				D3369A4E1E36BEED00FEB7BF /* IDETabsPreferences.xib */,
+			);
+			name = PrefPanes;
+			sourceTree = "<group>";
+		};
+		D3369AD21E36BF9D00FEB7BF /* UberView */ = {
+			isa = PBXGroup;
+			children = (
+				D3369A731E36BEED00FEB7BF /* IDEUberView.h */,
+				D3369A741E36BEED00FEB7BF /* IDEUberView.m */,
+				D3369A751E36BEED00FEB7BF /* IDEUberViewSplitView.h */,
+				D3369A761E36BEED00FEB7BF /* IDEUberViewSplitView.m */,
+			);
+			name = UberView;
+			sourceTree = "<group>";
+		};
+		D3369AE71E36C25000FEB7BF /* TabKit */ = {
+			isa = PBXGroup;
+			children = (
+				D3369B141E36C25A00FEB7BF /* TKUserDefaults.h */,
+				D3369B151E36C25A00FEB7BF /* TKUserDefaults.m */,
+				D3369AF01E36C25A00FEB7BF /* TKDocument.h */,
+				D3369AF11E36C25A00FEB7BF /* TKDocument.m */,
+				D3369AF21E36C25A00FEB7BF /* TKDocument+Scripting.h */,
+				D3369AF31E36C25A00FEB7BF /* TKDocument+Scripting.m */,
+				D3369AF41E36C25A00FEB7BF /* TKDocumentController.h */,
+				D3369AF51E36C25A00FEB7BF /* TKDocumentController.m */,
+				D3369AF61E36C25A00FEB7BF /* TKMainWindow.h */,
+				D3369AF71E36C25A00FEB7BF /* TKMainWindow.m */,
+				D3369AF81E36C25A00FEB7BF /* TKMainWindowController.h */,
+				D3369AF91E36C25A00FEB7BF /* TKMainWindowController.m */,
+				D3369B0A1E36C25A00FEB7BF /* TKTabModel.h */,
+				D3369B0B1E36C25A00FEB7BF /* TKTabModel.m */,
+				D3369B0C1E36C25A00FEB7BF /* TKTabModel+Scripting.h */,
+				D3369B0D1E36C25A00FEB7BF /* TKTabModel+Scripting.m */,
+				D3369B101E36C25A00FEB7BF /* TKTabsListViewController.h */,
+				D3369B111E36C25A00FEB7BF /* TKTabsListViewController.m */,
+				D3369B121E36C25A00FEB7BF /* TKTabsListViewControllerView.h */,
+				D3369B131E36C25A00FEB7BF /* TKTabsListViewControllerView.m */,
+				D3369B0E1E36C25A00FEB7BF /* TKTabsListView.h */,
+				D3369B0F1E36C25A00FEB7BF /* TKTabsListView.m */,
+				D3369AFC1E36C25A00FEB7BF /* TKTabListItem.h */,
+				D3369AFD1E36C25A00FEB7BF /* TKTabListItem.m */,
+				D3369AFA1E36C25A00FEB7BF /* TKOverflowButton.h */,
+				D3369AFB1E36C25A00FEB7BF /* TKOverflowButton.m */,
+				D3369B291E36C29A00FEB7BF /* Styles */,
+			);
+			name = TabKit;
+			sourceTree = "<group>";
+		};
+		D3369B291E36C29A00FEB7BF /* Styles */ = {
+			isa = PBXGroup;
+			children = (
+				D3369AFE1E36C25A00FEB7BF /* TKTabListItemFlatStyleCloseButton.h */,
+				D3369AFF1E36C25A00FEB7BF /* TKTabListItemFlatStyleCloseButton.m */,
+				D3369B001E36C25A00FEB7BF /* TKTabListItemFlatStyleOverflowButton.h */,
+				D3369B011E36C25A00FEB7BF /* TKTabListItemFlatStyleOverflowButton.m */,
+				D3369B021E36C25A00FEB7BF /* TKTabListItemStyle.h */,
+				D3369B031E36C25A00FEB7BF /* TKTabListItemStyle.m */,
+				D3369B041E36C25A00FEB7BF /* TKTabListItemStyleBrowser.h */,
+				D3369B051E36C25A00FEB7BF /* TKTabListItemStyleBrowser.m */,
+				D3369B061E36C25A00FEB7BF /* TKTabListItemStyleFlat.h */,
+				D3369B071E36C25A00FEB7BF /* TKTabListItemStyleFlat.m */,
+				D3369B081E36C25A00FEB7BF /* TKTabListItemStyleMerged.h */,
+				D3369B091E36C25A00FEB7BF /* TKTabListItemStyleMerged.m */,
+			);
+			name = Styles;
+			sourceTree = "<group>";
+		};
+		D3369B331E36C71B00FEB7BF /* TDAppKit */ = {
+			isa = PBXGroup;
+			children = (
+				D3369C041E36C74300FEB7BF /* res */,
+				D3369B341E36C72300FEB7BF /* src */,
+			);
+			name = TDAppKit;
+			sourceTree = "<group>";
+		};
+		D3369B341E36C72300FEB7BF /* src */ = {
+			isa = PBXGroup;
+			children = (
+				D3369B6E1E36C73700FEB7BF /* DOMElement+TDAdditions.m */,
+				D3369B6F1E36C73700FEB7BF /* DOMHTMLCollection+TDAdditions.m */,
+				D3369B701E36C73700FEB7BF /* DOMHTMLOptionsCollection+TDAdditions.m */,
+				D3369B711E36C73700FEB7BF /* DOMNode+TDAdditions.m */,
+				D3369B721E36C73700FEB7BF /* DOMNodeList+TDAdditions.m */,
+				D3369B731E36C73700FEB7BF /* NSAppleEventDescriptor+NDAppleScriptObject.m */,
+				D3369B741E36C73700FEB7BF /* NSAppleEventDescriptor+TDAdditions.m */,
+				D3369B751E36C73700FEB7BF /* NSArray+TDAdditions.m */,
+				D3369B761E36C73700FEB7BF /* NSBezierPath+TDAdditions.m */,
+				D3369B771E36C73700FEB7BF /* NSDate+TDAdditions.m */,
+				D3369B781E36C73700FEB7BF /* NSEvent+TDAdditions.m */,
+				D3369B791E36C73700FEB7BF /* NSImage+TDAdditions.m */,
+				D3369B7A1E36C73700FEB7BF /* NSString+TDAdditions.m */,
+				D3369B7B1E36C73700FEB7BF /* NSURL+NDCarbonUtilities.h */,
+				D3369B7C1E36C73700FEB7BF /* NSURL+NDCarbonUtilities.m */,
+				D3369B7D1E36C73700FEB7BF /* NSURLRequest+TDAdditions.m */,
+				D3369B7E1E36C73700FEB7BF /* TDAppKit_Prefix.pch */,
+				D3369B7F1E36C73700FEB7BF /* TDBar.m */,
+				D3369B801E36C73700FEB7BF /* TDBarItem.m */,
+				D3369B811E36C73700FEB7BF /* TDClipView.h */,
+				D3369B821E36C73700FEB7BF /* TDClipView.m */,
+				D3369B831E36C73700FEB7BF /* TDColorView.m */,
+				D3369B841E36C73700FEB7BF /* TDComboField.m */,
+				D3369B851E36C73700FEB7BF /* TDComboFieldCell.h */,
+				D3369B861E36C73700FEB7BF /* TDComboFieldCell.m */,
+				D3369B871E36C73700FEB7BF /* TDComboFieldListItem.h */,
+				D3369B881E36C73700FEB7BF /* TDComboFieldListItem.m */,
+				D3369B891E36C73800FEB7BF /* TDComboFieldListView.h */,
+				D3369B8A1E36C73800FEB7BF /* TDComboFieldListView.m */,
+				D3369B8B1E36C73800FEB7BF /* TDComboFieldTextView.h */,
+				D3369B8C1E36C73800FEB7BF /* TDComboFieldTextView.m */,
+				D3369B8D1E36C73800FEB7BF /* TDDraggableBar.m */,
+				D3369B8E1E36C73800FEB7BF /* TDDropTargetView.m */,
+				D3369B8F1E36C73800FEB7BF /* TDFlippedColorView.m */,
+				D3369B901E36C73800FEB7BF /* TDFlippedView.m */,
+				D3369B911E36C73800FEB7BF /* TDGutterView.m */,
+				D3369B921E36C73800FEB7BF /* TDHintButton.m */,
+				D3369B931E36C73800FEB7BF /* TDHintView.m */,
+				D3369B941E36C73800FEB7BF /* TDJSUtils.m */,
+				D3369B951E36C73800FEB7BF /* TDLine.m */,
+				D3369B961E36C73800FEB7BF /* TDListItem.m */,
+				D3369B971E36C73800FEB7BF /* TDListItemQueue.h */,
+				D3369B981E36C73800FEB7BF /* TDListItemQueue.m */,
+				D3369B991E36C73800FEB7BF /* TDListView.m */,
+				D3369B9A1E36C73800FEB7BF /* TDRegisterWindowController.m */,
+				D3369B9B1E36C73800FEB7BF /* TDScroller.m */,
+				D3369B9C1E36C73800FEB7BF /* TDScrollView.m */,
+				D3369B9D1E36C73800FEB7BF /* TDSemaphore.m */,
+				D3369B9E1E36C73800FEB7BF /* TDShadowView.h */,
+				D3369B9F1E36C73800FEB7BF /* TDShadowView.m */,
+				D3369BA01E36C73800FEB7BF /* TDSourceCodeTextView.m */,
+				D3369BA11E36C73800FEB7BF /* TDStatusBarButton.m */,
+				D3369BA21E36C73800FEB7BF /* TDStatusBarButtonCell.m */,
+				D3369BA31E36C73800FEB7BF /* TDStatusBarPopUpView.m */,
+				D3369BA41E36C73800FEB7BF /* TDTabBar.m */,
+				D3369BA51E36C73800FEB7BF /* TDTabBarController.m */,
+				D3369BA61E36C73800FEB7BF /* TDTabBarControllerView.h */,
+				D3369BA71E36C73800FEB7BF /* TDTabBarControllerView.m */,
+				D3369BA81E36C73800FEB7BF /* TDTabBarItem.m */,
+				D3369BA91E36C73800FEB7BF /* TDTabbedDocument.m */,
+				D3369BAA1E36C73800FEB7BF /* TDTabbedDocumentController.m */,
+				D3369BAB1E36C73800FEB7BF /* TDTabbedWindow.m */,
+				D3369BAC1E36C73800FEB7BF /* TDTabbedWindowController.m */,
+				D3369BAD1E36C73800FEB7BF /* TDTabListItem.m */,
+				D3369BAE1E36C73800FEB7BF /* TDTabListItemStyle.h */,
+				D3369BAF1E36C73800FEB7BF /* TDTabListItemStyle.m */,
+				D3369BB01E36C73800FEB7BF /* TDTabListItemStyleBrowser.h */,
+				D3369BB11E36C73800FEB7BF /* TDTabListItemStyleBrowser.m */,
+				D3369BB21E36C73800FEB7BF /* TDTabModel.m */,
+				D3369BB31E36C73800FEB7BF /* TDTabsListView.h */,
+				D3369BB41E36C73800FEB7BF /* TDTabsListView.m */,
+				D3369BB51E36C73800FEB7BF /* TDTabsListViewController.m */,
+				D3369BB61E36C73800FEB7BF /* TDTabViewController.m */,
+				D3369BB71E36C73800FEB7BF /* TDUberView.m */,
+				D3369BB81E36C73800FEB7BF /* TDUberViewSplitView.h */,
+				D3369BB91E36C73800FEB7BF /* TDUberViewSplitView.m */,
+				D3369BBA1E36C73800FEB7BF /* TDUtils.m */,
+				D3369BBB1E36C73800FEB7BF /* TDView.m */,
+				D3369BBC1E36C73800FEB7BF /* TDViewController.m */,
+				D3369BBD1E36C73800FEB7BF /* TDViewControllerView.m */,
+				D3369BBE1E36C73800FEB7BF /* WebScriptObject+TDAdditions.m */,
+				D3369BBF1E36C73800FEB7BF /* WebView+TDAdditions.m */,
+				D3369B351E36C72E00FEB7BF /* DOMElement+TDAdditions.h */,
+				D3369B361E36C72E00FEB7BF /* DOMHTMLCollection+TDAdditions.h */,
+				D3369B371E36C72E00FEB7BF /* DOMHTMLOptionsCollection+TDAdditions.h */,
+				D3369B381E36C72E00FEB7BF /* DOMNode+TDAdditions.h */,
+				D3369B391E36C72E00FEB7BF /* DOMNodeList+TDAdditions.h */,
+				D3369B3A1E36C72E00FEB7BF /* NSAppleEventDescriptor+NDAppleScriptObject.h */,
+				D3369B3B1E36C72E00FEB7BF /* NSAppleEventDescriptor+TDAdditions.h */,
+				D3369B3C1E36C72E00FEB7BF /* NSArray+TDAdditions.h */,
+				D3369B3D1E36C72E00FEB7BF /* NSBezierPath+TDAdditions.h */,
+				D3369B3E1E36C72E00FEB7BF /* NSDate+TDAdditions.h */,
+				D3369B3F1E36C72E00FEB7BF /* NSEvent+TDAdditions.h */,
+				D3369B401E36C72E00FEB7BF /* NSImage+TDAdditions.h */,
+				D3369B411E36C72E00FEB7BF /* NSString+TDAdditions.h */,
+				D3369B421E36C72E00FEB7BF /* NSURL+NDCarbonUtilities.h */,
+				D3369B431E36C72E00FEB7BF /* NSURLRequest+TDAdditions.h */,
+				D3369B441E36C72E00FEB7BF /* TDAppKit.h */,
+				D3369B451E36C72E00FEB7BF /* TDBar.h */,
+				D3369B461E36C72E00FEB7BF /* TDBarItem.h */,
+				D3369B471E36C72E00FEB7BF /* TDColorView.h */,
+				D3369B481E36C72E00FEB7BF /* TDComboField.h */,
+				D3369B491E36C72E00FEB7BF /* TDDraggableBar.h */,
+				D3369B4A1E36C72E00FEB7BF /* TDDropTargetView.h */,
+				D3369B4B1E36C72E00FEB7BF /* TDFlippedColorView.h */,
+				D3369B4C1E36C72E00FEB7BF /* TDFlippedView.h */,
+				D3369B4D1E36C72E00FEB7BF /* TDGutterView.h */,
+				D3369B4E1E36C72E00FEB7BF /* TDHintButton.h */,
+				D3369B4F1E36C72E00FEB7BF /* TDHintView.h */,
+				D3369B501E36C72E00FEB7BF /* TDJSUtils.h */,
+				D3369B511E36C72E00FEB7BF /* TDLine.h */,
+				D3369B521E36C72E00FEB7BF /* TDListItem.h */,
+				D3369B531E36C72E00FEB7BF /* TDListView.h */,
+				D3369B541E36C72E00FEB7BF /* TDRegisterWindowController.h */,
+				D3369B551E36C72E00FEB7BF /* TDScroller.h */,
+				D3369B561E36C72E00FEB7BF /* TDScrollView.h */,
+				D3369B571E36C72E00FEB7BF /* TDSemaphore.h */,
+				D3369B581E36C72E00FEB7BF /* TDSourceCodeTextView.h */,
+				D3369B591E36C72E00FEB7BF /* TDStatusBarButton.h */,
+				D3369B5A1E36C72E00FEB7BF /* TDStatusBarButtonCell.h */,
+				D3369B5B1E36C72E00FEB7BF /* TDStatusBarPopUpView.h */,
+				D3369B5C1E36C72E00FEB7BF /* TDTabBar.h */,
+				D3369B5D1E36C72E00FEB7BF /* TDTabBarController.h */,
+				D3369B5E1E36C72E00FEB7BF /* TDTabBarItem.h */,
+				D3369B5F1E36C72E00FEB7BF /* TDTabbedDocument.h */,
+				D3369B601E36C72E00FEB7BF /* TDTabbedDocumentController.h */,
+				D3369B611E36C72E00FEB7BF /* TDTabbedWindow.h */,
+				D3369B621E36C72E00FEB7BF /* TDTabbedWindowController.h */,
+				D3369B631E36C72E00FEB7BF /* TDTabListItem.h */,
+				D3369B641E36C72E00FEB7BF /* TDTabModel.h */,
+				D3369B651E36C72E00FEB7BF /* TDTabsListViewController.h */,
+				D3369B661E36C72E00FEB7BF /* TDTabViewController.h */,
+				D3369B671E36C72E00FEB7BF /* TDUberView.h */,
+				D3369B681E36C72E00FEB7BF /* TDUtils.h */,
+				D3369B691E36C72E00FEB7BF /* TDView.h */,
+				D3369B6A1E36C72E00FEB7BF /* TDViewController.h */,
+				D3369B6B1E36C72E00FEB7BF /* TDViewControllerView.h */,
+				D3369B6C1E36C72E00FEB7BF /* WebScriptObject+TDAdditions.h */,
+				D3369B6D1E36C72E00FEB7BF /* WebView+TDAdditions.h */,
+			);
+			name = src;
+			sourceTree = "<group>";
+		};
+		D3369C041E36C74300FEB7BF /* res */ = {
+			isa = PBXGroup;
+			children = (
+				D3369C051E36C75F00FEB7BF /* TDRegisterWindow.xib */,
+			);
+			name = res;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -327,7 +967,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				D3369A351E36BA2400FEB7BF /* PBXTargetDependency */,
 				D33699F81E36B8DD00FEB7BF /* PBXTargetDependency */,
 				D33699FA1E36B8DD00FEB7BF /* PBXTargetDependency */,
 				D33699FC1E36B8DD00FEB7BF /* PBXTargetDependency */,
@@ -373,16 +1012,8 @@
 					ProjectRef = D33699CA1E36B8AD00FEB7BF /* PEGKit.xcodeproj */;
 				},
 				{
-					ProductGroup = D33699E01E36B8B300FEB7BF /* Products */;
-					ProjectRef = D33699DF1E36B8B300FEB7BF /* TDAppKit.xcodeproj */;
-				},
-				{
 					ProductGroup = D33699EC1E36B8B800FEB7BF /* Products */;
 					ProjectRef = D33699EB1E36B8B800FEB7BF /* TDTemplateEngine.xcodeproj */;
-				},
-				{
-					ProductGroup = D3369A211E36BA0600FEB7BF /* Products */;
-					ProjectRef = D3369A201E36BA0600FEB7BF /* TDThreadUtils.xcodeproj */;
 				},
 			);
 			projectRoot = "";
@@ -449,27 +1080,6 @@
 			remoteRef = D33699DD1E36B8AE00FEB7BF /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		D33699E61E36B8B300FEB7BF /* TDAppKit.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = TDAppKit.framework;
-			remoteRef = D33699E51E36B8B300FEB7BF /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		D33699E81E36B8B300FEB7BF /* ListViewDemoApp.app */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.application;
-			path = ListViewDemoApp.app;
-			remoteRef = D33699E71E36B8B300FEB7BF /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		D33699EA1E36B8B300FEB7BF /* FooBarDemoApp.app */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.application;
-			path = FooBarDemoApp.app;
-			remoteRef = D33699E91E36B8B300FEB7BF /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
 		D33699F21E36B8B800FEB7BF /* TDTemplateEngine.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
@@ -491,20 +1101,6 @@
 			remoteRef = D33699F51E36B8B800FEB7BF /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		D3369A311E36BA0600FEB7BF /* TDThreadUtils.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = TDThreadUtils.framework;
-			remoteRef = D3369A301E36BA0600FEB7BF /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		D3369A331E36BA0600FEB7BF /* TDThreadUtilsTests.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = TDThreadUtilsTests.xctest;
-			remoteRef = D3369A321E36BA0600FEB7BF /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
 /* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
@@ -512,9 +1108,17 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D3369AA71E36BEED00FEB7BF /* OAPreferencesWindow.xib in Resources */,
 				D33699B71E36B78900FEB7BF /* Assets.xcassets in Resources */,
-				D33699B51E36B78900FEB7BF /* Document.xib in Resources */,
+				D3369A3D1E36BB2800FEB7BF /* WindowController.xib in Resources */,
+				D3369AA41E36BEED00FEB7BF /* IDEAppearancePreferences.xib in Resources */,
+				D3369AA31E36BEED00FEB7BF /* EDUpdatePreferences.xib in Resources */,
+				D3369AC91E36BEED00FEB7BF /* OAPreferencesNextButton.png in Resources */,
+				D3369C071E36C75F00FEB7BF /* TDRegisterWindow.xib in Resources */,
+				D3369AA61E36BEED00FEB7BF /* IDETabsPreferences.xib in Resources */,
+				D3369AA51E36BEED00FEB7BF /* IDEGeneralPreferences.xib in Resources */,
 				D33699BA1E36B78900FEB7BF /* MainMenu.xib in Resources */,
+				D3369ACA1E36BEED00FEB7BF /* OAPreferencesPreviousButton.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -526,8 +1130,126 @@
 			buildActionMask = 2147483647;
 			files = (
 				D33699B21E36B78900FEB7BF /* Document.m in Sources */,
+				D3369BD01E36C73800FEB7BF /* TDBarItem.m in Sources */,
+				D3369BFA1E36C73800FEB7BF /* TDTabsListViewController.m in Sources */,
+				D3369BF61E36C73800FEB7BF /* TDTabListItemStyle.m in Sources */,
+				D3369BE41E36C73800FEB7BF /* TDRegisterWindowController.m in Sources */,
+				D3369BD11E36C73800FEB7BF /* TDClipView.m in Sources */,
+				D3369AAE1E36BEED00FEB7BF /* IDEDefaultFontTextField.m in Sources */,
+				D3369AAB1E36BEED00FEB7BF /* IDEAppearancePreferences.m in Sources */,
+				D3369BD71E36C73800FEB7BF /* TDComboFieldTextView.m in Sources */,
+				D3369ACD1E36BEED00FEB7BF /* OBObject.m in Sources */,
+				D3369A3B1E36BB1300FEB7BF /* WindowController.m in Sources */,
+				D3369C011E36C73800FEB7BF /* TDViewControllerView.m in Sources */,
+				D3369AB11E36BEED00FEB7BF /* IDEGeneralPreferences.m in Sources */,
+				D3369BE21E36C73800FEB7BF /* TDListItemQueue.m in Sources */,
+				D3369BF21E36C73800FEB7BF /* TDTabbedDocumentController.m in Sources */,
+				D3369AB41E36BEED00FEB7BF /* IDEMainWindowController.m in Sources */,
+				D3369ACB1E36BEED00FEB7BF /* OAPreferencesToolbar.m in Sources */,
+				D3369BCC1E36C73800FEB7BF /* NSString+TDAdditions.m in Sources */,
+				D3369ABD1E36BEED00FEB7BF /* NSArray-OFExtensions.m in Sources */,
+				D3369AB81E36BEED00FEB7BF /* IDEUberView.m in Sources */,
+				D3369AC21E36BEED00FEB7BF /* NSString-OFReplacement.m in Sources */,
+				D3369B251E36C25A00FEB7BF /* TKTabsListView.m in Sources */,
+				D3369BF01E36C73800FEB7BF /* TDTabBarItem.m in Sources */,
+				D3369BCE1E36C73800FEB7BF /* NSURLRequest+TDAdditions.m in Sources */,
+				D3369BFD1E36C73800FEB7BF /* TDUberViewSplitView.m in Sources */,
+				D3369BE11E36C73800FEB7BF /* TDListItem.m in Sources */,
+				D3369BC41E36C73800FEB7BF /* DOMNodeList+TDAdditions.m in Sources */,
+				D3369BDC1E36C73800FEB7BF /* TDGutterView.m in Sources */,
+				D3369AB71E36BEED00FEB7BF /* IDETabsPreferences.m in Sources */,
+				D3369BD61E36C73800FEB7BF /* TDComboFieldListView.m in Sources */,
+				D3369BC31E36C73800FEB7BF /* DOMNode+TDAdditions.m in Sources */,
+				D3369ACE1E36BEED00FEB7BF /* OFObject.m in Sources */,
+				D3369BDD1E36C73800FEB7BF /* TDHintButton.m in Sources */,
+				D3369BDB1E36C73800FEB7BF /* TDFlippedView.m in Sources */,
+				D3369BC81E36C73800FEB7BF /* NSBezierPath+TDAdditions.m in Sources */,
+				D3369BEE1E36C73800FEB7BF /* TDTabBarController.m in Sources */,
+				D3369BDA1E36C73800FEB7BF /* TDFlippedColorView.m in Sources */,
+				D3369BF71E36C73800FEB7BF /* TDTabListItemStyleBrowser.m in Sources */,
+				D3369B241E36C25A00FEB7BF /* TKTabModel+Scripting.m in Sources */,
+				D3369BE71E36C73800FEB7BF /* TDSemaphore.m in Sources */,
+				D3369BFE1E36C73800FEB7BF /* TDUtils.m in Sources */,
+				D3369BC51E36C73800FEB7BF /* NSAppleEventDescriptor+NDAppleScriptObject.m in Sources */,
+				D3369BC21E36C73800FEB7BF /* DOMHTMLOptionsCollection+TDAdditions.m in Sources */,
+				D3369B191E36C25A00FEB7BF /* TKMainWindow.m in Sources */,
+				D3369BDF1E36C73800FEB7BF /* TDJSUtils.m in Sources */,
+				D3369ABA1E36BEED00FEB7BF /* IDEUserDefaults.m in Sources */,
+				D3369BC71E36C73800FEB7BF /* NSArray+TDAdditions.m in Sources */,
+				D3369BE01E36C73800FEB7BF /* TDLine.m in Sources */,
+				D3369C021E36C73800FEB7BF /* WebScriptObject+TDAdditions.m in Sources */,
+				D3369BE31E36C73800FEB7BF /* TDListView.m in Sources */,
+				D3369BDE1E36C73800FEB7BF /* TDHintView.m in Sources */,
+				D3369B271E36C25A00FEB7BF /* TKTabsListViewControllerView.m in Sources */,
+				D3369AA81E36BEED00FEB7BF /* EDUpdatePreferences.m in Sources */,
+				D3369B1E1E36C25A00FEB7BF /* TKTabListItemFlatStyleOverflowButton.m in Sources */,
+				D3369BCF1E36C73800FEB7BF /* TDBar.m in Sources */,
+				D3369BD51E36C73800FEB7BF /* TDComboFieldListItem.m in Sources */,
+				D3369BEA1E36C73800FEB7BF /* TDStatusBarButton.m in Sources */,
+				D3369BE81E36C73800FEB7BF /* TDShadowView.m in Sources */,
+				D3369BEB1E36C73800FEB7BF /* TDStatusBarButtonCell.m in Sources */,
+				D3369AC01E36BEED00FEB7BF /* NSMutableArray-OFExtensions.m in Sources */,
+				D3369ABE1E36BEED00FEB7BF /* NSBundle-OAExtensions.m in Sources */,
+				D3369BFC1E36C73800FEB7BF /* TDUberView.m in Sources */,
+				D3369BF11E36C73800FEB7BF /* TDTabbedDocument.m in Sources */,
+				D3369B1B1E36C25A00FEB7BF /* TKOverflowButton.m in Sources */,
+				D3369B281E36C25A00FEB7BF /* TKUserDefaults.m in Sources */,
+				D3369BCA1E36C73800FEB7BF /* NSEvent+TDAdditions.m in Sources */,
+				D3369BE91E36C73800FEB7BF /* TDSourceCodeTextView.m in Sources */,
+				D3369BF81E36C73800FEB7BF /* TDTabModel.m in Sources */,
+				D3369C031E36C73800FEB7BF /* WebView+TDAdditions.m in Sources */,
+				D3369B221E36C25A00FEB7BF /* TKTabListItemStyleMerged.m in Sources */,
+				D3369B181E36C25A00FEB7BF /* TKDocumentController.m in Sources */,
+				D3369BE51E36C73800FEB7BF /* TDScroller.m in Sources */,
+				D3369ABF1E36BEED00FEB7BF /* NSImage-OAExtensions.m in Sources */,
+				D3369BEC1E36C73800FEB7BF /* TDStatusBarPopUpView.m in Sources */,
+				D3369BF91E36C73800FEB7BF /* TDTabsListView.m in Sources */,
+				D3369AC71E36BEED00FEB7BF /* OAPreferenceController.m in Sources */,
+				D3369BD31E36C73800FEB7BF /* TDComboField.m in Sources */,
 				D33699AF1E36B78900FEB7BF /* main.m in Sources */,
+				D3369B231E36C25A00FEB7BF /* TKTabModel.m in Sources */,
 				D33699AC1E36B78900FEB7BF /* AppDelegate.m in Sources */,
+				D3369AC11E36BEED00FEB7BF /* NSObject-OFExtensions.m in Sources */,
+				D3369BF31E36C73800FEB7BF /* TDTabbedWindow.m in Sources */,
+				D3369BD41E36C73800FEB7BF /* TDComboFieldCell.m in Sources */,
+				D3369B1A1E36C25A00FEB7BF /* TKMainWindowController.m in Sources */,
+				D3369BFF1E36C73800FEB7BF /* TDView.m in Sources */,
+				D3369BED1E36C73800FEB7BF /* TDTabBar.m in Sources */,
+				D3369B161E36C25A00FEB7BF /* TKDocument.m in Sources */,
+				D3369AAD1E36BEED00FEB7BF /* IDEBasePreferences.m in Sources */,
+				D3369ACC1E36BEED00FEB7BF /* OAPreferencesWindow.m in Sources */,
+				D3369AC41E36BEED00FEB7BF /* NSToolbar-OAExtensions.m in Sources */,
+				D3369AAC1E36BEED00FEB7BF /* IDEApplication.m in Sources */,
+				D3369BF51E36C73800FEB7BF /* TDTabListItem.m in Sources */,
+				D3369AC81E36BEED00FEB7BF /* OAPreferencesIconView.m in Sources */,
+				D3369AC51E36BEED00FEB7BF /* OAPreferenceClient.m in Sources */,
+				D3369AC61E36BEED00FEB7BF /* OAPreferenceClientRecord.m in Sources */,
+				D3369BCD1E36C73800FEB7BF /* NSURL+NDCarbonUtilities.m in Sources */,
+				D3369BEF1E36C73800FEB7BF /* TDTabBarControllerView.m in Sources */,
+				D3369BC91E36C73800FEB7BF /* NSDate+TDAdditions.m in Sources */,
+				D3369BCB1E36C73800FEB7BF /* NSImage+TDAdditions.m in Sources */,
+				D3369AB31E36BEED00FEB7BF /* IDEMainWindow.m in Sources */,
+				D3369BD81E36C73800FEB7BF /* TDDraggableBar.m in Sources */,
+				D3369ACF1E36BEED00FEB7BF /* OFPreference.m in Sources */,
+				D3369B1D1E36C25A00FEB7BF /* TKTabListItemFlatStyleCloseButton.m in Sources */,
+				D3369C001E36C73800FEB7BF /* TDViewController.m in Sources */,
+				D3369BC01E36C73800FEB7BF /* DOMElement+TDAdditions.m in Sources */,
+				D3369B1F1E36C25A00FEB7BF /* TKTabListItemStyle.m in Sources */,
+				D3369BF41E36C73800FEB7BF /* TDTabbedWindowController.m in Sources */,
+				D3369B171E36C25A00FEB7BF /* TKDocument+Scripting.m in Sources */,
+				D3369BD21E36C73800FEB7BF /* TDColorView.m in Sources */,
+				D3369AB01E36BEED00FEB7BF /* IDEDocumentController.m in Sources */,
+				D3369AC31E36BEED00FEB7BF /* NSString-OFSimpleMatching.m in Sources */,
+				D3369BC61E36C73800FEB7BF /* NSAppleEventDescriptor+TDAdditions.m in Sources */,
+				D3369B211E36C25A00FEB7BF /* TKTabListItemStyleFlat.m in Sources */,
+				D3369AAF1E36BEED00FEB7BF /* IDEDocument.m in Sources */,
+				D3369B1C1E36C25A00FEB7BF /* TKTabListItem.m in Sources */,
+				D3369BFB1E36C73800FEB7BF /* TDTabViewController.m in Sources */,
+				D3369BD91E36C73800FEB7BF /* TDDropTargetView.m in Sources */,
+				D3369BC11E36C73800FEB7BF /* DOMHTMLCollection+TDAdditions.m in Sources */,
+				D3369BE61E36C73800FEB7BF /* TDScrollView.m in Sources */,
+				D3369B261E36C25A00FEB7BF /* TKTabsListViewController.m in Sources */,
+				D3369AB91E36BEED00FEB7BF /* IDEUberViewSplitView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -549,28 +1271,72 @@
 			name = OkudaKit;
 			targetProxy = D33699FB1E36B8DD00FEB7BF /* PBXContainerItemProxy */;
 		};
-		D3369A351E36BA2400FEB7BF /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = TDThreadUtils;
-			targetProxy = D3369A341E36BA2400FEB7BF /* PBXContainerItemProxy */;
-		};
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		D33699B31E36B78900FEB7BF /* Document.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				D33699B41E36B78900FEB7BF /* Base */,
-			);
-			name = Document.xib;
-			sourceTree = "<group>";
-		};
 		D33699B81E36B78900FEB7BF /* MainMenu.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
 				D33699B91E36B78900FEB7BF /* Base */,
 			);
 			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+		D3369A3F1E36BB2800FEB7BF /* WindowController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D3369A3E1E36BB2800FEB7BF /* Base */,
+			);
+			name = WindowController.xib;
+			sourceTree = "<group>";
+		};
+		D3369A481E36BEED00FEB7BF /* EDUpdatePreferences.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D3369A491E36BEED00FEB7BF /* Base */,
+			);
+			name = EDUpdatePreferences.xib;
+			sourceTree = "<group>";
+		};
+		D3369A4A1E36BEED00FEB7BF /* IDEAppearancePreferences.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D3369A4B1E36BEED00FEB7BF /* Base */,
+			);
+			name = IDEAppearancePreferences.xib;
+			sourceTree = "<group>";
+		};
+		D3369A4C1E36BEED00FEB7BF /* IDEGeneralPreferences.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D3369A4D1E36BEED00FEB7BF /* Base */,
+			);
+			name = IDEGeneralPreferences.xib;
+			sourceTree = "<group>";
+		};
+		D3369A4E1E36BEED00FEB7BF /* IDETabsPreferences.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D3369A4F1E36BEED00FEB7BF /* Base */,
+			);
+			name = IDETabsPreferences.xib;
+			sourceTree = "<group>";
+		};
+		D3369A501E36BEED00FEB7BF /* OAPreferencesWindow.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D3369A511E36BEED00FEB7BF /* Base */,
+			);
+			name = OAPreferencesWindow.xib;
+			path = ..;
+			sourceTree = "<group>";
+		};
+		D3369C051E36C75F00FEB7BF /* TDRegisterWindow.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D3369C061E36C75F00FEB7BF /* en */,
+			);
+			name = TDRegisterWindow.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -584,7 +1350,6 @@
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
@@ -631,7 +1396,6 @@
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
@@ -668,8 +1432,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				COMBINE_HIDPI_IMAGES = YES;
+				GCC_PREFIX_HEADER = "DevApp/DevApp-Prefix.pch";
+				HEADER_SEARCH_PATHS = (
+					lib,
+					lib/TDAppKit/include,
+					lib/TDThreadUtils/include,
+				);
 				INFOPLIST_FILE = DevApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
 				PRODUCT_BUNDLE_IDENTIFIER = com.celestialteapot.DevApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -680,8 +1451,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				COMBINE_HIDPI_IMAGES = YES;
+				GCC_PREFIX_HEADER = "DevApp/DevApp-Prefix.pch";
+				HEADER_SEARCH_PATHS = (
+					lib,
+					lib/TDAppKit/include,
+					lib/TDThreadUtils/include,
+				);
 				INFOPLIST_FILE = DevApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
 				PRODUCT_BUNDLE_IDENTIFIER = com.celestialteapot.DevApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};

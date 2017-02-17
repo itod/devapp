@@ -7,6 +7,7 @@
 //
 
 #import "Document.h"
+#import "WindowController.h"
 
 @interface Document ()
 
@@ -17,20 +18,29 @@
 - (instancetype)init {
     self = [super init];
     if (self) {
-        // Add your subclass-specific initialization here.
+
     }
     return self;
 }
 
-+ (BOOL)autosavesInPlace {
-    return YES;
+
+- (void)dealloc {
+    self.windowController = nil;
+    [super dealloc];
 }
 
 
-- (NSString *)windowNibName {
-    // Override returning the nib file name of the document
-    // If you need to use a subclass of NSWindowController or if your document supports multiple NSWindowControllers, you should remove this method and override -makeWindowControllers instead.
-    return @"Document";
+#pragma mark -
+#pragma mark NSDocument
+
+- (void)makeWindowControllers {
+    self.windowController = [[[WindowController alloc] init] autorelease];
+    [self addWindowController:_windowController];
+}
+
+
++ (BOOL)autosavesInPlace {
+    return YES;
 }
 
 

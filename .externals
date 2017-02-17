@@ -25,3 +25,13 @@ path = lib/OkudaKit
 repository = git@github.com:itod/threadutils.git
 scm = git
 path = lib/TDThreadUtils
+
+[lib/IDEKit]
+repository = git@github.com:itod/idekit.git
+scm = git
+path = lib/IDEKit
+
+[lib/TabKit]
+repository = git@github.com:itod/tabkit.git
+scm = git
+path = lib/TabKit
