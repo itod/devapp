@@ -50,6 +50,7 @@
 		D3166F5C1E5908FE00DEE3A0 /* EDGuidesPreferences.xib in Resources */ = {isa = PBXBuildFile; fileRef = D3166F5A1E5908FE00DEE3A0 /* EDGuidesPreferences.xib */; };
 		D3166F671E5909F600DEE3A0 /* EDMetrics.m in Sources */ = {isa = PBXBuildFile; fileRef = D3166F661E5909F600DEE3A0 /* EDMetrics.m */; };
 		D3166F6A1E590A1300DEE3A0 /* EDModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D3166F691E590A1300DEE3A0 /* EDModel.m */; };
+		D3166F6D1E590B7F00DEE3A0 /* IDEBasePreferences.m in Sources */ = {isa = PBXBuildFile; fileRef = D3166F6C1E590B7F00DEE3A0 /* IDEBasePreferences.m */; };
 		D33699AC1E36B78900FEB7BF /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D33699AB1E36B78900FEB7BF /* AppDelegate.m */; };
 		D33699AF1E36B78900FEB7BF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D33699AE1E36B78900FEB7BF /* main.m */; };
 		D33699B21E36B78900FEB7BF /* Document.m in Sources */ = {isa = PBXBuildFile; fileRef = D33699B11E36B78900FEB7BF /* Document.m */; };
@@ -338,6 +339,8 @@
 		D3166F661E5909F600DEE3A0 /* EDMetrics.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EDMetrics.m; sourceTree = "<group>"; };
 		D3166F681E590A1300DEE3A0 /* EDModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EDModel.h; sourceTree = "<group>"; };
 		D3166F691E590A1300DEE3A0 /* EDModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EDModel.m; sourceTree = "<group>"; };
+		D3166F6B1E590B7F00DEE3A0 /* IDEBasePreferences.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDEBasePreferences.h; sourceTree = "<group>"; };
+		D3166F6C1E590B7F00DEE3A0 /* IDEBasePreferences.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IDEBasePreferences.m; sourceTree = "<group>"; };
 		D33699A71E36B78900FEB7BF /* DevApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DevApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D33699AA1E36B78900FEB7BF /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		D33699AB1E36B78900FEB7BF /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -784,6 +787,8 @@
 				D3369A6C1E36BEED00FEB7BF /* IDEMainWindowController.m */,
 				D3369A691E36BEED00FEB7BF /* IDEMainWindow.h */,
 				D3369A6A1E36BEED00FEB7BF /* IDEMainWindow.m */,
+				D3166F6B1E590B7F00DEE3A0 /* IDEBasePreferences.h */,
+				D3166F6C1E590B7F00DEE3A0 /* IDEBasePreferences.m */,
 				D3369AD21E36BF9D00FEB7BF /* UberView */,
 				D3369A7B1E36BEED00FEB7BF /* OAPreferences */,
 			);
@@ -1245,6 +1250,7 @@
 				D33699AC1E36B78900FEB7BF /* AppDelegate.m in Sources */,
 				D3369AC11E36BEED00FEB7BF /* NSObject-OFExtensions.m in Sources */,
 				D3369BD41E36C73800FEB7BF /* TDComboFieldCell.m in Sources */,
+				D3166F6D1E590B7F00DEE3A0 /* IDEBasePreferences.m in Sources */,
 				D3369B1A1E36C25A00FEB7BF /* TKMainWindowController.m in Sources */,
 				D3369BFF1E36C73800FEB7BF /* TDView.m in Sources */,
 				D3369BED1E36C73800FEB7BF /* TDTabBar.m in Sources */,
