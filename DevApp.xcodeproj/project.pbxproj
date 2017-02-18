@@ -15,6 +15,8 @@
 		D3166EB71E57C54400DEE3A0 /* IDEGeneralPreferences.xib in Resources */ = {isa = PBXBuildFile; fileRef = D3166EAF1E57C54400DEE3A0 /* IDEGeneralPreferences.xib */; };
 		D3166EB81E57C54400DEE3A0 /* IDETabsPreferences.xib in Resources */ = {isa = PBXBuildFile; fileRef = D3166EB11E57C54400DEE3A0 /* IDETabsPreferences.xib */; };
 		D3166EB91E57C54400DEE3A0 /* OAPreferencesWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = D3166EB31E57C54400DEE3A0 /* OAPreferencesWindow.xib */; };
+		D3166ED31E57C6FF00DEE3A0 /* Language.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3166ECE1E57C6E900DEE3A0 /* Language.framework */; };
+		D3166ED41E57C70B00DEE3A0 /* Language.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = D3166ECE1E57C6E900DEE3A0 /* Language.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D33699AC1E36B78900FEB7BF /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D33699AB1E36B78900FEB7BF /* AppDelegate.m */; };
 		D33699AF1E36B78900FEB7BF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D33699AE1E36B78900FEB7BF /* main.m */; };
 		D33699B21E36B78900FEB7BF /* Document.m in Sources */ = {isa = PBXBuildFile; fileRef = D33699B11E36B78900FEB7BF /* Document.m */; };
@@ -163,6 +165,27 @@
 			remoteGlobalIDString = 8DC2EF4F0486A6940098B216;
 			remoteInfo = Sparkle;
 		};
+		D3166ECD1E57C6E900DEE3A0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D3166EC81E57C6E900DEE3A0 /* Language.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = D305628C1E3BD929008BEC9A;
+			remoteInfo = Language;
+		};
+		D3166ECF1E57C6E900DEE3A0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D3166EC81E57C6E900DEE3A0 /* Language.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = D30562951E3BD929008BEC9A;
+			remoteInfo = LanguageTests;
+		};
+		D3166ED11E57C6FA00DEE3A0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D3166EC81E57C6E900DEE3A0 /* Language.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = D305628B1E3BD929008BEC9A;
+			remoteInfo = Language;
+		};
 		D33699C61E36B8A800FEB7BF /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D33699C11E36B8A800FEB7BF /* OkudaKit.xcodeproj */;
@@ -270,6 +293,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 7;
 			files = (
+				D3166ED41E57C70B00DEE3A0 /* Language.framework in Copy Frameworks */,
 				D3166E9D1E57C02F00DEE3A0 /* Sparkle.framework in Copy Frameworks */,
 				D3369A011E36B92300FEB7BF /* TDTemplateEngine.framework in Copy Frameworks */,
 				D3369A021E36B92A00FEB7BF /* PEGKit.framework in Copy Frameworks */,
@@ -288,6 +312,7 @@
 		D3166EB01E57C54400DEE3A0 /* base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = base; path = base.lproj/IDEGeneralPreferences.xib; sourceTree = "<group>"; };
 		D3166EB21E57C54400DEE3A0 /* base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = base; path = base.lproj/IDETabsPreferences.xib; sourceTree = "<group>"; };
 		D3166EB41E57C54400DEE3A0 /* base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = base; path = base.lproj/OAPreferencesWindow.xib; sourceTree = "<group>"; };
+		D3166EC81E57C6E900DEE3A0 /* Language.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Language.xcodeproj; path = lib/Language/Language.xcodeproj; sourceTree = "<group>"; };
 		D33699A71E36B78900FEB7BF /* DevApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DevApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D33699AA1E36B78900FEB7BF /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		D33699AB1E36B78900FEB7BF /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -477,6 +502,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D3166ED31E57C6FF00DEE3A0 /* Language.framework in Frameworks */,
 				D3166E9C1E57C02700DEE3A0 /* Sparkle.framework in Frameworks */,
 				D33699FF1E36B8ED00FEB7BF /* TDTemplateEngine.framework in Frameworks */,
 				D33699FE1E36B8ED00FEB7BF /* PEGKit.framework in Frameworks */,
@@ -500,6 +526,15 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		D3166EC91E57C6E900DEE3A0 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D3166ECE1E57C6E900DEE3A0 /* Language.framework */,
+				D3166ED01E57C6E900DEE3A0 /* LanguageTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		D336999E1E36B78800FEB7BF = {
 			isa = PBXGroup;
 			children = (
@@ -507,6 +542,7 @@
 				D33699EB1E36B8B800FEB7BF /* TDTemplateEngine.xcodeproj */,
 				D33699CA1E36B8AD00FEB7BF /* PEGKit.xcodeproj */,
 				D33699C11E36B8A800FEB7BF /* OkudaKit.xcodeproj */,
+				D3166EC81E57C6E900DEE3A0 /* Language.xcodeproj */,
 				D33699A91E36B78900FEB7BF /* DevApp */,
 				D33699A81E36B78900FEB7BF /* Products */,
 			);
@@ -847,6 +883,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				D3166ED21E57C6FA00DEE3A0 /* PBXTargetDependency */,
 				D3166E9B1E57C02000DEE3A0 /* PBXTargetDependency */,
 				D33699F81E36B8DD00FEB7BF /* PBXTargetDependency */,
 				D33699FA1E36B8DD00FEB7BF /* PBXTargetDependency */,
@@ -885,6 +922,10 @@
 			productRefGroup = D33699A81E36B78900FEB7BF /* Products */;
 			projectDirPath = "";
 			projectReferences = (
+				{
+					ProductGroup = D3166EC91E57C6E900DEE3A0 /* Products */;
+					ProjectRef = D3166EC81E57C6E900DEE3A0 /* Language.xcodeproj */;
+				},
 				{
 					ProductGroup = D33699C21E36B8A800FEB7BF /* Products */;
 					ProjectRef = D33699C11E36B8A800FEB7BF /* OkudaKit.xcodeproj */;
@@ -950,6 +991,20 @@
 			fileType = wrapper.cfbundle;
 			path = "UI Tests.xctest";
 			remoteRef = D3166E981E57C01400DEE3A0 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		D3166ECE1E57C6E900DEE3A0 /* Language.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Language.framework;
+			remoteRef = D3166ECD1E57C6E900DEE3A0 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		D3166ED01E57C6E900DEE3A0 /* LanguageTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = LanguageTests.xctest;
+			remoteRef = D3166ECF1E57C6E900DEE3A0 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 		D33699C71E36B8A800FEB7BF /* OkudaKit.framework */ = {
@@ -1152,6 +1207,11 @@
 			isa = PBXTargetDependency;
 			name = Sparkle;
 			targetProxy = D3166E9A1E57C02000DEE3A0 /* PBXContainerItemProxy */;
+		};
+		D3166ED21E57C6FA00DEE3A0 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = Language;
+			targetProxy = D3166ED11E57C6FA00DEE3A0 /* PBXContainerItemProxy */;
 		};
 		D33699F81E36B8DD00FEB7BF /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
