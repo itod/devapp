@@ -76,7 +76,7 @@
 #define PURCHASE_URL @"http://celestialteapot.com/exedore"
 #define SUPPORT_URL @"http://groups.google.com/group/exedoreapp"
 
-#define DEFAULT_VALUES_FILENAME @"Exedore-DefaultValues"
+#define DEFAULT_VALUES_FILENAME @"DevApp-DefaultValues"
 
 #define XFER_RAW_DATA 1
 
