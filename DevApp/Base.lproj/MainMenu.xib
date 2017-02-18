@@ -665,6 +665,18 @@
                         </items>
                     </menu>
                 </menuItem>
+                <menuItem image="ScriptMenu" tag="447" id="9Nf-a1-pNy">
+                    <menu key="submenu" id="5IR-f0-YcA">
+                        <items>
+                            <menuItem title="Open Script Editor" id="Zly-yI-tEK">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                            </menuItem>
+                            <menuItem title="Open Scripts Folder" id="D9U-Dc-88b">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                            </menuItem>
+                        </items>
+                    </menu>
+                </menuItem>
                 <menuItem title="Help" id="wpr-3q-Mcd">
                     <modifierMask key="keyEquivalentModifierMask"/>
                     <menu key="submenu" title="Help" systemMenu="help" id="F2S-fz-NVQ">
@@ -680,4 +692,7 @@
             </items>
         </menu>
     </objects>
+    <resources>
+        <image name="ScriptMenu" width="128" height="128"/>
+    </resources>
 </document>

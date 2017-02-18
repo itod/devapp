@@ -1,0 +1,105 @@
+
+.default {
+    color: #D0D0FF;
+    background: #200020;
+}
+
+.selection {
+    color: #7070FF;
+    background: #80000080;
+}
+
+identifier {
+    color: #D0D0FF;
+}
+
+braces {
+    color: #805080;
+}
+
+dot {
+    color: #B0FFF0;
+}
+
+separators {
+    color: #805080;
+}
+
+operators {
+    color: #80A0FF;
+}
+
+constant {
+    color: #707090;
+    background: #200020;
+    font-style: bold;
+}
+
+number {
+    color: #7090B0;
+    background: #200020;
+    font-style: bold;
+}
+
+className {
+    color: #70E080;
+}
+
+functionName {
+    color: #50A0A0;
+}
+
+keyword {
+    color: #80A0FF;
+}
+
+classKeyword {
+    color: #B0FFF0;
+}
+
+functionKeyword {
+    color: #B0FFF0;
+}
+
+string {
+    color: #999999;
+}
+
+comment {
+    color: #404080;
+    background: #200020;
+    font-style: italic;
+}
+
+builtin {
+    color: #D0D0FF;
+    background: #200020;
+}
+
+inheritedClass, super {
+    color: #D0D0FF;
+}
+
+functionParam {
+    color: #008080;
+}
+
+languageVariable {
+    color: #008080;
+}
+
+languageFunction {
+    color: #50A0A0;
+    background: #200020;
+}
+
+pdbPrompt {
+    color: #999999;
+    font-style: bold;
+}
+
+pdbError {
+    color: #999999;
+    font-style: italic;
+}
+

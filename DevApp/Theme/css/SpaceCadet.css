@@ -1,0 +1,100 @@
+
+.default {
+    color: #DDE6CF;
+    background: #0D0D0D;
+}
+
+.selection {
+    color: #7F005D;
+    background: #40002F;
+}
+
+identifier {
+    color: #DDE6CF;
+}
+
+braces {
+    color: #DDE6CF;
+}
+
+dot {
+    color: #9EBF60;
+}
+
+separators {
+    color: #DDE6CF;
+}
+
+operators {
+    color: #DDE6CF;
+}
+
+constant {
+    color: #A8885A;
+}
+
+number {
+    color: #A8885A;
+}
+
+className {
+    color: #6078BF;
+    font-style: italic;
+}
+
+functionName {
+    color: #6078BF;
+    font-style: italic;
+}
+
+keyword {
+    color: #728059;
+}
+
+classKeyword {
+    color: #9EBF60;
+}
+
+functionKeyword {
+    color: #9EBF60;
+}
+
+string {
+    color: #805978;
+}
+
+comment {
+    color: #473C45;
+}
+
+builtin {
+    color: #8A4B66;
+}
+
+inheritedClass {
+    color: #6078BF;
+    font-style: italic;
+}
+
+functionParam {
+    color: #596380;
+}
+
+languageVariable {
+    color: #596380;
+}
+
+languageFunction {
+    color: #8A4B66;
+}
+
+pdbPrompt {
+    color: #805978;
+    font-style: bold;
+}
+
+pdbError {
+    color: #805978;
+    font-style: italic;
+}
+

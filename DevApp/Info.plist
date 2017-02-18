@@ -75,7 +75,7 @@
 				<key>defaultsDictionary</key>
 				<dict/>
 				<key>icon</key>
-				<string>exedoredoc</string>
+				<string>BlankDocIcon</string>
 				<key>nib</key>
 				<string>EDTextEditingPreferences</string>
 				<key>ordering</key>
