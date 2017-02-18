@@ -35,3 +35,8 @@ path = lib/IDEKit
 repository = git@github.com:itod/tabkit.git
 scm = git
 path = lib/TabKit
+
+[lib/Sparkle]
+repository = git@github.com:itod/Sparkle.git
+scm = git
+path = lib/Sparkle

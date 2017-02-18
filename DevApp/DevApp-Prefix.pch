@@ -27,3 +27,9 @@
 #define TDAssert(b) NSAssert2((b), @" %s : assert(%@)", __PRETTY_FUNCTION__, @#b);
 #define TDAssertMainThread() NSAssert1([NSThread isMainThread], @"%s should be called on the main thread only.", __PRETTY_FUNCTION__);
 #define TDAssertNotMainThread() NSAssert1(![NSThread isMainThread], @"%s should be called on the main thread only.", __PRETTY_FUNCTION__);
+
+#define IDEAssert(b) NSAssert2((b), @" %s : assert(%@)", __PRETTY_FUNCTION__, @#b);
+#define IDEAssertMainThread() NSAssert1([NSThread isMainThread], @"%s should be called on the main thread only.", __PRETTY_FUNCTION__);
+#define IDEssertNotMainThread() NSAssert1(![NSThread isMainThread], @"%s should be called on the main thread only.", __PRETTY_FUNCTION__);
+
+#define TKTabPboardType @"TKTabPboardType"
