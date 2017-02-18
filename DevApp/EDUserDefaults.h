@@ -9,9 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "IDEUserDefaults.h"
 
-#if SCHWARTZ
 @class EDMetrics;
-#endif
 
 // User Defaults Keys
 #define kEDShowWelcomeWindowOnLaunchKey @"EDShowWelcomeWindowOnLaunch"
@@ -27,7 +25,6 @@
 
 #define kEDBreakpointsEnabledKey @"EDBreakpointsEnabled"
 
-#if SCHWARTZ
 #define kEDRulersVisibleKey @"EDRulersVisible"
 #define kEDGridVisibleKey @"EDGridVisible"
 #define kEDGuidesVisibleKey @"EDGuidesVisible"
@@ -39,7 +36,6 @@
 
 #define kEDPresetMetricsInfosKey @"EDPresetMetricsInfos"
 #define kEDLastSelectedMetricsKey @"EDLastSelectedMetrics"
-#endif
 
 #define kEDPythonExePathKey @"EDPythonExePath"
 #define kEDCommandStringKey @"EDCommandString"
@@ -82,7 +78,6 @@ extern NSString * const EDBreakpointsDidChangeNotification;
 
 extern NSString * const EDSelectedThemeDidChangeNotification;
 
-#if SCHWARTZ
 extern NSString * const EDRulersVisibleDidChangeNotification;
 extern NSString * const EDGridVisibleDidChangeNotification;
 extern NSString * const EDGuidesVisibleDidChangeNotification;
@@ -93,7 +88,6 @@ extern NSString * const EDCompositionZoomScaleDidChangeNotification;
 extern NSString * const EDCompositionFlippedDidChangeNotification;
 extern NSString * const EDCompositionGridEnabledDidChangeNotification;
 extern NSString * const EDCompositionGridToleranceDidChangeNotification;
-#endif
 
 // Notification Observer methods
 @interface NSObject (EDNotificationObserver)
@@ -128,7 +122,6 @@ extern NSString * const EDCompositionGridToleranceDidChangeNotification;
 
 @property (nonatomic, assign) BOOL breakpointsEnabled;
 
-#if SCHWARTZ
 @property (nonatomic, assign) BOOL rulersVisible;
 @property (nonatomic, assign) BOOL gridVisible;
 @property (nonatomic, assign) BOOL guidesVisible;
@@ -140,7 +133,6 @@ extern NSString * const EDCompositionGridToleranceDidChangeNotification;
 
 @property (nonatomic, copy) NSArray *presetMetricsInfos;
 @property (nonatomic, retain) EDMetrics *lastSelectedMetrics;
-#endif
 
 @property (nonatomic, copy) NSString *pythonExePath;
 @property (nonatomic, copy) NSString *commandString;

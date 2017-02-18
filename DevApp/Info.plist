@@ -48,6 +48,74 @@
 	<key>NSMainNibFile</key>
 	<string>MainMenu</string>
 	<key>NSPrincipalClass</key>
-	<string>NSApplication</string>
+	<string>EDApplication</string>
+	<key>OFRegistrations</key>
+	<dict>
+		<key>OAPreferenceController</key>
+		<dict>
+			<key>EDGeneralPreferences</key>
+			<dict>
+				<key>category</key>
+				<string>Application</string>
+				<key>defaultsDictionary</key>
+				<dict/>
+				<key>icon</key>
+				<string>NSPreferencesGeneral</string>
+				<key>nib</key>
+				<string>EDGeneralPreferences</string>
+				<key>ordering</key>
+				<integer>10</integer>
+				<key>title</key>
+				<string>General</string>
+			</dict>
+			<key>EDTextEditingPreferences</key>
+			<dict>
+				<key>category</key>
+				<string>Application</string>
+				<key>defaultsDictionary</key>
+				<dict/>
+				<key>icon</key>
+				<string>exedoredoc</string>
+				<key>nib</key>
+				<string>EDTextEditingPreferences</string>
+				<key>ordering</key>
+				<integer>20</integer>
+				<key>title</key>
+				<string>Text Editing</string>
+			</dict>
+			<key>EDThemePreferences</key>
+			<dict>
+				<key>category</key>
+				<string>Application</string>
+				<key>defaultsDictionary</key>
+				<dict/>
+				<key>icon</key>
+				<string>NSColorPanel</string>
+				<key>nib</key>
+				<string>EDThemePreferences</string>
+				<key>ordering</key>
+				<integer>30</integer>
+				<key>title</key>
+				<string>Theme</string>
+			</dict>
+			<key>EDUpdatePreferences</key>
+			<dict>
+				<key>category</key>
+				<string>Application</string>
+				<key>defaultsDictionary</key>
+				<dict/>
+				<key>icon</key>
+				<string>prefpane_icon_update</string>
+				<key>nib</key>
+				<string>EDUpdatePreferences</string>
+				<key>ordering</key>
+				<integer>90</integer>
+				<key>title</key>
+				<string>Update</string>
+			</dict>
+		</dict>
+	</dict>
+	<key>IDEUserDefaultsClass</key>
+	<string>EDUserDefaults</string>
 </dict>
 </plist>

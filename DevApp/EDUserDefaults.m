@@ -7,9 +7,7 @@
 //
 
 #import "EDUserDefaults.h"
-#if SCHWARTZ
 #import "EDMetrics.h"
-#endif
 #import "EDWildcardPattern.h"
 
 NSString * const EDTabsListViewVisibleDidChangeNotification = @"EDTabsListViewVisibleDidChangeNotification";
@@ -25,7 +23,6 @@ NSString * const EDBreakpointsDidChangeNotification = @"EDBreakpointsDidChangeNo
 
 NSString * const EDSelectedThemeDidChangeNotification = @"EDSelectedThemeDidChangeNotification";
 
-#if SCHWARTZ
 NSString * const EDRulersVisibleDidChangeNotification = @"EDRulersVisibleDidChangeNotification";
 NSString * const EDGridVisibleDidChangeNotification = @"EDGridVisibleDidChangeNotification";
 NSString * const EDGuidesVisibleDidChangeNotification = @"EDGuidesVisibleDidChangeNotification";
@@ -36,7 +33,6 @@ NSString * const EDCompositionZoomScaleDidChangeNotification = @"EDCompositionZo
 NSString * const EDCompositionFlippedDidChangeNotification = @"EDCompositionFlippedDidChangeNotification";
 NSString * const EDCompositionGridEnabledDidChangeNotification = @"EDCompositionGridEnabledDidChangeNotification";
 NSString * const EDCompositionGridToleranceDidChangeNotification = @"EDCompositionGridToleranceDidChangeNotification";
-#endif
 
 @interface EDUserDefaults ()
 @property (nonatomic, copy, readwrite) NSArray *excludeFilePatterns;
@@ -199,7 +195,6 @@ NSString * const EDCompositionGridToleranceDidChangeNotification = @"EDCompositi
     [[NSUserDefaults standardUserDefaults] setBool:yn forKey:kEDBreakpointsEnabledKey];
 }
 
-#if SCHWARTZ
 #pragma mark -
 #pragma mark Canvas
 
@@ -268,7 +263,6 @@ NSString * const EDCompositionGridToleranceDidChangeNotification = @"EDCompositi
     }
     return m;
 }
-#endif
 
 - (NSString *)pythonExePath {
     return [[NSUserDefaults standardUserDefaults] objectForKey:kEDPythonExePathKey];

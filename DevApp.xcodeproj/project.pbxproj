@@ -9,9 +9,7 @@
 /* Begin PBXBuildFile section */
 		D3166EA01E57C2FA00DEE3A0 /* DOMNodeList+TDAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = D3166E9F1E57C2FA00DEE3A0 /* DOMNodeList+TDAdditions.m */; };
 		D3166EB51E57C54400DEE3A0 /* EDUpdatePreferences.xib in Resources */ = {isa = PBXBuildFile; fileRef = D3166EAB1E57C54400DEE3A0 /* EDUpdatePreferences.xib */; };
-		D3166EB61E57C54400DEE3A0 /* IDEAppearancePreferences.xib in Resources */ = {isa = PBXBuildFile; fileRef = D3166EAD1E57C54400DEE3A0 /* IDEAppearancePreferences.xib */; };
 		D3166EB71E57C54400DEE3A0 /* IDEGeneralPreferences.xib in Resources */ = {isa = PBXBuildFile; fileRef = D3166EAF1E57C54400DEE3A0 /* IDEGeneralPreferences.xib */; };
-		D3166EB81E57C54400DEE3A0 /* IDETabsPreferences.xib in Resources */ = {isa = PBXBuildFile; fileRef = D3166EB11E57C54400DEE3A0 /* IDETabsPreferences.xib */; };
 		D3166EB91E57C54400DEE3A0 /* OAPreferencesWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = D3166EB31E57C54400DEE3A0 /* OAPreferencesWindow.xib */; };
 		D3166ED31E57C6FF00DEE3A0 /* Language.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3166ECE1E57C6E900DEE3A0 /* Language.framework */; };
 		D3166ED41E57C70B00DEE3A0 /* Language.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = D3166ECE1E57C6E900DEE3A0 /* Language.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -46,6 +44,12 @@
 		D3166F3C1E59078000DEE3A0 /* EDColorPickerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D3166F3B1E59078000DEE3A0 /* EDColorPickerCell.m */; };
 		D3166F3F1E59079700DEE3A0 /* EDColorPickerButtonCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D3166F3E1E59079700DEE3A0 /* EDColorPickerButtonCell.m */; };
 		D3166F431E5907C900DEE3A0 /* EDUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = D3166F421E5907C900DEE3A0 /* EDUtils.m */; };
+		D3166F521E5908CA00DEE3A0 /* EDTextEditingPreferences.xib in Resources */ = {isa = PBXBuildFile; fileRef = D3166F501E5908CA00DEE3A0 /* EDTextEditingPreferences.xib */; };
+		D3166F551E5908D700DEE3A0 /* EDTextEditingPreferences.m in Sources */ = {isa = PBXBuildFile; fileRef = D3166F541E5908D700DEE3A0 /* EDTextEditingPreferences.m */; };
+		D3166F591E5908F000DEE3A0 /* EDGuidesPreferences.m in Sources */ = {isa = PBXBuildFile; fileRef = D3166F581E5908F000DEE3A0 /* EDGuidesPreferences.m */; };
+		D3166F5C1E5908FE00DEE3A0 /* EDGuidesPreferences.xib in Resources */ = {isa = PBXBuildFile; fileRef = D3166F5A1E5908FE00DEE3A0 /* EDGuidesPreferences.xib */; };
+		D3166F671E5909F600DEE3A0 /* EDMetrics.m in Sources */ = {isa = PBXBuildFile; fileRef = D3166F661E5909F600DEE3A0 /* EDMetrics.m */; };
+		D3166F6A1E590A1300DEE3A0 /* EDModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D3166F691E590A1300DEE3A0 /* EDModel.m */; };
 		D33699AC1E36B78900FEB7BF /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D33699AB1E36B78900FEB7BF /* AppDelegate.m */; };
 		D33699AF1E36B78900FEB7BF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D33699AE1E36B78900FEB7BF /* main.m */; };
 		D33699B21E36B78900FEB7BF /* Document.m in Sources */ = {isa = PBXBuildFile; fileRef = D33699B11E36B78900FEB7BF /* Document.m */; };
@@ -58,15 +62,12 @@
 		D3369A3B1E36BB1300FEB7BF /* WindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = D3369A391E36BB1300FEB7BF /* WindowController.m */; };
 		D3369A3D1E36BB2800FEB7BF /* WindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D3369A3F1E36BB2800FEB7BF /* WindowController.xib */; };
 		D3369AA81E36BEED00FEB7BF /* EDUpdatePreferences.m in Sources */ = {isa = PBXBuildFile; fileRef = D3369A531E36BEED00FEB7BF /* EDUpdatePreferences.m */; };
-		D3369AAB1E36BEED00FEB7BF /* IDEAppearancePreferences.m in Sources */ = {isa = PBXBuildFile; fileRef = D3369A591E36BEED00FEB7BF /* IDEAppearancePreferences.m */; };
 		D3369AAC1E36BEED00FEB7BF /* IDEApplication.m in Sources */ = {isa = PBXBuildFile; fileRef = D3369A5B1E36BEED00FEB7BF /* IDEApplication.m */; };
-		D3369AAD1E36BEED00FEB7BF /* IDEBasePreferences.m in Sources */ = {isa = PBXBuildFile; fileRef = D3369A5D1E36BEED00FEB7BF /* IDEBasePreferences.m */; };
 		D3369AAF1E36BEED00FEB7BF /* IDEDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = D3369A611E36BEED00FEB7BF /* IDEDocument.m */; };
 		D3369AB01E36BEED00FEB7BF /* IDEDocumentController.m in Sources */ = {isa = PBXBuildFile; fileRef = D3369A631E36BEED00FEB7BF /* IDEDocumentController.m */; };
 		D3369AB11E36BEED00FEB7BF /* IDEGeneralPreferences.m in Sources */ = {isa = PBXBuildFile; fileRef = D3369A651E36BEED00FEB7BF /* IDEGeneralPreferences.m */; };
 		D3369AB31E36BEED00FEB7BF /* IDEMainWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = D3369A6A1E36BEED00FEB7BF /* IDEMainWindow.m */; };
 		D3369AB41E36BEED00FEB7BF /* IDEMainWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = D3369A6C1E36BEED00FEB7BF /* IDEMainWindowController.m */; };
-		D3369AB71E36BEED00FEB7BF /* IDETabsPreferences.m in Sources */ = {isa = PBXBuildFile; fileRef = D3369A721E36BEED00FEB7BF /* IDETabsPreferences.m */; };
 		D3369AB81E36BEED00FEB7BF /* IDEUberView.m in Sources */ = {isa = PBXBuildFile; fileRef = D3369A741E36BEED00FEB7BF /* IDEUberView.m */; };
 		D3369AB91E36BEED00FEB7BF /* IDEUberViewSplitView.m in Sources */ = {isa = PBXBuildFile; fileRef = D3369A761E36BEED00FEB7BF /* IDEUberViewSplitView.m */; };
 		D3369ABA1E36BEED00FEB7BF /* IDEUserDefaults.m in Sources */ = {isa = PBXBuildFile; fileRef = D3369A781E36BEED00FEB7BF /* IDEUserDefaults.m */; };
@@ -263,9 +264,7 @@
 /* Begin PBXFileReference section */
 		D3166E9F1E57C2FA00DEE3A0 /* DOMNodeList+TDAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "DOMNodeList+TDAdditions.m"; path = "lib/TDAppKit/src/DOMNodeList+TDAdditions.m"; sourceTree = SOURCE_ROOT; };
 		D3166EAC1E57C54400DEE3A0 /* base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = base; path = base.lproj/EDUpdatePreferences.xib; sourceTree = "<group>"; };
-		D3166EAE1E57C54400DEE3A0 /* base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = base; path = base.lproj/IDEAppearancePreferences.xib; sourceTree = "<group>"; };
 		D3166EB01E57C54400DEE3A0 /* base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = base; path = base.lproj/IDEGeneralPreferences.xib; sourceTree = "<group>"; };
-		D3166EB21E57C54400DEE3A0 /* base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = base; path = base.lproj/IDETabsPreferences.xib; sourceTree = "<group>"; };
 		D3166EB41E57C54400DEE3A0 /* base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = base; path = base.lproj/OAPreferencesWindow.xib; sourceTree = "<group>"; };
 		D3166EC81E57C6E900DEE3A0 /* Language.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Language.xcodeproj; path = lib/Language/Language.xcodeproj; sourceTree = "<group>"; };
 		D3166ED51E57C96D00DEE3A0 /* Sparkle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Sparkle.framework; path = lib/Sparkle/Sparkle.framework; sourceTree = SOURCE_ROOT; };
@@ -329,6 +328,16 @@
 		D3166F461E59081000DEE3A0 /* WebIconDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebIconDatabase.h; sourceTree = "<group>"; };
 		D3166F471E59081000DEE3A0 /* WebURLsWithTitles.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebURLsWithTitles.h; sourceTree = "<group>"; };
 		D3166F481E59081000DEE3A0 /* WebViewPrivate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebViewPrivate.h; sourceTree = "<group>"; };
+		D3166F511E5908CA00DEE3A0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/EDTextEditingPreferences.xib; sourceTree = "<group>"; };
+		D3166F531E5908D700DEE3A0 /* EDTextEditingPreferences.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EDTextEditingPreferences.h; sourceTree = "<group>"; };
+		D3166F541E5908D700DEE3A0 /* EDTextEditingPreferences.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EDTextEditingPreferences.m; sourceTree = "<group>"; };
+		D3166F571E5908F000DEE3A0 /* EDGuidesPreferences.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EDGuidesPreferences.h; sourceTree = "<group>"; };
+		D3166F581E5908F000DEE3A0 /* EDGuidesPreferences.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EDGuidesPreferences.m; sourceTree = "<group>"; };
+		D3166F5B1E5908FE00DEE3A0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/EDGuidesPreferences.xib; sourceTree = "<group>"; };
+		D3166F651E5909F600DEE3A0 /* EDMetrics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EDMetrics.h; sourceTree = "<group>"; };
+		D3166F661E5909F600DEE3A0 /* EDMetrics.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EDMetrics.m; sourceTree = "<group>"; };
+		D3166F681E590A1300DEE3A0 /* EDModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EDModel.h; sourceTree = "<group>"; };
+		D3166F691E590A1300DEE3A0 /* EDModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EDModel.m; sourceTree = "<group>"; };
 		D33699A71E36B78900FEB7BF /* DevApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DevApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D33699AA1E36B78900FEB7BF /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		D33699AB1E36B78900FEB7BF /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -343,26 +352,20 @@
 		D3369A381E36BB1300FEB7BF /* WindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WindowController.h; sourceTree = "<group>"; };
 		D3369A391E36BB1300FEB7BF /* WindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WindowController.m; sourceTree = "<group>"; };
 		D3369A3E1E36BB2800FEB7BF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/WindowController.xib; sourceTree = "<group>"; };
-		D3369A521E36BEED00FEB7BF /* EDUpdatePreferences.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EDUpdatePreferences.h; sourceTree = "<group>"; };
-		D3369A531E36BEED00FEB7BF /* EDUpdatePreferences.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EDUpdatePreferences.m; sourceTree = "<group>"; };
-		D3369A581E36BEED00FEB7BF /* IDEAppearancePreferences.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDEAppearancePreferences.h; sourceTree = "<group>"; };
-		D3369A591E36BEED00FEB7BF /* IDEAppearancePreferences.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IDEAppearancePreferences.m; sourceTree = "<group>"; };
+		D3369A521E36BEED00FEB7BF /* EDUpdatePreferences.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EDUpdatePreferences.h; path = ../lib/IDEKit/EDUpdatePreferences.h; sourceTree = "<group>"; };
+		D3369A531E36BEED00FEB7BF /* EDUpdatePreferences.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EDUpdatePreferences.m; path = ../lib/IDEKit/EDUpdatePreferences.m; sourceTree = "<group>"; };
 		D3369A5A1E36BEED00FEB7BF /* IDEApplication.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDEApplication.h; sourceTree = "<group>"; };
 		D3369A5B1E36BEED00FEB7BF /* IDEApplication.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IDEApplication.m; sourceTree = "<group>"; };
-		D3369A5C1E36BEED00FEB7BF /* IDEBasePreferences.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDEBasePreferences.h; sourceTree = "<group>"; };
-		D3369A5D1E36BEED00FEB7BF /* IDEBasePreferences.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IDEBasePreferences.m; sourceTree = "<group>"; };
 		D3369A601E36BEED00FEB7BF /* IDEDocument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDEDocument.h; sourceTree = "<group>"; };
 		D3369A611E36BEED00FEB7BF /* IDEDocument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IDEDocument.m; sourceTree = "<group>"; };
 		D3369A621E36BEED00FEB7BF /* IDEDocumentController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDEDocumentController.h; sourceTree = "<group>"; };
 		D3369A631E36BEED00FEB7BF /* IDEDocumentController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IDEDocumentController.m; sourceTree = "<group>"; };
-		D3369A641E36BEED00FEB7BF /* IDEGeneralPreferences.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDEGeneralPreferences.h; sourceTree = "<group>"; };
-		D3369A651E36BEED00FEB7BF /* IDEGeneralPreferences.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IDEGeneralPreferences.m; sourceTree = "<group>"; };
+		D3369A641E36BEED00FEB7BF /* IDEGeneralPreferences.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IDEGeneralPreferences.h; path = ../lib/IDEKit/IDEGeneralPreferences.h; sourceTree = "<group>"; };
+		D3369A651E36BEED00FEB7BF /* IDEGeneralPreferences.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IDEGeneralPreferences.m; path = ../lib/IDEKit/IDEGeneralPreferences.m; sourceTree = "<group>"; };
 		D3369A691E36BEED00FEB7BF /* IDEMainWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDEMainWindow.h; sourceTree = "<group>"; };
 		D3369A6A1E36BEED00FEB7BF /* IDEMainWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IDEMainWindow.m; sourceTree = "<group>"; };
 		D3369A6B1E36BEED00FEB7BF /* IDEMainWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDEMainWindowController.h; sourceTree = "<group>"; };
 		D3369A6C1E36BEED00FEB7BF /* IDEMainWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IDEMainWindowController.m; sourceTree = "<group>"; };
-		D3369A711E36BEED00FEB7BF /* IDETabsPreferences.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDETabsPreferences.h; sourceTree = "<group>"; };
-		D3369A721E36BEED00FEB7BF /* IDETabsPreferences.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IDETabsPreferences.m; sourceTree = "<group>"; };
 		D3369A731E36BEED00FEB7BF /* IDEUberView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDEUberView.h; sourceTree = "<group>"; };
 		D3369A741E36BEED00FEB7BF /* IDEUberView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IDEUberView.m; sourceTree = "<group>"; };
 		D3369A751E36BEED00FEB7BF /* IDEUberViewSplitView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDEUberViewSplitView.h; sourceTree = "<group>"; };
@@ -604,6 +607,10 @@
 				D3166F2B1E5905A100DEE3A0 /* EDRegexPattern.m */,
 				D3166F2C1E5905A100DEE3A0 /* EDWildcardPattern.h */,
 				D3166F2D1E5905A100DEE3A0 /* EDWildcardPattern.m */,
+				D3166F681E590A1300DEE3A0 /* EDModel.h */,
+				D3166F691E590A1300DEE3A0 /* EDModel.m */,
+				D3166F651E5909F600DEE3A0 /* EDMetrics.h */,
+				D3166F661E5909F600DEE3A0 /* EDMetrics.m */,
 			);
 			name = Utils;
 			sourceTree = "<group>";
@@ -611,7 +618,11 @@
 		D3166F401E5907B100DEE3A0 /* Prefs */ = {
 			isa = PBXGroup;
 			children = (
+				D3166F4F1E5908BB00DEE3A0 /* General */,
+				D3166F561E5908DA00DEE3A0 /* Text Editing */,
 				D3166EE21E5902A800DEE3A0 /* Theme */,
+				D3166F5D1E59090100DEE3A0 /* Guides */,
+				D3166F641E59097A00DEE3A0 /* Update */,
 			);
 			name = Prefs;
 			sourceTree = "<group>";
@@ -627,6 +638,46 @@
 			name = WebKit;
 			path = lib/WebKit;
 			sourceTree = SOURCE_ROOT;
+		};
+		D3166F4F1E5908BB00DEE3A0 /* General */ = {
+			isa = PBXGroup;
+			children = (
+				D3369A641E36BEED00FEB7BF /* IDEGeneralPreferences.h */,
+				D3369A651E36BEED00FEB7BF /* IDEGeneralPreferences.m */,
+				D3166EAF1E57C54400DEE3A0 /* IDEGeneralPreferences.xib */,
+			);
+			name = General;
+			sourceTree = "<group>";
+		};
+		D3166F561E5908DA00DEE3A0 /* Text Editing */ = {
+			isa = PBXGroup;
+			children = (
+				D3166F531E5908D700DEE3A0 /* EDTextEditingPreferences.h */,
+				D3166F541E5908D700DEE3A0 /* EDTextEditingPreferences.m */,
+				D3166F501E5908CA00DEE3A0 /* EDTextEditingPreferences.xib */,
+			);
+			name = "Text Editing";
+			sourceTree = "<group>";
+		};
+		D3166F5D1E59090100DEE3A0 /* Guides */ = {
+			isa = PBXGroup;
+			children = (
+				D3166F571E5908F000DEE3A0 /* EDGuidesPreferences.h */,
+				D3166F581E5908F000DEE3A0 /* EDGuidesPreferences.m */,
+				D3166F5A1E5908FE00DEE3A0 /* EDGuidesPreferences.xib */,
+			);
+			name = Guides;
+			sourceTree = "<group>";
+		};
+		D3166F641E59097A00DEE3A0 /* Update */ = {
+			isa = PBXGroup;
+			children = (
+				D3369A521E36BEED00FEB7BF /* EDUpdatePreferences.h */,
+				D3369A531E36BEED00FEB7BF /* EDUpdatePreferences.m */,
+				D3166EAB1E57C54400DEE3A0 /* EDUpdatePreferences.xib */,
+			);
+			name = Update;
+			sourceTree = "<group>";
 		};
 		D336999E1E36B78800FEB7BF = {
 			isa = PBXGroup;
@@ -670,7 +721,6 @@
 				D3369A391E36BB1300FEB7BF /* WindowController.m */,
 				D3369A3F1E36BB2800FEB7BF /* WindowController.xib */,
 				D3166F401E5907B100DEE3A0 /* Prefs */,
-				D33699BB1E36B78900FEB7BF /* Info.plist */,
 				D33699AD1E36B78900FEB7BF /* Supporting Files */,
 			);
 			path = DevApp;
@@ -683,6 +733,7 @@
 				D33699B61E36B78900FEB7BF /* Assets.xcassets */,
 				D3369B311E36C61F00FEB7BF /* DevApp-Prefix.pch */,
 				D33699AE1E36B78900FEB7BF /* main.m */,
+				D33699BB1E36B78900FEB7BF /* Info.plist */,
 				D3166F321E59068500DEE3A0 /* DevApp-DefaultValues.plist */,
 			);
 			name = "Supporting Files";
@@ -734,7 +785,6 @@
 				D3369A691E36BEED00FEB7BF /* IDEMainWindow.h */,
 				D3369A6A1E36BEED00FEB7BF /* IDEMainWindow.m */,
 				D3369AD21E36BF9D00FEB7BF /* UberView */,
-				D3369AD11E36BF9300FEB7BF /* PrefPanes */,
 				D3369A7B1E36BEED00FEB7BF /* OAPreferences */,
 			);
 			name = IDEKit;
@@ -784,27 +834,6 @@
 				D3369AA01E36BEED00FEB7BF /* OFPreference.m */,
 			);
 			path = OAPreferences;
-			sourceTree = "<group>";
-		};
-		D3369AD11E36BF9300FEB7BF /* PrefPanes */ = {
-			isa = PBXGroup;
-			children = (
-				D3369A521E36BEED00FEB7BF /* EDUpdatePreferences.h */,
-				D3369A531E36BEED00FEB7BF /* EDUpdatePreferences.m */,
-				D3166EAB1E57C54400DEE3A0 /* EDUpdatePreferences.xib */,
-				D3369A581E36BEED00FEB7BF /* IDEAppearancePreferences.h */,
-				D3369A591E36BEED00FEB7BF /* IDEAppearancePreferences.m */,
-				D3166EAD1E57C54400DEE3A0 /* IDEAppearancePreferences.xib */,
-				D3369A5C1E36BEED00FEB7BF /* IDEBasePreferences.h */,
-				D3369A5D1E36BEED00FEB7BF /* IDEBasePreferences.m */,
-				D3369A641E36BEED00FEB7BF /* IDEGeneralPreferences.h */,
-				D3369A651E36BEED00FEB7BF /* IDEGeneralPreferences.m */,
-				D3166EAF1E57C54400DEE3A0 /* IDEGeneralPreferences.xib */,
-				D3369A711E36BEED00FEB7BF /* IDETabsPreferences.h */,
-				D3369A721E36BEED00FEB7BF /* IDETabsPreferences.m */,
-				D3166EB11E57C54400DEE3A0 /* IDETabsPreferences.xib */,
-			);
-			name = PrefPanes;
 			sourceTree = "<group>";
 		};
 		D3369AD21E36BF9D00FEB7BF /* UberView */ = {
@@ -1121,13 +1150,13 @@
 				D3369A3D1E36BB2800FEB7BF /* WindowController.xib in Resources */,
 				D3369AC91E36BEED00FEB7BF /* OAPreferencesNextButton.png in Resources */,
 				D3166EB71E57C54400DEE3A0 /* IDEGeneralPreferences.xib in Resources */,
-				D3166EB81E57C54400DEE3A0 /* IDETabsPreferences.xib in Resources */,
+				D3166F5C1E5908FE00DEE3A0 /* EDGuidesPreferences.xib in Resources */,
 				D3369C071E36C75F00FEB7BF /* TDRegisterWindow.xib in Resources */,
 				D3166F361E59073D00DEE3A0 /* EDThemePreferences.xib in Resources */,
 				D3166F331E59068500DEE3A0 /* DevApp-DefaultValues.plist in Resources */,
 				D33699BA1E36B78900FEB7BF /* MainMenu.xib in Resources */,
-				D3166EB61E57C54400DEE3A0 /* IDEAppearancePreferences.xib in Resources */,
 				D3166EB51E57C54400DEE3A0 /* EDUpdatePreferences.xib in Resources */,
+				D3166F521E5908CA00DEE3A0 /* EDTextEditingPreferences.xib in Resources */,
 				D3166EB91E57C54400DEE3A0 /* OAPreferencesWindow.xib in Resources */,
 				D3369ACA1E36BEED00FEB7BF /* OAPreferencesPreviousButton.png in Resources */,
 			);
@@ -1143,7 +1172,6 @@
 				D33699B21E36B78900FEB7BF /* Document.m in Sources */,
 				D3369BD01E36C73800FEB7BF /* TDBarItem.m in Sources */,
 				D3369BE41E36C73800FEB7BF /* TDRegisterWindowController.m in Sources */,
-				D3369AAB1E36BEED00FEB7BF /* IDEAppearancePreferences.m in Sources */,
 				D3369BD71E36C73800FEB7BF /* TDComboFieldTextView.m in Sources */,
 				D3369ACD1E36BEED00FEB7BF /* OBObject.m in Sources */,
 				D3369A3B1E36BB1300FEB7BF /* WindowController.m in Sources */,
@@ -1166,7 +1194,7 @@
 				D3166F0F1E59038F00DEE3A0 /* OKGutterView.m in Sources */,
 				D3369BE11E36C73800FEB7BF /* TDListItem.m in Sources */,
 				D3369BDC1E36C73800FEB7BF /* TDGutterView.m in Sources */,
-				D3369AB71E36BEED00FEB7BF /* IDETabsPreferences.m in Sources */,
+				D3166F591E5908F000DEE3A0 /* EDGuidesPreferences.m in Sources */,
 				D3369BD61E36C73800FEB7BF /* TDComboFieldListView.m in Sources */,
 				D3369ACE1E36BEED00FEB7BF /* OFObject.m in Sources */,
 				D3166F1A1E59040D00DEE3A0 /* EDApplication.m in Sources */,
@@ -1174,6 +1202,7 @@
 				D3166EF01E5902A800DEE3A0 /* EDThemeRulesNameTableCell.m in Sources */,
 				D3369BDB1E36C73800FEB7BF /* TDFlippedView.m in Sources */,
 				D3369BC81E36C73800FEB7BF /* NSBezierPath+TDAdditions.m in Sources */,
+				D3166F551E5908D700DEE3A0 /* EDTextEditingPreferences.m in Sources */,
 				D3166F3C1E59078000DEE3A0 /* EDColorPickerCell.m in Sources */,
 				D3166F1D1E59042B00DEE3A0 /* OKMiniCSSParser.m in Sources */,
 				D3369BEE1E36C73800FEB7BF /* TDTabBarController.m in Sources */,
@@ -1208,6 +1237,7 @@
 				D3369B221E36C25A00FEB7BF /* TKTabListItemStyleMerged.m in Sources */,
 				D3369B181E36C25A00FEB7BF /* TKDocumentController.m in Sources */,
 				D3369ABF1E36BEED00FEB7BF /* NSImage-OAExtensions.m in Sources */,
+				D3166F6A1E590A1300DEE3A0 /* EDModel.m in Sources */,
 				D3369BEC1E36C73800FEB7BF /* TDStatusBarPopUpView.m in Sources */,
 				D3369AC71E36BEED00FEB7BF /* OAPreferenceController.m in Sources */,
 				D33699AF1E36B78900FEB7BF /* main.m in Sources */,
@@ -1220,7 +1250,6 @@
 				D3369BED1E36C73800FEB7BF /* TDTabBar.m in Sources */,
 				D3166F121E59038F00DEE3A0 /* OKSyntaxHighlighter.m in Sources */,
 				D3369B161E36C25A00FEB7BF /* TKDocument.m in Sources */,
-				D3369AAD1E36BEED00FEB7BF /* IDEBasePreferences.m in Sources */,
 				D3369ACC1E36BEED00FEB7BF /* OAPreferencesWindow.m in Sources */,
 				D3369AC41E36BEED00FEB7BF /* NSToolbar-OAExtensions.m in Sources */,
 				D3369AAC1E36BEED00FEB7BF /* IDEApplication.m in Sources */,
@@ -1246,6 +1275,7 @@
 				D3369AAF1E36BEED00FEB7BF /* IDEDocument.m in Sources */,
 				D3166F2F1E5905A100DEE3A0 /* EDRegexPattern.m in Sources */,
 				D3369B1C1E36C25A00FEB7BF /* TKTabListItem.m in Sources */,
+				D3166F671E5909F600DEE3A0 /* EDMetrics.m in Sources */,
 				D3369BD91E36C73800FEB7BF /* TDDropTargetView.m in Sources */,
 				D3369B261E36C25A00FEB7BF /* TKTabsListViewController.m in Sources */,
 				D3166F101E59038F00DEE3A0 /* OKMiniCSSAssembler.m in Sources */,
@@ -1282,14 +1312,7 @@
 				D3166EAC1E57C54400DEE3A0 /* base */,
 			);
 			name = EDUpdatePreferences.xib;
-			sourceTree = "<group>";
-		};
-		D3166EAD1E57C54400DEE3A0 /* IDEAppearancePreferences.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				D3166EAE1E57C54400DEE3A0 /* base */,
-			);
-			name = IDEAppearancePreferences.xib;
+			path = ../lib/IDEKit;
 			sourceTree = "<group>";
 		};
 		D3166EAF1E57C54400DEE3A0 /* IDEGeneralPreferences.xib */ = {
@@ -1298,14 +1321,7 @@
 				D3166EB01E57C54400DEE3A0 /* base */,
 			);
 			name = IDEGeneralPreferences.xib;
-			sourceTree = "<group>";
-		};
-		D3166EB11E57C54400DEE3A0 /* IDETabsPreferences.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				D3166EB21E57C54400DEE3A0 /* base */,
-			);
-			name = IDETabsPreferences.xib;
+			path = ../lib/IDEKit;
 			sourceTree = "<group>";
 		};
 		D3166EB31E57C54400DEE3A0 /* OAPreferencesWindow.xib */ = {
@@ -1323,6 +1339,22 @@
 				D3166F351E59073D00DEE3A0 /* Base */,
 			);
 			name = EDThemePreferences.xib;
+			sourceTree = "<group>";
+		};
+		D3166F501E5908CA00DEE3A0 /* EDTextEditingPreferences.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D3166F511E5908CA00DEE3A0 /* Base */,
+			);
+			name = EDTextEditingPreferences.xib;
+			sourceTree = "<group>";
+		};
+		D3166F5A1E5908FE00DEE3A0 /* EDGuidesPreferences.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D3166F5B1E5908FE00DEE3A0 /* Base */,
+			);
+			name = EDGuidesPreferences.xib;
 			sourceTree = "<group>";
 		};
 		D33699B81E36B78900FEB7BF /* MainMenu.xib */ = {
