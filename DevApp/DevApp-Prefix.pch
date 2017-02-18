@@ -24,6 +24,8 @@
     #import <Foundation/Foundation.h>
 #endif
 
+#import "EDUserDefaults.h"
+
 #define TDAssert(b) NSAssert2((b), @" %s : assert(%@)", __PRETTY_FUNCTION__, @#b);
 #define TDAssertMainThread() NSAssert1([NSThread isMainThread], @"%s should be called on the main thread only.", __PRETTY_FUNCTION__);
 #define TDAssertNotMainThread() NSAssert1(![NSThread isMainThread], @"%s should be called on the main thread only.", __PRETTY_FUNCTION__);
@@ -32,4 +34,54 @@
 #define IDEAssertMainThread() NSAssert1([NSThread isMainThread], @"%s should be called on the main thread only.", __PRETTY_FUNCTION__);
 #define IDEssertNotMainThread() NSAssert1(![NSThread isMainThread], @"%s should be called on the main thread only.", __PRETTY_FUNCTION__);
 
+#define EDAssert(b) NSAssert2((b), @" %s : assert(%@)", __PRETTY_FUNCTION__, @#b);
+#define EDAssertMainThread() NSAssert1([NSThread isMainThread], @"%s should be called on the main thread only.", __PRETTY_FUNCTION__);
+#define EDssertNotMainThread() NSAssert1(![NSThread isMainThread], @"%s should be called on the main thread only.", __PRETTY_FUNCTION__);
+
+#define OKAssert(b) NSAssert2((b), @" %s : assert(%@)", __PRETTY_FUNCTION__, @#b);
+#define OKAssertMainThread() NSAssert1([NSThread isMainThread], @"%s should be called on the main thread only.", __PRETTY_FUNCTION__);
+#define OKssertNotMainThread() NSAssert1(![NSThread isMainThread], @"%s should be called on the main thread only.", __PRETTY_FUNCTION__);
+
 #define TKTabPboardType @"TKTabPboardType"
+
+#define PEGKIT 1
+
+#define PK_PLATFORM_EMAIL_STATE 0
+#define PK_PLATFORM_TWITTER_STATE 0
+
+#define REFRESH_AFTER_SCROLL 0
+
+#define APP_NAME @"DevApp"
+#define MY_BUNDLE_ID @"com.celestialteapot.DevApp"
+
+#define DOC_AS_PACKAGE 1
+
+#define FILE_DOC_EXT @"devapp"
+
+#define FILE_DOC_TYPE @"com.celestialteapot.devappdoc"
+
+#define DEFAULT_DOC_EXT FILE_DOC_EXT
+
+#define EditorTabPboardType @"com.celestialteapot.devapp.tab"
+
+#define DOC_ICON_NAME @"devappdoc"
+#define EDProjectSettingsURL @"devapp://Project Settings"
+
+#define MAX_NUM_BREAKPOINTS 3
+
+#define LICENSE_EXT @"devaplicense"
+
+#define LICENSE_FILENAME @"DevAppLicense"
+
+#define PURCHASE_URL @"http://celestialteapot.com/exedore"
+#define SUPPORT_URL @"http://groups.google.com/group/exedoreapp"
+
+#define DEFAULT_VALUES_FILENAME @"Exedore-DefaultValues"
+
+#define XFER_RAW_DATA 1
+
+#define SQUARE_PROGRESS_COMBO_FIELD 1
+
+#define PROJ_PLIST_NAME @"exedore_project"
+
+#define SETUP_FILENAME @"com_celestialteapot_setup"

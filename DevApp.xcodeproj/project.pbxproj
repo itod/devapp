@@ -17,17 +17,44 @@
 		D3166ED41E57C70B00DEE3A0 /* Language.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = D3166ECE1E57C6E900DEE3A0 /* Language.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D3166ED61E57C96D00DEE3A0 /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3166ED51E57C96D00DEE3A0 /* Sparkle.framework */; };
 		D3166ED71E57C97B00DEE3A0 /* Sparkle.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = D3166ED51E57C96D00DEE3A0 /* Sparkle.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		D3166EED1E5902A800DEE3A0 /* EDTheme.m in Sources */ = {isa = PBXBuildFile; fileRef = D3166EE41E5902A800DEE3A0 /* EDTheme.m */; };
+		D3166EEE1E5902A800DEE3A0 /* EDThemeManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D3166EE61E5902A800DEE3A0 /* EDThemeManager.m */; };
+		D3166EEF1E5902A800DEE3A0 /* EDThemePreferences.m in Sources */ = {isa = PBXBuildFile; fileRef = D3166EE81E5902A800DEE3A0 /* EDThemePreferences.m */; };
+		D3166EF01E5902A800DEE3A0 /* EDThemeRulesNameTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D3166EEA1E5902A800DEE3A0 /* EDThemeRulesNameTableCell.m */; };
+		D3166EF11E5902A800DEE3A0 /* EDThemeRulesTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = D3166EEC1E5902A800DEE3A0 /* EDThemeRulesTableView.m */; };
+		D3166F0C1E59038F00DEE3A0 /* NSString+OKAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = D3166EFE1E59038F00DEE3A0 /* NSString+OKAdditions.m */; };
+		D3166F0D1E59038F00DEE3A0 /* OKBreakpoint.m in Sources */ = {isa = PBXBuildFile; fileRef = D3166EFF1E59038F00DEE3A0 /* OKBreakpoint.m */; };
+		D3166F0E1E59038F00DEE3A0 /* OKContainerView.m in Sources */ = {isa = PBXBuildFile; fileRef = D3166F011E59038F00DEE3A0 /* OKContainerView.m */; };
+		D3166F0F1E59038F00DEE3A0 /* OKGutterView.m in Sources */ = {isa = PBXBuildFile; fileRef = D3166F021E59038F00DEE3A0 /* OKGutterView.m */; };
+		D3166F101E59038F00DEE3A0 /* OKMiniCSSAssembler.m in Sources */ = {isa = PBXBuildFile; fileRef = D3166F041E59038F00DEE3A0 /* OKMiniCSSAssembler.m */; };
+		D3166F111E59038F00DEE3A0 /* OKSource.m in Sources */ = {isa = PBXBuildFile; fileRef = D3166F051E59038F00DEE3A0 /* OKSource.m */; };
+		D3166F121E59038F00DEE3A0 /* OKSyntaxHighlighter.m in Sources */ = {isa = PBXBuildFile; fileRef = D3166F061E59038F00DEE3A0 /* OKSyntaxHighlighter.m */; };
+		D3166F131E59038F00DEE3A0 /* OKTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = D3166F071E59038F00DEE3A0 /* OKTextView.m */; };
+		D3166F141E59038F00DEE3A0 /* OKTrigger.m in Sources */ = {isa = PBXBuildFile; fileRef = D3166F081E59038F00DEE3A0 /* OKTrigger.m */; };
+		D3166F151E59038F00DEE3A0 /* OKUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = D3166F091E59038F00DEE3A0 /* OKUtils.m */; };
+		D3166F161E59038F00DEE3A0 /* OKView.m in Sources */ = {isa = PBXBuildFile; fileRef = D3166F0A1E59038F00DEE3A0 /* OKView.m */; };
+		D3166F171E59038F00DEE3A0 /* OKViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D3166F0B1E59038F00DEE3A0 /* OKViewController.m */; };
+		D3166F1A1E59040D00DEE3A0 /* EDApplication.m in Sources */ = {isa = PBXBuildFile; fileRef = D3166F191E59040D00DEE3A0 /* EDApplication.m */; };
+		D3166F1D1E59042B00DEE3A0 /* OKMiniCSSParser.m in Sources */ = {isa = PBXBuildFile; fileRef = D3166F1C1E59042B00DEE3A0 /* OKMiniCSSParser.m */; settings = {COMPILER_FLAGS = "-Wno-undeclared-selector"; }; };
+		D3166F241E5904D600DEE3A0 /* EDUserDefaults.m in Sources */ = {isa = PBXBuildFile; fileRef = D3166F231E5904D600DEE3A0 /* EDUserDefaults.m */; };
+		D3166F2E1E5905A100DEE3A0 /* EDPattern.m in Sources */ = {isa = PBXBuildFile; fileRef = D3166F291E5905A100DEE3A0 /* EDPattern.m */; };
+		D3166F2F1E5905A100DEE3A0 /* EDRegexPattern.m in Sources */ = {isa = PBXBuildFile; fileRef = D3166F2B1E5905A100DEE3A0 /* EDRegexPattern.m */; };
+		D3166F301E5905A100DEE3A0 /* EDWildcardPattern.m in Sources */ = {isa = PBXBuildFile; fileRef = D3166F2D1E5905A100DEE3A0 /* EDWildcardPattern.m */; };
+		D3166F331E59068500DEE3A0 /* DevApp-DefaultValues.plist in Resources */ = {isa = PBXBuildFile; fileRef = D3166F321E59068500DEE3A0 /* DevApp-DefaultValues.plist */; };
+		D3166F361E59073D00DEE3A0 /* EDThemePreferences.xib in Resources */ = {isa = PBXBuildFile; fileRef = D3166F341E59073D00DEE3A0 /* EDThemePreferences.xib */; };
+		D3166F391E59076200DEE3A0 /* EDFontPickerTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = D3166F381E59076200DEE3A0 /* EDFontPickerTextField.m */; };
+		D3166F3C1E59078000DEE3A0 /* EDColorPickerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D3166F3B1E59078000DEE3A0 /* EDColorPickerCell.m */; };
+		D3166F3F1E59079700DEE3A0 /* EDColorPickerButtonCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D3166F3E1E59079700DEE3A0 /* EDColorPickerButtonCell.m */; };
+		D3166F431E5907C900DEE3A0 /* EDUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = D3166F421E5907C900DEE3A0 /* EDUtils.m */; };
 		D33699AC1E36B78900FEB7BF /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D33699AB1E36B78900FEB7BF /* AppDelegate.m */; };
 		D33699AF1E36B78900FEB7BF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D33699AE1E36B78900FEB7BF /* main.m */; };
 		D33699B21E36B78900FEB7BF /* Document.m in Sources */ = {isa = PBXBuildFile; fileRef = D33699B11E36B78900FEB7BF /* Document.m */; };
 		D33699B71E36B78900FEB7BF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D33699B61E36B78900FEB7BF /* Assets.xcassets */; };
 		D33699BA1E36B78900FEB7BF /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = D33699B81E36B78900FEB7BF /* MainMenu.xib */; };
-		D33699FD1E36B8ED00FEB7BF /* OkudaKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D33699C71E36B8A800FEB7BF /* OkudaKit.framework */; };
 		D33699FE1E36B8ED00FEB7BF /* PEGKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D33699D41E36B8AE00FEB7BF /* PEGKit.framework */; };
 		D33699FF1E36B8ED00FEB7BF /* TDTemplateEngine.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D33699F21E36B8B800FEB7BF /* TDTemplateEngine.framework */; };
 		D3369A011E36B92300FEB7BF /* TDTemplateEngine.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = D33699F21E36B8B800FEB7BF /* TDTemplateEngine.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D3369A021E36B92A00FEB7BF /* PEGKit.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = D33699D41E36B8AE00FEB7BF /* PEGKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		D3369A031E36B92F00FEB7BF /* OkudaKit.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = D33699C71E36B8A800FEB7BF /* OkudaKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D3369A3B1E36BB1300FEB7BF /* WindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = D3369A391E36BB1300FEB7BF /* WindowController.m */; };
 		D3369A3D1E36BB2800FEB7BF /* WindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D3369A3F1E36BB2800FEB7BF /* WindowController.xib */; };
 		D3369AA81E36BEED00FEB7BF /* EDUpdatePreferences.m in Sources */ = {isa = PBXBuildFile; fileRef = D3369A531E36BEED00FEB7BF /* EDUpdatePreferences.m */; };
@@ -137,20 +164,6 @@
 			remoteGlobalIDString = D305628B1E3BD929008BEC9A;
 			remoteInfo = Language;
 		};
-		D33699C61E36B8A800FEB7BF /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = D33699C11E36B8A800FEB7BF /* OkudaKit.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 8DC2EF5B0486A6940098B216;
-			remoteInfo = OkudaKit;
-		};
-		D33699C81E36B8A800FEB7BF /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = D33699C11E36B8A800FEB7BF /* OkudaKit.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = D3A81B12101E8FB200C38137;
-			remoteInfo = OKTests;
-		};
 		D33699D31E36B8AE00FEB7BF /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D33699CA1E36B8AD00FEB7BF /* PEGKit.xcodeproj */;
@@ -228,13 +241,6 @@
 			remoteGlobalIDString = D3F8A3DA175817DF00056188;
 			remoteInfo = PEGKit;
 		};
-		D33699FB1E36B8DD00FEB7BF /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = D33699C11E36B8A800FEB7BF /* OkudaKit.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = 8DC2EF4F0486A6940098B216;
-			remoteInfo = OkudaKit;
-		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -248,7 +254,6 @@
 				D3166ED41E57C70B00DEE3A0 /* Language.framework in Copy Frameworks */,
 				D3369A011E36B92300FEB7BF /* TDTemplateEngine.framework in Copy Frameworks */,
 				D3369A021E36B92A00FEB7BF /* PEGKit.framework in Copy Frameworks */,
-				D3369A031E36B92F00FEB7BF /* OkudaKit.framework in Copy Frameworks */,
 			);
 			name = "Copy Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -264,6 +269,66 @@
 		D3166EB41E57C54400DEE3A0 /* base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = base; path = base.lproj/OAPreferencesWindow.xib; sourceTree = "<group>"; };
 		D3166EC81E57C6E900DEE3A0 /* Language.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Language.xcodeproj; path = lib/Language/Language.xcodeproj; sourceTree = "<group>"; };
 		D3166ED51E57C96D00DEE3A0 /* Sparkle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Sparkle.framework; path = lib/Sparkle/Sparkle.framework; sourceTree = SOURCE_ROOT; };
+		D3166EE31E5902A800DEE3A0 /* EDTheme.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EDTheme.h; sourceTree = "<group>"; };
+		D3166EE41E5902A800DEE3A0 /* EDTheme.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EDTheme.m; sourceTree = "<group>"; };
+		D3166EE51E5902A800DEE3A0 /* EDThemeManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EDThemeManager.h; sourceTree = "<group>"; };
+		D3166EE61E5902A800DEE3A0 /* EDThemeManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EDThemeManager.m; sourceTree = "<group>"; };
+		D3166EE71E5902A800DEE3A0 /* EDThemePreferences.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EDThemePreferences.h; sourceTree = "<group>"; };
+		D3166EE81E5902A800DEE3A0 /* EDThemePreferences.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EDThemePreferences.m; sourceTree = "<group>"; };
+		D3166EE91E5902A800DEE3A0 /* EDThemeRulesNameTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EDThemeRulesNameTableCell.h; sourceTree = "<group>"; };
+		D3166EEA1E5902A800DEE3A0 /* EDThemeRulesNameTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EDThemeRulesNameTableCell.m; sourceTree = "<group>"; };
+		D3166EEB1E5902A800DEE3A0 /* EDThemeRulesTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EDThemeRulesTableView.h; sourceTree = "<group>"; };
+		D3166EEC1E5902A800DEE3A0 /* EDThemeRulesTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EDThemeRulesTableView.m; sourceTree = "<group>"; };
+		D3166EF31E59037C00DEE3A0 /* OKBreakpoint.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = OKBreakpoint.h; path = lib/OkudaKit/include/OkudaKit/OKBreakpoint.h; sourceTree = SOURCE_ROOT; };
+		D3166EF41E59037C00DEE3A0 /* OKGutterView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = OKGutterView.h; path = lib/OkudaKit/include/OkudaKit/OKGutterView.h; sourceTree = SOURCE_ROOT; };
+		D3166EF51E59037C00DEE3A0 /* OKSource.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = OKSource.h; path = lib/OkudaKit/include/OkudaKit/OKSource.h; sourceTree = SOURCE_ROOT; };
+		D3166EF61E59037C00DEE3A0 /* OKSyntaxHighlighter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = OKSyntaxHighlighter.h; path = lib/OkudaKit/include/OkudaKit/OKSyntaxHighlighter.h; sourceTree = SOURCE_ROOT; };
+		D3166EF71E59037C00DEE3A0 /* OKTextView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = OKTextView.h; path = lib/OkudaKit/include/OkudaKit/OKTextView.h; sourceTree = SOURCE_ROOT; };
+		D3166EF81E59037C00DEE3A0 /* OKTrigger.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = OKTrigger.h; path = lib/OkudaKit/include/OkudaKit/OKTrigger.h; sourceTree = SOURCE_ROOT; };
+		D3166EFA1E59037C00DEE3A0 /* OKUtils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = OKUtils.h; path = lib/OkudaKit/include/OkudaKit/OKUtils.h; sourceTree = SOURCE_ROOT; };
+		D3166EFB1E59037C00DEE3A0 /* OKView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = OKView.h; path = lib/OkudaKit/include/OkudaKit/OKView.h; sourceTree = SOURCE_ROOT; };
+		D3166EFC1E59037C00DEE3A0 /* OKViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = OKViewController.h; path = lib/OkudaKit/include/OkudaKit/OKViewController.h; sourceTree = SOURCE_ROOT; };
+		D3166EFD1E59038F00DEE3A0 /* NSString+OKAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSString+OKAdditions.h"; path = "lib/OkudaKit/src/NSString+OKAdditions.h"; sourceTree = SOURCE_ROOT; };
+		D3166EFE1E59038F00DEE3A0 /* NSString+OKAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSString+OKAdditions.m"; path = "lib/OkudaKit/src/NSString+OKAdditions.m"; sourceTree = SOURCE_ROOT; };
+		D3166EFF1E59038F00DEE3A0 /* OKBreakpoint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OKBreakpoint.m; path = lib/OkudaKit/src/OKBreakpoint.m; sourceTree = SOURCE_ROOT; };
+		D3166F001E59038F00DEE3A0 /* OKContainerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OKContainerView.h; path = lib/OkudaKit/src/OKContainerView.h; sourceTree = SOURCE_ROOT; };
+		D3166F011E59038F00DEE3A0 /* OKContainerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OKContainerView.m; path = lib/OkudaKit/src/OKContainerView.m; sourceTree = SOURCE_ROOT; };
+		D3166F021E59038F00DEE3A0 /* OKGutterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OKGutterView.m; path = lib/OkudaKit/src/OKGutterView.m; sourceTree = SOURCE_ROOT; };
+		D3166F031E59038F00DEE3A0 /* OKMiniCSSAssembler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OKMiniCSSAssembler.h; path = lib/OkudaKit/src/OKMiniCSSAssembler.h; sourceTree = SOURCE_ROOT; };
+		D3166F041E59038F00DEE3A0 /* OKMiniCSSAssembler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OKMiniCSSAssembler.m; path = lib/OkudaKit/src/OKMiniCSSAssembler.m; sourceTree = SOURCE_ROOT; };
+		D3166F051E59038F00DEE3A0 /* OKSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OKSource.m; path = lib/OkudaKit/src/OKSource.m; sourceTree = SOURCE_ROOT; };
+		D3166F061E59038F00DEE3A0 /* OKSyntaxHighlighter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OKSyntaxHighlighter.m; path = lib/OkudaKit/src/OKSyntaxHighlighter.m; sourceTree = SOURCE_ROOT; };
+		D3166F071E59038F00DEE3A0 /* OKTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OKTextView.m; path = lib/OkudaKit/src/OKTextView.m; sourceTree = SOURCE_ROOT; };
+		D3166F081E59038F00DEE3A0 /* OKTrigger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OKTrigger.m; path = lib/OkudaKit/src/OKTrigger.m; sourceTree = SOURCE_ROOT; };
+		D3166F091E59038F00DEE3A0 /* OKUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OKUtils.m; path = lib/OkudaKit/src/OKUtils.m; sourceTree = SOURCE_ROOT; };
+		D3166F0A1E59038F00DEE3A0 /* OKView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OKView.m; path = lib/OkudaKit/src/OKView.m; sourceTree = SOURCE_ROOT; };
+		D3166F0B1E59038F00DEE3A0 /* OKViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OKViewController.m; path = lib/OkudaKit/src/OKViewController.m; sourceTree = SOURCE_ROOT; };
+		D3166F181E59040D00DEE3A0 /* EDApplication.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EDApplication.h; sourceTree = "<group>"; };
+		D3166F191E59040D00DEE3A0 /* EDApplication.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EDApplication.m; sourceTree = "<group>"; };
+		D3166F1B1E59042B00DEE3A0 /* OKMiniCSSParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OKMiniCSSParser.h; path = lib/OkudaKit/src/parsers/OKMiniCSSParser.h; sourceTree = SOURCE_ROOT; };
+		D3166F1C1E59042B00DEE3A0 /* OKMiniCSSParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OKMiniCSSParser.m; path = lib/OkudaKit/src/parsers/OKMiniCSSParser.m; sourceTree = SOURCE_ROOT; };
+		D3166F221E5904D600DEE3A0 /* EDUserDefaults.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EDUserDefaults.h; sourceTree = "<group>"; };
+		D3166F231E5904D600DEE3A0 /* EDUserDefaults.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EDUserDefaults.m; sourceTree = "<group>"; };
+		D3166F281E5905A100DEE3A0 /* EDPattern.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EDPattern.h; sourceTree = "<group>"; };
+		D3166F291E5905A100DEE3A0 /* EDPattern.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EDPattern.m; sourceTree = "<group>"; };
+		D3166F2A1E5905A100DEE3A0 /* EDRegexPattern.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EDRegexPattern.h; sourceTree = "<group>"; };
+		D3166F2B1E5905A100DEE3A0 /* EDRegexPattern.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EDRegexPattern.m; sourceTree = "<group>"; };
+		D3166F2C1E5905A100DEE3A0 /* EDWildcardPattern.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EDWildcardPattern.h; sourceTree = "<group>"; };
+		D3166F2D1E5905A100DEE3A0 /* EDWildcardPattern.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EDWildcardPattern.m; sourceTree = "<group>"; };
+		D3166F321E59068500DEE3A0 /* DevApp-DefaultValues.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "DevApp-DefaultValues.plist"; sourceTree = "<group>"; };
+		D3166F351E59073D00DEE3A0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = DevApp/Base.lproj/EDThemePreferences.xib; sourceTree = SOURCE_ROOT; };
+		D3166F371E59076200DEE3A0 /* EDFontPickerTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EDFontPickerTextField.h; sourceTree = "<group>"; };
+		D3166F381E59076200DEE3A0 /* EDFontPickerTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EDFontPickerTextField.m; sourceTree = "<group>"; };
+		D3166F3A1E59077F00DEE3A0 /* EDColorPickerCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EDColorPickerCell.h; sourceTree = "<group>"; };
+		D3166F3B1E59078000DEE3A0 /* EDColorPickerCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EDColorPickerCell.m; sourceTree = "<group>"; };
+		D3166F3D1E59079700DEE3A0 /* EDColorPickerButtonCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EDColorPickerButtonCell.h; sourceTree = "<group>"; };
+		D3166F3E1E59079700DEE3A0 /* EDColorPickerButtonCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EDColorPickerButtonCell.m; sourceTree = "<group>"; };
+		D3166F411E5907C900DEE3A0 /* EDUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EDUtils.h; sourceTree = "<group>"; };
+		D3166F421E5907C900DEE3A0 /* EDUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EDUtils.m; sourceTree = "<group>"; };
+		D3166F451E59081000DEE3A0 /* WebFramePrivate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebFramePrivate.h; sourceTree = "<group>"; };
+		D3166F461E59081000DEE3A0 /* WebIconDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebIconDatabase.h; sourceTree = "<group>"; };
+		D3166F471E59081000DEE3A0 /* WebURLsWithTitles.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebURLsWithTitles.h; sourceTree = "<group>"; };
+		D3166F481E59081000DEE3A0 /* WebViewPrivate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebViewPrivate.h; sourceTree = "<group>"; };
 		D33699A71E36B78900FEB7BF /* DevApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DevApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D33699AA1E36B78900FEB7BF /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		D33699AB1E36B78900FEB7BF /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -273,7 +338,6 @@
 		D33699B61E36B78900FEB7BF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D33699B91E36B78900FEB7BF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		D33699BB1E36B78900FEB7BF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D33699C11E36B8A800FEB7BF /* OkudaKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = OkudaKit.xcodeproj; path = lib/OkudaKit/OkudaKit.xcodeproj; sourceTree = "<group>"; };
 		D33699CA1E36B8AD00FEB7BF /* PEGKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = PEGKit.xcodeproj; path = lib/PEGKit/PEGKit.xcodeproj; sourceTree = "<group>"; };
 		D33699EB1E36B8B800FEB7BF /* TDTemplateEngine.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = TDTemplateEngine.xcodeproj; path = lib/TDTemplateEngine/TDTemplateEngine.xcodeproj; sourceTree = "<group>"; };
 		D3369A381E36BB1300FEB7BF /* WindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WindowController.h; sourceTree = "<group>"; };
@@ -457,7 +521,6 @@
 				D33699FF1E36B8ED00FEB7BF /* TDTemplateEngine.framework in Frameworks */,
 				D3166ED61E57C96D00DEE3A0 /* Sparkle.framework in Frameworks */,
 				D33699FE1E36B8ED00FEB7BF /* PEGKit.framework in Frameworks */,
-				D33699FD1E36B8ED00FEB7BF /* OkudaKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -473,12 +536,103 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		D3166EE21E5902A800DEE3A0 /* Theme */ = {
+			isa = PBXGroup;
+			children = (
+				D3166F341E59073D00DEE3A0 /* EDThemePreferences.xib */,
+				D3166EE71E5902A800DEE3A0 /* EDThemePreferences.h */,
+				D3166EE81E5902A800DEE3A0 /* EDThemePreferences.m */,
+				D3166F371E59076200DEE3A0 /* EDFontPickerTextField.h */,
+				D3166F381E59076200DEE3A0 /* EDFontPickerTextField.m */,
+				D3166EE51E5902A800DEE3A0 /* EDThemeManager.h */,
+				D3166EE61E5902A800DEE3A0 /* EDThemeManager.m */,
+				D3166EE31E5902A800DEE3A0 /* EDTheme.h */,
+				D3166EE41E5902A800DEE3A0 /* EDTheme.m */,
+				D3166F3A1E59077F00DEE3A0 /* EDColorPickerCell.h */,
+				D3166F3B1E59078000DEE3A0 /* EDColorPickerCell.m */,
+				D3166F3D1E59079700DEE3A0 /* EDColorPickerButtonCell.h */,
+				D3166F3E1E59079700DEE3A0 /* EDColorPickerButtonCell.m */,
+				D3166EEB1E5902A800DEE3A0 /* EDThemeRulesTableView.h */,
+				D3166EEC1E5902A800DEE3A0 /* EDThemeRulesTableView.m */,
+				D3166EE91E5902A800DEE3A0 /* EDThemeRulesNameTableCell.h */,
+				D3166EEA1E5902A800DEE3A0 /* EDThemeRulesNameTableCell.m */,
+			);
+			path = Theme;
+			sourceTree = "<group>";
+		};
+		D3166EF21E59036300DEE3A0 /* OkudaKit */ = {
+			isa = PBXGroup;
+			children = (
+				D3166EFA1E59037C00DEE3A0 /* OKUtils.h */,
+				D3166F091E59038F00DEE3A0 /* OKUtils.m */,
+				D3166EFB1E59037C00DEE3A0 /* OKView.h */,
+				D3166F0A1E59038F00DEE3A0 /* OKView.m */,
+				D3166EFC1E59037C00DEE3A0 /* OKViewController.h */,
+				D3166F0B1E59038F00DEE3A0 /* OKViewController.m */,
+				D3166F001E59038F00DEE3A0 /* OKContainerView.h */,
+				D3166F011E59038F00DEE3A0 /* OKContainerView.m */,
+				D3166EF71E59037C00DEE3A0 /* OKTextView.h */,
+				D3166F071E59038F00DEE3A0 /* OKTextView.m */,
+				D3166EF41E59037C00DEE3A0 /* OKGutterView.h */,
+				D3166F021E59038F00DEE3A0 /* OKGutterView.m */,
+				D3166EF31E59037C00DEE3A0 /* OKBreakpoint.h */,
+				D3166EFF1E59038F00DEE3A0 /* OKBreakpoint.m */,
+				D3166EF81E59037C00DEE3A0 /* OKTrigger.h */,
+				D3166F081E59038F00DEE3A0 /* OKTrigger.m */,
+				D3166EF51E59037C00DEE3A0 /* OKSource.h */,
+				D3166F051E59038F00DEE3A0 /* OKSource.m */,
+				D3166EF61E59037C00DEE3A0 /* OKSyntaxHighlighter.h */,
+				D3166F061E59038F00DEE3A0 /* OKSyntaxHighlighter.m */,
+				D3166F1B1E59042B00DEE3A0 /* OKMiniCSSParser.h */,
+				D3166F1C1E59042B00DEE3A0 /* OKMiniCSSParser.m */,
+				D3166F031E59038F00DEE3A0 /* OKMiniCSSAssembler.h */,
+				D3166F041E59038F00DEE3A0 /* OKMiniCSSAssembler.m */,
+				D3166EFD1E59038F00DEE3A0 /* NSString+OKAdditions.h */,
+				D3166EFE1E59038F00DEE3A0 /* NSString+OKAdditions.m */,
+			);
+			name = OkudaKit;
+			sourceTree = "<group>";
+		};
+		D3166F311E5905A500DEE3A0 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				D3166F411E5907C900DEE3A0 /* EDUtils.h */,
+				D3166F421E5907C900DEE3A0 /* EDUtils.m */,
+				D3166F281E5905A100DEE3A0 /* EDPattern.h */,
+				D3166F291E5905A100DEE3A0 /* EDPattern.m */,
+				D3166F2A1E5905A100DEE3A0 /* EDRegexPattern.h */,
+				D3166F2B1E5905A100DEE3A0 /* EDRegexPattern.m */,
+				D3166F2C1E5905A100DEE3A0 /* EDWildcardPattern.h */,
+				D3166F2D1E5905A100DEE3A0 /* EDWildcardPattern.m */,
+			);
+			name = Utils;
+			sourceTree = "<group>";
+		};
+		D3166F401E5907B100DEE3A0 /* Prefs */ = {
+			isa = PBXGroup;
+			children = (
+				D3166EE21E5902A800DEE3A0 /* Theme */,
+			);
+			name = Prefs;
+			sourceTree = "<group>";
+		};
+		D3166F441E59081000DEE3A0 /* WebKit */ = {
+			isa = PBXGroup;
+			children = (
+				D3166F451E59081000DEE3A0 /* WebFramePrivate.h */,
+				D3166F461E59081000DEE3A0 /* WebIconDatabase.h */,
+				D3166F471E59081000DEE3A0 /* WebURLsWithTitles.h */,
+				D3166F481E59081000DEE3A0 /* WebViewPrivate.h */,
+			);
+			name = WebKit;
+			path = lib/WebKit;
+			sourceTree = SOURCE_ROOT;
+		};
 		D336999E1E36B78800FEB7BF = {
 			isa = PBXGroup;
 			children = (
 				D33699EB1E36B8B800FEB7BF /* TDTemplateEngine.xcodeproj */,
 				D33699CA1E36B8AD00FEB7BF /* PEGKit.xcodeproj */,
-				D33699C11E36B8A800FEB7BF /* OkudaKit.xcodeproj */,
 				D3166EC81E57C6E900DEE3A0 /* Language.xcodeproj */,
 				D33699A91E36B78900FEB7BF /* DevApp */,
 				D33699A81E36B78900FEB7BF /* Products */,
@@ -497,18 +651,25 @@
 			isa = PBXGroup;
 			children = (
 				D3369B331E36C71B00FEB7BF /* TDAppKit */,
+				D3166EF21E59036300DEE3A0 /* OkudaKit */,
 				D3369A461E36BEED00FEB7BF /* IDEKit */,
 				D3369AE71E36C25000FEB7BF /* TabKit */,
 				D3369A451E36BEBA00FEB7BF /* ThreadUtils */,
+				D3166F441E59081000DEE3A0 /* WebKit */,
+				D3166F311E5905A500DEE3A0 /* Utils */,
+				D3166F181E59040D00DEE3A0 /* EDApplication.h */,
+				D3166F191E59040D00DEE3A0 /* EDApplication.m */,
 				D33699AA1E36B78900FEB7BF /* AppDelegate.h */,
 				D33699AB1E36B78900FEB7BF /* AppDelegate.m */,
+				D33699B81E36B78900FEB7BF /* MainMenu.xib */,
+				D3166F221E5904D600DEE3A0 /* EDUserDefaults.h */,
+				D3166F231E5904D600DEE3A0 /* EDUserDefaults.m */,
 				D33699B01E36B78900FEB7BF /* Document.h */,
 				D33699B11E36B78900FEB7BF /* Document.m */,
 				D3369A381E36BB1300FEB7BF /* WindowController.h */,
 				D3369A391E36BB1300FEB7BF /* WindowController.m */,
 				D3369A3F1E36BB2800FEB7BF /* WindowController.xib */,
-				D33699B61E36B78900FEB7BF /* Assets.xcassets */,
-				D33699B81E36B78900FEB7BF /* MainMenu.xib */,
+				D3166F401E5907B100DEE3A0 /* Prefs */,
 				D33699BB1E36B78900FEB7BF /* Info.plist */,
 				D33699AD1E36B78900FEB7BF /* Supporting Files */,
 			);
@@ -519,19 +680,12 @@
 			isa = PBXGroup;
 			children = (
 				D3166ED51E57C96D00DEE3A0 /* Sparkle.framework */,
+				D33699B61E36B78900FEB7BF /* Assets.xcassets */,
 				D3369B311E36C61F00FEB7BF /* DevApp-Prefix.pch */,
 				D33699AE1E36B78900FEB7BF /* main.m */,
+				D3166F321E59068500DEE3A0 /* DevApp-DefaultValues.plist */,
 			);
 			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		D33699C21E36B8A800FEB7BF /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				D33699C71E36B8A800FEB7BF /* OkudaKit.framework */,
-				D33699C91E36B8A800FEB7BF /* OKTests.xctest */,
-			);
-			name = Products;
 			sourceTree = "<group>";
 		};
 		D33699CB1E36B8AD00FEB7BF /* Products */ = {
@@ -824,7 +978,6 @@
 				D3166ED21E57C6FA00DEE3A0 /* PBXTargetDependency */,
 				D33699F81E36B8DD00FEB7BF /* PBXTargetDependency */,
 				D33699FA1E36B8DD00FEB7BF /* PBXTargetDependency */,
-				D33699FC1E36B8DD00FEB7BF /* PBXTargetDependency */,
 			);
 			name = DevApp;
 			productName = DevApp;
@@ -864,10 +1017,6 @@
 					ProjectRef = D3166EC81E57C6E900DEE3A0 /* Language.xcodeproj */;
 				},
 				{
-					ProductGroup = D33699C21E36B8A800FEB7BF /* Products */;
-					ProjectRef = D33699C11E36B8A800FEB7BF /* OkudaKit.xcodeproj */;
-				},
-				{
 					ProductGroup = D33699CB1E36B8AD00FEB7BF /* Products */;
 					ProjectRef = D33699CA1E36B8AD00FEB7BF /* PEGKit.xcodeproj */;
 				},
@@ -896,20 +1045,6 @@
 			fileType = wrapper.cfbundle;
 			path = LanguageTests.xctest;
 			remoteRef = D3166ECF1E57C6E900DEE3A0 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		D33699C71E36B8A800FEB7BF /* OkudaKit.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = OkudaKit.framework;
-			remoteRef = D33699C61E36B8A800FEB7BF /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		D33699C91E36B8A800FEB7BF /* OKTests.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = OKTests.xctest;
-			remoteRef = D33699C81E36B8A800FEB7BF /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 		D33699D41E36B8AE00FEB7BF /* PEGKit.framework */ = {
@@ -988,6 +1123,8 @@
 				D3166EB71E57C54400DEE3A0 /* IDEGeneralPreferences.xib in Resources */,
 				D3166EB81E57C54400DEE3A0 /* IDETabsPreferences.xib in Resources */,
 				D3369C071E36C75F00FEB7BF /* TDRegisterWindow.xib in Resources */,
+				D3166F361E59073D00DEE3A0 /* EDThemePreferences.xib in Resources */,
+				D3166F331E59068500DEE3A0 /* DevApp-DefaultValues.plist in Resources */,
 				D33699BA1E36B78900FEB7BF /* MainMenu.xib in Resources */,
 				D3166EB61E57C54400DEE3A0 /* IDEAppearancePreferences.xib in Resources */,
 				D3166EB51E57C54400DEE3A0 /* EDUpdatePreferences.xib in Resources */,
@@ -1011,43 +1148,62 @@
 				D3369ACD1E36BEED00FEB7BF /* OBObject.m in Sources */,
 				D3369A3B1E36BB1300FEB7BF /* WindowController.m in Sources */,
 				D3369C011E36C73800FEB7BF /* TDViewControllerView.m in Sources */,
+				D3166F0E1E59038F00DEE3A0 /* OKContainerView.m in Sources */,
+				D3166F111E59038F00DEE3A0 /* OKSource.m in Sources */,
 				D3369AB11E36BEED00FEB7BF /* IDEGeneralPreferences.m in Sources */,
 				D3369BE21E36C73800FEB7BF /* TDListItemQueue.m in Sources */,
 				D3369AB41E36BEED00FEB7BF /* IDEMainWindowController.m in Sources */,
 				D3369ACB1E36BEED00FEB7BF /* OAPreferencesToolbar.m in Sources */,
 				D3166EA01E57C2FA00DEE3A0 /* DOMNodeList+TDAdditions.m in Sources */,
 				D3369ABD1E36BEED00FEB7BF /* NSArray-OFExtensions.m in Sources */,
+				D3166F391E59076200DEE3A0 /* EDFontPickerTextField.m in Sources */,
+				D3166F141E59038F00DEE3A0 /* OKTrigger.m in Sources */,
 				D3369AB81E36BEED00FEB7BF /* IDEUberView.m in Sources */,
+				D3166F131E59038F00DEE3A0 /* OKTextView.m in Sources */,
 				D3369AC21E36BEED00FEB7BF /* NSString-OFReplacement.m in Sources */,
 				D3369B251E36C25A00FEB7BF /* TKTabsListView.m in Sources */,
 				D3369BF01E36C73800FEB7BF /* TDTabBarItem.m in Sources */,
+				D3166F0F1E59038F00DEE3A0 /* OKGutterView.m in Sources */,
 				D3369BE11E36C73800FEB7BF /* TDListItem.m in Sources */,
 				D3369BDC1E36C73800FEB7BF /* TDGutterView.m in Sources */,
 				D3369AB71E36BEED00FEB7BF /* IDETabsPreferences.m in Sources */,
 				D3369BD61E36C73800FEB7BF /* TDComboFieldListView.m in Sources */,
 				D3369ACE1E36BEED00FEB7BF /* OFObject.m in Sources */,
+				D3166F1A1E59040D00DEE3A0 /* EDApplication.m in Sources */,
 				D3369BDD1E36C73800FEB7BF /* TDHintButton.m in Sources */,
+				D3166EF01E5902A800DEE3A0 /* EDThemeRulesNameTableCell.m in Sources */,
 				D3369BDB1E36C73800FEB7BF /* TDFlippedView.m in Sources */,
 				D3369BC81E36C73800FEB7BF /* NSBezierPath+TDAdditions.m in Sources */,
+				D3166F3C1E59078000DEE3A0 /* EDColorPickerCell.m in Sources */,
+				D3166F1D1E59042B00DEE3A0 /* OKMiniCSSParser.m in Sources */,
 				D3369BEE1E36C73800FEB7BF /* TDTabBarController.m in Sources */,
+				D3166EF11E5902A800DEE3A0 /* EDThemeRulesTableView.m in Sources */,
 				D3369BDA1E36C73800FEB7BF /* TDFlippedColorView.m in Sources */,
 				D3369B241E36C25A00FEB7BF /* TKTabModel+Scripting.m in Sources */,
 				D3369BFE1E36C73800FEB7BF /* TDUtils.m in Sources */,
 				D3369B191E36C25A00FEB7BF /* TKMainWindow.m in Sources */,
+				D3166F3F1E59079700DEE3A0 /* EDColorPickerButtonCell.m in Sources */,
 				D3369ABA1E36BEED00FEB7BF /* IDEUserDefaults.m in Sources */,
 				D3369BE31E36C73800FEB7BF /* TDListView.m in Sources */,
 				D3369BDE1E36C73800FEB7BF /* TDHintView.m in Sources */,
+				D3166EEE1E5902A800DEE3A0 /* EDThemeManager.m in Sources */,
 				D3369B271E36C25A00FEB7BF /* TKTabsListViewControllerView.m in Sources */,
 				D3369AA81E36BEED00FEB7BF /* EDUpdatePreferences.m in Sources */,
 				D3369B1E1E36C25A00FEB7BF /* TKTabListItemFlatStyleOverflowButton.m in Sources */,
+				D3166EED1E5902A800DEE3A0 /* EDTheme.m in Sources */,
+				D3166F0C1E59038F00DEE3A0 /* NSString+OKAdditions.m in Sources */,
 				D3369BCF1E36C73800FEB7BF /* TDBar.m in Sources */,
+				D3166F241E5904D600DEE3A0 /* EDUserDefaults.m in Sources */,
 				D3369BD51E36C73800FEB7BF /* TDComboFieldListItem.m in Sources */,
 				D3369BEA1E36C73800FEB7BF /* TDStatusBarButton.m in Sources */,
+				D3166F161E59038F00DEE3A0 /* OKView.m in Sources */,
 				D3369BEB1E36C73800FEB7BF /* TDStatusBarButtonCell.m in Sources */,
 				D3369AC01E36BEED00FEB7BF /* NSMutableArray-OFExtensions.m in Sources */,
 				D3369ABE1E36BEED00FEB7BF /* NSBundle-OAExtensions.m in Sources */,
 				D3369B1B1E36C25A00FEB7BF /* TKOverflowButton.m in Sources */,
 				D3369B281E36C25A00FEB7BF /* TKUserDefaults.m in Sources */,
+				D3166F301E5905A100DEE3A0 /* EDWildcardPattern.m in Sources */,
+				D3166F2E1E5905A100DEE3A0 /* EDPattern.m in Sources */,
 				D3369BCA1E36C73800FEB7BF /* NSEvent+TDAdditions.m in Sources */,
 				D3369B221E36C25A00FEB7BF /* TKTabListItemStyleMerged.m in Sources */,
 				D3369B181E36C25A00FEB7BF /* TKDocumentController.m in Sources */,
@@ -1062,6 +1218,7 @@
 				D3369B1A1E36C25A00FEB7BF /* TKMainWindowController.m in Sources */,
 				D3369BFF1E36C73800FEB7BF /* TDView.m in Sources */,
 				D3369BED1E36C73800FEB7BF /* TDTabBar.m in Sources */,
+				D3166F121E59038F00DEE3A0 /* OKSyntaxHighlighter.m in Sources */,
 				D3369B161E36C25A00FEB7BF /* TKDocument.m in Sources */,
 				D3369AAD1E36BEED00FEB7BF /* IDEBasePreferences.m in Sources */,
 				D3369ACC1E36BEED00FEB7BF /* OAPreferencesWindow.m in Sources */,
@@ -1077,17 +1234,24 @@
 				D3369ACF1E36BEED00FEB7BF /* OFPreference.m in Sources */,
 				D3369B1D1E36C25A00FEB7BF /* TKTabListItemFlatStyleCloseButton.m in Sources */,
 				D3369C001E36C73800FEB7BF /* TDViewController.m in Sources */,
+				D3166F431E5907C900DEE3A0 /* EDUtils.m in Sources */,
 				D3369B1F1E36C25A00FEB7BF /* TKTabListItemStyle.m in Sources */,
 				D3369B171E36C25A00FEB7BF /* TKDocument+Scripting.m in Sources */,
+				D3166F171E59038F00DEE3A0 /* OKViewController.m in Sources */,
 				D3369BD21E36C73800FEB7BF /* TDColorView.m in Sources */,
 				D3369AB01E36BEED00FEB7BF /* IDEDocumentController.m in Sources */,
 				D3369AC31E36BEED00FEB7BF /* NSString-OFSimpleMatching.m in Sources */,
 				D3369B211E36C25A00FEB7BF /* TKTabListItemStyleFlat.m in Sources */,
+				D3166EEF1E5902A800DEE3A0 /* EDThemePreferences.m in Sources */,
 				D3369AAF1E36BEED00FEB7BF /* IDEDocument.m in Sources */,
+				D3166F2F1E5905A100DEE3A0 /* EDRegexPattern.m in Sources */,
 				D3369B1C1E36C25A00FEB7BF /* TKTabListItem.m in Sources */,
 				D3369BD91E36C73800FEB7BF /* TDDropTargetView.m in Sources */,
 				D3369B261E36C25A00FEB7BF /* TKTabsListViewController.m in Sources */,
+				D3166F101E59038F00DEE3A0 /* OKMiniCSSAssembler.m in Sources */,
 				D3369AB91E36BEED00FEB7BF /* IDEUberViewSplitView.m in Sources */,
+				D3166F151E59038F00DEE3A0 /* OKUtils.m in Sources */,
+				D3166F0D1E59038F00DEE3A0 /* OKBreakpoint.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1108,11 +1272,6 @@
 			isa = PBXTargetDependency;
 			name = PEGKit;
 			targetProxy = D33699F91E36B8DD00FEB7BF /* PBXContainerItemProxy */;
-		};
-		D33699FC1E36B8DD00FEB7BF /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = OkudaKit;
-			targetProxy = D33699FB1E36B8DD00FEB7BF /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -1156,6 +1315,14 @@
 			);
 			name = OAPreferencesWindow.xib;
 			path = ..;
+			sourceTree = "<group>";
+		};
+		D3166F341E59073D00DEE3A0 /* EDThemePreferences.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D3166F351E59073D00DEE3A0 /* Base */,
+			);
+			name = EDThemePreferences.xib;
 			sourceTree = "<group>";
 		};
 		D33699B81E36B78900FEB7BF /* MainMenu.xib */ = {
