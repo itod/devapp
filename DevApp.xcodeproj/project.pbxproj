@@ -53,6 +53,7 @@
 		D3166F701E590D7D00DEE3A0 /* EDGeneralPreferences.xib in Resources */ = {isa = PBXBuildFile; fileRef = D3166F6E1E590D7D00DEE3A0 /* EDGeneralPreferences.xib */; };
 		D3166F731E590D8C00DEE3A0 /* EDGeneralPreferences.m in Sources */ = {isa = PBXBuildFile; fileRef = D3166F721E590D8C00DEE3A0 /* EDGeneralPreferences.m */; };
 		D3166F921E590DF600DEE3A0 /* css in Resources */ = {isa = PBXBuildFile; fileRef = D3166F911E590DF600DEE3A0 /* css */; };
+		D3166FA81E59273A00DEE3A0 /* EDBreakpointCollection.m in Sources */ = {isa = PBXBuildFile; fileRef = D3166FA71E59273A00DEE3A0 /* EDBreakpointCollection.m */; };
 		D33699AC1E36B78900FEB7BF /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D33699AB1E36B78900FEB7BF /* AppDelegate.m */; };
 		D33699AF1E36B78900FEB7BF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D33699AE1E36B78900FEB7BF /* main.m */; };
 		D33699B21E36B78900FEB7BF /* Document.m in Sources */ = {isa = PBXBuildFile; fileRef = D33699B11E36B78900FEB7BF /* Document.m */; };
@@ -345,6 +346,8 @@
 		D3166F711E590D8C00DEE3A0 /* EDGeneralPreferences.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EDGeneralPreferences.h; sourceTree = "<group>"; };
 		D3166F721E590D8C00DEE3A0 /* EDGeneralPreferences.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EDGeneralPreferences.m; sourceTree = "<group>"; };
 		D3166F911E590DF600DEE3A0 /* css */ = {isa = PBXFileReference; lastKnownFileType = folder; path = css; sourceTree = "<group>"; };
+		D3166FA61E59273A00DEE3A0 /* EDBreakpointCollection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EDBreakpointCollection.h; sourceTree = "<group>"; };
+		D3166FA71E59273A00DEE3A0 /* EDBreakpointCollection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EDBreakpointCollection.m; sourceTree = "<group>"; };
 		D33699A71E36B78900FEB7BF /* DevApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DevApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D33699AA1E36B78900FEB7BF /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		D33699AB1E36B78900FEB7BF /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -726,6 +729,8 @@
 				D3369A381E36BB1300FEB7BF /* WindowController.h */,
 				D3369A391E36BB1300FEB7BF /* WindowController.m */,
 				D3369A3F1E36BB2800FEB7BF /* WindowController.xib */,
+				D3166FA61E59273A00DEE3A0 /* EDBreakpointCollection.h */,
+				D3166FA71E59273A00DEE3A0 /* EDBreakpointCollection.m */,
 				D3166F401E5907B100DEE3A0 /* Prefs */,
 				D33699AD1E36B78900FEB7BF /* Supporting Files */,
 			);
@@ -1287,6 +1292,7 @@
 				D3369B1C1E36C25A00FEB7BF /* TKTabListItem.m in Sources */,
 				D3166F671E5909F600DEE3A0 /* EDMetrics.m in Sources */,
 				D3369BD91E36C73800FEB7BF /* TDDropTargetView.m in Sources */,
+				D3166FA81E59273A00DEE3A0 /* EDBreakpointCollection.m in Sources */,
 				D3369B261E36C25A00FEB7BF /* TKTabsListViewController.m in Sources */,
 				D3166F101E59038F00DEE3A0 /* OKMiniCSSAssembler.m in Sources */,
 				D3369AB91E36BEED00FEB7BF /* IDEUberViewSplitView.m in Sources */,
