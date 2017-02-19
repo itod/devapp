@@ -1,5 +1,5 @@
 //
-//  WindowController.h
+//  EDMainWindowController.h
 //  DevApp
 //
 //  Created by Todd Ditchendorf on 23.01.17.
@@ -8,6 +8,6 @@
 
 #import <Cocoa/Cocoa.h>
 
-@interface WindowController : NSWindowController
+@interface EDMainWindowController : NSWindowController
 - (instancetype)init;
 @end

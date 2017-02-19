@@ -1,18 +1,18 @@
 //
-//  WindowController.m
+//  EDMainWindowController.m
 //  DevApp
 //
 //  Created by Todd Ditchendorf on 23.01.17.
 //  Copyright © 2017 Celestial Teapot. All rights reserved.
 //
 
-#import "WindowController.h"
+#import "EDMainWindowController.h"
 
-@interface WindowController ()
+@interface EDMainWindowController ()
 
 @end
 
-@implementation WindowController
+@implementation EDMainWindowController
 
 - (instancetype)init {
     return [self initWithWindowNibName:NSStringFromClass([self class])];

@@ -59,16 +59,26 @@
 		D3166FBD1E5927DA00DEE3A0 /* EDWelcomeWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = D3166FBB1E5927DA00DEE3A0 /* EDWelcomeWindowController.m */; };
 		D3166FBF1E5928DF00DEE3A0 /* EDDocumentController.m in Sources */ = {isa = PBXBuildFile; fileRef = D3166FB21E59277400DEE3A0 /* EDDocumentController.m */; };
 		D3166FCD1E59292A00DEE3A0 /* AquaticPrime.m in Sources */ = {isa = PBXBuildFile; fileRef = D3166FC51E59292A00DEE3A0 /* AquaticPrime.m */; };
+		D3166FD81E592A5200DEE3A0 /* EDDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = D3166FD71E592A5200DEE3A0 /* EDDocument.m */; };
+		D3166FDE1E592B9400DEE3A0 /* EDTarget.m in Sources */ = {isa = PBXBuildFile; fileRef = D3166FDD1E592B9400DEE3A0 /* EDTarget.m */; };
+		D3166FEB1E592C3700DEE3A0 /* EDStatusBar.m in Sources */ = {isa = PBXBuildFile; fileRef = D3166FEA1E592C3700DEE3A0 /* EDStatusBar.m */; };
+		D3166FEE1E592C5000DEE3A0 /* EDScheme.m in Sources */ = {isa = PBXBuildFile; fileRef = D3166FED1E592C5000DEE3A0 /* EDScheme.m */; };
+		D3166FF51E592C6A00DEE3A0 /* EDAction.m in Sources */ = {isa = PBXBuildFile; fileRef = D3166FF01E592C6A00DEE3A0 /* EDAction.m */; };
+		D3166FF61E592C6A00DEE3A0 /* EDRunAction.m in Sources */ = {isa = PBXBuildFile; fileRef = D3166FF21E592C6A00DEE3A0 /* EDRunAction.m */; };
+		D3166FF71E592C6A00DEE3A0 /* EDTestAction.m in Sources */ = {isa = PBXBuildFile; fileRef = D3166FF41E592C6A00DEE3A0 /* EDTestAction.m */; };
+		D3166FFB1E592CA200DEE3A0 /* EDEnvironmentVariable.m in Sources */ = {isa = PBXBuildFile; fileRef = D3166FFA1E592CA200DEE3A0 /* EDEnvironmentVariable.m */; };
+		D3166FFE1E592CCC00DEE3A0 /* EDActionArgumentsFacet.xib in Resources */ = {isa = PBXBuildFile; fileRef = D3166FFC1E592CCC00DEE3A0 /* EDActionArgumentsFacet.xib */; };
+		D31670031E592CEF00DEE3A0 /* EDActionArgumentsFacet.m in Sources */ = {isa = PBXBuildFile; fileRef = D31670001E592CEF00DEE3A0 /* EDActionArgumentsFacet.m */; };
+		D31670041E592CEF00DEE3A0 /* EDActionFacet.m in Sources */ = {isa = PBXBuildFile; fileRef = D31670021E592CEF00DEE3A0 /* EDActionFacet.m */; };
 		D33699AF1E36B78900FEB7BF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D33699AE1E36B78900FEB7BF /* main.m */; };
-		D33699B21E36B78900FEB7BF /* Document.m in Sources */ = {isa = PBXBuildFile; fileRef = D33699B11E36B78900FEB7BF /* Document.m */; };
 		D33699B71E36B78900FEB7BF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D33699B61E36B78900FEB7BF /* Assets.xcassets */; };
 		D33699BA1E36B78900FEB7BF /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = D33699B81E36B78900FEB7BF /* MainMenu.xib */; };
 		D33699FE1E36B8ED00FEB7BF /* PEGKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D33699D41E36B8AE00FEB7BF /* PEGKit.framework */; };
 		D33699FF1E36B8ED00FEB7BF /* TDTemplateEngine.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D33699F21E36B8B800FEB7BF /* TDTemplateEngine.framework */; };
 		D3369A011E36B92300FEB7BF /* TDTemplateEngine.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = D33699F21E36B8B800FEB7BF /* TDTemplateEngine.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D3369A021E36B92A00FEB7BF /* PEGKit.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = D33699D41E36B8AE00FEB7BF /* PEGKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		D3369A3B1E36BB1300FEB7BF /* WindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = D3369A391E36BB1300FEB7BF /* WindowController.m */; };
-		D3369A3D1E36BB2800FEB7BF /* WindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D3369A3F1E36BB2800FEB7BF /* WindowController.xib */; };
+		D3369A3B1E36BB1300FEB7BF /* EDMainWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = D3369A391E36BB1300FEB7BF /* EDMainWindowController.m */; };
+		D3369A3D1E36BB2800FEB7BF /* EDMainWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D3369A3F1E36BB2800FEB7BF /* EDMainWindowController.xib */; };
 		D3369AA81E36BEED00FEB7BF /* EDUpdatePreferences.m in Sources */ = {isa = PBXBuildFile; fileRef = D3369A531E36BEED00FEB7BF /* EDUpdatePreferences.m */; };
 		D3369AAC1E36BEED00FEB7BF /* IDEApplication.m in Sources */ = {isa = PBXBuildFile; fileRef = D3369A5B1E36BEED00FEB7BF /* IDEApplication.m */; };
 		D3369AAF1E36BEED00FEB7BF /* IDEDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = D3369A611E36BEED00FEB7BF /* IDEDocument.m */; };
@@ -361,6 +371,27 @@
 		D3166FBB1E5927DA00DEE3A0 /* EDWelcomeWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EDWelcomeWindowController.m; sourceTree = "<group>"; };
 		D3166FC41E59292A00DEE3A0 /* AquaticPrime.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AquaticPrime.h; sourceTree = "<group>"; };
 		D3166FC51E59292A00DEE3A0 /* AquaticPrime.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AquaticPrime.m; sourceTree = "<group>"; };
+		D3166FD61E592A5200DEE3A0 /* EDDocument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EDDocument.h; sourceTree = "<group>"; };
+		D3166FD71E592A5200DEE3A0 /* EDDocument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EDDocument.m; sourceTree = "<group>"; };
+		D3166FDC1E592B9400DEE3A0 /* EDTarget.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EDTarget.h; sourceTree = "<group>"; };
+		D3166FDD1E592B9400DEE3A0 /* EDTarget.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EDTarget.m; sourceTree = "<group>"; };
+		D3166FE91E592C3700DEE3A0 /* EDStatusBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EDStatusBar.h; sourceTree = "<group>"; };
+		D3166FEA1E592C3700DEE3A0 /* EDStatusBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EDStatusBar.m; sourceTree = "<group>"; };
+		D3166FEC1E592C5000DEE3A0 /* EDScheme.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EDScheme.h; sourceTree = "<group>"; };
+		D3166FED1E592C5000DEE3A0 /* EDScheme.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EDScheme.m; sourceTree = "<group>"; };
+		D3166FEF1E592C6A00DEE3A0 /* EDAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EDAction.h; sourceTree = "<group>"; };
+		D3166FF01E592C6A00DEE3A0 /* EDAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EDAction.m; sourceTree = "<group>"; };
+		D3166FF11E592C6A00DEE3A0 /* EDRunAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EDRunAction.h; sourceTree = "<group>"; };
+		D3166FF21E592C6A00DEE3A0 /* EDRunAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EDRunAction.m; sourceTree = "<group>"; };
+		D3166FF31E592C6A00DEE3A0 /* EDTestAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EDTestAction.h; sourceTree = "<group>"; };
+		D3166FF41E592C6A00DEE3A0 /* EDTestAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EDTestAction.m; sourceTree = "<group>"; };
+		D3166FF91E592CA200DEE3A0 /* EDEnvironmentVariable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EDEnvironmentVariable.h; sourceTree = "<group>"; };
+		D3166FFA1E592CA200DEE3A0 /* EDEnvironmentVariable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EDEnvironmentVariable.m; sourceTree = "<group>"; };
+		D3166FFD1E592CCC00DEE3A0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/EDActionArgumentsFacet.xib; sourceTree = "<group>"; };
+		D3166FFF1E592CEF00DEE3A0 /* EDActionArgumentsFacet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EDActionArgumentsFacet.h; sourceTree = "<group>"; };
+		D31670001E592CEF00DEE3A0 /* EDActionArgumentsFacet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EDActionArgumentsFacet.m; sourceTree = "<group>"; };
+		D31670011E592CEF00DEE3A0 /* EDActionFacet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EDActionFacet.h; sourceTree = "<group>"; };
+		D31670021E592CEF00DEE3A0 /* EDActionFacet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EDActionFacet.m; sourceTree = "<group>"; };
 		D33699A71E36B78900FEB7BF /* DevApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DevApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D33699AE1E36B78900FEB7BF /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		D33699B01E36B78900FEB7BF /* Document.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Document.h; sourceTree = "<group>"; };
@@ -370,9 +401,9 @@
 		D33699BB1E36B78900FEB7BF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D33699CA1E36B8AD00FEB7BF /* PEGKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = PEGKit.xcodeproj; path = lib/PEGKit/PEGKit.xcodeproj; sourceTree = "<group>"; };
 		D33699EB1E36B8B800FEB7BF /* TDTemplateEngine.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = TDTemplateEngine.xcodeproj; path = lib/TDTemplateEngine/TDTemplateEngine.xcodeproj; sourceTree = "<group>"; };
-		D3369A381E36BB1300FEB7BF /* WindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WindowController.h; sourceTree = "<group>"; };
-		D3369A391E36BB1300FEB7BF /* WindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WindowController.m; sourceTree = "<group>"; };
-		D3369A3E1E36BB2800FEB7BF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/WindowController.xib; sourceTree = "<group>"; };
+		D3369A381E36BB1300FEB7BF /* EDMainWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EDMainWindowController.h; sourceTree = "<group>"; };
+		D3369A391E36BB1300FEB7BF /* EDMainWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EDMainWindowController.m; sourceTree = "<group>"; };
+		D3369A3E1E36BB2800FEB7BF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/EDMainWindowController.xib; sourceTree = "<group>"; };
 		D3369A521E36BEED00FEB7BF /* EDUpdatePreferences.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EDUpdatePreferences.h; path = ../lib/IDEKit/EDUpdatePreferences.h; sourceTree = "<group>"; };
 		D3369A531E36BEED00FEB7BF /* EDUpdatePreferences.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EDUpdatePreferences.m; path = ../lib/IDEKit/EDUpdatePreferences.m; sourceTree = "<group>"; };
 		D3369A5A1E36BEED00FEB7BF /* IDEApplication.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDEApplication.h; sourceTree = "<group>"; };
@@ -721,6 +752,30 @@
 			path = lib/AquaticPrime;
 			sourceTree = SOURCE_ROOT;
 		};
+		D3166FF81E592C7100DEE3A0 /* Proj Settings */ = {
+			isa = PBXGroup;
+			children = (
+				D3166FDC1E592B9400DEE3A0 /* EDTarget.h */,
+				D3166FDD1E592B9400DEE3A0 /* EDTarget.m */,
+				D3166FEC1E592C5000DEE3A0 /* EDScheme.h */,
+				D3166FED1E592C5000DEE3A0 /* EDScheme.m */,
+				D3166FEF1E592C6A00DEE3A0 /* EDAction.h */,
+				D3166FF01E592C6A00DEE3A0 /* EDAction.m */,
+				D3166FF11E592C6A00DEE3A0 /* EDRunAction.h */,
+				D3166FF21E592C6A00DEE3A0 /* EDRunAction.m */,
+				D3166FF31E592C6A00DEE3A0 /* EDTestAction.h */,
+				D3166FF41E592C6A00DEE3A0 /* EDTestAction.m */,
+				D3166FF91E592CA200DEE3A0 /* EDEnvironmentVariable.h */,
+				D3166FFA1E592CA200DEE3A0 /* EDEnvironmentVariable.m */,
+				D31670011E592CEF00DEE3A0 /* EDActionFacet.h */,
+				D31670021E592CEF00DEE3A0 /* EDActionFacet.m */,
+				D3166FFF1E592CEF00DEE3A0 /* EDActionArgumentsFacet.h */,
+				D31670001E592CEF00DEE3A0 /* EDActionArgumentsFacet.m */,
+				D3166FFC1E592CCC00DEE3A0 /* EDActionArgumentsFacet.xib */,
+			);
+			name = "Proj Settings";
+			sourceTree = "<group>";
+		};
 		D336999E1E36B78800FEB7BF = {
 			isa = PBXGroup;
 			children = (
@@ -751,6 +806,7 @@
 				D3369A451E36BEBA00FEB7BF /* ThreadUtils */,
 				D3166F441E59081000DEE3A0 /* WebKit */,
 				D3166F311E5905A500DEE3A0 /* Utils */,
+				D3166FF81E592C7100DEE3A0 /* Proj Settings */,
 				D3166F181E59040D00DEE3A0 /* EDApplication.h */,
 				D3166F191E59040D00DEE3A0 /* EDApplication.m */,
 				D33699B81E36B78900FEB7BF /* MainMenu.xib */,
@@ -758,13 +814,17 @@
 				D3166F231E5904D600DEE3A0 /* EDUserDefaults.m */,
 				D3166FB11E59277400DEE3A0 /* EDDocumentController.h */,
 				D3166FB21E59277400DEE3A0 /* EDDocumentController.m */,
+				D3166FD61E592A5200DEE3A0 /* EDDocument.h */,
+				D3166FD71E592A5200DEE3A0 /* EDDocument.m */,
 				D33699B01E36B78900FEB7BF /* Document.h */,
 				D33699B11E36B78900FEB7BF /* Document.m */,
-				D3369A381E36BB1300FEB7BF /* WindowController.h */,
-				D3369A391E36BB1300FEB7BF /* WindowController.m */,
-				D3369A3F1E36BB2800FEB7BF /* WindowController.xib */,
+				D3369A381E36BB1300FEB7BF /* EDMainWindowController.h */,
+				D3369A391E36BB1300FEB7BF /* EDMainWindowController.m */,
+				D3369A3F1E36BB2800FEB7BF /* EDMainWindowController.xib */,
 				D3166FA61E59273A00DEE3A0 /* EDBreakpointCollection.h */,
 				D3166FA71E59273A00DEE3A0 /* EDBreakpointCollection.m */,
+				D3166FE91E592C3700DEE3A0 /* EDStatusBar.h */,
+				D3166FEA1E592C3700DEE3A0 /* EDStatusBar.m */,
 				D3166FB41E5927A900DEE3A0 /* Welcome Window */,
 				D3166F401E5907B100DEE3A0 /* Prefs */,
 				D33699AD1E36B78900FEB7BF /* Supporting Files */,
@@ -1196,7 +1256,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D33699B71E36B78900FEB7BF /* Assets.xcassets in Resources */,
-				D3369A3D1E36BB2800FEB7BF /* WindowController.xib in Resources */,
+				D3369A3D1E36BB2800FEB7BF /* EDMainWindowController.xib in Resources */,
 				D3369AC91E36BEED00FEB7BF /* OAPreferencesNextButton.png in Resources */,
 				D3166F5C1E5908FE00DEE3A0 /* EDGuidesPreferences.xib in Resources */,
 				D3369C071E36C75F00FEB7BF /* TDRegisterWindow.xib in Resources */,
@@ -1209,6 +1269,7 @@
 				D3166F701E590D7D00DEE3A0 /* EDGeneralPreferences.xib in Resources */,
 				D3166EB91E57C54400DEE3A0 /* OAPreferencesWindow.xib in Resources */,
 				D3166FB71E5927C300DEE3A0 /* EDWelcomeWindow.xib in Resources */,
+				D3166FFE1E592CCC00DEE3A0 /* EDActionArgumentsFacet.xib in Resources */,
 				D3369ACA1E36BEED00FEB7BF /* OAPreferencesPreviousButton.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1220,12 +1281,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D33699B21E36B78900FEB7BF /* Document.m in Sources */,
 				D3369BD01E36C73800FEB7BF /* TDBarItem.m in Sources */,
 				D3369BE41E36C73800FEB7BF /* TDRegisterWindowController.m in Sources */,
 				D3369BD71E36C73800FEB7BF /* TDComboFieldTextView.m in Sources */,
 				D3369ACD1E36BEED00FEB7BF /* OBObject.m in Sources */,
-				D3369A3B1E36BB1300FEB7BF /* WindowController.m in Sources */,
+				D3369A3B1E36BB1300FEB7BF /* EDMainWindowController.m in Sources */,
 				D3369C011E36C73800FEB7BF /* TDViewControllerView.m in Sources */,
 				D3166F0E1E59038F00DEE3A0 /* OKContainerView.m in Sources */,
 				D3166F111E59038F00DEE3A0 /* OKSource.m in Sources */,
@@ -1271,7 +1331,10 @@
 				D3369B271E36C25A00FEB7BF /* TKTabsListViewControllerView.m in Sources */,
 				D3369AA81E36BEED00FEB7BF /* EDUpdatePreferences.m in Sources */,
 				D3369B1E1E36C25A00FEB7BF /* TKTabListItemFlatStyleOverflowButton.m in Sources */,
+				D31670031E592CEF00DEE3A0 /* EDActionArgumentsFacet.m in Sources */,
 				D3166EED1E5902A800DEE3A0 /* EDTheme.m in Sources */,
+				D3166FEB1E592C3700DEE3A0 /* EDStatusBar.m in Sources */,
+				D3166FF61E592C6A00DEE3A0 /* EDRunAction.m in Sources */,
 				D3166F0C1E59038F00DEE3A0 /* NSString+OKAdditions.m in Sources */,
 				D3369BCF1E36C73800FEB7BF /* TDBar.m in Sources */,
 				D3166F241E5904D600DEE3A0 /* EDUserDefaults.m in Sources */,
@@ -1280,6 +1343,7 @@
 				D3166F161E59038F00DEE3A0 /* OKView.m in Sources */,
 				D3369BEB1E36C73800FEB7BF /* TDStatusBarButtonCell.m in Sources */,
 				D3369AC01E36BEED00FEB7BF /* NSMutableArray-OFExtensions.m in Sources */,
+				D3166FEE1E592C5000DEE3A0 /* EDScheme.m in Sources */,
 				D3166FBF1E5928DF00DEE3A0 /* EDDocumentController.m in Sources */,
 				D3369ABE1E36BEED00FEB7BF /* NSBundle-OAExtensions.m in Sources */,
 				D3369B1B1E36C25A00FEB7BF /* TKOverflowButton.m in Sources */,
@@ -1287,12 +1351,14 @@
 				D3166F301E5905A100DEE3A0 /* EDWildcardPattern.m in Sources */,
 				D3166F2E1E5905A100DEE3A0 /* EDPattern.m in Sources */,
 				D3369BCA1E36C73800FEB7BF /* NSEvent+TDAdditions.m in Sources */,
+				D31670041E592CEF00DEE3A0 /* EDActionFacet.m in Sources */,
 				D3369B221E36C25A00FEB7BF /* TKTabListItemStyleMerged.m in Sources */,
 				D3369B181E36C25A00FEB7BF /* TKDocumentController.m in Sources */,
 				D3369ABF1E36BEED00FEB7BF /* NSImage-OAExtensions.m in Sources */,
 				D3166F6A1E590A1300DEE3A0 /* EDModel.m in Sources */,
 				D3369BEC1E36C73800FEB7BF /* TDStatusBarPopUpView.m in Sources */,
 				D3369AC71E36BEED00FEB7BF /* OAPreferenceController.m in Sources */,
+				D3166FFB1E592CA200DEE3A0 /* EDEnvironmentVariable.m in Sources */,
 				D33699AF1E36B78900FEB7BF /* main.m in Sources */,
 				D3369B231E36C25A00FEB7BF /* TKTabModel.m in Sources */,
 				D3166F731E590D8C00DEE3A0 /* EDGeneralPreferences.m in Sources */,
@@ -1302,6 +1368,7 @@
 				D3369B1A1E36C25A00FEB7BF /* TKMainWindowController.m in Sources */,
 				D3369BFF1E36C73800FEB7BF /* TDView.m in Sources */,
 				D3369BED1E36C73800FEB7BF /* TDTabBar.m in Sources */,
+				D3166FF51E592C6A00DEE3A0 /* EDAction.m in Sources */,
 				D3166F121E59038F00DEE3A0 /* OKSyntaxHighlighter.m in Sources */,
 				D3369B161E36C25A00FEB7BF /* TKDocument.m in Sources */,
 				D3369ACC1E36BEED00FEB7BF /* OAPreferencesWindow.m in Sources */,
@@ -1317,6 +1384,7 @@
 				D3369ACF1E36BEED00FEB7BF /* OFPreference.m in Sources */,
 				D3369B1D1E36C25A00FEB7BF /* TKTabListItemFlatStyleCloseButton.m in Sources */,
 				D3369C001E36C73800FEB7BF /* TDViewController.m in Sources */,
+				D3166FF71E592C6A00DEE3A0 /* EDTestAction.m in Sources */,
 				D3166F431E5907C900DEE3A0 /* EDUtils.m in Sources */,
 				D3369B1F1E36C25A00FEB7BF /* TKTabListItemStyle.m in Sources */,
 				D3369B171E36C25A00FEB7BF /* TKDocument+Scripting.m in Sources */,
@@ -1328,6 +1396,7 @@
 				D3166EEF1E5902A800DEE3A0 /* EDThemePreferences.m in Sources */,
 				D3369AAF1E36BEED00FEB7BF /* IDEDocument.m in Sources */,
 				D3166F2F1E5905A100DEE3A0 /* EDRegexPattern.m in Sources */,
+				D3166FDE1E592B9400DEE3A0 /* EDTarget.m in Sources */,
 				D3369B1C1E36C25A00FEB7BF /* TKTabListItem.m in Sources */,
 				D3166FBD1E5927DA00DEE3A0 /* EDWelcomeWindowController.m in Sources */,
 				D3166F671E5909F600DEE3A0 /* EDMetrics.m in Sources */,
@@ -1335,6 +1404,7 @@
 				D3166FA81E59273A00DEE3A0 /* EDBreakpointCollection.m in Sources */,
 				D3369B261E36C25A00FEB7BF /* TKTabsListViewController.m in Sources */,
 				D3166F101E59038F00DEE3A0 /* OKMiniCSSAssembler.m in Sources */,
+				D3166FD81E592A5200DEE3A0 /* EDDocument.m in Sources */,
 				D3369AB91E36BEED00FEB7BF /* IDEUberViewSplitView.m in Sources */,
 				D3166F151E59038F00DEE3A0 /* OKUtils.m in Sources */,
 				D3166F0D1E59038F00DEE3A0 /* OKBreakpoint.m in Sources */,
@@ -1420,6 +1490,14 @@
 			name = EDWelcomeWindow.xib;
 			sourceTree = "<group>";
 		};
+		D3166FFC1E592CCC00DEE3A0 /* EDActionArgumentsFacet.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D3166FFD1E592CCC00DEE3A0 /* Base */,
+			);
+			name = EDActionArgumentsFacet.xib;
+			sourceTree = "<group>";
+		};
 		D33699B81E36B78900FEB7BF /* MainMenu.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -1428,12 +1506,12 @@
 			name = MainMenu.xib;
 			sourceTree = "<group>";
 		};
-		D3369A3F1E36BB2800FEB7BF /* WindowController.xib */ = {
+		D3369A3F1E36BB2800FEB7BF /* EDMainWindowController.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
 				D3369A3E1E36BB2800FEB7BF /* Base */,
 			);
-			name = WindowController.xib;
+			name = EDMainWindowController.xib;
 			sourceTree = "<group>";
 		};
 		D3369C051E36C75F00FEB7BF /* TDRegisterWindow.xib */ = {
