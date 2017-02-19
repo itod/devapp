@@ -656,6 +656,12 @@
                                 </connections>
                             </menuItem>
                             <menuItem isSeparatorItem="YES" id="eu3-7i-yIM"/>
+                            <menuItem title="Welcome to DevApp" keyEquivalent="1" id="Clm-Vj-gDL">
+                                <modifierMask key="keyEquivalentModifierMask" shift="YES" command="YES"/>
+                            </menuItem>
+                            <menuItem isSeparatorItem="YES" id="fLp-Vu-NN1">
+                                <modifierMask key="keyEquivalentModifierMask" command="YES"/>
+                            </menuItem>
                             <menuItem title="Bring All to Front" id="LE2-aR-0XJ">
                                 <modifierMask key="keyEquivalentModifierMask"/>
                                 <connections>
@@ -693,6 +699,6 @@
         </menu>
     </objects>
     <resources>
-        <image name="ScriptMenu" width="128" height="128"/>
+        <image name="ScriptMenu" width="16" height="16"/>
     </resources>
 </document>

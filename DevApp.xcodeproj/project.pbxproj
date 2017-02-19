@@ -54,6 +54,9 @@
 		D3166F731E590D8C00DEE3A0 /* EDGeneralPreferences.m in Sources */ = {isa = PBXBuildFile; fileRef = D3166F721E590D8C00DEE3A0 /* EDGeneralPreferences.m */; };
 		D3166F921E590DF600DEE3A0 /* css in Resources */ = {isa = PBXBuildFile; fileRef = D3166F911E590DF600DEE3A0 /* css */; };
 		D3166FA81E59273A00DEE3A0 /* EDBreakpointCollection.m in Sources */ = {isa = PBXBuildFile; fileRef = D3166FA71E59273A00DEE3A0 /* EDBreakpointCollection.m */; };
+		D3166FB71E5927C300DEE3A0 /* EDWelcomeWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = D3166FB51E5927C300DEE3A0 /* EDWelcomeWindow.xib */; };
+		D3166FBC1E5927DA00DEE3A0 /* EDWelcomeTableCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = D3166FB91E5927DA00DEE3A0 /* EDWelcomeTableCellView.m */; };
+		D3166FBD1E5927DA00DEE3A0 /* EDWelcomeWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = D3166FBB1E5927DA00DEE3A0 /* EDWelcomeWindowController.m */; };
 		D33699AC1E36B78900FEB7BF /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D33699AB1E36B78900FEB7BF /* AppDelegate.m */; };
 		D33699AF1E36B78900FEB7BF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D33699AE1E36B78900FEB7BF /* main.m */; };
 		D33699B21E36B78900FEB7BF /* Document.m in Sources */ = {isa = PBXBuildFile; fileRef = D33699B11E36B78900FEB7BF /* Document.m */; };
@@ -348,6 +351,13 @@
 		D3166F911E590DF600DEE3A0 /* css */ = {isa = PBXFileReference; lastKnownFileType = folder; path = css; sourceTree = "<group>"; };
 		D3166FA61E59273A00DEE3A0 /* EDBreakpointCollection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EDBreakpointCollection.h; sourceTree = "<group>"; };
 		D3166FA71E59273A00DEE3A0 /* EDBreakpointCollection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EDBreakpointCollection.m; sourceTree = "<group>"; };
+		D3166FB11E59277400DEE3A0 /* EDDocumentController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EDDocumentController.h; sourceTree = "<group>"; };
+		D3166FB21E59277400DEE3A0 /* EDDocumentController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EDDocumentController.m; sourceTree = "<group>"; };
+		D3166FB61E5927C300DEE3A0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/EDWelcomeWindow.xib; sourceTree = "<group>"; };
+		D3166FB81E5927DA00DEE3A0 /* EDWelcomeTableCellView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EDWelcomeTableCellView.h; sourceTree = "<group>"; };
+		D3166FB91E5927DA00DEE3A0 /* EDWelcomeTableCellView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EDWelcomeTableCellView.m; sourceTree = "<group>"; };
+		D3166FBA1E5927DA00DEE3A0 /* EDWelcomeWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EDWelcomeWindowController.h; sourceTree = "<group>"; };
+		D3166FBB1E5927DA00DEE3A0 /* EDWelcomeWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EDWelcomeWindowController.m; sourceTree = "<group>"; };
 		D33699A71E36B78900FEB7BF /* DevApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DevApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D33699AA1E36B78900FEB7BF /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		D33699AB1E36B78900FEB7BF /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -688,6 +698,18 @@
 			name = Update;
 			sourceTree = "<group>";
 		};
+		D3166FB41E5927A900DEE3A0 /* Welcome Window */ = {
+			isa = PBXGroup;
+			children = (
+				D3166FBA1E5927DA00DEE3A0 /* EDWelcomeWindowController.h */,
+				D3166FBB1E5927DA00DEE3A0 /* EDWelcomeWindowController.m */,
+				D3166FB51E5927C300DEE3A0 /* EDWelcomeWindow.xib */,
+				D3166FB81E5927DA00DEE3A0 /* EDWelcomeTableCellView.h */,
+				D3166FB91E5927DA00DEE3A0 /* EDWelcomeTableCellView.m */,
+			);
+			name = "Welcome Window";
+			sourceTree = "<group>";
+		};
 		D336999E1E36B78800FEB7BF = {
 			isa = PBXGroup;
 			children = (
@@ -724,6 +746,8 @@
 				D33699B81E36B78900FEB7BF /* MainMenu.xib */,
 				D3166F221E5904D600DEE3A0 /* EDUserDefaults.h */,
 				D3166F231E5904D600DEE3A0 /* EDUserDefaults.m */,
+				D3166FB11E59277400DEE3A0 /* EDDocumentController.h */,
+				D3166FB21E59277400DEE3A0 /* EDDocumentController.m */,
 				D33699B01E36B78900FEB7BF /* Document.h */,
 				D33699B11E36B78900FEB7BF /* Document.m */,
 				D3369A381E36BB1300FEB7BF /* WindowController.h */,
@@ -731,6 +755,7 @@
 				D3369A3F1E36BB2800FEB7BF /* WindowController.xib */,
 				D3166FA61E59273A00DEE3A0 /* EDBreakpointCollection.h */,
 				D3166FA71E59273A00DEE3A0 /* EDBreakpointCollection.m */,
+				D3166FB41E5927A900DEE3A0 /* Welcome Window */,
 				D3166F401E5907B100DEE3A0 /* Prefs */,
 				D33699AD1E36B78900FEB7BF /* Supporting Files */,
 			);
@@ -1172,6 +1197,7 @@
 				D3166F921E590DF600DEE3A0 /* css in Resources */,
 				D3166F701E590D7D00DEE3A0 /* EDGeneralPreferences.xib in Resources */,
 				D3166EB91E57C54400DEE3A0 /* OAPreferencesWindow.xib in Resources */,
+				D3166FB71E5927C300DEE3A0 /* EDWelcomeWindow.xib in Resources */,
 				D3369ACA1E36BEED00FEB7BF /* OAPreferencesPreviousButton.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1193,6 +1219,7 @@
 				D3166F0E1E59038F00DEE3A0 /* OKContainerView.m in Sources */,
 				D3166F111E59038F00DEE3A0 /* OKSource.m in Sources */,
 				D3369BE21E36C73800FEB7BF /* TDListItemQueue.m in Sources */,
+				D3166FBC1E5927DA00DEE3A0 /* EDWelcomeTableCellView.m in Sources */,
 				D3369AB41E36BEED00FEB7BF /* IDEMainWindowController.m in Sources */,
 				D3369ACB1E36BEED00FEB7BF /* OAPreferencesToolbar.m in Sources */,
 				D3166EA01E57C2FA00DEE3A0 /* DOMNodeList+TDAdditions.m in Sources */,
@@ -1290,6 +1317,7 @@
 				D3369AAF1E36BEED00FEB7BF /* IDEDocument.m in Sources */,
 				D3166F2F1E5905A100DEE3A0 /* EDRegexPattern.m in Sources */,
 				D3369B1C1E36C25A00FEB7BF /* TKTabListItem.m in Sources */,
+				D3166FBD1E5927DA00DEE3A0 /* EDWelcomeWindowController.m in Sources */,
 				D3166F671E5909F600DEE3A0 /* EDMetrics.m in Sources */,
 				D3369BD91E36C73800FEB7BF /* TDDropTargetView.m in Sources */,
 				D3166FA81E59273A00DEE3A0 /* EDBreakpointCollection.m in Sources */,
@@ -1370,6 +1398,14 @@
 				D3166F6F1E590D7D00DEE3A0 /* Base */,
 			);
 			name = EDGeneralPreferences.xib;
+			sourceTree = "<group>";
+		};
+		D3166FB51E5927C300DEE3A0 /* EDWelcomeWindow.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D3166FB61E5927C300DEE3A0 /* Base */,
+			);
+			name = EDWelcomeWindow.xib;
 			sourceTree = "<group>";
 		};
 		D33699B81E36B78900FEB7BF /* MainMenu.xib */ = {
