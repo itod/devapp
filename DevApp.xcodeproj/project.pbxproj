@@ -97,6 +97,11 @@
 		D316705D1E59FC2C00DEE3A0 /* EDBreakpointCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D31670581E59FC2C00DEE3A0 /* EDBreakpointCell.m */; };
 		D316705E1E59FC2C00DEE3A0 /* EDBreakpointListContainerView.m in Sources */ = {isa = PBXBuildFile; fileRef = D316705A1E59FC2C00DEE3A0 /* EDBreakpointListContainerView.m */; };
 		D316705F1E59FC2C00DEE3A0 /* EDBreakpointListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D316705C1E59FC2C00DEE3A0 /* EDBreakpointListViewController.m */; };
+		D31670641E59FD6F00DEE3A0 /* EDProjectWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = D31670621E59FD6F00DEE3A0 /* EDProjectWindow.xib */; };
+		D316706C1E59FD9B00DEE3A0 /* EDNewProjectParams.m in Sources */ = {isa = PBXBuildFile; fileRef = D31670681E59FD9B00DEE3A0 /* EDNewProjectParams.m */; };
+		D316706D1E59FD9B00DEE3A0 /* EDProjectWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = D316706A1E59FD9B00DEE3A0 /* EDProjectWindowController.m */; };
+		D31670701E59FDF000DEE3A0 /* EDFileWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = D316706E1E59FDF000DEE3A0 /* EDFileWindow.xib */; };
+		D31670731E59FE0500DEE3A0 /* EDFileWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = D31670721E59FE0500DEE3A0 /* EDFileWindowController.m */; };
 		D33699AF1E36B78900FEB7BF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D33699AE1E36B78900FEB7BF /* main.m */; };
 		D33699B71E36B78900FEB7BF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D33699B61E36B78900FEB7BF /* Assets.xcassets */; };
 		D33699BA1E36B78900FEB7BF /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = D33699B81E36B78900FEB7BF /* MainMenu.xib */; };
@@ -470,6 +475,16 @@
 		D316705A1E59FC2C00DEE3A0 /* EDBreakpointListContainerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EDBreakpointListContainerView.m; sourceTree = "<group>"; };
 		D316705B1E59FC2C00DEE3A0 /* EDBreakpointListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EDBreakpointListViewController.h; sourceTree = "<group>"; };
 		D316705C1E59FC2C00DEE3A0 /* EDBreakpointListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EDBreakpointListViewController.m; sourceTree = "<group>"; };
+		D31670631E59FD6F00DEE3A0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/EDProjectWindow.xib; sourceTree = "<group>"; };
+		D31670651E59FD9B00DEE3A0 /* EDMainWindowController+NewProject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "EDMainWindowController+NewProject.h"; sourceTree = "<group>"; };
+		D31670661E59FD9B00DEE3A0 /* EDMainWindowController+NewProject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "EDMainWindowController+NewProject.m"; sourceTree = "<group>"; };
+		D31670671E59FD9B00DEE3A0 /* EDNewProjectParams.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EDNewProjectParams.h; sourceTree = "<group>"; };
+		D31670681E59FD9B00DEE3A0 /* EDNewProjectParams.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EDNewProjectParams.m; sourceTree = "<group>"; };
+		D31670691E59FD9B00DEE3A0 /* EDProjectWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EDProjectWindowController.h; sourceTree = "<group>"; };
+		D316706A1E59FD9B00DEE3A0 /* EDProjectWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EDProjectWindowController.m; sourceTree = "<group>"; };
+		D316706F1E59FDF000DEE3A0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/EDFileWindow.xib; sourceTree = "<group>"; };
+		D31670711E59FE0500DEE3A0 /* EDFileWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EDFileWindowController.h; sourceTree = "<group>"; };
+		D31670721E59FE0500DEE3A0 /* EDFileWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EDFileWindowController.m; sourceTree = "<group>"; };
 		D33699A71E36B78900FEB7BF /* DevApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DevApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D33699AE1E36B78900FEB7BF /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		D33699B01E36B78900FEB7BF /* Document.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Document.h; sourceTree = "<group>"; };
@@ -956,6 +971,30 @@
 			name = "Breakpoint List";
 			sourceTree = "<group>";
 		};
+		D31670601E59FD5100DEE3A0 /* New File */ = {
+			isa = PBXGroup;
+			children = (
+				D31670711E59FE0500DEE3A0 /* EDFileWindowController.h */,
+				D31670721E59FE0500DEE3A0 /* EDFileWindowController.m */,
+				D316706E1E59FDF000DEE3A0 /* EDFileWindow.xib */,
+			);
+			name = "New File";
+			sourceTree = "<group>";
+		};
+		D31670611E59FD5900DEE3A0 /* New Project */ = {
+			isa = PBXGroup;
+			children = (
+				D31670691E59FD9B00DEE3A0 /* EDProjectWindowController.h */,
+				D316706A1E59FD9B00DEE3A0 /* EDProjectWindowController.m */,
+				D31670621E59FD6F00DEE3A0 /* EDProjectWindow.xib */,
+				D31670651E59FD9B00DEE3A0 /* EDMainWindowController+NewProject.h */,
+				D31670661E59FD9B00DEE3A0 /* EDMainWindowController+NewProject.m */,
+				D31670671E59FD9B00DEE3A0 /* EDNewProjectParams.h */,
+				D31670681E59FD9B00DEE3A0 /* EDNewProjectParams.m */,
+			);
+			name = "New Project";
+			sourceTree = "<group>";
+		};
 		D336999E1E36B78800FEB7BF = {
 			isa = PBXGroup;
 			children = (
@@ -1003,6 +1042,8 @@
 				D3369A3F1E36BB2800FEB7BF /* EDMainWindowController.xib */,
 				D3166FE91E592C3700DEE3A0 /* EDStatusBar.h */,
 				D3166FEA1E592C3700DEE3A0 /* EDStatusBar.m */,
+				D31670611E59FD5900DEE3A0 /* New Project */,
+				D31670601E59FD5100DEE3A0 /* New File */,
 				D31670561E59FC0700DEE3A0 /* Breakpoint List */,
 				D31670261E59F91C00DEE3A0 /* History */,
 				D316701F1E59F7A100DEE3A0 /* Search */,
@@ -1440,6 +1481,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D31670701E59FDF000DEE3A0 /* EDFileWindow.xib in Resources */,
+				D31670641E59FD6F00DEE3A0 /* EDProjectWindow.xib in Resources */,
 				D33699B71E36B78900FEB7BF /* Assets.xcassets in Resources */,
 				D3369A3D1E36BB2800FEB7BF /* EDMainWindowController.xib in Resources */,
 				D3369AC91E36BEED00FEB7BF /* OAPreferencesNextButton.png in Resources */,
@@ -1501,6 +1544,7 @@
 				D3369BDD1E36C73800FEB7BF /* TDHintButton.m in Sources */,
 				D3166EF01E5902A800DEE3A0 /* EDThemeRulesNameTableCell.m in Sources */,
 				D3369BDB1E36C73800FEB7BF /* TDFlippedView.m in Sources */,
+				D316706D1E59FD9B00DEE3A0 /* EDProjectWindowController.m in Sources */,
 				D3369BC81E36C73800FEB7BF /* NSBezierPath+TDAdditions.m in Sources */,
 				D3166F551E5908D700DEE3A0 /* EDTextEditingPreferences.m in Sources */,
 				D3166F3C1E59078000DEE3A0 /* EDColorPickerCell.m in Sources */,
@@ -1556,6 +1600,7 @@
 				D316704E1E59FB0400DEE3A0 /* EDConsoleOutlineView.m in Sources */,
 				D33699AF1E36B78900FEB7BF /* main.m in Sources */,
 				D3369B231E36C25A00FEB7BF /* TKTabModel.m in Sources */,
+				D31670731E59FE0500DEE3A0 /* EDFileWindowController.m in Sources */,
 				D31670361E59F9EB00DEE3A0 /* EDFindParameters.m in Sources */,
 				D3166F731E590D8C00DEE3A0 /* EDGeneralPreferences.m in Sources */,
 				D3369AC11E36BEED00FEB7BF /* NSObject-OFExtensions.m in Sources */,
@@ -1586,6 +1631,7 @@
 				D3369AB31E36BEED00FEB7BF /* IDEMainWindow.m in Sources */,
 				D3369BD81E36C73800FEB7BF /* TDDraggableBar.m in Sources */,
 				D3369ACF1E36BEED00FEB7BF /* OFPreference.m in Sources */,
+				D316706C1E59FD9B00DEE3A0 /* EDNewProjectParams.m in Sources */,
 				D3369B1D1E36C25A00FEB7BF /* TKTabListItemFlatStyleCloseButton.m in Sources */,
 				D3369C001E36C73800FEB7BF /* TDViewController.m in Sources */,
 				D3166FF71E592C6A00DEE3A0 /* EDTestAction.m in Sources */,
@@ -1732,6 +1778,22 @@
 				D31670541E59FC0400DEE3A0 /* Base */,
 			);
 			name = EDBreakpointListView.xib;
+			sourceTree = "<group>";
+		};
+		D31670621E59FD6F00DEE3A0 /* EDProjectWindow.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D31670631E59FD6F00DEE3A0 /* Base */,
+			);
+			name = EDProjectWindow.xib;
+			sourceTree = "<group>";
+		};
+		D316706E1E59FDF000DEE3A0 /* EDFileWindow.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D316706F1E59FDF000DEE3A0 /* Base */,
+			);
+			name = EDFileWindow.xib;
 			sourceTree = "<group>";
 		};
 		D33699B81E36B78900FEB7BF /* MainMenu.xib */ = {
