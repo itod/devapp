@@ -93,6 +93,10 @@
 		D316704E1E59FB0400DEE3A0 /* EDConsoleOutlineView.m in Sources */ = {isa = PBXBuildFile; fileRef = D31670471E59FB0400DEE3A0 /* EDConsoleOutlineView.m */; };
 		D316704F1E59FB0400DEE3A0 /* EDConsoleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D31670491E59FB0400DEE3A0 /* EDConsoleViewController.m */; };
 		D31670521E59FB7800DEE3A0 /* EDShellViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D31670511E59FB7800DEE3A0 /* EDShellViewController.m */; };
+		D31670551E59FC0400DEE3A0 /* EDBreakpointListView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D31670531E59FC0400DEE3A0 /* EDBreakpointListView.xib */; };
+		D316705D1E59FC2C00DEE3A0 /* EDBreakpointCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D31670581E59FC2C00DEE3A0 /* EDBreakpointCell.m */; };
+		D316705E1E59FC2C00DEE3A0 /* EDBreakpointListContainerView.m in Sources */ = {isa = PBXBuildFile; fileRef = D316705A1E59FC2C00DEE3A0 /* EDBreakpointListContainerView.m */; };
+		D316705F1E59FC2C00DEE3A0 /* EDBreakpointListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D316705C1E59FC2C00DEE3A0 /* EDBreakpointListViewController.m */; };
 		D33699AF1E36B78900FEB7BF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D33699AE1E36B78900FEB7BF /* main.m */; };
 		D33699B71E36B78900FEB7BF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D33699B61E36B78900FEB7BF /* Assets.xcassets */; };
 		D33699BA1E36B78900FEB7BF /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = D33699B81E36B78900FEB7BF /* MainMenu.xib */; };
@@ -459,6 +463,13 @@
 		D31670491E59FB0400DEE3A0 /* EDConsoleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EDConsoleViewController.m; sourceTree = "<group>"; };
 		D31670501E59FB7800DEE3A0 /* EDShellViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EDShellViewController.h; sourceTree = "<group>"; };
 		D31670511E59FB7800DEE3A0 /* EDShellViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EDShellViewController.m; sourceTree = "<group>"; };
+		D31670541E59FC0400DEE3A0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/EDBreakpointListView.xib; sourceTree = "<group>"; };
+		D31670571E59FC2C00DEE3A0 /* EDBreakpointCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EDBreakpointCell.h; sourceTree = "<group>"; };
+		D31670581E59FC2C00DEE3A0 /* EDBreakpointCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EDBreakpointCell.m; sourceTree = "<group>"; };
+		D31670591E59FC2C00DEE3A0 /* EDBreakpointListContainerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EDBreakpointListContainerView.h; sourceTree = "<group>"; };
+		D316705A1E59FC2C00DEE3A0 /* EDBreakpointListContainerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EDBreakpointListContainerView.m; sourceTree = "<group>"; };
+		D316705B1E59FC2C00DEE3A0 /* EDBreakpointListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EDBreakpointListViewController.h; sourceTree = "<group>"; };
+		D316705C1E59FC2C00DEE3A0 /* EDBreakpointListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EDBreakpointListViewController.m; sourceTree = "<group>"; };
 		D33699A71E36B78900FEB7BF /* DevApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DevApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D33699AE1E36B78900FEB7BF /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		D33699B01E36B78900FEB7BF /* Document.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Document.h; sourceTree = "<group>"; };
@@ -929,6 +940,22 @@
 			name = Console;
 			sourceTree = "<group>";
 		};
+		D31670561E59FC0700DEE3A0 /* Breakpoint List */ = {
+			isa = PBXGroup;
+			children = (
+				D3166FA61E59273A00DEE3A0 /* EDBreakpointCollection.h */,
+				D3166FA71E59273A00DEE3A0 /* EDBreakpointCollection.m */,
+				D316705B1E59FC2C00DEE3A0 /* EDBreakpointListViewController.h */,
+				D316705C1E59FC2C00DEE3A0 /* EDBreakpointListViewController.m */,
+				D31670531E59FC0400DEE3A0 /* EDBreakpointListView.xib */,
+				D31670591E59FC2C00DEE3A0 /* EDBreakpointListContainerView.h */,
+				D316705A1E59FC2C00DEE3A0 /* EDBreakpointListContainerView.m */,
+				D31670571E59FC2C00DEE3A0 /* EDBreakpointCell.h */,
+				D31670581E59FC2C00DEE3A0 /* EDBreakpointCell.m */,
+			);
+			name = "Breakpoint List";
+			sourceTree = "<group>";
+		};
 		D336999E1E36B78800FEB7BF = {
 			isa = PBXGroup;
 			children = (
@@ -974,18 +1001,17 @@
 				D3369A381E36BB1300FEB7BF /* EDMainWindowController.h */,
 				D3369A391E36BB1300FEB7BF /* EDMainWindowController.m */,
 				D3369A3F1E36BB2800FEB7BF /* EDMainWindowController.xib */,
-				D3166FA61E59273A00DEE3A0 /* EDBreakpointCollection.h */,
-				D3166FA71E59273A00DEE3A0 /* EDBreakpointCollection.m */,
 				D3166FE91E592C3700DEE3A0 /* EDStatusBar.h */,
 				D3166FEA1E592C3700DEE3A0 /* EDStatusBar.m */,
-				D316703A1E59FAE500DEE3A0 /* Console */,
+				D31670561E59FC0700DEE3A0 /* Breakpoint List */,
 				D31670261E59F91C00DEE3A0 /* History */,
 				D316701F1E59F7A100DEE3A0 /* Search */,
 				D316702A1E59F9A100DEE3A0 /* Find */,
 				D316700F1E59F76000DEE3A0 /* Navigator */,
 				D316700E1E59F72800DEE3A0 /* Stack Trace */,
-				D3166FB41E5927A900DEE3A0 /* Welcome Window */,
+				D316703A1E59FAE500DEE3A0 /* Console */,
 				D3166F401E5907B100DEE3A0 /* Prefs */,
+				D3166FB41E5927A900DEE3A0 /* Welcome Window */,
 				D33699AD1E36B78900FEB7BF /* Supporting Files */,
 			);
 			path = DevApp;
@@ -1427,6 +1453,7 @@
 				D3166F921E590DF600DEE3A0 /* css in Resources */,
 				D3166F701E590D7D00DEE3A0 /* EDGeneralPreferences.xib in Resources */,
 				D3166EB91E57C54400DEE3A0 /* OAPreferencesWindow.xib in Resources */,
+				D31670551E59FC0400DEE3A0 /* EDBreakpointListView.xib in Resources */,
 				D3166FB71E5927C300DEE3A0 /* EDWelcomeWindow.xib in Resources */,
 				D31670071E59F71500DEE3A0 /* EDStackTraceView.xib in Resources */,
 				D3166FFE1E592CCC00DEE3A0 /* EDActionArgumentsFacet.xib in Resources */,
@@ -1546,6 +1573,7 @@
 				D3369AC41E36BEED00FEB7BF /* NSToolbar-OAExtensions.m in Sources */,
 				D3369AAC1E36BEED00FEB7BF /* IDEApplication.m in Sources */,
 				D3369AC81E36BEED00FEB7BF /* OAPreferencesIconView.m in Sources */,
+				D316705E1E59FC2C00DEE3A0 /* EDBreakpointListContainerView.m in Sources */,
 				D31670291E59F92400DEE3A0 /* EDHistory.m in Sources */,
 				D3369AC51E36BEED00FEB7BF /* OAPreferenceClient.m in Sources */,
 				D316701E1E59F76700DEE3A0 /* EDTabBarStackTraceButtonCell.m in Sources */,
@@ -1569,6 +1597,7 @@
 				D31670371E59F9EB00DEE3A0 /* EDFindResultsCell.m in Sources */,
 				D3166F171E59038F00DEE3A0 /* OKViewController.m in Sources */,
 				D3369BD21E36C73800FEB7BF /* TDColorView.m in Sources */,
+				D316705F1E59FC2C00DEE3A0 /* EDBreakpointListViewController.m in Sources */,
 				D3369AB01E36BEED00FEB7BF /* IDEDocumentController.m in Sources */,
 				D3369AC31E36BEED00FEB7BF /* NSString-OFSimpleMatching.m in Sources */,
 				D3369B211E36C25A00FEB7BF /* TKTabListItemStyleFlat.m in Sources */,
@@ -1588,6 +1617,7 @@
 				D3166FD81E592A5200DEE3A0 /* EDDocument.m in Sources */,
 				D316704C1E59FB0400DEE3A0 /* EDConsoleControlButton.m in Sources */,
 				D3369AB91E36BEED00FEB7BF /* IDEUberViewSplitView.m in Sources */,
+				D316705D1E59FC2C00DEE3A0 /* EDBreakpointCell.m in Sources */,
 				D3166F151E59038F00DEE3A0 /* OKUtils.m in Sources */,
 				D3166F0D1E59038F00DEE3A0 /* OKBreakpoint.m in Sources */,
 			);
@@ -1694,6 +1724,14 @@
 				D316703C1E59FAEC00DEE3A0 /* Base */,
 			);
 			name = EDConsoleView.xib;
+			sourceTree = "<group>";
+		};
+		D31670531E59FC0400DEE3A0 /* EDBreakpointListView.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D31670541E59FC0400DEE3A0 /* Base */,
+			);
+			name = EDBreakpointListView.xib;
 			sourceTree = "<group>";
 		};
 		D33699B81E36B78900FEB7BF /* MainMenu.xib */ = {
