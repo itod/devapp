@@ -139,6 +139,8 @@
 		D31670F41E5A1A7B00DEE3A0 /* EDFindPanel.m in Sources */ = {isa = PBXBuildFile; fileRef = D31670EF1E5A1A7B00DEE3A0 /* EDFindPanel.m */; };
 		D31670F51E5A1A7B00DEE3A0 /* EDRecentURLController.m in Sources */ = {isa = PBXBuildFile; fileRef = D31670F11E5A1A7B00DEE3A0 /* EDRecentURLController.m */; };
 		D31670F81E5A1E8700DEE3A0 /* TKTabsListView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D31670F61E5A1E8700DEE3A0 /* TKTabsListView.xib */; };
+		D31670FF1E5A21CA00DEE3A0 /* OKViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D31670FD1E5A21CA00DEE3A0 /* OKViewController.xib */; };
+		D31671001E5A21F800DEE3A0 /* EDMainWindowController+NewProject.m in Sources */ = {isa = PBXBuildFile; fileRef = D31670661E59FD9B00DEE3A0 /* EDMainWindowController+NewProject.m */; };
 		D33699AF1E36B78900FEB7BF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D33699AE1E36B78900FEB7BF /* main.m */; };
 		D33699B71E36B78900FEB7BF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D33699B61E36B78900FEB7BF /* Assets.xcassets */; };
 		D33699BA1E36B78900FEB7BF /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = D33699B81E36B78900FEB7BF /* MainMenu.xib */; };
@@ -590,6 +592,7 @@
 		D31670F01E5A1A7B00DEE3A0 /* EDRecentURLController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EDRecentURLController.h; sourceTree = "<group>"; };
 		D31670F11E5A1A7B00DEE3A0 /* EDRecentURLController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EDRecentURLController.m; sourceTree = "<group>"; };
 		D31670F71E5A1E8700DEE3A0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = lib/TabKit/Base.lproj/TKTabsListView.xib; sourceTree = SOURCE_ROOT; };
+		D31670FE1E5A21CA00DEE3A0 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = lib/OkudaKit/en.lproj/OKViewController.xib; sourceTree = SOURCE_ROOT; };
 		D33699A71E36B78900FEB7BF /* DevApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DevApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D33699AE1E36B78900FEB7BF /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		D33699B61E36B78900FEB7BF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -816,6 +819,7 @@
 				D3166F0A1E59038F00DEE3A0 /* OKView.m */,
 				D3166EFC1E59037C00DEE3A0 /* OKViewController.h */,
 				D3166F0B1E59038F00DEE3A0 /* OKViewController.m */,
+				D31670FD1E5A21CA00DEE3A0 /* OKViewController.xib */,
 				D3166F001E59038F00DEE3A0 /* OKContainerView.h */,
 				D3166F011E59038F00DEE3A0 /* OKContainerView.m */,
 				D3166EF71E59037C00DEE3A0 /* OKTextView.h */,
@@ -1706,6 +1710,7 @@
 				D31670641E59FD6F00DEE3A0 /* EDProjectWindow.xib in Resources */,
 				D31670A61E5A167B00DEE3A0 /* EDFileEncodingDialog.xib in Resources */,
 				D33699B71E36B78900FEB7BF /* Assets.xcassets in Resources */,
+				D31670FF1E5A21CA00DEE3A0 /* OKViewController.xib in Resources */,
 				D31670BD1E5A184600DEE3A0 /* EDFilesystemView.xib in Resources */,
 				D3369AC91E36BEED00FEB7BF /* OAPreferencesNextButton.png in Resources */,
 				D3166F5C1E5908FE00DEE3A0 /* EDGuidesPreferences.xib in Resources */,
@@ -1891,6 +1896,7 @@
 				D31670841E5A14A400DEE3A0 /* EDToolbarButtonCell.m in Sources */,
 				D3369B171E36C25A00FEB7BF /* TKDocument+Scripting.m in Sources */,
 				D31670371E59F9EB00DEE3A0 /* EDFindResultsCell.m in Sources */,
+				D31671001E5A21F800DEE3A0 /* EDMainWindowController+NewProject.m in Sources */,
 				D3166F171E59038F00DEE3A0 /* OKViewController.m in Sources */,
 				D3369BD21E36C73800FEB7BF /* TDColorView.m in Sources */,
 				D316705F1E59FC2C00DEE3A0 /* EDBreakpointListViewController.m in Sources */,
@@ -2090,6 +2096,14 @@
 				D31670F71E5A1E8700DEE3A0 /* Base */,
 			);
 			name = TKTabsListView.xib;
+			sourceTree = "<group>";
+		};
+		D31670FD1E5A21CA00DEE3A0 /* OKViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D31670FE1E5A21CA00DEE3A0 /* en */,
+			);
+			name = OKViewController.xib;
 			sourceTree = "<group>";
 		};
 		D33699B81E36B78900FEB7BF /* MainMenu.xib */ = {

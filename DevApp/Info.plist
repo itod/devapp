@@ -12,17 +12,36 @@
 				<string>devapp</string>
 			</array>
 			<key>CFBundleTypeIconFile</key>
-			<string></string>
+			<string>DocIcon</string>
 			<key>CFBundleTypeName</key>
-			<string>DocumentType</string>
+			<string>DevApp Document</string>
 			<key>CFBundleTypeOSTypes</key>
 			<array>
 				<string>????</string>
 			</array>
 			<key>CFBundleTypeRole</key>
 			<string>Editor</string>
+			<key>LSItemContentTypes</key>
+			<array>
+				<string>com.celestialteapot.devappdoc</string>
+			</array>
 			<key>NSDocumentClass</key>
 			<string>EDDocument</string>
+		</dict>
+		<dict>
+			<key>CFBundleTypeExtensions</key>
+			<array>
+				<string>devapplicense</string>
+				<string>xml</string>
+			</array>
+			<key>CFBundleTypeIconFile</key>
+			<string>DocIcon</string>
+			<key>CFBundleTypeName</key>
+			<string>DevApp License</string>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>LSTypeIsPackage</key>
+			<integer>0</integer>
 		</dict>
 	</array>
 	<key>CFBundleExecutable</key>

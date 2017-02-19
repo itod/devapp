@@ -168,21 +168,8 @@
     
     if ([self saveProjectToDirectory:dirPath]) {
         EDNewProjectParams *params = self.projectWindowController.projParams;
-        if (params.createVirtualEnv) {
-            [self createVirtualEnvAtPath:dirPath];
-        } else {
-            [self orderOutNewProjectSheet:NO];
-        }
+        [self orderOutNewProjectSheet:NO];
     }
-}
-
-
-- (void)createVirtualEnvAtPath:(NSString *)dirPath {
-    EDAssertMainThread();
-
-    
-    [self orderOutNewProjectSheet:NO];
-
 }
 
 
