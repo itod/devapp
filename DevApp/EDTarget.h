@@ -10,7 +10,7 @@
 
 @class EDScheme;
 
-@interface EDTarget : EDModel //<NSCoding>
+@interface EDTarget : EDModel /*<NSCoding>*/
 
 @property (nonatomic, copy) NSString *name;
 @property (nonatomic, retain) EDScheme *scheme;

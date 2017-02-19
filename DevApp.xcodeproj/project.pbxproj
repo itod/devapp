@@ -70,6 +70,15 @@
 		D3166FFE1E592CCC00DEE3A0 /* EDActionArgumentsFacet.xib in Resources */ = {isa = PBXBuildFile; fileRef = D3166FFC1E592CCC00DEE3A0 /* EDActionArgumentsFacet.xib */; };
 		D31670031E592CEF00DEE3A0 /* EDActionArgumentsFacet.m in Sources */ = {isa = PBXBuildFile; fileRef = D31670001E592CEF00DEE3A0 /* EDActionArgumentsFacet.m */; };
 		D31670041E592CEF00DEE3A0 /* EDActionFacet.m in Sources */ = {isa = PBXBuildFile; fileRef = D31670021E592CEF00DEE3A0 /* EDActionFacet.m */; };
+		D31670071E59F71500DEE3A0 /* EDStackTraceView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D31670051E59F71500DEE3A0 /* EDStackTraceView.xib */; };
+		D316700C1E59F71F00DEE3A0 /* EDStackTraceContainerView.m in Sources */ = {isa = PBXBuildFile; fileRef = D31670091E59F71F00DEE3A0 /* EDStackTraceContainerView.m */; };
+		D316700D1E59F71F00DEE3A0 /* EDStackTraceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D316700B1E59F71F00DEE3A0 /* EDStackTraceViewController.m */; };
+		D316701A1E59F76700DEE3A0 /* EDNavTabBarItem.m in Sources */ = {isa = PBXBuildFile; fileRef = D31670111E59F76700DEE3A0 /* EDNavTabBarItem.m */; };
+		D316701B1E59F76700DEE3A0 /* EDTabBarBreakpointButtonCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D31670131E59F76700DEE3A0 /* EDTabBarBreakpointButtonCell.m */; };
+		D316701C1E59F76700DEE3A0 /* EDTabBarButtonCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D31670151E59F76700DEE3A0 /* EDTabBarButtonCell.m */; };
+		D316701D1E59F76700DEE3A0 /* EDTabBarFilesystemButtonCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D31670171E59F76700DEE3A0 /* EDTabBarFilesystemButtonCell.m */; };
+		D316701E1E59F76700DEE3A0 /* EDTabBarStackTraceButtonCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D31670191E59F76700DEE3A0 /* EDTabBarStackTraceButtonCell.m */; };
+		D31670241E59F7DC00DEE3A0 /* EDFileLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = D31670211E59F7DC00DEE3A0 /* EDFileLocation.m */; };
 		D33699AF1E36B78900FEB7BF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D33699AE1E36B78900FEB7BF /* main.m */; };
 		D33699B71E36B78900FEB7BF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D33699B61E36B78900FEB7BF /* Assets.xcassets */; };
 		D33699BA1E36B78900FEB7BF /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = D33699B81E36B78900FEB7BF /* MainMenu.xib */; };
@@ -392,6 +401,23 @@
 		D31670001E592CEF00DEE3A0 /* EDActionArgumentsFacet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EDActionArgumentsFacet.m; sourceTree = "<group>"; };
 		D31670011E592CEF00DEE3A0 /* EDActionFacet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EDActionFacet.h; sourceTree = "<group>"; };
 		D31670021E592CEF00DEE3A0 /* EDActionFacet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EDActionFacet.m; sourceTree = "<group>"; };
+		D31670061E59F71500DEE3A0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/EDStackTraceView.xib; sourceTree = "<group>"; };
+		D31670081E59F71F00DEE3A0 /* EDStackTraceContainerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EDStackTraceContainerView.h; sourceTree = "<group>"; };
+		D31670091E59F71F00DEE3A0 /* EDStackTraceContainerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EDStackTraceContainerView.m; sourceTree = "<group>"; };
+		D316700A1E59F71F00DEE3A0 /* EDStackTraceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EDStackTraceViewController.h; sourceTree = "<group>"; };
+		D316700B1E59F71F00DEE3A0 /* EDStackTraceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EDStackTraceViewController.m; sourceTree = "<group>"; };
+		D31670101E59F76700DEE3A0 /* EDNavTabBarItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EDNavTabBarItem.h; sourceTree = "<group>"; };
+		D31670111E59F76700DEE3A0 /* EDNavTabBarItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EDNavTabBarItem.m; sourceTree = "<group>"; };
+		D31670121E59F76700DEE3A0 /* EDTabBarBreakpointButtonCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EDTabBarBreakpointButtonCell.h; sourceTree = "<group>"; };
+		D31670131E59F76700DEE3A0 /* EDTabBarBreakpointButtonCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EDTabBarBreakpointButtonCell.m; sourceTree = "<group>"; };
+		D31670141E59F76700DEE3A0 /* EDTabBarButtonCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EDTabBarButtonCell.h; sourceTree = "<group>"; };
+		D31670151E59F76700DEE3A0 /* EDTabBarButtonCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EDTabBarButtonCell.m; sourceTree = "<group>"; };
+		D31670161E59F76700DEE3A0 /* EDTabBarFilesystemButtonCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EDTabBarFilesystemButtonCell.h; sourceTree = "<group>"; };
+		D31670171E59F76700DEE3A0 /* EDTabBarFilesystemButtonCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EDTabBarFilesystemButtonCell.m; sourceTree = "<group>"; };
+		D31670181E59F76700DEE3A0 /* EDTabBarStackTraceButtonCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EDTabBarStackTraceButtonCell.h; sourceTree = "<group>"; };
+		D31670191E59F76700DEE3A0 /* EDTabBarStackTraceButtonCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EDTabBarStackTraceButtonCell.m; sourceTree = "<group>"; };
+		D31670201E59F7DC00DEE3A0 /* EDFileLocation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EDFileLocation.h; sourceTree = "<group>"; };
+		D31670211E59F7DC00DEE3A0 /* EDFileLocation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EDFileLocation.m; sourceTree = "<group>"; };
 		D33699A71E36B78900FEB7BF /* DevApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DevApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D33699AE1E36B78900FEB7BF /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		D33699B01E36B78900FEB7BF /* Document.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Document.h; sourceTree = "<group>"; };
@@ -776,6 +802,44 @@
 			name = "Proj Settings";
 			sourceTree = "<group>";
 		};
+		D316700E1E59F72800DEE3A0 /* Stack Trace */ = {
+			isa = PBXGroup;
+			children = (
+				D316700A1E59F71F00DEE3A0 /* EDStackTraceViewController.h */,
+				D316700B1E59F71F00DEE3A0 /* EDStackTraceViewController.m */,
+				D31670051E59F71500DEE3A0 /* EDStackTraceView.xib */,
+				D31670081E59F71F00DEE3A0 /* EDStackTraceContainerView.h */,
+				D31670091E59F71F00DEE3A0 /* EDStackTraceContainerView.m */,
+			);
+			name = "Stack Trace";
+			sourceTree = "<group>";
+		};
+		D316700F1E59F76000DEE3A0 /* Navigator */ = {
+			isa = PBXGroup;
+			children = (
+				D31670101E59F76700DEE3A0 /* EDNavTabBarItem.h */,
+				D31670111E59F76700DEE3A0 /* EDNavTabBarItem.m */,
+				D31670141E59F76700DEE3A0 /* EDTabBarButtonCell.h */,
+				D31670151E59F76700DEE3A0 /* EDTabBarButtonCell.m */,
+				D31670121E59F76700DEE3A0 /* EDTabBarBreakpointButtonCell.h */,
+				D31670131E59F76700DEE3A0 /* EDTabBarBreakpointButtonCell.m */,
+				D31670161E59F76700DEE3A0 /* EDTabBarFilesystemButtonCell.h */,
+				D31670171E59F76700DEE3A0 /* EDTabBarFilesystemButtonCell.m */,
+				D31670181E59F76700DEE3A0 /* EDTabBarStackTraceButtonCell.h */,
+				D31670191E59F76700DEE3A0 /* EDTabBarStackTraceButtonCell.m */,
+			);
+			name = Navigator;
+			sourceTree = "<group>";
+		};
+		D316701F1E59F7A100DEE3A0 /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				D31670201E59F7DC00DEE3A0 /* EDFileLocation.h */,
+				D31670211E59F7DC00DEE3A0 /* EDFileLocation.m */,
+			);
+			name = Search;
+			sourceTree = "<group>";
+		};
 		D336999E1E36B78800FEB7BF = {
 			isa = PBXGroup;
 			children = (
@@ -825,6 +889,9 @@
 				D3166FA71E59273A00DEE3A0 /* EDBreakpointCollection.m */,
 				D3166FE91E592C3700DEE3A0 /* EDStatusBar.h */,
 				D3166FEA1E592C3700DEE3A0 /* EDStatusBar.m */,
+				D316701F1E59F7A100DEE3A0 /* Search */,
+				D316700F1E59F76000DEE3A0 /* Navigator */,
+				D316700E1E59F72800DEE3A0 /* Stack Trace */,
 				D3166FB41E5927A900DEE3A0 /* Welcome Window */,
 				D3166F401E5907B100DEE3A0 /* Prefs */,
 				D33699AD1E36B78900FEB7BF /* Supporting Files */,
@@ -1269,6 +1336,7 @@
 				D3166F701E590D7D00DEE3A0 /* EDGeneralPreferences.xib in Resources */,
 				D3166EB91E57C54400DEE3A0 /* OAPreferencesWindow.xib in Resources */,
 				D3166FB71E5927C300DEE3A0 /* EDWelcomeWindow.xib in Resources */,
+				D31670071E59F71500DEE3A0 /* EDStackTraceView.xib in Resources */,
 				D3166FFE1E592CCC00DEE3A0 /* EDActionArgumentsFacet.xib in Resources */,
 				D3369ACA1E36BEED00FEB7BF /* OAPreferencesPreviousButton.png in Resources */,
 			);
@@ -1327,6 +1395,7 @@
 				D3369ABA1E36BEED00FEB7BF /* IDEUserDefaults.m in Sources */,
 				D3369BE31E36C73800FEB7BF /* TDListView.m in Sources */,
 				D3369BDE1E36C73800FEB7BF /* TDHintView.m in Sources */,
+				D31670241E59F7DC00DEE3A0 /* EDFileLocation.m in Sources */,
 				D3166EEE1E5902A800DEE3A0 /* EDThemeManager.m in Sources */,
 				D3369B271E36C25A00FEB7BF /* TKTabsListViewControllerView.m in Sources */,
 				D3369AA81E36BEED00FEB7BF /* EDUpdatePreferences.m in Sources */,
@@ -1350,7 +1419,9 @@
 				D3369B281E36C25A00FEB7BF /* TKUserDefaults.m in Sources */,
 				D3166F301E5905A100DEE3A0 /* EDWildcardPattern.m in Sources */,
 				D3166F2E1E5905A100DEE3A0 /* EDPattern.m in Sources */,
+				D316700D1E59F71F00DEE3A0 /* EDStackTraceViewController.m in Sources */,
 				D3369BCA1E36C73800FEB7BF /* NSEvent+TDAdditions.m in Sources */,
+				D316701A1E59F76700DEE3A0 /* EDNavTabBarItem.m in Sources */,
 				D31670041E592CEF00DEE3A0 /* EDActionFacet.m in Sources */,
 				D3369B221E36C25A00FEB7BF /* TKTabListItemStyleMerged.m in Sources */,
 				D3369B181E36C25A00FEB7BF /* TKDocumentController.m in Sources */,
@@ -1376,15 +1447,20 @@
 				D3369AAC1E36BEED00FEB7BF /* IDEApplication.m in Sources */,
 				D3369AC81E36BEED00FEB7BF /* OAPreferencesIconView.m in Sources */,
 				D3369AC51E36BEED00FEB7BF /* OAPreferenceClient.m in Sources */,
+				D316701E1E59F76700DEE3A0 /* EDTabBarStackTraceButtonCell.m in Sources */,
+				D316701B1E59F76700DEE3A0 /* EDTabBarBreakpointButtonCell.m in Sources */,
 				D3369AC61E36BEED00FEB7BF /* OAPreferenceClientRecord.m in Sources */,
 				D3369BEF1E36C73800FEB7BF /* TDTabBarControllerView.m in Sources */,
 				D3369BCB1E36C73800FEB7BF /* NSImage+TDAdditions.m in Sources */,
+				D316700C1E59F71F00DEE3A0 /* EDStackTraceContainerView.m in Sources */,
+				D316701D1E59F76700DEE3A0 /* EDTabBarFilesystemButtonCell.m in Sources */,
 				D3369AB31E36BEED00FEB7BF /* IDEMainWindow.m in Sources */,
 				D3369BD81E36C73800FEB7BF /* TDDraggableBar.m in Sources */,
 				D3369ACF1E36BEED00FEB7BF /* OFPreference.m in Sources */,
 				D3369B1D1E36C25A00FEB7BF /* TKTabListItemFlatStyleCloseButton.m in Sources */,
 				D3369C001E36C73800FEB7BF /* TDViewController.m in Sources */,
 				D3166FF71E592C6A00DEE3A0 /* EDTestAction.m in Sources */,
+				D316701C1E59F76700DEE3A0 /* EDTabBarButtonCell.m in Sources */,
 				D3166F431E5907C900DEE3A0 /* EDUtils.m in Sources */,
 				D3369B1F1E36C25A00FEB7BF /* TKTabListItemStyle.m in Sources */,
 				D3369B171E36C25A00FEB7BF /* TKDocument+Scripting.m in Sources */,
@@ -1498,6 +1574,14 @@
 			name = EDActionArgumentsFacet.xib;
 			sourceTree = "<group>";
 		};
+		D31670051E59F71500DEE3A0 /* EDStackTraceView.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D31670061E59F71500DEE3A0 /* Base */,
+			);
+			name = EDStackTraceView.xib;
+			sourceTree = "<group>";
+		};
 		D33699B81E36B78900FEB7BF /* MainMenu.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -1536,7 +1620,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
-				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = NO;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
@@ -1582,7 +1666,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
-				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = NO;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
