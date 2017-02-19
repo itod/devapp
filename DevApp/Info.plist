@@ -25,6 +25,8 @@
 			<array>
 				<string>com.celestialteapot.devappdoc</string>
 			</array>
+			<key>LSTypeIsPackage</key>
+			<integer>1</integer>
 			<key>NSDocumentClass</key>
 			<string>EDDocument</string>
 		</dict>
@@ -141,8 +143,7 @@
 		<dict>
 			<key>UTTypeConformsTo</key>
 			<array>
-				<string>public.data</string>
-				<string>public.content</string>
+				<string>com.apple.package</string>
 			</array>
 			<key>UTTypeDescription</key>
 			<string>DevApp Document</string>

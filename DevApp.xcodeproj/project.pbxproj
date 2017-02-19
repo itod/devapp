@@ -144,6 +144,7 @@
 		D31671031E5A251000DEE3A0 /* EDBaseToolbarItem.m in Sources */ = {isa = PBXBuildFile; fileRef = D31671021E5A251000DEE3A0 /* EDBaseToolbarItem.m */; };
 		D31671051E5A599200DEE3A0 /* main.js in Resources */ = {isa = PBXBuildFile; fileRef = D31671041E5A599200DEE3A0 /* main.js */; };
 		D31671081E5A5DD300DEE3A0 /* OKJavaScriptParser.m in Sources */ = {isa = PBXBuildFile; fileRef = D31671071E5A5DD300DEE3A0 /* OKJavaScriptParser.m */; settings = {COMPILER_FLAGS = "-Wno-undeclared-selector"; }; };
+		D316710D1E5A5FB600DEE3A0 /* TDComboField.m in Sources */ = {isa = PBXBuildFile; fileRef = D316710C1E5A5FB600DEE3A0 /* TDComboField.m */; };
 		D33699AF1E36B78900FEB7BF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D33699AE1E36B78900FEB7BF /* main.m */; };
 		D33699B71E36B78900FEB7BF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D33699B61E36B78900FEB7BF /* Assets.xcassets */; };
 		D33699BA1E36B78900FEB7BF /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = D33699B81E36B78900FEB7BF /* MainMenu.xib */; };
@@ -601,6 +602,8 @@
 		D31671041E5A599200DEE3A0 /* main.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; name = main.js; path = ../res/main.js; sourceTree = "<group>"; };
 		D31671061E5A5DD300DEE3A0 /* OKJavaScriptParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OKJavaScriptParser.h; path = lib/OkudaKit/src/parsers/OKJavaScriptParser.h; sourceTree = SOURCE_ROOT; };
 		D31671071E5A5DD300DEE3A0 /* OKJavaScriptParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OKJavaScriptParser.m; path = lib/OkudaKit/src/parsers/OKJavaScriptParser.m; sourceTree = SOURCE_ROOT; };
+		D316710C1E5A5FB600DEE3A0 /* TDComboField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TDComboField.m; path = lib/TDAppKit/src/TDComboField.m; sourceTree = SOURCE_ROOT; };
+		D316710E1E5A5FC200DEE3A0 /* TDComboField.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = TDComboField.h; path = lib/TDAppKit/include/TDAppKit/TDComboField.h; sourceTree = SOURCE_ROOT; };
 		D33699A71E36B78900FEB7BF /* DevApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DevApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D33699AE1E36B78900FEB7BF /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		D33699B61E36B78900FEB7BF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -1244,6 +1247,7 @@
 				D33699A81E36B78900FEB7BF /* Products */,
 			);
 			sourceTree = "<group>";
+			tabWidth = 3;
 		};
 		D33699A81E36B78900FEB7BF /* Products */ = {
 			isa = PBXGroup;
@@ -1498,6 +1502,8 @@
 				D3369B801E36C73700FEB7BF /* TDBarItem.m */,
 				D3369B471E36C72E00FEB7BF /* TDColorView.h */,
 				D3369B831E36C73700FEB7BF /* TDColorView.m */,
+				D316710E1E5A5FC200DEE3A0 /* TDComboField.h */,
+				D316710C1E5A5FB600DEE3A0 /* TDComboField.m */,
 				D3369B851E36C73700FEB7BF /* TDComboFieldCell.h */,
 				D3369B861E36C73700FEB7BF /* TDComboFieldCell.m */,
 				D3369B871E36C73700FEB7BF /* TDComboFieldListItem.h */,
@@ -1800,6 +1806,7 @@
 				D3166F551E5908D700DEE3A0 /* EDTextEditingPreferences.m in Sources */,
 				D3166F3C1E59078000DEE3A0 /* EDColorPickerCell.m in Sources */,
 				D3166F1D1E59042B00DEE3A0 /* OKMiniCSSParser.m in Sources */,
+				D316710D1E5A5FB600DEE3A0 /* TDComboField.m in Sources */,
 				D3369BEE1E36C73800FEB7BF /* TDTabBarController.m in Sources */,
 				D3166EF11E5902A800DEE3A0 /* EDThemeRulesTableView.m in Sources */,
 				D31670851E5A14A400DEE3A0 /* EDToolbarButtonItem.m in Sources */,
