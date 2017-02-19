@@ -1226,7 +1226,7 @@
 
 - (NSArray *)textView:(OKTextView *)tv filteredDataForPrefix:(NSString *)prefix givenRange:(NSRange)selRange includeDomainSpecific:(BOOL)includeDomainSpecific {
 
-    NSMutableArray *sortedMatches = nil;
+    NSMutableArray *sortedMatches = [NSMutableArray array];
     [sortedMatches addObjectsFromArray:[self customFilteredDataForPrefix:prefix includeDomainSpecific:includeDomainSpecific]];
     
     [sortedMatches sortUsingComparator:^NSComparisonResult(OKTrigger *trig1, OKTrigger *trig2) {
