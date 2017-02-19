@@ -1760,6 +1760,7 @@
 					lib,
 					lib/TDAppKit/include,
 					lib/TDThreadUtils/include,
+					lib/OkudaKit/include,
 				);
 				INFOPLIST_FILE = DevApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
@@ -1783,6 +1784,7 @@
 					lib,
 					lib/TDAppKit/include,
 					lib/TDThreadUtils/include,
+					lib/OkudaKit/include,
 				);
 				INFOPLIST_FILE = DevApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
