@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="9059" systemVersion="14F1021" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
+    <dependencies>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="9059"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner" customClass="EDMainWindowController">
+            <connections>
+                <outlet property="breakpointsEnabledToolbarItem" destination="jVl-iA-Q3X" id="o3z-OG-79a"/>
+                <outlet property="confirmTabCloseSheet" destination="owr-zC-U2f" id="KSy-fl-3YQ"/>
+                <outlet property="midContainerView" destination="JSC-ht-mF2" id="dsb-ut-44L"/>
+                <outlet property="window" destination="5" id="18"/>
+                <outlet property="windowContainerView" destination="eNf-sT-fOm" id="KTY-VD-JWB"/>
+            </connections>
+        </customObject>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <window identifier="MainWindow" title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" frameAutosaveName="MainWindow" animationBehavior="default" id="5" userLabel="Window" customClass="EDMainWindow">
+            <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
+            <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
+            <rect key="contentRect" x="91" y="532" width="979" height="611"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1920" height="1178"/>
+            <value key="minSize" type="size" width="94" height="86"/>
+            <view key="contentView" id="6">
+                <rect key="frame" x="0.0" y="0.0" width="979" height="611"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <customView id="eNf-sT-fOm" userLabel="windowContainerView" customClass="EDWindowContainerView">
+                        <rect key="frame" x="0.0" y="0.0" width="979" height="611"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                    </customView>
+                </subviews>
+            </view>
+            <toolbar key="toolbar" implicitIdentifier="809B3A41-39F5-4B60-9749-7F206EAD2979" allowsUserCustomization="NO" showsBaselineSeparator="NO" displayMode="iconOnly" sizeMode="regular" id="qiU-V8-99G">
+                <allowedToolbarItems>
+                    <toolbarItem implicitItemIdentifier="E88831DB-C0F1-42A0-91D8-9E07A967ED60" explicitItemIdentifier="Run" label="Run" paletteLabel="Run" toolTip="Run" tag="2020" image="NSGoRightTemplate" id="eP4-gO-Mjl" customClass="EDToolbarButtonItem">
+                        <connections>
+                            <action selector="run:" target="-1" id="3Po-17-Njf"/>
+                            <binding destination="-2" name="enabled" keyPath="canRun" id="5dB-Tx-8cS"/>
+                        </connections>
+                    </toolbarItem>
+                    <toolbarItem implicitItemIdentifier="AA254FDA-D1BD-4F81-8362-0E7F17BD03A1" explicitItemIdentifier="Stop" label="Stop" paletteLabel="Stop" toolTip="Stop" tag="2030" image="NSStopProgressTemplate" id="ekh-mq-PVQ" customClass="EDToolbarButtonItem">
+                        <connections>
+                            <action selector="stop:" target="-1" id="Abv-Mm-abk"/>
+                            <binding destination="-2" name="enabled" keyPath="canStop" id="tTd-CQ-4EH"/>
+                        </connections>
+                    </toolbarItem>
+                    <toolbarItem implicitItemIdentifier="D5CEA792-D7F5-437A-917A-22E040A54AE9" explicitItemIdentifier="RunProgress" label="" paletteLabel="" id="1kD-0N-tlT" customClass="EDToolbarProgressItem">
+                        <connections>
+                            <action selector="toggleBreakpointsEnabled:" target="-1" id="jyD-Cn-va2"/>
+                        </connections>
+                    </toolbarItem>
+                    <toolbarItem implicitItemIdentifier="EEC95E70-E5EA-482D-A2EC-0402E0FE4BFB" explicitItemIdentifier="EnableBreakpoints" label="Breakpoints" paletteLabel="Enable Breakpoints" toolTip="Enable Breakpoints" tag="2040" image="NSActionTemplate" id="jVl-iA-Q3X" customClass="EDToolbarButtonItem">
+                        <connections>
+                            <action selector="toggleBreakpointsEnabled:" target="-1" id="jpg-AC-A7z"/>
+                        </connections>
+                    </toolbarItem>
+                    <toolbarItem implicitItemIdentifier="F6B45352-7407-4C59-BD50-32E850C66BE0" explicitItemIdentifier="RunStatus" label="" paletteLabel="" id="Nol-CY-l8f" customClass="EDToolbarStatusItem">
+                        <connections>
+                            <action selector="toggleBreakpointsEnabled:" target="-1" id="xti-hS-bOA"/>
+                        </connections>
+                    </toolbarItem>
+                    <toolbarItem implicitItemIdentifier="DA58D6AC-47F9-4FAB-8E1E-A7AB8A1BC8DD" label="REPL" paletteLabel="REPL" toolTip="Open REPL Tab" tag="2045" image="NSGoRightTemplate" id="VAe-ct-F9C" customClass="EDToolbarButtonItem">
+                        <connections>
+                            <action selector="newREPLTab:" target="-1" id="2Be-mo-kHH"/>
+                        </connections>
+                    </toolbarItem>
+                    <toolbarItem implicitItemIdentifier="0C05C6B8-CAE5-4B4E-92A1-228DEB2F950D" label="Reference" paletteLabel="Reference" toolTip="Open Reference Tab" tag="2050" image="NSActionTemplate" id="Jfx-JP-BWj" customClass="EDToolbarButtonItem">
+                        <connections>
+                            <action selector="showReference:" target="-1" id="xUy-fY-gP8"/>
+                        </connections>
+                    </toolbarItem>
+                    <toolbarItem implicitItemIdentifier="NSToolbarShowColorsItem" id="Wxy-Cl-Hxv"/>
+                    <toolbarItem implicitItemIdentifier="NSToolbarShowFontsItem" id="qbR-D4-yHK"/>
+                    <toolbarItem implicitItemIdentifier="NSToolbarPrintItem" id="lmx-7H-h4S"/>
+                    <toolbarItem implicitItemIdentifier="NSToolbarSpaceItem" id="LtE-lU-hij"/>
+                    <toolbarItem implicitItemIdentifier="NSToolbarFlexibleSpaceItem" id="MbV-Ul-CHh"/>
+                </allowedToolbarItems>
+                <defaultToolbarItems>
+                    <toolbarItem reference="eP4-gO-Mjl"/>
+                    <toolbarItem reference="ekh-mq-PVQ"/>
+                    <toolbarItem reference="1kD-0N-tlT"/>
+                    <toolbarItem reference="jVl-iA-Q3X"/>
+                    <toolbarItem reference="MbV-Ul-CHh"/>
+                    <toolbarItem reference="Nol-CY-l8f"/>
+                    <toolbarItem reference="MbV-Ul-CHh"/>
+                    <toolbarItem reference="VAe-ct-F9C"/>
+                    <toolbarItem reference="Jfx-JP-BWj"/>
+                </defaultToolbarItems>
+            </toolbar>
+            <connections>
+                <outlet property="delegate" destination="-2" id="17"/>
+            </connections>
+        </window>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <window title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" hidesOnDeactivate="YES" oneShot="NO" showsToolbarButton="NO" visibleAtLaunch="NO" animationBehavior="default" id="owr-zC-U2f" userLabel="confirmTabCloseSheet" customClass="NSPanel">
+            <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES" utility="YES"/>
+            <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
+            <rect key="contentRect" x="196" y="132" width="301" height="86"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1920" height="1178"/>
+            <view key="contentView" id="0oS-Dh-Xb4">
+                <rect key="frame" x="0.0" y="0.0" width="301" height="86"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <textField verticalHuggingPriority="750" id="nSJ-4f-Y7G">
+                        <rect key="frame" x="17" y="49" width="300" height="17"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Remove Page?" id="Aj0-CX-NhZ">
+                            <font key="font" metaFont="system"/>
+                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
+                    <button verticalHuggingPriority="750" tag="1" id="kyq-RA-vAq">
+                        <rect key="frame" x="197" y="12" width="90" height="32"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
+                        <buttonCell key="cell" type="push" title="Remove" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Mna-cx-edx">
+                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" metaFont="system"/>
+                            <string key="keyEquivalent" base64-UTF8="YES">
+DQ
+</string>
+                        </buttonCell>
+                        <connections>
+                            <outlet property="nextKeyView" destination="WPL-ee-HRu" id="FXM-Hr-LRt"/>
+                        </connections>
+                    </button>
+                    <button verticalHuggingPriority="750" id="WPL-ee-HRu">
+                        <rect key="frame" x="115" y="12" width="82" height="32"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
+                        <buttonCell key="cell" type="push" title="Cancel" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="NVO-qd-fGv">
+                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" metaFont="system"/>
+                            <string key="keyEquivalent" base64-UTF8="YES">
+Gw
+</string>
+                        </buttonCell>
+                        <connections>
+                            <outlet property="nextKeyView" destination="kyq-RA-vAq" id="vER-Kj-FvM"/>
+                        </connections>
+                    </button>
+                </subviews>
+            </view>
+            <connections>
+                <outlet property="initialFirstResponder" destination="WPL-ee-HRu" id="OBj-5G-Yyn"/>
+            </connections>
+        </window>
+        <userDefaultsController representsSharedInstance="YES" id="EZZ-hf-3eu"/>
+        <customView id="JSC-ht-mF2" userLabel="midContainerView" customClass="EDMidContainerView">
+            <rect key="frame" x="0.0" y="0.0" width="480" height="272"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <customView id="9ae-7X-Ifx" userLabel="statusBar" customClass="EDStatusBar">
+                    <rect key="frame" x="0.0" y="0.0" width="480" height="18"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                    <subviews>
+                        <textField verticalHuggingPriority="750" id="wIu-3s-zyX">
+                            <rect key="frame" x="7" y="3" width="465" height="11"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                            <textFieldCell key="cell" controlSize="mini" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Label" id="PYt-pd-G4a">
+                                <font key="font" metaFont="miniSystem"/>
+                                <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                            </textFieldCell>
+                            <connections>
+                                <binding destination="-2" name="value" keyPath="statusText" id="UJK-cd-n5b"/>
+                            </connections>
+                        </textField>
+                    </subviews>
+                </customView>
+                <customView id="ddP-3y-2he" customClass="EDMidControlBar">
+                    <rect key="frame" x="1" y="250" width="480" height="22"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                    <subviews>
+                        <button toolTip="Go Back" focusRingType="none" tag="1" id="PBE-m0-57U" customClass="EDBackForwardButton">
+                            <rect key="frame" x="-1" y="1" width="34" height="21"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" heightSizable="YES"/>
+                            <buttonCell key="cell" type="bevel" bezelStyle="regularSquare" image="NSLeftFacingTriangleTemplate" imagePosition="only" alignment="center" state="on" focusRingType="none" imageScaling="proportionallyDown" inset="2" id="G7S-qK-kVl" customClass="EDBackForwardButtonCell">
+                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                <font key="font" metaFont="system"/>
+                            </buttonCell>
+                            <connections>
+                                <action selector="goBack:" target="-2" id="PfF-dp-DXI"/>
+                                <binding destination="-2" name="enabled" keyPath="canGoBack" id="Jjq-Il-rrJ"/>
+                                <outlet property="nextKeyView" destination="pLV-uQ-wPa" id="8GD-2d-Zzd"/>
+                            </connections>
+                        </button>
+                        <button toolTip="Go Forward" focusRingType="none" tag="1" id="pLV-uQ-wPa" customClass="EDBackForwardButton">
+                            <rect key="frame" x="34" y="1" width="34" height="21"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" heightSizable="YES"/>
+                            <buttonCell key="cell" type="bevel" bezelStyle="regularSquare" image="NSRightFacingTriangleTemplate" imagePosition="only" alignment="center" state="on" focusRingType="none" imageScaling="proportionallyDown" inset="2" id="pif-iY-1PZ" customClass="EDBackForwardButtonCell">
+                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                <font key="font" metaFont="system"/>
+                            </buttonCell>
+                            <connections>
+                                <action selector="goForward:" target="-2" id="gug-Sm-8cB"/>
+                                <binding destination="-2" name="enabled" keyPath="canGoForward" id="j2n-aF-o0e"/>
+                                <outlet property="nextKeyView" destination="PBE-m0-57U" id="f45-By-8wB"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                </customView>
+            </subviews>
+            <connections>
+                <outlet property="controlBar" destination="ddP-3y-2he" id="5Qk-gg-80X"/>
+                <outlet property="statusBar" destination="9ae-7X-Ifx" id="EHz-ey-IaQ"/>
+            </connections>
+        </customView>
+    </objects>
+    <resources>
+        <image name="NSActionTemplate" width="14" height="14"/>
+        <image name="NSGoRightTemplate" width="9" height="12"/>
+        <image name="NSLeftFacingTriangleTemplate" width="9" height="12"/>
+        <image name="NSRightFacingTriangleTemplate" width="9" height="12"/>
+        <image name="NSStopProgressTemplate" width="11" height="11"/>
+    </resources>
+</document>

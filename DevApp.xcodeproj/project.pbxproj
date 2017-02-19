@@ -102,6 +102,20 @@
 		D316706D1E59FD9B00DEE3A0 /* EDProjectWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = D316706A1E59FD9B00DEE3A0 /* EDProjectWindowController.m */; };
 		D31670701E59FDF000DEE3A0 /* EDFileWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = D316706E1E59FDF000DEE3A0 /* EDFileWindow.xib */; };
 		D31670731E59FE0500DEE3A0 /* EDFileWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = D31670721E59FE0500DEE3A0 /* EDFileWindowController.m */; };
+		D31670831E5A14A400DEE3A0 /* EDToolbarButton.m in Sources */ = {isa = PBXBuildFile; fileRef = D31670761E5A14A400DEE3A0 /* EDToolbarButton.m */; };
+		D31670841E5A14A400DEE3A0 /* EDToolbarButtonCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D31670781E5A14A400DEE3A0 /* EDToolbarButtonCell.m */; };
+		D31670851E5A14A400DEE3A0 /* EDToolbarButtonItem.m in Sources */ = {isa = PBXBuildFile; fileRef = D316707A1E5A14A400DEE3A0 /* EDToolbarButtonItem.m */; };
+		D31670861E5A14A400DEE3A0 /* EDToolbarProgressItem.m in Sources */ = {isa = PBXBuildFile; fileRef = D316707C1E5A14A400DEE3A0 /* EDToolbarProgressItem.m */; };
+		D31670871E5A14A400DEE3A0 /* EDToolbarProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = D316707E1E5A14A400DEE3A0 /* EDToolbarProgressView.m */; };
+		D31670881E5A14A400DEE3A0 /* EDToolbarStatusItem.m in Sources */ = {isa = PBXBuildFile; fileRef = D31670801E5A14A400DEE3A0 /* EDToolbarStatusItem.m */; };
+		D31670891E5A14A400DEE3A0 /* EDToolbarStatusView.m in Sources */ = {isa = PBXBuildFile; fileRef = D31670821E5A14A400DEE3A0 /* EDToolbarStatusView.m */; };
+		D316708F1E5A151300DEE3A0 /* EDBackForwardButton.m in Sources */ = {isa = PBXBuildFile; fileRef = D316708C1E5A151300DEE3A0 /* EDBackForwardButton.m */; };
+		D31670901E5A151300DEE3A0 /* EDBackForwardButtonCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D316708E1E5A151300DEE3A0 /* EDBackForwardButtonCell.m */; };
+		D31670951E5A152F00DEE3A0 /* EDMidContainerView.m in Sources */ = {isa = PBXBuildFile; fileRef = D31670921E5A152F00DEE3A0 /* EDMidContainerView.m */; };
+		D31670961E5A152F00DEE3A0 /* EDMidControlBar.m in Sources */ = {isa = PBXBuildFile; fileRef = D31670941E5A152F00DEE3A0 /* EDMidControlBar.m */; };
+		D31670991E5A154F00DEE3A0 /* EDWindowContainerView.m in Sources */ = {isa = PBXBuildFile; fileRef = D31670981E5A154F00DEE3A0 /* EDWindowContainerView.m */; };
+		D316709C1E5A156900DEE3A0 /* EDWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = D316709A1E5A156900DEE3A0 /* EDWindow.xib */; };
+		D316709F1E5A157B00DEE3A0 /* EDMainWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = D316709E1E5A157B00DEE3A0 /* EDMainWindow.m */; };
 		D33699AF1E36B78900FEB7BF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D33699AE1E36B78900FEB7BF /* main.m */; };
 		D33699B71E36B78900FEB7BF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D33699B61E36B78900FEB7BF /* Assets.xcassets */; };
 		D33699BA1E36B78900FEB7BF /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = D33699B81E36B78900FEB7BF /* MainMenu.xib */; };
@@ -485,6 +499,33 @@
 		D316706F1E59FDF000DEE3A0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/EDFileWindow.xib; sourceTree = "<group>"; };
 		D31670711E59FE0500DEE3A0 /* EDFileWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EDFileWindowController.h; sourceTree = "<group>"; };
 		D31670721E59FE0500DEE3A0 /* EDFileWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EDFileWindowController.m; sourceTree = "<group>"; };
+		D31670751E5A14A400DEE3A0 /* EDToolbarButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EDToolbarButton.h; sourceTree = "<group>"; };
+		D31670761E5A14A400DEE3A0 /* EDToolbarButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EDToolbarButton.m; sourceTree = "<group>"; };
+		D31670771E5A14A400DEE3A0 /* EDToolbarButtonCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EDToolbarButtonCell.h; sourceTree = "<group>"; };
+		D31670781E5A14A400DEE3A0 /* EDToolbarButtonCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EDToolbarButtonCell.m; sourceTree = "<group>"; };
+		D31670791E5A14A400DEE3A0 /* EDToolbarButtonItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EDToolbarButtonItem.h; sourceTree = "<group>"; };
+		D316707A1E5A14A400DEE3A0 /* EDToolbarButtonItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EDToolbarButtonItem.m; sourceTree = "<group>"; };
+		D316707B1E5A14A400DEE3A0 /* EDToolbarProgressItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EDToolbarProgressItem.h; sourceTree = "<group>"; };
+		D316707C1E5A14A400DEE3A0 /* EDToolbarProgressItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EDToolbarProgressItem.m; sourceTree = "<group>"; };
+		D316707D1E5A14A400DEE3A0 /* EDToolbarProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EDToolbarProgressView.h; sourceTree = "<group>"; };
+		D316707E1E5A14A400DEE3A0 /* EDToolbarProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EDToolbarProgressView.m; sourceTree = "<group>"; };
+		D316707F1E5A14A400DEE3A0 /* EDToolbarStatusItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EDToolbarStatusItem.h; sourceTree = "<group>"; };
+		D31670801E5A14A400DEE3A0 /* EDToolbarStatusItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EDToolbarStatusItem.m; sourceTree = "<group>"; };
+		D31670811E5A14A400DEE3A0 /* EDToolbarStatusView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EDToolbarStatusView.h; sourceTree = "<group>"; };
+		D31670821E5A14A400DEE3A0 /* EDToolbarStatusView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EDToolbarStatusView.m; sourceTree = "<group>"; };
+		D316708B1E5A151300DEE3A0 /* EDBackForwardButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EDBackForwardButton.h; sourceTree = "<group>"; };
+		D316708C1E5A151300DEE3A0 /* EDBackForwardButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EDBackForwardButton.m; sourceTree = "<group>"; };
+		D316708D1E5A151300DEE3A0 /* EDBackForwardButtonCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EDBackForwardButtonCell.h; sourceTree = "<group>"; };
+		D316708E1E5A151300DEE3A0 /* EDBackForwardButtonCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EDBackForwardButtonCell.m; sourceTree = "<group>"; };
+		D31670911E5A152F00DEE3A0 /* EDMidContainerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EDMidContainerView.h; sourceTree = "<group>"; };
+		D31670921E5A152F00DEE3A0 /* EDMidContainerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EDMidContainerView.m; sourceTree = "<group>"; };
+		D31670931E5A152F00DEE3A0 /* EDMidControlBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EDMidControlBar.h; sourceTree = "<group>"; };
+		D31670941E5A152F00DEE3A0 /* EDMidControlBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EDMidControlBar.m; sourceTree = "<group>"; };
+		D31670971E5A154F00DEE3A0 /* EDWindowContainerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EDWindowContainerView.h; sourceTree = "<group>"; };
+		D31670981E5A154F00DEE3A0 /* EDWindowContainerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EDWindowContainerView.m; sourceTree = "<group>"; };
+		D316709B1E5A156900DEE3A0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/EDWindow.xib; sourceTree = "<group>"; };
+		D316709D1E5A157B00DEE3A0 /* EDMainWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EDMainWindow.h; sourceTree = "<group>"; };
+		D316709E1E5A157B00DEE3A0 /* EDMainWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EDMainWindow.m; sourceTree = "<group>"; };
 		D33699A71E36B78900FEB7BF /* DevApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DevApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D33699AE1E36B78900FEB7BF /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		D33699B61E36B78900FEB7BF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -993,6 +1034,49 @@
 			name = "New Project";
 			sourceTree = "<group>";
 		};
+		D31670741E5A148800DEE3A0 /* Toolbar */ = {
+			isa = PBXGroup;
+			children = (
+				D31670791E5A14A400DEE3A0 /* EDToolbarButtonItem.h */,
+				D316707A1E5A14A400DEE3A0 /* EDToolbarButtonItem.m */,
+				D316707F1E5A14A400DEE3A0 /* EDToolbarStatusItem.h */,
+				D31670801E5A14A400DEE3A0 /* EDToolbarStatusItem.m */,
+				D31670811E5A14A400DEE3A0 /* EDToolbarStatusView.h */,
+				D31670821E5A14A400DEE3A0 /* EDToolbarStatusView.m */,
+				D316707B1E5A14A400DEE3A0 /* EDToolbarProgressItem.h */,
+				D316707C1E5A14A400DEE3A0 /* EDToolbarProgressItem.m */,
+				D316707D1E5A14A400DEE3A0 /* EDToolbarProgressView.h */,
+				D316707E1E5A14A400DEE3A0 /* EDToolbarProgressView.m */,
+				D31670751E5A14A400DEE3A0 /* EDToolbarButton.h */,
+				D31670761E5A14A400DEE3A0 /* EDToolbarButton.m */,
+				D31670771E5A14A400DEE3A0 /* EDToolbarButtonCell.h */,
+				D31670781E5A14A400DEE3A0 /* EDToolbarButtonCell.m */,
+			);
+			name = Toolbar;
+			sourceTree = "<group>";
+		};
+		D316708A1E5A14FD00DEE3A0 /* Main Window */ = {
+			isa = PBXGroup;
+			children = (
+				D316709D1E5A157B00DEE3A0 /* EDMainWindow.h */,
+				D316709E1E5A157B00DEE3A0 /* EDMainWindow.m */,
+				D316709A1E5A156900DEE3A0 /* EDWindow.xib */,
+				D31670971E5A154F00DEE3A0 /* EDWindowContainerView.h */,
+				D31670981E5A154F00DEE3A0 /* EDWindowContainerView.m */,
+				D3166FE91E592C3700DEE3A0 /* EDStatusBar.h */,
+				D3166FEA1E592C3700DEE3A0 /* EDStatusBar.m */,
+				D31670911E5A152F00DEE3A0 /* EDMidContainerView.h */,
+				D31670921E5A152F00DEE3A0 /* EDMidContainerView.m */,
+				D31670931E5A152F00DEE3A0 /* EDMidControlBar.h */,
+				D31670941E5A152F00DEE3A0 /* EDMidControlBar.m */,
+				D316708B1E5A151300DEE3A0 /* EDBackForwardButton.h */,
+				D316708C1E5A151300DEE3A0 /* EDBackForwardButton.m */,
+				D316708D1E5A151300DEE3A0 /* EDBackForwardButtonCell.h */,
+				D316708E1E5A151300DEE3A0 /* EDBackForwardButtonCell.m */,
+			);
+			name = "Main Window";
+			sourceTree = "<group>";
+		};
 		D336999E1E36B78800FEB7BF = {
 			isa = PBXGroup;
 			children = (
@@ -1035,8 +1119,8 @@
 				D3369A381E36BB1300FEB7BF /* EDMainWindowController.h */,
 				D3369A391E36BB1300FEB7BF /* EDMainWindowController.m */,
 				D3369A3F1E36BB2800FEB7BF /* EDMainWindowController.xib */,
-				D3166FE91E592C3700DEE3A0 /* EDStatusBar.h */,
-				D3166FEA1E592C3700DEE3A0 /* EDStatusBar.m */,
+				D316708A1E5A14FD00DEE3A0 /* Main Window */,
+				D31670741E5A148800DEE3A0 /* Toolbar */,
 				D3166FF81E592C7100DEE3A0 /* Proj Settings */,
 				D31670611E59FD5900DEE3A0 /* New Project */,
 				D31670601E59FD5100DEE3A0 /* New File */,
@@ -1493,6 +1577,7 @@
 				D3166F701E590D7D00DEE3A0 /* EDGeneralPreferences.xib in Resources */,
 				D3166EB91E57C54400DEE3A0 /* OAPreferencesWindow.xib in Resources */,
 				D31670551E59FC0400DEE3A0 /* EDBreakpointListView.xib in Resources */,
+				D316709C1E5A156900DEE3A0 /* EDWindow.xib in Resources */,
 				D3166FB71E5927C300DEE3A0 /* EDWelcomeWindow.xib in Resources */,
 				D31670071E59F71500DEE3A0 /* EDStackTraceView.xib in Resources */,
 				D3166FFE1E592CCC00DEE3A0 /* EDActionArgumentsFacet.xib in Resources */,
@@ -1518,6 +1603,7 @@
 				D3166F111E59038F00DEE3A0 /* OKSource.m in Sources */,
 				D3369BE21E36C73800FEB7BF /* TDListItemQueue.m in Sources */,
 				D3166FBC1E5927DA00DEE3A0 /* EDWelcomeTableCellView.m in Sources */,
+				D31670961E5A152F00DEE3A0 /* EDMidControlBar.m in Sources */,
 				D3369AB41E36BEED00FEB7BF /* IDEMainWindowController.m in Sources */,
 				D3369ACB1E36BEED00FEB7BF /* OAPreferencesToolbar.m in Sources */,
 				D3166EA01E57C2FA00DEE3A0 /* DOMNodeList+TDAdditions.m in Sources */,
@@ -1547,6 +1633,7 @@
 				D3166F1D1E59042B00DEE3A0 /* OKMiniCSSParser.m in Sources */,
 				D3369BEE1E36C73800FEB7BF /* TDTabBarController.m in Sources */,
 				D3166EF11E5902A800DEE3A0 /* EDThemeRulesTableView.m in Sources */,
+				D31670851E5A14A400DEE3A0 /* EDToolbarButtonItem.m in Sources */,
 				D3369BDA1E36C73800FEB7BF /* TDFlippedColorView.m in Sources */,
 				D3166FCD1E59292A00DEE3A0 /* AquaticPrime.m in Sources */,
 				D3369B241E36C25A00FEB7BF /* TKTabModel+Scripting.m in Sources */,
@@ -1558,17 +1645,20 @@
 				D3369BDE1E36C73800FEB7BF /* TDHintView.m in Sources */,
 				D31670241E59F7DC00DEE3A0 /* EDFileLocation.m in Sources */,
 				D3166EEE1E5902A800DEE3A0 /* EDThemeManager.m in Sources */,
+				D316708F1E5A151300DEE3A0 /* EDBackForwardButton.m in Sources */,
 				D3369B271E36C25A00FEB7BF /* TKTabsListViewControllerView.m in Sources */,
 				D3369AA81E36BEED00FEB7BF /* EDUpdatePreferences.m in Sources */,
 				D3369B1E1E36C25A00FEB7BF /* TKTabListItemFlatStyleOverflowButton.m in Sources */,
 				D31670031E592CEF00DEE3A0 /* EDActionArgumentsFacet.m in Sources */,
 				D3166EED1E5902A800DEE3A0 /* EDTheme.m in Sources */,
 				D3166FEB1E592C3700DEE3A0 /* EDStatusBar.m in Sources */,
+				D31670991E5A154F00DEE3A0 /* EDWindowContainerView.m in Sources */,
 				D3166FF61E592C6A00DEE3A0 /* EDRunAction.m in Sources */,
 				D3166F0C1E59038F00DEE3A0 /* NSString+OKAdditions.m in Sources */,
 				D3369BCF1E36C73800FEB7BF /* TDBar.m in Sources */,
 				D3166F241E5904D600DEE3A0 /* EDUserDefaults.m in Sources */,
 				D3369BD51E36C73800FEB7BF /* TDComboFieldListItem.m in Sources */,
+				D31670901E5A151300DEE3A0 /* EDBackForwardButtonCell.m in Sources */,
 				D3369BEA1E36C73800FEB7BF /* TDStatusBarButton.m in Sources */,
 				D3166F161E59038F00DEE3A0 /* OKView.m in Sources */,
 				D3369BEB1E36C73800FEB7BF /* TDStatusBarButtonCell.m in Sources */,
@@ -1577,6 +1667,7 @@
 				D3166FBF1E5928DF00DEE3A0 /* EDDocumentController.m in Sources */,
 				D3369ABE1E36BEED00FEB7BF /* NSBundle-OAExtensions.m in Sources */,
 				D3369B1B1E36C25A00FEB7BF /* TKOverflowButton.m in Sources */,
+				D31670891E5A14A400DEE3A0 /* EDToolbarStatusView.m in Sources */,
 				D3369B281E36C25A00FEB7BF /* TKUserDefaults.m in Sources */,
 				D3166F301E5905A100DEE3A0 /* EDWildcardPattern.m in Sources */,
 				D3166F2E1E5905A100DEE3A0 /* EDPattern.m in Sources */,
@@ -1587,6 +1678,7 @@
 				D316704F1E59FB0400DEE3A0 /* EDConsoleViewController.m in Sources */,
 				D31670041E592CEF00DEE3A0 /* EDActionFacet.m in Sources */,
 				D3369B221E36C25A00FEB7BF /* TKTabListItemStyleMerged.m in Sources */,
+				D31670831E5A14A400DEE3A0 /* EDToolbarButton.m in Sources */,
 				D3369B181E36C25A00FEB7BF /* TKDocumentController.m in Sources */,
 				D3369ABF1E36BEED00FEB7BF /* NSImage-OAExtensions.m in Sources */,
 				D3166F6A1E590A1300DEE3A0 /* EDModel.m in Sources */,
@@ -1597,11 +1689,13 @@
 				D33699AF1E36B78900FEB7BF /* main.m in Sources */,
 				D3369B231E36C25A00FEB7BF /* TKTabModel.m in Sources */,
 				D31670731E59FE0500DEE3A0 /* EDFileWindowController.m in Sources */,
+				D316709F1E5A157B00DEE3A0 /* EDMainWindow.m in Sources */,
 				D31670361E59F9EB00DEE3A0 /* EDFindParameters.m in Sources */,
 				D3166F731E590D8C00DEE3A0 /* EDGeneralPreferences.m in Sources */,
 				D3369AC11E36BEED00FEB7BF /* NSObject-OFExtensions.m in Sources */,
 				D3369BD41E36C73800FEB7BF /* TDComboFieldCell.m in Sources */,
 				D31670391E59F9EB00DEE3A0 /* EDFindViewController.m in Sources */,
+				D31670861E5A14A400DEE3A0 /* EDToolbarProgressItem.m in Sources */,
 				D3166F6D1E590B7F00DEE3A0 /* IDEBasePreferences.m in Sources */,
 				D3369B1A1E36C25A00FEB7BF /* TKMainWindowController.m in Sources */,
 				D3369BFF1E36C73800FEB7BF /* TDView.m in Sources */,
@@ -1632,9 +1726,12 @@
 				D3369C001E36C73800FEB7BF /* TDViewController.m in Sources */,
 				D3166FF71E592C6A00DEE3A0 /* EDTestAction.m in Sources */,
 				D316701C1E59F76700DEE3A0 /* EDTabBarButtonCell.m in Sources */,
+				D31670881E5A14A400DEE3A0 /* EDToolbarStatusItem.m in Sources */,
 				D3166F431E5907C900DEE3A0 /* EDUtils.m in Sources */,
 				D3369B1F1E36C25A00FEB7BF /* TKTabListItemStyle.m in Sources */,
+				D31670871E5A14A400DEE3A0 /* EDToolbarProgressView.m in Sources */,
 				D316704D1E59FB0400DEE3A0 /* EDConsoleControlButtonCell.m in Sources */,
+				D31670841E5A14A400DEE3A0 /* EDToolbarButtonCell.m in Sources */,
 				D3369B171E36C25A00FEB7BF /* TKDocument+Scripting.m in Sources */,
 				D31670371E59F9EB00DEE3A0 /* EDFindResultsCell.m in Sources */,
 				D3166F171E59038F00DEE3A0 /* OKViewController.m in Sources */,
@@ -1651,6 +1748,7 @@
 				D3369B1C1E36C25A00FEB7BF /* TKTabListItem.m in Sources */,
 				D3166FBD1E5927DA00DEE3A0 /* EDWelcomeWindowController.m in Sources */,
 				D3166F671E5909F600DEE3A0 /* EDMetrics.m in Sources */,
+				D31670951E5A152F00DEE3A0 /* EDMidContainerView.m in Sources */,
 				D3369BD91E36C73800FEB7BF /* TDDropTargetView.m in Sources */,
 				D3166FA81E59273A00DEE3A0 /* EDBreakpointCollection.m in Sources */,
 				D316704B1E59FB0400DEE3A0 /* EDConsoleControlBar.m in Sources */,
@@ -1790,6 +1888,14 @@
 				D316706F1E59FDF000DEE3A0 /* Base */,
 			);
 			name = EDFileWindow.xib;
+			sourceTree = "<group>";
+		};
+		D316709A1E5A156900DEE3A0 /* EDWindow.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D316709B1E5A156900DEE3A0 /* Base */,
+			);
+			name = EDWindow.xib;
 			sourceTree = "<group>";
 		};
 		D33699B81E36B78900FEB7BF /* MainMenu.xib */ = {
