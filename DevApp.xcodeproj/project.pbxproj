@@ -142,7 +142,7 @@
 		D31670FF1E5A21CA00DEE3A0 /* OKViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D31670FD1E5A21CA00DEE3A0 /* OKViewController.xib */; };
 		D31671001E5A21F800DEE3A0 /* EDMainWindowController+NewProject.m in Sources */ = {isa = PBXBuildFile; fileRef = D31670661E59FD9B00DEE3A0 /* EDMainWindowController+NewProject.m */; };
 		D31671031E5A251000DEE3A0 /* EDBaseToolbarItem.m in Sources */ = {isa = PBXBuildFile; fileRef = D31671021E5A251000DEE3A0 /* EDBaseToolbarItem.m */; };
-		D31671051E5A599200DEE3A0 /* main.es in Resources */ = {isa = PBXBuildFile; fileRef = D31671041E5A599200DEE3A0 /* main.es */; };
+		D31671051E5A599200DEE3A0 /* main.js in Resources */ = {isa = PBXBuildFile; fileRef = D31671041E5A599200DEE3A0 /* main.js */; };
 		D31671081E5A5DD300DEE3A0 /* OKJavaScriptParser.m in Sources */ = {isa = PBXBuildFile; fileRef = D31671071E5A5DD300DEE3A0 /* OKJavaScriptParser.m */; settings = {COMPILER_FLAGS = "-Wno-undeclared-selector"; }; };
 		D33699AF1E36B78900FEB7BF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D33699AE1E36B78900FEB7BF /* main.m */; };
 		D33699B71E36B78900FEB7BF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D33699B61E36B78900FEB7BF /* Assets.xcassets */; };
@@ -598,7 +598,7 @@
 		D31670FE1E5A21CA00DEE3A0 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = lib/OkudaKit/en.lproj/OKViewController.xib; sourceTree = SOURCE_ROOT; };
 		D31671011E5A251000DEE3A0 /* EDBaseToolbarItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EDBaseToolbarItem.h; sourceTree = "<group>"; };
 		D31671021E5A251000DEE3A0 /* EDBaseToolbarItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EDBaseToolbarItem.m; sourceTree = "<group>"; };
-		D31671041E5A599200DEE3A0 /* main.es */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = main.es; path = ../res/main.es; sourceTree = "<group>"; };
+		D31671041E5A599200DEE3A0 /* main.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; name = main.js; path = ../res/main.js; sourceTree = "<group>"; };
 		D31671061E5A5DD300DEE3A0 /* OKJavaScriptParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OKJavaScriptParser.h; path = lib/OkudaKit/src/parsers/OKJavaScriptParser.h; sourceTree = SOURCE_ROOT; };
 		D31671071E5A5DD300DEE3A0 /* OKJavaScriptParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OKJavaScriptParser.m; path = lib/OkudaKit/src/parsers/OKJavaScriptParser.m; sourceTree = SOURCE_ROOT; };
 		D33699A71E36B78900FEB7BF /* DevApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DevApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -1304,7 +1304,7 @@
 				D33699B61E36B78900FEB7BF /* Assets.xcassets */,
 				D3369B311E36C61F00FEB7BF /* DevApp-Prefix.pch */,
 				D33699AE1E36B78900FEB7BF /* main.m */,
-				D31671041E5A599200DEE3A0 /* main.es */,
+				D31671041E5A599200DEE3A0 /* main.js */,
 				D33699BB1E36B78900FEB7BF /* Info.plist */,
 				D3166F321E59068500DEE3A0 /* DevApp-DefaultValues.plist */,
 			);
@@ -1731,7 +1731,7 @@
 				D3166F361E59073D00DEE3A0 /* EDThemePreferences.xib in Resources */,
 				D3166F331E59068500DEE3A0 /* DevApp-DefaultValues.plist in Resources */,
 				D33699BA1E36B78900FEB7BF /* MainMenu.xib in Resources */,
-				D31671051E5A599200DEE3A0 /* main.es in Resources */,
+				D31671051E5A599200DEE3A0 /* main.js in Resources */,
 				D3166EB51E57C54400DEE3A0 /* EDUpdatePreferences.xib in Resources */,
 				D3166F521E5908CA00DEE3A0 /* EDTextEditingPreferences.xib in Resources */,
 				D3166F921E590DF600DEE3A0 /* css in Resources */,

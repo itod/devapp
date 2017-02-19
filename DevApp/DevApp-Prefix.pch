@@ -62,7 +62,7 @@
 
 #define EditorTabPboardType @"com.celestialteapot.devapp.tab"
 
-#define DOC_ICON_NAME @"devappdoc"
+#define DOC_ICON_NAME @"DocIcon"
 #define EDProjectSettingsURL @"devapp://Project Settings"
 
 #define MAX_NUM_BREAKPOINTS 3

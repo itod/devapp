@@ -234,7 +234,9 @@
     EDAssert([[doc fileType] isEqualToString:FILE_DOC_TYPE]);
     
     NSString *mainSrcPath = [[NSBundle mainBundle] pathForResource:@"main" ofType:@"js"];
+    EDAssert([mainSrcPath length]);
     NSString *mainDestPath = [[srcDirPath stringByAppendingPathComponent:@"main"] stringByAppendingPathExtension:@"js"];
+    EDAssert([mainDestPath length]);
     
     err = nil;
     if (![mgr copyItemAtPath:mainSrcPath toPath:mainDestPath error:&err]) {
