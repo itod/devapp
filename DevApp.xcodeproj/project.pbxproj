@@ -116,6 +116,12 @@
 		D31670991E5A154F00DEE3A0 /* EDWindowContainerView.m in Sources */ = {isa = PBXBuildFile; fileRef = D31670981E5A154F00DEE3A0 /* EDWindowContainerView.m */; };
 		D316709C1E5A156900DEE3A0 /* EDWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = D316709A1E5A156900DEE3A0 /* EDWindow.xib */; };
 		D316709F1E5A157B00DEE3A0 /* EDMainWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = D316709E1E5A157B00DEE3A0 /* EDMainWindow.m */; };
+		D31670A21E5A15F100DEE3A0 /* EDTabModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D31670A11E5A15F100DEE3A0 /* EDTabModel.m */; };
+		D31670A61E5A167B00DEE3A0 /* EDFileEncodingDialog.xib in Resources */ = {isa = PBXBuildFile; fileRef = D31670A41E5A167B00DEE3A0 /* EDFileEncodingDialog.xib */; };
+		D31670AB1E5A169200DEE3A0 /* EDFileEncodingDetector.m in Sources */ = {isa = PBXBuildFile; fileRef = D31670A81E5A169200DEE3A0 /* EDFileEncodingDetector.m */; };
+		D31670AC1E5A169200DEE3A0 /* EDFileEncodingDialogController.m in Sources */ = {isa = PBXBuildFile; fileRef = D31670AA1E5A169200DEE3A0 /* EDFileEncodingDialogController.m */; };
+		D31670B11E5A171500DEE3A0 /* NSString+EDAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = D31670AE1E5A171500DEE3A0 /* NSString+EDAdditions.m */; };
+		D31670B21E5A171500DEE3A0 /* NSString+Score.m in Sources */ = {isa = PBXBuildFile; fileRef = D31670B01E5A171500DEE3A0 /* NSString+Score.m */; };
 		D33699AF1E36B78900FEB7BF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D33699AE1E36B78900FEB7BF /* main.m */; };
 		D33699B71E36B78900FEB7BF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D33699B61E36B78900FEB7BF /* Assets.xcassets */; };
 		D33699BA1E36B78900FEB7BF /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = D33699B81E36B78900FEB7BF /* MainMenu.xib */; };
@@ -526,6 +532,17 @@
 		D316709B1E5A156900DEE3A0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/EDWindow.xib; sourceTree = "<group>"; };
 		D316709D1E5A157B00DEE3A0 /* EDMainWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EDMainWindow.h; sourceTree = "<group>"; };
 		D316709E1E5A157B00DEE3A0 /* EDMainWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EDMainWindow.m; sourceTree = "<group>"; };
+		D31670A01E5A15F100DEE3A0 /* EDTabModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EDTabModel.h; sourceTree = "<group>"; };
+		D31670A11E5A15F100DEE3A0 /* EDTabModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EDTabModel.m; sourceTree = "<group>"; };
+		D31670A51E5A167B00DEE3A0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/EDFileEncodingDialog.xib; sourceTree = "<group>"; };
+		D31670A71E5A169200DEE3A0 /* EDFileEncodingDetector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EDFileEncodingDetector.h; sourceTree = "<group>"; };
+		D31670A81E5A169200DEE3A0 /* EDFileEncodingDetector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EDFileEncodingDetector.m; sourceTree = "<group>"; };
+		D31670A91E5A169200DEE3A0 /* EDFileEncodingDialogController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EDFileEncodingDialogController.h; sourceTree = "<group>"; };
+		D31670AA1E5A169200DEE3A0 /* EDFileEncodingDialogController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EDFileEncodingDialogController.m; sourceTree = "<group>"; };
+		D31670AD1E5A171500DEE3A0 /* NSString+EDAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+EDAdditions.h"; sourceTree = "<group>"; };
+		D31670AE1E5A171500DEE3A0 /* NSString+EDAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+EDAdditions.m"; sourceTree = "<group>"; };
+		D31670AF1E5A171500DEE3A0 /* NSString+Score.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Score.h"; sourceTree = "<group>"; };
+		D31670B01E5A171500DEE3A0 /* NSString+Score.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Score.m"; sourceTree = "<group>"; };
 		D33699A71E36B78900FEB7BF /* DevApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DevApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D33699AE1E36B78900FEB7BF /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		D33699B61E36B78900FEB7BF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -794,6 +811,10 @@
 				D3166F691E590A1300DEE3A0 /* EDModel.m */,
 				D3166F651E5909F600DEE3A0 /* EDMetrics.h */,
 				D3166F661E5909F600DEE3A0 /* EDMetrics.m */,
+				D31670AD1E5A171500DEE3A0 /* NSString+EDAdditions.h */,
+				D31670AE1E5A171500DEE3A0 /* NSString+EDAdditions.m */,
+				D31670AF1E5A171500DEE3A0 /* NSString+Score.h */,
+				D31670B01E5A171500DEE3A0 /* NSString+Score.m */,
 			);
 			name = Utils;
 			sourceTree = "<group>";
@@ -1058,6 +1079,8 @@
 		D316708A1E5A14FD00DEE3A0 /* Main Window */ = {
 			isa = PBXGroup;
 			children = (
+				D31670A01E5A15F100DEE3A0 /* EDTabModel.h */,
+				D31670A11E5A15F100DEE3A0 /* EDTabModel.m */,
 				D316709D1E5A157B00DEE3A0 /* EDMainWindow.h */,
 				D316709E1E5A157B00DEE3A0 /* EDMainWindow.m */,
 				D316709A1E5A156900DEE3A0 /* EDWindow.xib */,
@@ -1075,6 +1098,18 @@
 				D316708E1E5A151300DEE3A0 /* EDBackForwardButtonCell.m */,
 			);
 			name = "Main Window";
+			sourceTree = "<group>";
+		};
+		D31670A31E5A166200DEE3A0 /* Text Encoding */ = {
+			isa = PBXGroup;
+			children = (
+				D31670A91E5A169200DEE3A0 /* EDFileEncodingDialogController.h */,
+				D31670AA1E5A169200DEE3A0 /* EDFileEncodingDialogController.m */,
+				D31670A41E5A167B00DEE3A0 /* EDFileEncodingDialog.xib */,
+				D31670A71E5A169200DEE3A0 /* EDFileEncodingDetector.h */,
+				D31670A81E5A169200DEE3A0 /* EDFileEncodingDetector.m */,
+			);
+			name = "Text Encoding";
 			sourceTree = "<group>";
 		};
 		D336999E1E36B78800FEB7BF = {
@@ -1120,6 +1155,7 @@
 				D3369A391E36BB1300FEB7BF /* EDMainWindowController.m */,
 				D3369A3F1E36BB2800FEB7BF /* EDMainWindowController.xib */,
 				D316708A1E5A14FD00DEE3A0 /* Main Window */,
+				D31670A31E5A166200DEE3A0 /* Text Encoding */,
 				D31670741E5A148800DEE3A0 /* Toolbar */,
 				D3166FF81E592C7100DEE3A0 /* Proj Settings */,
 				D31670611E59FD5900DEE3A0 /* New Project */,
@@ -1563,6 +1599,7 @@
 			files = (
 				D31670701E59FDF000DEE3A0 /* EDFileWindow.xib in Resources */,
 				D31670641E59FD6F00DEE3A0 /* EDProjectWindow.xib in Resources */,
+				D31670A61E5A167B00DEE3A0 /* EDFileEncodingDialog.xib in Resources */,
 				D33699B71E36B78900FEB7BF /* Assets.xcassets in Resources */,
 				D3369A3D1E36BB2800FEB7BF /* EDMainWindowController.xib in Resources */,
 				D3369AC91E36BEED00FEB7BF /* OAPreferencesNextButton.png in Resources */,
@@ -1595,12 +1632,14 @@
 			files = (
 				D3369BD01E36C73800FEB7BF /* TDBarItem.m in Sources */,
 				D3369BE41E36C73800FEB7BF /* TDRegisterWindowController.m in Sources */,
+				D31670B21E5A171500DEE3A0 /* NSString+Score.m in Sources */,
 				D3369BD71E36C73800FEB7BF /* TDComboFieldTextView.m in Sources */,
 				D3369ACD1E36BEED00FEB7BF /* OBObject.m in Sources */,
 				D3369A3B1E36BB1300FEB7BF /* EDMainWindowController.m in Sources */,
 				D3369C011E36C73800FEB7BF /* TDViewControllerView.m in Sources */,
 				D3166F0E1E59038F00DEE3A0 /* OKContainerView.m in Sources */,
 				D3166F111E59038F00DEE3A0 /* OKSource.m in Sources */,
+				D31670A21E5A15F100DEE3A0 /* EDTabModel.m in Sources */,
 				D3369BE21E36C73800FEB7BF /* TDListItemQueue.m in Sources */,
 				D3166FBC1E5927DA00DEE3A0 /* EDWelcomeTableCellView.m in Sources */,
 				D31670961E5A152F00DEE3A0 /* EDMidControlBar.m in Sources */,
@@ -1724,6 +1763,7 @@
 				D316706C1E59FD9B00DEE3A0 /* EDNewProjectParams.m in Sources */,
 				D3369B1D1E36C25A00FEB7BF /* TKTabListItemFlatStyleCloseButton.m in Sources */,
 				D3369C001E36C73800FEB7BF /* TDViewController.m in Sources */,
+				D31670AC1E5A169200DEE3A0 /* EDFileEncodingDialogController.m in Sources */,
 				D3166FF71E592C6A00DEE3A0 /* EDTestAction.m in Sources */,
 				D316701C1E59F76700DEE3A0 /* EDTabBarButtonCell.m in Sources */,
 				D31670881E5A14A400DEE3A0 /* EDToolbarStatusItem.m in Sources */,
@@ -1748,6 +1788,7 @@
 				D3369B1C1E36C25A00FEB7BF /* TKTabListItem.m in Sources */,
 				D3166FBD1E5927DA00DEE3A0 /* EDWelcomeWindowController.m in Sources */,
 				D3166F671E5909F600DEE3A0 /* EDMetrics.m in Sources */,
+				D31670AB1E5A169200DEE3A0 /* EDFileEncodingDetector.m in Sources */,
 				D31670951E5A152F00DEE3A0 /* EDMidContainerView.m in Sources */,
 				D3369BD91E36C73800FEB7BF /* TDDropTargetView.m in Sources */,
 				D3166FA81E59273A00DEE3A0 /* EDBreakpointCollection.m in Sources */,
@@ -1755,6 +1796,7 @@
 				D3369B261E36C25A00FEB7BF /* TKTabsListViewController.m in Sources */,
 				D3166F101E59038F00DEE3A0 /* OKMiniCSSAssembler.m in Sources */,
 				D3166FD81E592A5200DEE3A0 /* EDDocument.m in Sources */,
+				D31670B11E5A171500DEE3A0 /* NSString+EDAdditions.m in Sources */,
 				D316704C1E59FB0400DEE3A0 /* EDConsoleControlButton.m in Sources */,
 				D3369AB91E36BEED00FEB7BF /* IDEUberViewSplitView.m in Sources */,
 				D316705D1E59FC2C00DEE3A0 /* EDBreakpointCell.m in Sources */,
@@ -1896,6 +1938,14 @@
 				D316709B1E5A156900DEE3A0 /* Base */,
 			);
 			name = EDWindow.xib;
+			sourceTree = "<group>";
+		};
+		D31670A41E5A167B00DEE3A0 /* EDFileEncodingDialog.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D31670A51E5A167B00DEE3A0 /* Base */,
+			);
+			name = EDFileEncodingDialog.xib;
 			sourceTree = "<group>";
 		};
 		D33699B81E36B78900FEB7BF /* MainMenu.xib */ = {
