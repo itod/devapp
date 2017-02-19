@@ -6,8 +6,8 @@
 //  Copyright (c) 2013 Todd Ditchendorf. All rights reserved.
 //
 
-#import <Cocoa/Cocoa.h>
+#import "EDBaseToolbarItem.h"
 
-@interface EDToolbarStatusItem : NSToolbarItem
+@interface EDToolbarStatusItem : EDBaseToolbarItem
 
 @end

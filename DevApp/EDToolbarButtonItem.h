@@ -6,9 +6,9 @@
 //  Copyright (c) 2013 Todd Ditchendorf. All rights reserved.
 //
 
-#import <Cocoa/Cocoa.h>
+#import "EDBaseToolbarItem.h"
 
-@interface EDToolbarButtonItem : NSToolbarItem
+@interface EDToolbarButtonItem : EDBaseToolbarItem
 
 @property (nonatomic, retain) NSButton *button;
 @end

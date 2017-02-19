@@ -141,6 +141,7 @@
 		D31670F81E5A1E8700DEE3A0 /* TKTabsListView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D31670F61E5A1E8700DEE3A0 /* TKTabsListView.xib */; };
 		D31670FF1E5A21CA00DEE3A0 /* OKViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D31670FD1E5A21CA00DEE3A0 /* OKViewController.xib */; };
 		D31671001E5A21F800DEE3A0 /* EDMainWindowController+NewProject.m in Sources */ = {isa = PBXBuildFile; fileRef = D31670661E59FD9B00DEE3A0 /* EDMainWindowController+NewProject.m */; };
+		D31671031E5A251000DEE3A0 /* EDBaseToolbarItem.m in Sources */ = {isa = PBXBuildFile; fileRef = D31671021E5A251000DEE3A0 /* EDBaseToolbarItem.m */; };
 		D33699AF1E36B78900FEB7BF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D33699AE1E36B78900FEB7BF /* main.m */; };
 		D33699B71E36B78900FEB7BF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D33699B61E36B78900FEB7BF /* Assets.xcassets */; };
 		D33699BA1E36B78900FEB7BF /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = D33699B81E36B78900FEB7BF /* MainMenu.xib */; };
@@ -593,6 +594,8 @@
 		D31670F11E5A1A7B00DEE3A0 /* EDRecentURLController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EDRecentURLController.m; sourceTree = "<group>"; };
 		D31670F71E5A1E8700DEE3A0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = lib/TabKit/Base.lproj/TKTabsListView.xib; sourceTree = SOURCE_ROOT; };
 		D31670FE1E5A21CA00DEE3A0 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = lib/OkudaKit/en.lproj/OKViewController.xib; sourceTree = SOURCE_ROOT; };
+		D31671011E5A251000DEE3A0 /* EDBaseToolbarItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EDBaseToolbarItem.h; sourceTree = "<group>"; };
+		D31671021E5A251000DEE3A0 /* EDBaseToolbarItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EDBaseToolbarItem.m; sourceTree = "<group>"; };
 		D33699A71E36B78900FEB7BF /* DevApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DevApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D33699AE1E36B78900FEB7BF /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		D33699B61E36B78900FEB7BF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -1108,6 +1111,8 @@
 		D31670741E5A148800DEE3A0 /* Toolbar */ = {
 			isa = PBXGroup;
 			children = (
+				D31671011E5A251000DEE3A0 /* EDBaseToolbarItem.h */,
+				D31671021E5A251000DEE3A0 /* EDBaseToolbarItem.m */,
 				D31670791E5A14A400DEE3A0 /* EDToolbarButtonItem.h */,
 				D316707A1E5A14A400DEE3A0 /* EDToolbarButtonItem.m */,
 				D316707F1E5A14A400DEE3A0 /* EDToolbarStatusItem.h */,
@@ -1769,6 +1774,7 @@
 				D3369BF01E36C73800FEB7BF /* TDTabBarItem.m in Sources */,
 				D3166F0F1E59038F00DEE3A0 /* OKGutterView.m in Sources */,
 				D3369BE11E36C73800FEB7BF /* TDListItem.m in Sources */,
+				D31671031E5A251000DEE3A0 /* EDBaseToolbarItem.m in Sources */,
 				D3369BDC1E36C73800FEB7BF /* TDGutterView.m in Sources */,
 				D3166F591E5908F000DEE3A0 /* EDGuidesPreferences.m in Sources */,
 				D31670BA1E5A182900DEE3A0 /* EDNavigatorOutlineView.m in Sources */,

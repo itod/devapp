@@ -167,7 +167,7 @@
     EDAssertMainThread();
     
     if ([self saveProjectToDirectory:dirPath]) {
-        EDNewProjectParams *params = self.projectWindowController.projParams;
+        //EDNewProjectParams *params = self.projectWindowController.projParams;
         [self orderOutNewProjectSheet:NO];
     }
 }
