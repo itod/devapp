@@ -24,15 +24,15 @@
 
 
 // this is necessary to prevent NSBeep() on every key press in the findPanel
-//- (BOOL)makeFirstResponder:(NSResponder *)resp {
-//    EDMainWindowController *wc = [self windowController];
-//    if (wc.isTypingInFindPanel) {
-//        if ([[resp className] isEqualToString:@"WebHTMLView"]) {
-//            return NO;
-//        }
-//    }
-//    return [super makeFirstResponder:resp];
-//}
+- (BOOL)makeFirstResponder:(NSResponder *)resp {
+    EDMainWindowController *wc = [self windowController];
+    if (wc.isTypingInFindPanel) {
+        if ([[resp className] isEqualToString:@"WebHTMLView"]) {
+            return NO;
+        }
+    }
+    return [super makeFirstResponder:resp];
+}
 
 
 - (IBAction)toggleFullScreen:(id)sender {
