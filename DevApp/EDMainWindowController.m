@@ -79,57 +79,37 @@
     EDAssertMainThread();
     static NSArray *sAllTriggers = nil;
     if (!sAllTriggers) {
-        sAllTriggers = [[self pythonTriggers] retain];
+        sAllTriggers = [[self edelScriptTriggers] retain];
     }
 
     return sAllTriggers;
 }
 
 
-+ (NSArray *)pythonTriggers {
++ (NSArray *)edelScriptTriggers {
     EDAssertMainThread();
-    static NSArray *sPythonTriggers = nil;
-    if (!sPythonTriggers) {
-        sPythonTriggers = [[NSArray alloc] initWithObjects:
-                           [OKTrigger triggerWithTemplate:@"dir()" specifier:@"dir"],
-                           [OKTrigger triggerWithTemplate:@"def ${function}(${arg}):" specifier:@"def"],
-                           [OKTrigger triggerWithTemplate:@"def ${function}(${arg}):" specifier:@"function"],
-                           [OKTrigger triggerWithTemplate:@"def ${method}(self${, }):" specifier:@"def"],
-                           [OKTrigger triggerWithTemplate:@"def ${method}(self${, }):" specifier:@"method"],
-                           [OKTrigger triggerWithTemplate:@"def __init__(self${, }):" specifier:@"init"],
-                           [OKTrigger triggerWithTemplate:@"def __del__(self):" specifier:@"del"],
-                           [OKTrigger triggerWithTemplate:@"def __cmp__(self, ${other}):" specifier:@"cmp"],
-                           [OKTrigger triggerWithTemplate:@"def __getattr__(self, ${name}):" specifier:@"getattr"],
-                           [OKTrigger triggerWithTemplate:@"def __setattr__(self, ${name}, ${value}):" specifier:@"setattr"],
-                           [OKTrigger triggerWithTemplate:@"def __hash__(self):" specifier:@"hash"],
-                           [OKTrigger triggerWithTemplate:@"def __repr__(self):" specifier:@"repr"],
-                           [OKTrigger triggerWithTemplate:@"def __str__(self):" specifier:@"str"],
-                           [OKTrigger triggerWithTemplate:@"def __unicode__(self):" specifier:@"unicode"],
-                           [OKTrigger triggerWithTemplate:@"__file__" specifier:@"file"],
-                           [OKTrigger triggerWithTemplate:@"__builtins__" specifier:@"builtins"],
-                           [OKTrigger triggerWithTemplate:@"__package__" specifier:@"package"],
-                           [OKTrigger triggerWithTemplate:@"__class__" specifier:@"class"],
-                           [OKTrigger triggerWithTemplate:@"__bases__" specifier:@"bases"],
-                           [OKTrigger triggerWithTemplate:@"__dict__" specifier:@"dict"],
-                           [OKTrigger triggerWithTemplate:@"__name__" specifier:@"name"],
-                           [OKTrigger triggerWithTemplate:@"__main__" specifier:@"main"],
-                           [OKTrigger triggerWithTemplate:@"__debug__" specifier:@"debug"],
-                           [OKTrigger triggerWithTemplate:@"if __name__ == '__main__':" specifier:@"main"],
-                           [OKTrigger triggerWithTemplate:@"class ${MyClass}(${object}):" specifier:@"class"],
-                           [OKTrigger triggerWithTemplate:@"for ${i} in range(${n}):" specifier:@"range"],
-                           [OKTrigger triggerWithTemplate:@"for ${i} in range(${n}):" specifier:@"forin"],
+    static NSArray *sEdelScriptTriggers = nil;
+    if (!sEdelScriptTriggers) {
+        sEdelScriptTriggers = [[NSArray alloc] initWithObjects:
+                           [OKTrigger triggerWithTemplate:@"sub ${function}(${arg}):" specifier:@"sub"],
+                           [OKTrigger triggerWithTemplate:@"sub ${function}(${arg}):" specifier:@"function"],
+                           [OKTrigger triggerWithTemplate:@"sub ${method}(${arg}):" specifier:@"method"],
+                           [OKTrigger triggerWithTemplate:@"class ${MyClass} : ${object}:" specifier:@"class"],
+                           [OKTrigger triggerWithTemplate:@"for ${i} in range(${n})" specifier:@"range"],
+                           [OKTrigger triggerWithTemplate:@"for ${i} in range(${n})" specifier:@"forin"],
                            [OKTrigger triggerWithTemplate:@"for ${obj} in ${iterable}:" specifier:@"forin"],
-                           [OKTrigger triggerWithTemplate:@"if ${test}:" specifier:@"if"],
-                           [OKTrigger triggerWithTemplate:@"elif ${test}:" specifier:@"elif"],
-                           [OKTrigger triggerWithTemplate:@"else:" specifier:@"else"],
-                           [OKTrigger triggerWithTemplate:@"while ${test}:" specifier:@"while"],
-                           [OKTrigger triggerWithTemplate:@"from ${module} import ${*}" specifier:@"from"],
+                           [OKTrigger triggerWithTemplate:@"for ${key},${val} in ${iterable}:" specifier:@"forin"],
+                           [OKTrigger triggerWithTemplate:@"if ${test}" specifier:@"if"],
+                           [OKTrigger triggerWithTemplate:@"else if ${test}" specifier:@"else"],
+                           [OKTrigger triggerWithTemplate:@"else if ${test}" specifier:@"elif"],
+                           [OKTrigger triggerWithTemplate:@"else" specifier:@"else"],
+                           [OKTrigger triggerWithTemplate:@"while ${test}" specifier:@"while"],
                            [OKTrigger triggerWithTemplate:@"import ${module}" specifier:@"import"],
                            [OKTrigger triggerWithTemplate:@"import ${module} as ${foo}" specifier:@"importas"],
-                           [OKTrigger triggerWithTemplate:@"print(${value})" specifier:@"print"],
+                           [OKTrigger triggerWithTemplate:@"log(${value})" specifier:@"log"],
                            nil];
     }
-    return sPythonTriggers;
+    return sEdelScriptTriggers;
 }
 
 
@@ -869,7 +849,7 @@
     EDAssertMainThread();
     EDAssert(okvc);
     
-    [okvc setGrammarName:@"py" attributeProvider:[EDThemeManager instance]];
+    [okvc setGrammarName:@"js" attributeProvider:[EDThemeManager instance]];
 }
 
 
@@ -1014,17 +994,12 @@
     
     // handle syntax highlighting concerns
     NSString *ext = [newAbsPath pathExtension];
-    BOOL isPy = [ext isEqualToString:@"py"];
-    BOOL isHeader = [ext isEqualToString:@"h"];
+    BOOL isScript = [ext isEqualToString:@"js"];
     
-    if (!isPy && !isHeader) {
+    if (!isScript) {
         okvc.useDefaultAttributes = YES;
     } else {
         okvc.useDefaultAttributes = NO;
-        NSString *grammarName = isHeader ? @"c" : @"py";
-        if (![grammarName isEqualToString:okvc.grammarName]) {
-            [okvc setGrammarName:grammarName attributeProvider:[EDThemeManager instance]];
-        }
     }
     
     // find new source string and display in text view
@@ -1489,7 +1464,7 @@
 - (NSAttributedString *)console:(EDConsoleViewController *)cvc highlightedStringForString:(NSString *)str {
     EDAssertMainThread();
     OKViewController *okvc = self.selectedSourceViewController;
-    NSAttributedString *attrStr = [okvc.highlighter highlightedStringForString:str ofGrammar:@"py"];
+    NSAttributedString *attrStr = [okvc.highlighter highlightedStringForString:str ofGrammar:@"js"];
     return attrStr;
 }
 
@@ -2381,7 +2356,7 @@
     if (ok) {
         NSString *filename = _fileWindowController.filename;
         EDAssert([filename length]);
-        EDAssert([[filename pathExtension] isEqualToString:@"py"]);
+        EDAssert([[filename pathExtension] isEqualToString:@"js"]);
         
         NSFileManager *mgr = [NSFileManager defaultManager];
         
@@ -2524,7 +2499,7 @@
     TKTabModel *tm = self.selectedTabModel;
     NSString *filePath = tm.URLString;
 
-    if ([tm.type isEqualToString:EDTabModelTypeSourceCodeFile] && [[filePath pathExtension] isEqualToString:@"py"]) {
+    if ([tm.type isEqualToString:EDTabModelTypeSourceCodeFile] && [[filePath pathExtension] isEqualToString:@"js"]) {
         EDAssert([filePath hasSuffix:bp.file]);
         
         EDDocument *doc = [self document];
@@ -3068,7 +3043,7 @@ done:
 
 - (NSString *)mainSourceFilePath {
     NSString *srcDirPath = [self sourceDirPath];
-    NSString *result = [[srcDirPath stringByAppendingPathComponent:@"main"] stringByAppendingPathExtension:@"py"];
+    NSString *result = [[srcDirPath stringByAppendingPathComponent:@"main"] stringByAppendingPathExtension:@"js"];
     return result;
 }
 

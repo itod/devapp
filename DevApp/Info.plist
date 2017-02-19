@@ -136,5 +136,28 @@
 			</dict>
 		</dict>
 	</dict>
+	<key>UTExportedTypeDeclarations</key>
+	<array>
+		<dict>
+			<key>UTTypeConformsTo</key>
+			<array>
+				<string>public.data</string>
+				<string>public.content</string>
+			</array>
+			<key>UTTypeDescription</key>
+			<string>DevApp Document</string>
+			<key>UTTypeIconFile</key>
+			<string>DocIcon</string>
+			<key>UTTypeIdentifier</key>
+			<string>com.celestialteapot.devappdoc</string>
+			<key>UTTypeTagSpecification</key>
+			<dict>
+				<key>public.filename-extension</key>
+				<array>
+					<string>devapp</string>
+				</array>
+			</dict>
+		</dict>
+	</array>
 </dict>
 </plist>

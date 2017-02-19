@@ -104,7 +104,7 @@
     EDAssert(_progressIndicator);
     
     EDMainWindowController *wc = [[self window] windowController];
-    wc.statusText = NSLocalizedString(@"Initializing Python Interpreter…", @"");
+    wc.statusText = NSLocalizedString(@"Initializing Interpreter…", @"");
 
     [_progressIndicator startAnimation:nil];
 }

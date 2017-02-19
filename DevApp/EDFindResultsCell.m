@@ -75,7 +75,7 @@
 
 
 - (BOOL)isFilePathCell {
-    return [[[[self objectValue] string] pathExtension] isEqualToString:@"py"];
+    return [[[[self objectValue] string] pathExtension] isEqualToString:@"js"];
 }
 
 

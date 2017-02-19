@@ -92,7 +92,7 @@
         _sourceViewController.textView.listDataSource = wc;
         _sourceViewController.textView.listDelegate = wc;
         
-        [_sourceViewController setGrammarName:@"py" attributeProvider:[EDThemeManager instance]];
+        [_sourceViewController setGrammarName:@"js" attributeProvider:[EDThemeManager instance]];
         
         [_sourceViewController.textView setAllowsUndo:YES];
     }
@@ -106,7 +106,7 @@
     EDAssertMainThread();
     
     EDAssert(self.sourceViewController);
-    [self.sourceViewController setGrammarName:@"py" attributeProvider:[EDThemeManager instance]];
+    [self.sourceViewController setGrammarName:@"js" attributeProvider:[EDThemeManager instance]];
 }
 
 

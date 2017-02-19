@@ -8,9 +8,8 @@
 
 #import "EDDocument.h"
 #import "EDMainWindowController.h"
-//#import "EDTabModel.h"
+#import "EDTabModel.h"
 #import "EDBreakpointCollection.h"
-//#import "EDCanvasViewController.h"
 #import "EDTarget.h"
 #import "EDUtils.h"
 #import <TabKit/TKTabModel.h>
@@ -124,24 +123,24 @@
 #endif
 
 
-//- (NSString *)displayName {
-//    NSString *str = nil;
-//    if ([self wantsCustomDisplayName]) {
-//        NSString *docTitle = [[[[self fileURL] relativeString] lastPathComponent] stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-//        NSString *tabTitle = self.mainWindowController.selectedTabModel.title;
-//        
-//        if ([tabTitle length]) {
-//            str = [NSString stringWithFormat:@"%@ — %@", docTitle, tabTitle];
-//        } else {
-//            str = docTitle;
-//        }
-//    } else {
-//        str = [super displayName];
-//    }
-//    
-//    //NSLog(@"%@", str);
-//    return str;
-//}
+- (NSString *)displayName {
+    NSString *str = nil;
+    if ([self wantsCustomDisplayName]) {
+        NSString *docTitle = [[[[self fileURL] relativeString] lastPathComponent] stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+        NSString *tabTitle = self.mainWindowController.selectedTabModel.title;
+        
+        if ([tabTitle length]) {
+            str = [NSString stringWithFormat:@"%@ — %@", docTitle, tabTitle];
+        } else {
+            str = docTitle;
+        }
+    } else {
+        str = [super displayName];
+    }
+    
+    //NSLog(@"%@", str);
+    return str;
+}
 
 
 - (void)makeWindowControllers {
@@ -156,29 +155,29 @@
     EDAssert(self.mainWindowController);
     EDAssert(wc == self.mainWindowController);
     
-//    if ([_tempTabModels count]) {
-//        EDMainWindowController *mwc = self.mainWindowController;
-//
-//        for (TKTabModel *tm in _tempTabModels) {
-//            NSError *err = nil;
-//            NSString *URLString = [mwc absolutePathForTabModel:tm];
-//            id obj = [[mwc newRepresentedObjectWithContentsOfURLString:URLString type:tm.type error:&err] autorelease];
-//            tm.representedObject = obj;
-//            EDAssert(tm.representedObject);
-//            [mwc addTabModel:tm];
-//        }
-//        
-//        mwc.selectedTabIndex = _tempSelectedTabIndex;
-//        self.tempTabModels = nil;
-//    }
+    if ([_tempTabModels count]) {
+        EDMainWindowController *mwc = self.mainWindowController;
+
+        for (TKTabModel *tm in _tempTabModels) {
+            NSError *err = nil;
+            NSString *URLString = [mwc absolutePathForTabModel:tm];
+            id obj = [[mwc newRepresentedObjectWithContentsOfURLString:URLString type:tm.type error:&err] autorelease];
+            tm.representedObject = obj;
+            EDAssert(tm.representedObject);
+            [mwc addTabModel:tm];
+        }
+        
+        mwc.selectedTabIndex = _tempSelectedTabIndex;
+        self.tempTabModels = nil;
+    }
 }
 
 
-//- (void)saveToURL:(NSURL *)url ofType:(NSString *)typeName forSaveOperation:(NSSaveOperationType)saveOp completionHandler:(void (^)(NSError *))completion {
-//    [super saveToURL:url ofType:typeName forSaveOperation:saveOp completionHandler:completion];
-//    
-//    [[self mainWindowController] saveSelectedTabModel];
-//}
+- (void)saveToURL:(NSURL *)url ofType:(NSString *)typeName forSaveOperation:(NSSaveOperationType)saveOp completionHandler:(void (^)(NSError *))completion {
+    [super saveToURL:url ofType:typeName forSaveOperation:saveOp completionHandler:completion];
+    
+    [[self mainWindowController] saveSelectedTabModel];
+}
 
 
 #if DOC_AS_PACKAGE
@@ -285,12 +284,12 @@
     
     if (_selectedTargetName) dict[@"selectedTargetName"] = _selectedTargetName;
     
-//    NSMutableArray *tms = [NSMutableArray array];
-//    for (EDTabModel *tm in self.mainWindowController.tabModels) {
-//        [tms addObject:[tm asPlist]];
-//    }
-//    if (tms) dict[@"tabs"] = tms;
-//    dict[@"selectedTabIndex"] = @(self.mainWindowController.selectedTabIndex);
+    NSMutableArray *tms = [NSMutableArray array];
+    for (EDTabModel *tm in self.mainWindowController.tabModels) {
+        [tms addObject:[tm asPlist]];
+    }
+    if (tms) dict[@"tabs"] = tms;
+    dict[@"selectedTabIndex"] = @(self.mainWindowController.selectedTabIndex);
 }
 
 
@@ -321,16 +320,16 @@
     [_selectedTargetName release];
     _selectedTargetName = [dict[@"selectedTargetName"] copy];
     
-//    NSArray *tempTabModels = dict[@"tabs"];
-//    
-//    [_tempTabModels release];
-//    _tempTabModels = [[NSMutableArray alloc] initWithCapacity:[tempTabModels count]];
-//    for (NSDictionary *d in tempTabModels) {
-//        EDTabModel *tm = [EDTabModel fromPlist:d];
-//        [_tempTabModels addObject:tm];
-//    }
-//    
-//    _tempSelectedTabIndex = [dict[@"selectedTabIndex"] integerValue];
+    NSArray *tempTabModels = dict[@"tabs"];
+    
+    [_tempTabModels release];
+    _tempTabModels = [[NSMutableArray alloc] initWithCapacity:[tempTabModels count]];
+    for (NSDictionary *d in tempTabModels) {
+        EDTabModel *tm = [EDTabModel fromPlist:d];
+        [_tempTabModels addObject:tm];
+    }
+    
+    _tempSelectedTabIndex = [dict[@"selectedTabIndex"] integerValue];
     
     return YES;
 }

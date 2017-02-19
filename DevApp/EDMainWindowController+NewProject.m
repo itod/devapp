@@ -224,17 +224,17 @@
     //    NSDictionary *attrs = [mgr attributesOfItemAtPath:dirPath error:&err];
     //    NSLog(@"%@", attrs);
     
-    NSString *filePath = [[dirPath stringByAppendingPathComponent:projName] stringByAppendingPathExtension:DEFAULT_DOC_EXT];
+    NSString *filePath = [[dirPath stringByAppendingPathComponent:projName] stringByAppendingPathExtension:FILE_DOC_EXT];
     NSURL *fileURL = [NSURL fileURLWithPath:filePath];
     EDAssert(fileURL);
     
     EDAssertMainThread();
     EDDocument *doc = [self document];
     EDAssert(doc);
-    EDAssert([[doc fileType] isEqualToString:DEFAULT_DOC_TYPE_NAME]);
+    EDAssert([[doc fileType] isEqualToString:FILE_DOC_TYPE]);
     
-    NSString *mainSrcPath = [[NSBundle mainBundle] pathForResource:@"main" ofType:@"py"];
-    NSString *mainDestPath = [[srcDirPath stringByAppendingPathComponent:@"main"] stringByAppendingPathExtension:@"py"];
+    NSString *mainSrcPath = [[NSBundle mainBundle] pathForResource:@"main" ofType:@"js"];
+    NSString *mainDestPath = [[srcDirPath stringByAppendingPathComponent:@"main"] stringByAppendingPathExtension:@"js"];
     
     err = nil;
     if (![mgr copyItemAtPath:mainSrcPath toPath:mainDestPath error:&err]) {

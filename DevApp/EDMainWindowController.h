@@ -35,7 +35,7 @@
 @interface EDMainWindowController : TKMainWindowController <TDTabBarControllerDelegate, EDFilesystemViewControllerDelegate, EDStackTraceViewControllerDelegate, EDBreakpointListViewControllerDelegate, EDConsoleViewControllerDelegate, EDFindViewControllerDelegate, EDFileEncodingDialogControllerDelegate, OKTextViewListDataSource, OKTextViewListDelegate, OKGutterViewDelegate>
 
 + (NSArray *)allTriggers;
-+ (NSArray *)pythonTriggers;
++ (NSArray *)edelScriptTriggers;
 
 - (id)init; // use me
 

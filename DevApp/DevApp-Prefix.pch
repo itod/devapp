@@ -60,8 +60,6 @@
 
 #define FILE_DOC_TYPE @"com.celestialteapot.devappdoc"
 
-#define DEFAULT_DOC_EXT FILE_DOC_EXT
-
 #define EditorTabPboardType @"com.celestialteapot.devapp.tab"
 
 #define DOC_ICON_NAME @"devappdoc"

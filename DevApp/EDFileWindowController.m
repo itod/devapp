@@ -59,7 +59,7 @@
 
     _formContainerView.color = [NSColor windowBackgroundColor];
     
-    self.filename = @".py";
+    self.filename = @".es";
     [[_filenameTextField currentEditor] setSelectedRange:NSMakeRange(0, 0)];
     
     TDPerformOnMainThread(^{
@@ -83,8 +83,8 @@
         return;
     }
     
-    if (![[_filename pathExtension] isEqualToString:@"py"]) {
-        self.filename = [_filename stringByAppendingPathExtension:@"py"];
+    if (![[_filename pathExtension] isEqualToString:@"js"]) {
+        self.filename = [_filename stringByAppendingPathExtension:@"js"];
     }
     
     [self endSheet:[sender tag]];

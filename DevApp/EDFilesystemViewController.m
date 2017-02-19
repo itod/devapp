@@ -190,13 +190,6 @@
     NSError *err = nil;
     if (![mgr createDirectoryAtPath:childPath withIntermediateDirectories:NO attributes:nil error:&err]) {
         if (err) NSLog(@"%@", err);
-    } else {
-        // auto create __init__.py file. TODO
-        err = nil;
-        NSString *initFilePath = [[childPath stringByAppendingPathComponent:@"__init__"] stringByAppendingPathExtension:@"py"];
-        if (![mgr createFileAtPath:initFilePath contents:nil attributes:nil]) {
-            if (err) NSLog(@"%@", err);
-        }
     }
     
     // rebuild filesystem tree. also reloads data
