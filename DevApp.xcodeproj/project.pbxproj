@@ -80,6 +80,11 @@
 		D316701E1E59F76700DEE3A0 /* EDTabBarStackTraceButtonCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D31670191E59F76700DEE3A0 /* EDTabBarStackTraceButtonCell.m */; };
 		D31670241E59F7DC00DEE3A0 /* EDFileLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = D31670211E59F7DC00DEE3A0 /* EDFileLocation.m */; };
 		D31670291E59F92400DEE3A0 /* EDHistory.m in Sources */ = {isa = PBXBuildFile; fileRef = D31670281E59F92400DEE3A0 /* EDHistory.m */; };
+		D31670351E59F9EB00DEE3A0 /* EDFindOutlineView.m in Sources */ = {isa = PBXBuildFile; fileRef = D316702C1E59F9EB00DEE3A0 /* EDFindOutlineView.m */; };
+		D31670361E59F9EB00DEE3A0 /* EDFindParameters.m in Sources */ = {isa = PBXBuildFile; fileRef = D316702E1E59F9EB00DEE3A0 /* EDFindParameters.m */; };
+		D31670371E59F9EB00DEE3A0 /* EDFindResultsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D31670301E59F9EB00DEE3A0 /* EDFindResultsCell.m */; };
+		D31670381E59F9EB00DEE3A0 /* EDFindView.m in Sources */ = {isa = PBXBuildFile; fileRef = D31670321E59F9EB00DEE3A0 /* EDFindView.m */; };
+		D31670391E59F9EB00DEE3A0 /* EDFindViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D31670341E59F9EB00DEE3A0 /* EDFindViewController.m */; };
 		D33699AF1E36B78900FEB7BF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D33699AE1E36B78900FEB7BF /* main.m */; };
 		D33699B71E36B78900FEB7BF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D33699B61E36B78900FEB7BF /* Assets.xcassets */; };
 		D33699BA1E36B78900FEB7BF /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = D33699B81E36B78900FEB7BF /* MainMenu.xib */; };
@@ -421,6 +426,16 @@
 		D31670211E59F7DC00DEE3A0 /* EDFileLocation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EDFileLocation.m; sourceTree = "<group>"; };
 		D31670271E59F92400DEE3A0 /* EDHistory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EDHistory.h; sourceTree = "<group>"; };
 		D31670281E59F92400DEE3A0 /* EDHistory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EDHistory.m; sourceTree = "<group>"; };
+		D316702B1E59F9EB00DEE3A0 /* EDFindOutlineView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EDFindOutlineView.h; sourceTree = "<group>"; };
+		D316702C1E59F9EB00DEE3A0 /* EDFindOutlineView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EDFindOutlineView.m; sourceTree = "<group>"; };
+		D316702D1E59F9EB00DEE3A0 /* EDFindParameters.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EDFindParameters.h; sourceTree = "<group>"; };
+		D316702E1E59F9EB00DEE3A0 /* EDFindParameters.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EDFindParameters.m; sourceTree = "<group>"; };
+		D316702F1E59F9EB00DEE3A0 /* EDFindResultsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EDFindResultsCell.h; sourceTree = "<group>"; };
+		D31670301E59F9EB00DEE3A0 /* EDFindResultsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EDFindResultsCell.m; sourceTree = "<group>"; };
+		D31670311E59F9EB00DEE3A0 /* EDFindView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EDFindView.h; sourceTree = "<group>"; };
+		D31670321E59F9EB00DEE3A0 /* EDFindView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EDFindView.m; sourceTree = "<group>"; };
+		D31670331E59F9EB00DEE3A0 /* EDFindViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EDFindViewController.h; sourceTree = "<group>"; };
+		D31670341E59F9EB00DEE3A0 /* EDFindViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EDFindViewController.m; sourceTree = "<group>"; };
 		D33699A71E36B78900FEB7BF /* DevApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DevApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D33699AE1E36B78900FEB7BF /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		D33699B01E36B78900FEB7BF /* Document.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Document.h; sourceTree = "<group>"; };
@@ -852,6 +867,23 @@
 			name = History;
 			sourceTree = "<group>";
 		};
+		D316702A1E59F9A100DEE3A0 /* Find */ = {
+			isa = PBXGroup;
+			children = (
+				D316702D1E59F9EB00DEE3A0 /* EDFindParameters.h */,
+				D316702E1E59F9EB00DEE3A0 /* EDFindParameters.m */,
+				D31670331E59F9EB00DEE3A0 /* EDFindViewController.h */,
+				D31670341E59F9EB00DEE3A0 /* EDFindViewController.m */,
+				D31670311E59F9EB00DEE3A0 /* EDFindView.h */,
+				D31670321E59F9EB00DEE3A0 /* EDFindView.m */,
+				D316702B1E59F9EB00DEE3A0 /* EDFindOutlineView.h */,
+				D316702C1E59F9EB00DEE3A0 /* EDFindOutlineView.m */,
+				D316702F1E59F9EB00DEE3A0 /* EDFindResultsCell.h */,
+				D31670301E59F9EB00DEE3A0 /* EDFindResultsCell.m */,
+			);
+			name = Find;
+			sourceTree = "<group>";
+		};
 		D336999E1E36B78800FEB7BF = {
 			isa = PBXGroup;
 			children = (
@@ -903,6 +935,7 @@
 				D3166FEA1E592C3700DEE3A0 /* EDStatusBar.m */,
 				D31670261E59F91C00DEE3A0 /* History */,
 				D316701F1E59F7A100DEE3A0 /* Search */,
+				D316702A1E59F9A100DEE3A0 /* Find */,
 				D316700F1E59F76000DEE3A0 /* Navigator */,
 				D316700E1E59F72800DEE3A0 /* Stack Trace */,
 				D3166FB41E5927A900DEE3A0 /* Welcome Window */,
@@ -1382,6 +1415,7 @@
 				D3166F131E59038F00DEE3A0 /* OKTextView.m in Sources */,
 				D3369AC21E36BEED00FEB7BF /* NSString-OFReplacement.m in Sources */,
 				D3369B251E36C25A00FEB7BF /* TKTabsListView.m in Sources */,
+				D31670381E59F9EB00DEE3A0 /* EDFindView.m in Sources */,
 				D3369BF01E36C73800FEB7BF /* TDTabBarItem.m in Sources */,
 				D3166F0F1E59038F00DEE3A0 /* OKGutterView.m in Sources */,
 				D3369BE11E36C73800FEB7BF /* TDListItem.m in Sources */,
@@ -1445,9 +1479,11 @@
 				D3166FFB1E592CA200DEE3A0 /* EDEnvironmentVariable.m in Sources */,
 				D33699AF1E36B78900FEB7BF /* main.m in Sources */,
 				D3369B231E36C25A00FEB7BF /* TKTabModel.m in Sources */,
+				D31670361E59F9EB00DEE3A0 /* EDFindParameters.m in Sources */,
 				D3166F731E590D8C00DEE3A0 /* EDGeneralPreferences.m in Sources */,
 				D3369AC11E36BEED00FEB7BF /* NSObject-OFExtensions.m in Sources */,
 				D3369BD41E36C73800FEB7BF /* TDComboFieldCell.m in Sources */,
+				D31670391E59F9EB00DEE3A0 /* EDFindViewController.m in Sources */,
 				D3166F6D1E590B7F00DEE3A0 /* IDEBasePreferences.m in Sources */,
 				D3369B1A1E36C25A00FEB7BF /* TKMainWindowController.m in Sources */,
 				D3369BFF1E36C73800FEB7BF /* TDView.m in Sources */,
@@ -1478,6 +1514,7 @@
 				D3166F431E5907C900DEE3A0 /* EDUtils.m in Sources */,
 				D3369B1F1E36C25A00FEB7BF /* TKTabListItemStyle.m in Sources */,
 				D3369B171E36C25A00FEB7BF /* TKDocument+Scripting.m in Sources */,
+				D31670371E59F9EB00DEE3A0 /* EDFindResultsCell.m in Sources */,
 				D3166F171E59038F00DEE3A0 /* OKViewController.m in Sources */,
 				D3369BD21E36C73800FEB7BF /* TDColorView.m in Sources */,
 				D3369AB01E36BEED00FEB7BF /* IDEDocumentController.m in Sources */,
@@ -1487,6 +1524,7 @@
 				D3369AAF1E36BEED00FEB7BF /* IDEDocument.m in Sources */,
 				D3166F2F1E5905A100DEE3A0 /* EDRegexPattern.m in Sources */,
 				D3166FDE1E592B9400DEE3A0 /* EDTarget.m in Sources */,
+				D31670351E59F9EB00DEE3A0 /* EDFindOutlineView.m in Sources */,
 				D3369B1C1E36C25A00FEB7BF /* TKTabListItem.m in Sources */,
 				D3166FBD1E5927DA00DEE3A0 /* EDWelcomeWindowController.m in Sources */,
 				D3166F671E5909F600DEE3A0 /* EDMetrics.m in Sources */,
