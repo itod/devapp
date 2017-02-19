@@ -85,6 +85,14 @@
 		D31670371E59F9EB00DEE3A0 /* EDFindResultsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D31670301E59F9EB00DEE3A0 /* EDFindResultsCell.m */; };
 		D31670381E59F9EB00DEE3A0 /* EDFindView.m in Sources */ = {isa = PBXBuildFile; fileRef = D31670321E59F9EB00DEE3A0 /* EDFindView.m */; };
 		D31670391E59F9EB00DEE3A0 /* EDFindViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D31670341E59F9EB00DEE3A0 /* EDFindViewController.m */; };
+		D316703D1E59FAEC00DEE3A0 /* EDConsoleView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D316703B1E59FAEC00DEE3A0 /* EDConsoleView.xib */; };
+		D316704A1E59FB0400DEE3A0 /* EDConsoleContainerView.m in Sources */ = {isa = PBXBuildFile; fileRef = D316703F1E59FB0400DEE3A0 /* EDConsoleContainerView.m */; };
+		D316704B1E59FB0400DEE3A0 /* EDConsoleControlBar.m in Sources */ = {isa = PBXBuildFile; fileRef = D31670411E59FB0400DEE3A0 /* EDConsoleControlBar.m */; };
+		D316704C1E59FB0400DEE3A0 /* EDConsoleControlButton.m in Sources */ = {isa = PBXBuildFile; fileRef = D31670431E59FB0400DEE3A0 /* EDConsoleControlButton.m */; };
+		D316704D1E59FB0400DEE3A0 /* EDConsoleControlButtonCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D31670451E59FB0400DEE3A0 /* EDConsoleControlButtonCell.m */; };
+		D316704E1E59FB0400DEE3A0 /* EDConsoleOutlineView.m in Sources */ = {isa = PBXBuildFile; fileRef = D31670471E59FB0400DEE3A0 /* EDConsoleOutlineView.m */; };
+		D316704F1E59FB0400DEE3A0 /* EDConsoleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D31670491E59FB0400DEE3A0 /* EDConsoleViewController.m */; };
+		D31670521E59FB7800DEE3A0 /* EDShellViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D31670511E59FB7800DEE3A0 /* EDShellViewController.m */; };
 		D33699AF1E36B78900FEB7BF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D33699AE1E36B78900FEB7BF /* main.m */; };
 		D33699B71E36B78900FEB7BF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D33699B61E36B78900FEB7BF /* Assets.xcassets */; };
 		D33699BA1E36B78900FEB7BF /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = D33699B81E36B78900FEB7BF /* MainMenu.xib */; };
@@ -436,6 +444,21 @@
 		D31670321E59F9EB00DEE3A0 /* EDFindView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EDFindView.m; sourceTree = "<group>"; };
 		D31670331E59F9EB00DEE3A0 /* EDFindViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EDFindViewController.h; sourceTree = "<group>"; };
 		D31670341E59F9EB00DEE3A0 /* EDFindViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EDFindViewController.m; sourceTree = "<group>"; };
+		D316703C1E59FAEC00DEE3A0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/EDConsoleView.xib; sourceTree = "<group>"; };
+		D316703E1E59FB0400DEE3A0 /* EDConsoleContainerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EDConsoleContainerView.h; sourceTree = "<group>"; };
+		D316703F1E59FB0400DEE3A0 /* EDConsoleContainerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EDConsoleContainerView.m; sourceTree = "<group>"; };
+		D31670401E59FB0400DEE3A0 /* EDConsoleControlBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EDConsoleControlBar.h; sourceTree = "<group>"; };
+		D31670411E59FB0400DEE3A0 /* EDConsoleControlBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EDConsoleControlBar.m; sourceTree = "<group>"; };
+		D31670421E59FB0400DEE3A0 /* EDConsoleControlButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EDConsoleControlButton.h; sourceTree = "<group>"; };
+		D31670431E59FB0400DEE3A0 /* EDConsoleControlButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EDConsoleControlButton.m; sourceTree = "<group>"; };
+		D31670441E59FB0400DEE3A0 /* EDConsoleControlButtonCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EDConsoleControlButtonCell.h; sourceTree = "<group>"; };
+		D31670451E59FB0400DEE3A0 /* EDConsoleControlButtonCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EDConsoleControlButtonCell.m; sourceTree = "<group>"; };
+		D31670461E59FB0400DEE3A0 /* EDConsoleOutlineView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EDConsoleOutlineView.h; sourceTree = "<group>"; };
+		D31670471E59FB0400DEE3A0 /* EDConsoleOutlineView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EDConsoleOutlineView.m; sourceTree = "<group>"; };
+		D31670481E59FB0400DEE3A0 /* EDConsoleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EDConsoleViewController.h; sourceTree = "<group>"; };
+		D31670491E59FB0400DEE3A0 /* EDConsoleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EDConsoleViewController.m; sourceTree = "<group>"; };
+		D31670501E59FB7800DEE3A0 /* EDShellViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EDShellViewController.h; sourceTree = "<group>"; };
+		D31670511E59FB7800DEE3A0 /* EDShellViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EDShellViewController.m; sourceTree = "<group>"; };
 		D33699A71E36B78900FEB7BF /* DevApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DevApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D33699AE1E36B78900FEB7BF /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		D33699B01E36B78900FEB7BF /* Document.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Document.h; sourceTree = "<group>"; };
@@ -884,6 +907,28 @@
 			name = Find;
 			sourceTree = "<group>";
 		};
+		D316703A1E59FAE500DEE3A0 /* Console */ = {
+			isa = PBXGroup;
+			children = (
+				D31670501E59FB7800DEE3A0 /* EDShellViewController.h */,
+				D31670511E59FB7800DEE3A0 /* EDShellViewController.m */,
+				D31670481E59FB0400DEE3A0 /* EDConsoleViewController.h */,
+				D31670491E59FB0400DEE3A0 /* EDConsoleViewController.m */,
+				D316703B1E59FAEC00DEE3A0 /* EDConsoleView.xib */,
+				D316703E1E59FB0400DEE3A0 /* EDConsoleContainerView.h */,
+				D316703F1E59FB0400DEE3A0 /* EDConsoleContainerView.m */,
+				D31670461E59FB0400DEE3A0 /* EDConsoleOutlineView.h */,
+				D31670471E59FB0400DEE3A0 /* EDConsoleOutlineView.m */,
+				D31670401E59FB0400DEE3A0 /* EDConsoleControlBar.h */,
+				D31670411E59FB0400DEE3A0 /* EDConsoleControlBar.m */,
+				D31670421E59FB0400DEE3A0 /* EDConsoleControlButton.h */,
+				D31670431E59FB0400DEE3A0 /* EDConsoleControlButton.m */,
+				D31670441E59FB0400DEE3A0 /* EDConsoleControlButtonCell.h */,
+				D31670451E59FB0400DEE3A0 /* EDConsoleControlButtonCell.m */,
+			);
+			name = Console;
+			sourceTree = "<group>";
+		};
 		D336999E1E36B78800FEB7BF = {
 			isa = PBXGroup;
 			children = (
@@ -933,6 +978,7 @@
 				D3166FA71E59273A00DEE3A0 /* EDBreakpointCollection.m */,
 				D3166FE91E592C3700DEE3A0 /* EDStatusBar.h */,
 				D3166FEA1E592C3700DEE3A0 /* EDStatusBar.m */,
+				D316703A1E59FAE500DEE3A0 /* Console */,
 				D31670261E59F91C00DEE3A0 /* History */,
 				D316701F1E59F7A100DEE3A0 /* Search */,
 				D316702A1E59F9A100DEE3A0 /* Find */,
@@ -1385,6 +1431,7 @@
 				D31670071E59F71500DEE3A0 /* EDStackTraceView.xib in Resources */,
 				D3166FFE1E592CCC00DEE3A0 /* EDActionArgumentsFacet.xib in Resources */,
 				D3369ACA1E36BEED00FEB7BF /* OAPreferencesPreviousButton.png in Resources */,
+				D316703D1E59FAEC00DEE3A0 /* EDConsoleView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1469,6 +1516,8 @@
 				D316700D1E59F71F00DEE3A0 /* EDStackTraceViewController.m in Sources */,
 				D3369BCA1E36C73800FEB7BF /* NSEvent+TDAdditions.m in Sources */,
 				D316701A1E59F76700DEE3A0 /* EDNavTabBarItem.m in Sources */,
+				D31670521E59FB7800DEE3A0 /* EDShellViewController.m in Sources */,
+				D316704F1E59FB0400DEE3A0 /* EDConsoleViewController.m in Sources */,
 				D31670041E592CEF00DEE3A0 /* EDActionFacet.m in Sources */,
 				D3369B221E36C25A00FEB7BF /* TKTabListItemStyleMerged.m in Sources */,
 				D3369B181E36C25A00FEB7BF /* TKDocumentController.m in Sources */,
@@ -1477,6 +1526,7 @@
 				D3369BEC1E36C73800FEB7BF /* TDStatusBarPopUpView.m in Sources */,
 				D3369AC71E36BEED00FEB7BF /* OAPreferenceController.m in Sources */,
 				D3166FFB1E592CA200DEE3A0 /* EDEnvironmentVariable.m in Sources */,
+				D316704E1E59FB0400DEE3A0 /* EDConsoleOutlineView.m in Sources */,
 				D33699AF1E36B78900FEB7BF /* main.m in Sources */,
 				D3369B231E36C25A00FEB7BF /* TKTabModel.m in Sources */,
 				D31670361E59F9EB00DEE3A0 /* EDFindParameters.m in Sources */,
@@ -1488,6 +1538,7 @@
 				D3369B1A1E36C25A00FEB7BF /* TKMainWindowController.m in Sources */,
 				D3369BFF1E36C73800FEB7BF /* TDView.m in Sources */,
 				D3369BED1E36C73800FEB7BF /* TDTabBar.m in Sources */,
+				D316704A1E59FB0400DEE3A0 /* EDConsoleContainerView.m in Sources */,
 				D3166FF51E592C6A00DEE3A0 /* EDAction.m in Sources */,
 				D3166F121E59038F00DEE3A0 /* OKSyntaxHighlighter.m in Sources */,
 				D3369B161E36C25A00FEB7BF /* TKDocument.m in Sources */,
@@ -1513,6 +1564,7 @@
 				D316701C1E59F76700DEE3A0 /* EDTabBarButtonCell.m in Sources */,
 				D3166F431E5907C900DEE3A0 /* EDUtils.m in Sources */,
 				D3369B1F1E36C25A00FEB7BF /* TKTabListItemStyle.m in Sources */,
+				D316704D1E59FB0400DEE3A0 /* EDConsoleControlButtonCell.m in Sources */,
 				D3369B171E36C25A00FEB7BF /* TKDocument+Scripting.m in Sources */,
 				D31670371E59F9EB00DEE3A0 /* EDFindResultsCell.m in Sources */,
 				D3166F171E59038F00DEE3A0 /* OKViewController.m in Sources */,
@@ -1530,9 +1582,11 @@
 				D3166F671E5909F600DEE3A0 /* EDMetrics.m in Sources */,
 				D3369BD91E36C73800FEB7BF /* TDDropTargetView.m in Sources */,
 				D3166FA81E59273A00DEE3A0 /* EDBreakpointCollection.m in Sources */,
+				D316704B1E59FB0400DEE3A0 /* EDConsoleControlBar.m in Sources */,
 				D3369B261E36C25A00FEB7BF /* TKTabsListViewController.m in Sources */,
 				D3166F101E59038F00DEE3A0 /* OKMiniCSSAssembler.m in Sources */,
 				D3166FD81E592A5200DEE3A0 /* EDDocument.m in Sources */,
+				D316704C1E59FB0400DEE3A0 /* EDConsoleControlButton.m in Sources */,
 				D3369AB91E36BEED00FEB7BF /* IDEUberViewSplitView.m in Sources */,
 				D3166F151E59038F00DEE3A0 /* OKUtils.m in Sources */,
 				D3166F0D1E59038F00DEE3A0 /* OKBreakpoint.m in Sources */,
@@ -1632,6 +1686,14 @@
 				D31670061E59F71500DEE3A0 /* Base */,
 			);
 			name = EDStackTraceView.xib;
+			sourceTree = "<group>";
+		};
+		D316703B1E59FAEC00DEE3A0 /* EDConsoleView.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D316703C1E59FAEC00DEE3A0 /* Base */,
+			);
+			name = EDConsoleView.xib;
 			sourceTree = "<group>";
 		};
 		D33699B81E36B78900FEB7BF /* MainMenu.xib */ = {
