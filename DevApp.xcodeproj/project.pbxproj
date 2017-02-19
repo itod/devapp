@@ -79,6 +79,7 @@
 		D316701D1E59F76700DEE3A0 /* EDTabBarFilesystemButtonCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D31670171E59F76700DEE3A0 /* EDTabBarFilesystemButtonCell.m */; };
 		D316701E1E59F76700DEE3A0 /* EDTabBarStackTraceButtonCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D31670191E59F76700DEE3A0 /* EDTabBarStackTraceButtonCell.m */; };
 		D31670241E59F7DC00DEE3A0 /* EDFileLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = D31670211E59F7DC00DEE3A0 /* EDFileLocation.m */; };
+		D31670291E59F92400DEE3A0 /* EDHistory.m in Sources */ = {isa = PBXBuildFile; fileRef = D31670281E59F92400DEE3A0 /* EDHistory.m */; };
 		D33699AF1E36B78900FEB7BF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D33699AE1E36B78900FEB7BF /* main.m */; };
 		D33699B71E36B78900FEB7BF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D33699B61E36B78900FEB7BF /* Assets.xcassets */; };
 		D33699BA1E36B78900FEB7BF /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = D33699B81E36B78900FEB7BF /* MainMenu.xib */; };
@@ -418,6 +419,8 @@
 		D31670191E59F76700DEE3A0 /* EDTabBarStackTraceButtonCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EDTabBarStackTraceButtonCell.m; sourceTree = "<group>"; };
 		D31670201E59F7DC00DEE3A0 /* EDFileLocation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EDFileLocation.h; sourceTree = "<group>"; };
 		D31670211E59F7DC00DEE3A0 /* EDFileLocation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EDFileLocation.m; sourceTree = "<group>"; };
+		D31670271E59F92400DEE3A0 /* EDHistory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EDHistory.h; sourceTree = "<group>"; };
+		D31670281E59F92400DEE3A0 /* EDHistory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EDHistory.m; sourceTree = "<group>"; };
 		D33699A71E36B78900FEB7BF /* DevApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DevApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D33699AE1E36B78900FEB7BF /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		D33699B01E36B78900FEB7BF /* Document.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Document.h; sourceTree = "<group>"; };
@@ -840,6 +843,15 @@
 			name = Search;
 			sourceTree = "<group>";
 		};
+		D31670261E59F91C00DEE3A0 /* History */ = {
+			isa = PBXGroup;
+			children = (
+				D31670271E59F92400DEE3A0 /* EDHistory.h */,
+				D31670281E59F92400DEE3A0 /* EDHistory.m */,
+			);
+			name = History;
+			sourceTree = "<group>";
+		};
 		D336999E1E36B78800FEB7BF = {
 			isa = PBXGroup;
 			children = (
@@ -889,6 +901,7 @@
 				D3166FA71E59273A00DEE3A0 /* EDBreakpointCollection.m */,
 				D3166FE91E592C3700DEE3A0 /* EDStatusBar.h */,
 				D3166FEA1E592C3700DEE3A0 /* EDStatusBar.m */,
+				D31670261E59F91C00DEE3A0 /* History */,
 				D316701F1E59F7A100DEE3A0 /* Search */,
 				D316700F1E59F76000DEE3A0 /* Navigator */,
 				D316700E1E59F72800DEE3A0 /* Stack Trace */,
@@ -1446,6 +1459,7 @@
 				D3369AC41E36BEED00FEB7BF /* NSToolbar-OAExtensions.m in Sources */,
 				D3369AAC1E36BEED00FEB7BF /* IDEApplication.m in Sources */,
 				D3369AC81E36BEED00FEB7BF /* OAPreferencesIconView.m in Sources */,
+				D31670291E59F92400DEE3A0 /* EDHistory.m in Sources */,
 				D3369AC51E36BEED00FEB7BF /* OAPreferenceClient.m in Sources */,
 				D316701E1E59F76700DEE3A0 /* EDTabBarStackTraceButtonCell.m in Sources */,
 				D316701B1E59F76700DEE3A0 /* EDTabBarBreakpointButtonCell.m in Sources */,
