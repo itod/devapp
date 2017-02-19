@@ -12,7 +12,7 @@
         </customObject>
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
-        <customObject id="Voe-Tx-rLC" customClass="AppDelegate"/>
+        <customObject id="Voe-Tx-rLC" customClass="EDDocumentController"/>
         <customObject id="YLy-65-1bz" customClass="NSFontManager"/>
         <menu title="Main Menu" systemMenu="main" id="AYu-sK-qS6">
             <items>
@@ -658,6 +658,9 @@
                             <menuItem isSeparatorItem="YES" id="eu3-7i-yIM"/>
                             <menuItem title="Welcome to DevApp" keyEquivalent="1" id="Clm-Vj-gDL">
                                 <modifierMask key="keyEquivalentModifierMask" shift="YES" command="YES"/>
+                                <connections>
+                                    <action selector="showWelcomeWindow:" target="-1" id="zBY-0V-rld"/>
+                                </connections>
                             </menuItem>
                             <menuItem isSeparatorItem="YES" id="fLp-Vu-NN1">
                                 <modifierMask key="keyEquivalentModifierMask" command="YES"/>

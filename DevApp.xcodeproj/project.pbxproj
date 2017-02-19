@@ -57,7 +57,8 @@
 		D3166FB71E5927C300DEE3A0 /* EDWelcomeWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = D3166FB51E5927C300DEE3A0 /* EDWelcomeWindow.xib */; };
 		D3166FBC1E5927DA00DEE3A0 /* EDWelcomeTableCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = D3166FB91E5927DA00DEE3A0 /* EDWelcomeTableCellView.m */; };
 		D3166FBD1E5927DA00DEE3A0 /* EDWelcomeWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = D3166FBB1E5927DA00DEE3A0 /* EDWelcomeWindowController.m */; };
-		D33699AC1E36B78900FEB7BF /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D33699AB1E36B78900FEB7BF /* AppDelegate.m */; };
+		D3166FBF1E5928DF00DEE3A0 /* EDDocumentController.m in Sources */ = {isa = PBXBuildFile; fileRef = D3166FB21E59277400DEE3A0 /* EDDocumentController.m */; };
+		D3166FCD1E59292A00DEE3A0 /* AquaticPrime.m in Sources */ = {isa = PBXBuildFile; fileRef = D3166FC51E59292A00DEE3A0 /* AquaticPrime.m */; };
 		D33699AF1E36B78900FEB7BF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D33699AE1E36B78900FEB7BF /* main.m */; };
 		D33699B21E36B78900FEB7BF /* Document.m in Sources */ = {isa = PBXBuildFile; fileRef = D33699B11E36B78900FEB7BF /* Document.m */; };
 		D33699B71E36B78900FEB7BF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D33699B61E36B78900FEB7BF /* Assets.xcassets */; };
@@ -358,9 +359,9 @@
 		D3166FB91E5927DA00DEE3A0 /* EDWelcomeTableCellView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EDWelcomeTableCellView.m; sourceTree = "<group>"; };
 		D3166FBA1E5927DA00DEE3A0 /* EDWelcomeWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EDWelcomeWindowController.h; sourceTree = "<group>"; };
 		D3166FBB1E5927DA00DEE3A0 /* EDWelcomeWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EDWelcomeWindowController.m; sourceTree = "<group>"; };
+		D3166FC41E59292A00DEE3A0 /* AquaticPrime.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AquaticPrime.h; sourceTree = "<group>"; };
+		D3166FC51E59292A00DEE3A0 /* AquaticPrime.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AquaticPrime.m; sourceTree = "<group>"; };
 		D33699A71E36B78900FEB7BF /* DevApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DevApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		D33699AA1E36B78900FEB7BF /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		D33699AB1E36B78900FEB7BF /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		D33699AE1E36B78900FEB7BF /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		D33699B01E36B78900FEB7BF /* Document.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Document.h; sourceTree = "<group>"; };
 		D33699B11E36B78900FEB7BF /* Document.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Document.m; sourceTree = "<group>"; };
@@ -710,6 +711,16 @@
 			name = "Welcome Window";
 			sourceTree = "<group>";
 		};
+		D3166FC31E59292A00DEE3A0 /* AquaticPrime */ = {
+			isa = PBXGroup;
+			children = (
+				D3166FC41E59292A00DEE3A0 /* AquaticPrime.h */,
+				D3166FC51E59292A00DEE3A0 /* AquaticPrime.m */,
+			);
+			name = AquaticPrime;
+			path = lib/AquaticPrime;
+			sourceTree = SOURCE_ROOT;
+		};
 		D336999E1E36B78800FEB7BF = {
 			isa = PBXGroup;
 			children = (
@@ -732,6 +743,7 @@
 		D33699A91E36B78900FEB7BF /* DevApp */ = {
 			isa = PBXGroup;
 			children = (
+				D3166FC31E59292A00DEE3A0 /* AquaticPrime */,
 				D3369B331E36C71B00FEB7BF /* TDAppKit */,
 				D3166EF21E59036300DEE3A0 /* OkudaKit */,
 				D3369A461E36BEED00FEB7BF /* IDEKit */,
@@ -741,8 +753,6 @@
 				D3166F311E5905A500DEE3A0 /* Utils */,
 				D3166F181E59040D00DEE3A0 /* EDApplication.h */,
 				D3166F191E59040D00DEE3A0 /* EDApplication.m */,
-				D33699AA1E36B78900FEB7BF /* AppDelegate.h */,
-				D33699AB1E36B78900FEB7BF /* AppDelegate.m */,
 				D33699B81E36B78900FEB7BF /* MainMenu.xib */,
 				D3166F221E5904D600DEE3A0 /* EDUserDefaults.h */,
 				D3166F231E5904D600DEE3A0 /* EDUserDefaults.m */,
@@ -1074,6 +1084,7 @@
 				en,
 				Base,
 				base,
+				English,
 			);
 			mainGroup = D336999E1E36B78800FEB7BF;
 			productRefGroup = D33699A81E36B78900FEB7BF /* Products */;
@@ -1248,6 +1259,7 @@
 				D3369BEE1E36C73800FEB7BF /* TDTabBarController.m in Sources */,
 				D3166EF11E5902A800DEE3A0 /* EDThemeRulesTableView.m in Sources */,
 				D3369BDA1E36C73800FEB7BF /* TDFlippedColorView.m in Sources */,
+				D3166FCD1E59292A00DEE3A0 /* AquaticPrime.m in Sources */,
 				D3369B241E36C25A00FEB7BF /* TKTabModel+Scripting.m in Sources */,
 				D3369BFE1E36C73800FEB7BF /* TDUtils.m in Sources */,
 				D3369B191E36C25A00FEB7BF /* TKMainWindow.m in Sources */,
@@ -1268,6 +1280,7 @@
 				D3166F161E59038F00DEE3A0 /* OKView.m in Sources */,
 				D3369BEB1E36C73800FEB7BF /* TDStatusBarButtonCell.m in Sources */,
 				D3369AC01E36BEED00FEB7BF /* NSMutableArray-OFExtensions.m in Sources */,
+				D3166FBF1E5928DF00DEE3A0 /* EDDocumentController.m in Sources */,
 				D3369ABE1E36BEED00FEB7BF /* NSBundle-OAExtensions.m in Sources */,
 				D3369B1B1E36C25A00FEB7BF /* TKOverflowButton.m in Sources */,
 				D3369B281E36C25A00FEB7BF /* TKUserDefaults.m in Sources */,
@@ -1283,7 +1296,6 @@
 				D33699AF1E36B78900FEB7BF /* main.m in Sources */,
 				D3369B231E36C25A00FEB7BF /* TKTabModel.m in Sources */,
 				D3166F731E590D8C00DEE3A0 /* EDGeneralPreferences.m in Sources */,
-				D33699AC1E36B78900FEB7BF /* AppDelegate.m in Sources */,
 				D3369AC11E36BEED00FEB7BF /* NSObject-OFExtensions.m in Sources */,
 				D3369BD41E36C73800FEB7BF /* TDComboFieldCell.m in Sources */,
 				D3166F6D1E590B7F00DEE3A0 /* IDEBasePreferences.m in Sources */,

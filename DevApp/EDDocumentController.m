@@ -8,8 +8,6 @@
 
 #import "EDApplication.h"
 #import "EDDocumentController.h"
-#import "EDDocument.h"
-#import "EDMainWindowController.h"
 #import <TDAppKit/TDUtils.h>
 
 #ifndef APPSTORE
@@ -341,7 +339,6 @@ static BOOL sIsLicensed = NO;
 - (BOOL)validateMenuItem:(NSMenuItem *)menuItem {
     BOOL result = YES;
     NSString *title = nil;
-//    EDMainWindowController *wc = [self frontWindowController];
     
     SEL action = [menuItem action];
     if (@selector(toggleTabsListViewVisible:) == action) {
