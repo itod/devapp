@@ -487,8 +487,6 @@
 		D31670721E59FE0500DEE3A0 /* EDFileWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EDFileWindowController.m; sourceTree = "<group>"; };
 		D33699A71E36B78900FEB7BF /* DevApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DevApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D33699AE1E36B78900FEB7BF /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		D33699B01E36B78900FEB7BF /* Document.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Document.h; sourceTree = "<group>"; };
-		D33699B11E36B78900FEB7BF /* Document.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Document.m; sourceTree = "<group>"; };
 		D33699B61E36B78900FEB7BF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D33699B91E36B78900FEB7BF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		D33699BB1E36B78900FEB7BF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -1025,7 +1023,6 @@
 				D3369A451E36BEBA00FEB7BF /* ThreadUtils */,
 				D3166F441E59081000DEE3A0 /* WebKit */,
 				D3166F311E5905A500DEE3A0 /* Utils */,
-				D3166FF81E592C7100DEE3A0 /* Proj Settings */,
 				D3166F181E59040D00DEE3A0 /* EDApplication.h */,
 				D3166F191E59040D00DEE3A0 /* EDApplication.m */,
 				D33699B81E36B78900FEB7BF /* MainMenu.xib */,
@@ -1035,13 +1032,12 @@
 				D3166FB21E59277400DEE3A0 /* EDDocumentController.m */,
 				D3166FD61E592A5200DEE3A0 /* EDDocument.h */,
 				D3166FD71E592A5200DEE3A0 /* EDDocument.m */,
-				D33699B01E36B78900FEB7BF /* Document.h */,
-				D33699B11E36B78900FEB7BF /* Document.m */,
 				D3369A381E36BB1300FEB7BF /* EDMainWindowController.h */,
 				D3369A391E36BB1300FEB7BF /* EDMainWindowController.m */,
 				D3369A3F1E36BB2800FEB7BF /* EDMainWindowController.xib */,
 				D3166FE91E592C3700DEE3A0 /* EDStatusBar.h */,
 				D3166FEA1E592C3700DEE3A0 /* EDStatusBar.m */,
+				D3166FF81E592C7100DEE3A0 /* Proj Settings */,
 				D31670611E59FD5900DEE3A0 /* New Project */,
 				D31670601E59FD5100DEE3A0 /* New File */,
 				D31670561E59FC0700DEE3A0 /* Breakpoint List */,
