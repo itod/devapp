@@ -21,11 +21,11 @@ dot {
     color: #99CF50;
 }
 
-separators {
+separators, openParen, closeParen, openCurly, closeCurly, openBracket, closeBracket, semi {
     color: #F8F8F8;
 }
 
-operators {
+operators, equals, dot, comma, plus, minus, times, div, mod {
     color: #F8F8F8;
 }
 
@@ -45,7 +45,7 @@ functionName {
     color: #89BDFF;
 }
 
-keyword {
+keyword, reserved {
     color: #E28964;
 }
 
@@ -57,7 +57,7 @@ functionKeyword {
     color: #99CF50;
 }
 
-string {
+string, regex {
     color: #65B042;
 }
 
