@@ -1,8 +1,9 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="9059" systemVersion="14F1021" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="9059"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="11762"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="EDMainWindowController">
@@ -60,11 +61,6 @@
                             <action selector="toggleBreakpointsEnabled:" target="-1" id="xti-hS-bOA"/>
                         </connections>
                     </toolbarItem>
-                    <toolbarItem implicitItemIdentifier="DA58D6AC-47F9-4FAB-8E1E-A7AB8A1BC8DD" label="REPL" paletteLabel="REPL" toolTip="Open REPL Tab" tag="2045" image="NSGoRightTemplate" id="VAe-ct-F9C" customClass="EDToolbarButtonItem">
-                        <connections>
-                            <action selector="newREPLTab:" target="-1" id="2Be-mo-kHH"/>
-                        </connections>
-                    </toolbarItem>
                     <toolbarItem implicitItemIdentifier="0C05C6B8-CAE5-4B4E-92A1-228DEB2F950D" label="Reference" paletteLabel="Reference" toolTip="Open Reference Tab" tag="2050" image="NSActionTemplate" id="Jfx-JP-BWj" customClass="EDToolbarButtonItem">
                         <connections>
                             <action selector="showReference:" target="-1" id="xUy-fY-gP8"/>
@@ -84,7 +80,6 @@
                     <toolbarItem reference="MbV-Ul-CHh"/>
                     <toolbarItem reference="Nol-CY-l8f"/>
                     <toolbarItem reference="MbV-Ul-CHh"/>
-                    <toolbarItem reference="VAe-ct-F9C"/>
                     <toolbarItem reference="Jfx-JP-BWj"/>
                 </defaultToolbarItems>
             </toolbar>

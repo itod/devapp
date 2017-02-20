@@ -69,7 +69,7 @@
 	<key>NSHumanReadableCopyright</key>
 	<string>Copyright © 2017 Celestial Teapot. All rights reserved.</string>
 	<key>NSMainNibFile</key>
-	<string>MainMenu</string>
+	<string>EDMainMenu</string>
 	<key>NSPrincipalClass</key>
 	<string>EDApplication</string>
 	<key>OFRegistrations</key>
