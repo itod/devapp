@@ -75,44 +75,6 @@
 
 @implementation EDMainWindowController
 
-+ (NSArray *)allTriggers {
-    EDAssertMainThread();
-    static NSArray *sAllTriggers = nil;
-    if (!sAllTriggers) {
-        sAllTriggers = [[self edelScriptTriggers] retain];
-    }
-
-    return sAllTriggers;
-}
-
-
-+ (NSArray *)edelScriptTriggers {
-    EDAssertMainThread();
-    static NSArray *sEdelScriptTriggers = nil;
-    if (!sEdelScriptTriggers) {
-        sEdelScriptTriggers = [[NSArray alloc] initWithObjects:
-                           [OKTrigger triggerWithTemplate:@"sub ${function}(${arg})" specifier:@"sub"],
-                           [OKTrigger triggerWithTemplate:@"sub ${function}(${arg})" specifier:@"function"],
-                           [OKTrigger triggerWithTemplate:@"sub ${method}(${arg})" specifier:@"method"],
-                           [OKTrigger triggerWithTemplate:@"class ${MyClass} : ${object}" specifier:@"class"],
-                           [OKTrigger triggerWithTemplate:@"for ${i} in range(${n})" specifier:@"range"],
-                           [OKTrigger triggerWithTemplate:@"for ${i} in range(${n})" specifier:@"forin"],
-                           [OKTrigger triggerWithTemplate:@"for ${obj} in ${iterable}" specifier:@"forin"],
-                           [OKTrigger triggerWithTemplate:@"for ${key},${val} in ${iterable}" specifier:@"forin"],
-                           [OKTrigger triggerWithTemplate:@"if ${test}" specifier:@"if"],
-                           [OKTrigger triggerWithTemplate:@"else if ${test}" specifier:@"else"],
-                           [OKTrigger triggerWithTemplate:@"else if ${test}" specifier:@"elif"],
-                           [OKTrigger triggerWithTemplate:@"else" specifier:@"else"],
-                           [OKTrigger triggerWithTemplate:@"while ${test}" specifier:@"while"],
-                           [OKTrigger triggerWithTemplate:@"return ${val}" specifier:@"return"],
-                           [OKTrigger triggerWithTemplate:@"import ${module} as ${foo}" specifier:@"importas"],
-                           [OKTrigger triggerWithTemplate:@"log(${value})" specifier:@"log"],
-                           nil];
-    }
-    return sEdelScriptTriggers;
-}
-
-
 + (NSString *)defaultType {
     return EDTabModelTypeSourceCodeFile;
 }
@@ -1224,16 +1186,78 @@
 #pragma mark -
 #pragma mark OKTextViewListDataSource
 
-- (NSArray *)textView:(OKTextView *)tv filteredDataForPrefix:(NSString *)prefix givenRange:(NSRange)selRange includeDomainSpecific:(BOOL)includeDomainSpecific {
+//+ (NSArray *)triggers {
+//    return [NSMutableArray array];
+//}
 
-    NSMutableArray *sortedMatches = [NSMutableArray array];
-    [sortedMatches addObjectsFromArray:[self customFilteredDataForPrefix:prefix includeDomainSpecific:includeDomainSpecific]];
+
++ (NSArray *)triggers {
+    EDAssertMainThread();
+    static NSArray *sTriggers = nil;
+    if (!sTriggers) {
+//        sTriggers = [[NSArray alloc] initWithObjects:
+//                     [OKTrigger triggerWithTemplate:@"sub ${function}(${arg})" specifier:@"sub"],
+//                     [OKTrigger triggerWithTemplate:@"sub ${function}(${arg})" specifier:@"function"],
+//                     [OKTrigger triggerWithTemplate:@"sub ${method}(${arg})" specifier:@"method"],
+//                     [OKTrigger triggerWithTemplate:@"class ${MyClass} : ${object}" specifier:@"class"],
+//                     [OKTrigger triggerWithTemplate:@"for ${i} in range(${n})" specifier:@"range"],
+//                     [OKTrigger triggerWithTemplate:@"for ${i} in range(${n})" specifier:@"forin"],
+//                     [OKTrigger triggerWithTemplate:@"for ${obj} in ${iterable}" specifier:@"forin"],
+//                     [OKTrigger triggerWithTemplate:@"for ${key},${val} in ${iterable}" specifier:@"forin"],
+//                     [OKTrigger triggerWithTemplate:@"if ${test}" specifier:@"if"],
+//                     [OKTrigger triggerWithTemplate:@"else if ${test}" specifier:@"else"],
+//                     [OKTrigger triggerWithTemplate:@"else if ${test}" specifier:@"elif"],
+//                     [OKTrigger triggerWithTemplate:@"else" specifier:@"else"],
+//                     [OKTrigger triggerWithTemplate:@"while ${test}" specifier:@"while"],
+//                     [OKTrigger triggerWithTemplate:@"return ${val}" specifier:@"return"],
+//                     [OKTrigger triggerWithTemplate:@"import ${module} as ${foo}" specifier:@"importas"],
+//                     [OKTrigger triggerWithTemplate:@"log(${value})" specifier:@"log"],
+//                     nil];
+        
+        sTriggers = [[NSArray alloc] initWithObjects:
+                     [OKTrigger triggerWithTemplate:@"fake" specifier:@"fake"],
+                     [OKTrigger triggerWithTemplate:@"get(${key})" specifier:@"get"],
+                     [OKTrigger triggerWithTemplate:@"set(${key}, ${val})" specifier:@"set"],
+                     
+                     [OKTrigger triggerWithTemplate:@"alert(${msg})" specifier:@"alert"],
+                     [OKTrigger triggerWithTemplate:@"confirm(${msg})" specifier:@"confirm"],
+                     [OKTrigger triggerWithTemplate:@"prompt(${msg})" specifier:@"prompt"],
+                     [OKTrigger triggerWithTemplate:@"prompt(${msg}, ${default})" specifier:@"prompt"],
+                     
+                     [OKTrigger triggerWithTemplate:@"console.log(${msg})" specifier:@"console"],
+                     [OKTrigger triggerWithTemplate:@"console.log(${msg})" specifier:@"log"],
+                     
+                     [OKTrigger triggerWithTemplate:@"function ${foo}()" specifier:@"function"],
+                     [OKTrigger triggerWithTemplate:@"function ${foo}(${arg})" specifier:@"function"],
+                     
+                     [OKTrigger triggerWithTemplate:@"setTimeout(${func}, ${delay})" specifier:@"settimeout"],
+                     [OKTrigger triggerWithTemplate:@"setInterval(${func}, ${delay})" specifier:@"setinterval"],
+                     
+                     [OKTrigger triggerWithTemplate:@"parseInt(${str}, ${radix})" specifier:@"parseInt"],
+                     
+                     [OKTrigger triggerWithTemplate:@"Array" specifier:@"array"],
+                     [OKTrigger triggerWithTemplate:@"Object" specifier:@"object"],
+                     [OKTrigger triggerWithTemplate:@"NaN" specifier:@"nan"],
+                     [OKTrigger triggerWithTemplate:@"Infinity" specifier:@"infinity"],
+                     [OKTrigger triggerWithTemplate:@"window" specifier:@"window"],
+                     nil];
+
+    }
+    return sTriggers;
+}
+
+
++ (NSString *)grammarName {
+    return @"js";
+}
+
+
+- (NSArray *)filteredDataForPrefix:(NSString *)prefix {
+    NSMutableArray *sortedMatches = [NSMutableArray arrayWithArray:[self unsortedFilteredDataForPrefix:prefix]];
     
     [sortedMatches sortUsingComparator:^NSComparisonResult(OKTrigger *trig1, OKTrigger *trig2) {
         CGFloat score1 = trig1.score;
         CGFloat score2 = trig2.score;
-        
-        //NSLog(@"%@ vs %@", trig1.string, trig2.string);
         
         if (score1 > score1) {
             return NSOrderedAscending;
@@ -1248,54 +1272,38 @@
 }
 
 
-- (void)setScore:(CGFloat)score onTrigger:(OKTrigger *)trig {
-    if ([trig.string hasPrefix:@"_"]) { // force '_'-leading triggers to sort *after* non-'_'-leading triggers
-        score -= 0.01;
-    }
-
-    trig.score = score;
-}
-
-
-- (NSArray *)currentTriggers:(BOOL)includeDomainSpecific {
-    // Exedore ignores includeDomainSpecific
-    return [[self class] allTriggers];
-}
-
-
-- (NSArray *)customFilteredDataForPrefix:(NSString *)prefix includeDomainSpecific:(BOOL)includeDomainSpecific {
-    EDAssertMainThread();
-    EDAssert(prefix);
+- (NSArray *)unsortedFilteredDataForPrefix:(NSString *)prefix {
+    NSAssert([[NSThread currentThread] isMainThread], @"");
+    
+    NSAssert(prefix, @"");
     NSUInteger prefixLen = [prefix length];
     if (!prefixLen) return nil;
-
+    
+    //prefix = [prefix lowercaseString];
     NSMutableArray *results = [NSMutableArray array];
     
-    NSArray *currTrigs = [self currentTriggers:includeDomainSpecific];
-    
     if ([[NSUserDefaults standardUserDefaults] boolForKey:OKAutocompletionFuzzyMatchKey]) {
-        NSString *prefixLower = [prefix lowercaseString];
-        for (OKTrigger *trig in currTrigs) {
+        for (OKTrigger *trig in [[self class] triggers]) {
             NSString *str = trig.specifier;
             if (prefixLen > [str length]) continue;
             
             if (trig.wantsExactMatch) {
                 if (prefixLen >= MIN_AUTOCOMPLETE_EXACT_MATCH_LEN && [str hasPrefix:prefix] && prefixLen <= [str length]) {
-                    [self setScore:1.0 onTrigger:trig];
+                    trig.score = 1.0;
                     [results addObject:trig];
                 }
             } else {
-                CGFloat score = [[str lowercaseString] scoreAgainst:prefixLower fuzziness:@(FUZZINESS) options:NSStringScoreOptionReducedLongStringPenalty];
+                CGFloat score = [str scoreAgainst:prefix fuzziness:@(FUZZINESS) options:NSStringScoreOptionNone];
                 if (score >= MIN_SCORE) {
-                    [self setScore:score onTrigger:trig];
+                    trig.score = score;
                     [results addObject:trig];
                 }
             }
         }
     } else {
-        for (OKTrigger *trig in currTrigs) {
+        for (OKTrigger *trig in [[self class] triggers]) {
             NSString *str = trig.specifier;
-            if ([str hasPrefix:prefix] && prefixLen <= [str length]) {
+            if ([str hasPrefix:prefix] && prefixLen < [str length]) {
                 [results addObject:trig];
             }
         }
@@ -1306,18 +1314,18 @@
 
 
 - (NSUInteger)numberOfItemsInTextView:(OKTextView *)tv {
-    EDAssertMainThread();
-    EDAssert([[self class] allTriggers]);
+    NSAssert([[NSThread currentThread] isMainThread], @"");
+    NSAssert(tv == self.selectedSourceViewController.textView, @"");
     return [_filteredData count];
 }
 
 
 - (id)textView:(OKTextView *)tv objectAtIndex:(NSUInteger)i {
-    EDAssertMainThread();
-    EDAssert([[self class] allTriggers]);
+    NSAssert([[NSThread currentThread] isMainThread], @"");
+    NSAssert(tv == self.selectedSourceViewController.textView, @"");
     
     NSUInteger c = [_filteredData count];
-    EDAssert(i < c);
+    NSAssert(i < c, @"");
     id obj = @"";
     
     // JIC. I've seen this fail. no idea why.
@@ -1333,27 +1341,10 @@
     //NSLog(@"%@", prefix);
     //prefix = [prefix lowercaseString];
     
-    OKTextView *sourceTextView = self.selectedSourceViewController.textView;
+    NSAssert([[NSThread currentThread] isMainThread], @"");
+    NSAssert(tv == self.selectedSourceViewController.textView, @"");
     
-    BOOL includeDomainSpecific;
-    NSRange selRange;
-    if (tv == sourceTextView) {
-        includeDomainSpecific = YES;
-        selRange = [tv selectedRange];
-    } else {
-        includeDomainSpecific = NO;
-        //EDAssert(tv == _consoleViewController.textView);
-        NSUInteger lineNum = sourceTextView.highlightedLineNumber;
-        if (lineNum > 0) {
-            selRange = [tv rangeOfLine:lineNum];
-            selRange = NSMakeRange(NSMaxRange(selRange), 0); // must scoot to the end of the line
-        } else {
-            selRange = [tv selectedRange];
-        }
-    }
-    EDAssert(NSNotFound != selRange.location);
-    
-    self.filteredData = [self textView:tv filteredDataForPrefix:prefix givenRange:selRange includeDomainSpecific:includeDomainSpecific];
+    self.filteredData = [self filteredDataForPrefix:prefix];
     //NSLog(@"filtered Data : %@", _filteredData);
     
     OKTrigger *best = nil;
@@ -1375,26 +1366,6 @@
     
     return best.string;
 }
-
-
-//- (NSUInteger)textView:(OKTextView *)tv indexOfItemWithStringValue:(NSString *)inString {
-//    NSLog(@"%@", inString);
-//    NSUInteger i = 0;
-//
-//    inString = [inString lowercaseString];
-//
-//    for (OKTrigger *trig in [self allTriggers]) {
-//        NSString *str = [trig.string lowercaseString];
-//
-//        if ([str isEqualToString:inString]) {
-//            return i;
-//        } else {
-//            i++;
-//        }
-//    }
-//
-//    return NSNotFound;
-//}
 
 
 #pragma mark -

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D309BCA71E5B657A002B3199 /* EDFindView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D309BCA51E5B657A002B3199 /* EDFindView.xib */; };
 		D3166EB51E57C54400DEE3A0 /* EDUpdatePreferences.xib in Resources */ = {isa = PBXBuildFile; fileRef = D3166EAB1E57C54400DEE3A0 /* EDUpdatePreferences.xib */; };
 		D3166EB91E57C54400DEE3A0 /* OAPreferencesWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = D3166EB31E57C54400DEE3A0 /* OAPreferencesWindow.xib */; };
 		D3166ED31E57C6FF00DEE3A0 /* Language.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3166ECE1E57C6E900DEE3A0 /* Language.framework */; };
@@ -353,6 +354,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		D309BCA61E5B657A002B3199 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/EDFindView.xib; sourceTree = "<group>"; };
 		D3166EAC1E57C54400DEE3A0 /* base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = base; path = base.lproj/EDUpdatePreferences.xib; sourceTree = "<group>"; };
 		D3166EB41E57C54400DEE3A0 /* base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = base; path = base.lproj/OAPreferencesWindow.xib; sourceTree = "<group>"; };
 		D3166EC81E57C6E900DEE3A0 /* Language.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Language.xcodeproj; path = lib/Language/Language.xcodeproj; sourceTree = "<group>"; };
@@ -1044,12 +1046,13 @@
 		D316702A1E59F9A100DEE3A0 /* Find */ = {
 			isa = PBXGroup;
 			children = (
-				D316702D1E59F9EB00DEE3A0 /* EDFindParameters.h */,
-				D316702E1E59F9EB00DEE3A0 /* EDFindParameters.m */,
 				D31670331E59F9EB00DEE3A0 /* EDFindViewController.h */,
 				D31670341E59F9EB00DEE3A0 /* EDFindViewController.m */,
+				D309BCA51E5B657A002B3199 /* EDFindView.xib */,
 				D31670311E59F9EB00DEE3A0 /* EDFindView.h */,
 				D31670321E59F9EB00DEE3A0 /* EDFindView.m */,
+				D316702D1E59F9EB00DEE3A0 /* EDFindParameters.h */,
+				D316702E1E59F9EB00DEE3A0 /* EDFindParameters.m */,
 				D316702B1E59F9EB00DEE3A0 /* EDFindOutlineView.h */,
 				D316702C1E59F9EB00DEE3A0 /* EDFindOutlineView.m */,
 				D316702F1E59F9EB00DEE3A0 /* EDFindResultsCell.h */,
@@ -1734,6 +1737,7 @@
 				D33699B71E36B78900FEB7BF /* Assets.xcassets in Resources */,
 				D31670FF1E5A21CA00DEE3A0 /* OKViewController.xib in Resources */,
 				D31670BD1E5A184600DEE3A0 /* EDFilesystemView.xib in Resources */,
+				D309BCA71E5B657A002B3199 /* EDFindView.xib in Resources */,
 				D31671131E5B590100DEE3A0 /* EDMainMenu.xib in Resources */,
 				D3369AC91E36BEED00FEB7BF /* OAPreferencesNextButton.png in Resources */,
 				D3166F5C1E5908FE00DEE3A0 /* EDGuidesPreferences.xib in Resources */,
@@ -1979,6 +1983,14 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		D309BCA51E5B657A002B3199 /* EDFindView.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D309BCA61E5B657A002B3199 /* Base */,
+			);
+			name = EDFindView.xib;
+			sourceTree = "<group>";
+		};
 		D3166EAB1E57C54400DEE3A0 /* EDUpdatePreferences.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
