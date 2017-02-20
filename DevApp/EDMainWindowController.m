@@ -91,20 +91,20 @@
     static NSArray *sEdelScriptTriggers = nil;
     if (!sEdelScriptTriggers) {
         sEdelScriptTriggers = [[NSArray alloc] initWithObjects:
-                           [OKTrigger triggerWithTemplate:@"sub ${function}(${arg}):" specifier:@"sub"],
-                           [OKTrigger triggerWithTemplate:@"sub ${function}(${arg}):" specifier:@"function"],
-                           [OKTrigger triggerWithTemplate:@"sub ${method}(${arg}):" specifier:@"method"],
-                           [OKTrigger triggerWithTemplate:@"class ${MyClass} : ${object}:" specifier:@"class"],
+                           [OKTrigger triggerWithTemplate:@"sub ${function}(${arg})" specifier:@"sub"],
+                           [OKTrigger triggerWithTemplate:@"sub ${function}(${arg})" specifier:@"function"],
+                           [OKTrigger triggerWithTemplate:@"sub ${method}(${arg})" specifier:@"method"],
+                           [OKTrigger triggerWithTemplate:@"class ${MyClass} : ${object}" specifier:@"class"],
                            [OKTrigger triggerWithTemplate:@"for ${i} in range(${n})" specifier:@"range"],
                            [OKTrigger triggerWithTemplate:@"for ${i} in range(${n})" specifier:@"forin"],
-                           [OKTrigger triggerWithTemplate:@"for ${obj} in ${iterable}:" specifier:@"forin"],
-                           [OKTrigger triggerWithTemplate:@"for ${key},${val} in ${iterable}:" specifier:@"forin"],
+                           [OKTrigger triggerWithTemplate:@"for ${obj} in ${iterable}" specifier:@"forin"],
+                           [OKTrigger triggerWithTemplate:@"for ${key},${val} in ${iterable}" specifier:@"forin"],
                            [OKTrigger triggerWithTemplate:@"if ${test}" specifier:@"if"],
                            [OKTrigger triggerWithTemplate:@"else if ${test}" specifier:@"else"],
                            [OKTrigger triggerWithTemplate:@"else if ${test}" specifier:@"elif"],
                            [OKTrigger triggerWithTemplate:@"else" specifier:@"else"],
                            [OKTrigger triggerWithTemplate:@"while ${test}" specifier:@"while"],
-                           [OKTrigger triggerWithTemplate:@"import ${module}" specifier:@"import"],
+                           [OKTrigger triggerWithTemplate:@"return ${val}" specifier:@"return"],
                            [OKTrigger triggerWithTemplate:@"import ${module} as ${foo}" specifier:@"importas"],
                            [OKTrigger triggerWithTemplate:@"log(${value})" specifier:@"log"],
                            nil];
