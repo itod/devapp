@@ -18,6 +18,7 @@
 #import "EDConsoleViewController.h"
 #import "EDFindViewController.h"
 #import "EDFileWindowController.h"
+#import "EDMemoryCodeRunner.h"
 #import "EDTarget.h"
 #import "EDScheme.h"
 #import "EDRunAction.h"
@@ -148,11 +149,7 @@
     self.canvasViewController = nil;
     self.consoleViewController = nil;
     self.findViewController = nil;
-#if SCHWARTZ
-    self.metricsWindowController = nil;
-#else
     self.projectWindowController = nil;
-#endif
     self.fileEncodingDialogController.delegate = nil;
     self.fileEncodingDialogController = nil;
     
@@ -162,6 +159,7 @@
     self.findNextFileLocation = nil;
     self.lastCommand = nil;
     
+    self.codeRunner = nil;
     self.filteredData = nil;
     
     self.tempSourceDirPath = nil;
@@ -169,6 +167,15 @@
     self.lastFileLocByAbsPath = nil;
     
     [super dealloc];
+}
+
+
+- (void)killCodeRunner {
+    EDAssertMainThread();
+    if (_codeRunner) {
+        [_codeRunner setDelegate:nil];
+        self.codeRunner = nil;
+    }
 }
 
 
@@ -1108,9 +1115,6 @@
         _fileEncodingDialogController.delegate = self;
         _fileEncodingDialogController.filePath = absPath;
 
-#if SCHWARTZ
-        [NSApp beginSheet:[_fileEncodingDialogController window] modalForWindow:[self window] modalDelegate:self didEndSelector:@selector(sheetDidEnd:returnCode:contextInfo:) contextInfo:[absPath retain]];
-#else
         [[self window] beginSheet:[_fileEncodingDialogController window] completionHandler:^(NSModalResponse returnCode) {
             if (NSOKButton == returnCode) {
                 EDAssert(0 != _userSelectedStringEncoding);
@@ -1125,38 +1129,12 @@
                 }
             }
         }];
-#endif
-
     });
 }
 
-                                    
-#if SCHWARTZ
-- (void)sheetDidEnd:(NSWindow *)sheet returnCode:(NSInteger)returnCode contextInfo:(NSString *)absPath {
-    [absPath autorelease];
-    
-    if (NSOKButton == returnCode) {
-        EDAssert(0 != _userSelectedStringEncoding);
-        EDAssert(NSNotFound != _userSelectedStringEncoding);
-
-        NSError *newErr = nil;
-        OKSource *source = [self tryLoadingFileAtPath:absPath withStringEncoding:_userSelectedStringEncoding error:&newErr];
-        if (source) {
-            [self.selectedSourceViewController setSourceString:source.text encoding:source.encoding];
-        } else {
-            [self presentFileEncodingDialog:newErr forFileAtPath:absPath];
-        }
-    }
-}
-#endif
-
 
 - (void)dismissFileEncodingDialog:(NSInteger)returnCode {
-#if SCHWARTZ
-    [NSApp endSheet:[_fileEncodingDialogController window] returnCode:returnCode];
-#else
     [[self window] endSheet:[_fileEncodingDialogController window] returnCode:returnCode];
-#endif
 }
 
 
@@ -1180,6 +1158,84 @@
 
     self.userSelectedStringEncoding = enc;
     [self dismissFileEncodingDialog:NSOKButton];
+}
+
+
+#pragma mark -
+#pragma mark EDCodeRunnerDelegate
+
+- (void)codeRunnerDidStartup:(NSString *)identifier {
+    EDAssert([identifier isEqualToString:self.identifier]);
+    EDAssertMainThread();
+}
+
+
+- (void)codeRunner:(NSString *)identifier messageFromStdout:(NSString *)inMsg {
+    EDAssert([identifier isEqualToString:self.identifier]);
+    EDAssertMainThread();
+    EDAssert(inMsg);
+    
+}
+
+
+- (void)codeRunner:(NSString *)identifier messageFromStderr:(NSString *)msg {
+    EDAssert([identifier isEqualToString:self.identifier]);
+    EDAssertMainThread();
+    EDAssert(msg);
+    
+    [_consoleViewController append:msg];
+    self.busy = NO;
+}
+
+
+- (void)codeRunner:(NSString *)identifier didUpdate:(NSData *)result {
+    EDAssert([identifier isEqualToString:self.identifier]);
+    EDAssertMainThread();
+    EDAssert(0);
+}
+
+
+- (void)codeRunner:(NSString *)identifier didSucceed:(NSData *)result {
+    EDAssert([identifier isEqualToString:self.identifier]);
+    EDAssertMainThread();
+    
+    [self clearDebugInfo];
+    
+    self.statusText = NSLocalizedString(@"Finished Running.", @"");
+    
+    self.canRun = YES;
+    self.canStop = NO;
+    self.busy = NO;
+    
+    [[self window] makeFirstResponder:self.selectedSourceViewController.textView];
+}
+
+
+- (void)codeRunner:(NSString *)identifier didFail:(NSError *)err {
+    //NSLog(@"%s", __PRETTY_FUNCTION__);
+    EDAssert([identifier isEqualToString:self.identifier]);
+    EDAssertMainThread();
+    NSParameterAssert(err);
+    NSLog(@"%@", err);
+    
+    //[self clearDebugInfo];
+
+    EDAssert(_consoleViewController);
+    if (kEDCodeRunnerCompileTimeError == [err code]) {
+        [_consoleViewController append:[err localizedDescription]];
+    }
+    
+    [_codeRunner stop:self.identifier];
+    [self killCodeRunner];
+    
+    self.statusText = NSLocalizedString(@"Failed.", @"");
+    [_consoleViewController removePrompt];
+    
+    self.canRun = YES;
+    self.canStop = NO;
+    self.busy = NO;
+    
+    [[self window] makeFirstResponder:self.selectedSourceViewController.textView];
 }
 
 
@@ -1935,46 +1991,28 @@
     
     [self.selectedSourceViewController refresh:nil];
     
-//    dispatch_async(dispatch_get_main_queue(), ^{
-//        EDAssertMainThread();
-//
-//        NSArray *bpPlist = nil;
-//        BOOL bpEnabled = doc.breakpointsEnabled;
-//        
-//        if (bpEnabled) bpPlist = [self allEnabledBreakpointsPlist];
-//        EDAssert(bpEnabled || !bpPlist);
-//
-//        EDRunAction *runAction = doc.selectedTarget.scheme.runAction;
-//        
-//        NSString *cmd = [self evaluatedCommandString:runAction.commandString];
-//        
-//        NSString *exePath = nil;//runAction.pythonExePath;
-//        if (![exePath length]) {
-//            exePath = [[EDUserDefaults instance] pythonExePath];
-//        }
-//        
-//        NSCharacterSet *quoteSet = [NSCharacterSet characterSetWithCharactersInString:@"'\""];
-//        cmd = [cmd stringByTrimmingCharactersInSet:quoteSet];
-//        exePath = [[exePath stringByTrimmingCharactersInSet:quoteSet] stringByStandardizingPath];
-//
-//        NSString *fmt = nil;
-//        if (bpEnabled) {
-//            fmt = @"'%@' -m pdb '%@'";
-//        } else {
-//            fmt = @"'%@' '%@'";
-//        }
-//        
-//        cmd = [NSString stringWithFormat:fmt, exePath, cmd];
-//        
-//        NSArray *envVars = runAction.environmentVariables;
-//        NSDictionary *envVarsTab = [self envVarsDictFromArray:envVars];
-//        
-//        NSString *srcDirPath = [self sourceDirPath];
-//        NSString *identifier = self.identifier;
-//        
-//        self.codeRunner = [[[TDCoprocessCodeRunner alloc] initWithDelegate:self prompts:@[DEBUGGER_PROMPT] name:nil] autorelease];
-//        [_codeRunner run:cmd inWorkingDirectory:srcDirPath exePath:exePath env:envVarsTab breakpointsEnabled:bpEnabled breakpoints:bpPlist identifier:identifier];
-//    });
+    dispatch_async(dispatch_get_main_queue(), ^{
+        EDAssertMainThread();
+
+        NSArray *bpPlist = nil;
+        BOOL bpEnabled = doc.breakpointsEnabled;
+        
+        if (bpEnabled) bpPlist = [self allEnabledBreakpointsPlist];
+        EDAssert(bpEnabled || !bpPlist);
+
+        EDRunAction *runAction = doc.selectedTarget.scheme.runAction;
+        
+        NSString *cmd = [self evaluatedCommandString:runAction.commandString];
+        
+        NSArray *envVars = runAction.environmentVariables;
+        NSDictionary *envVarsTab = [self envVarsDictFromArray:envVars];
+        
+        NSString *srcDirPath = [self sourceDirPath];
+        NSString *identifier = self.identifier;
+        
+        self.codeRunner = [[[EDMemoryCodeRunner alloc] initWithDelegate:self] autorelease];
+        [_codeRunner run:cmd inWorkingDirectory:srcDirPath exePath:nil env:envVarsTab breakpointsEnabled:bpEnabled breakpoints:bpPlist identifier:identifier];
+    });
 }
 
 
@@ -1998,8 +2036,8 @@
         return;
     }
 
-//    [_codeRunner stop:self.identifier];
-//    [self killCodeRunner];
+    [_codeRunner stop:self.identifier];
+    [self killCodeRunner];
     [self clearDebugInfo];
     
     self.statusText = NSLocalizedString(@"Stopped.", @"");

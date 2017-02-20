@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		D309BCA71E5B657A002B3199 /* EDFindView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D309BCA51E5B657A002B3199 /* EDFindView.xib */; };
+		D309BCC51E5B9E77002B3199 /* EDMemoryCodeRunner.m in Sources */ = {isa = PBXBuildFile; fileRef = D309BCC41E5B9E77002B3199 /* EDMemoryCodeRunner.m */; };
 		D3166EB51E57C54400DEE3A0 /* EDUpdatePreferences.xib in Resources */ = {isa = PBXBuildFile; fileRef = D3166EAB1E57C54400DEE3A0 /* EDUpdatePreferences.xib */; };
 		D3166EB91E57C54400DEE3A0 /* OAPreferencesWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = D3166EB31E57C54400DEE3A0 /* OAPreferencesWindow.xib */; };
 		D3166ED31E57C6FF00DEE3A0 /* Language.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3166ECE1E57C6E900DEE3A0 /* Language.framework */; };
@@ -355,6 +356,8 @@
 
 /* Begin PBXFileReference section */
 		D309BCA61E5B657A002B3199 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/EDFindView.xib; sourceTree = "<group>"; };
+		D309BCC31E5B9E77002B3199 /* EDMemoryCodeRunner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EDMemoryCodeRunner.h; sourceTree = "<group>"; };
+		D309BCC41E5B9E77002B3199 /* EDMemoryCodeRunner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EDMemoryCodeRunner.m; sourceTree = "<group>"; };
 		D3166EAC1E57C54400DEE3A0 /* base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = base; path = base.lproj/EDUpdatePreferences.xib; sourceTree = "<group>"; };
 		D3166EB41E57C54400DEE3A0 /* base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = base; path = base.lproj/OAPreferencesWindow.xib; sourceTree = "<group>"; };
 		D3166EC81E57C6E900DEE3A0 /* Language.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Language.xcodeproj; path = lib/Language/Language.xcodeproj; sourceTree = "<group>"; };
@@ -1186,6 +1189,8 @@
 			isa = PBXGroup;
 			children = (
 				D31670B61E5A17D900DEE3A0 /* EDCodeRunner.h */,
+				D309BCC31E5B9E77002B3199 /* EDMemoryCodeRunner.h */,
+				D309BCC41E5B9E77002B3199 /* EDMemoryCodeRunner.m */,
 			);
 			name = "Code Runner";
 			sourceTree = "<group>";
@@ -1778,6 +1783,7 @@
 				D3369C011E36C73800FEB7BF /* TDViewControllerView.m in Sources */,
 				D3166F0E1E59038F00DEE3A0 /* OKContainerView.m in Sources */,
 				D3166F111E59038F00DEE3A0 /* OKSource.m in Sources */,
+				D309BCC51E5B9E77002B3199 /* EDMemoryCodeRunner.m in Sources */,
 				D31670A21E5A15F100DEE3A0 /* EDTabModel.m in Sources */,
 				D3369BE21E36C73800FEB7BF /* TDListItemQueue.m in Sources */,
 				D3166FBC1E5927DA00DEE3A0 /* EDWelcomeTableCellView.m in Sources */,

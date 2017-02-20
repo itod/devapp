@@ -11,6 +11,7 @@
 #import <OkudaKit/OKTextView.h>
 #import <OkudaKit/OKGutterView.h>
 #import <TDAppKit/TDTabBarController.h>
+#import "EDCodeRunner.h"
 #import "EDFilesystemViewController.h"
 #import "EDStackTraceViewController.h"
 #import "EDBreakpointListViewController.h"
@@ -32,7 +33,7 @@
 
 @class OKSource;
 
-@interface EDMainWindowController : TKMainWindowController <TDTabBarControllerDelegate, EDFilesystemViewControllerDelegate, EDStackTraceViewControllerDelegate, EDBreakpointListViewControllerDelegate, EDConsoleViewControllerDelegate, EDFindViewControllerDelegate, EDFileEncodingDialogControllerDelegate, OKTextViewListDataSource, OKTextViewListDelegate, OKGutterViewDelegate>
+@interface EDMainWindowController : TKMainWindowController <TDTabBarControllerDelegate, EDCodeRunnerDelegate, EDFilesystemViewControllerDelegate, EDStackTraceViewControllerDelegate, EDBreakpointListViewControllerDelegate, EDConsoleViewControllerDelegate, EDFindViewControllerDelegate, EDFileEncodingDialogControllerDelegate, OKTextViewListDataSource, OKTextViewListDelegate, OKGutterViewDelegate>
 
 + (NSArray *)triggers;
 
@@ -78,6 +79,8 @@
 - (IBAction)hideFindView:(id)sender;
 
 - (IBAction)toggleBreakpointsEnabled:(id)sender;
+
+@property (nonatomic, retain) id <EDCodeRunner>codeRunner;
 
 @property (nonatomic, retain) IBOutlet EDWindowContainerView *windowContainerView;
 @property (nonatomic, retain) IBOutlet EDMidContainerView *midContainerView;
