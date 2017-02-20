@@ -146,6 +146,7 @@
 		D316710D1E5A5FB600DEE3A0 /* TDComboField.m in Sources */ = {isa = PBXBuildFile; fileRef = D316710C1E5A5FB600DEE3A0 /* TDComboField.m */; };
 		D31671101E5AB89300DEE3A0 /* DOMNode+TDAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = D316710F1E5AB89300DEE3A0 /* DOMNode+TDAdditions.m */; };
 		D31671131E5B590100DEE3A0 /* EDMainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = D31671111E5B590100DEE3A0 /* EDMainMenu.xib */; };
+		D31671241E5B5D7D00DEE3A0 /* exedore_dsa_pub.pem in Resources */ = {isa = PBXBuildFile; fileRef = D31671231E5B5D7D00DEE3A0 /* exedore_dsa_pub.pem */; };
 		D33699AF1E36B78900FEB7BF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D33699AE1E36B78900FEB7BF /* main.m */; };
 		D33699B71E36B78900FEB7BF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D33699B61E36B78900FEB7BF /* Assets.xcassets */; };
 		D33699FE1E36B8ED00FEB7BF /* PEGKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D33699D41E36B8AE00FEB7BF /* PEGKit.framework */; };
@@ -339,7 +340,7 @@
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
-			dstSubfolderSpec = 7;
+			dstSubfolderSpec = 10;
 			files = (
 				D3166ED71E57C97B00DEE3A0 /* Sparkle.framework in Copy Frameworks */,
 				D3166ED41E57C70B00DEE3A0 /* Language.framework in Copy Frameworks */,
@@ -605,6 +606,7 @@
 		D316710E1E5A5FC200DEE3A0 /* TDComboField.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = TDComboField.h; path = lib/TDAppKit/include/TDAppKit/TDComboField.h; sourceTree = SOURCE_ROOT; };
 		D316710F1E5AB89300DEE3A0 /* DOMNode+TDAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "DOMNode+TDAdditions.m"; path = "lib/TDAppKit/src/DOMNode+TDAdditions.m"; sourceTree = SOURCE_ROOT; };
 		D31671121E5B590100DEE3A0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/EDMainMenu.xib; sourceTree = "<group>"; };
+		D31671231E5B5D7D00DEE3A0 /* exedore_dsa_pub.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = exedore_dsa_pub.pem; path = res/exedore_dsa_pub.pem; sourceTree = SOURCE_ROOT; };
 		D33699A71E36B78900FEB7BF /* DevApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DevApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D33699AE1E36B78900FEB7BF /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		D33699B61E36B78900FEB7BF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -1306,6 +1308,7 @@
 			children = (
 				D3166ED51E57C96D00DEE3A0 /* Sparkle.framework */,
 				D33699B61E36B78900FEB7BF /* Assets.xcassets */,
+				D31671231E5B5D7D00DEE3A0 /* exedore_dsa_pub.pem */,
 				D3369B311E36C61F00FEB7BF /* DevApp-Prefix.pch */,
 				D33699AE1E36B78900FEB7BF /* main.m */,
 				D31671041E5A599200DEE3A0 /* main.js */,
@@ -1749,6 +1752,7 @@
 				D3166FB71E5927C300DEE3A0 /* EDWelcomeWindow.xib in Resources */,
 				D31670071E59F71500DEE3A0 /* EDStackTraceView.xib in Resources */,
 				D31670F81E5A1E8700DEE3A0 /* TKTabsListView.xib in Resources */,
+				D31671241E5B5D7D00DEE3A0 /* exedore_dsa_pub.pem in Resources */,
 				D3166FFE1E592CCC00DEE3A0 /* EDActionArgumentsFacet.xib in Resources */,
 				D3369ACA1E36BEED00FEB7BF /* OAPreferencesPreviousButton.png in Resources */,
 				D316703D1E59FAEC00DEE3A0 /* EDConsoleView.xib in Resources */,

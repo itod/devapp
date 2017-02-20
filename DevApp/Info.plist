@@ -160,5 +160,9 @@
 			</dict>
 		</dict>
 	</array>
+	<key>SUFeedURL</key>
+	<string>http://celestialteapot.com/exedore/appcast/exedore.rss</string>
+	<key>SUPublicDSAKeyFile</key>
+	<string>exedore_dsa_pub.pem</string>
 </dict>
 </plist>
