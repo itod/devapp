@@ -36,7 +36,7 @@
 - (id)init {
     self = [super init];
     if (self) {
-        self.commandString = @"$(PROJECT_SOURCE_DIR)/main.py";
+        self.commandString = @"$(PROJECT_SOURCE_DIR)/main.js";
     }
     return self;
 }

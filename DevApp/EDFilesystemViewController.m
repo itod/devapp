@@ -608,7 +608,7 @@
     BOOL dragOK = YES;
 
     for (EDFilesystemItem *fsItem in items) {
-        if ([[fsItem.fullPath lastPathComponent] isEqualToString:@"main.py"]) {
+        if ([[fsItem.fullPath lastPathComponent] isEqualToString:@"main.js"]) {
             dragOK = NO;
             break;
         }

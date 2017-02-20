@@ -117,7 +117,6 @@
 //    self.icon = [NSImage imageNamed:_iconName];
 //    EDAssert(_icon);
 //
-//    self.pythonExePath = [coder decodeObjectForKey:@"pythonExePath"];
 //    self.commandString = [coder decodeObjectForKey:@"commandString"];
 //    self.environmentVariables = [NSMutableArray arrayWithArray:[coder decodeObjectForKey:@"environmentVariables"]];
 //    return self;
@@ -128,7 +127,6 @@
 //    [coder encodeObject:_name forKey:@"name"];
 //    [coder encodeObject:_displayName forKey:@"displayName"];
 //    [coder encodeObject:_iconName forKey:@"iconName"];
-//    [coder encodeObject:_pythonExePath forKey:@"pythonExePath"];
 //    [coder encodeObject:_commandString forKey:@"commandString"];
 //    [coder encodeObject:_environmentVariables forKey:@"environmentVariables"];
 //}
