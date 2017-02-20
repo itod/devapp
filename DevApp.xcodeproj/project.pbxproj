@@ -145,9 +145,9 @@
 		D31671081E5A5DD300DEE3A0 /* OKJavaScriptParser.m in Sources */ = {isa = PBXBuildFile; fileRef = D31671071E5A5DD300DEE3A0 /* OKJavaScriptParser.m */; settings = {COMPILER_FLAGS = "-Wno-undeclared-selector"; }; };
 		D316710D1E5A5FB600DEE3A0 /* TDComboField.m in Sources */ = {isa = PBXBuildFile; fileRef = D316710C1E5A5FB600DEE3A0 /* TDComboField.m */; };
 		D31671101E5AB89300DEE3A0 /* DOMNode+TDAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = D316710F1E5AB89300DEE3A0 /* DOMNode+TDAdditions.m */; };
+		D31671131E5B590100DEE3A0 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = D31671111E5B590100DEE3A0 /* MainMenu.xib */; };
 		D33699AF1E36B78900FEB7BF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D33699AE1E36B78900FEB7BF /* main.m */; };
 		D33699B71E36B78900FEB7BF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D33699B61E36B78900FEB7BF /* Assets.xcassets */; };
-		D33699BA1E36B78900FEB7BF /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = D33699B81E36B78900FEB7BF /* MainMenu.xib */; };
 		D33699FE1E36B8ED00FEB7BF /* PEGKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D33699D41E36B8AE00FEB7BF /* PEGKit.framework */; };
 		D33699FF1E36B8ED00FEB7BF /* TDTemplateEngine.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D33699F21E36B8B800FEB7BF /* TDTemplateEngine.framework */; };
 		D3369A011E36B92300FEB7BF /* TDTemplateEngine.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = D33699F21E36B8B800FEB7BF /* TDTemplateEngine.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -604,10 +604,10 @@
 		D316710C1E5A5FB600DEE3A0 /* TDComboField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TDComboField.m; path = lib/TDAppKit/src/TDComboField.m; sourceTree = SOURCE_ROOT; };
 		D316710E1E5A5FC200DEE3A0 /* TDComboField.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = TDComboField.h; path = lib/TDAppKit/include/TDAppKit/TDComboField.h; sourceTree = SOURCE_ROOT; };
 		D316710F1E5AB89300DEE3A0 /* DOMNode+TDAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "DOMNode+TDAdditions.m"; path = "lib/TDAppKit/src/DOMNode+TDAdditions.m"; sourceTree = SOURCE_ROOT; };
+		D31671121E5B590100DEE3A0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		D33699A71E36B78900FEB7BF /* DevApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DevApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D33699AE1E36B78900FEB7BF /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		D33699B61E36B78900FEB7BF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		D33699B91E36B78900FEB7BF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		D33699BB1E36B78900FEB7BF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D33699CA1E36B8AD00FEB7BF /* PEGKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = PEGKit.xcodeproj; path = lib/PEGKit/PEGKit.xcodeproj; sourceTree = "<group>"; };
 		D33699EB1E36B8B800FEB7BF /* TDTemplateEngine.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = TDTemplateEngine.xcodeproj; path = lib/TDTemplateEngine/TDTemplateEngine.xcodeproj; sourceTree = "<group>"; };
@@ -1269,7 +1269,7 @@
 				D3166F311E5905A500DEE3A0 /* Utils */,
 				D3166F181E59040D00DEE3A0 /* EDApplication.h */,
 				D3166F191E59040D00DEE3A0 /* EDApplication.m */,
-				D33699B81E36B78900FEB7BF /* MainMenu.xib */,
+				D31671111E5B590100DEE3A0 /* MainMenu.xib */,
 				D3166F221E5904D600DEE3A0 /* EDUserDefaults.h */,
 				D3166F231E5904D600DEE3A0 /* EDUserDefaults.m */,
 				D3166FB11E59277400DEE3A0 /* EDDocumentController.h */,
@@ -1731,12 +1731,12 @@
 				D33699B71E36B78900FEB7BF /* Assets.xcassets in Resources */,
 				D31670FF1E5A21CA00DEE3A0 /* OKViewController.xib in Resources */,
 				D31670BD1E5A184600DEE3A0 /* EDFilesystemView.xib in Resources */,
+				D31671131E5B590100DEE3A0 /* MainMenu.xib in Resources */,
 				D3369AC91E36BEED00FEB7BF /* OAPreferencesNextButton.png in Resources */,
 				D3166F5C1E5908FE00DEE3A0 /* EDGuidesPreferences.xib in Resources */,
 				D3369C071E36C75F00FEB7BF /* TDRegisterWindow.xib in Resources */,
 				D3166F361E59073D00DEE3A0 /* EDThemePreferences.xib in Resources */,
 				D3166F331E59068500DEE3A0 /* DevApp-DefaultValues.plist in Resources */,
-				D33699BA1E36B78900FEB7BF /* MainMenu.xib in Resources */,
 				D31671051E5A599200DEE3A0 /* main.js in Resources */,
 				D3166EB51E57C54400DEE3A0 /* EDUpdatePreferences.xib in Resources */,
 				D3166F521E5908CA00DEE3A0 /* EDTextEditingPreferences.xib in Resources */,
@@ -2129,10 +2129,10 @@
 			name = OKViewController.xib;
 			sourceTree = "<group>";
 		};
-		D33699B81E36B78900FEB7BF /* MainMenu.xib */ = {
+		D31671111E5B590100DEE3A0 /* MainMenu.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
-				D33699B91E36B78900FEB7BF /* Base */,
+				D31671121E5B590100DEE3A0 /* Base */,
 			);
 			name = MainMenu.xib;
 			sourceTree = "<group>";
