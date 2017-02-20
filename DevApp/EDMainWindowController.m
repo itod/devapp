@@ -1195,53 +1195,23 @@
     EDAssertMainThread();
     static NSArray *sTriggers = nil;
     if (!sTriggers) {
-//        sTriggers = [[NSArray alloc] initWithObjects:
-//                     [OKTrigger triggerWithTemplate:@"sub ${function}(${arg})" specifier:@"sub"],
-//                     [OKTrigger triggerWithTemplate:@"sub ${function}(${arg})" specifier:@"function"],
-//                     [OKTrigger triggerWithTemplate:@"sub ${method}(${arg})" specifier:@"method"],
-//                     [OKTrigger triggerWithTemplate:@"class ${MyClass} : ${object}" specifier:@"class"],
-//                     [OKTrigger triggerWithTemplate:@"for ${i} in range(${n})" specifier:@"range"],
-//                     [OKTrigger triggerWithTemplate:@"for ${i} in range(${n})" specifier:@"forin"],
-//                     [OKTrigger triggerWithTemplate:@"for ${obj} in ${iterable}" specifier:@"forin"],
-//                     [OKTrigger triggerWithTemplate:@"for ${key},${val} in ${iterable}" specifier:@"forin"],
-//                     [OKTrigger triggerWithTemplate:@"if ${test}" specifier:@"if"],
-//                     [OKTrigger triggerWithTemplate:@"else if ${test}" specifier:@"else"],
-//                     [OKTrigger triggerWithTemplate:@"else if ${test}" specifier:@"elif"],
-//                     [OKTrigger triggerWithTemplate:@"else" specifier:@"else"],
-//                     [OKTrigger triggerWithTemplate:@"while ${test}" specifier:@"while"],
-//                     [OKTrigger triggerWithTemplate:@"return ${val}" specifier:@"return"],
-//                     [OKTrigger triggerWithTemplate:@"import ${module} as ${foo}" specifier:@"importas"],
-//                     [OKTrigger triggerWithTemplate:@"log(${value})" specifier:@"log"],
-//                     nil];
-        
         sTriggers = [[NSArray alloc] initWithObjects:
-                     [OKTrigger triggerWithTemplate:@"fake" specifier:@"fake"],
-                     [OKTrigger triggerWithTemplate:@"get(${key})" specifier:@"get"],
-                     [OKTrigger triggerWithTemplate:@"set(${key}, ${val})" specifier:@"set"],
-                     
-                     [OKTrigger triggerWithTemplate:@"alert(${msg})" specifier:@"alert"],
-                     [OKTrigger triggerWithTemplate:@"confirm(${msg})" specifier:@"confirm"],
-                     [OKTrigger triggerWithTemplate:@"prompt(${msg})" specifier:@"prompt"],
-                     [OKTrigger triggerWithTemplate:@"prompt(${msg}, ${default})" specifier:@"prompt"],
-                     
-                     [OKTrigger triggerWithTemplate:@"console.log(${msg})" specifier:@"console"],
-                     [OKTrigger triggerWithTemplate:@"console.log(${msg})" specifier:@"log"],
-                     
-                     [OKTrigger triggerWithTemplate:@"function ${foo}()" specifier:@"function"],
-                     [OKTrigger triggerWithTemplate:@"function ${foo}(${arg})" specifier:@"function"],
-                     
-                     [OKTrigger triggerWithTemplate:@"setTimeout(${func}, ${delay})" specifier:@"settimeout"],
-                     [OKTrigger triggerWithTemplate:@"setInterval(${func}, ${delay})" specifier:@"setinterval"],
-                     
-                     [OKTrigger triggerWithTemplate:@"parseInt(${str}, ${radix})" specifier:@"parseInt"],
-                     
-                     [OKTrigger triggerWithTemplate:@"Array" specifier:@"array"],
-                     [OKTrigger triggerWithTemplate:@"Object" specifier:@"object"],
-                     [OKTrigger triggerWithTemplate:@"NaN" specifier:@"nan"],
-                     [OKTrigger triggerWithTemplate:@"Infinity" specifier:@"infinity"],
-                     [OKTrigger triggerWithTemplate:@"window" specifier:@"window"],
+                     [OKTrigger triggerWithTemplate:@"sub ${function}(${arg})" specifier:@"sub"],
+                     [OKTrigger triggerWithTemplate:@"sub ${function}(${arg})" specifier:@"function"],
+                     [OKTrigger triggerWithTemplate:@"sub ${method}(${arg})" specifier:@"method"],
+                     [OKTrigger triggerWithTemplate:@"class ${MyClass} : ${object}" specifier:@"class"],
+                     [OKTrigger triggerWithTemplate:@"for ${i} in range(${n})" specifier:@"range"],
+                     [OKTrigger triggerWithTemplate:@"for ${i} in range(${n})" specifier:@"forin"],
+                     [OKTrigger triggerWithTemplate:@"for ${obj} in ${iterable}" specifier:@"forin"],
+                     [OKTrigger triggerWithTemplate:@"for ${key},${val} in ${iterable}" specifier:@"forin"],
+                     [OKTrigger triggerWithTemplate:@"if ${test}" specifier:@"if"],
+                     [OKTrigger triggerWithTemplate:@"else" specifier:@"else"],
+                     [OKTrigger triggerWithTemplate:@"else if ${test}" specifier:@"elseif"],
+                     [OKTrigger triggerWithTemplate:@"while ${test}" specifier:@"while"],
+                     [OKTrigger triggerWithTemplate:@"return ${val}" specifier:@"return"],
+                     [OKTrigger triggerWithTemplate:@"import ${module} as ${foo}" specifier:@"importas"],
+                     [OKTrigger triggerWithTemplate:@"log(${value})" specifier:@"log"],
                      nil];
-
     }
     return sTriggers;
 }
@@ -1303,7 +1273,7 @@
     } else {
         for (OKTrigger *trig in [[self class] triggers]) {
             NSString *str = trig.specifier;
-            if ([str hasPrefix:prefix] && prefixLen < [str length]) {
+            if ([str hasPrefix:prefix] && prefixLen <= [str length]) {
                 [results addObject:trig];
             }
         }
