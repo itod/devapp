@@ -9,7 +9,6 @@
 #import <Foundation/Foundation.h>
 
 @interface EDModel : NSObject
-
 + (instancetype)fromPlist:(NSDictionary *)plist;
 - (instancetype)initFromPlist:(NSDictionary *)plist;
 - (NSDictionary *)asPlist;

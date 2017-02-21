@@ -9,7 +9,7 @@
 #import "EDDocument.h"
 #import "EDMainWindowController.h"
 #import "EDTabModel.h"
-#import "EDBreakpointCollection.h"
+#import "OKBreakpointCollection.h"
 #import "EDTarget.h"
 #import "EDUtils.h"
 #import <TabKit/TKTabModel.h>
@@ -34,7 +34,7 @@
 - (id)init {
     self = [super init];
     if (self) {
-        _breakpoints = [[EDBreakpointCollection alloc] init];
+        _breakpoints = [[OKBreakpointCollection alloc] init];
         _breakpointsEnabled = NO;
         
         _sourceDirName = [[[EDUserDefaults instance] defaultSourceDirName] copy];
@@ -296,7 +296,7 @@
 - (BOOL)readProjPlistOfType:(NSString *)typeName inDict:(NSMutableDictionary *)dict error:(NSError **)outErr {
     //EDAssert(1 == [dict[@"version"] integerValue]);
     
-    EDBreakpointCollection *bps = [EDBreakpointCollection fromPlist:dict[@"breakpoints"]];
+    OKBreakpointCollection *bps = [OKBreakpointCollection fromPlist:dict[@"breakpoints"]];
     EDAssert(bps);
     [_breakpoints release];
     _breakpoints = [bps retain];
@@ -393,7 +393,7 @@
 }
 
 
-- (void)setBreakpoints:(EDBreakpointCollection *)breakpoints {
+- (void)setBreakpoints:(OKBreakpointCollection *)breakpoints {
     EDAssertMainThread();
     
     if (breakpoints != _breakpoints) {
@@ -401,7 +401,7 @@
         
         id oldbps = nil;
         if (_breakpoints) {
-            oldbps = [EDBreakpointCollection fromPlist:[_breakpoints asPlist]]; // copy
+            oldbps = [OKBreakpointCollection fromPlist:[_breakpoints asPlist]]; // copy
         }
         [[[self undoManager] prepareWithInvocationTarget:self] setBreakpoints:oldbps];
         //[[self undoManager] setActionName:NSLocalizedString(@"Set Context Size", @"")];

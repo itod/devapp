@@ -7,7 +7,8 @@
 //
 
 #import "EDCodeRunner.h"
+#import <Language/XPInterpreter.h>
 
-@interface EDMemoryCodeRunner : NSObject <EDCodeRunner>
+@interface EDMemoryCodeRunner : NSObject <EDCodeRunner, XPInterpreterDebugDelegate>
 
 @end

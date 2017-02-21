@@ -9,6 +9,7 @@
 #import "EDMemoryCodeRunner.h"
 #import <TDThreadUtils/TDInterpreterSync.h>
 #import <Language/Language.h>
+#import "OKBreakpointCollection.h"
 
 void PerformOnMainThread(void (^block)(void)) {
     assert(block);
@@ -65,7 +66,7 @@ void PerformOnMainThread(void (^block)(void)) {
 
 
 - (void)setAllBreakpoints:(NSArray *)bpPlist identifier:(NSString *)identifier {
-    
+//    _interp.breakpointCollection = [OKBreakpointCollection fromPlist:bpPlist];
 }
 
 
@@ -171,6 +172,19 @@ void PerformOnMainThread(void (^block)(void)) {
 #pragma mark -
 #pragma mark Private EXECUTE-THREAD
 
+- (void)didPause:(NSDictionary *)info {
+    // only called on EXECUTE-THREAD
+    TDAssertExecuteThread();
+    NSParameterAssert(info);
+    
+    PerformOnMainThread(^{
+        TDAssert(self.delegate);
+        TDAssert(self.identifier);
+        [self.delegate codeRunner:self.identifier didPause:info];
+    });
+}
+
+
 - (void)didSucceed:(NSDictionary *)info {
     // only called on EXECUTE-THREAD
     TDAssertExecuteThread();
@@ -209,6 +223,11 @@ void PerformOnMainThread(void (^block)(void)) {
     
     self.interp = [[[XPInterpreter alloc] init] autorelease];
     
+    if (_debugSync) {
+        _interp.debug = YES;
+        _interp.debugDelegate = self;
+    }
+    
     BOOL success = NO;
     
     NSError *err = nil;
@@ -219,6 +238,27 @@ void PerformOnMainThread(void (^block)(void)) {
     } else {
         [self didFail:@{kEDCodeRunnerReturnCodeKey:@1, kEDCodeRunnerDoneKey:@YES, kEDCodeRunnerErrorKey:err}];
     }
+}
+
+
+#pragma mark -
+#pragma mark XPInterpreterDebugDelegate
+
+- (void)interpreter:(XPInterpreter *)i didPause:(NSDictionary *)debugInfo {
+    TDAssertExecuteThread();
+    [self didPause:debugInfo];
+}
+
+
+- (void)interpreter:(XPInterpreter *)i didFinish:(NSDictionary *)debugInfo {
+    TDAssertExecuteThread();
+    [self didSucceed:debugInfo];
+}
+
+
+- (void)interpreter:(XPInterpreter *)i didFail:(NSDictionary *)debugInfo {
+    TDAssertExecuteThread();
+    [self didFail:debugInfo];
 }
 
 @end

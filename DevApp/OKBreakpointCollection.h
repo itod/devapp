@@ -1,16 +1,20 @@
 //
-//  EDBreakpointCollection.h
+//  OKBreakpointCollection.h
 //  Editor
 //
 //  Created by Todd Ditchendorf on 8/1/13.
 //  Copyright (c) 2013 Todd Ditchendorf. All rights reserved.
 //
 
-#import "EDModel.h"
+#import <Foundation/Foundation.h>
 
 @class OKBreakpoint;
 
-@interface EDBreakpointCollection : EDModel <NSCopying> // NSSecureCoding>
+@interface OKBreakpointCollection : NSObject <NSCopying> // NSSecureCoding>
+
++ (instancetype)fromPlist:(NSDictionary *)plist;
+- (instancetype)initFromPlist:(NSDictionary *)plist;
+- (NSDictionary *)asPlist;
 
 - (NSArray *)allBreakpoints;
 - (NSArray *)allFiles;

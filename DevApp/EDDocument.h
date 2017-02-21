@@ -8,7 +8,7 @@
 
 #import <TabKit/TKDocument.h>
 
-@class EDBreakpointCollection;
+@class OKBreakpointCollection;
 @class EDTarget;
 
 #define DEFAULT_DOC_TYPE_NAME FILE_DOC_TYPE
@@ -20,7 +20,7 @@
 
 - (BOOL)wantsCustomDisplayName;
 
-@property (nonatomic, retain) EDBreakpointCollection *breakpoints;
+@property (nonatomic, retain) OKBreakpointCollection *breakpoints;
 @property (nonatomic, assign) BOOL breakpointsEnabled;
 
 @property (nonatomic, copy) NSString *sourceDirName;

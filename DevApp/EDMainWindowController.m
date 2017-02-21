@@ -23,7 +23,7 @@
 #import "EDScheme.h"
 #import "EDRunAction.h"
 #import "EDEnvironmentVariable.h"
-#import "EDBreakpointCollection.h"
+#import "OKBreakpointCollection.h"
 #import "EDToolbarButtonItem.h"
 #import "EDFileLocation.h"
 #import "EDWebViewController.h"
@@ -1531,7 +1531,7 @@
 
 
 - (void)filesystemViewController:(EDFilesystemViewController *)fsc didDeleteItemAtPath:(NSString *)oldPath andActivateItemAtPath:(NSString *)newPath {
-    EDBreakpointCollection *bpcoll = [[self document] breakpoints];
+    OKBreakpointCollection *bpcoll = [[self document] breakpoints];
     
     [bpcoll removeBreakpointsForFile:oldPath];
     
@@ -1591,7 +1591,7 @@
     NSString *newRelPath = [self relativeSourceFilePathForAbsoluteSourceFilePath:newAbsPath];
     
     // update breakpoints for changed file path
-    EDBreakpointCollection *bpcoll = [[self document] breakpoints];
+    OKBreakpointCollection *bpcoll = [[self document] breakpoints];
     
     NSSet *bps = [[[bpcoll breakpointsForFile:oldRelPath] retain] autorelease];
     [bpcoll removeBreakpointsForFile:oldRelPath];
@@ -2484,7 +2484,7 @@
         EDAssert([filePath hasSuffix:bp.file]);
         
         EDDocument *doc = [self document];
-        EDBreakpointCollection *bpcoll = [doc breakpoints];
+        OKBreakpointCollection *bpcoll = [doc breakpoints];
 
 #ifndef APPSTORE
         if (![[EDDocumentController instance] isLicensed]) {
@@ -2511,7 +2511,7 @@
     
     EDAssert([self.selectedTabModel.URLString hasSuffix:bp.file]);
     
-    EDBreakpointCollection *bpColl = [[self document] breakpoints];
+    OKBreakpointCollection *bpColl = [[self document] breakpoints];
     EDAssert(bpColl);
     [bpColl removeBreakpoint:bp];
     

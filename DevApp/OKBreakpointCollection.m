@@ -1,23 +1,28 @@
 //
-//  EDBreakpointCollection.m
+//  OKBreakpointCollection.m
 //  Editor
 //
 //  Created by Todd Ditchendorf on 8/1/13.
 //  Copyright (c) 2013 Todd Ditchendorf. All rights reserved.
 //
 
-#import "EDBreakpointCollection.h"
+#import "OKBreakpointCollection.h"
 #import <OkudaKit/OKBreakpoint.h>
 
-@interface EDBreakpointCollection ()
+@interface OKBreakpointCollection ()
 @property (nonatomic, retain) NSMutableDictionary *all;
 - (NSMutableSet *)mutableBreakpointsForFile:(NSString *)path;
 @end
 
-@implementation EDBreakpointCollection
+@implementation OKBreakpointCollection
 
 + (BOOL)supportsSecureCoding {
     return YES;
+}
+
+
++ (instancetype)fromPlist:(NSDictionary *)plist {
+    return [[[self alloc] initFromPlist:plist] autorelease];
 }
 
 
@@ -68,7 +73,7 @@
 - (id)copyWithZone:(NSZone *)zone {
     // deep copy
     NSDictionary *plist = [self asPlist];
-    EDBreakpointCollection *col = [EDBreakpointCollection fromPlist:plist];
+    OKBreakpointCollection *col = [OKBreakpointCollection fromPlist:plist];
     return [col retain]; // +1
 }
 

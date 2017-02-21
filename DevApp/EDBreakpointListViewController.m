@@ -8,7 +8,7 @@
 
 #import "EDBreakpointListViewController.h"
 #import "EDTabBarBreakpointButtonCell.h"
-#import "EDBreakpointCollection.h"
+#import "OKBreakpointCollection.h"
 #import "EDNavTabBarItem.h"
 #import "EDUtils.h"
 #import <OkudaKit/OKBreakpoint.h>
