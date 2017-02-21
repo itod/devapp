@@ -11,7 +11,7 @@
 #import <Language/Language.h>
 
 void PerformOnMainThread(void (^block)(void)) {
-    //assert(block);
+    assert(block);
     dispatch_async(dispatch_get_main_queue(), block);
 }
 
@@ -90,6 +90,7 @@ void PerformOnMainThread(void (^block)(void)) {
     dispatch_async(_controlThread, ^{
         TDAssertControlThread();
         
+        TDAssert(_executeThread);
         dispatch_async(_executeThread, ^{
             
             // load source str
@@ -118,6 +119,7 @@ void PerformOnMainThread(void (^block)(void)) {
 - (void)resume {
     TDAssertMainThread();
     
+    TDAssert(_controlThread);
     dispatch_async(_controlThread, ^{
         TDAssert(_debugSync);
         [_debugSync resumeWithInfo:@YES];
@@ -129,6 +131,7 @@ void PerformOnMainThread(void (^block)(void)) {
 - (void)stop {
     TDAssertMainThread();
     
+    TDAssert(_controlThread);
     dispatch_async(_controlThread, ^{
         TDAssert(_debugSync);
         [_debugSync resumeWithInfo:@NO];
