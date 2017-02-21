@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		D309BCA71E5B657A002B3199 /* EDFindView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D309BCA51E5B657A002B3199 /* EDFindView.xib */; };
 		D309BCC51E5B9E77002B3199 /* EDMemoryCodeRunner.m in Sources */ = {isa = PBXBuildFile; fileRef = D309BCC41E5B9E77002B3199 /* EDMemoryCodeRunner.m */; };
+		D309BCCB1E5BB861002B3199 /* TDInterpreterSync.m in Sources */ = {isa = PBXBuildFile; fileRef = D309BCC91E5BB861002B3199 /* TDInterpreterSync.m */; };
+		D309BCCC1E5BB861002B3199 /* TDSynchronousChannel.m in Sources */ = {isa = PBXBuildFile; fileRef = D309BCCA1E5BB861002B3199 /* TDSynchronousChannel.m */; };
+		D309BCD11E5BB873002B3199 /* TDSemaphore.m in Sources */ = {isa = PBXBuildFile; fileRef = D309BCD01E5BB873002B3199 /* TDSemaphore.m */; };
 		D3166EB51E57C54400DEE3A0 /* EDUpdatePreferences.xib in Resources */ = {isa = PBXBuildFile; fileRef = D3166EAB1E57C54400DEE3A0 /* EDUpdatePreferences.xib */; };
 		D3166EB91E57C54400DEE3A0 /* OAPreferencesWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = D3166EB31E57C54400DEE3A0 /* OAPreferencesWindow.xib */; };
 		D3166ED31E57C6FF00DEE3A0 /* Language.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3166ECE1E57C6E900DEE3A0 /* Language.framework */; };
@@ -358,6 +361,12 @@
 		D309BCA61E5B657A002B3199 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/EDFindView.xib; sourceTree = "<group>"; };
 		D309BCC31E5B9E77002B3199 /* EDMemoryCodeRunner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EDMemoryCodeRunner.h; sourceTree = "<group>"; };
 		D309BCC41E5B9E77002B3199 /* EDMemoryCodeRunner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EDMemoryCodeRunner.m; sourceTree = "<group>"; };
+		D309BCC91E5BB861002B3199 /* TDInterpreterSync.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TDInterpreterSync.m; path = lib/TDThreadUtils/src/TDInterpreterSync.m; sourceTree = SOURCE_ROOT; };
+		D309BCCA1E5BB861002B3199 /* TDSynchronousChannel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TDSynchronousChannel.m; path = lib/TDThreadUtils/src/TDSynchronousChannel.m; sourceTree = SOURCE_ROOT; };
+		D309BCCD1E5BB86C002B3199 /* TDInterpreterSync.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = TDInterpreterSync.h; path = lib/TDThreadUtils/include/TDThreadUtils/TDInterpreterSync.h; sourceTree = SOURCE_ROOT; };
+		D309BCCE1E5BB86C002B3199 /* TDSemaphore.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = TDSemaphore.h; path = lib/TDThreadUtils/include/TDThreadUtils/TDSemaphore.h; sourceTree = SOURCE_ROOT; };
+		D309BCCF1E5BB86C002B3199 /* TDSynchronousChannel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = TDSynchronousChannel.h; path = lib/TDThreadUtils/include/TDThreadUtils/TDSynchronousChannel.h; sourceTree = SOURCE_ROOT; };
+		D309BCD01E5BB873002B3199 /* TDSemaphore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TDSemaphore.m; path = lib/TDThreadUtils/src/TDSemaphore.m; sourceTree = SOURCE_ROOT; };
 		D3166EAC1E57C54400DEE3A0 /* base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = base; path = base.lproj/EDUpdatePreferences.xib; sourceTree = "<group>"; };
 		D3166EB41E57C54400DEE3A0 /* base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = base; path = base.lproj/OAPreferencesWindow.xib; sourceTree = "<group>"; };
 		D3166EC81E57C6E900DEE3A0 /* Language.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Language.xcodeproj; path = lib/Language/Language.xcodeproj; sourceTree = "<group>"; };
@@ -1352,6 +1361,12 @@
 		D3369A451E36BEBA00FEB7BF /* ThreadUtils */ = {
 			isa = PBXGroup;
 			children = (
+				D309BCCD1E5BB86C002B3199 /* TDInterpreterSync.h */,
+				D309BCC91E5BB861002B3199 /* TDInterpreterSync.m */,
+				D309BCCE1E5BB86C002B3199 /* TDSemaphore.h */,
+				D309BCD01E5BB873002B3199 /* TDSemaphore.m */,
+				D309BCCF1E5BB86C002B3199 /* TDSynchronousChannel.h */,
+				D309BCCA1E5BB861002B3199 /* TDSynchronousChannel.m */,
 			);
 			name = ThreadUtils;
 			sourceTree = "<group>";
@@ -1830,6 +1845,7 @@
 				D3369B191E36C25A00FEB7BF /* TKMainWindow.m in Sources */,
 				D3166F3F1E59079700DEE3A0 /* EDColorPickerButtonCell.m in Sources */,
 				D3369ABA1E36BEED00FEB7BF /* IDEUserDefaults.m in Sources */,
+				D309BCD11E5BB873002B3199 /* TDSemaphore.m in Sources */,
 				D31670CD1E5A18B900DEE3A0 /* EDFilesystemViewController.m in Sources */,
 				D31670B51E5A179900DEE3A0 /* EDMainWindowController.m in Sources */,
 				D3369BE31E36C73800FEB7BF /* TDListView.m in Sources */,
@@ -1884,6 +1900,7 @@
 				D3369B231E36C25A00FEB7BF /* TKTabModel.m in Sources */,
 				D31670731E59FE0500DEE3A0 /* EDFileWindowController.m in Sources */,
 				D316709F1E5A157B00DEE3A0 /* EDMainWindow.m in Sources */,
+				D309BCCC1E5BB861002B3199 /* TDSynchronousChannel.m in Sources */,
 				D31670361E59F9EB00DEE3A0 /* EDFindParameters.m in Sources */,
 				D3166F731E590D8C00DEE3A0 /* EDGeneralPreferences.m in Sources */,
 				D3369AC11E36BEED00FEB7BF /* NSObject-OFExtensions.m in Sources */,
@@ -1929,6 +1946,7 @@
 				D3166F431E5907C900DEE3A0 /* EDUtils.m in Sources */,
 				D3369B1F1E36C25A00FEB7BF /* TKTabListItemStyle.m in Sources */,
 				D31670871E5A14A400DEE3A0 /* EDToolbarProgressView.m in Sources */,
+				D309BCCB1E5BB861002B3199 /* TDInterpreterSync.m in Sources */,
 				D316704D1E59FB0400DEE3A0 /* EDConsoleControlButtonCell.m in Sources */,
 				D31670841E5A14A400DEE3A0 /* EDToolbarButtonCell.m in Sources */,
 				D3369B171E36C25A00FEB7BF /* TKDocument+Scripting.m in Sources */,

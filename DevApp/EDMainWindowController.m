@@ -1188,14 +1188,14 @@
 }
 
 
-- (void)codeRunner:(NSString *)identifier didUpdate:(NSData *)result {
+- (void)codeRunner:(NSString *)identifier didPause:(NSDictionary *)info {
     EDAssert([identifier isEqualToString:self.identifier]);
     EDAssertMainThread();
     EDAssert(0);
 }
 
 
-- (void)codeRunner:(NSString *)identifier didSucceed:(NSData *)result {
+- (void)codeRunner:(NSString *)identifier didSucceed:(NSDictionary *)info {
     EDAssert([identifier isEqualToString:self.identifier]);
     EDAssertMainThread();
     
@@ -1211,10 +1211,12 @@
 }
 
 
-- (void)codeRunner:(NSString *)identifier didFail:(NSError *)err {
+- (void)codeRunner:(NSString *)identifier didFail:(NSDictionary *)info {
     //NSLog(@"%s", __PRETTY_FUNCTION__);
     EDAssert([identifier isEqualToString:self.identifier]);
     EDAssertMainThread();
+    
+    NSError *err = info[kEDCodeRunnerErrorKey];
     NSParameterAssert(err);
     NSLog(@"%@", err);
     

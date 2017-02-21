@@ -11,15 +11,19 @@
 #define kEDCodeRunnerCompileTimeError 0
 #define kEDCodeRunnerRuntimeError 1
 
+#define kEDCodeRunnerDoneKey @"done"
+#define kEDCodeRunnerReturnCodeKey @"returnCode"
+#define kEDCodeRunnerErrorKey @"error"
+
 @protocol EDCodeRunner;
 @class EDFileLocation;
 
 @protocol EDCodeRunnerDelegate <NSObject>
 - (void)codeRunnerDidStartup:(NSString *)identifier;
 
-- (void)codeRunner:(NSString *)identifier didUpdate:(NSData *)result;
-- (void)codeRunner:(NSString *)identifier didSucceed:(NSData *)result;
-- (void)codeRunner:(NSString *)identifier didFail:(NSError *)err;
+- (void)codeRunner:(NSString *)identifier didPause:(NSDictionary *)info;
+- (void)codeRunner:(NSString *)identifier didSucceed:(NSDictionary *)info;
+- (void)codeRunner:(NSString *)identifier didFail:(NSDictionary *)info;
 
 - (void)codeRunner:(NSString *)identifier messageFromStdout:(NSString *)msg;
 - (void)codeRunner:(NSString *)identifier messageFromStderr:(NSString *)msg;
