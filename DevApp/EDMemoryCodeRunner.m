@@ -15,13 +15,11 @@ void PerformOnMainThread(void (^block)(void)) {
     dispatch_async(dispatch_get_main_queue(), block);
 }
 
-
 @interface EDMemoryCodeRunner ()
 @property (nonatomic, assign) id <EDCodeRunnerDelegate>delegate;
 @property (nonatomic, retain) XPInterpreter *interp;
 @property (nonatomic, retain) TDInterpreterSync *debugSync;
 @property (nonatomic, copy) NSString *identifier;
-
 
 @property (assign) dispatch_queue_t controlThread;
 @property (assign) dispatch_queue_t executeThread;
