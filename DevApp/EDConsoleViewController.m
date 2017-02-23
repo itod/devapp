@@ -16,6 +16,7 @@
 #import <IDEKit/IDEUberView.h>
 #import <TDAppKit/TDUtils.h>
 #import <TDAppKit/NSEvent+TDAdditions.h>
+#import <Language/XPStackFrame.h>
 
 static NSDictionary *sNameAttrs = nil;
 static NSDictionary *sValueAttrs = nil;
@@ -238,9 +239,21 @@ static NSDictionary *sValueAttrs = nil;
 }
 
 
-- (void)displayDebugInfo:(NSArray *)info {
+- (void)displayStackFrame:(XPStackFrame *)frame {
     EDAssertMainThread();
+    
+    NSMutableArray *info = [NSMutableArray arrayWithCapacity:[frame.sortedLocalNames count]];
+    
+    NSUInteger i = 0;
+    for (NSString *name in frame.sortedLocalNames) {
+        id val = frame.sortedLocalValues[i++];
+        
+        id tab = @{@"name": name, @"value": val};
+        [info addObject:tab];
+    }
+    
     self.debugInfo = info;
+    
     [_varsOutlineView reloadData];
     [_varsOutlineView setEnabled:YES];
 }

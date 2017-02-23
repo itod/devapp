@@ -11,6 +11,7 @@
 @class EDConsoleViewController;
 @class EDConsoleOutlineView;
 @class IDEUberView;
+@class XPStackFrame;
 
 @protocol EDConsoleViewControllerDelegate <NSObject>
 - (void)console:(EDConsoleViewController *)cvc userIssuedCommand:(NSString *)cmd;
@@ -37,6 +38,6 @@
 
 - (IBAction)menuPrintValue:(id)sender;
 
-- (void)displayDebugInfo:(NSArray *)info;
+- (void)displayStackFrame:(XPStackFrame *)frame;
 - (void)clearDebugInfo;
 @end

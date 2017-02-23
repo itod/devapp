@@ -1191,7 +1191,11 @@
 - (void)codeRunner:(NSString *)identifier didPause:(NSDictionary *)info {
     EDAssert([identifier isEqualToString:self.identifier]);
     EDAssertMainThread();
-    EDAssert(0);
+    
+    NSArray *frameStack = info[XPDebugInfoFrameStackKey];
+    TDAssert([frameStack count]);
+    XPStackFrame *frame = frameStack[0];
+    [self.consoleViewController displayStackFrame:frame];
 }
 
 
