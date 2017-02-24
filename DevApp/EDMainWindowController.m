@@ -1197,6 +1197,7 @@
         NSUInteger lineNum = [info[XPDebugInfoLineNumberKey] unsignedIntegerValue];
         TDAssert(NSNotFound != lineNum);
         [self.selectedSourceViewController.textView setHighlightedLineNumber:lineNum];
+        [self.selectedSourceViewController.textView setNeedsDisplay:YES];
     }
 
     NSArray *frameStack = info[XPDebugInfoFrameStackKey];
