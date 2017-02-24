@@ -66,7 +66,6 @@
 
 @property (nonatomic, retain) EDFileLocation *findNextFileLocation;
 
-@property (nonatomic, retain) NSString *lastCommand;
 @property (nonatomic, retain) NSArray *filteredData;
 @property (nonatomic, retain) NSMutableDictionary *dirtySet;
 @property (nonatomic, retain) NSMutableDictionary *lastFileLocByAbsPath;
@@ -157,7 +156,6 @@
     self.statusText = nil;
 
     self.findNextFileLocation = nil;
-    self.lastCommand = nil;
     
     self.codeRunner = nil;
     self.filteredData = nil;
@@ -1194,11 +1192,27 @@
     
     self.statusText = NSLocalizedString(@"Paused…", @"");
     
+    // highlight in text editor
+    {
+        NSUInteger lineNum = [info[XPDebugInfoLineNumberKey] unsignedIntegerValue];
+        TDAssert(NSNotFound != lineNum);
+        [self.selectedSourceViewController.textView setHighlightedLineNumber:lineNum];
+    }
+
     NSArray *frameStack = info[XPDebugInfoFrameStackKey];
-    TDAssert([frameStack count]);
-    XPStackFrame *frame = frameStack[0];
-    TDAssert(_consoleViewController);
-    [_consoleViewController displayStackFrame:frame];
+
+    // update console
+    {
+        TDAssert([frameStack count]);
+        XPStackFrame *frame = frameStack[0];
+        TDAssert(_consoleViewController);
+        [_consoleViewController displayStackFrame:frame];
+    }
+    
+    // update stack trace view
+    {
+        //[_stackTraceViewController displayDebugInfo:nil];
+    }
 }
 
 
@@ -1452,7 +1466,11 @@
 
 - (void)console:(EDConsoleViewController *)cvc userIssuedCommand:(NSString *)cmd {
     EDAssertMainThread();
+    TDAssert([cmd length]);
 
+    TDAssert(_codeRunner);
+    TDAssert(self.identifier);
+    [_codeRunner performCommand:cmd identifier:self.identifier];
 }
 
 
@@ -1926,6 +1944,8 @@
 - (IBAction)contine:(id)sender {
     EDAssertMainThread();
     [self clearDebugInfo];
+    
+    [self.codeRunner performCommand:@"c" identifier:self.identifier];
 }
 
 
@@ -1933,6 +1953,7 @@
     EDAssertMainThread();
     [self clearDebugInfo];
 
+    [self.codeRunner performCommand:@"n" identifier:self.identifier];
 }
 
 
@@ -1940,13 +1961,15 @@
     EDAssertMainThread();
     [self clearDebugInfo];
 
+    [self.codeRunner performCommand:@"s" identifier:self.identifier];
 }
 
 
-- (IBAction)up:(id)sender {
+- (IBAction)finish:(id)sender {
     EDAssertMainThread();
     [self clearDebugInfo];
 
+    [self.codeRunner performCommand:@"n" identifier:self.identifier];
 }
 
 
@@ -2294,7 +2317,7 @@
         enabled = self.canStop;
     } else if (@selector(step:) == action) {
         enabled = self.canStop;
-    } else if (@selector(up:) == action) {
+    } else if (@selector(finish:) == action) {
         enabled = self.canStop;
     } else if (@selector(goBack:) == action) {
         enabled = [self canGoBack];

@@ -60,7 +60,13 @@ void PerformOnMainThread(void (^block)(void)) {
 
 
 - (void)performCommand:(NSString *)cmd identifier:(NSString *)identifier {
+    TDAssert([cmd length]);
     
+    NSMutableDictionary *info = [NSMutableDictionary dictionary];
+    info[kEDCodeRunnerDoneKey] = @NO;
+    info[kEDCodeRunnerUserCommandKey] = cmd;
+    
+    [self resumeWithInfo:info];
 }
 
 
@@ -105,7 +111,7 @@ void PerformOnMainThread(void (^block)(void)) {
         });
         
         if (bpEnabled) {
-            [self await];
+            [self awaitPause];
         }
     });
 }
@@ -114,14 +120,14 @@ void PerformOnMainThread(void (^block)(void)) {
 #pragma mark -
 #pragma mark Private MAIN-THREAD
 
-- (void)resume {
+- (void)resumeWithInfo:(NSMutableDictionary *)info {
     TDAssertMainThread();
     
     TDAssert(_controlThread);
     dispatch_async(_controlThread, ^{
         TDAssert(_debugSync);
-        [_debugSync resumeWithInfo:@YES];
-        [self await];
+        [_debugSync resumeWithInfo:info];
+        [self awaitPause];
     });
 }
 
@@ -129,10 +135,13 @@ void PerformOnMainThread(void (^block)(void)) {
 - (void)stop {
     TDAssertMainThread();
     
+    NSMutableDictionary *info = [NSMutableDictionary dictionary];
+    info[kEDCodeRunnerDoneKey] = @YES;
+
     TDAssert(_controlThread);
     dispatch_async(_controlThread, ^{
         TDAssert(_debugSync);
-        [_debugSync resumeWithInfo:@NO];
+        [_debugSync resumeWithInfo:info];
     });
 }
 
@@ -140,7 +149,7 @@ void PerformOnMainThread(void (^block)(void)) {
 #pragma mark -
 #pragma mark Private CONTROL-THREAD
 
-- (void)await {
+- (void)awaitPause {
     // only called on CONTROL-THREAD
     TDAssertControlThread();
     
@@ -177,11 +186,33 @@ void PerformOnMainThread(void (^block)(void)) {
     
     TDAssert(_debugSync);
     [_debugSync pauseWithInfo:info];
-    BOOL resume = [[_debugSync awaitResume] boolValue];
+    info = [_debugSync awaitResume];
     
-    if (!resume) {
-        @throw @"OHAI!";
+    BOOL done = [info[kEDCodeRunnerDoneKey] boolValue];
+    
+    if (done) {
+        TDAssert(0); // is this reached????
+        [XPException raise:XPExceptionUserKill format:@"User stopped execution."];
+        return;
     }
+    
+    NSString *cmd = info[kEDCodeRunnerUserCommandKey];
+    TDAssert([cmd length]);
+    
+    //get on control thread
+    TDAssert(_interp);
+    if ([@"c" isEqualToString:cmd]) {
+        [_interp cont];
+    } else if ([@"s" isEqualToString:cmd]) {
+        [_interp stepIn];
+    } else if ([@"n" isEqualToString:cmd]) {
+        [_interp stepOver];
+    } else if ([@"r" isEqualToString:cmd]) {
+        [_interp finish];
+    } else {
+        TDAssert(0);
+    }
+
 }
 
 

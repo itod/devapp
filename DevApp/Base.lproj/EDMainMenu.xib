@@ -827,10 +827,10 @@
                                     <action selector="step:" target="-1" id="ZkU-Er-rrW"/>
                                 </connections>
                             </menuItem>
-                            <menuItem title="Step Out" keyEquivalent="" id="bBY-xx-oey">
+                            <menuItem title="Return" keyEquivalent="" id="bBY-xx-oey">
                                 <modifierMask key="keyEquivalentModifierMask"/>
                                 <connections>
-                                    <action selector="up:" target="-1" id="1ym-cx-wiG"/>
+                                    <action selector="finish:" target="-1" id="t6D-DN-Ves"/>
                                 </connections>
                             </menuItem>
                         </items>

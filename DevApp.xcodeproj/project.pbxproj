@@ -12,6 +12,7 @@
 		D309BCCB1E5BB861002B3199 /* TDInterpreterSync.m in Sources */ = {isa = PBXBuildFile; fileRef = D309BCC91E5BB861002B3199 /* TDInterpreterSync.m */; };
 		D309BCCC1E5BB861002B3199 /* TDSynchronousChannel.m in Sources */ = {isa = PBXBuildFile; fileRef = D309BCCA1E5BB861002B3199 /* TDSynchronousChannel.m */; };
 		D309BCD11E5BB873002B3199 /* TDSemaphore.m in Sources */ = {isa = PBXBuildFile; fileRef = D309BCD01E5BB873002B3199 /* TDSemaphore.m */; };
+		D309BCE81E60B362002B3199 /* EDShellViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D31670511E59FB7800DEE3A0 /* EDShellViewController.m */; };
 		D3166EB51E57C54400DEE3A0 /* EDUpdatePreferences.xib in Resources */ = {isa = PBXBuildFile; fileRef = D3166EAB1E57C54400DEE3A0 /* EDUpdatePreferences.xib */; };
 		D3166EB91E57C54400DEE3A0 /* OAPreferencesWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = D3166EB31E57C54400DEE3A0 /* OAPreferencesWindow.xib */; };
 		D3166ED31E57C6FF00DEE3A0 /* Language.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3166ECE1E57C6E900DEE3A0 /* Language.framework */; };
@@ -96,7 +97,6 @@
 		D316704D1E59FB0400DEE3A0 /* EDConsoleControlButtonCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D31670451E59FB0400DEE3A0 /* EDConsoleControlButtonCell.m */; };
 		D316704E1E59FB0400DEE3A0 /* EDConsoleOutlineView.m in Sources */ = {isa = PBXBuildFile; fileRef = D31670471E59FB0400DEE3A0 /* EDConsoleOutlineView.m */; };
 		D316704F1E59FB0400DEE3A0 /* EDConsoleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D31670491E59FB0400DEE3A0 /* EDConsoleViewController.m */; };
-		D31670521E59FB7800DEE3A0 /* EDShellViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D31670511E59FB7800DEE3A0 /* EDShellViewController.m */; };
 		D31670551E59FC0400DEE3A0 /* EDBreakpointListView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D31670531E59FC0400DEE3A0 /* EDBreakpointListView.xib */; };
 		D316705D1E59FC2C00DEE3A0 /* EDBreakpointCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D31670581E59FC2C00DEE3A0 /* EDBreakpointCell.m */; };
 		D316705E1E59FC2C00DEE3A0 /* EDBreakpointListContainerView.m in Sources */ = {isa = PBXBuildFile; fileRef = D316705A1E59FC2C00DEE3A0 /* EDBreakpointListContainerView.m */; };
@@ -1892,7 +1892,6 @@
 				D3369BCA1E36C73800FEB7BF /* NSEvent+TDAdditions.m in Sources */,
 				D31670F51E5A1A7B00DEE3A0 /* EDRecentURLController.m in Sources */,
 				D316701A1E59F76700DEE3A0 /* EDNavTabBarItem.m in Sources */,
-				D31670521E59FB7800DEE3A0 /* EDShellViewController.m in Sources */,
 				D316704F1E59FB0400DEE3A0 /* EDConsoleViewController.m in Sources */,
 				D31670041E592CEF00DEE3A0 /* EDActionFacet.m in Sources */,
 				D3369B221E36C25A00FEB7BF /* TKTabListItemStyleMerged.m in Sources */,
@@ -1922,6 +1921,7 @@
 				D3369BFF1E36C73800FEB7BF /* TDView.m in Sources */,
 				D3369BED1E36C73800FEB7BF /* TDTabBar.m in Sources */,
 				D316704A1E59FB0400DEE3A0 /* EDConsoleContainerView.m in Sources */,
+				D309BCE81E60B362002B3199 /* EDShellViewController.m in Sources */,
 				D3166FF51E592C6A00DEE3A0 /* EDAction.m in Sources */,
 				D3166F121E59038F00DEE3A0 /* OKSyntaxHighlighter.m in Sources */,
 				D3369B161E36C25A00FEB7BF /* TKDocument.m in Sources */,

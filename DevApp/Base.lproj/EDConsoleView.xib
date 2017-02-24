@@ -1,8 +1,9 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="9059" systemVersion="14F1021" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="9059"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="11762"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="EDConsoleViewController">
@@ -27,7 +28,7 @@
                     <rect key="frame" x="0.0" y="0.0" width="480" height="21"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                     <subviews>
-                        <button toolTip="Continue" focusRingType="none" id="20" customClass="EDConsoleControlButton">
+                        <button toolTip="Continue (c)" focusRingType="none" id="20" customClass="EDConsoleControlButton">
                             <rect key="frame" x="35" y="1" width="36" height="20"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" heightSizable="YES"/>
                             <buttonCell key="cell" type="bevel" bezelStyle="regularSquare" image="continue" imagePosition="only" alignment="center" state="on" focusRingType="none" imageScaling="proportionallyDown" inset="2" id="21" customClass="EDConsoleControlButtonCell">
@@ -40,7 +41,7 @@
                                 <outlet property="nextKeyView" destination="22" id="36"/>
                             </connections>
                         </button>
-                        <button toolTip="Step Over" focusRingType="none" id="22" customClass="EDConsoleControlButton">
+                        <button toolTip="Step Over (n)" focusRingType="none" id="22" customClass="EDConsoleControlButton">
                             <rect key="frame" x="71" y="1" width="36" height="20"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" heightSizable="YES"/>
                             <buttonCell key="cell" type="bevel" bezelStyle="regularSquare" image="next" imagePosition="only" alignment="center" state="on" focusRingType="none" imageScaling="proportionallyDown" inset="2" id="23" customClass="EDConsoleControlButtonCell">
@@ -53,7 +54,7 @@
                                 <outlet property="nextKeyView" destination="24" id="37"/>
                             </connections>
                         </button>
-                        <button toolTip="Step In" focusRingType="none" id="24" customClass="EDConsoleControlButton">
+                        <button toolTip="Step In (s)" focusRingType="none" misplaced="YES" id="24" customClass="EDConsoleControlButton">
                             <rect key="frame" x="107" y="1" width="36" height="20"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" heightSizable="YES"/>
                             <buttonCell key="cell" type="bevel" bezelStyle="regularSquare" image="step" imagePosition="only" alignment="center" state="on" focusRingType="none" imageScaling="proportionallyDown" inset="2" id="25" customClass="EDConsoleControlButtonCell">
@@ -66,15 +67,15 @@
                                 <outlet property="nextKeyView" destination="26" id="38"/>
                             </connections>
                         </button>
-                        <button toolTip="Step Out" focusRingType="none" id="26" customClass="EDConsoleControlButton">
+                        <button toolTip="Return (r)" focusRingType="none" id="26" customClass="EDConsoleControlButton">
                             <rect key="frame" x="143" y="1" width="36" height="20"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" heightSizable="YES"/>
-                            <buttonCell key="cell" type="bevel" bezelStyle="regularSquare" image="up" imagePosition="only" alignment="center" state="on" focusRingType="none" imageScaling="proportionallyDown" inset="2" id="27" customClass="EDConsoleControlButtonCell">
+                            <buttonCell key="cell" type="bevel" bezelStyle="regularSquare" image="up" imagePosition="overlaps" alignment="center" state="on" focusRingType="none" imageScaling="proportionallyDown" inset="2" id="27" customClass="EDConsoleControlButtonCell">
                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                 <font key="font" metaFont="system"/>
                             </buttonCell>
                             <connections>
-                                <action selector="up:" target="-1" id="35"/>
+                                <action selector="finish:" target="-1" id="9ay-da-NQY"/>
                                 <binding destination="-2" name="enabled" keyPath="isRunning" id="52"/>
                             </connections>
                         </button>
@@ -121,7 +122,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <outlineView focusRingType="none" appearanceType="vibrantLight" verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" selectionHighlightStyle="sourceList" columnReordering="NO" columnResizing="NO" multipleSelection="NO" autosaveColumns="NO" autosaveName="varsOutlineView" rowHeight="18" outlineTableColumn="U77-0j-UeU" id="VWm-nq-jR2" customClass="EDConsoleOutlineView">
-                                <rect key="frame" x="0.0" y="0.0" width="240" height="18"/>
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="136"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <size key="intercellSpacing" width="3" height="0.0"/>
                                 <color key="backgroundColor" name="_sourceListBackgroundColor" catalog="System" colorSpace="catalog"/>

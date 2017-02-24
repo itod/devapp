@@ -12,6 +12,7 @@
 #define kEDCodeRunnerRuntimeError 1
 
 #define kEDCodeRunnerDoneKey @"done"
+#define kEDCodeRunnerUserCommandKey @"userCommand"
 #define kEDCodeRunnerReturnCodeKey @"returnCode"
 #define kEDCodeRunnerFrameStackKey @"frameStack"
 #define kEDCodeRunnerErrorKey @"error"

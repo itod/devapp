@@ -74,7 +74,7 @@
 - (IBAction)contine:(id)sender;
 - (IBAction)next:(id)sender;
 - (IBAction)step:(id)sender;
-- (IBAction)up:(id)sender;
+- (IBAction)finish:(id)sender;
 - (IBAction)activateConsole:(id)sender;
 - (IBAction)hideFindView:(id)sender;
 
