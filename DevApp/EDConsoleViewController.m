@@ -245,6 +245,7 @@ static NSDictionary *sValueAttrs = nil;
     NSMutableArray *info = [NSMutableArray arrayWithCapacity:[frame.sortedLocalNames count]];
     
     NSUInteger i = 0;
+    TDAssert([frame.sortedLocalNames count] == [frame.sortedLocalValues count]);
     for (NSString *name in frame.sortedLocalNames) {
         id val = frame.sortedLocalValues[i++];
         
