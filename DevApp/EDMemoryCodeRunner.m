@@ -148,9 +148,6 @@ void PerformOnMainThread(void (^block)(void)) {
     TDAssert(_debugSync);
     NSDictionary *info = [_debugSync awaitPause];
     
-    id result = info[@"result"];
-    TDAssert(result);
-    
     BOOL done = [info[kEDCodeRunnerDoneKey] boolValue];
     
     [self fireDelegateDidPause:info isDone:done];
@@ -172,36 +169,42 @@ void PerformOnMainThread(void (^block)(void)) {
 #pragma mark -
 #pragma mark Private EXECUTE-THREAD
 
-- (void)didPause:(NSDictionary *)info {
+- (void)didPause:(NSMutableDictionary *)info {
     // only called on EXECUTE-THREAD
     TDAssertExecuteThread();
-    NSParameterAssert(info);
+    TDAssert(info);
     
-    PerformOnMainThread(^{
-        TDAssert(self.delegate);
-        TDAssert(self.identifier);
-        [self.delegate codeRunner:self.identifier didPause:info];
-    });
+    info[kEDCodeRunnerDoneKey] = @NO;
+    
+    TDAssert(_debugSync);
+    [_debugSync pauseWithInfo:info];
+    BOOL resume = [[_debugSync awaitResume] boolValue];
+    
+    if (!resume) {
+        @throw @"OHAI!";
+    }
 }
 
 
-- (void)didSucceed:(NSDictionary *)info {
+- (void)didSucceed:(NSMutableDictionary *)info {
     // only called on EXECUTE-THREAD
     TDAssertExecuteThread();
-    NSParameterAssert(info);
+    TDAssert(info);
     
-    PerformOnMainThread(^{
-        TDAssert(self.delegate);
-        TDAssert(self.identifier);
-        [self.delegate codeRunner:self.identifier didSucceed:info];
-    });
+    [self.debugSync pauseWithInfo:info];
+    
+//    PerformOnMainThread(^{
+//        TDAssert(self.delegate);
+//        TDAssert(self.identifier);
+//        [self.delegate codeRunner:self.identifier didSucceed:info];
+//    });
 }
 
 
-- (void)didFail:(NSDictionary *)info {
+- (void)didFail:(NSMutableDictionary *)info {
     // only called on EXECUTE-THREAD
     TDAssertExecuteThread();
-    NSParameterAssert(info);
+    TDAssert(info);
     
     PerformOnMainThread(^{
         TDAssert(self.delegate);

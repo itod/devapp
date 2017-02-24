@@ -1192,10 +1192,13 @@
     EDAssert([identifier isEqualToString:self.identifier]);
     EDAssertMainThread();
     
+    self.statusText = NSLocalizedString(@"Paused…", @"");
+    
     NSArray *frameStack = info[XPDebugInfoFrameStackKey];
     TDAssert([frameStack count]);
     XPStackFrame *frame = frameStack[0];
-    [self.consoleViewController displayStackFrame:frame];
+    TDAssert(_consoleViewController);
+    [_consoleViewController displayStackFrame:frame];
 }
 
 

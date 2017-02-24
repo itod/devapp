@@ -13,6 +13,7 @@
 
 #define kEDCodeRunnerDoneKey @"done"
 #define kEDCodeRunnerReturnCodeKey @"returnCode"
+#define kEDCodeRunnerFrameStackKey @"frameStack"
 #define kEDCodeRunnerErrorKey @"error"
 
 @protocol EDCodeRunner;
