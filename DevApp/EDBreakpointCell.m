@@ -9,7 +9,7 @@
 #import "EDBreakpointCell.h"
 #import "EDMainWindowController.h"
 #import "EDUtils.h"
-#import <OkudaKit/OKBreakpoint.h>
+#import <Language/XPBreakpoint.h>
 
 #define IMG_MARGIN_LEFT 5.0
 #define IMG_MARGIN_RIGHT 4.0
@@ -99,7 +99,7 @@ static NSDictionary *sHiTitleAttrs = nil;
         relPath = obj;
         title = [relPath lastPathComponent];
     } else {
-        EDAssert([obj isKindOfClass:[OKBreakpoint class]]);
+        EDAssert([obj isKindOfClass:[XPBreakpoint class]]);
         title = [obj displayString];
         wantsImage = NO;
     }
@@ -154,7 +154,7 @@ static NSDictionary *sHiTitleAttrs = nil;
 
 
 - (NSRect)editRectForBounds:(NSRect)bounds {
-    BOOL hasImg = ![[self objectValue] isKindOfClass:[OKBreakpoint class]];
+    BOOL hasImg = ![[self objectValue] isKindOfClass:[XPBreakpoint class]];
     NSRect r = [self titleRectForBounds:bounds hasImage:hasImg];
     r.origin.x -= 2.0;
     r.size.width += 2.0;

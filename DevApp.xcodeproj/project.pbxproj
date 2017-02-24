@@ -803,6 +803,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D309BCE71E60ADDC002B3199 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				D3166F181E59040D00DEE3A0 /* EDApplication.h */,
+				D3166F191E59040D00DEE3A0 /* EDApplication.m */,
+				D31671111E5B590100DEE3A0 /* EDMainMenu.xib */,
+				D3166F221E5904D600DEE3A0 /* EDUserDefaults.h */,
+				D3166F231E5904D600DEE3A0 /* EDUserDefaults.m */,
+				D3166FB11E59277400DEE3A0 /* EDDocumentController.h */,
+				D3166FB21E59277400DEE3A0 /* EDDocumentController.m */,
+				D3166FD61E592A5200DEE3A0 /* EDDocument.h */,
+				D3166FD71E592A5200DEE3A0 /* EDDocument.m */,
+				D31670B31E5A179900DEE3A0 /* EDMainWindowController.h */,
+				D31670B41E5A179900DEE3A0 /* EDMainWindowController.m */,
+			);
+			name = App;
+			sourceTree = "<group>";
+		};
 		D3166EC91E57C6E900DEE3A0 /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -1286,17 +1304,7 @@
 				D3369AE71E36C25000FEB7BF /* TabKit */,
 				D3369A451E36BEBA00FEB7BF /* ThreadUtils */,
 				D3166F311E5905A500DEE3A0 /* Utils */,
-				D3166F181E59040D00DEE3A0 /* EDApplication.h */,
-				D3166F191E59040D00DEE3A0 /* EDApplication.m */,
-				D31671111E5B590100DEE3A0 /* EDMainMenu.xib */,
-				D3166F221E5904D600DEE3A0 /* EDUserDefaults.h */,
-				D3166F231E5904D600DEE3A0 /* EDUserDefaults.m */,
-				D3166FB11E59277400DEE3A0 /* EDDocumentController.h */,
-				D3166FB21E59277400DEE3A0 /* EDDocumentController.m */,
-				D3166FD61E592A5200DEE3A0 /* EDDocument.h */,
-				D3166FD71E592A5200DEE3A0 /* EDDocument.m */,
-				D31670B31E5A179900DEE3A0 /* EDMainWindowController.h */,
-				D31670B41E5A179900DEE3A0 /* EDMainWindowController.m */,
+				D309BCE71E60ADDC002B3199 /* App */,
 				D31670DD1E5A19AB00DEE3A0 /* WebView */,
 				D31670B71E5A17E600DEE3A0 /* Code Runner */,
 				D316708A1E5A14FD00DEE3A0 /* Main Window */,

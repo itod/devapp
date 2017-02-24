@@ -9,7 +9,6 @@
 #import "EDMemoryCodeRunner.h"
 #import <TDThreadUtils/TDInterpreterSync.h>
 #import <Language/Language.h>
-#import "OKBreakpointCollection.h"
 
 void PerformOnMainThread(void (^block)(void)) {
     assert(block);
@@ -66,7 +65,7 @@ void PerformOnMainThread(void (^block)(void)) {
 
 
 - (void)setAllBreakpoints:(NSArray *)bpPlist identifier:(NSString *)identifier {
-//    _interp.breakpointCollection = [OKBreakpointCollection fromPlist:bpPlist];
+//    _interp.breakpointCollection = [XPBreakpointCollection fromPlist:bpPlist];
 }
 
 
@@ -102,7 +101,7 @@ void PerformOnMainThread(void (^block)(void)) {
                 return;
             }
 
-            [self doRun:srcStr];
+            [self doRun:srcStr filePath:userCmd];
         });
         
         if (bpEnabled) {
@@ -214,7 +213,7 @@ void PerformOnMainThread(void (^block)(void)) {
 }
 
 
-- (void)doRun:(NSString *)srcStr {
+- (void)doRun:(NSString *)srcStr filePath:(NSString *)path {
     // only called on EXECUTE-THREAD
     TDAssertExecuteThread();
     
@@ -234,12 +233,12 @@ void PerformOnMainThread(void (^block)(void)) {
     BOOL success = NO;
     
     NSError *err = nil;
-    success = [_interp interpretString:srcStr error:&err];
+    success = [_interp interpretString:srcStr filePath:path error:&err];
     
     if (success) {
-        [self didSucceed:@{kEDCodeRunnerReturnCodeKey:@0, kEDCodeRunnerDoneKey:@YES}];
+        [self didSucceed:[[@{kEDCodeRunnerReturnCodeKey:@0, kEDCodeRunnerDoneKey:@YES} mutableCopy] autorelease]];
     } else {
-        [self didFail:@{kEDCodeRunnerReturnCodeKey:@1, kEDCodeRunnerDoneKey:@YES, kEDCodeRunnerErrorKey:err}];
+        [self didFail:[[@{kEDCodeRunnerReturnCodeKey:@1, kEDCodeRunnerDoneKey:@YES, kEDCodeRunnerErrorKey:err} mutableCopy] autorelease]];
     }
 }
 
@@ -247,19 +246,19 @@ void PerformOnMainThread(void (^block)(void)) {
 #pragma mark -
 #pragma mark XPInterpreterDebugDelegate
 
-- (void)interpreter:(XPInterpreter *)i didPause:(NSDictionary *)debugInfo {
+- (void)interpreter:(XPInterpreter *)i didPause:(NSMutableDictionary *)debugInfo {
     TDAssertExecuteThread();
     [self didPause:debugInfo];
 }
 
 
-- (void)interpreter:(XPInterpreter *)i didFinish:(NSDictionary *)debugInfo {
+- (void)interpreter:(XPInterpreter *)i didFinish:(NSMutableDictionary *)debugInfo {
     TDAssertExecuteThread();
     [self didSucceed:debugInfo];
 }
 
 
-- (void)interpreter:(XPInterpreter *)i didFail:(NSDictionary *)debugInfo {
+- (void)interpreter:(XPInterpreter *)i didFail:(NSMutableDictionary *)debugInfo {
     TDAssertExecuteThread();
     [self didFail:debugInfo];
 }

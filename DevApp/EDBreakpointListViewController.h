@@ -9,9 +9,9 @@
 #import <TDAppKit/TDViewController.h>
 
 @class EDBreakpointListViewController;
-@class OKBreakpointCollection;
+@class XPBreakpointCollection;
 
-@class OKBreakpointCollection;
+@class XPBreakpointCollection;
 
 @protocol EDBreakpointListViewControllerDelegate <NSObject>
 - (void)breakpointListViewController:(EDBreakpointListViewController *)bplc didActivateFileAtPath:(NSString *)path lineNumber:(NSUInteger)lineNum;
@@ -33,7 +33,7 @@
 @property (nonatomic, retain) IBOutlet NSOutlineView *outlineView;
 @property (nonatomic, retain) IBOutlet NSMenu *contextMenu;
 
-@property (nonatomic, retain) IBOutlet OKBreakpointCollection *collection;
+@property (nonatomic, retain) IBOutlet XPBreakpointCollection *collection;
 
 @property (nonatomic, assign) BOOL hasSelection;
 @end
