@@ -154,15 +154,24 @@ void PerformOnMainThread(void (^block)(void)) {
     TDAssertControlThread();
     
     TDAssert(_debugSync);
-    NSDictionary *info = [_debugSync awaitPause];
+    NSMutableDictionary *info = [_debugSync awaitPause];
     
     BOOL done = [info[kEDCodeRunnerDoneKey] boolValue];
     
-    [self fireDelegateDidPause:info isDone:done];
+    if (done) {
+        BOOL success = ![info[kEDCodeRunnerReturnCodeKey] boolValue];
+        if (success) {
+            [self fireDelegateDidSucceed:info];
+        } else {
+            [self fireDelegateDidFail:info];
+        }
+    } else {
+        [self fireDelegateDidPause:info];
+    }
 }
 
 
-- (void)fireDelegateDidPause:(NSDictionary *)info isDone:(BOOL)done {
+- (void)fireDelegateDidPause:(NSMutableDictionary *)info {
     // only called on CONTROL-THREAD
     TDAssertControlThread();
     
@@ -170,6 +179,30 @@ void PerformOnMainThread(void (^block)(void)) {
         TDAssert(self.delegate);
         TDAssert(self.identifier);
         [self.delegate codeRunner:self.identifier didPause:info];
+    });
+}
+
+
+- (void)fireDelegateDidSucceed:(NSMutableDictionary *)info {
+    // only called on CONTROL-THREAD
+    TDAssertControlThread();
+    
+    PerformOnMainThread(^{
+        TDAssert(self.delegate);
+        TDAssert(self.identifier);
+        [self.delegate codeRunner:self.identifier didSucceed:info];
+    });
+}
+
+
+- (void)fireDelegateDidFail:(NSMutableDictionary *)info {
+    // only called on CONTROL-THREAD
+    TDAssertControlThread();
+    
+    PerformOnMainThread(^{
+        TDAssert(self.delegate);
+        TDAssert(self.identifier);
+        [self.delegate codeRunner:self.identifier didFail:info];
     });
 }
 
@@ -221,8 +254,11 @@ void PerformOnMainThread(void (^block)(void)) {
     TDAssertExecuteThread();
     TDAssert(info);
     
+    info[kEDCodeRunnerDoneKey] = @YES;
+    
     [self.debugSync pauseWithInfo:info];
     
+    // this can go away
 //    PerformOnMainThread(^{
 //        TDAssert(self.delegate);
 //        TDAssert(self.identifier);
@@ -236,11 +272,16 @@ void PerformOnMainThread(void (^block)(void)) {
     TDAssertExecuteThread();
     TDAssert(info);
     
-    PerformOnMainThread(^{
-        TDAssert(self.delegate);
-        TDAssert(self.identifier);
-        [self.delegate codeRunner:self.identifier didFail:info];
-    });
+    info[kEDCodeRunnerDoneKey] = @YES;
+
+    [self.debugSync pauseWithInfo:info];
+
+    // this can go away
+//    PerformOnMainThread(^{
+//        TDAssert(self.delegate);
+//        TDAssert(self.identifier);
+//        [self.delegate codeRunner:self.identifier didFail:info];
+//    });
 }
 
 
