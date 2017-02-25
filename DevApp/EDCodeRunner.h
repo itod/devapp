@@ -19,6 +19,7 @@
 
 @protocol EDCodeRunner;
 @class EDFileLocation;
+@class XPBreakpointCollection;
 
 @protocol EDCodeRunnerDelegate <NSObject>
 - (void)codeRunnerDidStartup:(NSString *)identifier;
@@ -42,9 +43,10 @@
 
 - (void)performCommand:(NSString *)cmd identifier:(NSString *)identifier;
 
-- (void)setAllBreakpoints:(NSArray *)bpPlist identifier:(NSString *)identifier;
+//- (void)setAllBreakpoints:(NSArray *)bpPlist identifier:(NSString *)identifier; // remove??
+- (void)setBreakpointsCollection:(XPBreakpointCollection *)bpColl identifier:(NSString *)identifier;
 - (void)clearAllBreakpoints:(NSString *)identifier;
 
 @optional
-- (void)run:(NSString *)userCmd inWorkingDirectory:(NSString *)workingDir exePath:(NSString *)exePath env:(NSDictionary *)envVars breakpointsEnabled:(BOOL)bpEnabled breakpoints:(NSArray *)bpPlist identifier:(NSString *)identifier;
+- (void)run:(NSString *)userCmd inWorkingDirectory:(NSString *)workingDir exePath:(NSString *)exePath env:(NSDictionary *)envVars breakpointsEnabled:(BOOL)bpEnabled breakpoints:(XPBreakpointCollection *)bpColl identifier:(NSString *)identifier;
 @end

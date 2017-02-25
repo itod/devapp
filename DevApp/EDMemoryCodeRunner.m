@@ -70,8 +70,16 @@ void PerformOnMainThread(void (^block)(void)) {
 }
 
 
-- (void)setAllBreakpoints:(NSArray *)bpPlist identifier:(NSString *)identifier {
-//    _interp.breakpointCollection = [XPBreakpointCollection fromPlist:bpPlist];
+// remove??
+//- (void)setAllBreakpoints:(NSArray *)bpPlist identifier:(NSString *)identifier {
+////    _interp.breakpointCollection = [XPBreakpointCollection fromPlist:bpPlist];
+//}
+
+
+- (void)setBreakpointsCollection:(XPBreakpointCollection *)bpColl identifier:(NSString *)identifier {
+    TDAssert(_interp);
+    
+    _interp.breakpointCollection = bpColl;
 }
 
 
@@ -80,7 +88,7 @@ void PerformOnMainThread(void (^block)(void)) {
 }
 
 
-- (void)run:(NSString *)userCmd inWorkingDirectory:(NSString *)workingDir exePath:(NSString *)exePath env:(NSDictionary *)envVars breakpointsEnabled:(BOOL)bpEnabled breakpoints:(NSArray *)bpPlist identifier:(NSString *)identifier {
+- (void)run:(NSString *)userCmd inWorkingDirectory:(NSString *)workingDir exePath:(NSString *)exePath env:(NSDictionary *)envVars breakpointsEnabled:(BOOL)bpEnabled breakpoints:(XPBreakpointCollection *)bpColl identifier:(NSString *)identifier {
     TDAssertMainThread();
     TDAssert(userCmd);
     TDAssert(workingDir);
@@ -107,7 +115,7 @@ void PerformOnMainThread(void (^block)(void)) {
                 return;
             }
 
-            [self doRun:srcStr filePath:userCmd];
+            [self doRun:srcStr filePath:userCmd breakpoints:bpColl];
         });
         
         if (bpEnabled) {
@@ -229,19 +237,24 @@ void PerformOnMainThread(void (^block)(void)) {
         return;
     }
     
-    NSString *cmd = info[kEDCodeRunnerUserCommandKey];
+    NSMutableString *cmd = [[info[kEDCodeRunnerUserCommandKey] mutableCopy] autorelease];
     TDAssert([cmd length]);
+    
+    CFStringTrimWhitespace((CFMutableStringRef)cmd);
     
     //get on control thread
     TDAssert(_interp);
-    if ([@"c" isEqualToString:cmd]) {
+    if ([@"c" isEqualToString:cmd] || [@"continue" isEqualToString:cmd]) {
         [_interp cont];
-    } else if ([@"s" isEqualToString:cmd]) {
+    } else if ([@"s" isEqualToString:cmd] || [@"step" isEqualToString:cmd]) {
         [_interp stepIn];
-    } else if ([@"n" isEqualToString:cmd]) {
+    } else if ([@"n" isEqualToString:cmd] || [@"next" isEqualToString:cmd]) {
         [_interp stepOver];
-    } else if ([@"r" isEqualToString:cmd]) {
+    } else if ([@"r" isEqualToString:cmd] | [@"return" isEqualToString:cmd]) {
         [_interp finish];
+    } else if ([cmd hasPrefix:@"p "] || [cmd hasPrefix:@"print "]) {
+        //[_interp print];
+        
     } else {
         TDAssert(0);
     }
@@ -285,7 +298,7 @@ void PerformOnMainThread(void (^block)(void)) {
 }
 
 
-- (void)doRun:(NSString *)srcStr filePath:(NSString *)path {
+- (void)doRun:(NSString *)srcStr filePath:(NSString *)path breakpoints:(XPBreakpointCollection *)bpColl {
     // only called on EXECUTE-THREAD
     TDAssertExecuteThread();
     
@@ -300,6 +313,7 @@ void PerformOnMainThread(void (^block)(void)) {
     if (_debugSync) {
         _interp.debug = YES;
         _interp.debugDelegate = self;
+        _interp.breakpointCollection = bpColl;
     }
     
     BOOL success = NO;

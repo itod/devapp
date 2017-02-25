@@ -2027,11 +2027,12 @@
     dispatch_async(dispatch_get_main_queue(), ^{
         EDAssertMainThread();
 
-        NSArray *bpPlist = nil;
         BOOL bpEnabled = doc.breakpointsEnabled;
-        
-        if (bpEnabled) bpPlist = [self allEnabledBreakpointsPlist];
-        EDAssert(bpEnabled || !bpPlist);
+
+        XPBreakpointCollection *bpColl = [doc breakpoints];
+//        NSArray *bpPlist = nil;
+//        if (bpEnabled) bpPlist = [self allEnabledBreakpointsPlist];
+//        EDAssert(bpEnabled || !bpPlist);
 
         EDRunAction *runAction = doc.selectedTarget.scheme.runAction;
         
@@ -2044,7 +2045,7 @@
         NSString *identifier = self.identifier;
         
         self.codeRunner = [[[EDMemoryCodeRunner alloc] initWithDelegate:self] autorelease];
-        [_codeRunner run:cmd inWorkingDirectory:srcDirPath exePath:nil env:envVarsTab breakpointsEnabled:bpEnabled breakpoints:bpPlist identifier:identifier];
+        [_codeRunner run:cmd inWorkingDirectory:srcDirPath exePath:nil env:envVarsTab breakpointsEnabled:bpEnabled breakpoints:bpColl identifier:identifier];
     });
 }
 
@@ -2512,7 +2513,7 @@
     NSString *filePath = tm.URLString;
 
     if ([tm.type isEqualToString:EDTabModelTypeSourceCodeFile] && [[filePath pathExtension] isEqualToString:@"js"]) {
-        EDAssert([filePath hasSuffix:bp.file]);
+        EDAssert([filePath hasSuffix:[bp.file lastPathComponent]]);
         
         EDDocument *doc = [self document];
         XPBreakpointCollection *bpcoll = [doc breakpoints];
@@ -2566,7 +2567,7 @@
 
 
 - (NSString *)filePathForGutterView:(OKGutterView *)gv {
-    NSString *path = self.selectedTabModel.URLString;
+    NSString *path = [self absolutePathForTabModel:self.selectedTabModel];
     return path;
 }
 
@@ -2596,7 +2597,7 @@
 
 
 - (void)breakpointsDidChange:(NSNotification *)n {
-//    if (_codeRunner) {
+    if (_codeRunner) {
 //        NSArray *bpPlist = nil;
 //        
 //        if ([[self document] breakpointsEnabled]) {
@@ -2604,7 +2605,8 @@
 //        }
 //        
 //        [_codeRunner setAllBreakpoints:bpPlist identifier:self.identifier];
-//    }
+        [_codeRunner setBreakpointsCollection:[[self document] breakpoints] identifier:self.identifier];
+    }
 
     TKTabModel *tm = self.selectedTabModel;
     if ([tm.type isEqualToString:EDTabModelTypeSourceCodeFile]) {
