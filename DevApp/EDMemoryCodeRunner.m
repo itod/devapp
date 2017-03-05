@@ -106,14 +106,26 @@ void PerformOnMainThread(void (^block)(void)) {
     self.debugSync = bpEnabled ? [[[TDInterpreterSync alloc] init] autorelease] : nil;
 
     self.stdOutPipe = [NSPipe pipe];
-    [_stdOutPipe.fileHandleForReading waitForDataInBackgroundAndNotify];
     self.stdErrPipe = [NSPipe pipe];
-    [_stdErrPipe.fileHandleForReading waitForDataInBackgroundAndNotify];
-    
-    NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
-    [nc addObserver:self selector:@selector(stdOutDataAvailable:) name:NSFileHandleDataAvailableNotification object:_stdOutPipe.fileHandleForReading];
-    [nc addObserver:self selector:@selector(stdErrDataAvailable:) name:NSFileHandleDataAvailableNotification object:_stdErrPipe.fileHandleForReading];
-    
+
+    _stdOutPipe.fileHandleForReading.readabilityHandler = ^(NSFileHandle *fh) {
+        NSString *msg = [[[NSString alloc] initWithData:fh.availableData encoding:NSUTF8StringEncoding] autorelease];
+        
+        PerformOnMainThread(^{
+            TDAssert(_delegate);
+            [_delegate codeRunner:_identifier messageFromStdOut:msg];
+        });
+    };
+
+    _stdErrPipe.fileHandleForReading.readabilityHandler = ^(NSFileHandle *fh) {
+        NSString *msg = [[[NSString alloc] initWithData:fh.availableData encoding:NSUTF8StringEncoding] autorelease];
+        
+        PerformOnMainThread(^{
+            TDAssert(_delegate);
+            [_delegate codeRunner:_identifier messageFromStdErr:msg];
+        });
+    };
+
     TDAssert(_controlThread);
     dispatch_async(_controlThread, ^{
         TDAssertControlThread();
@@ -352,33 +364,6 @@ void PerformOnMainThread(void (^block)(void)) {
 - (void)interpreter:(XPInterpreter *)i didFail:(NSMutableDictionary *)debugInfo {
     TDAssertExecuteThread();
     [self didFail:debugInfo];
-}
-
-
-#pragma mark -
-#pragma mark NSFileHandle
-
-- (void)stdOutDataAvailable:(NSNotification *)n {
-    TDAssertMainThread();
-    NSFileHandle *fh = [n object];
-    
-    NSData *data = fh.availableData;
-    NSString *msg = [[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding] autorelease];
-    
-    TDAssert(_delegate);
-    [_delegate codeRunner:_identifier messageFromStdOut:msg];
-}
-
-
-- (void)stdErrDataAvailable:(NSNotification *)n {
-    TDAssertMainThread();
-    NSFileHandle *fh = [n object];
-    
-    NSData *data = fh.availableData;
-    NSString *msg = [[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding] autorelease];
-    
-    TDAssert(_delegate);
-    [_delegate codeRunner:_identifier messageFromStdErr:msg];
 }
 
 @end
