@@ -126,7 +126,9 @@
 #pragma mark Public
 
 - (void)appendPrompt {
-    [self append:@"\n"];
+    if ([self isOnNewLine]) {
+        [self append:@"\n"];
+    }
     [self append:self.prompts[0]];
     [self append:@" "];
 }
@@ -284,7 +286,7 @@
         NSRange selRange = [_textView selectedRange];
         
         if (NSNotFound != selRange.location) {
-
+            
             NSRange lastLineRange = [str lineRangeForRange:NSMakeRange(strLen, 0)];
             EDAssert(NSNotFound != lastLineRange.location);
             EDAssert(NSMaxRange(lastLineRange) <= strLen);
@@ -302,6 +304,37 @@
                     result = YES;
                     if (outCmd) *outCmd = [line substringFromIndex:NSMaxRange(relPromptRange)];
                 }
+            }
+        }
+    }
+    
+    return result;
+}
+
+
+- (BOOL)isOnNewLine {
+    BOOL result = NO;
+    
+    NSString *str = [_textView string];
+    NSUInteger strLen = [str length];
+    if (strLen) {
+        NSRange selRange = [_textView selectedRange];
+        
+        if (NSNotFound != selRange.location) {
+            
+            NSRange lastLineRange = [str lineRangeForRange:NSMakeRange(strLen, 0)];
+            EDAssert(NSNotFound != lastLineRange.location);
+            EDAssert(NSMaxRange(lastLineRange) <= strLen);
+            //NSLog(@"`%@`", [str substringWithRange:lastLineRange]);
+            
+            if (selRange.location > lastLineRange.location) {
+                EDAssert(NSNotFound != selRange.location);
+                EDAssert(NSMaxRange(selRange) <= strLen);
+                
+                NSRange selLineRange = [str lineRangeForRange:selRange];
+                NSString *line = [[str substringWithRange:selLineRange] stringByTrimmingCharactersInSet:[NSCharacterSet newlineCharacterSet]];
+
+                result = 0 == [line length];
             }
         }
     }
