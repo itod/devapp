@@ -24,8 +24,8 @@ void PerformOnMainThread(void (^block)(void)) {
 @property (assign) dispatch_queue_t controlThread;
 @property (assign) dispatch_queue_t executeThread;
 
-@property (nonatomic, retain) NSPipe *stdOut;
-@property (nonatomic, retain) NSPipe *stdErr;
+@property (nonatomic, retain) NSPipe *stdOutPipe;
+@property (nonatomic, retain) NSPipe *stdErrPipe;
 @end
 
 @implementation EDMemoryCodeRunner
@@ -51,8 +51,8 @@ void PerformOnMainThread(void (^block)(void)) {
     dispatch_release(_controlThread), _controlThread = NULL;
     dispatch_release(_executeThread), _executeThread = NULL;
     
-    self.stdOut = nil;
-    self.stdErr = nil;
+    self.stdOutPipe = nil;
+    self.stdErrPipe = nil;
     
     [super dealloc];
 }
@@ -105,14 +105,14 @@ void PerformOnMainThread(void (^block)(void)) {
     self.identifier = identifier;
     self.debugSync = bpEnabled ? [[[TDInterpreterSync alloc] init] autorelease] : nil;
 
-    self.stdOut = [NSPipe pipe];
-    [_stdOut.fileHandleForReading waitForDataInBackgroundAndNotify];
-    self.stdErr = [NSPipe pipe];
-    [_stdErr.fileHandleForReading waitForDataInBackgroundAndNotify];
+    self.stdOutPipe = [NSPipe pipe];
+    [_stdOutPipe.fileHandleForReading waitForDataInBackgroundAndNotify];
+    self.stdErrPipe = [NSPipe pipe];
+    [_stdErrPipe.fileHandleForReading waitForDataInBackgroundAndNotify];
     
     NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
-    [nc addObserver:self selector:@selector(stdOutDataAvailable:) name:NSFileHandleDataAvailableNotification object:_stdOut.fileHandleForReading];
-    [nc addObserver:self selector:@selector(stdErrDataAvailable:) name:NSFileHandleDataAvailableNotification object:_stdErr.fileHandleForReading];
+    [nc addObserver:self selector:@selector(stdOutDataAvailable:) name:NSFileHandleDataAvailableNotification object:_stdOutPipe.fileHandleForReading];
+    [nc addObserver:self selector:@selector(stdErrDataAvailable:) name:NSFileHandleDataAvailableNotification object:_stdErrPipe.fileHandleForReading];
     
     TDAssert(_controlThread);
     dispatch_async(_controlThread, ^{
@@ -312,7 +312,8 @@ void PerformOnMainThread(void (^block)(void)) {
     
     self.interp = [[[XPInterpreter alloc] init] autorelease];
     
-    _interp.stdOut = _stdOut;
+    _interp.stdOut = _stdOutPipe.fileHandleForWriting;
+    _interp.stdErr = _stdErrPipe.fileHandleForWriting;
 
     if (_debugSync) {
         _interp.debug = YES;
@@ -379,24 +380,5 @@ void PerformOnMainThread(void (^block)(void)) {
     TDAssert(_delegate);
     [_delegate codeRunner:_identifier messageFromStdErr:msg];
 }
-
-
-//#pragma mark -
-//#pragma mark NSStreamDelegate
-//
-//- (void)stream:(NSStream *)stream handleEvent:(NSStreamEvent)evtCode {
-//    if (NSStreamEventHasBytesAvailable == evtCode) {
-//        NSString *msg = [[[NSString alloc] initWithData:[stream propertyForKey:NSStreamDataWrittenToMemoryStreamKey] encoding:NSUTF8StringEncoding] autorelease];
-//        
-//        TDAssert(_interp);
-//        TDAssert(_delegate);
-//        if (stream == _interp.stdOut) {
-//            [_delegate codeRunner:_identifier messageFromStdOut:msg];
-//        } else {
-//            TDAssert(stream == _interp.stdErr);
-//            [_delegate codeRunner:_identifier messageFromStdErr:msg];
-//        }
-//    }
-//}
 
 @end

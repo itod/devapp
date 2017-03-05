@@ -2594,8 +2594,8 @@
 
 
 - (NSString *)filePathForGutterView:(OKGutterView *)gv {
-    //NSString *path = self.selectedTabModel.URLString;
-    NSString *path = [self absolutePathForTabModel:self.selectedTabModel]; // should i do this instead??? vorsichtig!
+    NSString *path = self.selectedTabModel.URLString;
+    //NSString *path = [self absolutePathForTabModel:self.selectedTabModel]; // should i do this instead??? vorsichtig!
     return path;
 }
 
