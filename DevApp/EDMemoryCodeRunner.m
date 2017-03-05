@@ -272,17 +272,23 @@ void PerformOnMainThread(void (^block)(void)) {
     
     //get on control thread
     TDAssert(_interp);
-    if ([@"c" isEqualToString:cmd] || [@"continue" isEqualToString:cmd]) {
+    
+    NSRange wsRange = [cmd rangeOfCharacterFromSet:[NSCharacterSet whitespaceCharacterSet]];
+    NSString *prefix = [cmd substringWithRange:NSMakeRange(0, wsRange.location)];
+    
+    if ([@"c" isEqualToString:prefix] || [@"continue" isEqualToString:prefix]) {
         [_interp cont];
-    } else if ([@"s" isEqualToString:cmd] || [@"step" isEqualToString:cmd]) {
+    } else if ([@"s" isEqualToString:prefix] || [@"step" isEqualToString:prefix]) {
         [_interp stepIn];
-    } else if ([@"n" isEqualToString:cmd] || [@"next" isEqualToString:cmd]) {
+    } else if ([@"n" isEqualToString:prefix] || [@"next" isEqualToString:prefix]) {
         [_interp stepOver];
-    } else if ([@"r" isEqualToString:cmd] | [@"return" isEqualToString:cmd]) {
+    } else if ([@"r" isEqualToString:prefix] | [@"return" isEqualToString:prefix]) {
         [_interp finish];
-    } else if ([cmd hasPrefix:@"p "] || [cmd hasPrefix:@"print "]) {
-        //[_interp print];
-        
+    } else if ([@"p" isEqualToString:prefix] || [@"print" isEqualToString:prefix]) {
+        if (wsRange.length && [cmd length] > NSMaxRange(wsRange)) {
+            NSString *suffix = [cmd substringFromIndex:NSMaxRange(wsRange)];
+            [_interp print:suffix];
+        }
     } else {
         TDAssert(0);
     }
