@@ -125,6 +125,13 @@
 #pragma mark -
 #pragma mark Public
 
+- (void)appendPrompt {
+    [self append:@"\n"];
+    [self append:self.prompts[0]];
+    [self append:@" "];
+}
+
+
 - (void)removePrompt {
     // if last line starts with a prompt. delete entire line.
     NSRange lastLineRange;

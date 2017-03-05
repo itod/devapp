@@ -205,6 +205,7 @@
 
     self.canRun = YES;
     self.canStop = NO;
+    self.paused = NO;
 
     [[self document] windowControllerDidLoadNib:self];
     [self setUpNavigatorTabBarController];
@@ -1190,6 +1191,7 @@
     EDAssert([identifier isEqualToString:self.identifier]);
     EDAssertMainThread();
     
+    self.paused = YES;
     self.statusText = NSLocalizedString(@"Paused…", @"");
     
     // highlight in text editor
@@ -1208,6 +1210,8 @@
         XPStackFrame *frame = frameStack[0];
         TDAssert(_consoleViewController);
         [_consoleViewController displayStackFrame:frame];
+        
+        [_consoleViewController appendPrompt];
     }
     
     // update stack trace view
@@ -1228,6 +1232,7 @@
     self.canRun = YES;
     self.canStop = NO;
     self.busy = NO;
+    self.paused = NO;
     
     [[self window] makeFirstResponder:self.selectedSourceViewController.textView];
 }
@@ -1258,6 +1263,7 @@
     self.canRun = YES;
     self.canStop = NO;
     self.busy = NO;
+    self.paused = NO;
     
     [[self window] makeFirstResponder:self.selectedSourceViewController.textView];
 }
@@ -1392,29 +1398,33 @@
     //prefix = [prefix lowercaseString];
     
     NSAssert([[NSThread currentThread] isMainThread], @"");
-    NSAssert(tv == self.selectedSourceViewController.textView, @"");
+    NSString *result = nil;
     
-    self.filteredData = [self filteredDataForPrefix:prefix];
-    //NSLog(@"filtered Data : %@", _filteredData);
-    
-    OKTrigger *best = nil;
-    
-    if ([[NSUserDefaults standardUserDefaults] boolForKey:OKAutocompletionFuzzyMatchKey]) {
-        if ([_filteredData count]) {
-            best = [_filteredData objectAtIndex:0];
-        }
-        //NSLog(@"%@", best);
-    } else {
-        for (OKTrigger *trig in _filteredData) {
-            NSString *str = trig.specifier;
-            if ([str hasPrefix:prefix]) {
-                best = trig;
-                break;
+    if (tv == self.selectedSourceViewController.textView) {
+        self.filteredData = [self filteredDataForPrefix:prefix];
+        //NSLog(@"filtered Data : %@", _filteredData);
+        
+        OKTrigger *best = nil;
+        
+        if ([[NSUserDefaults standardUserDefaults] boolForKey:OKAutocompletionFuzzyMatchKey]) {
+            if ([_filteredData count]) {
+                best = [_filteredData objectAtIndex:0];
+            }
+            //NSLog(@"%@", best);
+        } else {
+            for (OKTrigger *trig in _filteredData) {
+                NSString *str = trig.specifier;
+                if ([str hasPrefix:prefix]) {
+                    best = trig;
+                    break;
+                }
             }
         }
+        
+        result = best.string;
     }
-    
-    return best.string;
+
+    return result;
 }
 
 
@@ -1469,6 +1479,9 @@
     EDAssertMainThread();
     TDAssert([cmd length]);
 
+    TDAssert(self.paused);
+    self.paused = NO;
+    
     TDAssert(_codeRunner);
     TDAssert(self.identifier);
     [_codeRunner performCommand:cmd identifier:self.identifier];
@@ -1480,9 +1493,9 @@
 }
 
 
-- (BOOL)isConsoleRunning:(EDConsoleViewController *)cvc {
+- (BOOL)isConsolePaused:(EDConsoleViewController *)cvc {
     EDAssertMainThread();
-    return self.canStop;
+    return self.paused;
 }
 
 
@@ -1946,6 +1959,9 @@
     EDAssertMainThread();
     [self clearDebugInfo];
     
+    TDAssert(self.paused);
+    self.paused = NO;
+    
     [self.codeRunner performCommand:@"c" identifier:self.identifier];
 }
 
@@ -1953,6 +1969,9 @@
 - (IBAction)next:(id)sender {
     EDAssertMainThread();
     [self clearDebugInfo];
+
+    TDAssert(self.paused);
+    self.paused = NO;
 
     [self.codeRunner performCommand:@"n" identifier:self.identifier];
 }
@@ -1962,6 +1981,9 @@
     EDAssertMainThread();
     [self clearDebugInfo];
 
+    TDAssert(self.paused);
+    self.paused = NO;
+
     [self.codeRunner performCommand:@"s" identifier:self.identifier];
 }
 
@@ -1969,6 +1991,9 @@
 - (IBAction)finish:(id)sender {
     EDAssertMainThread();
     [self clearDebugInfo];
+
+    TDAssert(self.paused);
+    self.paused = NO;
 
     [self.codeRunner performCommand:@"n" identifier:self.identifier];
 }
@@ -2013,6 +2038,7 @@
     self.canRun = NO;
     self.canStop = YES;
     self.busy = YES;
+    self.paused = NO;
     
     [self showConsoleView];
 
@@ -2080,6 +2106,7 @@
     self.canRun = YES;
     self.canStop = NO;
     self.busy = NO;
+    self.paused = NO;
 }
 
 
@@ -2567,7 +2594,8 @@
 
 
 - (NSString *)filePathForGutterView:(OKGutterView *)gv {
-    NSString *path = [self absolutePathForTabModel:self.selectedTabModel];
+    //NSString *path = self.selectedTabModel.URLString;
+    NSString *path = [self absolutePathForTabModel:self.selectedTabModel]; // should i do this instead??? vorsichtig!
     return path;
 }
 

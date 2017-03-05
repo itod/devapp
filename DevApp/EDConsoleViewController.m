@@ -130,7 +130,7 @@ static NSDictionary *sValueAttrs = nil;
     EDAssert(self.textView);
     [self.textView setString:@""];
     
-    if ([_delegate isConsoleRunning:self] && ![[EDUserDefaults instance] suppressConsolePrompt]) {
+    if ([_delegate isConsolePaused:self] && ![[EDUserDefaults instance] suppressConsolePrompt]) {
         NSString *msg = [NSString stringWithFormat:@"%@ ", self.prompts[0]];
         [self append:msg];
     }
@@ -151,9 +151,8 @@ static NSDictionary *sValueAttrs = nil;
     NSString *value = item[@"value"];
     EDAssert(value);
     [self append:[NSString stringWithFormat:@"%@ = %@", name, value]];
-    [self append:@"\n"];
-    [self append:self.prompts[0]];
-    [self append:@" "];
+    
+    [self appendPrompt];
 }
 
 
@@ -236,10 +235,6 @@ static NSDictionary *sValueAttrs = nil;
     [super handleUserCommand:cmd];
     EDAssert(_delegate)
     [_delegate console:self userIssuedCommand:cmd];
-    
-    [self append:@"\n"];
-    [self append:self.prompts[0]];
-    [self append:@" "];
 }
 
 

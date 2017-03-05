@@ -16,7 +16,7 @@
 @protocol EDConsoleViewControllerDelegate <NSObject>
 - (void)console:(EDConsoleViewController *)cvc userIssuedCommand:(NSString *)cmd;
 - (NSString *)promptForConsole:(EDConsoleViewController *)cvc;
-- (BOOL)isConsoleRunning:(EDConsoleViewController *)cvc;
+- (BOOL)isConsolePaused:(EDConsoleViewController *)cvc;
 - (NSMutableAttributedString *)console:(EDConsoleViewController *)cvc highlightedStringForString:(NSString *)str;
 @end
 

@@ -17,6 +17,7 @@
 
 - (IBAction)clear:(id)sender;
 
+- (void)appendPrompt;
 - (void)clearPrompt;
 - (void)removePrompt;
 - (BOOL)isAtPrompt:(NSString **)outPrompt;

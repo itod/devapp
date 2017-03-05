@@ -66,6 +66,7 @@
 @property (nonatomic, assign) BOOL canRun;
 @property (nonatomic, assign) BOOL canStop;
 @property (nonatomic, assign) BOOL busy;
+@property (nonatomic, assign) BOOL paused;
 
 - (IBAction)editProjectSettings:(id)sender;
 

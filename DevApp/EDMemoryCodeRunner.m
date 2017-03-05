@@ -23,6 +23,9 @@ void PerformOnMainThread(void (^block)(void)) {
 
 @property (assign) dispatch_queue_t controlThread;
 @property (assign) dispatch_queue_t executeThread;
+
+@property (nonatomic, retain) NSPipe *stdOut;
+@property (nonatomic, retain) NSPipe *stdErr;
 @end
 
 @implementation EDMemoryCodeRunner
@@ -47,6 +50,10 @@ void PerformOnMainThread(void (^block)(void)) {
 
     dispatch_release(_controlThread), _controlThread = NULL;
     dispatch_release(_executeThread), _executeThread = NULL;
+    
+    self.stdOut = nil;
+    self.stdErr = nil;
+    
     [super dealloc];
 }
 
@@ -98,6 +105,15 @@ void PerformOnMainThread(void (^block)(void)) {
     self.identifier = identifier;
     self.debugSync = bpEnabled ? [[[TDInterpreterSync alloc] init] autorelease] : nil;
 
+    self.stdOut = [NSPipe pipe];
+    [_stdOut.fileHandleForReading waitForDataInBackgroundAndNotify];
+    self.stdErr = [NSPipe pipe];
+    [_stdErr.fileHandleForReading waitForDataInBackgroundAndNotify];
+    
+    NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
+    [nc addObserver:self selector:@selector(stdOutDataAvailable:) name:NSFileHandleDataAvailableNotification object:_stdOut.fileHandleForReading];
+    [nc addObserver:self selector:@selector(stdErrDataAvailable:) name:NSFileHandleDataAvailableNotification object:_stdErr.fileHandleForReading];
+    
     TDAssert(_controlThread);
     dispatch_async(_controlThread, ^{
         TDAssertControlThread();
@@ -270,13 +286,6 @@ void PerformOnMainThread(void (^block)(void)) {
     info[kEDCodeRunnerDoneKey] = @YES;
     
     [self.debugSync pauseWithInfo:info];
-    
-    // this can go away
-//    PerformOnMainThread(^{
-//        TDAssert(self.delegate);
-//        TDAssert(self.identifier);
-//        [self.delegate codeRunner:self.identifier didSucceed:info];
-//    });
 }
 
 
@@ -288,13 +297,6 @@ void PerformOnMainThread(void (^block)(void)) {
     info[kEDCodeRunnerDoneKey] = @YES;
 
     [self.debugSync pauseWithInfo:info];
-
-    // this can go away
-//    PerformOnMainThread(^{
-//        TDAssert(self.delegate);
-//        TDAssert(self.identifier);
-//        [self.delegate codeRunner:self.identifier didFail:info];
-//    });
 }
 
 
@@ -309,13 +311,9 @@ void PerformOnMainThread(void (^block)(void)) {
     });
     
     self.interp = [[[XPInterpreter alloc] init] autorelease];
-    _interp.stdOut = [NSOutputStream outputStreamToMemory];
-    _interp.stdOut.delegate = self;
-    [_interp.stdOut open];
     
-    //_interp.stdErr = [NSOutputStream outputStreamToMemory];
-    //_interp.stdErr.delegate = self;
-    
+    _interp.stdOut = _stdOut;
+
     if (_debugSync) {
         _interp.debug = YES;
         _interp.debugDelegate = self;
@@ -357,21 +355,48 @@ void PerformOnMainThread(void (^block)(void)) {
 
 
 #pragma mark -
-#pragma mark NSStreamDelegate
+#pragma mark NSFileHandle
 
-- (void)stream:(NSStream *)stream handleEvent:(NSStreamEvent)evtCode {
-    if (NSStreamEventHasBytesAvailable == evtCode) {
-        NSString *msg = [[[NSString alloc] initWithData:[stream propertyForKey:NSStreamDataWrittenToMemoryStreamKey] encoding:NSUTF8StringEncoding] autorelease];
-        
-        TDAssert(_interp);
-        TDAssert(_delegate);
-        if (stream == _interp.stdOut) {
-            [_delegate codeRunner:_identifier messageFromStdOut:msg];
-        } else {
-            TDAssert(stream == _interp.stdErr);
-            [_delegate codeRunner:_identifier messageFromStdErr:msg];
-        }
-    }
+- (void)stdOutDataAvailable:(NSNotification *)n {
+    TDAssertMainThread();
+    NSFileHandle *fh = [n object];
+    
+    NSData *data = fh.availableData;
+    NSString *msg = [[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding] autorelease];
+    
+    TDAssert(_delegate);
+    [_delegate codeRunner:_identifier messageFromStdOut:msg];
 }
+
+
+- (void)stdErrDataAvailable:(NSNotification *)n {
+    TDAssertMainThread();
+    NSFileHandle *fh = [n object];
+    
+    NSData *data = fh.availableData;
+    NSString *msg = [[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding] autorelease];
+    
+    TDAssert(_delegate);
+    [_delegate codeRunner:_identifier messageFromStdErr:msg];
+}
+
+
+//#pragma mark -
+//#pragma mark NSStreamDelegate
+//
+//- (void)stream:(NSStream *)stream handleEvent:(NSStreamEvent)evtCode {
+//    if (NSStreamEventHasBytesAvailable == evtCode) {
+//        NSString *msg = [[[NSString alloc] initWithData:[stream propertyForKey:NSStreamDataWrittenToMemoryStreamKey] encoding:NSUTF8StringEncoding] autorelease];
+//        
+//        TDAssert(_interp);
+//        TDAssert(_delegate);
+//        if (stream == _interp.stdOut) {
+//            [_delegate codeRunner:_identifier messageFromStdOut:msg];
+//        } else {
+//            TDAssert(stream == _interp.stdErr);
+//            [_delegate codeRunner:_identifier messageFromStdErr:msg];
+//        }
+//    }
+//}
 
 @end
