@@ -236,6 +236,10 @@ static NSDictionary *sValueAttrs = nil;
     [super handleUserCommand:cmd];
     EDAssert(_delegate)
     [_delegate console:self userIssuedCommand:cmd];
+    
+    [self append:@"\n"];
+    [self append:self.prompts[0]];
+    [self append:@" "];
 }
 
 

@@ -48,8 +48,7 @@
 #import "NSString+EDAdditions.h"
 #import "NSString+Score.h"
 
-#define DEBUGGER_PROMPT @"(Pdb)"
-#define DEBUG_INFO_SEP @"___SEP___"
+#define DEBUGGER_PROMPT @">"
 
 #define MIN_SCORE 0.5
 #define FUZZINESS 0.9
@@ -1168,11 +1167,12 @@
 }
 
 
-- (void)codeRunner:(NSString *)identifier messageFromStdout:(NSString *)inMsg {
+- (void)codeRunner:(NSString *)identifier messageFromStdout:(NSString *)msg {
     EDAssert([identifier isEqualToString:self.identifier]);
     EDAssertMainThread();
-    EDAssert(inMsg);
+    EDAssert(msg);
     
+    [_consoleViewController append:msg];
 }
 
 
