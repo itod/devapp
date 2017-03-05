@@ -28,8 +28,8 @@
 - (void)codeRunner:(NSString *)identifier didSucceed:(NSDictionary *)info;
 - (void)codeRunner:(NSString *)identifier didFail:(NSDictionary *)info;
 
-- (void)codeRunner:(NSString *)identifier messageFromStdout:(NSString *)msg;
-- (void)codeRunner:(NSString *)identifier messageFromStderr:(NSString *)msg;
+- (void)codeRunner:(NSString *)identifier messageFromStdOut:(NSString *)msg;
+- (void)codeRunner:(NSString *)identifier messageFromStdErr:(NSString *)msg;
 @end
 
 @protocol EDCodeRunner <NSObject>

@@ -309,6 +309,12 @@ void PerformOnMainThread(void (^block)(void)) {
     });
     
     self.interp = [[[XPInterpreter alloc] init] autorelease];
+    _interp.stdOut = [NSOutputStream outputStreamToMemory];
+    _interp.stdOut.delegate = self;
+    [_interp.stdOut open];
+    
+    //_interp.stdErr = [NSOutputStream outputStreamToMemory];
+    //_interp.stdErr.delegate = self;
     
     if (_debugSync) {
         _interp.debug = YES;
@@ -347,6 +353,25 @@ void PerformOnMainThread(void (^block)(void)) {
 - (void)interpreter:(XPInterpreter *)i didFail:(NSMutableDictionary *)debugInfo {
     TDAssertExecuteThread();
     [self didFail:debugInfo];
+}
+
+
+#pragma mark -
+#pragma mark NSStreamDelegate
+
+- (void)stream:(NSStream *)stream handleEvent:(NSStreamEvent)evtCode {
+    if (NSStreamEventHasBytesAvailable == evtCode) {
+        NSString *msg = [[[NSString alloc] initWithData:[stream propertyForKey:NSStreamDataWrittenToMemoryStreamKey] encoding:NSUTF8StringEncoding] autorelease];
+        
+        TDAssert(_interp);
+        TDAssert(_delegate);
+        if (stream == _interp.stdOut) {
+            [_delegate codeRunner:_identifier messageFromStdOut:msg];
+        } else {
+            TDAssert(stream == _interp.stdErr);
+            [_delegate codeRunner:_identifier messageFromStdErr:msg];
+        }
+    }
 }
 
 @end

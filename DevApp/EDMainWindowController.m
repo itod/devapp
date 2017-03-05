@@ -1167,7 +1167,7 @@
 }
 
 
-- (void)codeRunner:(NSString *)identifier messageFromStdout:(NSString *)msg {
+- (void)codeRunner:(NSString *)identifier messageFromStdOut:(NSString *)msg {
     EDAssert([identifier isEqualToString:self.identifier]);
     EDAssertMainThread();
     EDAssert(msg);
@@ -1176,7 +1176,7 @@
 }
 
 
-- (void)codeRunner:(NSString *)identifier messageFromStderr:(NSString *)msg {
+- (void)codeRunner:(NSString *)identifier messageFromStdErr:(NSString *)msg {
     EDAssert([identifier isEqualToString:self.identifier]);
     EDAssertMainThread();
     EDAssert(msg);
