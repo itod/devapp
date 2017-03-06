@@ -13,6 +13,7 @@
 #import "EDFileLocation.h"
 #import <TDAppKit/TDTabBarItem.h>
 #import <TDAppKit/TDUtils.h>
+#import <Language/XPStackFrame.h>
 
 static NSDictionary *sAttrsTab = nil;
 static NSDictionary *sDisAttrsTab = nil;
@@ -185,24 +186,22 @@ static NSRegularExpression *sRegex = nil;
 #pragma mark -
 #pragma mark Public
 
-- (void)displayDebugInfo:(NSArray *)inInfo {
+- (void)displayFrameStack:(NSArray *)stack {
     EDAssertMainThread();
-    //EDAssert([inInfo count]); // is this correct?
-    if (![inInfo count]) return;
+    if (![stack count]) return;
     
     NSString *srcDirPath = [_delegate sourceDirPathForStackTraceViewController:self];
     EDAssert([srcDirPath length]);
     
-    NSMutableArray *vec = [NSMutableArray arrayWithCapacity:[inInfo count]];
+    NSMutableArray *vec = [NSMutableArray arrayWithCapacity:[stack count]];
     
     NSUInteger idx = 0;
-    for (NSString *inStr in inInfo) {
+    for (XPStackFrame *frame in stack) {
         NSMutableDictionary *d = [NSMutableDictionary dictionaryWithCapacity:3];
         
-        NSRange r = NSMakeRange(0, [inStr length]);
-        NSString *absPath = [sRegex stringByReplacingMatchesInString:inStr options:0 range:r withTemplate:@"$2"]; // $2 == /Users/itod/Library/Application Support/Schwartz/Resources/Sample/source/main.py
-        NSString *funcName = [sRegex stringByReplacingMatchesInString:inStr options:0 range:r withTemplate:@"$4"]; // $4 == function
-        NSString *lineNumStr = [sRegex stringByReplacingMatchesInString:inStr options:0 range:r withTemplate:@"$3"]; // $3 == line number
+        NSString *absPath = frame.filePath;
+        NSString *funcName = frame.functionName;
+        NSString *lineNumStr = @"TODO";
 
         EDAssert([absPath length]);
         EDAssert([funcName length]);
@@ -212,9 +211,9 @@ static NSRegularExpression *sRegex = nil;
         
         d[@"absPath"] = absPath;
         d[@"displayPath"] = [absPath stringByAbbreviatingWithTildeInPath];
-        d[@"lineNum"] = lineNumStr;
+        d[@"lineNumber"] = lineNumStr;
         d[@"funcName"] = funcName;
-        d[@"enabled"] = [absPath hasPrefix:srcDirPath] ? @(YES) : @(NO);
+        d[@"enabled"] = [absPath hasPrefix:srcDirPath] ? @YES : @NO;
         d[@"index"] = [NSString stringWithFormat:@"%lu", idx++];
         
         [vec addObject:d];
@@ -318,7 +317,7 @@ static NSRegularExpression *sRegex = nil;
 
     if ([item[@"enabled"] boolValue]) {
         NSString *absPath = item[@"absPath"];
-        NSUInteger lineNum = [item[@"lineNum"] integerValue];
+        NSUInteger lineNum = [item[@"lineNumber"] integerValue];
         NSUInteger idx = [item[@"index"] integerValue];
         
         EDFileLocation *fileLoc = [EDFileLocation fileLocationWithURLString:absPath lineNumber:lineNum];

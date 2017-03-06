@@ -131,7 +131,7 @@ void PerformOnMainThread(void (^block)(void)) {
             
             if (!srcStr) {
                 id info = [[@{kEDCodeRunnerErrorKey: err, kEDCodeRunnerDoneKey: @YES} mutableCopy] autorelease];
-                [self didFail:info];
+                [self fireDelegateDidFail:info];
                 return;
             }
 

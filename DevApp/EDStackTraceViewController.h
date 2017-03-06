@@ -22,6 +22,6 @@
 
 @property (nonatomic, retain) IBOutlet NSOutlineView *outlineView;
 
-- (void)displayDebugInfo:(NSArray *)info;
+- (void)displayFrameStack:(NSArray *)stack;
 - (void)clearDebugInfo;
 @end

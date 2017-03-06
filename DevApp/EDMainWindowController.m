@@ -1221,7 +1221,7 @@
     
     // update stack trace view
     {
-        //[_stackTraceViewController displayDebugInfo:nil];
+        [_stackTraceViewController displayFrameStack:frameStack];
     }
 }
 
