@@ -847,21 +847,26 @@
 }
 
 
-- (NSArray *)allEnabledBreakpointsPlist {
+- (NSDictionary *)allEnabledBreakpointsPlist {
     NSArray *bps = [[[self document] breakpoints] allBreakpoints];
+    NSString *srcDirPath = [self sourceDirPath];
 
     NSUInteger c = [bps count];
-    NSMutableArray *bpPlist = nil;
+    NSMutableArray *all = nil;
     
     if (c) {
-        bpPlist = [NSMutableArray arrayWithCapacity:c];
+        all = [NSMutableArray arrayWithCapacity:c];
         
         for (XPBreakpoint *bp in bps) {
-            if (bp.enabled) [bpPlist addObject:[bp asPlist]];
+            if (bp.enabled) {
+                NSMutableDictionary *plist = [bp asPlist];
+                plist[@"file"] = [NSString stringWithFormat:@"%@%@", srcDirPath, bp.file];
+                [all addObject:plist];
+            }
         }
     }
     
-    return bpPlist;
+    return @{@"all": all};
 }
 
 
@@ -2055,10 +2060,9 @@
 
         BOOL bpEnabled = doc.breakpointsEnabled;
 
-        XPBreakpointCollection *bpColl = [doc breakpoints];
-//        NSArray *bpPlist = nil;
-//        if (bpEnabled) bpPlist = [self allEnabledBreakpointsPlist];
-//        EDAssert(bpEnabled || !bpPlist);
+        id bpPlist = nil;
+        if (bpEnabled) bpPlist = [self allEnabledBreakpointsPlist];
+        EDAssert(bpEnabled || !bpPlist);
 
         EDRunAction *runAction = doc.selectedTarget.scheme.runAction;
         
@@ -2071,7 +2075,7 @@
         NSString *identifier = self.identifier;
         
         self.codeRunner = [[[EDMemoryCodeRunner alloc] initWithDelegate:self] autorelease];
-        [_codeRunner run:cmd inWorkingDirectory:srcDirPath exePath:nil env:envVarsTab breakpointsEnabled:bpEnabled breakpoints:bpColl identifier:identifier];
+        [_codeRunner run:cmd inWorkingDirectory:srcDirPath exePath:nil env:envVarsTab breakpointsEnabled:bpEnabled breakpoints:bpPlist identifier:identifier];
     });
 }
 
@@ -2594,8 +2598,7 @@
 
 
 - (NSString *)filePathForGutterView:(OKGutterView *)gv {
-    //NSString *path = self.selectedTabModel.URLString;
-    NSString *path = [self absolutePathForTabModel:self.selectedTabModel]; // should i do this instead??? vorsichtig!
+    NSString *path = self.selectedTabModel.URLString;
     return path;
 }
 

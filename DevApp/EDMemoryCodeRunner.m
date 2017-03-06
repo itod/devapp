@@ -77,16 +77,8 @@ void PerformOnMainThread(void (^block)(void)) {
 }
 
 
-// remove??
-//- (void)setAllBreakpoints:(NSArray *)bpPlist identifier:(NSString *)identifier {
-////    _interp.breakpointCollection = [XPBreakpointCollection fromPlist:bpPlist];
-//}
-
-
-- (void)setBreakpointsCollection:(XPBreakpointCollection *)bpColl identifier:(NSString *)identifier {
-    TDAssert(_interp);
-    
-    _interp.breakpointCollection = bpColl;
+- (void)setAllBreakpoints:(id)bpPlist identifier:(NSString *)identifier {
+    _interp.breakpointCollection = [XPBreakpointCollection fromPlist:bpPlist];
 }
 
 
@@ -95,7 +87,7 @@ void PerformOnMainThread(void (^block)(void)) {
 }
 
 
-- (void)run:(NSString *)userCmd inWorkingDirectory:(NSString *)workingDir exePath:(NSString *)exePath env:(NSDictionary *)envVars breakpointsEnabled:(BOOL)bpEnabled breakpoints:(XPBreakpointCollection *)bpColl identifier:(NSString *)identifier {
+- (void)run:(NSString *)userCmd inWorkingDirectory:(NSString *)workingDir exePath:(NSString *)exePath env:(NSDictionary *)envVars breakpointsEnabled:(BOOL)bpEnabled breakpoints:(id)bpPlist identifier:(NSString *)identifier {
     TDAssertMainThread();
     TDAssert(userCmd);
     TDAssert(workingDir);
@@ -138,12 +130,12 @@ void PerformOnMainThread(void (^block)(void)) {
             NSString *srcStr = [NSString stringWithContentsOfFile:userCmd encoding:NSUTF8StringEncoding error:&err];
             
             if (!srcStr) {
-                id info = @{kEDCodeRunnerErrorKey: err, kEDCodeRunnerDoneKey: @YES};
+                id info = [[@{kEDCodeRunnerErrorKey: err, kEDCodeRunnerDoneKey: @YES} mutableCopy] autorelease];
                 [self didFail:info];
                 return;
             }
 
-            [self doRun:srcStr filePath:userCmd breakpoints:bpColl];
+            [self doRun:srcStr filePath:userCmd breakpoints:bpPlist];
         });
         
         if (bpEnabled) {
@@ -274,7 +266,13 @@ void PerformOnMainThread(void (^block)(void)) {
     TDAssert(_interp);
     
     NSRange wsRange = [cmd rangeOfCharacterFromSet:[NSCharacterSet whitespaceCharacterSet]];
-    NSString *prefix = [cmd substringWithRange:NSMakeRange(0, wsRange.location)];
+    NSString *prefix = nil;
+    
+    if (NSNotFound == wsRange.location) {
+        prefix = cmd;
+    } else {
+        prefix = [cmd substringWithRange:NSMakeRange(0, wsRange.location)];
+    }
     
     if ([@"c" isEqualToString:prefix] || [@"continue" isEqualToString:prefix]) {
         [_interp cont];
@@ -318,7 +316,7 @@ void PerformOnMainThread(void (^block)(void)) {
 }
 
 
-- (void)doRun:(NSString *)srcStr filePath:(NSString *)path breakpoints:(XPBreakpointCollection *)bpColl {
+- (void)doRun:(NSString *)srcStr filePath:(NSString *)path breakpoints:(id)bpPlist {
     // only called on EXECUTE-THREAD
     TDAssertExecuteThread();
     
@@ -336,7 +334,7 @@ void PerformOnMainThread(void (^block)(void)) {
     if (_debugSync) {
         _interp.debug = YES;
         _interp.debugDelegate = self;
-        _interp.breakpointCollection = bpColl;
+        _interp.breakpointCollection = [XPBreakpointCollection fromPlist:bpPlist];
     }
     
     BOOL success = NO;
