@@ -200,7 +200,7 @@ void PerformOnMainThread(void (^block)(void)) {
 
 
 - (void)fireDelegateDidPause:(NSMutableDictionary *)info {
-    // only called on CONTROL-THREAD
+    // called on CONTROL-THREAD
     TDAssertControlThread();
     
     PerformOnMainThread(^{
@@ -212,8 +212,8 @@ void PerformOnMainThread(void (^block)(void)) {
 
 
 - (void)fireDelegateDidSucceed:(NSMutableDictionary *)info {
-    // only called on CONTROL-THREAD
-    TDAssertControlThread();
+    // called on CONTROL-THREAD or EXECUTE-THREAD
+    TDAssertNotMainThread();
     
     PerformOnMainThread(^{
         TDAssert(self.delegate);
@@ -224,8 +224,8 @@ void PerformOnMainThread(void (^block)(void)) {
 
 
 - (void)fireDelegateDidFail:(NSMutableDictionary *)info {
-    // only called on CONTROL-THREAD
-    TDAssertControlThread();
+    // called on CONTROL-THREAD or EXECUTE-THREAD
+    TDAssertNotMainThread();
     
     PerformOnMainThread(^{
         TDAssert(self.delegate);
@@ -294,26 +294,26 @@ void PerformOnMainThread(void (^block)(void)) {
 }
 
 
-- (void)didSucceed:(NSMutableDictionary *)info {
-    // only called on EXECUTE-THREAD
-    TDAssertExecuteThread();
-    TDAssert(info);
-    
-    info[kEDCodeRunnerDoneKey] = @YES;
-    
-    [self.debugSync pauseWithInfo:info];
-}
-
-
-- (void)didFail:(NSMutableDictionary *)info {
-    // only called on EXECUTE-THREAD
-    TDAssertExecuteThread();
-    TDAssert(info);
-    
-    info[kEDCodeRunnerDoneKey] = @YES;
-
-    [self.debugSync pauseWithInfo:info];
-}
+//- (void)didSucceed:(NSMutableDictionary *)info {
+//    // only called on EXECUTE-THREAD
+//    TDAssertExecuteThread();
+//    TDAssert(info);
+//    
+//    info[kEDCodeRunnerDoneKey] = @YES;
+//    
+//    [self.debugSync pauseWithInfo:info];
+//}
+//
+//
+//- (void)didFail:(NSMutableDictionary *)info {
+//    // only called on EXECUTE-THREAD
+//    TDAssertExecuteThread();
+//    TDAssert(info);
+//    
+//    info[kEDCodeRunnerDoneKey] = @YES;
+//
+//    [self.debugSync pauseWithInfo:info];
+//}
 
 
 - (void)doRun:(NSString *)srcStr filePath:(NSString *)path breakpoints:(id)bpPlist {
@@ -343,9 +343,9 @@ void PerformOnMainThread(void (^block)(void)) {
     success = [_interp interpretString:srcStr filePath:path error:&err];
     
     if (success) {
-        [self didSucceed:[[@{kEDCodeRunnerReturnCodeKey:@0, kEDCodeRunnerDoneKey:@YES} mutableCopy] autorelease]];
+        [self fireDelegateDidSucceed:[[@{kEDCodeRunnerReturnCodeKey:@0, kEDCodeRunnerDoneKey:@YES} mutableCopy] autorelease]];
     } else {
-        [self didFail:[[@{kEDCodeRunnerReturnCodeKey:@1, kEDCodeRunnerDoneKey:@YES, kEDCodeRunnerErrorKey:err} mutableCopy] autorelease]];
+        [self fireDelegateDidFail:[[@{kEDCodeRunnerReturnCodeKey:@1, kEDCodeRunnerDoneKey:@YES, kEDCodeRunnerErrorKey:err} mutableCopy] autorelease]];
     }
 }
 
@@ -359,15 +359,15 @@ void PerformOnMainThread(void (^block)(void)) {
 }
 
 
-- (void)interpreter:(XPInterpreter *)i didFinish:(NSMutableDictionary *)debugInfo {
-    TDAssertExecuteThread();
-    [self didSucceed:debugInfo];
-}
-
-
-- (void)interpreter:(XPInterpreter *)i didFail:(NSMutableDictionary *)debugInfo {
-    TDAssertExecuteThread();
-    [self didFail:debugInfo];
-}
+//- (void)interpreter:(XPInterpreter *)i didFinish:(NSMutableDictionary *)debugInfo {
+//    TDAssertExecuteThread();
+//    [self didSucceed:debugInfo];
+//}
+//
+//
+//- (void)interpreter:(XPInterpreter *)i didFail:(NSMutableDictionary *)debugInfo {
+//    TDAssertExecuteThread();
+//    [self didFail:debugInfo];
+//}
 
 @end

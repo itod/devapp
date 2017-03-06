@@ -2629,14 +2629,13 @@
 
 - (void)breakpointsDidChange:(NSNotification *)n {
     if (_codeRunner) {
-//        NSArray *bpPlist = nil;
-//        
-//        if ([[self document] breakpointsEnabled]) {
-//            bpPlist = [self allEnabledBreakpointsPlist];
-//        }
-//        
-//        [_codeRunner setAllBreakpoints:bpPlist identifier:self.identifier];
-        [_codeRunner setBreakpointsCollection:[[self document] breakpoints] identifier:self.identifier];
+        NSArray *bpPlist = nil;
+        
+        if ([[self document] breakpointsEnabled]) {
+            bpPlist = [self allEnabledBreakpointsPlist];
+        }
+        
+        [_codeRunner setAllBreakpoints:bpPlist identifier:self.identifier];
     }
 
     TKTabModel *tm = self.selectedTabModel;
