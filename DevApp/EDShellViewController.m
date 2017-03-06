@@ -200,6 +200,11 @@
 }
 
 
+- (void)appendNewLine {
+    [self append:@"\n"];
+}
+
+
 - (void)handleUserCommand:(NSString *)cmd {
     EDAssert(_history);
     EDAssert(cmd);
@@ -212,6 +217,8 @@
     
     // just double-check that the autocomplete list window is dismissed. I've seen this left behind before.
     [_sourceViewController.textView removeListWindow];
+    
+    [self appendNewLine];
 }
 
 

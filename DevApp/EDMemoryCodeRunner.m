@@ -238,18 +238,18 @@ void PerformOnMainThread(void (^block)(void)) {
 #pragma mark -
 #pragma mark Private EXECUTE-THREAD
 
-- (void)didPause:(NSMutableDictionary *)info {
+- (void)didPause:(NSMutableDictionary *)inInfo {
     // only called on EXECUTE-THREAD
     TDAssertExecuteThread();
-    TDAssert(info);
+    TDAssert(inInfo);
     
-    info[kEDCodeRunnerDoneKey] = @NO;
+    inInfo[kEDCodeRunnerDoneKey] = @NO;
     
     TDAssert(_debugSync);
-    [_debugSync pauseWithInfo:info];
-    info = [_debugSync awaitResume];
+    [_debugSync pauseWithInfo:inInfo];
+    NSMutableDictionary *outInfo = [_debugSync awaitResume];
     
-    BOOL done = [info[kEDCodeRunnerDoneKey] boolValue];
+    BOOL done = [outInfo[kEDCodeRunnerDoneKey] boolValue];
     
     if (done) {
         TDAssert(0); // is this reached????
@@ -257,7 +257,7 @@ void PerformOnMainThread(void (^block)(void)) {
         return;
     }
     
-    NSMutableString *cmd = [[info[kEDCodeRunnerUserCommandKey] mutableCopy] autorelease];
+    NSMutableString *cmd = [[outInfo[kEDCodeRunnerUserCommandKey] mutableCopy] autorelease];
     TDAssert([cmd length]);
     
     CFStringTrimWhitespace((CFMutableStringRef)cmd);
@@ -280,17 +280,17 @@ void PerformOnMainThread(void (^block)(void)) {
         [_interp stepIn];
     } else if ([@"n" isEqualToString:prefix] || [@"next" isEqualToString:prefix]) {
         [_interp stepOver];
-    } else if ([@"r" isEqualToString:prefix] | [@"return" isEqualToString:prefix]) {
+    } else if ([@"r" isEqualToString:prefix] || [@"return" isEqualToString:prefix] || [@"fin" isEqualToString:prefix] || [@"finish" isEqualToString:prefix]) {
         [_interp finish];
-    } else if ([@"p" isEqualToString:prefix] || [@"print" isEqualToString:prefix]) {
+    } else if ([@"p" isEqualToString:prefix] || [@"po" isEqualToString:prefix] || [@"print" isEqualToString:prefix]) {
         if (wsRange.length && [cmd length] > NSMaxRange(wsRange)) {
             NSString *suffix = [cmd substringFromIndex:NSMaxRange(wsRange)];
             [_interp print:suffix];
         }
+        [self didPause:inInfo];
     } else {
         TDAssert(0);
     }
-
 }
 
 
