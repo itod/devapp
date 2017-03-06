@@ -12,6 +12,7 @@
 #import "EDMainWindowController.h"
 #import "EDThemeManager.h"
 #import "EDTheme.h"
+#import "EDHistory.h"
 #import <OkudaKit/OKTextView.h>
 #import <IDEKit/IDEUberView.h>
 #import <TDAppKit/TDUtils.h>
@@ -234,6 +235,10 @@ static NSDictionary *sValueAttrs = nil;
 - (void)handleUserCommand:(NSString *)cmd {
     [super handleUserCommand:cmd];
     EDAssert(_delegate)
+    
+    if (![cmd length]) {
+        cmd = [self.history current];
+    }
     [_delegate console:self userIssuedCommand:cmd];
 }
 
