@@ -148,12 +148,13 @@
     NSRange promptRangeInLastLine = [self rangeOfPromptInLine:lastLine];
     if (0 == promptRangeInLastLine.location) {
         EDAssert(promptRangeInLastLine.length);
-        NSUInteger loc = lastLineRange.location + NSMaxRange(promptRangeInLastLine);
+        NSUInteger loc = lastLineRange.location;// + NSMaxRange(promptRangeInLastLine);
         NSUInteger len = NSMaxRange(lastLineRange) - loc;
         NSRange delRange = NSMakeRange(loc, len);
         
         EDAssert(NSNotFound != delRange.location);
         EDAssert(NSNotFound != delRange.length);
+        EDAssert(0 != delRange.length);
         EDAssert(NSMaxRange(delRange) <= [[_textView textStorage] length]);
         
         [[_textView textStorage] replaceCharactersInRange:delRange withString:@""];

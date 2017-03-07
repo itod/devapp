@@ -1180,6 +1180,7 @@
     EDAssertMainThread();
     EDAssert(msg);
     
+    [_consoleViewController clearPrompt];
     [_consoleViewController append:msg];
 }
 
@@ -1189,8 +1190,8 @@
     EDAssertMainThread();
     EDAssert(msg);
     
+    [_consoleViewController clearPrompt];
     [_consoleViewController append:msg];
-    self.busy = NO;
 }
 
 

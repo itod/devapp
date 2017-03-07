@@ -191,7 +191,8 @@ static NSRegularExpression *sRegex = nil;
     if (![stack count]) return;
     
     NSString *srcDirPath = [_delegate sourceDirPathForStackTraceViewController:self];
-    EDAssert([srcDirPath length]);
+    NSUInteger prefixLen = [srcDirPath length];
+    EDAssert(prefixLen);
     
     NSMutableArray *vec = [NSMutableArray arrayWithCapacity:[stack count]];
     
@@ -199,9 +200,9 @@ static NSRegularExpression *sRegex = nil;
     for (XPStackFrame *frame in stack) {
         NSMutableDictionary *d = [NSMutableDictionary dictionaryWithCapacity:3];
         
-        NSString *absPath = frame.filePath;
+        NSString *absPath = [frame.filePath substringFromIndex:prefixLen];
         NSString *funcName = frame.functionName;
-        NSString *lineNumStr = frame.lineNumber;
+        NSString *lineNumStr = [NSString stringWithFormat:@"%ld", frame.lineNumber];
 
         EDAssert([absPath length]);
         EDAssert([funcName length]);
@@ -213,7 +214,7 @@ static NSRegularExpression *sRegex = nil;
         d[@"displayPath"] = [absPath stringByAbbreviatingWithTildeInPath];
         d[@"lineNumber"] = lineNumStr;
         d[@"funcName"] = funcName;
-        d[@"enabled"] = [absPath hasPrefix:srcDirPath] ? @YES : @NO;
+        d[@"enabled"] = [frame.filePath hasPrefix:srcDirPath] ? @YES : @NO;
         d[@"index"] = [NSString stringWithFormat:@"%lu", idx++];
         
         [vec addObject:d];

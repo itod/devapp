@@ -68,7 +68,7 @@
 #define DOC_ICON_NAME @"DocIcon"
 #define EDProjectSettingsURL @"devapp://Project Settings"
 
-#define MAX_NUM_BREAKPOINTS 3
+#define MAX_NUM_BREAKPOINTS 10000
 
 #define LICENSE_EXT @"devaplicense"
 

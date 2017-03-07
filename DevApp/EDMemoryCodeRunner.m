@@ -289,6 +289,11 @@ void PerformOnMainThread(void (^block)(void)) {
         }
         [self didPause:inInfo];
     } else {
+        if ([prefix length]) {
+            [_interp print:prefix];
+        }
+        [self didPause:inInfo];
+    } else {
         TDAssert(0);
     }
 }
