@@ -346,13 +346,6 @@ NSString * const EDCompositionGridToleranceDidChangeNotification = @"EDCompositi
     [[NSUserDefaults standardUserDefaults] setObject:str forKey:kEDExcludeFilePatternStringKey];
 }
 
-- (NSString *)defaultSourceDirName {
-    return [[NSUserDefaults standardUserDefaults] objectForKey:kEDDefaultSourceDirNameKey];
-}
-- (void)setDefaultSourceDirName:(NSString *)str {
-    [[NSUserDefaults standardUserDefaults] setObject:str forKey:kEDDefaultSourceDirNameKey];
-}
-
 - (NSString *)defaultFontFamily {
     return [[NSUserDefaults standardUserDefaults] objectForKey:kEDDefaultFontFamilyKey];
 }

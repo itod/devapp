@@ -10,6 +10,7 @@
 #import "EDUserDefaults.h"
 #import "EDNewProjectParams.h"
 #import <TDAppKit/TDColorView.h>
+#import <TDAppKit/TDUtils.h>
 
 @interface EDProjectWindowController ()
 - (void)endSheet:(NSInteger)code;
@@ -39,12 +40,12 @@
     self.imageContainerView = nil;
     self.dimImageView = nil;
     self.formContainerView = nil;
-    
-    self.projParams = nil;
+
     self.nameContainerView = nil;
     self.nameTextField = nil;
-
     self.okButton = nil;
+
+    self.projParams = nil;
 
     [super dealloc];
 }
@@ -66,17 +67,16 @@
     
     _formContainerView.color = [NSColor windowBackgroundColor];
     
-    NSTextField *firstResp = nil;
-    NSString *ok = nil;
-    
-    firstResp = _nameTextField;
-    ok = NSLocalizedString(@"Next…", @"");
     [_dimImageView setAlphaValue:0.1];
     
+    NSString *ok = NSLocalizedString(@"Next…", @"");
     [_okButton setTitle:ok];
     
-    EDAssert(firstResp);
-    [[self window] makeFirstResponder:firstResp];
+    [[_nameTextField currentEditor] setSelectedRange:NSMakeRange(0, 0)];
+
+    TDPerformOnMainThread(^{
+        [[_nameTextField currentEditor] moveToBeginningOfLine:nil];
+    });
 }
 
 

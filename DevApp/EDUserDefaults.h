@@ -52,7 +52,6 @@
 #define kEDFindInProjectWrapAroundKey @"EDFindInProjectWrapAround"
 
 #define kEDExcludeFilePatternStringKey @"EDExcludeFilePatternString"
-#define kEDDefaultSourceDirNameKey @"EDDefaultSourceDirName"
 
 #define kEDDefaultFontFamilyKey @"OKDefaultFontFamily"
 #define kEDDefaultFontSizeKey @"OKDefaultFontSize"
@@ -150,7 +149,6 @@ extern NSString * const EDCompositionGridToleranceDidChangeNotification;
 
 @property (nonatomic, copy) NSString *excludeFilePatternString;
 @property (nonatomic, copy, readonly) NSArray *excludeFilePatterns;
-@property (nonatomic, copy) NSString *defaultSourceDirName;
 
 @property (nonatomic, copy) NSString *defaultFontFamily;
 @property (nonatomic, assign) CGFloat defaultFontSize;

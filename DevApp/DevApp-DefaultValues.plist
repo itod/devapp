@@ -48,8 +48,6 @@
 	<false/>
 	<key>EDExcludeFilePatternString</key>
 	<string>*.pyc,*.o,__pycache__</string>
-	<key>EDDefaultSourceDirName</key>
-	<string>source</string>
 	<key>EDEnvironmentVariables</key>
 	<array>
 		<dict>

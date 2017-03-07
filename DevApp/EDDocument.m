@@ -37,8 +37,6 @@
         _breakpoints = [[XPBreakpointCollection alloc] init];
         _breakpointsEnabled = NO;
         
-        _sourceDirName = [[[EDUserDefaults instance] defaultSourceDirName] copy];
-
         EDTarget *target = [[[EDTarget alloc] init] autorelease];
         target.name = @"Default"; // TODO
         _targets = [[NSArray alloc] initWithObjects:target, nil];
@@ -54,7 +52,6 @@
 
 - (void)dealloc {
     self.breakpoints = nil;
-    self.sourceDirName = nil;
     self.targets = nil;
     self.selectedTargetName = nil;
     
@@ -209,6 +206,26 @@
     NSData *projPlistData = [self projPlistDataOfType:typeName error:outErr]; // type name ???
     [wrap addRegularFileWithContents:projPlistData preferredFilename:PROJ_PLIST_NAME];
 
+    // add source dir
+    NSFileWrapper *srcDirWrap = [wrapTab objectForKey:SRC_DIR_NAME];
+    if (!srcDirWrap) {
+        // load main.js
+        NSString *mainFilePath = [[NSBundle mainBundle] pathForResource:MAIN_FILE_BASE ofType:MAIN_FILE_EXT];
+        TDAssert([mainFilePath length]);
+        NSData *mainFileData = [NSData dataWithContentsOfFile:mainFilePath options:0 error:nil];
+        TDAssert(mainFileData);
+        
+        // create src dir
+        srcDirWrap = [[[NSFileWrapper alloc] initDirectoryWithFileWrappers:@{}] autorelease];
+        srcDirWrap.preferredFilename = SRC_DIR_NAME;
+        
+        // add main.js
+        [srcDirWrap addRegularFileWithContents:mainFileData preferredFilename:MAIN_FILE_NAME];
+        
+        // add src dir
+        [wrap addFileWrapper:srcDirWrap];
+    }
+
     return wrap;
 }
 
@@ -260,9 +277,6 @@
     dict[@"breakpoints"] = [_breakpoints asPlist];
     dict[@"breakpointsEnabled"] = @(_breakpointsEnabled);
     
-    EDAssert([_sourceDirName length]);
-    dict[@"sourceDirName"] = _sourceDirName;
-    
     NSMutableArray *targets = [NSMutableArray arrayWithCapacity:[_targets count]];
     for (EDTarget *t in _targets) {
         [targets addObject:[t asPlist]];
@@ -290,12 +304,6 @@
 
     _breakpointsEnabled = [dict[@"breakpointsEnabled"] boolValue];
         
-    [_sourceDirName release];
-    _sourceDirName = [dict[@"sourceDirName"] copy];
-    if (!_sourceDirName) {
-        _sourceDirName = [@"source" copy]; // backwards compat support for pre-0.2
-    }
-    
     [_targets release];
     NSMutableArray *targets = [NSMutableArray array];
     for (NSDictionary *d in dict[@"targets"]) {

@@ -23,7 +23,6 @@
 @property (nonatomic, retain) XPBreakpointCollection *breakpoints;
 @property (nonatomic, assign) BOOL breakpointsEnabled;
 
-@property (nonatomic, copy) NSString *sourceDirName;
 @property (nonatomic, retain) NSArray *targets;
 @property (nonatomic, copy) NSString *selectedTargetName;
 @property (nonatomic, retain, readonly) EDTarget *selectedTarget;

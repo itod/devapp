@@ -10,6 +10,15 @@
 
 @implementation EDNewProjectParams
 
+- (instancetype)init {
+    self = [super init];
+    if (self) {
+        self.name = @".devapp";
+    }
+    return self;
+}
+
+
 - (void)dealloc {
     self.name = nil;
     [super dealloc];

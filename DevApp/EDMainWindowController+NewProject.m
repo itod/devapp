@@ -166,26 +166,26 @@
 - (void)createProjectAtPath:(NSString *)dirPath {
     EDAssertMainThread();
     
-    if ([self saveProjectToDirectory:dirPath]) {
+    if ([self saveProjectToPath:dirPath]) {
         //EDNewProjectParams *params = self.projectWindowController.projParams;
         [self orderOutNewProjectSheet:NO];
     }
 }
 
 
-- (BOOL)saveProjectToDirectory:(NSString *)dirPath {
+- (BOOL)saveProjectToPath:(NSString *)docFilePath {
     EDAssertMainThread();
-    EDAssert([dirPath length]);
+    EDAssert([docFilePath length]);
     
-    NSString *projName = [dirPath lastPathComponent];
+    NSString *projName = [docFilePath lastPathComponent];
     EDAssert([projName length]);
     
     NSError *err = nil;
     NSFileManager *mgr = [NSFileManager defaultManager];
     
-    if ([mgr fileExistsAtPath:dirPath]) {
+    if ([mgr fileExistsAtPath:docFilePath]) {
         
-        NSURL *furl = [NSURL fileURLWithPath:dirPath];
+        NSURL *furl = [NSURL fileURLWithPath:docFilePath];
         if (![mgr trashItemAtURL:furl resultingItemURL:nil error:&err]) {
             if (err) NSLog(@"%@", err);
             
@@ -200,63 +200,65 @@
         }
     }
     
-    EDAssert([self document]);
-    NSString *srcDirName = [[self document] sourceDirName];
+    NSString *srcDirName = SRC_DIR_NAME;
     EDAssert([srcDirName length]);
-    NSString *srcDirPath = [dirPath stringByAppendingPathComponent:srcDirName];
+    NSString *srcDirPath = [docFilePath stringByAppendingPathComponent:srcDirName];
     
-    // create proj dir & src dir in one go.
-    err = nil;
-    if (![mgr createDirectoryAtPath:srcDirPath withIntermediateDirectories:YES attributes:nil error:&err]) {
-        if (err) NSLog(@"%@", err);
-        
-        NSString *title = [NSString stringWithFormat:NSLocalizedString(@"Could not create project “%@”", @""), projName];
-        NSString *defaultBtn = NSLocalizedString(@"OK", @"");
-        NSString *altBtn = nil; //NSLocalizedString(@"Cancel", @"");
-        NSString *otherBtn = nil;
-        NSString *msg = [err localizedDescription];
-        
-        NSRunAlertPanel(title, @"%@", defaultBtn, altBtn, otherBtn, msg);
-        return NO;
-    }
+//    // create proj dir & src dir in one go.
+//    err = nil;
+//    if (![mgr createDirectoryAtPath:srcDirPath withIntermediateDirectories:YES attributes:nil error:&err]) {
+//        if (err) NSLog(@"%@", err);
+//        
+//        NSString *title = [NSString stringWithFormat:NSLocalizedString(@"Could not create project “%@”", @""), projName];
+//        NSString *defaultBtn = NSLocalizedString(@"OK", @"");
+//        NSString *altBtn = nil; //NSLocalizedString(@"Cancel", @"");
+//        NSString *otherBtn = nil;
+//        NSString *msg = [err localizedDescription];
+//        
+//        NSRunAlertPanel(title, @"%@", defaultBtn, altBtn, otherBtn, msg);
+//        return NO;
+//    }
 
-    NSString *filePath = [[dirPath stringByAppendingPathComponent:projName] stringByAppendingPathExtension:FILE_DOC_EXT];
-    NSURL *fileURL = [NSURL fileURLWithPath:filePath];
-    EDAssert(fileURL);
+//    NSString *filePath = [[docFilePath stringByAppendingPathComponent:projName] stringByAppendingPathExtension:FILE_DOC_EXT];
+    NSURL *docFileURL = [NSURL fileURLWithPath:docFilePath];
+    EDAssert(docFileURL);
     
     EDAssertMainThread();
     EDDocument *doc = [self document];
     EDAssert(doc);
     EDAssert([[doc fileType] isEqualToString:FILE_DOC_TYPE]);
     
-    NSString *mainSrcPath = [[NSBundle mainBundle] pathForResource:@"main" ofType:@"js"];
-    EDAssert([mainSrcPath length]);
-    NSString *mainDestPath = [[srcDirPath stringByAppendingPathComponent:@"main"] stringByAppendingPathExtension:@"js"];
-    EDAssert([mainDestPath length]);
-    
-    err = nil;
-    if (![mgr copyItemAtPath:mainSrcPath toPath:mainDestPath error:&err]) {
-        if (err) NSLog(@"%@", err);
-    }
-    
-    self.tempSourceDirPath = srcDirPath;
-    
-    err = nil;
-    if (![self addTabWithContentsOfURLString:mainDestPath type:EDTabModelTypeSourceCodeFile error:&err]) {
-        NSLog(@"%@", err);
-    }
-    
-    self.tempSourceDirPath = nil;
-    
     TDPerformOnMainThreadAfterDelay(0.0, ^{
         EDAssert(![doc fileURL]);
-        [doc moveToURL:fileURL completionHandler:^(NSError *err) {
+        [doc moveToURL:docFileURL completionHandler:^(NSError *err) {
             if (err) NSLog(@"%@", err);
             EDAssert([doc fileURL]);
             
+            //    NSString *mainSrcPath = [[NSBundle mainBundle] pathForResource:MAIN_FILE_BASE ofType:MAIN_FILE_EXT];
+            //    EDAssert([mainSrcPath length]);
+            NSString *mainDestPath = [srcDirPath stringByAppendingPathComponent:MAIN_FILE_NAME];
+            //    EDAssert([mainDestPath length]);
+            //
+            //    err = nil;
+            //    if (![mgr copyItemAtPath:mainSrcPath toPath:mainDestPath error:&err]) {
+            //        if (err) NSLog(@"%@", err);
+            //    }
+            
+            self.tempSourceDirPath = srcDirPath;
+            
+            err = nil;
+            if (![self addTabWithContentsOfURLString:mainDestPath type:EDTabModelTypeSourceCodeFile error:&err]) {
+                NSLog(@"%@", err);
+            }
+            
+            self.tempSourceDirPath = nil;
+
             [self navigateToSourceDir];
         }];
     });
+    
+
+
     
     return YES;
 }

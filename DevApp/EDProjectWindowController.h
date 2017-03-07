@@ -26,5 +26,6 @@
 @property (nonatomic, retain) IBOutlet NSTextField *nameTextField;
 @property (nonatomic, retain) IBOutlet NSButton *okButton;
 
+@property (nonatomic, copy) NSString *filename;
 @property (nonatomic, retain) EDNewProjectParams *projParams;
 @end

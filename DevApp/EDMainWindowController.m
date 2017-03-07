@@ -3081,11 +3081,7 @@ done:
     } else {
         NSURL *furl = [[self document] fileURL];
         if (furl) {
-            NSString *srcDirName = [[self document] sourceDirName];
-            if (![srcDirName length]) {
-                srcDirName = [[EDUserDefaults instance] defaultSourceDirName];
-            }
-            result = [[[furl relativePath] stringByDeletingLastPathComponent] stringByAppendingPathComponent:srcDirName];
+            result = [[[furl relativePath] stringByDeletingLastPathComponent] stringByAppendingPathComponent:SRC_DIR_NAME];
             EDAssert([result length]);
         }
     }
