@@ -2013,7 +2013,7 @@
     TDAssert(self.paused);
     self.paused = NO;
 
-    [self.codeRunner performCommand:@"n" identifier:self.identifier];
+    [self.codeRunner performCommand:@"r" identifier:self.identifier];
 }
 
 
