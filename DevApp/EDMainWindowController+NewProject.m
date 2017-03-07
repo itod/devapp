@@ -219,11 +219,7 @@
         NSRunAlertPanel(title, @"%@", defaultBtn, altBtn, otherBtn, msg);
         return NO;
     }
-    
-    //    err = nil;
-    //    NSDictionary *attrs = [mgr attributesOfItemAtPath:dirPath error:&err];
-    //    NSLog(@"%@", attrs);
-    
+
     NSString *filePath = [[dirPath stringByAppendingPathComponent:projName] stringByAppendingPathExtension:FILE_DOC_EXT];
     NSURL *fileURL = [NSURL fileURLWithPath:filePath];
     EDAssert(fileURL);
