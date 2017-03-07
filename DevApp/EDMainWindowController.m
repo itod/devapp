@@ -62,6 +62,7 @@
 @property (nonatomic, assign) BOOL canvasViewVisible;
 
 @property (nonatomic, assign) NSUInteger stackFrameIndex;
+@property (nonatomic, retain) NSArray *frameStack;
 
 @property (nonatomic, retain) EDFileLocation *findNextFileLocation;
 
@@ -155,6 +156,8 @@
     self.statusText = nil;
 
     self.findNextFileLocation = nil;
+    
+    self.frameStack = nil;
     
     self.codeRunner = nil;
     self.filteredData = nil;
@@ -1074,6 +1077,7 @@
     EDAssert(_stackTraceViewController);
 
     self.stackFrameIndex = 0;
+    self.frameStack = nil;
     OKViewController *okvc = self.selectedSourceViewController;
     if (okvc) [okvc highlightLineNumber:0 scrollToVisible:NO];
     [_stackTraceViewController clearDebugInfo];
@@ -1203,6 +1207,7 @@
     
     self.paused = YES;
     self.statusText = NSLocalizedString(@"Paused…", @"");
+    self.frameStack = info[XPDebugInfoFrameStackKey];
     
     // highlight in text editor
     {
@@ -1212,12 +1217,10 @@
         [self.selectedSourceViewController.textView setNeedsDisplay:YES];
     }
 
-    NSArray *frameStack = info[XPDebugInfoFrameStackKey];
-
     // update console
     {
-        TDAssert([frameStack count]);
-        XPStackFrame *frame = frameStack[0];
+        TDAssert([_frameStack count]);
+        XPStackFrame *frame = _frameStack[0];
         TDAssert(_consoleViewController);
         [_consoleViewController displayStackFrame:frame];
         
@@ -1226,7 +1229,7 @@
     
     // update stack trace view
     {
-        [_stackTraceViewController displayFrameStack:frameStack];
+        [_stackTraceViewController displayFrameStack:_frameStack];
     }
 }
 
@@ -1692,7 +1695,12 @@
     self.stackFrameIndex = idx;
     [self navigateToFileLocationInCurrentTab:fileLoc];
     [self showFindIndicatorForLineNumber:fileLoc.lineNumber];
+    
+    TDAssert(_frameStack);
+    XPStackFrame *frame = _frameStack[idx];
 
+    TDAssert(_consoleViewController);
+    [_consoleViewController displayStackFrame:frame];
 }
 
 
