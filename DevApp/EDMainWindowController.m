@@ -1182,6 +1182,7 @@
     
     [_consoleViewController clearPrompt];
     [_consoleViewController append:msg];
+    [_consoleViewController appendPrompt];
 }
 
 
@@ -1192,6 +1193,7 @@
     
     [_consoleViewController clearPrompt];
     [_consoleViewController append:msg];
+    [_consoleViewController appendPrompt];
 }
 
 
