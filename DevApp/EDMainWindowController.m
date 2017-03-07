@@ -848,14 +848,14 @@
 
 
 - (NSDictionary *)allEnabledBreakpointsPlist {
+    NSDictionary *result = nil;
     NSArray *bps = [[[self document] breakpoints] allBreakpoints];
     NSString *srcDirPath = [self sourceDirPath];
 
     NSUInteger c = [bps count];
-    NSMutableArray *all = nil;
     
     if (c) {
-        all = [NSMutableArray arrayWithCapacity:c];
+        NSMutableArray *all = [NSMutableArray arrayWithCapacity:c];
         
         for (XPBreakpoint *bp in bps) {
             if (bp.enabled) {
@@ -864,9 +864,11 @@
                 [all addObject:plist];
             }
         }
+        
+        result = @{@"all": all};
     }
     
-    return @{@"all": all};
+    return result;
 }
 
 

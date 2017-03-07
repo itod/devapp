@@ -201,7 +201,7 @@ static NSRegularExpression *sRegex = nil;
         
         NSString *absPath = frame.filePath;
         NSString *funcName = frame.functionName;
-        NSString *lineNumStr = @"TODO";
+        NSString *lineNumStr = frame.lineNumber;
 
         EDAssert([absPath length]);
         EDAssert([funcName length]);
