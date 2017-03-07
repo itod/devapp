@@ -1041,7 +1041,7 @@
             
             EDAssert(NSNotFound != scrollRange.location);
             EDAssert(NSNotFound != scrollRange.length);
-            EDAssert(NSMaxRange(scrollRange) <= [tv.string length]);
+            //EDAssert(NSMaxRange(scrollRange) <= [tv.string length]);
             [tv scrollRangeToVisibleIfHidden:scrollRange];
         }
         

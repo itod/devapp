@@ -78,7 +78,7 @@ void PerformOnMainThread(void (^block)(void)) {
 
 
 - (void)setAllBreakpoints:(id)bpPlist identifier:(NSString *)identifier {
-    _interp.breakpointCollection = [XPBreakpointCollection fromPlist:bpPlist];
+    [_interp updateBreakpoints:[XPBreakpointCollection fromPlist:bpPlist]];
 }
 
 
