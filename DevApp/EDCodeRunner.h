@@ -19,7 +19,7 @@
 
 @protocol EDCodeRunner;
 @class EDFileLocation;
-@class XPBreakpointCollection;
+@class EDBreakpointCollection;
 
 @protocol EDCodeRunnerDelegate <NSObject>
 - (void)codeRunnerDidStartup:(NSString *)identifier;

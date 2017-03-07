@@ -10,8 +10,8 @@
 #import "EDTabBarBreakpointButtonCell.h"
 #import "EDNavTabBarItem.h"
 #import "EDUtils.h"
-#import <Language/XPBreakpointCollection.h>
-#import <Language/XPBreakpoint.h>
+#import "EDBreakpointCollection.h"
+#import <OkudaKit/OKBreakpoint.h>
 #import <TDAppKit/TDUtils.h>
 #import <TDAppKit/TDTabBarItem.h>
 
@@ -119,7 +119,7 @@
     
     BOOL disable = [self selectionWantsDisable];
 
-    for (XPBreakpoint *bp in bps) {
+    for (OKBreakpoint *bp in bps) {
         bp.enabled = !disable;
     }
     
@@ -132,7 +132,7 @@
     
     NSArray *bps = [self selectedBreakpoints];
     EDAssert([bps count]);
-    for (XPBreakpoint *bp in bps) {
+    for (OKBreakpoint *bp in bps) {
         [_collection removeBreakpoint:bp];
     }
         
@@ -171,8 +171,8 @@
     
     NSUInteger row = [set firstIndex];
     while (NSNotFound != row) {
-        XPBreakpoint *bp = [_outlineView itemAtRow:row];
-        EDAssert([bp isKindOfClass:[XPBreakpoint class]]);
+        OKBreakpoint *bp = [_outlineView itemAtRow:row];
+        EDAssert([bp isKindOfClass:[OKBreakpoint class]]);
         [bps addObject:bp];
         row = [set indexGreaterThanIndex:row];
     }
@@ -181,14 +181,14 @@
 }
 
 
-- (XPBreakpoint *)selectedBreakpoint {
+- (OKBreakpoint *)selectedBreakpoint {
     EDAssertMainThread();
-    XPBreakpoint *bp = nil;
+    OKBreakpoint *bp = nil;
     
     NSInteger row = [_outlineView selectedRow];
     if (row > -1) {
         bp = [_outlineView itemAtRow:row];
-        EDAssert([bp isKindOfClass:[XPBreakpoint class]]);
+        EDAssert([bp isKindOfClass:[OKBreakpoint class]]);
     }
     
     return bp;
@@ -255,7 +255,7 @@
     } else if ([item isKindOfClass:[NSString class]]) {
         result = YES;
     } else {
-        EDAssert([item isKindOfClass:[XPBreakpoint class]]);
+        EDAssert([item isKindOfClass:[OKBreakpoint class]]);
         return NO;
     }
     
@@ -293,7 +293,7 @@
             result = nil;
         }
     } else {
-        EDAssert([item isKindOfClass:[XPBreakpoint class]]);
+        EDAssert([item isKindOfClass:[OKBreakpoint class]]);
         if (isName) {
             result = item;
         } else {
@@ -309,7 +309,7 @@
     NSString *identifier = [col identifier];
     BOOL isIcon = [identifier isEqualToString:@"icon"];
     
-    if (isIcon && [item isKindOfClass:[XPBreakpoint class]]) {
+    if (isIcon && [item isKindOfClass:[OKBreakpoint class]]) {
         [item setEnabled:[enabled boolValue]];
 
         [self fireBreakpointsDidChange];
@@ -320,14 +320,14 @@
 - (id)outlineView:(NSOutlineView *)outlineView itemForPersistentObject:(id)data {
     id item = EDPlistFromData(data, nil);
     
-    EDAssert([item isKindOfClass:[NSString class]] || [item isKindOfClass:[XPBreakpoint class]]);
+    EDAssert([item isKindOfClass:[NSString class]] || [item isKindOfClass:[OKBreakpoint class]]);
     
     return item;
 }
 
 
 - (id)outlineView:(NSOutlineView *)outlineView persistentObjectForItem:(id)item {
-    EDAssert([item isKindOfClass:[NSString class]] || [item isKindOfClass:[XPBreakpoint class]]);
+    EDAssert([item isKindOfClass:[NSString class]] || [item isKindOfClass:[OKBreakpoint class]]);
 
     NSData *data = nil;
     if ([item isKindOfClass:[NSString class]]) {
@@ -350,7 +350,7 @@
     
     BOOL result = NO;
     NSString *path = nil;
-    if ([item isKindOfClass:[XPBreakpoint class]]) {
+    if ([item isKindOfClass:[OKBreakpoint class]]) {
         path = [item file];
         result = YES;
 
@@ -386,7 +386,7 @@
     NSArray *bps = [self selectedBreakpoints];
 
     BOOL disable = NO;
-    for (XPBreakpoint *bp in bps) {
+    for (OKBreakpoint *bp in bps) {
         if (bp.enabled) {
             disable = YES;
             break;
@@ -397,7 +397,7 @@
 
 
 - (void)contextMenuNeedsUpdate:(NSMenu *)menu {
-    XPBreakpoint *bp = [self selectedBreakpoint];
+    OKBreakpoint *bp = [self selectedBreakpoint];
     
     BOOL hasSelection = bp != nil;
     BOOL disable = [self selectionWantsDisable];

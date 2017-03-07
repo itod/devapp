@@ -14,7 +14,7 @@
 #import <TabKit/TKTabModel.h>
 #import <OkudaKit/OKViewController.h>
 #import <OkudaKit/OKTextView.h>
-#import <Language/XPBreakpointCollection.h>
+#import "EDBreakpointCollection.h"
 
 @interface NSDocument ()
 - (BOOL)_shouldShowAutosaveButtonForWindow:(NSWindow *)win;
@@ -34,7 +34,7 @@
 - (id)init {
     self = [super init];
     if (self) {
-        _breakpoints = [[XPBreakpointCollection alloc] init];
+        _breakpoints = [[EDBreakpointCollection alloc] init];
         _breakpointsEnabled = NO;
         
         EDTarget *target = [[[EDTarget alloc] init] autorelease];
@@ -297,7 +297,7 @@
 - (BOOL)readProjPlistOfType:(NSString *)typeName inDict:(NSMutableDictionary *)dict error:(NSError **)outErr {
     //EDAssert(1 == [dict[@"version"] integerValue]);
     
-    XPBreakpointCollection *bps = [XPBreakpointCollection fromPlist:dict[@"breakpoints"]];
+    EDBreakpointCollection *bps = [EDBreakpointCollection fromPlist:dict[@"breakpoints"]];
     EDAssert(bps);
     [_breakpoints release];
     _breakpoints = [bps retain];
@@ -388,7 +388,7 @@
 }
 
 
-- (void)setBreakpoints:(XPBreakpointCollection *)breakpoints {
+- (void)setBreakpoints:(EDBreakpointCollection *)breakpoints {
     EDAssertMainThread();
     
     if (breakpoints != _breakpoints) {
@@ -396,7 +396,7 @@
         
         id oldbps = nil;
         if (_breakpoints) {
-            oldbps = [XPBreakpointCollection fromPlist:[_breakpoints asPlist]]; // copy
+            oldbps = [EDBreakpointCollection fromPlist:[_breakpoints asPlist]]; // copy
         }
         [[[self undoManager] prepareWithInvocationTarget:self] setBreakpoints:oldbps];
         //[[self undoManager] setActionName:NSLocalizedString(@"Set Context Size", @"")];

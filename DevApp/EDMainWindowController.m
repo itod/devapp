@@ -41,8 +41,8 @@
 #import <TabKit/TKTabsListView.h>
 #import <PEGKit/PKToken.h>
 #import <TDAppKit/TDTabBarController.h>
-#import <Language/XPBreakpoint.h>
-#import <Language/XPBreakpointCollection.h>
+#import <OkudaKit/OKBreakpoint.h>
+#import "EDBreakpointCollection.h"
 #import "EDMainWindowController+NewProject.h"
 
 #import "NSString+EDAdditions.h"
@@ -859,9 +859,9 @@
     if (c) {
         NSMutableArray *all = [NSMutableArray arrayWithCapacity:c];
         
-        for (XPBreakpoint *bp in bps) {
+        for (OKBreakpoint *bp in bps) {
             if (bp.enabled) {
-                NSMutableDictionary *plist = [bp asPlist];
+                NSMutableDictionary *plist = [[[bp asPlist] mutableCopy] autorelease];
                 plist[@"file"] = [NSString stringWithFormat:@"%@%@", srcDirPath, bp.file];
                 [all addObject:plist];
             }
@@ -1582,7 +1582,7 @@
 
 
 - (void)filesystemViewController:(EDFilesystemViewController *)fsc didDeleteItemAtPath:(NSString *)oldPath andActivateItemAtPath:(NSString *)newPath {
-    XPBreakpointCollection *bpcoll = [[self document] breakpoints];
+    EDBreakpointCollection *bpcoll = [[self document] breakpoints];
     
     [bpcoll removeBreakpointsForFile:oldPath];
     
@@ -1642,12 +1642,12 @@
     NSString *newRelPath = [self relativeSourceFilePathForAbsoluteSourceFilePath:newAbsPath];
     
     // update breakpoints for changed file path
-    XPBreakpointCollection *bpcoll = [[self document] breakpoints];
+    EDBreakpointCollection *bpcoll = [[self document] breakpoints];
     
     NSSet *bps = [[[bpcoll breakpointsForFile:oldRelPath] retain] autorelease];
     [bpcoll removeBreakpointsForFile:oldRelPath];
     
-    for (XPBreakpoint *bp in bps) {
+    for (OKBreakpoint *bp in bps) {
         EDAssert([bp.file isEqualToString:oldRelPath]);
         bp.file = newRelPath;
         [bpcoll addBreakpoint:bp];
@@ -2548,7 +2548,7 @@
 }
 
 
-- (void)gutterView:(OKGutterView *)gv didAddBreakpoint:(XPBreakpoint *)bp {
+- (void)gutterView:(OKGutterView *)gv didAddBreakpoint:(OKBreakpoint *)bp {
     EDAssertMainThread();
     EDAssert(bp);
     
@@ -2559,7 +2559,7 @@
         EDAssert([filePath hasSuffix:[bp.file lastPathComponent]]);
         
         EDDocument *doc = [self document];
-        XPBreakpointCollection *bpcoll = [doc breakpoints];
+        EDBreakpointCollection *bpcoll = [doc breakpoints];
 
 #ifndef APPSTORE
         if (![[EDDocumentController instance] isLicensed]) {
@@ -2580,13 +2580,13 @@
 }
 
 
-- (void)gutterView:(OKGutterView *)gv didRemoveBreakpoint:(XPBreakpoint *)bp {
+- (void)gutterView:(OKGutterView *)gv didRemoveBreakpoint:(OKBreakpoint *)bp {
     EDAssertMainThread();
     EDAssert(bp);
     
     EDAssert([self.selectedTabModel.URLString hasSuffix:bp.file]);
     
-    XPBreakpointCollection *bpColl = [[self document] breakpoints];
+    EDBreakpointCollection *bpColl = [[self document] breakpoints];
     EDAssert(bpColl);
     [bpColl removeBreakpoint:bp];
     
@@ -2594,7 +2594,7 @@
 }
 
 
-- (void)gutterView:(OKGutterView *)gv didToggleBreakpoint:(XPBreakpoint *)bp {
+- (void)gutterView:(OKGutterView *)gv didToggleBreakpoint:(OKBreakpoint *)bp {
     EDAssertMainThread();
     EDAssert(bp);
     

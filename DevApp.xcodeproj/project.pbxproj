@@ -237,6 +237,7 @@
 		D3369C011E36C73800FEB7BF /* TDViewControllerView.m in Sources */ = {isa = PBXBuildFile; fileRef = D3369BBD1E36C73800FEB7BF /* TDViewControllerView.m */; };
 		D3369C071E36C75F00FEB7BF /* TDRegisterWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = D3369C051E36C75F00FEB7BF /* TDRegisterWindow.xib */; };
 		D3D705431E6E5AC900D7EA61 /* OKLanguageParser.m in Sources */ = {isa = PBXBuildFile; fileRef = D3D705421E6E5AC900D7EA61 /* OKLanguageParser.m */; settings = {COMPILER_FLAGS = "-Wno-undeclared-selector"; }; };
+		D3D705601E6F710D00D7EA61 /* EDBreakpointCollection.m in Sources */ = {isa = PBXBuildFile; fileRef = D3D7055F1E6F710D00D7EA61 /* EDBreakpointCollection.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -786,6 +787,8 @@
 		D3369C061E36C75F00FEB7BF /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = lib/TDAppKit/en.lproj/TDRegisterWindow.xib; sourceTree = SOURCE_ROOT; };
 		D3D705411E6E5AC900D7EA61 /* OKLanguageParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OKLanguageParser.h; path = lib/OkudaKit/src/parsers/OKLanguageParser.h; sourceTree = SOURCE_ROOT; };
 		D3D705421E6E5AC900D7EA61 /* OKLanguageParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OKLanguageParser.m; path = lib/OkudaKit/src/parsers/OKLanguageParser.m; sourceTree = SOURCE_ROOT; };
+		D3D7055E1E6F710D00D7EA61 /* EDBreakpointCollection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EDBreakpointCollection.h; sourceTree = "<group>"; };
+		D3D7055F1E6F710D00D7EA61 /* EDBreakpointCollection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EDBreakpointCollection.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1125,6 +1128,8 @@
 				D316705A1E59FC2C00DEE3A0 /* EDBreakpointListContainerView.m */,
 				D31670571E59FC2C00DEE3A0 /* EDBreakpointCell.h */,
 				D31670581E59FC2C00DEE3A0 /* EDBreakpointCell.m */,
+				D3D7055E1E6F710D00D7EA61 /* EDBreakpointCollection.h */,
+				D3D7055F1E6F710D00D7EA61 /* EDBreakpointCollection.m */,
 			);
 			name = "Breakpoint List";
 			sourceTree = "<group>";
@@ -1935,6 +1940,7 @@
 				D316701E1E59F76700DEE3A0 /* EDTabBarStackTraceButtonCell.m in Sources */,
 				D316701B1E59F76700DEE3A0 /* EDTabBarBreakpointButtonCell.m in Sources */,
 				D3369AC61E36BEED00FEB7BF /* OAPreferenceClientRecord.m in Sources */,
+				D3D705601E6F710D00D7EA61 /* EDBreakpointCollection.m in Sources */,
 				D31670E91E5A1A3E00DEE3A0 /* EDWebViewController.m in Sources */,
 				D3369BEF1E36C73800FEB7BF /* TDTabBarControllerView.m in Sources */,
 				D3369BCB1E36C73800FEB7BF /* NSImage+TDAdditions.m in Sources */,
