@@ -200,26 +200,6 @@
         }
     }
     
-    NSString *srcDirName = SRC_DIR_NAME;
-    EDAssert([srcDirName length]);
-    NSString *srcDirPath = [docFilePath stringByAppendingPathComponent:srcDirName];
-    
-//    // create proj dir & src dir in one go.
-//    err = nil;
-//    if (![mgr createDirectoryAtPath:srcDirPath withIntermediateDirectories:YES attributes:nil error:&err]) {
-//        if (err) NSLog(@"%@", err);
-//        
-//        NSString *title = [NSString stringWithFormat:NSLocalizedString(@"Could not create project “%@”", @""), projName];
-//        NSString *defaultBtn = NSLocalizedString(@"OK", @"");
-//        NSString *altBtn = nil; //NSLocalizedString(@"Cancel", @"");
-//        NSString *otherBtn = nil;
-//        NSString *msg = [err localizedDescription];
-//        
-//        NSRunAlertPanel(title, @"%@", defaultBtn, altBtn, otherBtn, msg);
-//        return NO;
-//    }
-
-//    NSString *filePath = [[docFilePath stringByAppendingPathComponent:projName] stringByAppendingPathExtension:FILE_DOC_EXT];
     NSURL *docFileURL = [NSURL fileURLWithPath:docFilePath];
     EDAssert(docFileURL);
     
@@ -233,32 +213,15 @@
         [doc moveToURL:docFileURL completionHandler:^(NSError *err) {
             if (err) NSLog(@"%@", err);
             EDAssert([doc fileURL]);
-            
-            //    NSString *mainSrcPath = [[NSBundle mainBundle] pathForResource:MAIN_FILE_BASE ofType:MAIN_FILE_EXT];
-            //    EDAssert([mainSrcPath length]);
-            NSString *mainDestPath = [srcDirPath stringByAppendingPathComponent:MAIN_FILE_NAME];
-            //    EDAssert([mainDestPath length]);
-            //
-            //    err = nil;
-            //    if (![mgr copyItemAtPath:mainSrcPath toPath:mainDestPath error:&err]) {
-            //        if (err) NSLog(@"%@", err);
-            //    }
-            
-            self.tempSourceDirPath = srcDirPath;
-            
+                        
             err = nil;
-            if (![self addTabWithContentsOfURLString:mainDestPath type:EDTabModelTypeSourceCodeFile error:&err]) {
+            if (![self addTabWithContentsOfURLString:[self mainSourceFilePath] type:EDTabModelTypeSourceCodeFile error:&err]) {
                 NSLog(@"%@", err);
             }
             
-            self.tempSourceDirPath = nil;
-
             [self navigateToSourceDir];
         }];
     });
-    
-
-
     
     return YES;
 }

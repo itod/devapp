@@ -220,7 +220,7 @@
         srcDirWrap.preferredFilename = SRC_DIR_NAME;
         
         // add main.js
-        [srcDirWrap addRegularFileWithContents:mainFileData preferredFilename:MAIN_FILE_NAME];
+        [srcDirWrap addRegularFileWithContents:mainFileData preferredFilename:[MAIN_FILE_BASE stringByAppendingPathExtension:MAIN_FILE_EXT]];
         
         // add src dir
         [wrap addFileWrapper:srcDirWrap];

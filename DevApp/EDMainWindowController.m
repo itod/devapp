@@ -162,7 +162,6 @@
     self.codeRunner = nil;
     self.filteredData = nil;
     
-    self.tempSourceDirPath = nil;
     self.dirtySet = nil;
     self.lastFileLocByAbsPath = nil;
     
@@ -3076,14 +3075,10 @@ done:
     
     NSString *result = nil;
     
-    if (_tempSourceDirPath) {
-        result = _tempSourceDirPath;
-    } else {
-        NSURL *furl = [[self document] fileURL];
-        if (furl) {
-            result = [[[furl relativePath] stringByDeletingLastPathComponent] stringByAppendingPathComponent:SRC_DIR_NAME];
-            EDAssert([result length]);
-        }
+    NSURL *furl = [[self document] fileURL];
+    if (furl) {
+        result = [[furl relativePath] stringByAppendingPathComponent:SRC_DIR_NAME];
+        EDAssert([result length]);
     }
     
     if (result && ![result hasSuffix:@"/"]) {
@@ -3096,7 +3091,7 @@ done:
 
 - (NSString *)mainSourceFilePath {
     NSString *srcDirPath = [self sourceDirPath];
-    NSString *result = [[srcDirPath stringByAppendingPathComponent:@"main"] stringByAppendingPathExtension:@"js"];
+    NSString *result = [[srcDirPath stringByAppendingPathComponent:MAIN_FILE_BASE] stringByAppendingPathExtension:MAIN_FILE_EXT];
     return result;
 }
 

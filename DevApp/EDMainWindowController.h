@@ -122,5 +122,4 @@
 - (void)navigateToFileLocationInCurrentTab:(EDFileLocation *)fileLoc;
 
 @property (nonatomic, retain, readonly) OKViewController *selectedSourceViewController;
-@property (nonatomic, copy) NSString *tempSourceDirPath;
 @end

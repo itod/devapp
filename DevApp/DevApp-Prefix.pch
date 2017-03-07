@@ -83,7 +83,6 @@
 
 #define PROJ_PLIST_NAME @"devapp_project"
 #define SRC_DIR_NAME @"source"
-#define MAIN_FILE_NAME @"main.js"
 #define MAIN_FILE_BASE @"main"
 #define MAIN_FILE_EXT @"js"
 
