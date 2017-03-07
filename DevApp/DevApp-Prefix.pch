@@ -57,8 +57,6 @@
 #define APP_NAME @"DevApp"
 #define MY_BUNDLE_ID @"com.celestialteapot.DevApp"
 
-#define DOC_AS_PACKAGE 1
-
 #define FILE_DOC_EXT @"devapp"
 
 #define FILE_DOC_TYPE @"com.celestialteapot.devappdoc"

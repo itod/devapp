@@ -180,7 +180,6 @@
 }
 
 
-#if DOC_AS_PACKAGE
 - (NSFileWrapper *)fileWrapperOfType:(NSString *)typeName error:(NSError **)outErr {
     
     // must do a dance here to preserve .svn directories in the .schwartzproj package dir. :(
@@ -227,18 +226,6 @@
 }
 
 
-#else
-- (NSData *)dataOfType:(NSString *)typeName error:(NSError **)outErr {
-    return [self projPlistDataOfType:typeName error:outErr];
-}
-
-
-- (BOOL)readFromData:(NSData *)data ofType:(NSString *)typeName error:(NSError **)outErr {
-    return [self readProjPlistFromData:data ofType:typeName error:outErr];
-}
-
-
-#endif
 - (NSData *)projPlistDataOfType:(NSString *)typeName error:(NSError **)outErr {
     NSParameterAssert([typeName isEqualToString:DEFAULT_DOC_TYPE_NAME]);
     
