@@ -293,8 +293,6 @@ void PerformOnMainThread(void (^block)(void)) {
             [_interp print:prefix];
         }
         [self didPause:inInfo];
-    } else {
-        TDAssert(0);
     }
 }
 
