@@ -200,7 +200,7 @@ static NSRegularExpression *sRegex = nil;
     for (XPStackFrame *frame in stack) {
         NSMutableDictionary *d = [NSMutableDictionary dictionaryWithCapacity:3];
         
-        NSString *absPath = [[frame.filePath substringFromIndex:prefixLen] stringByDeletingPathExtension];
+        NSString *absPath = [frame.filePath substringFromIndex:prefixLen];
         NSString *funcName = frame.functionName;
         NSString *lineNumStr = [NSString stringWithFormat:@"%ld", frame.lineNumber];
 
