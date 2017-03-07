@@ -125,8 +125,7 @@
 #pragma mark Public
 
 - (void)appendPrompt {
-    [self append:self.prompts[0]];
-    [self append:@" "];
+    [self append:[NSString stringWithFormat:@"%@ ", self.prompts[0]]];
 }
 
 

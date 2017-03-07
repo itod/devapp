@@ -132,8 +132,7 @@ static NSDictionary *sValueAttrs = nil;
     [self.textView setString:@""];
     
     if ([_delegate isConsolePaused:self] && ![[EDUserDefaults instance] suppressConsolePrompt]) {
-        NSString *msg = [NSString stringWithFormat:@"%@ ", self.prompts[0]];
-        [self append:msg];
+        [self appendPrompt];
     }
 }
 
