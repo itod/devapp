@@ -831,8 +831,8 @@
     
     EDAssert(b);
     [b setState:doc.breakpointsEnabled ? NSOnState : NSOffState];
-
 }
+
 
 - (OKViewController *)selectedSourceViewController {
     TKTabModel *tm = self.selectedTabModel;
