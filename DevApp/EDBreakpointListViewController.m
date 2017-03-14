@@ -235,6 +235,7 @@
 
     NSUInteger c = 0;
 
+#if MULTI_FILE_ENABLED
     if (!item) {
         c = [[_collection allFiles] count];
     } else if ([item isKindOfClass:[NSString class]]) {
@@ -242,6 +243,13 @@
     } else {
         EDAssert(0);
     }
+#else
+    if (!item) {
+        c = [[_collection breakpointsForFile:[[_collection allFiles] objectAtIndex:0]] count];
+    } else {
+        EDAssert(0);
+    }
+#endif
 
     return c;
 }
@@ -268,6 +276,7 @@
 
     id result = nil;
 
+#if MULTI_FILE_ENABLED
     if (!item) {
         result = [[_collection allFiles] objectAtIndex:idx];
     } else if ([item isKindOfClass:[NSString class]]) {
@@ -275,6 +284,13 @@
     } else {
         EDAssert(0);
     }
+#else
+    if (!item) {
+        result = [[_collection sortedBreakpointsForFile:[[_collection allFiles] objectAtIndex:0]] objectAtIndex:idx];
+    } else {
+        EDAssert(0);
+    }
+#endif
 
     return result;
 }
