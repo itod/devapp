@@ -113,7 +113,7 @@
     EDAssert(_navigatorTabBarController.delegate = self);
     self.navigatorTabBarController.delegate = nil;
 
-    EDAssert(_filesystemViewController.delegate == self);
+    EDAssert(!MULTI_FILE_ENABLED || _filesystemViewController.delegate == self);
     _filesystemViewController.delegate = nil;
     
     EDAssert(_stackTraceViewController.delegate == self);
@@ -285,9 +285,11 @@
 
 
 - (void)setUpFilesystemView {
+#if MULTI_FILE_ENABLED
     self.filesystemViewController = [[[EDFilesystemViewController alloc] init] autorelease];
     _filesystemViewController.delegate = self;
     [self navigateToSourceDir];
+#endif
 }
 
 
@@ -306,7 +308,7 @@
 
 - (void)setUpNavigatorTabBarController {
     EDAssert(_outerUberView);
-    EDAssert(_filesystemViewController);
+    EDAssert(!MULTI_FILE_ENABLED || _filesystemViewController);
     EDAssert(_stackTraceViewController);
     EDAssert(_breakpointListViewController);
     
@@ -317,7 +319,11 @@
     _outerUberView.maxLeftSplitWidth = 600.0;
     _outerUberView.preferredLeftSplitWidth = 220.0;
 
+#if MULTI_FILE_ENABLED
     _navigatorTabBarController.viewControllers = @[_filesystemViewController, _stackTraceViewController, _breakpointListViewController];
+#else
+    _navigatorTabBarController.viewControllers = @[_stackTraceViewController, _breakpointListViewController];
+#endif
 
     NSString *type = self.selectedTabModel.type;
     BOOL isSourceOrProjSettings = !type || [type isEqualToString:EDTabModelTypeProjectSettings] || [type isEqualToString:EDTabModelTypeSourceCodeFile];
@@ -329,6 +335,7 @@
 
 
 - (void)navigateToSourceDir {
+#if MULTI_FILE_ENABLED
     EDAssertMainThread();
     NSString *srcDirPath = [self sourceDirPath];
     if (srcDirPath) {
@@ -336,17 +343,20 @@
         [_filesystemViewController changeDir:srcDirPath];
         [self syncFilesystemViewWithSelectedTab];
     }
+#endif
 }
 
 
 - (void)syncFilesystemViewWithSelectedTab {
+#if MULTI_FILE_ENABLED
     EDAssertMainThread();
-    EDAssert(_filesystemViewController);
+    EDAssert(!MULTI_FILE_ENABLED || _filesystemViewController);
     
     if ([_filesystemViewController isViewLoaded]) {
         NSString *fullPath = [self absolutePathForTabModel:self.selectedTabModel];
         [_filesystemViewController selectItemAtPath:fullPath];
     }
+#endif
 }
 
 
@@ -2486,6 +2496,7 @@
 
 
 - (BOOL)createFileAtPath:(NSString *)fullPath {
+#if MULTI_FILE_ENABLED
     EDAssertMainThread();
     EDAssert([fullPath length]);
     
@@ -2531,6 +2542,7 @@
     
     [_filesystemViewController reloadData];
     [self syncFilesystemViewWithSelectedTab];
+#endif
 
     return YES;
 }
@@ -3104,6 +3116,11 @@ done:
         result = wvc.isTypingInFindPanel;
     }
     return result;
+}
+
+
+- (BOOL)multiFileEnabled {
+    return MULTI_FILE_ENABLED;
 }
 
 

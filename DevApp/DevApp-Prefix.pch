@@ -61,6 +61,8 @@
 
 #define FILE_DOC_TYPE @"com.celestialteapot.devappdoc"
 
+#define MULTI_FILE_ENABLED 0
+
 #define EditorTabPboardType @"com.celestialteapot.devapp.tab"
 
 #define DOC_ICON_NAME @"DocIcon"

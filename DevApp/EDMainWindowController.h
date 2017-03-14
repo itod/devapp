@@ -100,7 +100,8 @@
 @property (nonatomic, retain) EDProjectWindowController *projectWindowController;
 
 @property (nonatomic, retain) NSString *statusText;
-@property (nonatomic, getter=isTypingInFindPanel) BOOL typingInFindPanel;
+@property (nonatomic, assign, getter=isTypingInFindPanel) BOOL typingInFindPanel;
+@property (nonatomic, assign, readonly) BOOL multiFileEnabled;
 
 @property (nonatomic, copy, readonly) NSString *sourceDirPath;
 @property (nonatomic, copy, readonly) NSString *mainSourceFilePath;

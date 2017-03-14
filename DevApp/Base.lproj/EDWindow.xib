@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
     <dependencies>
         <deployment identifier="macosx"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="11762"/>
@@ -177,6 +177,11 @@ Gw
                             <connections>
                                 <action selector="goBack:" target="-2" id="PfF-dp-DXI"/>
                                 <binding destination="-2" name="enabled" keyPath="canGoBack" id="Jjq-Il-rrJ"/>
+                                <binding destination="-2" name="hidden" keyPath="multiFileEnabled" previousBinding="Jjq-Il-rrJ" id="wAQ-gB-ad2">
+                                    <dictionary key="options">
+                                        <string key="NSValueTransformerName">NSNegateBoolean</string>
+                                    </dictionary>
+                                </binding>
                                 <outlet property="nextKeyView" destination="pLV-uQ-wPa" id="8GD-2d-Zzd"/>
                             </connections>
                         </button>
@@ -190,6 +195,11 @@ Gw
                             <connections>
                                 <action selector="goForward:" target="-2" id="gug-Sm-8cB"/>
                                 <binding destination="-2" name="enabled" keyPath="canGoForward" id="j2n-aF-o0e"/>
+                                <binding destination="-2" name="hidden" keyPath="multiFileEnabled" previousBinding="j2n-aF-o0e" id="s3F-sr-ItQ">
+                                    <dictionary key="options">
+                                        <string key="NSValueTransformerName">NSNegateBoolean</string>
+                                    </dictionary>
+                                </binding>
                                 <outlet property="nextKeyView" destination="PBE-m0-57U" id="f45-By-8wB"/>
                             </connections>
                         </button>
