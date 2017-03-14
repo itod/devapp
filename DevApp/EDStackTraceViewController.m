@@ -171,16 +171,15 @@ static NSRegularExpression *sRegex = nil;
 }
 
 
-//- (void)viewDidLoad {
-//    EDAssertMainThread();
-//    EDAssert(_outlineView);
-//    EDAssert(_outlineView.dataSource == self);
-//    EDAssert(_outlineView.delegate == self);
-//    
-//    EDStackTraceContainerView *v = (id)[self view];
-//    EDAssert([v isKindOfClass:[EDStackTraceContainerView class]]);
-//
-//}
+- (void)viewDidLoad {
+    EDAssertMainThread();
+    EDAssert(_outlineView);
+    EDAssert(_outlineView.dataSource == self);
+    EDAssert(_outlineView.delegate == self);
+    
+    NSTableColumn *col = [_outlineView tableColumnWithIdentifier:@"displayPath"];
+    [col setHidden:!MULTI_FILE_ENABLED];
+}
 
 
 #pragma mark -
