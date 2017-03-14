@@ -106,7 +106,7 @@
 #pragma mark EDDocument
 
 - (BOOL)wantsCustomDisplayName {
-    return YES;
+    return MULTI_FILE_ENABLED;
 }
 
 
