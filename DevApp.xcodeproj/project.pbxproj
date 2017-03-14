@@ -132,7 +132,7 @@
 		D31671001E5A21F800DEE3A0 /* EDMainWindowController+NewProject.m in Sources */ = {isa = PBXBuildFile; fileRef = D31670661E59FD9B00DEE3A0 /* EDMainWindowController+NewProject.m */; };
 		D31671031E5A251000DEE3A0 /* EDBaseToolbarItem.m in Sources */ = {isa = PBXBuildFile; fileRef = D31671021E5A251000DEE3A0 /* EDBaseToolbarItem.m */; };
 		D31671051E5A599200DEE3A0 /* main.js in Resources */ = {isa = PBXBuildFile; fileRef = D31671041E5A599200DEE3A0 /* main.js */; };
-		D316710D1E5A5FB600DEE3A0 /* TDComboField.m in Sources */ = {isa = PBXBuildFile; fileRef = D316710C1E5A5FB600DEE3A0 /* TDComboField.m */; };
+		D316710D1E5A5FB600DEE3A0 /* TDComboField.m in Sources */ = {isa = PBXBuildFile; fileRef = D316710C1E5A5FB600DEE3A0 /* TDComboField.m */; settings = {COMPILER_FLAGS = "-Wno-deprecated-declarations"; }; };
 		D31671101E5AB89300DEE3A0 /* DOMNode+TDAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = D316710F1E5AB89300DEE3A0 /* DOMNode+TDAdditions.m */; };
 		D31671131E5B590100DEE3A0 /* EDMainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = D31671111E5B590100DEE3A0 /* EDMainMenu.xib */; };
 		D31671241E5B5D7D00DEE3A0 /* exedore_dsa_pub.pem in Resources */ = {isa = PBXBuildFile; fileRef = D31671231E5B5D7D00DEE3A0 /* exedore_dsa_pub.pem */; };
@@ -2271,6 +2271,7 @@
 					lib/TDThreadUtils/include,
 					lib/PEGKit/include,
 					lib/OkudaKit/include,
+					"lib/OkudaKit/src/**",
 					lib/Language/include,
 				);
 				INFOPLIST_FILE = DevApp/Info.plist;
@@ -2297,6 +2298,7 @@
 					lib/TDThreadUtils/include,
 					lib/PEGKit/include,
 					lib/OkudaKit/include,
+					"lib/OkudaKit/src/**",
 					lib/Language/include,
 				);
 				INFOPLIST_FILE = DevApp/Info.plist;
