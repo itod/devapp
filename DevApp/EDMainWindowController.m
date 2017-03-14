@@ -1212,8 +1212,8 @@
     {
         NSUInteger lineNum = [info[XPDebugInfoLineNumberKey] unsignedIntegerValue];
         TDAssert(NSNotFound != lineNum);
-        [self.selectedSourceViewController.textView setHighlightedLineNumber:lineNum];
-        [self.selectedSourceViewController.textView setNeedsDisplay:YES];
+        
+        [self.selectedSourceViewController highlightLineNumber:lineNum scrollToVisible:YES];
     }
 
     // update console
