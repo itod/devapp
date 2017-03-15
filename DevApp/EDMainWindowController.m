@@ -1304,6 +1304,7 @@
     static NSArray *sTriggers = nil;
     if (!sTriggers) {
         sTriggers = [[NSArray alloc] initWithObjects:
+                     [OKTrigger triggerWithTemplate:@"var ${name} = ${value}" specifier:@"var"],
                      [OKTrigger triggerWithTemplate:@"sub ${function}(${arg})" specifier:@"sub"],
                      [OKTrigger triggerWithTemplate:@"sub ${function}(${arg})" specifier:@"function"],
                      [OKTrigger triggerWithTemplate:@"sub ${method}(${arg})" specifier:@"method"],
@@ -2979,7 +2980,7 @@ done:
     }
     
     NSString *absPath = [self sourceDirPath];
-    EDAssert(_filesystemViewController);
+    EDAssert(!MULTI_FILE_ENABLED || _filesystemViewController);
     [_filesystemViewController reloadItemAtPath:absPath];
 }
 

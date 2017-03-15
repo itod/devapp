@@ -271,7 +271,7 @@
 - (void)start {
     [self execute:^{
     
-        self.statementTerminator = @";";
+        //self.statementTerminator = @";";
         self.singleLineCommentMarker = @"//";
 		self.blockStartMarker = @"{";
 		self.blockEndMarker = @"}";

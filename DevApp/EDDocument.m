@@ -389,8 +389,6 @@
 
 
 - (void)setBreakpoints:(EDBreakpointCollection *)breakpoints {
-    EDAssertMainThread();
-    
     if (breakpoints != _breakpoints) {
         [self willChangeValueForKey:@"breakpoints"];
         
@@ -414,8 +412,6 @@
 
 
 - (void)setBreakpointsEnabled:(BOOL)yn {
-    EDAssertMainThread();
-    
     if (yn != _breakpointsEnabled) {
         [self willChangeValueForKey:@"breakpointsEnabled"];
         
