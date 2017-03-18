@@ -62,12 +62,8 @@
     EDAssert(_gridPopUpView.checkbox);
     [_gridPopUpView.checkbox unbind:@"value"];
     
-    EDAssert(_flippedPopUpView.checkbox);
-    [_flippedPopUpView.checkbox unbind:@"value"];
-    
     self.zoomPopUpView = nil;
     self.gridPopUpView = nil;
-    self.flippedPopUpView = nil;
     self.metricsButton = nil;
     
     self.document = nil;
@@ -92,7 +88,6 @@
 
     EDAssert(_gridPopUpView);
     EDAssert(_zoomPopUpView);
-    EDAssert(_flippedPopUpView);
     EDAssert(_metricsButton);
     
     NSGradient *grad = TDVertGradient(0xdddddd, 0x999999);
@@ -107,10 +102,6 @@
     _zoomPopUpView.mainTopBorderColor = [EDStatusBar mainTopBorderColor];
     _zoomPopUpView.nonMainTopBorderColor = [EDStatusBar nonMainTopBorderColor];
     _zoomPopUpView.mainBgGradient = grad;
-    
-    _flippedPopUpView.mainTopBorderColor = [EDStatusBar mainTopBorderColor];
-    _flippedPopUpView.nonMainTopBorderColor = [EDStatusBar nonMainTopBorderColor];
-    _flippedPopUpView.mainBgGradient = grad;
     
     _metricsButton.mainTopBorderColor = [EDStatusBar mainTopBorderColor];
     _metricsButton.nonMainTopBorderColor = [EDStatusBar nonMainTopBorderColor];
@@ -201,7 +192,6 @@
     [nc addObserver:self selector:@selector(gridVisibleDidChange:) name:EDGridVisibleDidChangeNotification object:nil];
     [nc addObserver:self selector:@selector(guidesVisibleDidChange:) name:EDGuidesVisibleDidChangeNotification object:nil];
     [nc addObserver:self selector:@selector(compositionZoomScaleDidChange:) name:EDCompositionZoomScaleDidChangeNotification object:nil];
-    [nc addObserver:self selector:@selector(flippedDidChange:) name:EDCompositionFlippedDidChangeNotification object:nil];
     
     [_scrollView setHasHorizontalRuler:YES];
     [_scrollView setHasVerticalRuler:YES];
@@ -232,12 +222,6 @@
 
 - (void)rulersVisibleDidChange:(NSNotification *)n {
     [self updateRulerVisible];
-}
-
-
-- (void)flippedDidChange:(NSNotification *)n {
-    [self updateRulersForZoomScale];
-    [_canvasView setNeedsDisplay:YES];
 }
 
 
@@ -318,9 +302,6 @@
             
             EDAssert(_gridPopUpView.checkbox);
             [_gridPopUpView.checkbox bind:@"value" toObject:_document withKeyPath:@"gridEnabled" options:nil];
-            
-            EDAssert(_flippedPopUpView.checkbox);
-            [_flippedPopUpView.checkbox bind:@"value" toObject:_document withKeyPath:@"flipped" options:nil];
         }
 
         [self didChangeValueForKey:@"document"];

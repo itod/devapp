@@ -84,7 +84,6 @@ extern NSString * const EDGuidesLockedDidChangeNotification;
 
 extern NSString * const EDCompositionMetricsDidChangeNotification;
 extern NSString * const EDCompositionZoomScaleDidChangeNotification;
-extern NSString * const EDCompositionFlippedDidChangeNotification;
 extern NSString * const EDCompositionGridEnabledDidChangeNotification;
 extern NSString * const EDCompositionGridToleranceDidChangeNotification;
 
@@ -126,7 +125,6 @@ extern NSString * const EDCompositionGridToleranceDidChangeNotification;
 @property (nonatomic, assign) BOOL guidesVisible;
 @property (nonatomic, assign) BOOL guidesLocked;
 
-@property (nonatomic, assign, getter=isFlipped) BOOL flipped;
 @property (nonatomic, assign, getter=isGridEnabled) BOOL gridEnabled;
 @property (nonatomic, assign) CGFloat gridTolerance;
 

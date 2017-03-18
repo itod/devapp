@@ -28,7 +28,6 @@
 
 @property (nonatomic, retain) IBOutlet TDStatusBarPopUpView *zoomPopUpView;
 @property (nonatomic, retain) IBOutlet TDStatusBarPopUpView *gridPopUpView;
-@property (nonatomic, retain) IBOutlet TDStatusBarPopUpView *flippedPopUpView;
 @property (nonatomic, retain) IBOutlet TDStatusBarButton *metricsButton;
 
 @property (nonatomic, assign) SZDocument *document; // weakref

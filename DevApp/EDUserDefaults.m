@@ -30,7 +30,6 @@ NSString * const EDGuidesLockedDidChangeNotification = @"EDGuidesLockedDidChange
 
 NSString * const EDCompositionMetricsDidChangeNotification = @"EDCompositionMetricsDidChangeNotification";
 NSString * const EDCompositionZoomScaleDidChangeNotification = @"EDCompositionZoomScaleDidChangeNotification";
-NSString * const EDCompositionFlippedDidChangeNotification = @"EDCompositionFlippedDidChangeNotification";
 NSString * const EDCompositionGridEnabledDidChangeNotification = @"EDCompositionGridEnabledDidChangeNotification";
 NSString * const EDCompositionGridToleranceDidChangeNotification = @"EDCompositionGridToleranceDidChangeNotification";
 
@@ -217,13 +216,6 @@ NSString * const EDCompositionGridToleranceDidChangeNotification = @"EDCompositi
 }
 - (void)setGuidesLocked:(BOOL)yn {
     [[NSUserDefaults standardUserDefaults] setBool:yn forKey:kEDGuidesLockedKey];
-}
-
-- (BOOL)isFlipped {
-    return [[NSUserDefaults standardUserDefaults] boolForKey:kEDFlippedKey];
-}
-- (void)setFlipped:(BOOL)yn {
-    [[NSUserDefaults standardUserDefaults] setBool:yn forKey:kEDFlippedKey];
 }
 
 - (BOOL)gridVisible {

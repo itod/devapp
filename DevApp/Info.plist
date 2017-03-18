@@ -28,7 +28,7 @@
 			<key>LSTypeIsPackage</key>
 			<integer>1</integer>
 			<key>NSDocumentClass</key>
-			<string>EDDocument</string>
+			<string>SZDocument</string>
 		</dict>
 		<dict>
 			<key>CFBundleTypeExtensions</key>
@@ -138,6 +138,10 @@
 			</dict>
 		</dict>
 	</dict>
+	<key>SUFeedURL</key>
+	<string>http://celestialteapot.com/exedore/appcast/exedore.rss</string>
+	<key>SUPublicDSAKeyFile</key>
+	<string>exedore_dsa_pub.pem</string>
 	<key>UTExportedTypeDeclarations</key>
 	<array>
 		<dict>
@@ -160,9 +164,5 @@
 			</dict>
 		</dict>
 	</array>
-	<key>SUFeedURL</key>
-	<string>http://celestialteapot.com/exedore/appcast/exedore.rss</string>
-	<key>SUPublicDSAKeyFile</key>
-	<string>exedore_dsa_pub.pem</string>
 </dict>
 </plist>
