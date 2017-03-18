@@ -7,7 +7,7 @@
 //
 
 #import "EDDocument.h"
-#import "EDMainWindowController.h"
+#import "SZMainWindowController.h"
 #import "EDTabModel.h"
 #import "EDTarget.h"
 #import "EDUtils.h"
@@ -141,7 +141,7 @@
 
 
 - (void)makeWindowControllers {
-    EDMainWindowController *wc = [[[EDMainWindowController alloc] init] autorelease];
+    id wc = [[[SZMainWindowController alloc] init] autorelease];
     [self addWindowController:wc];
 }
 

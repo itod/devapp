@@ -85,13 +85,8 @@
 }
 
 
-+ (NSString *)nibName {
-    return @"EDWindow";
-}
-
-
 - (id)init {
-    self = [self initWithWindowNibName:[[self class] nibName]];
+    self = [self initWithWindowNibName:@"EDWindow"];
     return self;
 }
 

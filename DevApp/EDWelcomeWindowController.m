@@ -103,7 +103,7 @@
 
 
 - (IBAction)openSampleProject:(id)sender {
-    //[[SZDocumentController instance] openSampleProject:sender];
+    //[[EDDocumentController instance] openSampleProject:sender];
     [self close];
 }
 

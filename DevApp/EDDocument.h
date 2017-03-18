@@ -10,6 +10,7 @@
 
 @class EDBreakpointCollection;
 @class EDTarget;
+@class EDMainWindowController;
 
 #define DEFAULT_DOC_TYPE_NAME FILE_DOC_TYPE
 
@@ -26,4 +27,5 @@
 @property (nonatomic, retain) NSArray *targets;
 @property (nonatomic, copy) NSString *selectedTargetName;
 @property (nonatomic, retain, readonly) EDTarget *selectedTarget;
+@property (nonatomic, retain, readonly) EDMainWindowController *mainWindowController;
 @end
