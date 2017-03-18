@@ -249,7 +249,7 @@ static CGColorSpaceRef sPatternColorSpace = NULL;
 //        // BG PATTERN
 //        CGContextSaveGState(ctx); {
 //            [self drawBackgroundPatternInContext:ctx compFrame:compFrame compBounds:compBounds];
-//        } CGContextRestoreGState(ctx); // after pattern
+//        } CGContextRestoreGState(ctx); // after patterß
 //
         CGContextSaveGState(ctx); { // before scale
 

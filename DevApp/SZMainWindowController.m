@@ -45,10 +45,10 @@
 #pragma mark -
 #pragma mark EDMainWindowController
 
-- (NSString *)documentationHomeURLString {
-    NSString *URLString = [[NSBundle mainBundle] pathForResource:@"index" ofType:@"html"];
-    return URLString;
-}
+//- (NSString *)documentationHomeURLString {
+//    NSString *URLString = [[NSBundle mainBundle] pathForResource:@"index" ofType:@"html"];
+//    return URLString;
+//}
 
 
 - (void)setUpCanvasView {
