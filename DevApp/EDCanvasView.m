@@ -29,6 +29,7 @@
 
 static NSDictionary *sHints = nil;
 
+static NSColor *sCanvasFillColor = nil;
 static NSColor *sCompositionFillColor = nil;
 static NSColor *sCompositionStrokeColor = nil;
 static NSColor *sGridColor = nil;
@@ -85,6 +86,7 @@ static CGColorSpaceRef sPatternColorSpace = NULL;
                   @(NSImageInterpolationHigh), NSImageHintInterpolation,
                   nil];
         
+        sCanvasFillColor = [[NSColor colorWithDeviceWhite:0.9 alpha:1.0] retain];
         sCompositionFillColor = [[NSColor colorWithDeviceWhite:1.0 alpha:1.0] retain];
         sCompositionStrokeColor = [[NSColor colorWithDeviceWhite:0.0 alpha:1.0] retain];
         sGridColor = [[NSColor colorWithDeviceWhite:0.94 alpha:0.75] retain];
@@ -225,76 +227,60 @@ static CGColorSpaceRef sPatternColorSpace = NULL;
     CGRect compBounds = [self scaledCompositionBounds];
     CGRect bgRect = CGRectMake(TDFloorAlign(compBounds.origin.x), TDFloorAlign(compBounds.origin.y), round(compBounds.size.width), round(compBounds.size.height));
 	
-    CGContextSaveGState(ctx); // before trans
-    CGContextTranslateCTM(ctx, compFrame.origin.x, compFrame.origin.y); // trans offset
-	
-    // composition bg fill or stroke
-    CGContextSaveGState(ctx); // before bg
+    // FILL CANVAS BG
+    CGContextSaveGState(ctx); {
+        [sCanvasFillColor setFill];
+        CGContextFillRect(ctx, dirtyRect);
+    } CGContextRestoreGState(ctx);
 
-    CGContextSaveGState(ctx); // before shadow
-    //[sCompositionShadow set];
-    [sCompositionFillColor setFill];
-    CGContextFillRect(ctx, bgRect);
-    CGContextRestoreGState(ctx); // after shadow
-    
-    CGContextSaveGState(ctx); // before pattern
-    
-    // NO IDEA WHY THIS MUST BE INLINE!!! :(
-    // FUNC START //
-    CGPoint locInWin = [self convertPoint:compFrame.origin toView:nil];
-    CGContextSetPatternPhase(ctx, CGSizeMake(locInWin.x, locInWin.y));
-    
-    EDAssert(sPatternColorSpace);
-    CGContextSetFillColorSpace(ctx, sPatternColorSpace);
-    
-    EDAssert(_gridPattern);
-    const CGFloat comps[1] = {0.92};
-    CGContextSetFillPattern(ctx, _gridPattern, comps);
-    CGContextFillRect(ctx, compBounds);
-    // FUNC END //
-    
-    //[self drawBackgroundPatternInContext:ctx compFrame:compFrame compBounds:compBounds];
-    CGContextRestoreGState(ctx); // after pattern
+    CGContextSaveGState(ctx); { // before trans
+        CGContextTranslateCTM(ctx, compFrame.origin.x, compFrame.origin.y); // trans offset
+       
+        // FILL/STROKE COMP BG
+        CGContextSaveGState(ctx); {
+            [sCompositionFillColor setFill];
+            CGContextFillRect(ctx, CGRectIntersection(bgRect, dirtyRect));
 
-    [sCompositionStrokeColor setStroke];
-    CGRect bgStrokeRect = CGRectMake(bgRect.origin.x - 1.0, bgRect.origin.y - 1.0, bgRect.size.width + 1.0, bgRect.size.height + 1.0);
-    CGContextStrokeRect(ctx, bgStrokeRect);
-    CGContextRestoreGState(ctx); // after bg
-
-    CGContextSaveGState(ctx); // before scale
-
-    CGFloat scale = [self currentScale];
-    CGContextScaleCTM(ctx, scale, scale); // scale zoom
+            [sCompositionStrokeColor setStroke];
+            CGRect bgStrokeRect = CGRectMake(bgRect.origin.x - 1.0, bgRect.origin.y - 1.0, bgRect.size.width + 2.0, bgRect.size.height + 2.0);
+            CGContextStrokeRect(ctx, bgStrokeRect);
+        } CGContextRestoreGState(ctx);
         
-    // draw composition
-    CGContextSaveGState(ctx); // before comp
-    
-    if (_image) {
-        CGSize imgSize = [_image size];
+//        // BG PATTERN
+//        CGContextSaveGState(ctx); {
+//            [self drawBackgroundPatternInContext:ctx compFrame:compFrame compBounds:compBounds];
+//        } CGContextRestoreGState(ctx); // after pattern
+//
+        CGContextSaveGState(ctx); { // before scale
+
+            CGFloat scale = [self currentScale];
+            CGContextScaleCTM(ctx, scale, scale); // scale zoom
+                
+            // draw composition
+            if (_image) {
+                CGSize imgSize = [_image size];
+                
+                CGRect srcRect = CGRectMake(0.0, 0.0, imgSize.width, imgSize.height);
+                CGRect destRect = CGRectMake(0.0, 0.0, imgSize.width, imgSize.height);
+
+                [_image drawInRect:destRect fromRect:srcRect operation:NSCompositeSourceOver fraction:1.0 respectFlipped:YES hints:sHints];
+            }
+           
+        } CGContextRestoreGState(ctx); // after scale
         
-        CGRect srcRect = CGRectMake(0.0, 0.0, imgSize.width, imgSize.height);
-        CGRect destRect = CGRectMake(0.0, 0.0, imgSize.width, imgSize.height);
-
-        [_image drawInRect:destRect fromRect:srcRect operation:NSCompositeSourceOver fraction:1.0 respectFlipped:YES hints:sHints];
-    }
-	
-    CGContextRestoreGState(ctx); // after comp
-
-    CGContextRestoreGState(ctx); // after scale
-    
-    // draw Grid
-    CGContextSaveGState(ctx); // before grid
-    [self drawGridInContext:ctx dirtyRect:[self convertRectToComposition:dirtyRect]];
-    CGContextRestoreGState(ctx); // after grid
-    
-    // draw user guides
-    if ([[EDUserDefaults instance] guidesVisible]) {
-        for (EDGuide *g in _document.userGuides) {
-            [g drawInContext:ctx dirtyRect:[self convertRectToComposition:dirtyRect]];
+        // draw Grid
+        CGContextSaveGState(ctx); {
+            [self drawGridInContext:ctx dirtyRect:[self convertRectToComposition:dirtyRect]];
+        } CGContextRestoreGState(ctx); // after grid
+        
+        // draw user guides
+        if ([[EDUserDefaults instance] guidesVisible]) {
+            for (EDGuide *g in _document.userGuides) {
+                [g drawInContext:ctx dirtyRect:[self convertRectToComposition:dirtyRect]];
+            }
         }
-    }
     
-    CGContextRestoreGState(ctx); // after translate
+    } CGContextRestoreGState(ctx); // after translate
 }
 
 
