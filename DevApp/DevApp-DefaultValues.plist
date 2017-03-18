@@ -33,7 +33,7 @@
 	<key>EDNavigatorViewVisible</key>
 	<true/>
 	<key>EDCanvasViewVisible</key>
-	<false/>
+	<true/>
 	<key>EDConsoleViewVisible</key>
 	<true/>
 	<key>EDDebugLocalVariablesVisible</key>
@@ -83,5 +83,150 @@
 	<real>0.25</real>
 	<key>OKCanAcceptCompletionDelay</key>
 	<real>0.175</real>
+	<key>EDPresetMetricsInfos</key>
+	<array>
+		<dict>
+			<key>width</key>
+			<real>0</real>
+			<key>height</key>
+			<real>0</real>
+			<key>unitType</key>
+			<integer>0</integer>
+			<key>name</key>
+			<string>Custom</string>
+			<key>group</key>
+			<integer>0</integer>
+		</dict>
+		<dict>
+			<key>width</key>
+			<real>300</real>
+			<key>height</key>
+			<real>300</real>
+			<key>unitType</key>
+			<integer>0</integer>
+			<key>group</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>width</key>
+			<real>640</real>
+			<key>height</key>
+			<real>480</real>
+			<key>unitType</key>
+			<integer>0</integer>
+			<key>group</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>width</key>
+			<real>800</real>
+			<key>height</key>
+			<real>600</real>
+			<key>unitType</key>
+			<integer>0</integer>
+			<key>group</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>width</key>
+			<real>1024</real>
+			<key>height</key>
+			<real>768</real>
+			<key>unitType</key>
+			<integer>0</integer>
+			<key>group</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>width</key>
+			<real>1280</real>
+			<key>height</key>
+			<real>800</real>
+			<key>unitType</key>
+			<integer>0</integer>
+			<key>group</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>width</key>
+			<real>1680</real>
+			<key>height</key>
+			<real>1050</real>
+			<key>unitType</key>
+			<integer>0</integer>
+			<key>group</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>width</key>
+			<real>1920</real>
+			<key>height</key>
+			<real>1200</real>
+			<key>unitType</key>
+			<integer>0</integer>
+			<key>group</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>width</key>
+			<real>612</real>
+			<key>height</key>
+			<real>792</real>
+			<key>unitType</key>
+			<integer>0</integer>
+			<key>name</key>
+			<string>U.S. Letter</string>
+			<key>group</key>
+			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>width</key>
+			<real>612</real>
+			<key>height</key>
+			<real>1008</real>
+			<key>unitType</key>
+			<integer>0</integer>
+			<key>name</key>
+			<string>U.S. Legal</string>
+			<key>group</key>
+			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>width</key>
+			<real>792</real>
+			<key>height</key>
+			<real>1224</real>
+			<key>unitType</key>
+			<integer>0</integer>
+			<key>name</key>
+			<string>U.S. Tabloid</string>
+			<key>group</key>
+			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>width</key>
+			<real>595</real>
+			<key>height</key>
+			<real>842</real>
+			<key>unitType</key>
+			<integer>0</integer>
+			<key>name</key>
+			<string>A4</string>
+			<key>group</key>
+			<integer>3</integer>
+		</dict>
+		<dict>
+			<key>width</key>
+			<real>419</real>
+			<key>height</key>
+			<real>595</real>
+			<key>unitType</key>
+			<integer>0</integer>
+			<key>name</key>
+			<string>A5</string>
+			<key>group</key>
+			<integer>3</integer>
+		</dict>
+	</array>
 </dict>
 </plist>

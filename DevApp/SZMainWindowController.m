@@ -329,30 +329,17 @@
         
         switch (doc.exportType) {
             case EDExportTypeTIFF: {
-                //            NSDictionary *props = [NSDictionary dictionaryWithObjectsAndKeys:
-                //                                   [NSNumber numberWithInteger:_exportCompressionMethod], NSImageCompressionMethod,// TIFF input/output (NSTIFFCompression in NSNumber)
-                //                                   [NSNumber numberWithFloat:exportCompressionFactor], NSImageCompressionFactor, // TIFF/JPEG input/output (float in NSNumber)
-                //                                   //[imgRep setProperty:NSImageColorSyncProfileData withValue:nil]; // TIFF,GIF input/output (NSData)
-                //                                   nil];
-                
-                //data = [[NSBitmapImageRep imageRepWithData:data] representationUsingType:NSTIFFFileType properties:props];
                 data = [image TIFFRepresentationUsingCompression:doc.exportCompressionMethod factor:doc.exportCompressionFactor];
             } break;
                 
             case EDExportTypePNG: {
-                //[imgRep setProperty:NSImageInterlaced withValue:nil]; // PNG output (BOOL in NSNumber)
-                //[imgRep setProperty:NSImageGamma withValue:nil]; // PNG input/output (float in NSNumber)
-                
                 data = [[NSBitmapImageRep imageRepWithData:[image TIFFRepresentation]] representationUsingType:NSPNGFileType properties:@{}];
             } break;
                 
             case EDExportTypeJPEG: {
-                NSDictionary *props = [NSDictionary dictionaryWithObjectsAndKeys:
-                                       [NSNumber numberWithFloat:doc.exportCompressionFactor], NSImageCompressionFactor, // TIFF/JPEG input/output (float in NSNumber)
-                                       //[imgRep setProperty:NSImageProgressive withValue:nil]; // JPEG input/output (BOOL in NSNumber)
-                                       //[imgRep setProperty:NSImageEXIFData withValue:nil]; // JPEG input/output (NSDictionary)
-                                       //[imgRep setProperty:NSImageFallbackBackgroundColor withValue:nil]; // JPEG output (NSColor)
-                                       nil];
+                NSDictionary *props = @{
+                                        NSImageCompressionFactor: @(doc.exportCompressionFactor), // TIFF/JPEG input/output (float in NSNumber)
+                                        };
                 data = [[NSBitmapImageRep imageRepWithData:[image TIFFRepresentation]] representationUsingType:NSJPEGFileType properties:props];
             } break;
                 
@@ -361,20 +348,11 @@
             } break;
                 
             case EDExportTypeGIF: {
-                //            [imgRep setProperty:NSImageDitherTransparency withValue:nil]; // GIF output (BOOL in NSNumber)
-                //            [imgRep setProperty:NSImageRGBColorTable withValue:nil]; // GIF input/output (packed RGB in NSData)
-                //
-                //            [imgRep setProperty:NSImageColorSyncProfileData withValue:nil]; // TIFF,GIF input/output (NSData)
-                //            [imgRep setProperty:NSImageFrameCount withValue:nil]; // GIF input (int in NSNumber) (read-only)
-                //            [imgRep setProperty:NSImageCurrentFrame withValue:nil]; // GIF input (int in NSNumber)
-                //            [imgRep setProperty:NSImageCurrentFrameDuration withValue:nil]; // GIF input (float in NSNumber) (read-only)
-                //            [imgRep setProperty:NSImageLoopCount withValue:nil]; // GIF input (int in NSNumber) (read-only)
-                
                 data = [[NSBitmapImageRep imageRepWithData:[image TIFFRepresentation]] representationUsingType:NSGIFFileType properties:@{}];
             } break;
-                
+
             default:
-                NSAssert(@"unknown exportType", @"");
+                TDAssert(0);
                 break;
         }
         
