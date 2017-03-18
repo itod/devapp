@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
     <dependencies>
         <deployment identifier="macosx"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="11762"/>
@@ -178,6 +178,14 @@
                                 </connections>
                             </menuItem>
                             <menuItem isSeparatorItem="YES" id="74">
+                                <modifierMask key="keyEquivalentModifierMask" command="YES"/>
+                            </menuItem>
+                            <menuItem title="Export…" keyEquivalent="E" id="rO8-2N-ETZ">
+                                <connections>
+                                    <action selector="export:" target="-1" id="hjT-48-16V"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem isSeparatorItem="YES" id="Un7-Y2-Fcg">
                                 <modifierMask key="keyEquivalentModifierMask" command="YES"/>
                             </menuItem>
                             <menuItem title="Edit Project Settings…" keyEquivalent="e" id="IX4-fR-IEZ">
@@ -779,6 +787,104 @@
                                 <modifierMask key="keyEquivalentModifierMask" control="YES" command="YES"/>
                                 <connections>
                                     <action selector="toggleFullScreen:" target="vbL-oh-XuP" id="ldG-Lt-k1v"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem isSeparatorItem="YES" id="zA4-4l-RBb"/>
+                            <menuItem title="Zoom " id="IMg-qo-vM2">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <menu key="submenu" title="Zoom" id="CLs-zE-S1d">
+                                    <items>
+                                        <menuItem title="Zoom In" keyEquivalent="&gt;" id="lfb-gt-lG5">
+                                            <connections>
+                                                <action selector="zoomCanvasIn:" target="-1" id="LGc-E2-u6c"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem title="Zoom Out" keyEquivalent="&lt;" id="Nv2-qC-vgo">
+                                            <connections>
+                                                <action selector="zoomCanvasOut:" target="-1" id="h44-N8-tcP"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem title="Actual Size" keyEquivalent="0" id="z1b-HK-N0y">
+                                            <connections>
+                                                <action selector="zoomCanvasToActualSize:" target="-1" id="nMu-wv-ElX"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem isSeparatorItem="YES" id="cHU-Xp-GUL"/>
+                                        <menuItem title="25%" tag="-3" id="tVn-Td-cSW">
+                                            <connections>
+                                                <action selector="changeZoomScale:" target="-1" id="3sA-UQ-zCw"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem title="50%" tag="-2" id="97D-bM-rnB">
+                                            <connections>
+                                                <action selector="changeZoomScale:" target="-1" id="qAK-zF-uWD"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem title="75%" tag="-1" id="ms2-Un-gTv">
+                                            <connections>
+                                                <action selector="changeZoomScale:" target="-1" id="KSP-Jy-Odu"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem title="100%" id="Ah2-9P-3pg">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <connections>
+                                                <action selector="changeZoomScale:" target="-1" id="gws-Dx-78H"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem title="125%" tag="1" id="lRH-l4-Ag9">
+                                            <connections>
+                                                <action selector="changeZoomScale:" target="-1" id="nYn-IE-57W"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem title="150%" tag="2" id="imm-qV-SXL">
+                                            <connections>
+                                                <action selector="changeZoomScale:" target="-1" id="EpC-uN-8d6"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem title="175%" tag="3" id="9l5-r6-Qxo">
+                                            <connections>
+                                                <action selector="changeZoomScale:" target="-1" id="LwC-aB-Law"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem title="200%" tag="4" id="gW9-IC-to5">
+                                            <connections>
+                                                <action selector="changeZoomScale:" target="-1" id="5RR-BB-BoB"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem title="300%" tag="5" id="47m-yW-aYe">
+                                            <connections>
+                                                <action selector="changeZoomScale:" target="-1" id="efN-zx-VVk"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem title="400%" tag="6" hidden="YES" id="EkR-7d-ijO">
+                                            <connections>
+                                                <action selector="changeZoomScale:" target="-1" id="zhn-6y-0eX"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem title="500%" tag="7" id="dMb-5I-Z13">
+                                            <connections>
+                                                <action selector="changeZoomScale:" target="-1" id="6sF-5i-wde"/>
+                                            </connections>
+                                        </menuItem>
+                                    </items>
+                                </menu>
+                            </menuItem>
+                            <menuItem isSeparatorItem="YES" id="Yl4-wm-dG8"/>
+                            <menuItem title="Show Rulers" keyEquivalent="R" id="d41-5p-2TB">
+                                <connections>
+                                    <action selector="toggleRulersVisible:" target="-1" id="fyV-ND-d8L"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem isSeparatorItem="YES" id="1Jw-Nz-W08"/>
+                            <menuItem title="Show Guides" keyEquivalent=";" id="mhg-wY-grJ">
+                                <connections>
+                                    <action selector="toggleGuidesVisible:" target="-1" id="X9W-Al-bL7"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="Lock Guides" keyEquivalent=";" id="N6U-vf-Xfd">
+                                <modifierMask key="keyEquivalentModifierMask" option="YES" command="YES"/>
+                                <connections>
+                                    <action selector="toggleGuidesLocked:" target="-1" id="lxf-oI-H2A"/>
                                 </connections>
                             </menuItem>
                         </items>

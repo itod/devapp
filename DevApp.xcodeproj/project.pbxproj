@@ -826,12 +826,8 @@
 				D3166FB21E59277400DEE3A0 /* EDDocumentController.m */,
 				D3166FD61E592A5200DEE3A0 /* EDDocument.h */,
 				D3166FD71E592A5200DEE3A0 /* EDDocument.m */,
-				D31E2C761E7D82720023E924 /* SZDocument.h */,
-				D31E2C771E7D82720023E924 /* SZDocument.m */,
 				D31670B31E5A179900DEE3A0 /* EDMainWindowController.h */,
 				D31670B41E5A179900DEE3A0 /* EDMainWindowController.m */,
-				D31E2C911E7D87910023E924 /* SZMainWindowController.h */,
-				D31E2C921E7D87910023E924 /* SZMainWindowController.m */,
 			);
 			name = App;
 			sourceTree = "<group>";
@@ -1254,6 +1250,10 @@
 		D31E2C631E7CC4AD0023E924 /* Canvas */ = {
 			isa = PBXGroup;
 			children = (
+				D31E2C761E7D82720023E924 /* SZDocument.h */,
+				D31E2C771E7D82720023E924 /* SZDocument.m */,
+				D31E2C911E7D87910023E924 /* SZMainWindowController.h */,
+				D31E2C921E7D87910023E924 /* SZMainWindowController.m */,
 				D31E2C821E7D85F50023E924 /* EDCanvasViewController.h */,
 				D31E2C831E7D85F50023E924 /* EDCanvasViewController.m */,
 				D31E2C571E7CC4AA0023E924 /* EDCanvasView.xib */,
