@@ -19,12 +19,16 @@
 - (IBAction)showLicenseInfo:(id)sender;
 @end
 
+@interface EDApplication ()
+@property (atomic, retain, readwrite) NSMutableArray *lineWidthStack;
+@end
+
 @implementation EDApplication
 
 - (id)init {
     self = [super init];
     if (self) {
-        
+        self.lineWidthStack = [NSMutableArray arrayWithObjects:@1.0, nil];
     }
     return self;
 }

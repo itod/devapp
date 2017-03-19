@@ -55,16 +55,24 @@
     
     CGContextRef ctx = [self.canvasGraphicsContext graphicsPort];
     
-    CGRect r = CGRectMake(x, y, w, h);
+    CGRect fillRect = CGRectMake(x, y, w, h);
     
     // FILL
-    CGContextFillRect(ctx, r);
+    CGContextFillRect(ctx, fillRect);
     
     // STROKE
     CGContextSaveGState(ctx); {
-        CGContextTranslateCTM(ctx, 0.5, 0.5);
+        CGRect strokeRect;
+        NSInteger lineWidth = [[self.lineWidthStack lastObject] doubleValue];
+        BOOL isEven = 0 == lineWidth % 2;
+        if (isEven) {
+            strokeRect = CGRectMake(x-1.0, y-1.0, w+2.0, h+2.0);
+        } else {
+            strokeRect = CGRectMake(x-0.5, y-0.5, w+1.0, h+1.0);
+        }
+        
 
-        CGContextStrokeRect(ctx, r);
+        CGContextStrokeRect(ctx, strokeRect);
     } CGContextRestoreGState(ctx);
     
     [self postUpate];

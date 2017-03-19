@@ -15,4 +15,5 @@
 #endif
 
 @property (atomic, retain) NSGraphicsContext *canvasGraphicsContext;
+@property (atomic, retain, readonly) NSMutableArray *lineWidthStack;
 @end

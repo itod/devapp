@@ -13,4 +13,5 @@
 - (NSColor *)asColor:(XPObject *)obj;
 
 @property (nonatomic, retain) NSGraphicsContext *canvasGraphicsContext;
+@property (nonatomic, retain, readonly) NSMutableArray *lineWidthStack;
 @end

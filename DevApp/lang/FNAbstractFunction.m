@@ -150,4 +150,9 @@
     [[EDApplication instance] setCanvasGraphicsContext:g];
 }
 
+
+- (NSMutableArray *)lineWidthStack {
+    return [[EDApplication instance] lineWidthStack];
+}
+
 @end
