@@ -19,23 +19,19 @@
 - (IBAction)showLicenseInfo:(id)sender;
 @end
 
-@interface EDApplication ()
-@property (atomic, retain, readwrite) NSMutableArray *strokeWeightStack;
-@end
-
 @implementation EDApplication
 
 - (id)init {
     self = [super init];
     if (self) {
-        self.strokeWeightStack = [NSMutableArray arrayWithObjects:@1.0, nil];
+
     }
     return self;
 }
 
 
 - (void)dealloc {
-    self.canvasGraphicsContext = nil;
+
     [super dealloc];
 }
 

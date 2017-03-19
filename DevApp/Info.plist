@@ -71,7 +71,7 @@
 	<key>NSMainNibFile</key>
 	<string>EDMainMenu</string>
 	<key>NSPrincipalClass</key>
-	<string>EDApplication</string>
+	<string>SZApplication</string>
 	<key>OFRegistrations</key>
 	<dict>
 		<key>OAPreferenceController</key>

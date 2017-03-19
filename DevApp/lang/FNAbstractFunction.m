@@ -7,11 +7,21 @@
 //
 
 #import "FNAbstractFunction.h"
-#import "EDApplication.h"
+#import "SZApplication.h"
 #import <Language/XPObject.h>
 #import <TDAppKit/TDUtils.h>
 
+static NSString *sIdentifier = nil;
+
 @implementation FNAbstractFunction
+
++ (void)setIdentifier:(NSString *)identifier {
+    TDAssert([identifier length]);
+    sIdentifier = identifier;
+    
+    [[SZApplication instance] setStrokeWeightStack:[NSMutableArray arrayWithObject:@1] forIdentifier:identifier];
+}
+
 
 - (void)postUpate {
     NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
@@ -141,18 +151,24 @@
 #pragma mark -
 #pragma mark Properties
 
+- (NSString *)identifier {
+    TDAssert([sIdentifier length]);
+    return sIdentifier;
+}
+
+
 - (NSGraphicsContext *)canvasGraphicsContext {
-    return [[EDApplication instance] canvasGraphicsContext];
+    return [[SZApplication instance] graphicsContextForIdentifier:self.identifier];
 }
 
 
 - (void)setCanvasGraphicsContext:(NSGraphicsContext *)g {
-    [[EDApplication instance] setCanvasGraphicsContext:g];
+    [[SZApplication instance] setGraphicsContext:g forIdentifier:self.identifier];
 }
 
 
 - (NSMutableArray *)strokeWeightStack {
-    return [[EDApplication instance] strokeWeightStack];
+    return [[SZApplication instance] strokeWeightStackForIdentifier:self.identifier];
 }
 
 @end

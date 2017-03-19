@@ -359,6 +359,8 @@ void PerformOnMainThread(void (^block)(void)) {
 #pragma mark XPInterpreterDelegate
 
 - (void)interpreterDidDeclareNativeFunctions:(XPInterpreter *)i {
+    [FNAbstractFunction setIdentifier:self.identifier];
+
     [i declareNativeFunction:[FNSize class]];
     [i declareNativeFunction:[FNPushStyle class]];
     [i declareNativeFunction:[FNPopStyle class]];

@@ -9,9 +9,13 @@
 #import "XPFunctionBody.h"
 
 @interface FNAbstractFunction : XPFunctionBody
++ (void)setIdentifier:(NSString *)identifier;
+
 - (void)postUpate;
 - (NSColor *)asColor:(XPObject *)obj;
 
+@property (nonatomic, retain, readonly) NSString *identifier;
+
 @property (nonatomic, retain) NSGraphicsContext *canvasGraphicsContext;
-@property (nonatomic, retain, readonly) NSMutableArray *strokeWeightStack;
+@property (nonatomic, retain) NSMutableArray *strokeWeightStack;
 @end

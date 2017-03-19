@@ -13,7 +13,4 @@
 #ifndef APPSTORE
 - (void)removeUnlicensedMenuItems;
 #endif
-
-@property (atomic, retain) NSGraphicsContext *canvasGraphicsContext;
-@property (atomic, retain, readonly) NSMutableArray *strokeWeightStack;
 @end

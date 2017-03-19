@@ -7,7 +7,7 @@
 //
 
 #import "EDCanvasViewController.h"
-#import "EDApplication.h"
+#import "SZApplication.h"
 #import "EDCanvasView.h"
 #import "EDMetrics.h"
 #import "EDGuide.h"
@@ -124,7 +124,8 @@
     EDAssert(_canvasView);
 
     NSImage *img = nil;
-    NSGraphicsContext *g = [[EDApplication instance] canvasGraphicsContext];
+    NSString *identifier = [[[self.view window] windowController] identifier];
+    NSGraphicsContext *g = [[SZApplication instance] graphicsContextForIdentifier:identifier];
 
     if (g) {
         CGContextRef ctx = [g graphicsPort];
@@ -145,7 +146,8 @@
 
 
 - (void)clear {
-    [[EDApplication instance] setCanvasGraphicsContext:nil];
+    NSString *identifier = [[[self.view window] windowController] identifier];
+    [[SZApplication instance] setGraphicsContext:nil forIdentifier:identifier];
     
     [self update];
 }

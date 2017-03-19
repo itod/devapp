@@ -238,6 +238,7 @@
 		D34A55FE1E7E30C20064DF65 /* FNStrokeWeight.m in Sources */ = {isa = PBXBuildFile; fileRef = D34A55FD1E7E30C20064DF65 /* FNStrokeWeight.m */; };
 		D34A56011E7E31120064DF65 /* FNPushStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = D34A56001E7E31120064DF65 /* FNPushStyle.m */; };
 		D34A56041E7E313D0064DF65 /* FNPopStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = D34A56031E7E313D0064DF65 /* FNPopStyle.m */; };
+		D34A56071E7EF0200064DF65 /* SZApplication.m in Sources */ = {isa = PBXBuildFile; fileRef = D34A56061E7EF0200064DF65 /* SZApplication.m */; };
 		D3D705601E6F710D00D7EA61 /* EDBreakpointCollection.m in Sources */ = {isa = PBXBuildFile; fileRef = D3D7055F1E6F710D00D7EA61 /* EDBreakpointCollection.m */; };
 		D3DA17D01E77702700492A04 /* OkudaKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3DA17CD1E77701200492A04 /* OkudaKit.framework */; };
 		D3DA17D31E77703E00492A04 /* OkudaKit.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = D3DA17CD1E77701200492A04 /* OkudaKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -815,6 +816,8 @@
 		D34A56001E7E31120064DF65 /* FNPushStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FNPushStyle.m; path = lang/FNPushStyle.m; sourceTree = "<group>"; };
 		D34A56021E7E313D0064DF65 /* FNPopStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FNPopStyle.h; path = lang/FNPopStyle.h; sourceTree = "<group>"; };
 		D34A56031E7E313D0064DF65 /* FNPopStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FNPopStyle.m; path = lang/FNPopStyle.m; sourceTree = "<group>"; };
+		D34A56051E7EF0200064DF65 /* SZApplication.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SZApplication.h; sourceTree = "<group>"; };
+		D34A56061E7EF0200064DF65 /* SZApplication.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SZApplication.m; sourceTree = "<group>"; };
 		D3D7055E1E6F710D00D7EA61 /* EDBreakpointCollection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EDBreakpointCollection.h; sourceTree = "<group>"; };
 		D3D7055F1E6F710D00D7EA61 /* EDBreakpointCollection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EDBreakpointCollection.m; sourceTree = "<group>"; };
 		D3DA17C71E77701200492A04 /* OkudaKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = OkudaKit.xcodeproj; path = lib/OkudaKit/OkudaKit.xcodeproj; sourceTree = "<group>"; };
@@ -843,6 +846,8 @@
 			children = (
 				D3166F181E59040D00DEE3A0 /* EDApplication.h */,
 				D3166F191E59040D00DEE3A0 /* EDApplication.m */,
+				D34A56051E7EF0200064DF65 /* SZApplication.h */,
+				D34A56061E7EF0200064DF65 /* SZApplication.m */,
 				D31671111E5B590100DEE3A0 /* EDMainMenu.xib */,
 				D3166F221E5904D600DEE3A0 /* EDUserDefaults.h */,
 				D3166F231E5904D600DEE3A0 /* EDUserDefaults.m */,
@@ -2016,6 +2021,7 @@
 				D3369AC81E36BEED00FEB7BF /* OAPreferencesIconView.m in Sources */,
 				D316705E1E59FC2C00DEE3A0 /* EDBreakpointListContainerView.m in Sources */,
 				D31670291E59F92400DEE3A0 /* EDHistory.m in Sources */,
+				D34A56071E7EF0200064DF65 /* SZApplication.m in Sources */,
 				D3369AC51E36BEED00FEB7BF /* OAPreferenceClient.m in Sources */,
 				D316701E1E59F76700DEE3A0 /* EDTabBarStackTraceButtonCell.m in Sources */,
 				D316701B1E59F76700DEE3A0 /* EDTabBarBreakpointButtonCell.m in Sources */,
