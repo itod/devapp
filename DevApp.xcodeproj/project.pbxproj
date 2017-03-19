@@ -235,6 +235,9 @@
 		D34A55F21E7E14900064DF65 /* FNRect.m in Sources */ = {isa = PBXBuildFile; fileRef = D34A55F11E7E14900064DF65 /* FNRect.m */; };
 		D34A55F51E7E15B20064DF65 /* FNStroke.m in Sources */ = {isa = PBXBuildFile; fileRef = D34A55F41E7E15B20064DF65 /* FNStroke.m */; };
 		D34A55FB1E7E1AFE0064DF65 /* FNFill.m in Sources */ = {isa = PBXBuildFile; fileRef = D34A55FA1E7E1AFE0064DF65 /* FNFill.m */; };
+		D34A55FE1E7E30C20064DF65 /* FNStrokeWeight.m in Sources */ = {isa = PBXBuildFile; fileRef = D34A55FD1E7E30C20064DF65 /* FNStrokeWeight.m */; };
+		D34A56011E7E31120064DF65 /* FNPushStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = D34A56001E7E31120064DF65 /* FNPushStyle.m */; };
+		D34A56041E7E313D0064DF65 /* FNPopStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = D34A56031E7E313D0064DF65 /* FNPopStyle.m */; };
 		D3D705601E6F710D00D7EA61 /* EDBreakpointCollection.m in Sources */ = {isa = PBXBuildFile; fileRef = D3D7055F1E6F710D00D7EA61 /* EDBreakpointCollection.m */; };
 		D3DA17D01E77702700492A04 /* OkudaKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3DA17CD1E77701200492A04 /* OkudaKit.framework */; };
 		D3DA17D31E77703E00492A04 /* OkudaKit.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = D3DA17CD1E77701200492A04 /* OkudaKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -806,6 +809,12 @@
 		D34A55F41E7E15B20064DF65 /* FNStroke.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FNStroke.m; path = lang/FNStroke.m; sourceTree = "<group>"; };
 		D34A55F91E7E1AFE0064DF65 /* FNFill.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FNFill.h; path = lang/FNFill.h; sourceTree = "<group>"; };
 		D34A55FA1E7E1AFE0064DF65 /* FNFill.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FNFill.m; path = lang/FNFill.m; sourceTree = "<group>"; };
+		D34A55FC1E7E30C20064DF65 /* FNStrokeWeight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FNStrokeWeight.h; path = lang/FNStrokeWeight.h; sourceTree = "<group>"; };
+		D34A55FD1E7E30C20064DF65 /* FNStrokeWeight.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FNStrokeWeight.m; path = lang/FNStrokeWeight.m; sourceTree = "<group>"; };
+		D34A55FF1E7E31120064DF65 /* FNPushStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FNPushStyle.h; path = lang/FNPushStyle.h; sourceTree = "<group>"; };
+		D34A56001E7E31120064DF65 /* FNPushStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FNPushStyle.m; path = lang/FNPushStyle.m; sourceTree = "<group>"; };
+		D34A56021E7E313D0064DF65 /* FNPopStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FNPopStyle.h; path = lang/FNPopStyle.h; sourceTree = "<group>"; };
+		D34A56031E7E313D0064DF65 /* FNPopStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FNPopStyle.m; path = lang/FNPopStyle.m; sourceTree = "<group>"; };
 		D3D7055E1E6F710D00D7EA61 /* EDBreakpointCollection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EDBreakpointCollection.h; sourceTree = "<group>"; };
 		D3D7055F1E6F710D00D7EA61 /* EDBreakpointCollection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EDBreakpointCollection.m; sourceTree = "<group>"; };
 		D3DA17C71E77701200492A04 /* OkudaKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = OkudaKit.xcodeproj; path = lib/OkudaKit/OkudaKit.xcodeproj; sourceTree = "<group>"; };
@@ -1625,8 +1634,14 @@
 				D34A55EE1E7E13050064DF65 /* FNAbstractFunction.m */,
 				D34A55E91E7E090D0064DF65 /* FNSize.h */,
 				D34A55EA1E7E090D0064DF65 /* FNSize.m */,
+				D34A55FF1E7E31120064DF65 /* FNPushStyle.h */,
+				D34A56001E7E31120064DF65 /* FNPushStyle.m */,
+				D34A56021E7E313D0064DF65 /* FNPopStyle.h */,
+				D34A56031E7E313D0064DF65 /* FNPopStyle.m */,
 				D34A55F31E7E15B20064DF65 /* FNStroke.h */,
 				D34A55F41E7E15B20064DF65 /* FNStroke.m */,
+				D34A55FC1E7E30C20064DF65 /* FNStrokeWeight.h */,
+				D34A55FD1E7E30C20064DF65 /* FNStrokeWeight.m */,
 				D34A55F91E7E1AFE0064DF65 /* FNFill.h */,
 				D34A55FA1E7E1AFE0064DF65 /* FNFill.m */,
 				D34A55F01E7E14900064DF65 /* FNRect.h */,
@@ -2012,6 +2027,8 @@
 				D3369BCB1E36C73800FEB7BF /* NSImage+TDAdditions.m in Sources */,
 				D316700C1E59F71F00DEE3A0 /* EDStackTraceContainerView.m in Sources */,
 				D316701D1E59F76700DEE3A0 /* EDTabBarFilesystemButtonCell.m in Sources */,
+				D34A56041E7E313D0064DF65 /* FNPopStyle.m in Sources */,
+				D34A55FE1E7E30C20064DF65 /* FNStrokeWeight.m in Sources */,
 				D31670CC1E5A18B900DEE3A0 /* EDFilesystemNavBar.m in Sources */,
 				D31E2C8C1E7D85F50023E924 /* EDCanvasView.m in Sources */,
 				D3369AB31E36BEED00FEB7BF /* IDEMainWindow.m in Sources */,
@@ -2021,6 +2038,7 @@
 				D3369B1D1E36C25A00FEB7BF /* TKTabListItemFlatStyleCloseButton.m in Sources */,
 				D31E2C8B1E7D85F50023E924 /* EDCanvasPrintView.m in Sources */,
 				D3369C001E36C73800FEB7BF /* TDViewController.m in Sources */,
+				D34A56011E7E31120064DF65 /* FNPushStyle.m in Sources */,
 				D31670AC1E5A169200DEE3A0 /* EDFileEncodingDialogController.m in Sources */,
 				D3166FF71E592C6A00DEE3A0 /* EDTestAction.m in Sources */,
 				D316701C1E59F76700DEE3A0 /* EDTabBarButtonCell.m in Sources */,

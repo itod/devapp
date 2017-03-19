@@ -11,7 +11,10 @@
 #import <Language/Language.h>
 
 #import "FNSize.h"
+#import "FNPushStyle.h"
+#import "FNPopStyle.h"
 #import "FNStroke.h"
+#import "FNStrokeWeight.h"
 #import "FNFill.h"
 #import "FNRect.h"
 
@@ -357,7 +360,10 @@ void PerformOnMainThread(void (^block)(void)) {
 
 - (void)interpreterDidDeclareNativeFunctions:(XPInterpreter *)i {
     [i declareNativeFunction:[FNSize class]];
+    [i declareNativeFunction:[FNPushStyle class]];
+    [i declareNativeFunction:[FNPopStyle class]];
     [i declareNativeFunction:[FNStroke class]];
+    [i declareNativeFunction:[FNStrokeWeight class]];
     [i declareNativeFunction:[FNFill class]];
     [i declareNativeFunction:[FNRect class]];
 }

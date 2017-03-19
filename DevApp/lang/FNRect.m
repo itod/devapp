@@ -56,8 +56,11 @@
     CGContextRef ctx = [self.canvasGraphicsContext graphicsPort];
     
     CGRect r = CGRectMake(x, y, w, h);
+    
+    // FILL
     CGContextFillRect(ctx, r);
     
+    // STROKE
     CGContextSaveGState(ctx); {
         CGContextTranslateCTM(ctx, 0.5, 0.5);
 

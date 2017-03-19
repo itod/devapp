@@ -131,7 +131,6 @@
                 break;
         }
     } else {
-        TDAssert(0);
         @throw @"TODO";
     }
     
