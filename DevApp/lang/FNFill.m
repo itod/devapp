@@ -37,9 +37,8 @@
     XPMemorySpace *space = walker.currentSpace;
     TDAssert(space);
     
-    XPObject *colorObj = [space objectForName:@"color"];
-    TDAssert(colorObj);
-
+    XPObject *colorObj = [space objectForName:@"color"]; TDAssert(colorObj);
+    
     NSColor *c = [self asColor:colorObj];
     
     CGContextRef ctx = [self.canvasGraphicsContext graphicsPort];

@@ -56,8 +56,13 @@
     CGContextRef ctx = [self.canvasGraphicsContext graphicsPort];
     
     CGRect r = CGRectMake(x, y, w, h);
-    CGContextAddRect(ctx, r);
-    CGContextDrawPath(ctx, kCGPathFillStroke);
+    CGContextFillRect(ctx, r);
+    
+    CGContextSaveGState(ctx); {
+        CGContextTranslateCTM(ctx, 0.5, 0.5);
+
+        CGContextStrokeRect(ctx, r);
+    } CGContextRestoreGState(ctx);
     
     [self postUpate];
     

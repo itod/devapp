@@ -25,7 +25,12 @@
     if (obj.isBooleanObject) {
         c = [obj boolValue] ? [NSColor whiteColor] : [NSColor blackColor];
     } else if (obj.isNumericObject) {
-        c = TDHexaColor(obj.doubleValue);
+        double x = obj.doubleValue;
+        if (x > 0xFFFFFF) {
+            c = TDHexaColor(x);
+        } else {
+            c = TDHexColor(x);
+        }
     } else if (obj.isStringObject) {
         
         static NSDictionary *sColors = nil;
@@ -57,7 +62,76 @@
         } else {
             @throw @"TODO";
         }
+    } else if (obj.isArrayObject) {
+        NSUInteger argc = [obj.value count];
+        
+        switch (argc) {
+            case 1: {
+                double white = [obj.value[0] doubleValue];
+                c = [NSColor colorWithWhite:white alpha:1.0];
+            } break;
+
+            case 2: {
+                double white = [obj.value[0] doubleValue];
+                double alpha = [obj.value[1] doubleValue];
+                c = [NSColor colorWithWhite:white alpha:alpha];
+            } break;
+                
+            case 3: {
+                double r = [obj.value[0] doubleValue];
+                double g = [obj.value[1] doubleValue];
+                double b = [obj.value[2] doubleValue];
+                c = [NSColor colorWithRed:r green:g blue:b alpha:1.0];
+            } break;
+                
+            case 4: {
+                double r = [obj.value[0] doubleValue];
+                double g = [obj.value[1] doubleValue];
+                double b = [obj.value[2] doubleValue];
+                double a = [obj.value[3] doubleValue];
+                c = [NSColor colorWithRed:r green:g blue:b alpha:a];
+            } break;
+                
+            default:
+                @throw @"TODO";
+                break;
+        }
+    } else if (obj.isDictionaryObject) {
+        NSUInteger argc = [obj.value count];
+        
+        switch (argc) {
+            case 1: {
+                double white = [obj.value[@"gray"] doubleValue];
+                c = [NSColor colorWithWhite:white alpha:1.0];
+            } break;
+                
+            case 2: {
+                double white = [obj.value[@"gray"] doubleValue];
+                double alpha = [obj.value[@"alpha"] doubleValue];
+                c = [NSColor colorWithWhite:white alpha:alpha];
+            } break;
+                
+            case 3: {
+                double r = [obj.value[@"r"] doubleValue];
+                double g = [obj.value[@"g"] doubleValue];
+                double b = [obj.value[@"b"] doubleValue];
+                c = [NSColor colorWithRed:r green:g blue:b alpha:1.0];
+            } break;
+                
+            case 4: {
+                double r = [obj.value[@"r"] doubleValue];
+                double g = [obj.value[@"g"] doubleValue];
+                double b = [obj.value[@"b"] doubleValue];
+                double a = [obj.value[@"a"] doubleValue];
+                c = [NSColor colorWithRed:r green:g blue:b alpha:a];
+            } break;
+                
+            default:
+                @throw @"TODO";
+                break;
+        }
     } else {
+        TDAssert(0);
         @throw @"TODO";
     }
     
