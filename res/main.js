@@ -1,1 +1,1 @@
-log('OHAI')
+print('OHAI')

@@ -1,21 +1,21 @@
 //
-//  FNStroke.m
+//  FNRotate.m
 //  Language
 //
 //  Created by Todd Ditchendorf on 2/14/17.
 //  Copyright © 2017 Celestial Teapot. All rights reserved.
 //
 
-#import "FNStroke.h"
+#import "FNRotate.h"
 #import <Language/XPObject.h>
 #import <Language/XPTreeWalker.h>
 #import "XPFunctionSymbol.h"
 #import "XPMemorySpace.h"
 
-@implementation FNStroke
+@implementation FNRotate
 
 + (NSString *)name {
-    return @"stroke";
+    return @"rotate";
 }
 
 
@@ -23,10 +23,10 @@
     XPFunctionSymbol *funcSym = [XPFunctionSymbol symbolWithName:[[self class] name] enclosingScope:nil];
     funcSym.nativeBody = self;
     
-    XPSymbol *color = [XPSymbol symbolWithName:@"color"];
-    funcSym.orderedParams = [NSMutableArray arrayWithObjects:color, nil];
+    XPSymbol *radians = [XPSymbol symbolWithName:@"radians"];
+    funcSym.orderedParams = [NSMutableArray arrayWithObjects:radians, nil];
     funcSym.params = [NSMutableDictionary dictionaryWithObjectsAndKeys:
-                      color, @"color",
+                      radians, @"radians",
                       nil];
     
     return funcSym;
@@ -37,12 +37,10 @@
     XPMemorySpace *space = walker.currentSpace;
     TDAssert(space);
     
-    XPObject *colorObj = [space objectForName:@"color"]; TDAssert(colorObj);
-
-    NSColor *c = [self asColor:colorObj];
+    XPObject *radians = [space objectForName:@"radians"]; TDAssert(radians);
     
     CGContextRef ctx = [self.canvasGraphicsContext graphicsPort];
-    CGContextSetRGBStrokeColor(ctx, [c redComponent], [c greenComponent], [c blueComponent], [c alphaComponent]);
+    CGContextRotateCTM(ctx, radians.doubleValue);
     
     return nil;
 }

@@ -13,10 +13,14 @@
 #import "FNSize.h"
 #import "FNPushStyle.h"
 #import "FNPopStyle.h"
+#import "FNTranslate.h"
+#import "FNScale.h"
+#import "FNRotate.h"
 #import "FNStroke.h"
 #import "FNStrokeWeight.h"
 #import "FNFill.h"
 #import "FNRect.h"
+#import "FNEllipse.h"
 
 void PerformOnMainThread(void (^block)(void)) {
     assert(block);
@@ -364,10 +368,14 @@ void PerformOnMainThread(void (^block)(void)) {
     [i declareNativeFunction:[FNSize class]];
     [i declareNativeFunction:[FNPushStyle class]];
     [i declareNativeFunction:[FNPopStyle class]];
+    [i declareNativeFunction:[FNTranslate class]];
+    [i declareNativeFunction:[FNScale class]];
+    [i declareNativeFunction:[FNRotate class]];
     [i declareNativeFunction:[FNStroke class]];
     [i declareNativeFunction:[FNStrokeWeight class]];
     [i declareNativeFunction:[FNFill class]];
     [i declareNativeFunction:[FNRect class]];
+    [i declareNativeFunction:[FNEllipse class]];
 }
 
 

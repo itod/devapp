@@ -1,21 +1,21 @@
 //
-//  FNRect.m
+//  FNEllipse.m
 //  Language
 //
 //  Created by Todd Ditchendorf on 2/14/17.
 //  Copyright © 2017 Celestial Teapot. All rights reserved.
 //
 
-#import "FNRect.h"
+#import "FNEllipse.h"
 #import <Language/XPObject.h>
 #import <Language/XPTreeWalker.h>
 #import "XPFunctionSymbol.h"
 #import "XPMemorySpace.h"
 
-@implementation FNRect
+@implementation FNEllipse
 
 + (NSString *)name {
-    return @"rect";
+    return @"ellipse";
 }
 
 
@@ -58,7 +58,7 @@
     // FILL
     {
         CGRect fillRect = CGRectMake(x, y, w, h);
-        CGContextFillRect(ctx, fillRect);
+        CGContextFillEllipseInRect(ctx, fillRect);
     }
     
     // STROKE
@@ -75,7 +75,7 @@
                     strokeRect = CGRectMake(x-1.0, y-1.0, w+2.0, h+2.0);
                 }
                 
-                CGContextStrokeRect(ctx, strokeRect);
+                CGContextStrokeEllipseInRect(ctx, strokeRect);
             } CGContextRestoreGState(ctx);
         }
     }

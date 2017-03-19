@@ -1324,7 +1324,7 @@
                      [OKTrigger triggerWithTemplate:@"while ${test}" specifier:@"while"],
                      [OKTrigger triggerWithTemplate:@"return ${val}" specifier:@"return"],
                      [OKTrigger triggerWithTemplate:@"import ${module} as ${foo}" specifier:@"importas"],
-                     [OKTrigger triggerWithTemplate:@"log(${value})" specifier:@"log"],
+                     [OKTrigger triggerWithTemplate:@"print(${value})" specifier:@"log"],
                      nil];
     }
     return sTriggers;
