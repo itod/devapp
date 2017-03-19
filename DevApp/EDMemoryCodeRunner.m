@@ -11,6 +11,9 @@
 #import <Language/Language.h>
 
 #import "FNSize.h"
+#import "FNStroke.h"
+#import "FNFill.h"
+#import "FNRect.h"
 
 void PerformOnMainThread(void (^block)(void)) {
     assert(block);
@@ -354,6 +357,9 @@ void PerformOnMainThread(void (^block)(void)) {
 
 - (void)interpreterDidDeclareNativeFunctions:(XPInterpreter *)i {
     [i declareNativeFunction:[FNSize class]];
+    [i declareNativeFunction:[FNStroke class]];
+    [i declareNativeFunction:[FNFill class]];
+    [i declareNativeFunction:[FNRect class]];
 }
 
 

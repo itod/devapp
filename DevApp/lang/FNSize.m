@@ -12,8 +12,6 @@
 #import "XPFunctionSymbol.h"
 #import "XPMemorySpace.h"
 
-#import "EDApplication.h"
-
 @implementation FNSize
 
 + (NSString *)name {
@@ -59,13 +57,10 @@
 
 
 - (NSGraphicsContext *)newContextWithSize:(CGSize)size {
-    CGRect imgRect = NSMakeRect(0.0, 0.0, size.width, size.height);
-    CGSize imgSize = imgRect.size;
-    
     NSBitmapImageRep *offscreenRep = [[[NSBitmapImageRep alloc]
                                        initWithBitmapDataPlanes:NULL
-                                       pixelsWide:imgSize.width
-                                       pixelsHigh:imgSize.height
+                                       pixelsWide:size.width
+                                       pixelsHigh:size.height
                                        bitsPerSample:8
                                        samplesPerPixel:4
                                        hasAlpha:YES
@@ -77,6 +72,15 @@
     
     // set offscreen context
     NSGraphicsContext *g = [[NSGraphicsContext graphicsContextWithBitmapImageRep:offscreenRep] retain];
+    
+    // flip
+    CGContextRef ctx = [g graphicsPort];
+    CGAffineTransform flip = CGAffineTransformScale(CGAffineTransformMakeTranslation(0.0, size.height), 1.0, -1.0);
+    CGContextConcatCTM(ctx, flip);
+    
+    // translate
+    CGContextTranslateCTM(ctx, 0.5, 0.5);
+    
     return g;
 }
 

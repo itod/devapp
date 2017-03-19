@@ -10,6 +10,7 @@
 
 @interface FNAbstractFunction : XPFunctionBody
 - (void)postUpate;
+- (NSColor *)asColor:(XPObject *)obj;
 
 @property (nonatomic, retain) NSGraphicsContext *canvasGraphicsContext;
 @end
