@@ -790,7 +790,15 @@ static void EDDrawPatternFunc(void *info, CGContextRef ctx) {
     NSGraphicsContext *g = [[EDApplication instance] canvasGraphicsContext];
     CGContextRef ctx = [g graphicsPort];
     
-    CGRect compBounds = CGRectMake(0.0, 0.0, CGBitmapContextGetWidth(ctx), CGBitmapContextGetHeight(ctx));
+    CGFloat w = 0.0;
+    CGFloat h = 0.0;
+    
+    if (ctx) {
+        w = CGBitmapContextGetWidth(ctx);
+        h = CGBitmapContextGetHeight(ctx);
+    }
+    
+    CGRect compBounds = CGRectMake(0.0, 0.0, w, h);
     return compBounds;
 }
 
