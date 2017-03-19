@@ -71,7 +71,6 @@
             strokeRect = CGRectMake(x-1.0, y-1.0, w+2.0, h+2.0);
         }
         
-
         CGContextStrokeRect(ctx, strokeRect);
     } CGContextRestoreGState(ctx);
     
