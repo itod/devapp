@@ -61,18 +61,21 @@
     CGContextFillRect(ctx, fillRect);
     
     // STROKE
-    CGContextSaveGState(ctx); {
-        CGRect strokeRect;
-        NSInteger weight = [[self.strokeWeightStack lastObject] doubleValue];
-        BOOL isOdd = (weight & 1);
-        if (isOdd) {
-            strokeRect = CGRectMake(x-0.5, y-0.5, w+1.0, h+1.0);
-        } else {
-            strokeRect = CGRectMake(x-1.0, y-1.0, w+2.0, h+2.0);
-        }
-        
-        CGContextStrokeRect(ctx, strokeRect);
-    } CGContextRestoreGState(ctx);
+    NSInteger weight = [[self.strokeWeightStack lastObject] integerValue];
+    if (weight > 0) {
+        CGContextSaveGState(ctx); {
+            CGRect strokeRect;
+
+            BOOL isOdd = (weight & 1);
+            if (isOdd) {
+                strokeRect = CGRectMake(x-0.5, y-0.5, w+1.0, h+1.0);
+            } else {
+                strokeRect = CGRectMake(x-1.0, y-1.0, w+2.0, h+2.0);
+            }
+
+            CGContextStrokeRect(ctx, strokeRect);
+        } CGContextRestoreGState(ctx);
+    }
     
     [self postUpate];
     
