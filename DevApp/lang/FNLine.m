@@ -52,6 +52,7 @@
     
     CGContextMoveToPoint(ctx, x1.doubleValue, y1.doubleValue);
     CGContextAddLineToPoint(ctx, x2.doubleValue, y2.doubleValue);
+    CGContextStrokePath(ctx);
     
     [self postUpate];
     
