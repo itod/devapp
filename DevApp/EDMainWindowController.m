@@ -1286,6 +1286,16 @@
 }
 
 
+- (void)codeRunner:(NSString *)identifier didUpdate:(NSDictionary *)info {
+    //NSLog(@"%s", __PRETTY_FUNCTION__);
+    EDAssert([identifier isEqualToString:self.identifier]);
+    EDAssertMainThread();
+
+    EDAssert(self.canvasViewController);
+    [self.canvasViewController update];
+}
+
+
 #pragma mark -
 #pragma mark OKTextViewListDataSource
 

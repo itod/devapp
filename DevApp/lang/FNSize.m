@@ -54,6 +54,9 @@
     
     [[EDApplication instance] setCanvasGraphicsContext:g];
     
+    NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
+    [nc postNotificationName:@"CanvasDidUpdateNotification" object:nil];
+    
     return nil;
 }
 

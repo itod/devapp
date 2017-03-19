@@ -7,6 +7,7 @@
 //
 
 #import "EDCanvasView.h"
+#import "EDApplication.h"
 #import "EDToolTip.h"
 #import "EDGuide.h"
 #import "EDMetrics.h"
@@ -786,7 +787,10 @@ static void EDDrawPatternFunc(void *info, CGContextRef ctx) {
 #pragma mark Public
 
 - (CGRect)compositionBounds {
-    CGRect compBounds = CGRectMake(0.0, 0.0, _document.metrics.width, _document.metrics.height);
+    NSGraphicsContext *g = [[EDApplication instance] canvasGraphicsContext];
+    CGContextRef ctx = [g graphicsPort];
+    
+    CGRect compBounds = CGRectMake(0.0, 0.0, CGBitmapContextGetWidth(ctx), CGBitmapContextGetHeight(ctx));
     return compBounds;
 }
 

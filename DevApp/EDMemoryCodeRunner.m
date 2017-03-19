@@ -40,6 +40,9 @@ void PerformOnMainThread(void (^block)(void)) {
 
         self.controlThread = dispatch_queue_create("CONTROL-THREAD", DISPATCH_QUEUE_SERIAL);
         self.executeThread = dispatch_queue_create("EXECUTE-THREAD", DISPATCH_QUEUE_SERIAL);
+        
+        NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
+        [nc addObserver:self selector:@selector(canvasDidUpdate:) name:@"CanvasDidUpdateNotification" object:nil];
     }
     return self;
 }
@@ -237,6 +240,18 @@ void PerformOnMainThread(void (^block)(void)) {
 }
 
 
+- (void)fireDelegateDidUpdate:(NSMutableDictionary *)info {
+    // called on CONTROL-THREAD or EXECUTE-THREAD
+    TDAssertNotMainThread();
+    
+    PerformOnMainThread(^{
+        TDAssert(self.delegate);
+        TDAssert(self.identifier);
+        [self.delegate codeRunner:self.identifier didUpdate:info];
+    });
+}
+
+
 #pragma mark -
 #pragma mark Private EXECUTE-THREAD
 
@@ -299,28 +314,6 @@ void PerformOnMainThread(void (^block)(void)) {
 }
 
 
-//- (void)didSucceed:(NSMutableDictionary *)info {
-//    // only called on EXECUTE-THREAD
-//    TDAssertExecuteThread();
-//    TDAssert(info);
-//    
-//    info[kEDCodeRunnerDoneKey] = @YES;
-//    
-//    [self.debugSync pauseWithInfo:info];
-//}
-//
-//
-//- (void)didFail:(NSMutableDictionary *)info {
-//    // only called on EXECUTE-THREAD
-//    TDAssertExecuteThread();
-//    TDAssert(info);
-//    
-//    info[kEDCodeRunnerDoneKey] = @YES;
-//
-//    [self.debugSync pauseWithInfo:info];
-//}
-
-
 - (void)doRun:(NSString *)srcStr filePath:(NSString *)path breakpoints:(id)bpPlist {
     // only called on EXECUTE-THREAD
     TDAssertExecuteThread();
@@ -370,6 +363,14 @@ void PerformOnMainThread(void (^block)(void)) {
 - (void)interpreter:(XPInterpreter *)i didPause:(NSMutableDictionary *)debugInfo {
     TDAssertExecuteThread();
     [self didPause:debugInfo];
+}
+
+
+#pragma mark -
+#pragma mark Notifications
+
+- (void)canvasDidUpdate:(NSNotification *)n {
+    [self fireDelegateDidUpdate:nil];
 }
 
 @end

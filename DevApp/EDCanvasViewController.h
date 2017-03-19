@@ -20,7 +20,7 @@
 //@end
 
 @interface EDCanvasViewController : TDViewController <EDCanvasViewDelegate>
-- (void)updateWithImage:(NSImage *)img;
+- (void)update;
 - (void)clear;
 
 @property (nonatomic, retain) IBOutlet EDCanvasView *canvasView;

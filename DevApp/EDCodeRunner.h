@@ -27,6 +27,7 @@
 - (void)codeRunner:(NSString *)identifier didPause:(NSDictionary *)info;
 - (void)codeRunner:(NSString *)identifier didSucceed:(NSDictionary *)info;
 - (void)codeRunner:(NSString *)identifier didFail:(NSDictionary *)info;
+- (void)codeRunner:(NSString *)identifier didUpdate:(NSDictionary *)info;
 
 - (void)codeRunner:(NSString *)identifier messageFromStdOut:(NSString *)msg;
 - (void)codeRunner:(NSString *)identifier messageFromStdErr:(NSString *)msg;

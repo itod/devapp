@@ -7,6 +7,7 @@
 //
 
 #import "EDCanvasViewController.h"
+#import "EDApplication.h"
 #import "EDCanvasView.h"
 #import "EDMetrics.h"
 #import "EDGuide.h"
@@ -119,9 +120,21 @@
 #pragma mark -
 #pragma mark Public
 
-- (void)updateWithImage:(NSImage *)img {
+- (void)update {
     EDAssert(_canvasView);
 
+    NSImage *img = nil;
+    NSGraphicsContext *g = [[EDApplication instance] canvasGraphicsContext];
+
+    if (g) {
+        CGContextRef ctx = [g graphicsPort];
+        CGSize size = CGSizeMake(CGBitmapContextGetWidth(ctx), CGBitmapContextGetHeight(ctx));
+        
+        CGImageRef cgimg = CGBitmapContextCreateImage(ctx);
+        
+        img = [[[NSImage alloc] initWithCGImage:cgimg size:size] autorelease];
+    }
+    
     _canvasView.image = img;
     //_canvasView.context = ctx;
     [_canvasView setNeedsDisplay:YES];
@@ -132,7 +145,9 @@
 
 
 - (void)clear {
-    [self updateWithImage:nil];
+    [[EDApplication instance] setCanvasGraphicsContext:nil];
+    
+    [self update];
 }
 
 
