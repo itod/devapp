@@ -28,6 +28,11 @@
     XPSymbol *x2 = [XPSymbol symbolWithName:@"x2"];
     XPSymbol *y2 = [XPSymbol symbolWithName:@"y2"];
     funcSym.orderedParams = [NSMutableArray arrayWithObjects:x1, y1, x2, y2, nil];
+    funcSym.defaultParamObjects = [NSMutableDictionary dictionaryWithObjectsAndKeys:
+                                   [XPObject nullObject], @"y1",
+                                   [XPObject nullObject], @"x2",
+                                   [XPObject nullObject], @"y2",
+                                   nil];
     funcSym.params = [NSMutableDictionary dictionaryWithObjectsAndKeys:
                       x1, @"x1",
                       y1, @"y1",
@@ -47,6 +52,14 @@
     XPObject *y1 = [space objectForName:@"y1"]; TDAssert(y1);
     XPObject *x2 = [space objectForName:@"x2"]; TDAssert(x2);
     XPObject *y2 = [space objectForName:@"y2"]; TDAssert(y2);
+    
+    if (1 == argc) {
+        NSArray *v = x1.value;
+        x1 = [v objectAtIndex:0];
+        y1 = [v objectAtIndex:1];
+        x2 = [v objectAtIndex:2];
+        y2 = [v objectAtIndex:3];
+    }
     
     CGContextRef ctx = [self.canvasGraphicsContext graphicsPort];
     

@@ -28,6 +28,11 @@
     XPSymbol *width = [XPSymbol symbolWithName:@"width"];
     XPSymbol *height = [XPSymbol symbolWithName:@"height"];
     funcSym.orderedParams = [NSMutableArray arrayWithObjects:x, y, width, height, nil];
+    funcSym.defaultParamObjects = [NSMutableDictionary dictionaryWithObjectsAndKeys:
+                                   [XPObject nullObject], @"y",
+                                   [XPObject nullObject], @"width",
+                                   [XPObject nullObject], @"height",
+                                   nil];
     funcSym.params = [NSMutableDictionary dictionaryWithObjectsAndKeys:
                       x, @"x",
                       y, @"y",
@@ -43,21 +48,24 @@
     XPMemorySpace *space = walker.currentSpace;
     TDAssert(space);
     
-    XPObject *xObj = [space objectForName:@"x"]; TDAssert(xObj);
-    XPObject *yObj = [space objectForName:@"y"]; TDAssert(yObj);
-    XPObject *widthObj = [space objectForName:@"width"]; TDAssert(widthObj);
-    XPObject *heightObj = [space objectForName:@"height"]; TDAssert(heightObj);
+    XPObject *x = [space objectForName:@"x"]; TDAssert(x);
+    XPObject *y = [space objectForName:@"y"]; TDAssert(y);
+    XPObject *w = [space objectForName:@"width"]; TDAssert(w);
+    XPObject *h = [space objectForName:@"height"]; TDAssert(h);
     
-    double x = [xObj.value doubleValue];
-    double y = [yObj.value doubleValue];
-    double w = [widthObj.value doubleValue];
-    double h = [heightObj.value doubleValue];
+    if (1 == argc) {
+        NSArray *v = x.value;
+        x = [v objectAtIndex:0];
+        y = [v objectAtIndex:1];
+        w = [v objectAtIndex:2];
+        h = [v objectAtIndex:3];
+    }
     
     CGContextRef ctx = [self.canvasGraphicsContext graphicsPort];
     
     // FILL
     {
-        CGRect fillRect = CGRectMake(x, y, w, h);
+        CGRect fillRect = CGRectMake(x.doubleValue, y.doubleValue, w.doubleValue, h.doubleValue);
         CGContextFillRect(ctx, fillRect);
     }
     
@@ -70,9 +78,9 @@
                 
                 BOOL isOdd = (weight & 1);
                 if (isOdd) {
-                    strokeRect = CGRectMake(x-0.5, y-0.5, w+1.0, h+1.0);
+                    strokeRect = CGRectMake(x.doubleValue-0.5, y.doubleValue-0.5, w.doubleValue+1.0, h.doubleValue+1.0);
                 } else {
-                    strokeRect = CGRectMake(x-1.0, y-1.0, w+2.0, h+2.0);
+                    strokeRect = CGRectMake(x.doubleValue-1.0, y.doubleValue-1.0, w.doubleValue+2.0, h.doubleValue+2.0);
                 }
                 
                 CGContextStrokeRect(ctx, strokeRect);
