@@ -6,8 +6,8 @@
 //  Copyright © 2017 Celestial Teapot. All rights reserved.
 //
 
-#import "XPFunctionBody.h"
+#import "FNAbstractFunction.h"
 
-@interface FNSize : XPFunctionBody
+@interface FNSize : FNAbstractFunction
 
 @end

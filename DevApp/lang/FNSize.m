@@ -50,12 +50,9 @@
     double w = [width.value doubleValue];
     double h = [height.value doubleValue];
     
-    NSGraphicsContext *g = [[self newContextWithSize:CGSizeMake(w, h)] autorelease];
-    
-    [[EDApplication instance] setCanvasGraphicsContext:g];
-    
-    NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
-    [nc postNotificationName:@"CanvasDidUpdateNotification" object:nil];
+    self.canvasGraphicsContext = [[self newContextWithSize:CGSizeMake(w, h)] autorelease];
+
+    [self postUpate];
     
     return nil;
 }
