@@ -31,6 +31,7 @@
 
 
 - (void)dealloc {
+    self.canvasGraphicsContext = nil;
     [super dealloc];
 }
 

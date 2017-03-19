@@ -13,4 +13,6 @@
 #ifndef APPSTORE
 - (void)removeUnlicensedMenuItems;
 #endif
+
+@property (atomic, retain) NSGraphicsContext *canvasGraphicsContext;
 @end

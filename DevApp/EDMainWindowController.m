@@ -1326,8 +1326,15 @@
 }
 
 
-- (NSArray *)filteredDataForPrefix:(NSString *)prefix {
-    NSMutableArray *sortedMatches = [NSMutableArray arrayWithArray:[self unsortedFilteredDataForPrefix:prefix]];
+- (NSArray *)filteredTriggersForPrefix:(NSString *)prefix {
+    NSAssert([[NSThread currentThread] isMainThread], @"");
+
+    NSAssert(prefix, @"");
+    NSUInteger prefixLen = [prefix length];
+    if (!prefixLen) return nil;
+
+    NSMutableArray *sortedMatches = [NSMutableArray arrayWithArray:[self unsortedBuiltinTriggersForPrefix:prefix]];
+    //[sortedMatches addObjectsFromArray:[self unsortedDynamicTriggersForPrefix:prefix]];
     
     [sortedMatches sortUsingComparator:^NSComparisonResult(OKTrigger *trig1, OKTrigger *trig2) {
         CGFloat score1 = trig1.score;
@@ -1346,13 +1353,64 @@
 }
 
 
-- (NSArray *)unsortedFilteredDataForPrefix:(NSString *)prefix {
-    NSAssert([[NSThread currentThread] isMainThread], @"");
+//- (NSArray *)unsortedDynamicTriggersForPrefix:(NSString *)prefix {
+//    TDAssert(_codeRunner);
+//    NSRange selRange = [self.selectedSourceViewController.textView selectedRange];
+//    NSArray *pats = nil; //[nil completionTriggerPatternsForRange:selRange];
+//    NSUInteger c = [pats count];
+//    NSMutableArray *triggers = nil;
+//    
+//    if (c) {
+//        triggers = [NSMutableArray arrayWithCapacity:c];
+//        
+//        for (NSString *pat in pats) {
+//            OKTrigger *trig = [OKTrigger triggerWithTemplate:pat];
+//            TDAssert(trig);
+//            [triggers addObject:trig];
+//        }
+//    }
+//    
+//    return triggers;
+//}
+//
+//
+//- (NSArray *)completionTriggerPatternsForPrefix:(NSString *)prefix atRange:(NSRange)range {
+//    self.interp = [[[XPInterpreter alloc] init] autorelease];
+//    NSArray *result = [_interp completionsForPrefix:prefix inRange:range];
+//    
+//    
+//    
+//    
+//    //    NSMutableSet *found = [NSMutableSet set];
+//    //
+//    //    XPMemorySpace *space = _interp.currentMemorySpace;
+//    //
+//    //    while (space) {
+//    //        for (NSString *name in [space.members allKeys]) {
+//    //            if (![found containsObject:name] && [name hasPrefix:prefix]) {
+//    //                [found addObject:name];
+//    //
+//    //                XPObject *obj = [space.members objectForKey:name];
+//    //
+//    //                if (obj.isFunctionObject) {
+//    //                    NSString *pat = [NSString stringWithFormat:@"%@()", name];
+//    //                    [result addObject:pat];
+//    //                } else {
+//    //                    [result addObject:name];
+//    //                }
+//    //            }
+//    //        }
+//    //
+//    //        space = space.enclosingSpace;
+//    //    }
+//    
+//    return result;
+//}
+
     
-    NSAssert(prefix, @"");
+- (NSArray *)unsortedBuiltinTriggersForPrefix:(NSString *)prefix {
     NSUInteger prefixLen = [prefix length];
-    if (!prefixLen) return nil;
-    
+
     //prefix = [prefix lowercaseString];
     NSMutableArray *results = [NSMutableArray array];
     
@@ -1419,7 +1477,7 @@
     NSString *result = nil;
     
     if (tv == self.selectedSourceViewController.textView) {
-        self.filteredData = [self filteredDataForPrefix:prefix];
+        self.filteredData = [self filteredTriggersForPrefix:prefix];
         //NSLog(@"filtered Data : %@", _filteredData);
         
         OKTrigger *best = nil;

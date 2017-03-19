@@ -10,6 +10,8 @@
 #import <TDThreadUtils/TDInterpreterSync.h>
 #import <Language/Language.h>
 
+#import "FNSize.h"
+
 void PerformOnMainThread(void (^block)(void)) {
     assert(block);
     dispatch_async(dispatch_get_main_queue(), block);
@@ -83,7 +85,7 @@ void PerformOnMainThread(void (^block)(void)) {
 
 
 - (void)clearAllBreakpoints:(NSString *)identifier {
-    
+    [_interp updateBreakpoints:nil];
 }
 
 
@@ -330,6 +332,7 @@ void PerformOnMainThread(void (^block)(void)) {
     });
     
     self.interp = [[[XPInterpreter alloc] init] autorelease];
+    _interp.delegate = self;
     
     _interp.stdOut = _stdOutPipe.fileHandleForWriting;
     _interp.stdErr = _stdErrPipe.fileHandleForWriting;
@@ -354,23 +357,19 @@ void PerformOnMainThread(void (^block)(void)) {
 
 
 #pragma mark -
+#pragma mark XPInterpreterDelegate
+
+- (void)interpreterDidDeclareNativeFunctions:(XPInterpreter *)i {
+    [i declareNativeFunction:[FNSize class]];
+}
+
+
+#pragma mark -
 #pragma mark XPInterpreterDebugDelegate
 
 - (void)interpreter:(XPInterpreter *)i didPause:(NSMutableDictionary *)debugInfo {
     TDAssertExecuteThread();
     [self didPause:debugInfo];
 }
-
-
-//- (void)interpreter:(XPInterpreter *)i didFinish:(NSMutableDictionary *)debugInfo {
-//    TDAssertExecuteThread();
-//    [self didSucceed:debugInfo];
-//}
-//
-//
-//- (void)interpreter:(XPInterpreter *)i didFail:(NSMutableDictionary *)debugInfo {
-//    TDAssertExecuteThread();
-//    [self didFail:debugInfo];
-//}
 
 @end

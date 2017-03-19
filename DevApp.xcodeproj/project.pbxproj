@@ -230,6 +230,7 @@
 		D3369C001E36C73800FEB7BF /* TDViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D3369BBC1E36C73800FEB7BF /* TDViewController.m */; };
 		D3369C011E36C73800FEB7BF /* TDViewControllerView.m in Sources */ = {isa = PBXBuildFile; fileRef = D3369BBD1E36C73800FEB7BF /* TDViewControllerView.m */; };
 		D3369C071E36C75F00FEB7BF /* TDRegisterWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = D3369C051E36C75F00FEB7BF /* TDRegisterWindow.xib */; };
+		D34A55EB1E7E090D0064DF65 /* FNSize.m in Sources */ = {isa = PBXBuildFile; fileRef = D34A55EA1E7E090D0064DF65 /* FNSize.m */; };
 		D3D705601E6F710D00D7EA61 /* EDBreakpointCollection.m in Sources */ = {isa = PBXBuildFile; fileRef = D3D7055F1E6F710D00D7EA61 /* EDBreakpointCollection.m */; };
 		D3DA17D01E77702700492A04 /* OkudaKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3DA17CD1E77701200492A04 /* OkudaKit.framework */; };
 		D3DA17D31E77703E00492A04 /* OkudaKit.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = D3DA17CD1E77701200492A04 /* OkudaKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -791,6 +792,8 @@
 		D3369BBC1E36C73800FEB7BF /* TDViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TDViewController.m; path = lib/TDAppKit/src/TDViewController.m; sourceTree = SOURCE_ROOT; };
 		D3369BBD1E36C73800FEB7BF /* TDViewControllerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TDViewControllerView.m; path = lib/TDAppKit/src/TDViewControllerView.m; sourceTree = SOURCE_ROOT; };
 		D3369C061E36C75F00FEB7BF /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = lib/TDAppKit/en.lproj/TDRegisterWindow.xib; sourceTree = SOURCE_ROOT; };
+		D34A55E91E7E090D0064DF65 /* FNSize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FNSize.h; path = lang/FNSize.h; sourceTree = "<group>"; };
+		D34A55EA1E7E090D0064DF65 /* FNSize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FNSize.m; path = lang/FNSize.m; sourceTree = "<group>"; };
 		D3D7055E1E6F710D00D7EA61 /* EDBreakpointCollection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EDBreakpointCollection.h; sourceTree = "<group>"; };
 		D3D7055F1E6F710D00D7EA61 /* EDBreakpointCollection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EDBreakpointCollection.m; sourceTree = "<group>"; };
 		D3DA17C71E77701200492A04 /* OkudaKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = OkudaKit.xcodeproj; path = lib/OkudaKit/OkudaKit.xcodeproj; sourceTree = "<group>"; };
@@ -1306,6 +1309,7 @@
 				D3166F311E5905A500DEE3A0 /* Utils */,
 				D309BCE71E60ADDC002B3199 /* App */,
 				D31670DD1E5A19AB00DEE3A0 /* WebView */,
+				D34A55DF1E7E08D00064DF65 /* Lang Extentions */,
 				D31670B71E5A17E600DEE3A0 /* Code Runner */,
 				D316708A1E5A14FD00DEE3A0 /* Main Window */,
 				D31670261E59F91C00DEE3A0 /* History */,
@@ -1600,6 +1604,15 @@
 				D3369C051E36C75F00FEB7BF /* TDRegisterWindow.xib */,
 			);
 			name = res;
+			sourceTree = "<group>";
+		};
+		D34A55DF1E7E08D00064DF65 /* Lang Extentions */ = {
+			isa = PBXGroup;
+			children = (
+				D34A55E91E7E090D0064DF65 /* FNSize.h */,
+				D34A55EA1E7E090D0064DF65 /* FNSize.m */,
+			);
+			name = "Lang Extentions";
 			sourceTree = "<group>";
 		};
 		D3DA17C81E77701200492A04 /* Products */ = {
@@ -1931,6 +1944,7 @@
 				D3369B181E36C25A00FEB7BF /* TKDocumentController.m in Sources */,
 				D3369ABF1E36BEED00FEB7BF /* NSImage-OAExtensions.m in Sources */,
 				D3166F6A1E590A1300DEE3A0 /* EDModel.m in Sources */,
+				D34A55EB1E7E090D0064DF65 /* FNSize.m in Sources */,
 				D3369BEC1E36C73800FEB7BF /* TDStatusBarPopUpView.m in Sources */,
 				D3369AC71E36BEED00FEB7BF /* OAPreferenceController.m in Sources */,
 				D3166FFB1E592CA200DEE3A0 /* EDEnvironmentVariable.m in Sources */,
@@ -2341,6 +2355,7 @@
 					lib/OkudaKit/include,
 					"lib/OkudaKit/src/**",
 					lib/Language/include,
+					"lib/Language/src/**",
 				);
 				INFOPLIST_FILE = DevApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
@@ -2367,6 +2382,7 @@
 					lib/OkudaKit/include,
 					"lib/OkudaKit/src/**",
 					lib/Language/include,
+					"lib/Language/src/**",
 				);
 				INFOPLIST_FILE = DevApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
