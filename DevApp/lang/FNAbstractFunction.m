@@ -151,8 +151,8 @@
 }
 
 
-- (NSMutableArray *)lineWidthStack {
-    return [[EDApplication instance] lineWidthStack];
+- (NSMutableArray *)strokeWeightStack {
+    return [[EDApplication instance] strokeWeightStack];
 }
 
 @end

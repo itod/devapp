@@ -34,7 +34,7 @@
     CGContextRef ctx = [self.canvasGraphicsContext graphicsPort];
     CGContextSaveGState(ctx);
     
-    [self.lineWidthStack addObject:[self.lineWidthStack lastObject]];
+    [self.strokeWeightStack addObject:[self.strokeWeightStack lastObject]];
     
     return nil;
 }

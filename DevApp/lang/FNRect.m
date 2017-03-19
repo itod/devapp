@@ -63,8 +63,8 @@
     // STROKE
     CGContextSaveGState(ctx); {
         CGRect strokeRect;
-        NSInteger lineWidth = [[self.lineWidthStack lastObject] doubleValue];
-        BOOL isOdd = (lineWidth & 1);
+        NSInteger weight = [[self.strokeWeightStack lastObject] doubleValue];
+        BOOL isOdd = (weight & 1);
         if (isOdd) {
             strokeRect = CGRectMake(x-0.5, y-0.5, w+1.0, h+1.0);
         } else {

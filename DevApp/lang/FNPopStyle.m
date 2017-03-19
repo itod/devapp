@@ -34,7 +34,7 @@
     CGContextRef ctx = [self.canvasGraphicsContext graphicsPort];
     CGContextRestoreGState(ctx);
     
-    [self.lineWidthStack removeLastObject];
+    [self.strokeWeightStack removeLastObject];
 
     return nil;
 }

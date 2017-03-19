@@ -20,7 +20,7 @@
 @end
 
 @interface EDApplication ()
-@property (atomic, retain, readwrite) NSMutableArray *lineWidthStack;
+@property (atomic, retain, readwrite) NSMutableArray *strokeWeightStack;
 @end
 
 @implementation EDApplication
@@ -28,7 +28,7 @@
 - (id)init {
     self = [super init];
     if (self) {
-        self.lineWidthStack = [NSMutableArray arrayWithObjects:@1.0, nil];
+        self.strokeWeightStack = [NSMutableArray arrayWithObjects:@1.0, nil];
     }
     return self;
 }

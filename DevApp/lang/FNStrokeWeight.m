@@ -43,8 +43,8 @@
     CGContextRef ctx = [self.canvasGraphicsContext graphicsPort];
     CGContextSetLineWidth(ctx, weight);
     
-    [self.lineWidthStack removeLastObject];
-    [self.lineWidthStack addObject:@(weight)];
+    [self.strokeWeightStack removeLastObject];
+    [self.strokeWeightStack addObject:@(weight)];
 
     return nil;
 }
