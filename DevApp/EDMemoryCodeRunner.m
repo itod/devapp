@@ -21,6 +21,8 @@
 #import "FNFill.h"
 #import "FNRect.h"
 #import "FNEllipse.h"
+#import "FNArc.h"
+#import "FNLine.h"
 
 void PerformOnMainThread(void (^block)(void)) {
     assert(block);
@@ -376,6 +378,8 @@ void PerformOnMainThread(void (^block)(void)) {
     [i declareNativeFunction:[FNFill class]];
     [i declareNativeFunction:[FNRect class]];
     [i declareNativeFunction:[FNEllipse class]];
+    [i declareNativeFunction:[FNArc class]];
+    [i declareNativeFunction:[FNLine class]];
 }
 
 
