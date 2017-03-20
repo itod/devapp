@@ -73,18 +73,16 @@
     {
         NSInteger weight = [[self.strokeWeightStack lastObject] integerValue];
         if (weight > 0) {
-            CGContextSaveGState(ctx); {
-                CGRect strokeRect;
-                
-                BOOL isOdd = (weight & 1);
-                if (isOdd) {
-                    strokeRect = CGRectMake(x.doubleValue+0.5, y.doubleValue+0.5, w.doubleValue, h.doubleValue);
-                } else {
-                    strokeRect = CGRectMake(x.doubleValue, y.doubleValue, w.doubleValue, h.doubleValue);
-                }
-                
-                CGContextStrokeRect(ctx, strokeRect);
-            } CGContextRestoreGState(ctx);
+            CGRect strokeRect;
+            
+            BOOL isOdd = (weight & 1);
+            if (isOdd) {
+                strokeRect = CGRectMake(x.doubleValue+0.5, y.doubleValue+0.5, w.doubleValue, h.doubleValue);
+            } else {
+                strokeRect = CGRectMake(x.doubleValue, y.doubleValue, w.doubleValue, h.doubleValue);
+            }
+            
+            CGContextStrokeRect(ctx, strokeRect);
         }
     }
     

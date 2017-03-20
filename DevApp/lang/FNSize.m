@@ -81,6 +81,9 @@
     CGContextSetGrayFillColor(ctx, 1.0, 1.0);
     CGContextSetGrayStrokeColor(ctx, 0.0, 1.0);
     
+    CGContextSetLineCap(ctx, kCGLineCapButt);
+    CGContextSetLineJoin(ctx, kCGLineJoinMiter);
+    
     return g;
 }
 

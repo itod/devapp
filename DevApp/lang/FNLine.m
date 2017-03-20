@@ -12,6 +12,9 @@
 #import "XPFunctionSymbol.h"
 #import "XPMemorySpace.h"
 
+#define TDIsAngleBetween(angle, low, high) ((angle) >= (low) && (angle) <= (high))
+#define TDGetAngleBetween(p1, p2) (TDR2D(atan2((p2).y - (p1).y, (p2).x - (p1).x)) + 180.0)
+
 @implementation FNLine
 
 + (NSString *)name {
@@ -48,23 +51,44 @@
     XPMemorySpace *space = walker.currentSpace;
     TDAssert(space);
     
-    XPObject *x1 = [space objectForName:@"x1"]; TDAssert(x1);
-    XPObject *y1 = [space objectForName:@"y1"]; TDAssert(y1);
-    XPObject *x2 = [space objectForName:@"x2"]; TDAssert(x2);
-    XPObject *y2 = [space objectForName:@"y2"]; TDAssert(y2);
+    XPObject *x1Obj = [space objectForName:@"x1"]; TDAssert(x1Obj);
+    XPObject *y1Obj = [space objectForName:@"y1"]; TDAssert(y1Obj);
+    XPObject *x2Obj = [space objectForName:@"x2"]; TDAssert(x2Obj);
+    XPObject *y2Obj = [space objectForName:@"y2"]; TDAssert(y2Obj);
     
     if (1 == argc) {
-        NSArray *v = x1.value;
-        x1 = [v objectAtIndex:0];
-        y1 = [v objectAtIndex:1];
-        x2 = [v objectAtIndex:2];
-        y2 = [v objectAtIndex:3];
+        NSArray *v = x1Obj.value;
+        x1Obj = [v objectAtIndex:0];
+        y1Obj = [v objectAtIndex:1];
+        x2Obj = [v objectAtIndex:2];
+        y2Obj = [v objectAtIndex:3];
     }
+    
+    double x1 = x1Obj.doubleValue;
+    double y1 = y1Obj.doubleValue;
+    double x2 = x2Obj.doubleValue;
+    double y2 = y2Obj.doubleValue;
     
     CGContextRef ctx = [self.canvasGraphicsContext graphicsPort];
     
-    CGContextMoveToPoint(ctx, x1.doubleValue, y1.doubleValue);
-    CGContextAddLineToPoint(ctx, x2.doubleValue, y2.doubleValue);
+    NSInteger weight = [[self.strokeWeightStack lastObject] integerValue];
+
+    BOOL isOdd = (weight & 1);
+    if (isOdd) {
+        if (x1 == x2) {
+            x1 += 0.5;
+            x2 += 0.5;
+        }
+        if (y1 == y2) {
+            y1 += 0.5;
+            y2 += 0.5;
+        }
+        CGContextMoveToPoint(ctx, x1, y1);
+        CGContextAddLineToPoint(ctx, x2, y2);
+    } else {
+        CGContextMoveToPoint(ctx, x1, y1);
+        CGContextAddLineToPoint(ctx, x2, y2);
+    }
     CGContextStrokePath(ctx);
     
     [self postUpate];
