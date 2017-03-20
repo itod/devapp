@@ -78,7 +78,7 @@
                 
                 BOOL isOdd = (weight & 1);
                 if (isOdd) {
-                    strokeRect = CGRectMake(x.doubleValue-0.5, y.doubleValue-0.5, w.doubleValue+1.0, h.doubleValue+1.0);
+                    strokeRect = CGRectMake(x.doubleValue+0.5, y.doubleValue+0.5, w.doubleValue, h.doubleValue);
                 } else {
                     strokeRect = CGRectMake(x.doubleValue, y.doubleValue, w.doubleValue, h.doubleValue);
                 }
