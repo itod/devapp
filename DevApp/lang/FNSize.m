@@ -78,6 +78,9 @@
     CGAffineTransform flip = CGAffineTransformScale(CGAffineTransformMakeTranslation(0.0, size.height), 1.0, -1.0);
     CGContextConcatCTM(ctx, flip);
     
+    CGContextSetGrayFillColor(ctx, 1.0, 1.0);
+    CGContextSetGrayStrokeColor(ctx, 0.0, 1.0);
+    
     return g;
 }
 
