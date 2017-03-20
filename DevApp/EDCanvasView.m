@@ -226,7 +226,7 @@ static CGColorSpaceRef sPatternColorSpace = NULL;
     
     CGRect compFrame = [self scaledCompositionFrame];
     CGRect compBounds = [self scaledCompositionBounds];
-    CGRect bgRect = CGRectMake(TDFloorAlign(compBounds.origin.x), TDFloorAlign(compBounds.origin.y), round(compBounds.size.width), round(compBounds.size.height));
+    CGRect bgRect = CGRectMake(round(compBounds.origin.x), round(compBounds.origin.y), round(compBounds.size.width), round(compBounds.size.height));
 	
     // FILL CANVAS BG
     CGContextSaveGState(ctx); {
@@ -242,9 +242,9 @@ static CGColorSpaceRef sPatternColorSpace = NULL;
             [sCompositionFillColor setFill];
             CGContextFillRect(ctx, CGRectIntersection(bgRect, dirtyRect));
 
-            [sCompositionStrokeColor setStroke];
-            CGRect bgStrokeRect = CGRectMake(bgRect.origin.x - 1.0, bgRect.origin.y - 1.0, bgRect.size.width + 2.0, bgRect.size.height + 2.0);
-            CGContextStrokeRect(ctx, bgStrokeRect);
+//            [sCompositionStrokeColor setStroke];
+//            CGRect bgStrokeRect = CGRectMake(bgRect.origin.x - 1.0, bgRect.origin.y - 1.0, bgRect.size.width + 2.0, bgRect.size.height + 2.0);
+//            CGContextStrokeRect(ctx, bgStrokeRect);
         } CGContextRestoreGState(ctx);
         
 //        // BG PATTERN
