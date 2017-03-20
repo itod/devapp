@@ -245,6 +245,8 @@
 		D34A565E1E7F3CF70064DF65 /* FNEllipse.m in Sources */ = {isa = PBXBuildFile; fileRef = D34A565D1E7F3CF70064DF65 /* FNEllipse.m */; };
 		D34A56611E7F3EAE0064DF65 /* FNArc.m in Sources */ = {isa = PBXBuildFile; fileRef = D34A56601E7F3EAE0064DF65 /* FNArc.m */; };
 		D34A56641E7F3FE80064DF65 /* FNLine.m in Sources */ = {isa = PBXBuildFile; fileRef = D34A56631E7F3FE80064DF65 /* FNLine.m */; };
+		D34A566A1E7F7D0C0064DF65 /* FNStrokeCap.m in Sources */ = {isa = PBXBuildFile; fileRef = D34A56691E7F7D0C0064DF65 /* FNStrokeCap.m */; };
+		D34A566D1E7F7DC00064DF65 /* FNStrokeJoin.m in Sources */ = {isa = PBXBuildFile; fileRef = D34A566C1E7F7DC00064DF65 /* FNStrokeJoin.m */; };
 		D3D705601E6F710D00D7EA61 /* EDBreakpointCollection.m in Sources */ = {isa = PBXBuildFile; fileRef = D3D7055F1E6F710D00D7EA61 /* EDBreakpointCollection.m */; };
 		D3DA17D01E77702700492A04 /* OkudaKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3DA17CD1E77701200492A04 /* OkudaKit.framework */; };
 		D3DA17D31E77703E00492A04 /* OkudaKit.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = D3DA17CD1E77701200492A04 /* OkudaKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -836,6 +838,10 @@
 		D34A56601E7F3EAE0064DF65 /* FNArc.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FNArc.m; path = lang/FNArc.m; sourceTree = "<group>"; };
 		D34A56621E7F3FE80064DF65 /* FNLine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FNLine.h; path = lang/FNLine.h; sourceTree = "<group>"; };
 		D34A56631E7F3FE80064DF65 /* FNLine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FNLine.m; path = lang/FNLine.m; sourceTree = "<group>"; };
+		D34A56681E7F7D0C0064DF65 /* FNStrokeCap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FNStrokeCap.h; path = lang/FNStrokeCap.h; sourceTree = "<group>"; };
+		D34A56691E7F7D0C0064DF65 /* FNStrokeCap.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FNStrokeCap.m; path = lang/FNStrokeCap.m; sourceTree = "<group>"; };
+		D34A566B1E7F7DC00064DF65 /* FNStrokeJoin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FNStrokeJoin.h; path = lang/FNStrokeJoin.h; sourceTree = "<group>"; };
+		D34A566C1E7F7DC00064DF65 /* FNStrokeJoin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FNStrokeJoin.m; path = lang/FNStrokeJoin.m; sourceTree = "<group>"; };
 		D3D7055E1E6F710D00D7EA61 /* EDBreakpointCollection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EDBreakpointCollection.h; sourceTree = "<group>"; };
 		D3D7055F1E6F710D00D7EA61 /* EDBreakpointCollection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EDBreakpointCollection.m; sourceTree = "<group>"; };
 		D3DA17C71E77701200492A04 /* OkudaKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = OkudaKit.xcodeproj; path = lib/OkudaKit/OkudaKit.xcodeproj; sourceTree = "<group>"; };
@@ -1671,6 +1677,10 @@
 				D34A55F41E7E15B20064DF65 /* FNStroke.m */,
 				D34A55FC1E7E30C20064DF65 /* FNStrokeWeight.h */,
 				D34A55FD1E7E30C20064DF65 /* FNStrokeWeight.m */,
+				D34A56681E7F7D0C0064DF65 /* FNStrokeCap.h */,
+				D34A56691E7F7D0C0064DF65 /* FNStrokeCap.m */,
+				D34A566B1E7F7DC00064DF65 /* FNStrokeJoin.h */,
+				D34A566C1E7F7DC00064DF65 /* FNStrokeJoin.m */,
 				D34A55F91E7E1AFE0064DF65 /* FNFill.h */,
 				D34A55FA1E7E1AFE0064DF65 /* FNFill.m */,
 				D34A55F01E7E14900064DF65 /* FNRect.h */,
@@ -1920,6 +1930,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D3369BD01E36C73800FEB7BF /* TDBarItem.m in Sources */,
+				D34A566D1E7F7DC00064DF65 /* FNStrokeJoin.m in Sources */,
 				D3369BE41E36C73800FEB7BF /* TDRegisterWindowController.m in Sources */,
 				D34A56551E7F3B4E0064DF65 /* FNRotate.m in Sources */,
 				D31670B21E5A171500DEE3A0 /* NSString+Score.m in Sources */,
@@ -1939,6 +1950,7 @@
 				D3166F391E59076200DEE3A0 /* EDFontPickerTextField.m in Sources */,
 				D3369AB81E36BEED00FEB7BF /* IDEUberView.m in Sources */,
 				D3369AC21E36BEED00FEB7BF /* NSString-OFReplacement.m in Sources */,
+				D34A566A1E7F7D0C0064DF65 /* FNStrokeCap.m in Sources */,
 				D3369B251E36C25A00FEB7BF /* TKTabsListView.m in Sources */,
 				D31670381E59F9EB00DEE3A0 /* EDFindView.m in Sources */,
 				D3369BF01E36C73800FEB7BF /* TDTabBarItem.m in Sources */,

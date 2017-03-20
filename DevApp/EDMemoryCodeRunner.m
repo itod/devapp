@@ -18,6 +18,8 @@
 #import "FNRotate.h"
 #import "FNStroke.h"
 #import "FNStrokeWeight.h"
+#import "FNStrokeCap.h"
+#import "FNStrokeJoin.h"
 #import "FNFill.h"
 #import "FNRect.h"
 #import "FNEllipse.h"
@@ -375,6 +377,8 @@ void PerformOnMainThread(void (^block)(void)) {
     [i declareNativeFunction:[FNRotate class]];
     [i declareNativeFunction:[FNStroke class]];
     [i declareNativeFunction:[FNStrokeWeight class]];
+    [i declareNativeFunction:[FNStrokeCap class]];
+    [i declareNativeFunction:[FNStrokeJoin class]];
     [i declareNativeFunction:[FNFill class]];
     [i declareNativeFunction:[FNRect class]];
     [i declareNativeFunction:[FNEllipse class]];
