@@ -36,8 +36,6 @@ static NSColor *sCompositionStrokeColor = nil;
 static NSColor *sGridColor = nil;
 static NSColor *sGridHighlightColor = nil;
 
-static NSShadow *sCompositionShadow = nil;
-
 static CGColorSpaceRef sPatternColorSpace = NULL;
 
 @interface NSToolbarPoofAnimator
@@ -92,11 +90,6 @@ static CGColorSpaceRef sPatternColorSpace = NULL;
         sCompositionStrokeColor = [[NSColor colorWithDeviceWhite:0.0 alpha:1.0] retain];
         sGridColor = [[NSColor colorWithDeviceWhite:0.94 alpha:0.75] retain];
         sGridHighlightColor = [[NSColor colorWithDeviceWhite:0.88 alpha:0.75] retain];
-        
-        sCompositionShadow = [[NSShadow alloc] init];
-        [sCompositionShadow setShadowBlurRadius:3.0];
-        [sCompositionShadow setShadowOffset:NSMakeSize(0.0, -1.0)];
-        [sCompositionShadow setShadowColor:[NSColor colorWithDeviceWhite:0.0 alpha:0.6]];
         
         CGColorSpaceRef graySpace = CGColorSpaceCreateDeviceGray();
         sPatternColorSpace = CGColorSpaceCreatePattern(graySpace);
