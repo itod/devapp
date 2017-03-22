@@ -728,17 +728,17 @@
                                 <modifierMask key="keyEquivalentModifierMask"/>
                                 <menu key="submenu" title="Navigators" id="Kpz-MD-CbD">
                                     <items>
-                                        <menuItem title="Show Project Navigator" keyEquivalent="1" id="Zj5-vc-itr">
+                                        <menuItem title="Show Project Navigator" hidden="YES" keyEquivalent="1" id="Zj5-vc-itr">
                                             <connections>
                                                 <action selector="showFilesystemNavigator:" target="-1" id="a2Y-3Z-OVH"/>
                                             </connections>
                                         </menuItem>
-                                        <menuItem title="Show Stack Trace Navigator" keyEquivalent="2" id="seS-cz-bxZ">
+                                        <menuItem title="Show Stack Trace Navigator" keyEquivalent="1" id="seS-cz-bxZ">
                                             <connections>
                                                 <action selector="showStackTraceNavigator:" target="-1" id="GJr-sq-XpI"/>
                                             </connections>
                                         </menuItem>
-                                        <menuItem title="Show Breakpoint Navigator" keyEquivalent="3" id="adb-bT-GVX">
+                                        <menuItem title="Show Breakpoint Navigator" keyEquivalent="2" id="adb-bT-GVX">
                                             <connections>
                                                 <action selector="showBreakpointListNavigator:" target="-1" id="K8C-Ti-V0W"/>
                                             </connections>
@@ -790,7 +790,7 @@
                                 </connections>
                             </menuItem>
                             <menuItem isSeparatorItem="YES" id="zA4-4l-RBb"/>
-                            <menuItem title="Zoom " id="IMg-qo-vM2">
+                            <menuItem title="Zoom " hidden="YES" id="IMg-qo-vM2">
                                 <modifierMask key="keyEquivalentModifierMask"/>
                                 <menu key="submenu" title="Zoom" id="CLs-zE-S1d">
                                     <items>
@@ -869,7 +869,7 @@
                                     </items>
                                 </menu>
                             </menuItem>
-                            <menuItem isSeparatorItem="YES" id="Yl4-wm-dG8"/>
+                            <menuItem isSeparatorItem="YES" hidden="YES" id="Yl4-wm-dG8"/>
                             <menuItem title="Show Rulers" keyEquivalent="R" id="d41-5p-2TB">
                                 <connections>
                                     <action selector="toggleRulersVisible:" target="-1" id="fyV-ND-d8L"/>

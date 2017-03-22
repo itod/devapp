@@ -49,7 +49,7 @@
                     <rect key="frame" x="0.0" y="254" width="480" height="18"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                     <subviews>
-                        <customView id="16" userLabel="gridPopUpView" customClass="TDStatusBarPopUpView">
+                        <customView hidden="YES" id="16" userLabel="gridPopUpView" customClass="TDStatusBarPopUpView">
                             <rect key="frame" x="319" y="0.0" width="79" height="18"/>
                             <autoresizingMask key="autoresizingMask" flexibleMinX="YES" heightSizable="YES"/>
                             <subviews>
@@ -90,7 +90,7 @@
                                 <outlet property="popUpButton" destination="34" id="46"/>
                             </connections>
                         </customView>
-                        <customView id="18" userLabel="zoomPopUpView" customClass="TDStatusBarPopUpView">
+                        <customView hidden="YES" id="18" userLabel="zoomPopUpView" customClass="TDStatusBarPopUpView">
                             <rect key="frame" x="397" y="0.0" width="84" height="18"/>
                             <autoresizingMask key="autoresizingMask" flexibleMinX="YES" heightSizable="YES"/>
                             <subviews>
@@ -122,7 +122,7 @@
                                 <outlet property="popUpButton" destination="19" id="45"/>
                             </connections>
                         </customView>
-                        <button id="50" customClass="TDStatusBarButton">
+                        <button hidden="YES" id="50" customClass="TDStatusBarButton">
                             <rect key="frame" x="-1" y="-1" width="107" height="19"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" heightSizable="YES"/>
                             <buttonCell key="cell" type="bevel" title="Canvas: 800 x 800" bezelStyle="regularSquare" alignment="left" controlSize="mini" inset="2" id="51" customClass="TDStatusBarButtonCell">
