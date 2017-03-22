@@ -44,7 +44,6 @@ static CGColorSpaceRef sPatternColorSpace = NULL;
 
 @interface EDCanvasView ()
 - (void)killTimer;
-- (void)displayContextMenu:(NSTimer *)t;
 
 - (void)leftMouseDownSingleClick:(NSEvent *)evt;
 - (void)beginUndoGrouping;
@@ -414,40 +413,40 @@ static void EDDrawPatternFunc(void *info, CGContextRef ctx) {
 }
 
 
-- (void)displayContextMenu:(NSTimer *)t {
-    NSEvent *evt = [_timer userInfo];
-    
-    NSEvent *click = [NSEvent mouseEventWithType:[evt type] 
-                                        location:[evt locationInWindow]
-                                   modifierFlags:[evt modifierFlags] 
-                                       timestamp:[evt timestamp] 
-                                    windowNumber:[evt windowNumber] 
-                                         context:[evt context]
-                                     eventNumber:[evt eventNumber] 
-                                      clickCount:[evt clickCount] 
-                                        pressure:[evt pressure]]; 
-    
-    NSMenu *menu = nil; //[[[self window] windowController] contextMenuForSelectionAtLocationInComposition:_lastClickedPoint];
-    [NSMenu popUpContextMenu:menu withEvent:click forView:self];
-    [self killTimer];
-}
-
-
-- (void)rightMouseDown:(NSEvent *)evt {
-    _hasBegunUndoGroup = NO;
-
-    _lastClickedPoint = [self locationInComposition:evt];
-
-    [self leftMouseDownSingleClick:evt];
-
-    self.timer = [NSTimer timerWithTimeInterval:0.0
-                                         target:self 
-                                       selector:@selector(displayContextMenu:) 
-                                       userInfo:evt 
-                                        repeats:NO];
-    
-    [[NSRunLoop currentRunLoop] addTimer:_timer forMode:NSDefaultRunLoopMode];
-} 
+//- (void)displayContextMenu:(NSTimer *)t {
+//    NSEvent *evt = [_timer userInfo];
+//    
+//    NSEvent *click = [NSEvent mouseEventWithType:[evt type] 
+//                                        location:[evt locationInWindow]
+//                                   modifierFlags:[evt modifierFlags] 
+//                                       timestamp:[evt timestamp] 
+//                                    windowNumber:[evt windowNumber] 
+//                                         context:[evt context]
+//                                     eventNumber:[evt eventNumber] 
+//                                      clickCount:[evt clickCount] 
+//                                        pressure:[evt pressure]]; 
+//    
+//    NSMenu *menu = nil; //[[[self window] windowController] contextMenuForSelectionAtLocationInComposition:_lastClickedPoint];
+//    [NSMenu popUpContextMenu:menu withEvent:click forView:self];
+//    [self killTimer];
+//}
+//
+//
+//- (void)rightMouseDown:(NSEvent *)evt {
+//    _hasBegunUndoGroup = NO;
+//
+//    _lastClickedPoint = [self locationInComposition:evt];
+//
+//    [self leftMouseDownSingleClick:evt];
+//
+//    self.timer = [NSTimer timerWithTimeInterval:0.0
+//                                         target:self 
+//                                       selector:@selector(displayContextMenu:) 
+//                                       userInfo:evt 
+//                                        repeats:NO];
+//    
+//    [[NSRunLoop currentRunLoop] addTimer:_timer forMode:NSDefaultRunLoopMode];
+//} 
 
 
 #pragma mark -

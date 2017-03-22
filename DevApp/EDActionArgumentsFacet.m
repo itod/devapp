@@ -32,6 +32,7 @@
 
 
 - (void)dealloc {
+    self.arrayController = nil;
     self.environmentVariables = nil;
     [super dealloc];
 }

@@ -49,10 +49,6 @@
 @property (nonatomic, retain) NSImage *image;
 @property (nonatomic, retain) EDToolTip *toolTipObject;
 
-@property (nonatomic, retain) NSMutableArray *tempGuides;
 @property (nonatomic, retain) EDGuide *draggingUserGuide;
-
-@property (nonatomic, readonly, retain) NSImage *compositionImage;
-@property (nonatomic, assign, readonly) CGRect tempGuidesDirtyRect;
 @property (nonatomic, assign) CGPoint dragStartPoint;
 @end

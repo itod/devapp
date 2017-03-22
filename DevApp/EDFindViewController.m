@@ -132,7 +132,7 @@ static NSDictionary *sHiPreviewAttrs = nil;
 // <esc> was pressed in combo box
 - (NSArray *)control:(NSControl *)control textView:(NSTextView *)tv completions:(NSArray *)words forPartialWordRange:(NSRange)charRange indexOfSelectedItem:(NSInteger *)index {
     [self escape:nil];
-    return nil;
+    return @[];
 }
 
 

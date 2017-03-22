@@ -1021,7 +1021,7 @@
     }
 
     // select specified text range (and scroll to visible)
-    NSRange selRange = NSMakeRange(0, 0);
+    NSRange selRange;
     
     if (fileLoc.hasSelectedRange) {
         EDAssert(fileLoc.hasSelectedRange);
@@ -2920,7 +2920,6 @@ done:
     // load string
     NSString *text = [[[NSString alloc] initWithData:data encoding:enc] autorelease];
     if (!text) {
-        text = @""; // source might be nil if it's a new file with no contents (__init__.py, etc)
         if (outErr) {
             NSLog(@"Could not open script file `%@`", absPath);
             NSLog(@"%@", *outErr);

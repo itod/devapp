@@ -37,14 +37,14 @@ void PerformOnMainThread(void (^block)(void)) {
 @property (nonatomic, retain) TDInterpreterSync *debugSync;
 @property (nonatomic, copy) NSString *identifier;
 
-@property (assign) dispatch_queue_t controlThread;
-@property (assign) dispatch_queue_t executeThread;
-
 @property (nonatomic, retain) NSPipe *stdOutPipe;
 @property (nonatomic, retain) NSPipe *stdErrPipe;
 @end
 
-@implementation EDMemoryCodeRunner
+@implementation EDMemoryCodeRunner {
+    dispatch_queue_t _controlThread;
+    dispatch_queue_t _executeThread;
+}
 
 - (id)initWithDelegate:(id <EDCodeRunnerDelegate>)d {
     TDAssert(d);
@@ -52,8 +52,8 @@ void PerformOnMainThread(void (^block)(void)) {
     if (self) {
         self.delegate = d;
 
-        self.controlThread = dispatch_queue_create("CONTROL-THREAD", DISPATCH_QUEUE_SERIAL);
-        self.executeThread = dispatch_queue_create("EXECUTE-THREAD", DISPATCH_QUEUE_SERIAL);
+        _controlThread = dispatch_queue_create("CONTROL-THREAD", DISPATCH_QUEUE_SERIAL);
+        _executeThread = dispatch_queue_create("EXECUTE-THREAD", DISPATCH_QUEUE_SERIAL);
         
         NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
         [nc addObserver:self selector:@selector(canvasDidUpdate:) name:@"CanvasDidUpdateNotification" object:nil];

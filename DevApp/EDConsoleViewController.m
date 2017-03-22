@@ -76,6 +76,7 @@ static NSDictionary *sValueAttrs = nil;
     self.upButton = nil;
     self.varsContainerView = nil;
     self.varsOutlineView = nil;
+    self.contextMenu = nil;
     self.uberView = nil;
     self.debugInfo = nil;
     [super dealloc];

@@ -129,7 +129,7 @@ extern NSString * const EDCompositionGridToleranceDidChangeNotification;
 @property (nonatomic, assign) CGFloat gridTolerance;
 
 @property (nonatomic, copy) NSArray *presetMetricsInfos;
-@property (nonatomic, retain) EDMetrics *lastSelectedMetrics;
+@property (nonatomic, retain, readonly) EDMetrics *lastSelectedMetrics;
 
 @property (nonatomic, copy) NSString *pythonExePath;
 @property (nonatomic, copy) NSString *commandString;
@@ -141,9 +141,6 @@ extern NSString * const EDCompositionGridToleranceDidChangeNotification;
 @property (nonatomic, assign) BOOL findInProjectMatchCase;
 @property (nonatomic, assign) BOOL findInProjectUseRegex;
 @property (nonatomic, assign) BOOL findInProjectWrapAround;
-
-@property (nonatomic, retain) NSString *coreGraphicsHeaderPath;
-@property (nonatomic, retain) NSString *imageIOHeaderPath;
 
 @property (nonatomic, copy) NSString *excludeFilePatternString;
 @property (nonatomic, copy, readonly) NSArray *excludeFilePatterns;

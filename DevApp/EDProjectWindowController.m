@@ -45,6 +45,7 @@
     self.nameTextField = nil;
     self.okButton = nil;
 
+    self.filename = nil;
     self.projParams = nil;
 
     [super dealloc];

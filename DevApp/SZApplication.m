@@ -26,7 +26,8 @@
 
 
 - (void)dealloc {
-    
+    self.contextTab = nil;
+    self.stackTab = nil;
     [super dealloc];
 }
 

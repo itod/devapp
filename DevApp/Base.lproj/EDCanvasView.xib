@@ -27,7 +27,7 @@
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                     <clipView key="contentView" id="g0d-JJ-7v0">
                         <rect key="frame" x="0.0" y="0.0" width="480" height="257"/>
-                        <autoresizingMask key="autoresizingMask"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <customView id="3" customClass="EDCanvasView">
                                 <rect key="frame" x="0.0" y="0.0" width="480" height="257"/>
