@@ -28,9 +28,6 @@
 
 
 - (XPObject *)callWithWalker:(XPTreeWalker *)walker argc:(NSUInteger)argc {
-    XPMemorySpace *space = walker.currentSpace;
-    TDAssert(space);
-    
     CGContextRef ctx = [self.canvasGraphicsContext graphicsPort];
     CGContextSaveGState(ctx);
     
