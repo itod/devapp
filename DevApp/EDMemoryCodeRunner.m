@@ -56,9 +56,6 @@ void PerformOnMainThread(void (^block)(void)) {
 
         _controlThread = dispatch_queue_create("CONTROL-THREAD", DISPATCH_QUEUE_SERIAL);
         _executeThread = dispatch_queue_create("EXECUTE-THREAD", DISPATCH_QUEUE_SERIAL);
-        
-        NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
-        [nc addObserver:self selector:@selector(canvasDidUpdate:) name:@"CanvasDidUpdateNotification" object:nil]; // TODO object: arg
     }
     return self;
 }
@@ -133,6 +130,9 @@ void PerformOnMainThread(void (^block)(void)) {
     TDAssert(identifier);
     TDAssert(self.delegate);
 
+    NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
+    [nc addObserver:self selector:@selector(canvasDidUpdate:) name:@"CanvasDidUpdateNotification" object:identifier];
+
     self.identifier = identifier;
     self.debugSync = bpEnabled ? [[[TDInterpreterSync alloc] init] autorelease] : nil;
 
@@ -143,7 +143,6 @@ void PerformOnMainThread(void (^block)(void)) {
     [_stdOutPipe.fileHandleForReading waitForDataInBackgroundAndNotify];
     [_stdErrPipe.fileHandleForReading waitForDataInBackgroundAndNotify];
 
-    NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
     [nc addObserver:self selector:@selector(stdOutReadability:) name:NSFileHandleDataAvailableNotification object:_stdOutPipe.fileHandleForReading];
     [nc addObserver:self selector:@selector(stdErrReadability:) name:NSFileHandleDataAvailableNotification object:_stdErrPipe.fileHandleForReading];
 #else
@@ -396,6 +395,7 @@ void PerformOnMainThread(void (^block)(void)) {
 #pragma mark XPInterpreterDelegate
 
 - (void)interpreterDidDeclareNativeFunctions:(XPInterpreter *)i {
+    TDAssertExecuteThread();
     [FNAbstractFunction setIdentifier:self.identifier];
 
     [i declareNativeFunction:[FNSize class]];

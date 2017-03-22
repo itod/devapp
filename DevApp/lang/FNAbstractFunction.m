@@ -11,23 +11,7 @@
 #import <Language/XPObject.h>
 #import <TDAppKit/TDUtils.h>
 
-static NSString *sIdentifier = nil;
-
 @implementation FNAbstractFunction
-
-+ (void)setIdentifier:(NSString *)identifier {
-    TDAssert([identifier length]);
-    sIdentifier = identifier;
-    
-    [[SZApplication instance] setStrokeWeightStack:[NSMutableArray arrayWithObject:@1] forIdentifier:identifier];
-}
-
-
-- (void)postUpate {
-    NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
-    [nc postNotificationName:@"CanvasDidUpdateNotification" object:nil];
-}
-
 
 - (NSColor *)asColor:(XPObject *)obj {
     NSColor *c = nil;
@@ -148,27 +132,44 @@ static NSString *sIdentifier = nil;
 }
 
 
+- (void)postUpate {
+    NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
+    [nc postNotificationName:@"CanvasDidUpdateNotification" object:[[self class] identifier]];
+}
+
+
 #pragma mark -
 #pragma mark Properties
 
-- (NSString *)identifier {
-    TDAssert([sIdentifier length]);
-    return sIdentifier;
++ (NSString *)identifier {
+    return [[[NSThread currentThread] threadDictionary] objectForKey:@"EDIdentifier"];
+}
+
+
++ (void)setIdentifier:(NSString *)identifier {
+    TDAssertExecuteThread();
+    TDAssert([identifier length]);
+    [[[NSThread currentThread] threadDictionary] setObject:identifier forKey:@"EDIdentifier"];
+
+    [[SZApplication instance] setStrokeWeightStack:[NSMutableArray arrayWithObject:@1] forIdentifier:identifier];
 }
 
 
 - (NSGraphicsContext *)canvasGraphicsContext {
-    return [[SZApplication instance] graphicsContextForIdentifier:self.identifier];
+    TDAssertExecuteThread();
+    return [[SZApplication instance] graphicsContextForIdentifier:[[self class] identifier]];
 }
 
 
 - (void)setCanvasGraphicsContext:(NSGraphicsContext *)g {
-    [[SZApplication instance] setGraphicsContext:g forIdentifier:self.identifier];
+    TDAssertExecuteThread();
+    [[SZApplication instance] setGraphicsContext:g forIdentifier:[[self class] identifier]];
 }
 
 
 - (NSMutableArray *)strokeWeightStack {
-    return [[SZApplication instance] strokeWeightStackForIdentifier:self.identifier];
+    TDAssertExecuteThread();
+    return [[SZApplication instance] strokeWeightStackForIdentifier:[[self class] identifier]];
 }
 
 @end
