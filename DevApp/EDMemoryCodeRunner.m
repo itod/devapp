@@ -32,7 +32,7 @@ void PerformOnMainThread(void (^block)(void)) {
 }
 
 @interface EDMemoryCodeRunner ()
-@property (nonatomic, assign) id <EDCodeRunnerDelegate>delegate; // weakref
+@property (assign) id <EDCodeRunnerDelegate>delegate; // weakref
 @property (nonatomic, retain) XPInterpreter *interp;
 @property (nonatomic, retain) TDInterpreterSync *debugSync;
 @property (nonatomic, copy) NSString *identifier;
@@ -66,6 +66,7 @@ void PerformOnMainThread(void (^block)(void)) {
     self.delegate = nil;
     self.interp = nil;
     self.debugSync = nil;
+    self.identifier = nil;
 
     dispatch_release(_controlThread), _controlThread = NULL;
     dispatch_release(_executeThread), _executeThread = NULL;
@@ -74,11 +75,6 @@ void PerformOnMainThread(void (^block)(void)) {
     self.stdErrPipe = nil;
     
     [super dealloc];
-}
-
-
-- (void)setDelegate:(id<EDCodeRunnerDelegate>)d {
-    _delegate = d;
 }
 
 
@@ -405,6 +401,7 @@ void PerformOnMainThread(void (^block)(void)) {
 #pragma mark Notifications
 
 - (void)canvasDidUpdate:(NSNotification *)n {
+    TDAssertExecuteThread();
     [self fireDelegateDidUpdate:nil];
 }
 
