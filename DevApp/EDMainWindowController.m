@@ -154,7 +154,8 @@
     
     self.frameStack = nil;
     
-    self.codeRunner = nil;
+    [self killCodeRunner];
+
     self.filteredData = nil;
     
     self.dirtySet = nil;
