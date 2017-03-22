@@ -167,7 +167,7 @@
 - (void)killCodeRunner {
     EDAssertMainThread();
     if (_codeRunner) {
-        [_codeRunner setDelegate:nil];
+        [_codeRunner killResources];
         self.codeRunner = nil;
     }
 }
@@ -2159,6 +2159,8 @@
         
         NSString *srcDirPath = [self sourceDirPath];
         NSString *identifier = self.identifier;
+        
+        [self killCodeRunner];
         
         self.codeRunner = [[[EDMemoryCodeRunner alloc] initWithDelegate:self] autorelease];
         [_codeRunner run:cmd inWorkingDirectory:srcDirPath exePath:nil env:envVarsTab breakpointsEnabled:bpEnabled breakpoints:bpPlist identifier:identifier];

@@ -26,6 +26,8 @@
 #import "FNArc.h"
 #import "FNLine.h"
 
+#define LOG_VIA_NOTE 1
+
 void PerformOnMainThread(void (^block)(void)) {
     assert(block);
     dispatch_async(dispatch_get_main_queue(), block);
@@ -33,12 +35,12 @@ void PerformOnMainThread(void (^block)(void)) {
 
 @interface EDMemoryCodeRunner ()
 @property (assign) id <EDCodeRunnerDelegate>delegate; // weakref
-@property (nonatomic, retain) XPInterpreter *interp;
-@property (nonatomic, retain) TDInterpreterSync *debugSync;
-@property (nonatomic, copy) NSString *identifier;
+@property (retain) XPInterpreter *interp;
+@property (retain) TDInterpreterSync *debugSync;
+@property (copy) NSString *identifier;
 
-@property (nonatomic, retain) NSPipe *stdOutPipe;
-@property (nonatomic, retain) NSPipe *stdErrPipe;
+@property (retain) NSPipe *stdOutPipe;
+@property (retain) NSPipe *stdErrPipe;
 @end
 
 @implementation EDMemoryCodeRunner {
@@ -63,20 +65,35 @@ void PerformOnMainThread(void (^block)(void)) {
 
 
 - (void)dealloc {
-    [[NSNotificationCenter defaultCenter] removeObserver:self];
+    [self killResources];
     
-    self.delegate = nil;
-    self.interp = nil;
-    self.debugSync = nil;
-    self.identifier = nil;
+    [super dealloc];
+}
 
-    dispatch_release(_controlThread), _controlThread = NULL;
-    dispatch_release(_executeThread), _executeThread = NULL;
+
+- (void)killResources {
+    TDAssertMainThread();
+    
+    self.identifier = nil;
+    self.delegate = nil;
+    
+    _interp.delegate = nil;
+    _interp.stdOut = nil;
+    _interp.stdErr = nil;
+    self.interp = nil;
+    
+    self.debugSync = nil;
+
+    if (_controlThread) {dispatch_release(_controlThread), _controlThread = NULL;}
+    if (_executeThread) {dispatch_release(_executeThread), _executeThread = NULL;}
+    
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+
+    _stdOutPipe.fileHandleForReading.readabilityHandler = nil;
+    _stdErrPipe.fileHandleForReading.readabilityHandler = nil;
     
     self.stdOutPipe = nil;
     self.stdErrPipe = nil;
-    
-    [super dealloc];
 }
 
 
@@ -121,7 +138,15 @@ void PerformOnMainThread(void (^block)(void)) {
 
     self.stdOutPipe = [NSPipe pipe];
     self.stdErrPipe = [NSPipe pipe];
+    
+#if LOG_VIA_NOTE
+    [_stdOutPipe.fileHandleForReading waitForDataInBackgroundAndNotify];
+    [_stdErrPipe.fileHandleForReading waitForDataInBackgroundAndNotify];
 
+    NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
+    [nc addObserver:self selector:@selector(stdOutReadability:) name:NSFileHandleDataAvailableNotification object:_stdOutPipe.fileHandleForReading];
+    [nc addObserver:self selector:@selector(stdErrReadability:) name:NSFileHandleDataAvailableNotification object:_stdErrPipe.fileHandleForReading];
+#else
     _stdOutPipe.fileHandleForReading.readabilityHandler = ^(NSFileHandle *fh) {
         NSString *msg = [[[NSString alloc] initWithData:fh.availableData encoding:NSUTF8StringEncoding] autorelease];
         
@@ -139,6 +164,7 @@ void PerformOnMainThread(void (^block)(void)) {
             [_delegate codeRunner:_identifier messageFromStdErr:msg];
         });
     };
+#endif
 
     TDAssert(_controlThread);
     dispatch_async(_controlThread, ^{
@@ -406,5 +432,27 @@ void PerformOnMainThread(void (^block)(void)) {
     TDAssertExecuteThread();
     [self fireDelegateDidUpdate:nil];
 }
+
+
+#if LOG_VIA_NOTE
+- (void)stdOutReadability:(NSNotification *)n {
+    NSString *msg = [[[NSString alloc] initWithData:[[n object] availableData] encoding:NSUTF8StringEncoding] autorelease];
+    
+    PerformOnMainThread(^{
+        TDAssert(_delegate);
+        [_delegate codeRunner:_identifier messageFromStdOut:msg];
+    });
+}
+
+
+- (void)stdErrReadability:(NSNotification *)n {
+    NSString *msg = [[[NSString alloc] initWithData:[[n object] availableData] encoding:NSUTF8StringEncoding] autorelease];
+    
+    PerformOnMainThread(^{
+        TDAssert(_delegate);
+        [_delegate codeRunner:_identifier messageFromStdErr:msg];
+    });
+}
+#endif
 
 @end

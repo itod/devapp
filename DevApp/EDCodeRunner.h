@@ -36,6 +36,7 @@
 @protocol EDCodeRunner <NSObject>
 
 - (id)initWithDelegate:(id <EDCodeRunnerDelegate>)d;
+- (void)killResources;
 
 - (id <EDCodeRunnerDelegate>)delegate;
 - (void)setDelegate:(id <EDCodeRunnerDelegate>)delegate;
