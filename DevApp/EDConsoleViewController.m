@@ -70,10 +70,10 @@ static NSDictionary *sValueAttrs = nil;
     [[NSNotificationCenter defaultCenter] removeObserver:self];
     
     self.delegate = nil;
-	self.continueButton = nil;
-	self.nextButton = nil;
-	self.stepButton = nil;
-	self.upButton = nil;
+    self.continueButton = nil;
+    self.nextButton = nil;
+    self.stepButton = nil;
+    self.upButton = nil;
     self.varsContainerView = nil;
     self.varsOutlineView = nil;
     self.uberView = nil;

@@ -63,6 +63,8 @@ void PerformOnMainThread(void (^block)(void)) {
 
 
 - (void)dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+    
     self.delegate = nil;
     self.interp = nil;
     self.debugSync = nil;

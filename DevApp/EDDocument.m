@@ -51,6 +51,8 @@
 
 
 - (void)dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+
     self.breakpoints = nil;
     self.targets = nil;
     self.selectedTargetName = nil;

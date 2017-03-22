@@ -31,6 +31,8 @@
 
 
 - (void)dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+
     [self unbind:@"busy"];
     self.progressIndicator = nil;
     [self killAnimeTimer];

@@ -84,6 +84,8 @@ static NSDictionary *sNonMainTextAttrs = nil;
 
 
 - (void)dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+
     self.statusText = nil;
     [super dealloc];
 }

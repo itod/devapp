@@ -29,6 +29,8 @@
 }
 
 - (void)dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+
     _selectedFontTextField.delegate = nil;
     self.selectedFontTextField = nil;
     
