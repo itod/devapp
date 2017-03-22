@@ -272,7 +272,7 @@
 }
 
 
-- (void)storeProjPlistOfType:(NSString *)typeName inDict:(NSMutableDictionary *)dict error:(NSError **)outErr {
+- (BOOL)storeProjPlistOfType:(NSString *)typeName inDict:(NSMutableDictionary *)dict error:(NSError **)outErr {
     dict[@"version"] = @(2);
 
     EDAssert(_breakpoints);
@@ -293,6 +293,8 @@
     }
     if (tms) dict[@"tabs"] = tms;
     dict[@"selectedTabIndex"] = @(self.mainWindowController.selectedTabIndex);
+    
+    return YES;
 }
 
 

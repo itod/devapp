@@ -134,6 +134,8 @@
         CGImageRef cgimg = CGBitmapContextCreateImage(ctx);
         
         img = [[[NSImage alloc] initWithCGImage:cgimg size:size] autorelease];
+        
+        CGImageRelease(cgimg);
     }
     
     _canvasView.image = img;

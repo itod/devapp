@@ -63,27 +63,31 @@
 }
 
 
-- (void)storeProjPlistOfType:(NSString *)typeName inDict:(NSMutableDictionary *)dict error:(NSError **)outErr {
-    [super storeProjPlistOfType:typeName inDict:dict error:outErr];
+- (BOOL)storeProjPlistOfType:(NSString *)typeName inDict:(NSMutableDictionary *)dict error:(NSError **)outErr {
+    BOOL result = [super storeProjPlistOfType:typeName inDict:dict error:outErr];
     
-    EDAssert(_userGuides);
-    NSMutableArray *guides = [NSMutableArray arrayWithCapacity:[_userGuides count]];
-    for (EDGuide *g in _userGuides) {
-        [guides addObject:[g asPlist]];
+    if (result) {
+        EDAssert(_userGuides);
+        NSMutableArray *guides = [NSMutableArray arrayWithCapacity:[_userGuides count]];
+        for (EDGuide *g in _userGuides) {
+            [guides addObject:[g asPlist]];
+        }
+        dict[@"userGuides"] = guides;
+        
+        EDAssert(_metrics);
+        dict[@"metrics"] = [_metrics asPlist];
+        
+        dict[@"zoomScaleIndex"] = @(_zoomScaleIndex);
+        dict[@"gridEnabled"] = @(_gridEnabled);
+        dict[@"gridTolerance"] = @(_gridTolerance);
+        
+        dict[@"exportType"] = @(_exportType);
+        dict[@"exportAlphaEnabled"] = @(_exportAlphaEnabled);
+        dict[@"exportCompressionMethod"] = @(_exportCompressionMethod);
+        dict[@"exportCompressionFactor"] = @(_exportCompressionFactor);
     }
-    dict[@"userGuides"] = guides;
     
-    EDAssert(_metrics);
-    dict[@"metrics"] = [_metrics asPlist];
-    
-    dict[@"zoomScaleIndex"] = @(_zoomScaleIndex);
-    dict[@"gridEnabled"] = @(_gridEnabled);
-    dict[@"gridTolerance"] = @(_gridTolerance);
-    
-    dict[@"exportType"] = @(_exportType);
-    dict[@"exportAlphaEnabled"] = @(_exportAlphaEnabled);
-    dict[@"exportCompressionMethod"] = @(_exportCompressionMethod);
-    dict[@"exportCompressionFactor"] = @(_exportCompressionFactor);
+    return result;
 }
 
 

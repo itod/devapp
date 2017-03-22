@@ -16,7 +16,7 @@
 
 @interface EDDocument : TKDocument
 
-- (void)storeProjPlistOfType:(NSString *)typeName inDict:(NSMutableDictionary *)dict error:(NSError **)outErr;
+- (BOOL)storeProjPlistOfType:(NSString *)typeName inDict:(NSMutableDictionary *)dict error:(NSError **)outErr;
 - (BOOL)readProjPlistOfType:(NSString *)typeName inDict:(NSDictionary *)dict error:(NSError **)outErr;
 
 - (BOOL)wantsCustomDisplayName;

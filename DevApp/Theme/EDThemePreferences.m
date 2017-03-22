@@ -36,11 +36,12 @@
     
     self.themeNamesTableView = nil;
     self.themeRulesTableView = nil;
-    self.selectedFont = nil;
-    self.ruleKeyOrder = nil;
-    self.ruleDisplayNameTab = nil;
     self.selectionColorCell = nil;
     self.caretColorCell = nil;
+    self.ruleKeyOrder = nil;
+    self.ruleDisplayNameTab = nil;
+    self.selectedFont = nil;
+    self.selectedDisplayFont = nil;
     [super dealloc];
 }
 

@@ -16,6 +16,6 @@
 
 @property (nonatomic, retain, readonly) NSString *identifier;
 
-@property (nonatomic, retain) NSGraphicsContext *canvasGraphicsContext;
-@property (nonatomic, retain) NSMutableArray *strokeWeightStack;
+@property (nonatomic, assign) NSGraphicsContext *canvasGraphicsContext;
+@property (nonatomic, assign, readonly) NSMutableArray *strokeWeightStack;
 @end
