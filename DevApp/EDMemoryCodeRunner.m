@@ -26,8 +26,6 @@
 #import "FNArc.h"
 #import "FNLine.h"
 
-#define LOG_VIA_NOTE 0
-
 void PerformOnMainThread(void (^block)(void)) {
     assert(block);
     dispatch_async(dispatch_get_main_queue(), block);
@@ -137,13 +135,6 @@ void PerformOnMainThread(void (^block)(void)) {
     self.stdOutPipe = [NSPipe pipe];
     self.stdErrPipe = [NSPipe pipe];
     
-#if LOG_VIA_NOTE
-    [_stdOutPipe.fileHandleForReading waitForDataInBackgroundAndNotify];
-    [_stdErrPipe.fileHandleForReading waitForDataInBackgroundAndNotify];
-
-    [nc addObserver:self selector:@selector(stdOutReadability:) name:NSFileHandleDataAvailableNotification object:_stdOutPipe.fileHandleForReading];
-    [nc addObserver:self selector:@selector(stdErrReadability:) name:NSFileHandleDataAvailableNotification object:_stdErrPipe.fileHandleForReading];
-#else
     _stdOutPipe.fileHandleForReading.readabilityHandler = ^(NSFileHandle *fh) {
         NSString *msg = [[[NSString alloc] initWithData:fh.availableData encoding:NSUTF8StringEncoding] autorelease];
         
@@ -161,7 +152,6 @@ void PerformOnMainThread(void (^block)(void)) {
             [_delegate codeRunner:_identifier messageFromStdErr:msg];
         });
     };
-#endif
 
     TDAssert(_controlThread);
     dispatch_async(_controlThread, ^{
@@ -433,27 +423,5 @@ void PerformOnMainThread(void (^block)(void)) {
     TDAssertExecuteThread();
     [self fireDelegateDidUpdate:nil];
 }
-
-
-#if LOG_VIA_NOTE
-- (void)stdOutReadability:(NSNotification *)n {
-    NSString *msg = [[[NSString alloc] initWithData:[[n object] availableData] encoding:NSUTF8StringEncoding] autorelease];
-    
-    PerformOnMainThread(^{
-        TDAssert(_delegate);
-        [_delegate codeRunner:_identifier messageFromStdOut:msg];
-    });
-}
-
-
-- (void)stdErrReadability:(NSNotification *)n {
-    NSString *msg = [[[NSString alloc] initWithData:[[n object] availableData] encoding:NSUTF8StringEncoding] autorelease];
-    
-    PerformOnMainThread(^{
-        TDAssert(_delegate);
-        [_delegate codeRunner:_identifier messageFromStdErr:msg];
-    });
-}
-#endif
 
 @end
