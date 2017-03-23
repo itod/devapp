@@ -22,6 +22,7 @@
 - (void)removePrompt;
 - (BOOL)isAtPrompt:(NSString **)outPrompt;
 - (void)append:(NSString *)msg;
+- (void)appendFormat:(NSString *)fmt, ...;
 - (void)appendNewLine;
 - (void)handleUserCommand:(NSString *)cmd;
 

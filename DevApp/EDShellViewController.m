@@ -200,6 +200,18 @@
 }
 
 
+- (void)appendFormat:(NSString *)fmt, ... {
+    va_list vargs;
+    va_start(vargs, fmt);
+    
+    NSString *msg = [[[NSString alloc] initWithFormat:fmt arguments:vargs] autorelease];
+    
+    va_end(vargs);
+    
+    [self append:msg];
+}
+
+
 - (void)appendNewLine {
     [self append:@"\n"];
 }

@@ -1271,11 +1271,14 @@
 
     OKViewController *okvc = self.selectedSourceViewController;
     [okvc highlightLineNumber:lineNum scrollToVisible:NO];
-    
+
+    [_consoleViewController removePrompt];
+
     EDAssert(_consoleViewController);
     if (kEDCodeRunnerCompileTimeError == [err code]) {
+        [_consoleViewController appendNewLine];
+        [_consoleViewController appendFormat:@"Compile-time error, line %ld:\n", lineNum];
         [_consoleViewController append:[err localizedDescription]];
-        [_consoleViewController append:[NSString stringWithFormat:@"\nLine: %@", @(lineNum)]];
         
         NSRange lineRange = [okvc.textView rangeOfLine:lineNum];
         NSString *line = [[okvc.textView string] substringWithRange:lineRange];
@@ -1294,16 +1297,15 @@
         [_consoleViewController append:buf];
     }
     
-    [_codeRunner stop:self.identifier]; // ??
-    
-    self.statusText = NSLocalizedString(@"Failed.", @"");
-    [_consoleViewController removePrompt];
+    [_codeRunner stop:self.identifier]; // ?? TODO
     
     self.canRun = YES;
     self.canStop = NO;
     self.busy = NO;
     self.paused = NO;
-    
+
+    self.statusText = NSLocalizedString(@"Failed.", @"");
+
     [[self window] makeFirstResponder:self.selectedSourceViewController.textView];
 }
 
