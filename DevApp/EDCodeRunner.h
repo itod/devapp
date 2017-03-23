@@ -15,6 +15,8 @@
 #define kEDCodeRunnerUserCommandKey @"userCommand"
 #define kEDCodeRunnerReturnCodeKey @"returnCode"
 #define kEDCodeRunnerFrameStackKey @"frameStack"
+#define kEDCodeRunnerLineNumberKey @"lineNumber"
+#define kEDCodeRunnerRangeKey @"range"
 #define kEDCodeRunnerErrorKey @"error"
 
 @protocol EDCodeRunner;

@@ -1265,15 +1265,36 @@
     NSParameterAssert(err);
     NSLog(@"%@", err);
     
-    //[self clearDebugInfo];
+    [self clearDebugInfo];
+    
+    NSUInteger lineNum = [err.userInfo[kEDCodeRunnerLineNumberKey] unsignedIntegerValue];
 
+    OKViewController *okvc = self.selectedSourceViewController;
+    [okvc highlightLineNumber:lineNum scrollToVisible:NO];
+    
     EDAssert(_consoleViewController);
     if (kEDCodeRunnerCompileTimeError == [err code]) {
         [_consoleViewController append:[err localizedDescription]];
+        [_consoleViewController append:[NSString stringWithFormat:@"\nLine: %@", @(lineNum)]];
+        
+        NSRange lineRange = [okvc.textView rangeOfLine:lineNum];
+        NSString *line = [[okvc.textView string] substringWithRange:lineRange];
+        [_consoleViewController append:[NSString stringWithFormat:@"\n%@", line]];
+        
+        NSRange errRange = [err.userInfo[kEDCodeRunnerRangeKey] rangeValue];
+        TDAssert(errRange.location > lineRange.location);
+        TDAssert(NSMaxRange(errRange) <= NSMaxRange(lineRange)); // ??
+        
+        NSMutableString *buf = [NSMutableString stringWithString:@"\n"];
+        for (NSUInteger i = lineRange.location; i < errRange.location; ++i) {
+            [buf appendString:@" "];
+        }
+        [buf appendString:@"^"];
+        
+        [_consoleViewController append:buf];
     }
     
-    [_codeRunner stop:self.identifier];
-    [self killCodeRunner];
+    [_codeRunner stop:self.identifier]; // ??
     
     self.statusText = NSLocalizedString(@"Failed.", @"");
     [_consoleViewController removePrompt];
