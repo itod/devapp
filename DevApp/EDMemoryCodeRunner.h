@@ -10,5 +10,5 @@
 #import <Language/XPInterpreter.h>
 
 @interface EDMemoryCodeRunner : NSObject <EDCodeRunner, XPInterpreterDelegate, XPInterpreterDebugDelegate, NSStreamDelegate>
-- (void)killResources;
+
 @end
