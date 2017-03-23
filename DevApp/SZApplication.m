@@ -35,33 +35,33 @@
 #pragma mark -
 #pragma mark Public
 
-- (NSGraphicsContext *)graphicsContextForIdentifier:(NSString *)identifer {
+- (NSGraphicsContext *)graphicsContextForIdentifier:(NSString *)identifier {
     TDAssert(_contextTab);
-    return [_contextTab objectForKey:identifer];
+    return [_contextTab objectForKey:identifier];
 }
 
 
-- (void)setGraphicsContext:(NSGraphicsContext *)g forIdentifier:(NSString *)identifer {
-    TDAssert([identifer length]);
+- (void)setGraphicsContext:(NSGraphicsContext *)g forIdentifier:(NSString *)identifier {
+    TDAssert([identifier length]);
     TDAssert(_contextTab);
-    [_contextTab setObject:g forKey:identifer];
+    [_contextTab setObject:g forKey:identifier];
 }
 
 
-- (NSMutableArray *)strokeWeightStackForIdentifier:(NSString *)identifer {
+- (NSMutableArray *)strokeWeightStackForIdentifier:(NSString *)identifier {
     TDAssert(_stackTab);
-    TDAssert([identifer length]);
-    id res = [_stackTab objectForKey:identifer];
+    TDAssert([identifier length]);
+    id res = [_stackTab objectForKey:identifier];
     TDAssert(res);
     return res;
 }
 
 
-- (void)setStrokeWeightStack:(NSMutableArray *)stack forIdentifier:(NSString *)identifer {
+- (void)setStrokeWeightStack:(NSMutableArray *)stack forIdentifier:(NSString *)identifier {
     TDAssert(stack);
-    TDAssert([identifer length]);
+    TDAssert([identifier length]);
     TDAssert(_stackTab);
-    [_stackTab setObject:stack forKey:identifer];
+    [_stackTab setObject:stack forKey:identifier];
 }
 
 @end

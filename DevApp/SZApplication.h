@@ -10,9 +10,9 @@
 
 @interface SZApplication : EDApplication
 
-- (NSGraphicsContext *)graphicsContextForIdentifier:(NSString *)identifer;
-- (void)setGraphicsContext:(NSGraphicsContext *)g forIdentifier:(NSString *)identifer;
+- (NSGraphicsContext *)graphicsContextForIdentifier:(NSString *)identifier;
+- (void)setGraphicsContext:(NSGraphicsContext *)g forIdentifier:(NSString *)identifier;
 
-- (NSMutableArray *)strokeWeightStackForIdentifier:(NSString *)identifer;
-- (void)setStrokeWeightStack:(NSMutableArray *)stack forIdentifier:(NSString *)identifer;
+- (NSMutableArray *)strokeWeightStackForIdentifier:(NSString *)identifier;
+- (void)setStrokeWeightStack:(NSMutableArray *)stack forIdentifier:(NSString *)identifier;
 @end
