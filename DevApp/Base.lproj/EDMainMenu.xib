@@ -107,7 +107,8 @@
                             <menuItem isSeparatorItem="YES" id="pKt-nv-BIc">
                                 <modifierMask key="keyEquivalentModifierMask" command="YES"/>
                             </menuItem>
-                            <menuItem title="New File…" hidden="YES" keyEquivalent="n" id="82">
+                            <menuItem title="New File…" hidden="YES" id="82">
+                                <modifierMask key="keyEquivalentModifierMask"/>
                                 <connections>
                                     <action selector="newFile:" target="-1" id="rPf-Ri-HB8"/>
                                 </connections>
