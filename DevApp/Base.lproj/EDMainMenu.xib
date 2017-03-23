@@ -185,10 +185,10 @@
                                     <action selector="export:" target="-1" id="hjT-48-16V"/>
                                 </connections>
                             </menuItem>
-                            <menuItem isSeparatorItem="YES" id="Un7-Y2-Fcg">
+                            <menuItem isSeparatorItem="YES" hidden="YES" id="Un7-Y2-Fcg">
                                 <modifierMask key="keyEquivalentModifierMask" command="YES"/>
                             </menuItem>
-                            <menuItem title="Edit Project Settings…" keyEquivalent="e" id="IX4-fR-IEZ">
+                            <menuItem title="Edit Project Settings…" hidden="YES" keyEquivalent="e" id="IX4-fR-IEZ">
                                 <modifierMask key="keyEquivalentModifierMask" option="YES" command="YES"/>
                                 <connections>
                                     <action selector="editProjectSettings:" target="-1" id="6LN-Jz-KtJ"/>
