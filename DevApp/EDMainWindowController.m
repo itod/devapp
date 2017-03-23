@@ -2190,7 +2190,6 @@
     }
 
     [_codeRunner stop:self.identifier];
-    [self killCodeRunner];
     [self clearDebugInfo];
     
     self.statusText = NSLocalizedString(@"Stopped.", @"");

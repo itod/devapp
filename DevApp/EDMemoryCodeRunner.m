@@ -94,17 +94,28 @@ void PerformOnMainThread(void (^block)(void)) {
 #pragma mark EDCodeRunner
 
 - (void)stop:(NSString *)identifier {
+    TDAssertMainThread();
     
+    NSMutableDictionary *info = [NSMutableDictionary dictionaryWithObjectsAndKeys:
+                                 @YES, kEDCodeRunnerDoneKey,
+                                 nil];
+    
+    TDAssert(_controlThread);
+    dispatch_async(_controlThread, ^{
+        TDAssert(_debugSync);
+        [_debugSync resumeWithInfo:info];
+        [_debugSync awaitPause]; // allow EXECUTE-THREAD to die naturally
+    });
 }
 
 
 - (void)performCommand:(NSString *)cmd identifier:(NSString *)identifier {
     TDAssert([cmd length]);
     
-    NSMutableDictionary *info = [NSMutableDictionary dictionary];
-    info[kEDCodeRunnerDoneKey] = @NO;
-    info[kEDCodeRunnerUserCommandKey] = cmd;
-    
+    NSMutableDictionary *info = [NSMutableDictionary dictionaryWithObjectsAndKeys:
+                                 @NO, kEDCodeRunnerDoneKey,
+                                 cmd, kEDCodeRunnerUserCommandKey,
+                                 nil];
     [self resumeWithInfo:info];
 }
 
@@ -189,20 +200,6 @@ void PerformOnMainThread(void (^block)(void)) {
         TDAssert(_debugSync);
         [_debugSync resumeWithInfo:info];
         [self awaitPause];
-    });
-}
-
-
-- (void)stop {
-    TDAssertMainThread();
-    
-    NSMutableDictionary *info = [NSMutableDictionary dictionary];
-    info[kEDCodeRunnerDoneKey] = @YES;
-
-    TDAssert(_controlThread);
-    dispatch_async(_controlThread, ^{
-        TDAssert(_debugSync);
-        [_debugSync resumeWithInfo:info];
     });
 }
 
@@ -297,7 +294,6 @@ void PerformOnMainThread(void (^block)(void)) {
     BOOL done = [outInfo[kEDCodeRunnerDoneKey] boolValue];
     
     if (done) {
-        TDAssert(0); // is this reached????
         [XPException raise:XPExceptionUserKill format:@"User stopped execution."];
         return;
     }
