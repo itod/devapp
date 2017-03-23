@@ -134,7 +134,7 @@ void PerformOnMainThread(void (^block)(void)) {
     [nc addObserver:self selector:@selector(canvasDidUpdate:) name:@"CanvasDidUpdateNotification" object:identifier];
 
     self.identifier = identifier;
-    self.debugSync = bpEnabled ? [[[TDInterpreterSync alloc] init] autorelease] : nil;
+    self.debugSync = [[[TDInterpreterSync alloc] init] autorelease];
 
     self.stdOutPipe = [NSPipe pipe];
     self.stdErrPipe = [NSPipe pipe];
@@ -185,9 +185,7 @@ void PerformOnMainThread(void (^block)(void)) {
             [self doRun:srcStr filePath:userCmd breakpoints:bpPlist];
         });
         
-        if (bpEnabled) {
-            [self awaitPause];
-        }
+        [self awaitPause];
     });
 }
 
@@ -383,11 +381,16 @@ void PerformOnMainThread(void (^block)(void)) {
     NSError *err = nil;
     success = [_interp interpretString:srcStr filePath:path error:&err];
     
+    NSMutableDictionary *info = nil;
     if (success) {
-        [self fireDelegateDidSucceed:[[@{kEDCodeRunnerReturnCodeKey:@0, kEDCodeRunnerDoneKey:@YES} mutableCopy] autorelease]];
+        info = [[@{kEDCodeRunnerReturnCodeKey:@0, kEDCodeRunnerDoneKey:@YES} mutableCopy] autorelease];
     } else {
-        [self fireDelegateDidFail:[[@{kEDCodeRunnerReturnCodeKey:@1, kEDCodeRunnerDoneKey:@YES, kEDCodeRunnerErrorKey:err} mutableCopy] autorelease]];
+        info = [[@{kEDCodeRunnerReturnCodeKey:@1, kEDCodeRunnerDoneKey:@YES, kEDCodeRunnerErrorKey:err} mutableCopy] autorelease];
     }
+    
+    TDAssert(_debugSync);
+    [_debugSync pauseWithInfo:info]; // allow CONTROL-THREAD to complete naturally
+    // and then don't await resume
 }
 
 
