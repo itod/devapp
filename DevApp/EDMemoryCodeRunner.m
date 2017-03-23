@@ -26,7 +26,7 @@
 #import "FNArc.h"
 #import "FNLine.h"
 
-#define LOG_VIA_NOTE 1
+#define LOG_VIA_NOTE 0
 
 void PerformOnMainThread(void (^block)(void)) {
     assert(block);
@@ -69,14 +69,12 @@ void PerformOnMainThread(void (^block)(void)) {
 
 
 - (void)killResources {
-    TDAssertMainThread();
-    
     self.identifier = nil;
     self.delegate = nil;
     
-    _interp.delegate = nil;
-    _interp.stdOut = nil;
-    _interp.stdErr = nil;
+    self.interp.delegate = nil;
+    self.interp.stdOut = nil;
+    self.interp.stdErr = nil;
     self.interp = nil;
     
     self.debugSync = nil;
@@ -86,8 +84,8 @@ void PerformOnMainThread(void (^block)(void)) {
     
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 
-    _stdOutPipe.fileHandleForReading.readabilityHandler = nil;
-    _stdErrPipe.fileHandleForReading.readabilityHandler = nil;
+    self.stdOutPipe.fileHandleForReading.readabilityHandler = nil;
+    self.stdErrPipe.fileHandleForReading.readabilityHandler = nil;
     
     self.stdOutPipe = nil;
     self.stdErrPipe = nil;
