@@ -107,12 +107,12 @@
                             <menuItem isSeparatorItem="YES" id="pKt-nv-BIc">
                                 <modifierMask key="keyEquivalentModifierMask" command="YES"/>
                             </menuItem>
-                            <menuItem title="New File…" keyEquivalent="n" id="82">
+                            <menuItem title="New File…" hidden="YES" keyEquivalent="n" id="82">
                                 <connections>
                                     <action selector="newFile:" target="-1" id="rPf-Ri-HB8"/>
                                 </connections>
                             </menuItem>
-                            <menuItem title="New Project…" keyEquivalent="N" id="bN9-La-gMD">
+                            <menuItem title="New Project…" keyEquivalent="n" id="bN9-La-gMD">
                                 <connections>
                                     <action selector="newDocument:" target="-1" id="6fb-Px-KAc"/>
                                 </connections>
