@@ -30,13 +30,6 @@
     XPSymbol *endAngle = [XPSymbol symbolWithName:@"endAngle"];
     XPSymbol *clockwise = [XPSymbol symbolWithName:@"clockwise"];
     funcSym.orderedParams = [NSMutableArray arrayWithObjects:x, y, radius, startAngle, endAngle, clockwise, nil];
-    funcSym.defaultParamObjects = [NSMutableDictionary dictionaryWithObjectsAndKeys:
-                                   [XPObject nullObject], @"y",
-                                   [XPObject nullObject], @"radius",
-                                   [XPObject nullObject], @"startAngle",
-                                   [XPObject nullObject], @"endAngle",
-                                   [XPObject nullObject], @"clockwise",
-                                   nil];
     funcSym.params = [NSMutableDictionary dictionaryWithObjectsAndKeys:
                       x, @"x",
                       y, @"y",
@@ -61,16 +54,6 @@
     XPObject *startAngle = [space objectForName:@"startAngle"]; TDAssert(startAngle);
     XPObject *endAngle = [space objectForName:@"endAngle"]; TDAssert(endAngle);
     XPObject *clockwise = [space objectForName:@"clockwise"]; TDAssert(clockwise);
-    
-    if (1 == argc) {
-        NSArray *v = x.value;
-        x = [v objectAtIndex:0];
-        y = [v objectAtIndex:1];
-        radius = [v objectAtIndex:2];
-        startAngle = [v objectAtIndex:3];
-        endAngle = [v objectAtIndex:4];
-        clockwise = [v objectAtIndex:5];
-    }
     
     CGContextRef ctx = [self.canvasGraphicsContext graphicsPort];
     

@@ -9,6 +9,7 @@
 #import "FNAbstractFunction.h"
 #import "SZApplication.h"
 #import <Language/XPObject.h>
+#import <Language/XPRuntimeException.h>
 #import <TDAppKit/TDUtils.h>
 
 @implementation FNAbstractFunction
@@ -135,6 +136,19 @@
 - (void)postUpate {
     NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
     [nc postNotificationName:@"CanvasDidUpdateNotification" object:[[self class] identifier]];
+}
+
+
+- (void)raiseIllegalArgumentException:fmt, ... {
+    va_list vargs;
+    va_start(vargs, fmt);
+    
+    NSString *msg = [[[NSString alloc] initWithFormat:fmt arguments:vargs] autorelease];
+    
+    va_end(vargs);
+    
+    XPRuntimeException *ex = [[[XPRuntimeException alloc] initWithName:XPExceptionIllegalArgument reason:msg userInfo:nil] autorelease];
+    [ex raise];
 }
 
 

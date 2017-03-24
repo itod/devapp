@@ -48,19 +48,28 @@
     XPMemorySpace *space = walker.currentSpace;
     TDAssert(space);
     
-    XPObject *x = [space objectForName:@"x"]; TDAssert(x);
-    XPObject *y = [space objectForName:@"y"]; TDAssert(y);
-    XPObject *w = [space objectForName:@"width"]; TDAssert(w);
-    XPObject *h = [space objectForName:@"height"]; TDAssert(h);
+    XPObject *x = [space objectForName:@"x"];
+    XPObject *y = [space objectForName:@"y"];
+    XPObject *w = [space objectForName:@"width"];
+    XPObject *h = [space objectForName:@"height"];
     
     if (1 == argc) {
-        NSArray *v = x.value;
-        x = [v objectAtIndex:0];
-        y = [v objectAtIndex:1];
-        w = [v objectAtIndex:2];
-        h = [v objectAtIndex:3];
+        if (x.isArrayObject && 4 == [x.value count]) {
+            NSArray *v = x.value;
+            x = [v objectAtIndex:0];
+            y = [v objectAtIndex:1];
+            w = [v objectAtIndex:2];
+            h = [v objectAtIndex:3];
+        } else {
+            [self raiseIllegalArgumentException:@"when calling %@() with one argument, argument must be a rectangle Array object: [x, y, width, height]", [[self class] name]];
+        }
     }
     
+    TDAssert(x);
+    TDAssert(y);
+    TDAssert(w);
+    TDAssert(h);
+
     CGContextRef ctx = [self.canvasGraphicsContext graphicsPort];
     
     // FILL

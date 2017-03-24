@@ -56,12 +56,15 @@
     XPObject *x2Obj = [space objectForName:@"x2"]; TDAssert(x2Obj);
     XPObject *y2Obj = [space objectForName:@"y2"]; TDAssert(y2Obj);
     
-    if (1 == argc) {
-        NSArray *v = x1Obj.value;
-        x1Obj = [v objectAtIndex:0];
-        y1Obj = [v objectAtIndex:1];
-        x2Obj = [v objectAtIndex:2];
-        y2Obj = [v objectAtIndex:3];
+    if (2 == argc) {
+        if (x1Obj.isArrayObject && 2 == [x1Obj.value count] && y1Obj.isArrayObject && 2 == [y1Obj.value count]) {
+            x1Obj = [x1Obj.value objectAtIndex:0];
+            y1Obj = [x1Obj.value objectAtIndex:1];
+            x2Obj = [y1Obj.value objectAtIndex:0];
+            y2Obj = [y1Obj.value objectAtIndex:1];
+        } else {
+            [self raiseIllegalArgumentException:@"when calling %@() with a single argument, argument must be an Array containting to point Array objects: [[x, y], [x, y]]", [[self class] name]];
+        }
     }
     
     double x1 = x1Obj.doubleValue;

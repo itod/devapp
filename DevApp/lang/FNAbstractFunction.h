@@ -15,6 +15,8 @@
 - (void)postUpate;
 - (NSColor *)asColor:(XPObject *)obj;
 
+- (void)raiseIllegalArgumentException:fmt, ...;
+
 @property (nonatomic, assign) NSGraphicsContext *canvasGraphicsContext;
 @property (nonatomic, assign, readonly) NSMutableArray *strokeWeightStack;
 @end
