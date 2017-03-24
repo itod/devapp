@@ -26,6 +26,9 @@
     XPSymbol *width = [XPSymbol symbolWithName:@"width"];
     XPSymbol *height = [XPSymbol symbolWithName:@"height"];
     funcSym.orderedParams = [NSMutableArray arrayWithObjects:width, height, nil];
+    funcSym.defaultParamObjects = [NSMutableDictionary dictionaryWithObjectsAndKeys:
+                                   [XPObject nullObject], @"height",
+                                   nil];
     funcSym.params = [NSMutableDictionary dictionaryWithObjectsAndKeys:
                       width, @"width",
                       height, @"height",
@@ -39,16 +42,23 @@
     XPMemorySpace *space = walker.currentSpace;
     TDAssert(space);
     
-    XPObject *width = [space objectForName:@"width"];
-    TDAssert(width);
+    XPObject *w = [space objectForName:@"width"];
+    XPObject *h = [space objectForName:@"height"];
     
-    XPObject *height = [space objectForName:@"height"];
-    TDAssert(height);
+    if (1 == argc) {
+        if (w.isArrayObject && 2 == [w.value count]) {
+            NSArray *v = w.value;
+            w = [v objectAtIndex:0];
+            h = [v objectAtIndex:1];
+        } else {
+            [self raiseIllegalArgumentException:@"when calling %@() with one argument, argument must be a size Array object: [width, height]", [[self class] name]];
+        }
+    }
     
-    double w = [width.value doubleValue];
-    double h = [height.value doubleValue];
-    
-    self.canvasGraphicsContext = [[self newContextWithSize:CGSizeMake(w, h)] autorelease];
+    TDAssert(w);
+    TDAssert(h);
+
+    self.canvasGraphicsContext = [[self newContextWithSize:CGSizeMake(w.doubleValue, h.doubleValue)] autorelease];
 
     [self postUpate];
     

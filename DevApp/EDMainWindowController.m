@@ -1398,7 +1398,29 @@
                      [OKTrigger triggerWithTemplate:@"locals()" specifier:@"locals"],
                      [OKTrigger triggerWithTemplate:@"globals()" specifier:@"globals"],
                      
-                     
+                     // graphics funcs
+                     [OKTrigger triggerWithTemplate:@"size(${sizeArray})" specifier:@"size"],
+                     [OKTrigger triggerWithTemplate:@"size(${width}, ${height})" specifier:@"size"],
+                     [OKTrigger triggerWithTemplate:@"pushStyle()" specifier:@"pushStyle"],
+                     [OKTrigger triggerWithTemplate:@"popStyle()" specifier:@"popStyle"],
+                     [OKTrigger triggerWithTemplate:@"translate(${pointArray})" specifier:@"translate"],
+                     [OKTrigger triggerWithTemplate:@"translate(${x}, ${y})" specifier:@"translate"],
+                     [OKTrigger triggerWithTemplate:@"scale(${sizeArray})" specifier:@"scale"],
+                     [OKTrigger triggerWithTemplate:@"scale(${width}, ${height})" specifier:@"scale"],
+                     [OKTrigger triggerWithTemplate:@"rotate(${radians})" specifier:@"rotate"],
+                     [OKTrigger triggerWithTemplate:@"stroke(${color})" specifier:@"stroke"],
+                     [OKTrigger triggerWithTemplate:@"strokeWeight()" specifier:@"strokeWeight"],
+                     [OKTrigger triggerWithTemplate:@"strokeCap()" specifier:@"strokeCap"],
+                     [OKTrigger triggerWithTemplate:@"strokeJoin()" specifier:@"strokeJoin"],
+                     [OKTrigger triggerWithTemplate:@"fill(${color})" specifier:@"fill"],
+                     [OKTrigger triggerWithTemplate:@"rect(${rectArray})" specifier:@"rect"],
+                     [OKTrigger triggerWithTemplate:@"rect(${x}, ${y}, ${width}, ${height})" specifier:@"rect"],
+                     [OKTrigger triggerWithTemplate:@"ellipse(${rectArray})" specifier:@"ellipse"],
+                     [OKTrigger triggerWithTemplate:@"ellipse(${x}, ${y}, ${width}, ${height})" specifier:@"ellipse"],
+                     [OKTrigger triggerWithTemplate:@"arc(${x}, ${y}, ${radius}, ${startAngle}, ${endAngle}, ${clockwise})" specifier:@"arc"],
+                     [OKTrigger triggerWithTemplate:@"line(${point1Array}, ${point2Array})" specifier:@"line"],
+                     [OKTrigger triggerWithTemplate:@"line(${x1}, ${y1}, ${x2}, ${y2})" specifier:@"line"],
+
                      
                      nil];
     }

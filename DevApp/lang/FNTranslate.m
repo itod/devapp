@@ -51,7 +51,7 @@
             x = [v objectAtIndex:0];
             y = [v objectAtIndex:1];
         } else {
-            [self raiseIllegalArgumentException:@"when calling %@() with one argument, argument must be a point Array object: [x, y]", [[self class] name]];
+            [self raiseIllegalArgumentException:@"when calling %@() with one argument, argument must be a size Array object: [width, height]", [[self class] name]];
         }
     }
     

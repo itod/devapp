@@ -23,18 +23,15 @@
     XPFunctionSymbol *funcSym = [XPFunctionSymbol symbolWithName:[[self class] name] enclosingScope:nil];
     funcSym.nativeBody = self;
     
-    XPSymbol *x = [XPSymbol symbolWithName:@"x"];
-    XPSymbol *y = [XPSymbol symbolWithName:@"y"];
-    funcSym.orderedParams = [NSMutableArray arrayWithObjects:x, y, nil];
+    XPSymbol *width = [XPSymbol symbolWithName:@"width"];
+    XPSymbol *height = [XPSymbol symbolWithName:@"height"];
+    funcSym.orderedParams = [NSMutableArray arrayWithObjects:width, height, nil];
     funcSym.defaultParamObjects = [NSMutableDictionary dictionaryWithObjectsAndKeys:
-                                   [XPObject nullObject], @"y",
-                                   nil];
-    funcSym.defaultParamObjects = [NSMutableDictionary dictionaryWithObjectsAndKeys:
-                                   @1.0, @"y",
+                                   [XPObject number:1.0], @"height",
                                    nil];
     funcSym.params = [NSMutableDictionary dictionaryWithObjectsAndKeys:
-                      x, @"x",
-                      y, @"y",
+                      width, @"width",
+                      height, @"height",
                       nil];
     
     return funcSym;
@@ -45,24 +42,24 @@
     XPMemorySpace *space = walker.currentSpace;
     TDAssert(space);
     
-    XPObject *x = [space objectForName:@"x"];
-    XPObject *y = [space objectForName:@"y"];
+    XPObject *w = [space objectForName:@"width"];
+    XPObject *h = [space objectForName:@"height"];
     
     if (1 == argc) {
-        if (x.isArrayObject && 2 == [x.value count]) {
-            NSArray *v = x.value;
-            x = [v objectAtIndex:0];
-            y = [v objectAtIndex:1];
+        if (w.isArrayObject && 2 == [w.value count]) {
+            NSArray *v = w.value;
+            w = [v objectAtIndex:0];
+            h = [v objectAtIndex:1];
         } else {
             [self raiseIllegalArgumentException:@"when calling %@() with one argument, argument must be a size Array object: [width, height]", [[self class] name]];
         }
     }
     
-    TDAssert(x);
-    TDAssert(y);
+    TDAssert(w);
+    TDAssert(h);
     
     CGContextRef ctx = [self.canvasGraphicsContext graphicsPort];
-    CGContextScaleCTM(ctx, x.doubleValue, y.doubleValue);
+    CGContextScaleCTM(ctx, w.doubleValue, h.doubleValue);
     
     return nil;
 }

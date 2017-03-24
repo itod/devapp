@@ -35,7 +35,6 @@
                       y, @"y",
                       radius, @"radius",
                       startAngle, @"startAngle",
-                      startAngle, @"startAngle",
                       endAngle, @"endAngle",
                       clockwise, @"clockwise",
                       nil];
