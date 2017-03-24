@@ -1275,17 +1275,19 @@
     [_consoleViewController removePrompt];
 
     EDAssert(_consoleViewController);
-    if (kEDCodeRunnerCompileTimeError == [err code]) {
+    {
+        NSString *type = kEDCodeRunnerCompileTimeError == [err code] ? @"Compile-time" : @"Runtime";
         [_consoleViewController appendNewLine];
-        [_consoleViewController appendFormat:@"Compile-time error, line %ld:\n", lineNum];
+        [_consoleViewController appendFormat:@"%@ error, line %ld:\n", type, lineNum];
         [_consoleViewController append:[err localizedDescription]];
         
         NSRange lineRange = [okvc.textView rangeOfLine:lineNum];
         NSString *line = [[okvc.textView string] substringWithRange:lineRange];
         [_consoleViewController append:[NSString stringWithFormat:@"\n%@", line]];
         
+        TDAssert(err.userInfo[kEDCodeRunnerRangeKey]);
         NSRange errRange = [err.userInfo[kEDCodeRunnerRangeKey] rangeValue];
-        TDAssert(errRange.location > lineRange.location);
+        TDAssert(errRange.location >= lineRange.location);
         TDAssert(NSMaxRange(errRange) <= NSMaxRange(lineRange)); // ??
         
         NSMutableString *buf = [NSMutableString stringWithString:@"\n"];
