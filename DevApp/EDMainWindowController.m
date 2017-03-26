@@ -1421,7 +1421,6 @@
                      [OKTrigger triggerWithTemplate:@"line(${point1Array}, ${point2Array})" specifier:@"line"],
                      [OKTrigger triggerWithTemplate:@"line(${x1}, ${y1}, ${x2}, ${y2})" specifier:@"line"],
 
-                     
                      nil];
     }
     return sTriggers;
