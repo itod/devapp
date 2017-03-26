@@ -1276,10 +1276,10 @@
 
     EDAssert(_consoleViewController);
     {
-        NSString *type = kEDCodeRunnerCompileTimeError == [err code] ? @"Compile-time" : @"Runtime";
+        //NSString *type = kEDCodeRunnerCompileTimeError == [err code] ? @"Compile-time" : @"Runtime";
         [_consoleViewController appendNewLine];
-        [_consoleViewController appendFormat:@"%@ error, line %ld:\n", type, lineNum];
         [_consoleViewController append:[err localizedDescription]];
+        [_consoleViewController appendFormat:@"\n%@, line %ld:\n", err.localizedFailureReason, lineNum];
         
         NSRange lineRange = [okvc.textView rangeOfLine:lineNum];
         NSString *line = [[okvc.textView string] substringWithRange:lineRange];

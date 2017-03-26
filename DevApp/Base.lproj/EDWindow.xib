@@ -61,11 +61,6 @@
                             <action selector="toggleBreakpointsEnabled:" target="-1" id="xti-hS-bOA"/>
                         </connections>
                     </toolbarItem>
-                    <toolbarItem implicitItemIdentifier="0C05C6B8-CAE5-4B4E-92A1-228DEB2F950D" label="Reference" paletteLabel="Reference" toolTip="Open Reference Tab" tag="2050" image="NSActionTemplate" id="Jfx-JP-BWj" customClass="EDToolbarButtonItem">
-                        <connections>
-                            <action selector="showReference:" target="-1" id="xUy-fY-gP8"/>
-                        </connections>
-                    </toolbarItem>
                     <toolbarItem implicitItemIdentifier="NSToolbarShowColorsItem" id="Wxy-Cl-Hxv"/>
                     <toolbarItem implicitItemIdentifier="NSToolbarShowFontsItem" id="qbR-D4-yHK"/>
                     <toolbarItem implicitItemIdentifier="NSToolbarPrintItem" id="lmx-7H-h4S"/>
@@ -80,7 +75,6 @@
                     <toolbarItem reference="MbV-Ul-CHh"/>
                     <toolbarItem reference="Nol-CY-l8f"/>
                     <toolbarItem reference="MbV-Ul-CHh"/>
-                    <toolbarItem reference="Jfx-JP-BWj"/>
                 </defaultToolbarItems>
             </toolbar>
             <connections>

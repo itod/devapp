@@ -88,7 +88,7 @@
                 <menuItem title="File" id="83">
                     <menu key="submenu" title="File" id="81">
                         <items>
-                            <menuItem title="New Tab" keyEquivalent="t" id="OUZ-6C-cXD">
+                            <menuItem title="New Tab" hidden="YES" keyEquivalent="t" id="OUZ-6C-cXD">
                                 <connections>
                                     <action selector="newTab:" target="-1" id="4az-LR-f92"/>
                                 </connections>
@@ -99,12 +99,12 @@
                                     <action selector="newREPLTab:" target="-1" id="gbg-D8-KbS"/>
                                 </connections>
                             </menuItem>
-                            <menuItem title="New Reference Tab" keyEquivalent="T" id="mhu-ob-VTQ">
+                            <menuItem title="New Reference Tab" hidden="YES" keyEquivalent="T" id="mhu-ob-VTQ">
                                 <connections>
                                     <action selector="showReference:" target="-1" id="AjY-XK-YE4"/>
                                 </connections>
                             </menuItem>
-                            <menuItem isSeparatorItem="YES" id="pKt-nv-BIc">
+                            <menuItem isSeparatorItem="YES" hidden="YES" id="pKt-nv-BIc">
                                 <modifierMask key="keyEquivalentModifierMask" command="YES"/>
                             </menuItem>
                             <menuItem title="New File…" hidden="YES" id="82">
@@ -140,12 +140,12 @@
                             <menuItem isSeparatorItem="YES" id="zFo-l7-uKk">
                                 <modifierMask key="keyEquivalentModifierMask" command="YES"/>
                             </menuItem>
-                            <menuItem title="Open Web Location…" keyEquivalent="l" id="M32-45-T6b">
+                            <menuItem title="Open Web Location…" hidden="YES" keyEquivalent="l" id="M32-45-T6b">
                                 <connections>
                                     <action selector="showReference:" target="-1" id="moy-j0-WED"/>
                                 </connections>
                             </menuItem>
-                            <menuItem isSeparatorItem="YES" id="79">
+                            <menuItem isSeparatorItem="YES" hidden="YES" id="79">
                                 <modifierMask key="keyEquivalentModifierMask" command="YES"/>
                             </menuItem>
                             <menuItem title="Close" keyEquivalent="w" id="73">
