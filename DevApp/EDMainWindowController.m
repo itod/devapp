@@ -660,7 +660,7 @@
     } else if ([type isEqualToString:EDTabModelTypeSourceCodeFile]) {
         OKViewController *okvc = [[OKViewController alloc] initWithDefaultNib]; // +1
         [okvc loadView];
-        okvc.enableDefinitionLinking = YES;
+        okvc.enableDefinitionLinking = NO; // re-enable for opt-, cmd-hover
         okvc.gutterView.minimumNumberOfColumns = 3;
         okvc.textView.listDataSource = self;
         okvc.textView.listDelegate = self;
