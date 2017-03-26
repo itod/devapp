@@ -9,6 +9,7 @@
 #import "FNTranslate.h"
 #import <Language/XPObject.h>
 #import <Language/XPTreeWalker.h>
+#import <Language/XPException.h>
 #import "XPFunctionSymbol.h"
 #import "XPMemorySpace.h"
 
@@ -51,7 +52,7 @@
             x = [v objectAtIndex:0];
             y = [v objectAtIndex:1];
         } else {
-            [self raiseIllegalArgumentException:@"when calling `%@()` with one argument, argument must be a size Array object: [width, height]", [[self class] name]];
+            [self raise:XPTypeError format:@"when calling `%@()` with one argument, argument must be a size Array object: [width, height]", [[self class] name]];
         }
     }
     
