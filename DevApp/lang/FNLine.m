@@ -9,6 +9,7 @@
 #import "FNLine.h"
 #import <Language/XPObject.h>
 #import <Language/XPTreeWalker.h>
+#import <Language/XPException.h>
 #import "XPFunctionSymbol.h"
 #import "XPMemorySpace.h"
 
@@ -63,7 +64,7 @@
             x2Obj = [y1Obj.value objectAtIndex:0];
             y2Obj = [y1Obj.value objectAtIndex:1];
         } else {
-            [self raiseIllegalArgumentException:@"when calling %@() with a single argument, argument must be an Array containting to point Array objects: [[x, y], [x, y]]", [[self class] name]];
+            [self raise:XPTypeError format:@"when calling `%@()` with one argument, argument must be an Array containting two point Array objects: [[x, y], [x, y]]", [[self class] name]];
         }
     }
     

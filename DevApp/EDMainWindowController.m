@@ -1278,8 +1278,7 @@
     {
         //NSString *type = kEDCodeRunnerCompileTimeError == [err code] ? @"Compile-time" : @"Runtime";
         [_consoleViewController appendNewLine];
-        [_consoleViewController append:[err localizedDescription]];
-        [_consoleViewController appendFormat:@"\n%@, line %ld:\n", err.localizedFailureReason, lineNum];
+        [_consoleViewController appendFormat:@"%@: %@, line %ld:\n", err.localizedDescription, err.localizedFailureReason, lineNum];
         
         NSRange lineRange = [okvc.textView rangeOfLine:lineNum];
         NSString *line = [[okvc.textView string] substringWithRange:lineRange];

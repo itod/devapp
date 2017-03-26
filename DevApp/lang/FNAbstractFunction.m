@@ -139,19 +139,6 @@
 }
 
 
-- (void)raiseIllegalArgumentException:fmt, ... {
-    va_list vargs;
-    va_start(vargs, fmt);
-    
-    NSString *msg = [[[NSString alloc] initWithFormat:fmt arguments:vargs] autorelease];
-    
-    va_end(vargs);
-    
-    XPException *ex = [[[XPException alloc] initWithName:XPExceptionIllegalArgument reason:msg userInfo:nil] autorelease];
-    [ex raise];
-}
-
-
 #pragma mark -
 #pragma mark Properties
 

@@ -294,7 +294,7 @@ void PerformOnMainThread(void (^block)(void)) {
     BOOL done = [outInfo[kEDCodeRunnerDoneKey] boolValue];
     
     if (done) {
-        [XPException raise:XPExceptionUserKill format:@"User stopped execution."];
+        [XPException raise:XPUserInterruptException format:@"User stopped execution."];
         return;
     }
     

@@ -9,6 +9,7 @@
 #import "FNEllipse.h"
 #import <Language/XPObject.h>
 #import <Language/XPTreeWalker.h>
+#import <Language/XPException.h>
 #import "XPFunctionSymbol.h"
 #import "XPMemorySpace.h"
 
@@ -61,7 +62,7 @@
             w = [v objectAtIndex:2];
             h = [v objectAtIndex:3];
         } else {
-            [self raiseIllegalArgumentException:@"when calling %@() with one argument, argument must be a rectangle Array object: [x, y, width, height]", [[self class] name]];
+            [self raise:XPTypeError format:@"when calling `%@()` with one argument, argument must be a rectangle Array object: [x, y, width, height]", [[self class] name]];
         }
     }
     
