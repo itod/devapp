@@ -1348,6 +1348,9 @@
                      [OKTrigger triggerWithTemplate:@"else if ${test}" specifier:@"elseif"],
                      [OKTrigger triggerWithTemplate:@"while ${test}" specifier:@"while"],
                      [OKTrigger triggerWithTemplate:@"return ${val}" specifier:@"return"],
+                     [OKTrigger triggerWithTemplate:@"try" specifier:@"try"],
+                     [OKTrigger triggerWithTemplate:@"catch ${e}" specifier:@"catch"],
+                     [OKTrigger triggerWithTemplate:@"finally" specifier:@"finally"],
                      //[OKTrigger triggerWithTemplate:@"import ${module} as ${foo}" specifier:@"importas"],
                      
                      // builtin functions
