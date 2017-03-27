@@ -251,7 +251,7 @@ static NSDictionary *sValueAttrs = nil;
     NSUInteger i = 0;
     TDAssert([frame.sortedLocalNames count] == [frame.sortedLocalValues count]);
     for (NSString *name in frame.sortedLocalNames) {
-        id val = frame.sortedLocalValues[i++];
+        id val = [frame.sortedLocalValues[i++] stringValue];
         
         id tab = @{@"name": name, @"value": val};
         [info addObject:tab];
