@@ -33,10 +33,7 @@
 }
 
 
-- (XPObject *)callWithWalker:(XPTreeWalker *)walker argc:(NSUInteger)argc {
-    XPMemorySpace *space = walker.currentSpace;
-    TDAssert(space);
-    
+- (XPObject *)callWithWalker:(XPTreeWalker *)walker functionSpace:(XPMemorySpace *)space argc:(NSUInteger)argc {
     XPObject *colorObj = [space objectForName:@"color"]; TDAssert(colorObj);
 
     NSColor *c = [self asColor:colorObj];

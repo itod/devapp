@@ -27,7 +27,7 @@
 }
 
 
-- (XPObject *)callWithWalker:(XPTreeWalker *)walker argc:(NSUInteger)argc {
+- (XPObject *)callWithWalker:(XPTreeWalker *)walker functionSpace:(XPMemorySpace *)space argc:(NSUInteger)argc {
     CGContextRef ctx = [self.canvasGraphicsContext graphicsPort];
     CGContextSaveGState(ctx);
     

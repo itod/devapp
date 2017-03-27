@@ -43,10 +43,7 @@
 }
 
 
-- (XPObject *)callWithWalker:(XPTreeWalker *)walker argc:(NSUInteger)argc {
-    XPMemorySpace *space = walker.currentSpace;
-    TDAssert(space);
-    
+- (XPObject *)callWithWalker:(XPTreeWalker *)walker functionSpace:(XPMemorySpace *)space argc:(NSUInteger)argc {
     XPObject *x = [space objectForName:@"x"]; TDAssert(x);
     XPObject *y = [space objectForName:@"y"]; TDAssert(y);
     XPObject *radius = [space objectForName:@"radius"]; TDAssert(radius);
