@@ -1662,6 +1662,11 @@
 - (void)console:(EDConsoleViewController *)cvc userIssuedCommand:(NSString *)cmd {
     EDAssertMainThread();
     TDAssert([cmd length]);
+    
+    if (!self.paused) {
+        NSBeep();
+        return;
+    }
 
     TDAssert(self.paused);
     self.paused = NO;

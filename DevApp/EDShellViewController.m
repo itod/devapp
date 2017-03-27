@@ -520,6 +520,7 @@
             NSString *cmd = [self goBackInHistory];
             if (cmd) {
                 [self clearPrompt];
+                [self appendPrompt];
                 [self append:cmd];
             } else {
                 NSBeep();
@@ -558,6 +559,7 @@
             NSString *cmd = [self goForwardInHistory];
             if (cmd) {
                 [self clearPrompt];
+                [self appendPrompt];
                 [self append:cmd];
             }
             if (![currentCmd length]) {
