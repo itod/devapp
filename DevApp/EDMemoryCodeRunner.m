@@ -31,6 +31,15 @@ void PerformOnMainThread(void (^block)(void)) {
     dispatch_async(dispatch_get_main_queue(), block);
 }
 
+void TDPerformAfterDelay(dispatch_queue_t q, double delay, void (^block)(void)) {
+    assert(block);
+    assert(delay >= 0.0);
+    
+    double delayInSeconds = delay;
+    dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
+    dispatch_after(popTime, q, block);
+}
+
 @interface EDMemoryCodeRunner ()
 @property (assign) id <EDCodeRunnerDelegate>delegate; // weakref
 @property (retain) XPInterpreter *interp;
@@ -280,7 +289,7 @@ void PerformOnMainThread(void (^block)(void)) {
 #pragma mark -
 #pragma mark Private EXECUTE-THREAD
 
-- (void)didPause:(NSMutableDictionary *)inInfo {
+- (void)pauseWithInfo:(NSMutableDictionary *)inInfo {
     // only called on EXECUTE-THREAD
     TDAssertExecuteThread();
     TDAssert(inInfo);
@@ -328,14 +337,42 @@ void PerformOnMainThread(void (^block)(void)) {
             NSString *suffix = [cmd substringFromIndex:NSMaxRange(wsRange)];
             [_interp print:suffix];
         }
-        [self didPause:inInfo];
+        [self pauseWithInfo:inInfo];
     } else {
         if ([prefix length]) {
             [_interp print:prefix];
         }
-        [self didPause:inInfo];
+        [self pauseWithInfo:inInfo];
     }
 }
+
+
+- (void)loop {
+    TDAssertExecuteThread();
+
+    // DO I NEED TO SWITCH TO CONTROL THREAD HERE? YES
+    NSTimer *t = [NSTimer timerWithTimeInterval:1.0/5.0 repeats:YES block:^(NSTimer *timer) {
+        //NSLog(@"ohai!");
+        //[_interp callFunction:@"draw"];
+        
+        TDAssert(_interp);
+        NSError *err = nil;
+        [_interp interpretString:@"draw()" filePath:nil error:&err];
+    }];
+    
+    [[NSRunLoop currentRunLoop] addTimer:t forMode:NSDefaultRunLoopMode];
+    [[NSRunLoop currentRunLoop] run];
+}
+
+
+- (void)dieWithInfo:(NSMutableDictionary *)info {
+    TDAssertExecuteThread();
+    
+    TDAssert(_debugSync);
+    [_debugSync pauseWithInfo:info]; // allow CONTROL-THREAD to complete naturally
+    // and then don't await resume
+}
+
 
 
 - (void)doRun:(NSString *)srcStr filePath:(NSString *)path breakpoints:(id)bpPlist {
@@ -372,9 +409,12 @@ void PerformOnMainThread(void (^block)(void)) {
         info = [[@{kEDCodeRunnerReturnCodeKey:@1, kEDCodeRunnerDoneKey:@YES, kEDCodeRunnerErrorKey:err} mutableCopy] autorelease];
     }
     
-    TDAssert(_debugSync);
-    [_debugSync pauseWithInfo:info]; // allow CONTROL-THREAD to complete naturally
-    // and then don't await resume
+    BOOL live = YES;
+    if (success && live) {
+        [self loop];
+    } else {
+        [self dieWithInfo:info];
+    }
 }
 
 
@@ -408,7 +448,7 @@ void PerformOnMainThread(void (^block)(void)) {
 
 - (void)interpreter:(XPInterpreter *)i didPause:(NSMutableDictionary *)debugInfo {
     TDAssertExecuteThread();
-    [self didPause:debugInfo];
+    [self pauseWithInfo:debugInfo];
 }
 
 

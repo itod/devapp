@@ -1364,6 +1364,8 @@
                      [OKTrigger triggerWithTemplate:@"number(${object})" specifier:@"number"],
                      [OKTrigger triggerWithTemplate:@"string(${object})" specifier:@"string"],
                      [OKTrigger triggerWithTemplate:@"isNan(${number})" specifier:@"isNan"],
+                     [OKTrigger triggerWithTemplate:@"random(${high})" specifier:@"random"],
+                     [OKTrigger triggerWithTemplate:@"random(${low}, ${high})" specifier:@"random"],
                      [OKTrigger triggerWithTemplate:@"abs(${number})" specifier:@"abs"],
                      [OKTrigger triggerWithTemplate:@"round(${number})" specifier:@"round"],
                      [OKTrigger triggerWithTemplate:@"floor(${number})" specifier:@"floor"],
