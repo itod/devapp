@@ -16,6 +16,7 @@
 #import "FNTranslate.h"
 #import "FNScale.h"
 #import "FNRotate.h"
+#import "FNBackground.h"
 #import "FNStroke.h"
 #import "FNStrokeWeight.h"
 #import "FNStrokeCap.h"
@@ -355,9 +356,9 @@ void TDPerformAfterDelay(dispatch_queue_t q, double delay, void (^block)(void)) 
         //NSLog(@"ohai!");
         //[_interp callFunction:@"draw"];
         
-        TDAssert(_interp);
+        TDAssert(self.interp);
         NSError *err = nil;
-        [_interp interpretString:@"draw()" filePath:nil error:&err];
+        [self.interp interpretString:@"draw()" filePath:nil error:&err];
     }];
     
     [[NSRunLoop currentRunLoop] addTimer:t forMode:NSDefaultRunLoopMode];
@@ -431,6 +432,7 @@ void TDPerformAfterDelay(dispatch_queue_t q, double delay, void (^block)(void)) 
     [i declareNativeFunction:[FNTranslate class]];
     [i declareNativeFunction:[FNScale class]];
     [i declareNativeFunction:[FNRotate class]];
+    [i declareNativeFunction:[FNBackground class]];
     [i declareNativeFunction:[FNStroke class]];
     [i declareNativeFunction:[FNStrokeWeight class]];
     [i declareNativeFunction:[FNStrokeCap class]];

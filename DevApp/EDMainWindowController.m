@@ -1412,6 +1412,7 @@
                      [OKTrigger triggerWithTemplate:@"scale(${sizeArray})" specifier:@"scale"],
                      [OKTrigger triggerWithTemplate:@"scale(${width}, ${height})" specifier:@"scale"],
                      [OKTrigger triggerWithTemplate:@"rotate(${radians})" specifier:@"rotate"],
+                     [OKTrigger triggerWithTemplate:@"background(${color})" specifier:@"background"],
                      [OKTrigger triggerWithTemplate:@"stroke(${color})" specifier:@"stroke"],
                      [OKTrigger triggerWithTemplate:@"strokeWeight()" specifier:@"strokeWeight"],
                      [OKTrigger triggerWithTemplate:@"strokeCap()" specifier:@"strokeCap"],

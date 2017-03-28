@@ -129,7 +129,7 @@
         @throw @"TODO";
     }
     
-    return c;
+    return [c colorUsingColorSpace:[NSColorSpace deviceRGBColorSpace]];
 }
 
 

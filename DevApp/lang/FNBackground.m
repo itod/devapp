@@ -45,7 +45,7 @@
     CGContextSaveGState(ctx); {
         CGContextSetRGBFillColor(ctx, [c redComponent], [c greenComponent], [c blueComponent], [c alphaComponent]);
         CGRect r = CGRectMake(0.0, 0.0, CGBitmapContextGetWidth(ctx), CGBitmapContextGetHeight(ctx));
-        //CGContextFillRect(ctx, r);
+        CGContextFillRect(ctx, r);
     } CGContextRestoreGState(ctx);
     
     return nil;
