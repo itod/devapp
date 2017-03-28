@@ -1191,7 +1191,6 @@
     
     [_consoleViewController clearPrompt];
     [_consoleViewController append:msg];
-    [_consoleViewController appendPrompt];
 }
 
 
@@ -1202,7 +1201,6 @@
     
     [_consoleViewController clearPrompt];
     [_consoleViewController append:msg];
-    [_consoleViewController appendPrompt];
 }
 
 
@@ -1212,6 +1210,8 @@
     
     self.paused = YES;
     self.statusText = NSLocalizedString(@"Paused…", @"");
+    [_consoleViewController appendPrompt];
+
     self.frameStack = info[XPDebugInfoFrameStackKey];
     
     // highlight in text editor
@@ -1245,13 +1245,13 @@
     
     [self clearDebugInfo];
     
-    self.statusText = NSLocalizedString(@"Finished Running.", @"");
-    
     self.canRun = YES;
     self.canStop = NO;
     self.busy = NO;
     self.paused = NO;
     
+    self.statusText = NSLocalizedString(@"Finished Running.", @"");
+
     [[self window] makeFirstResponder:self.selectedSourceViewController.textView];
 }
 

@@ -151,7 +151,7 @@ static NSDictionary *sValueAttrs = nil;
     EDAssert(name);
     NSString *value = item[@"value"];
     EDAssert(value);
-    [self append:[NSString stringWithFormat:@"%@ = %@", name, value]];
+    [self append:[NSString stringWithFormat:@"%@ = %@\n", name, value]];
     
     [self appendPrompt];
 }
