@@ -351,7 +351,7 @@ void TDPerformAfterDelay(dispatch_queue_t q, double delay, void (^block)(void)) 
     TDAssertExecuteThread();
 
     // DO I NEED TO SWITCH TO CONTROL THREAD HERE? YES
-    NSTimer *t = [NSTimer timerWithTimeInterval:1.0/5.0 repeats:YES block:^(NSTimer *timer) {
+    NSTimer *t = [NSTimer timerWithTimeInterval:1.0/30.0 repeats:YES block:^(NSTimer *timer) {
         //NSLog(@"ohai!");
         //[_interp callFunction:@"draw"];
         
