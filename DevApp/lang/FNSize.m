@@ -58,7 +58,7 @@
 
     self.canvasGraphicsContext = [[self newContextWithSize:CGSizeMake(w.doubleValue, h.doubleValue)] autorelease];
 
-    [self postUpate];
+    [self postUpdate];
     
     return nil;
 }

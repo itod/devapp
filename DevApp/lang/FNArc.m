@@ -55,7 +55,7 @@
     
     CGContextAddArc(ctx, x.doubleValue, y.doubleValue, radius.doubleValue, startAngle.doubleValue, endAngle.doubleValue, clockwise.doubleValue);
     
-    [self postUpate];
+    [self postUpdate];
     
     return nil;
 }

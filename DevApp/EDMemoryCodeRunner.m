@@ -46,6 +46,7 @@ void TDPerformAfterDelay(dispatch_queue_t q, double delay, void (^block)(void)) 
 @property (retain) XPInterpreter *interp;
 @property (retain) TDInterpreterSync *debugSync;
 @property (copy) NSString *identifier;
+@property (copy) NSString *filePath;
 
 @property (retain) NSPipe *stdOutPipe;
 @property (retain) NSPipe *stdErrPipe;
@@ -378,7 +379,7 @@ void TDPerformAfterDelay(dispatch_queue_t q, double delay, void (^block)(void)) 
         } else {
             TDAssert(self.interp);
             NSError *err = nil;
-            [self.interp interpretString:@"draw()" filePath:nil error:&err];
+            [self.interp interpretString:@"draw()" filePath:self.filePath error:&err];
         }
     }];
     
@@ -406,6 +407,8 @@ void TDPerformAfterDelay(dispatch_queue_t q, double delay, void (^block)(void)) 
         TDAssert(self.identifier);
         [self.delegate codeRunnerDidStartup:self.identifier];
     });
+    
+    self.filePath = path;
     
     self.interp = [[[XPInterpreter alloc] init] autorelease];
     _interp.delegate = self;

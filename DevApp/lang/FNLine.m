@@ -92,7 +92,7 @@
     }
     CGContextStrokePath(ctx);
     
-    [self postUpate];
+    [self postUpdate];
     
     return nil;
 }

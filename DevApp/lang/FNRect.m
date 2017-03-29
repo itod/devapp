@@ -93,7 +93,7 @@
         }
     }
     
-    [self postUpate];
+    [self postUpdate];
     
     return nil;
 }

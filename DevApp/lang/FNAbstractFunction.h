@@ -12,7 +12,7 @@
 + (NSString *)identifier;
 + (void)setIdentifier:(NSString *)identifier;
 
-- (void)postUpate;
+- (void)postUpdate;
 - (NSColor *)asColor:(XPObject *)obj;
 
 @property (nonatomic, assign) NSGraphicsContext *canvasGraphicsContext;

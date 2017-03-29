@@ -48,6 +48,8 @@
         CGContextFillRect(ctx, r);
     } CGContextRestoreGState(ctx);
     
+    [self postUpdate];
+
     return nil;
 }
 

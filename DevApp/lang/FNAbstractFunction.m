@@ -133,7 +133,7 @@
 }
 
 
-- (void)postUpate {
+- (void)postUpdate {
     NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
     [nc postNotificationName:@"CanvasDidUpdateNotification" object:[[self class] identifier]];
 }
