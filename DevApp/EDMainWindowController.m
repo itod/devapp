@@ -1277,25 +1277,31 @@
     EDAssert(_consoleViewController);
     {
         //NSString *type = kEDCodeRunnerCompileTimeError == [err code] ? @"Compile-time" : @"Runtime";
-        [_consoleViewController appendNewLine];
-        [_consoleViewController appendFormat:@"%@: %@, line %ld:\n", err.localizedDescription, err.localizedFailureReason, lineNum];
+        //[_consoleViewController appendNewLine];
+        if (err.localizedDescription) {
+            [_consoleViewController appendFormat:@"%@", err.localizedDescription];
+            if (err.localizedFailureReason) [_consoleViewController appendFormat:@": %@", err.localizedFailureReason];
+            if (lineNum > 0) [_consoleViewController appendFormat:@", line %ld:", lineNum];
+            [_consoleViewController appendNewLine];
+        }
         
         NSRange lineRange = [okvc.textView rangeOfLine:lineNum];
         NSString *line = [[okvc.textView string] substringWithRange:lineRange];
         [_consoleViewController append:[NSString stringWithFormat:@"\n%@", line]];
         
-        TDAssert(err.userInfo[kEDCodeRunnerRangeKey]);
-        NSRange errRange = [err.userInfo[kEDCodeRunnerRangeKey] rangeValue];
-        TDAssert(errRange.location >= lineRange.location);
-        TDAssert(NSMaxRange(errRange) <= NSMaxRange(lineRange)); // ??
-        
-        NSMutableString *buf = [NSMutableString stringWithString:@"\n"];
-        for (NSUInteger i = lineRange.location; i < errRange.location; ++i) {
-            [buf appendString:@" "];
+        if (err.userInfo[kEDCodeRunnerRangeKey]) {
+            NSRange errRange = [err.userInfo[kEDCodeRunnerRangeKey] rangeValue];
+            TDAssert(errRange.location >= lineRange.location);
+            TDAssert(NSMaxRange(errRange) <= NSMaxRange(lineRange)); // ??
+            
+            NSMutableString *buf = [NSMutableString stringWithString:@"\n"];
+            for (NSUInteger i = lineRange.location; i < errRange.location; ++i) {
+                [buf appendString:@" "];
+            }
+            [buf appendString:@"^"];
+            
+            [_consoleViewController append:buf];
         }
-        [buf appendString:@"^"];
-        
-        [_consoleViewController append:buf];
     }
     
     [_codeRunner stop:self.identifier]; // ?? TODO

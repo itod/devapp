@@ -49,6 +49,8 @@ void TDPerformAfterDelay(dispatch_queue_t q, double delay, void (^block)(void)) 
 
 @property (retain) NSPipe *stdOutPipe;
 @property (retain) NSPipe *stdErrPipe;
+
+@property (assign) BOOL stopped;
 @end
 
 @implementation EDMemoryCodeRunner {
@@ -106,16 +108,12 @@ void TDPerformAfterDelay(dispatch_queue_t q, double delay, void (^block)(void)) 
 - (void)stop:(NSString *)identifier {
     TDAssertMainThread();
     
+    self.stopped = YES;
     NSMutableDictionary *info = [NSMutableDictionary dictionaryWithObjectsAndKeys:
                                  @YES, kEDCodeRunnerDoneKey,
                                  nil];
     
-    TDAssert(_controlThread);
-    dispatch_async(_controlThread, ^{
-        TDAssert(_debugSync);
-        [_debugSync resumeWithInfo:info];
-        [_debugSync awaitPause]; // allow EXECUTE-THREAD to die naturally
-    });
+    [self resumeWithInfo:info];
 }
 
 
@@ -353,12 +351,20 @@ void TDPerformAfterDelay(dispatch_queue_t q, double delay, void (^block)(void)) 
 
     // DO I NEED TO SWITCH TO CONTROL THREAD HERE? YES
     NSTimer *t = [NSTimer timerWithTimeInterval:1.0/30.0 repeats:YES block:^(NSTimer *timer) {
-        //NSLog(@"ohai!");
-        //[_interp callFunction:@"draw"];
+        TDAssertExecuteThread();
         
-        TDAssert(self.interp);
-        NSError *err = nil;
-        [self.interp interpretString:@"draw()" filePath:nil error:&err];
+        if (self.stopped) {
+            NSMutableDictionary *info = [NSMutableDictionary dictionaryWithObjectsAndKeys:
+                                         @1, kEDCodeRunnerReturnCodeKey,
+                                         @YES, kEDCodeRunnerDoneKey,
+                                         [NSError errorWithDomain:XPErrorDomain code:0 userInfo:@{NSLocalizedDescriptionKey:XPUserInterruptException}], kEDCodeRunnerErrorKey,
+                                         nil];
+            [self dieWithInfo:info];
+        } else {
+            TDAssert(self.interp);
+            NSError *err = nil;
+            [self.interp interpretString:@"draw()" filePath:nil error:&err];
+        }
     }];
     
     [[NSRunLoop currentRunLoop] addTimer:t forMode:NSDefaultRunLoopMode];
@@ -413,6 +419,7 @@ void TDPerformAfterDelay(dispatch_queue_t q, double delay, void (^block)(void)) 
     BOOL live = YES;
     if (success && live) {
         [self loop];
+        [self pauseWithInfo:[[@{kEDCodeRunnerDoneKey:@NO} mutableCopy] autorelease]];
     } else {
         [self dieWithInfo:info];
     }
