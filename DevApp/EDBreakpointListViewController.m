@@ -135,8 +135,9 @@
     for (OKBreakpoint *bp in bps) {
         [_collection removeBreakpoint:bp];
     }
-        
+    
     [self fireBreakpointsDidChange];
+    [self reloadData];
     [_outlineView selectRowIndexes:[NSIndexSet indexSet] byExtendingSelection:NO];
 }
 
