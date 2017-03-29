@@ -10,6 +10,8 @@
 #import <TDThreadUtils/TDInterpreterSync.h>
 #import <Language/Language.h>
 
+#import "FNNoStroke.h"
+#import "FNNoFill.h"
 #import "FNSize.h"
 #import "FNPushStyle.h"
 #import "FNPopStyle.h"
@@ -451,6 +453,8 @@ void TDPerformAfterDelay(dispatch_queue_t q, double delay, void (^block)(void)) 
     TDAssertExecuteThread();
     [FNAbstractFunction setIdentifier:self.identifier];
 
+    [i declareNativeFunction:[FNNoStroke class]];
+    [i declareNativeFunction:[FNNoFill class]];
     [i declareNativeFunction:[FNSize class]];
     [i declareNativeFunction:[FNPushStyle class]];
     [i declareNativeFunction:[FNPopStyle class]];

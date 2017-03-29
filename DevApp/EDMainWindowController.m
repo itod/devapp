@@ -1420,6 +1420,8 @@
                      [OKTrigger triggerWithTemplate:@"globals()" specifier:@"globals"],
                      
                      // graphics funcs
+                     [OKTrigger triggerWithTemplate:@"noStroke()" specifier:@"noStroke"],
+                     [OKTrigger triggerWithTemplate:@"noFill()" specifier:@"noFill"],
                      [OKTrigger triggerWithTemplate:@"size(${sizeArray})" specifier:@"size"],
                      [OKTrigger triggerWithTemplate:@"size(${width}, ${height})" specifier:@"size"],
                      [OKTrigger triggerWithTemplate:@"pushStyle()" specifier:@"pushStyle"],

@@ -252,6 +252,8 @@
 		D3DA17D31E77703E00492A04 /* OkudaKit.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = D3DA17CD1E77701200492A04 /* OkudaKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D3DA17E81E77721700492A04 /* OKLanguageParser.m in Sources */ = {isa = PBXBuildFile; fileRef = D3DA17E71E77721700492A04 /* OKLanguageParser.m */; settings = {COMPILER_FLAGS = "-Wno-undeclared-selector"; }; };
 		D3E799D61E8B1D39001F9DC7 /* FNBackground.m in Sources */ = {isa = PBXBuildFile; fileRef = D3E799D51E8B1D39001F9DC7 /* FNBackground.m */; };
+		D3E799E61E8B43B8001F9DC7 /* FNNoStroke.m in Sources */ = {isa = PBXBuildFile; fileRef = D3E799E51E8B43B8001F9DC7 /* FNNoStroke.m */; };
+		D3E799F21E8B443F001F9DC7 /* FNNoFill.m in Sources */ = {isa = PBXBuildFile; fileRef = D3E799F11E8B443F001F9DC7 /* FNNoFill.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -850,6 +852,10 @@
 		D3DA17E71E77721700492A04 /* OKLanguageParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OKLanguageParser.m; sourceTree = "<group>"; };
 		D3E799D41E8B1D39001F9DC7 /* FNBackground.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FNBackground.h; path = lang/FNBackground.h; sourceTree = "<group>"; };
 		D3E799D51E8B1D39001F9DC7 /* FNBackground.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FNBackground.m; path = lang/FNBackground.m; sourceTree = "<group>"; };
+		D3E799E41E8B43B8001F9DC7 /* FNNoStroke.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FNNoStroke.h; path = lang/FNNoStroke.h; sourceTree = "<group>"; };
+		D3E799E51E8B43B8001F9DC7 /* FNNoStroke.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FNNoStroke.m; path = lang/FNNoStroke.m; sourceTree = "<group>"; };
+		D3E799F01E8B443F001F9DC7 /* FNNoFill.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FNNoFill.h; path = lang/FNNoFill.h; sourceTree = "<group>"; };
+		D3E799F11E8B443F001F9DC7 /* FNNoFill.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FNNoFill.m; path = lang/FNNoFill.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1678,6 +1684,10 @@
 				D34A56541E7F3B4E0064DF65 /* FNRotate.m */,
 				D3E799D41E8B1D39001F9DC7 /* FNBackground.h */,
 				D3E799D51E8B1D39001F9DC7 /* FNBackground.m */,
+				D3E799E41E8B43B8001F9DC7 /* FNNoStroke.h */,
+				D3E799E51E8B43B8001F9DC7 /* FNNoStroke.m */,
+				D3E799F01E8B443F001F9DC7 /* FNNoFill.h */,
+				D3E799F11E8B443F001F9DC7 /* FNNoFill.m */,
 				D34A55F31E7E15B20064DF65 /* FNStroke.h */,
 				D34A55F41E7E15B20064DF65 /* FNStroke.m */,
 				D34A55F91E7E1AFE0064DF65 /* FNFill.h */,
@@ -1979,6 +1989,7 @@
 				D3166F551E5908D700DEE3A0 /* EDTextEditingPreferences.m in Sources */,
 				D3166F3C1E59078000DEE3A0 /* EDColorPickerCell.m in Sources */,
 				D316710D1E5A5FB600DEE3A0 /* TDComboField.m in Sources */,
+				D3E799F21E8B443F001F9DC7 /* FNNoFill.m in Sources */,
 				D3369BEE1E36C73800FEB7BF /* TDTabBarController.m in Sources */,
 				D3166EF11E5902A800DEE3A0 /* EDThemeRulesTableView.m in Sources */,
 				D31670851E5A14A400DEE3A0 /* EDToolbarButtonItem.m in Sources */,
@@ -2109,6 +2120,7 @@
 				D316704D1E59FB0400DEE3A0 /* EDConsoleControlButtonCell.m in Sources */,
 				D31670841E5A14A400DEE3A0 /* EDToolbarButtonCell.m in Sources */,
 				D34A55EF1E7E13050064DF65 /* FNAbstractFunction.m in Sources */,
+				D3E799E61E8B43B8001F9DC7 /* FNNoStroke.m in Sources */,
 				D3369B171E36C25A00FEB7BF /* TKDocument+Scripting.m in Sources */,
 				D31670371E59F9EB00DEE3A0 /* EDFindResultsCell.m in Sources */,
 				D31671001E5A21F800DEE3A0 /* EDMainWindowController+NewProject.m in Sources */,
