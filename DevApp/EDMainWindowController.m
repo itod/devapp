@@ -1239,6 +1239,17 @@
 }
 
 
+- (void)codeRunnerWillResume:(NSString *)identifier {
+    EDAssert([identifier isEqualToString:self.identifier]);
+    EDAssertMainThread();
+    
+    [self clearDebugInfo];
+    
+    //TDAssert(self.paused);
+    self.paused = NO;
+}
+
+
 - (void)codeRunner:(NSString *)identifier didSucceed:(NSDictionary *)info {
     EDAssert([identifier isEqualToString:self.identifier]);
     EDAssertMainThread();
@@ -1677,9 +1688,6 @@
         return;
     }
 
-    TDAssert(self.paused);
-    self.paused = NO;
-    
     TDAssert(_codeRunner);
     TDAssert(self.identifier);
     [_codeRunner performCommand:cmd identifier:self.identifier];
@@ -2159,45 +2167,25 @@
 
 
 - (IBAction)contine:(id)sender {
-    EDAssertMainThread();
-    [self clearDebugInfo];
-    
-    TDAssert(self.paused);
-    self.paused = NO;
-    
+    EDAssertMainThread();    
     [self.codeRunner performCommand:@"c" identifier:self.identifier];
 }
 
 
 - (IBAction)next:(id)sender {
     EDAssertMainThread();
-    [self clearDebugInfo];
-
-    TDAssert(self.paused);
-    self.paused = NO;
-
     [self.codeRunner performCommand:@"n" identifier:self.identifier];
 }
 
 
 - (IBAction)step:(id)sender {
     EDAssertMainThread();
-    [self clearDebugInfo];
-
-    TDAssert(self.paused);
-    self.paused = NO;
-
     [self.codeRunner performCommand:@"s" identifier:self.identifier];
 }
 
 
 - (IBAction)finish:(id)sender {
     EDAssertMainThread();
-    [self clearDebugInfo];
-
-    TDAssert(self.paused);
-    self.paused = NO;
-
     [self.codeRunner performCommand:@"r" identifier:self.identifier];
 }
 

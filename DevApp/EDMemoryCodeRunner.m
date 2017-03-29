@@ -206,6 +206,9 @@ void TDPerformAfterDelay(dispatch_queue_t q, double delay, void (^block)(void)) 
     TDAssert(_controlThread);
     dispatch_async(_controlThread, ^{
         TDAssert(_debugSync);
+
+        [self fireDelegateWillResume];
+
         [_debugSync resumeWithInfo:info];
         [self awaitPause];
     });
@@ -245,6 +248,18 @@ void TDPerformAfterDelay(dispatch_queue_t q, double delay, void (^block)(void)) 
         TDAssert(self.delegate);
         TDAssert(self.identifier);
         [self.delegate codeRunner:self.identifier didPause:info];
+    });
+}
+
+
+- (void)fireDelegateWillResume {
+    // called on CONTROL-THREAD
+    TDAssertControlThread();
+    
+    PerformOnMainThread(^{
+        TDAssert(self.delegate);
+        TDAssert(self.identifier);
+        [self.delegate codeRunnerWillResume:self.identifier];
     });
 }
 
