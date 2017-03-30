@@ -98,12 +98,15 @@
 
 
 - (void)windowDidBecomeMain:(NSNotification *)n {
+    TDAssertMainThread();
     [self reloadData];
 }
 
 
 - (void)breakpointsDidChange:(NSNotification *)n {
+    TDAssertMainThread();
     [self reloadData];
+    TDAssert(_outlineView);
     [_outlineView expandItem:nil expandChildren:YES];
 }
 
@@ -246,7 +249,9 @@
     }
 #else
     if (!item) {
-        c = [[_collection breakpointsForFile:[[_collection allFiles] objectAtIndex:0]] count];
+        if ([[_collection allFiles] count]) {
+            c = [[_collection breakpointsForFile:[[_collection allFiles] firstObject]] count];
+        }
     } else {
         EDAssert(0);
     }
