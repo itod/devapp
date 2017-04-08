@@ -424,20 +424,19 @@ void TDPerformAfterDelay(dispatch_queue_t q, double delay, void (^block)(void)) 
         _interp.breakpointCollection = [XPBreakpointCollection fromPlist:bpPlist];
     }
     
-    BOOL success = NO;
-    
     NSError *err = nil;
-    success = [_interp interpretString:srcStr filePath:path error:&err];
+    id result = [_interp interpretString:srcStr filePath:path error:&err];
     
     NSMutableDictionary *info = nil;
-    if (success) {
+    if (result) {
         info = [[@{kEDCodeRunnerReturnCodeKey:@0, kEDCodeRunnerDoneKey:@YES} mutableCopy] autorelease];
     } else {
+        TDAssert(err);
         info = [[@{kEDCodeRunnerReturnCodeKey:@1, kEDCodeRunnerDoneKey:@YES, kEDCodeRunnerErrorKey:err} mutableCopy] autorelease];
     }
     
     BOOL live = YES;
-    if (success && live) {
+    if (result && live) {
         [self loop];
         [self pauseWithInfo:[[@{kEDCodeRunnerDoneKey:@NO} mutableCopy] autorelease]];
     } else {
