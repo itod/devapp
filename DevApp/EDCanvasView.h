@@ -14,6 +14,8 @@
 
 @class EDCanvasView;
 
+extern NSString * const EDCompositionRulerOriginDidChangeNotification;
+
 @protocol EDCanvasViewDelegate <NSObject>
 - (void)canvas:(EDCanvasView *)canvas didMoveUserGuide:(EDGuide *)g from:(CGPoint)oldPoint to:(CGPoint)newPoint;
 @end

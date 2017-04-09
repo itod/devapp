@@ -70,7 +70,7 @@
 
 #define MAX_NUM_BREAKPOINTS 10000
 
-#define LICENSE_EXT @"devaplicense"
+#define LICENSE_EXT @"devapplicense"
 
 #define LICENSE_FILENAME @"DevAppLicense"
 

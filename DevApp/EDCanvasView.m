@@ -28,6 +28,10 @@
 #define MIN_TOLERANCE 2
 #define MAX_TOLERANCE 100
 
+#define JotFloor floor
+
+NSString * const EDCompositionRulerOriginDidChangeNotification = @"EDCompositionRulerOriginDidChangeNotification";
+
 static NSDictionary *sHints = nil;
 
 static NSColor *sCanvasFillColor = nil;
@@ -43,19 +47,6 @@ static CGColorSpaceRef sPatternColorSpace = NULL;
 @end
 
 @interface EDCanvasView ()
-- (void)killTimer;
-
-- (void)leftMouseDownSingleClick:(NSEvent *)evt;
-- (void)beginUndoGrouping;
-- (void)endUndoGrouping;
-
-- (void)userGuideDraggedEvent:(NSEvent *)evt atPoint:(CGPoint)p;
-- (void)userGuideMouseUp:(NSEvent *)evt atPoint:(CGPoint)p;
-
-- (CGFloat)currentScale;
-
-- (void)updateRulersOffset;
-
 @property (nonatomic, retain) NSTimer *timer;
 
 - (CGPatternRef)gridPattern;
@@ -105,6 +96,7 @@ static CGColorSpaceRef sPatternColorSpace = NULL;
         [nc addObserver:self selector:@selector(compositionZoomScaleDidChange:) name:EDCompositionZoomScaleDidChangeNotification object:nil];
         [nc addObserver:self selector:@selector(compositionGridDidChange:) name:EDCompositionGridEnabledDidChangeNotification object:nil];
         [nc addObserver:self selector:@selector(compositionGridDidChange:) name:EDCompositionGridToleranceDidChangeNotification object:nil];
+        [nc addObserver:self selector:@selector(compositionRulerOriginDidChange:) name:EDCompositionRulerOriginDidChangeNotification object:nil];
     }
     
     return self;
@@ -197,7 +189,7 @@ static CGColorSpaceRef sPatternColorSpace = NULL;
     newFrame.size.height = MAX(compSize.height, superSize.height);
     [super setFrame:newFrame];
     	
-    [self updateRulersOffset];
+    [self updateRulersOrigin];
     [self scrollToCenter];
 }
 
@@ -703,6 +695,8 @@ static void EDDrawPatternFunc(void *info, CGContextRef ctx) {
         }
         p1 = CGPointMake(f, NSMinY(zero));
         p2 = CGPointMake(f, MAXFLOAT);
+
+        f = [self rulerOriginAdjustedPoint:CGPointMake(f, 0.0)].x;
     } else {
         f = floor(p.y);
         if (isGridEnabled) {
@@ -714,6 +708,8 @@ static void EDDrawPatternFunc(void *info, CGContextRef ctx) {
         }
         p1 = CGPointMake(NSMinX(zero), f);
         p2 = CGPointMake(MAXFLOAT, f);
+
+        f = [self rulerOriginAdjustedPoint:CGPointMake(0.0, f)].y;
     }
     
     [_draggingUserGuide moveToP1:p1 p2:p2];
@@ -721,6 +717,58 @@ static void EDDrawPatternFunc(void *info, CGContextRef ctx) {
     NSString *text = [NSString stringWithFormat:@"%0.f", f];
     
     [self showToolTipWithText:text];
+}
+
+
+- (CGPoint)rulerOriginAdjustedPoint:(CGPoint)inPoint {
+    CGPoint outPoint = inPoint;
+    CGRect frame = self.frame;
+    
+    switch (self.document.rulerOriginCorner) {
+        case TDRectCornerTopLef:
+            outPoint = inPoint;
+            break;
+        case TDRectCornerTopMid:
+            outPoint.x = JotFloor(inPoint.x - NSWidth(frame)*0.5);
+            outPoint.y = inPoint.y;
+            break;
+        case TDRectCornerTopRit:
+            outPoint.x = JotFloor(inPoint.x - NSWidth(frame));
+            outPoint.y = inPoint.y;
+            break;
+            
+        case TDRectCornerMidLef:
+            outPoint.x = inPoint.x;
+            outPoint.y = JotFloor(inPoint.y - NSHeight(frame)*0.5);
+            break;
+        case TDRectCornerMidMid:
+            outPoint.x = JotFloor(inPoint.x - NSWidth(frame)*0.5);
+            outPoint.y = JotFloor(inPoint.y - NSHeight(frame)*0.5);
+            break;
+        case TDRectCornerMidRit:
+            outPoint.x = JotFloor(inPoint.x - NSWidth(frame));
+            outPoint.y = JotFloor(inPoint.y - NSHeight(frame)*0.5);
+            break;
+            
+        case TDRectCornerBotLef:
+            outPoint.x = inPoint.x;
+            outPoint.y = JotFloor(inPoint.y - NSHeight(frame));
+            break;
+        case TDRectCornerBotMid:
+            outPoint.x = JotFloor(inPoint.x - NSWidth(frame)*0.5);
+            outPoint.y = JotFloor(inPoint.y - NSHeight(frame));
+            break;
+        case TDRectCornerBotRit:
+            outPoint.x = JotFloor(inPoint.x - NSWidth(frame));
+            outPoint.y = JotFloor(inPoint.y - NSHeight(frame));
+            break;
+            
+        default:
+            TDAssert(0);
+            break;
+    }
+    
+    return outPoint;
 }
 
 
@@ -904,7 +952,65 @@ static void EDDrawPatternFunc(void *info, CGContextRef ctx) {
 }
 
 
-- (void)rulerView:(NSRulerView *)ruler handleMouseDown:(NSEvent *)evt {
+- (void)rulerView:(NSRulerView *)rv handleMouseDown:(NSEvent *)evt {
+    if (([evt type] == NSLeftMouseDown && [evt isControlKeyPressed]) || [evt type] == NSRightMouseDown) {
+        [self rulerView:rv handleRightClick:evt];
+    } else {
+        [self rulerView:rv handleLeftClick:evt];
+    }
+}
+
+
+- (void)rulerView:(NSRulerView *)rv handleRightClick:(NSEvent *)evt {
+    TDPerformOnMainThreadAfterDelay(0.0, ^{
+        NSEvent *click = [NSEvent mouseEventWithType:[evt type]
+                                            location:[evt locationInWindow]
+                                       modifierFlags:[evt modifierFlags]
+                                           timestamp:[evt timestamp]
+                                        windowNumber:[evt windowNumber]
+                                             context:[evt context]
+                                         eventNumber:[evt eventNumber]
+                                          clickCount:[evt clickCount]
+                                            pressure:[evt pressure]];
+        
+        NSMenu *ctxMenu = [[[NSMenu alloc] init] autorelease];
+        
+        NSMenuItem *originItem = [[[NSMenuItem alloc] initWithTitle:NSLocalizedString(@"Ruler Origin", @"")
+                                                             action:nil
+                                                      keyEquivalent:@""] autorelease];
+        
+        NSMenu *originMenu = [[[NSMenu alloc] init] autorelease];
+        
+        for (NSInteger i = 0; i <= TDRectCornerBotRit; ++i) {
+            NSMenuItem *item = [[[NSMenuItem alloc] initWithTitle:TDRectCornerGetDisplayName(i)
+                                                           action:@selector(changeRulerOriginCorner:)
+                                                    keyEquivalent:@""] autorelease];
+            [item setTarget:self];
+            [item setTag:i];
+            [item setState:i == self.document.rulerOriginCorner ? NSOnState : NSOffState];
+            [originMenu addItem:item];
+        }
+        
+        [originItem setSubmenu:originMenu];
+        [ctxMenu addItem:originItem];
+        
+        [NSMenu popUpContextMenu:ctxMenu withEvent:click forView:self];
+    });
+}
+
+
+- (IBAction)changeRulerOriginCorner:(id)sender {
+    TDAssertMainThread();
+    
+    TDRectCorner newCorner = [sender tag];
+    self.document.rulerOriginCorner = newCorner;
+    
+    NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
+    [nc postNotificationName:EDCompositionRulerOriginDidChangeNotification object:self];
+}
+
+
+- (void)rulerView:(NSRulerView *)ruler handleLeftClick:(NSEvent *)evt {
     BOOL visible = [[EDUserDefaults instance] guidesVisible];
     if (!visible) {
         [[EDUserDefaults instance] setGuidesVisible:YES];
@@ -945,10 +1051,13 @@ static void EDDrawPatternFunc(void *info, CGContextRef ctx) {
     
 }
 
-- (void)updateRulersOffset {
-    CGPoint offset = [self scaledCompositionFrame].origin;
-    [[self horizontalRulerView] setOriginOffset:offset.x];
-    [[self verticalRulerView] setOriginOffset:offset.y];
+
+- (void)updateRulersOrigin {
+    //CGPoint origin = [self compositionOrigin];
+    CGRect compRect = [self scaledCompositionFrame];
+    CGPoint origin = TDRectGetCornerPoint(compRect, self.document.rulerOriginCorner);
+    [[self horizontalRulerView] setOriginOffset:origin.x];
+    [[self verticalRulerView] setOriginOffset:origin.y];
 }
 
 
@@ -1016,6 +1125,16 @@ static void EDDrawPatternFunc(void *info, CGContextRef ctx) {
 }
 
 
+- (void)compositionRulerOriginDidChange:(NSNotification *)n {
+    EDCanvasView *canvas = [n object];
+    TDAssert([canvas isKindOfClass:[EDCanvasView class]]);
+    if (canvas == self) {
+        [self updateRulersOrigin];
+        [self setNeedsDisplay:YES];
+    }
+}
+
+
 - (void)updateForZoomScale {    
     // this giggles the scrollview and rulerviews
     [self setFrame:[self frame]];
@@ -1060,7 +1179,7 @@ static void EDDrawPatternFunc(void *info, CGContextRef ctx) {
                 g.canvasView = self;
             }
 
-            [self updateRulersOffset];
+            [self updateRulersOrigin];
             [self updateGridPattern];
             [self scrollToCenter];
         }

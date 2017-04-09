@@ -14,6 +14,227 @@
 #import "EDGuide.h"
 #import "EDTabModel.h"
 
+NSString *TDRectCornerGetDescription(TDRectCorner inCorner) {
+    NSString *res = nil;
+    
+    switch (inCorner) {
+        case TDRectCornerTopLef:
+            res = @"TDRectCornerTopLef";
+            break;
+        case TDRectCornerTopMid:
+            res = @"TDRectCornerTopMid";
+            break;
+        case TDRectCornerTopRit:
+            res = @"TDRectCornerTopRit";
+            break;
+            
+        case TDRectCornerMidLef:
+            res = @"TDRectCornerMidLef";
+            break;
+        case TDRectCornerMidMid:
+            res = @"TDRectCornerMidMid";
+            break;
+        case TDRectCornerMidRit:
+            res = @"TDRectCornerMidRit";
+            break;
+            
+        case TDRectCornerBotLef:
+            res = @"TDRectCornerBotLef";
+            break;
+        case TDRectCornerBotMid:
+            res = @"TDRectCornerBotMid";
+            break;
+        case TDRectCornerBotRit:
+            res = @"TDRectCornerBotRit";
+            break;
+            
+        case TDRectCornerNone:
+            res = @"TDRectCornerNone";
+            break;
+        default:
+            assert(0);
+            break;
+    }
+    
+    return res;
+}
+
+
+NSString *TDRectCornerGetDisplayName(TDRectCorner inCorner) {
+    NSString *res = nil;
+    
+    switch (inCorner) {
+        case TDRectCornerTopLef:
+            res = NSLocalizedString(@"Top Left", @"");
+            break;
+        case TDRectCornerTopMid:
+            res = NSLocalizedString(@"Top Center", @"");
+            break;
+        case TDRectCornerTopRit:
+            res = NSLocalizedString(@"Top Right", @"");
+            break;
+            
+        case TDRectCornerMidLef:
+            res = NSLocalizedString(@"Center Left", @"");
+            break;
+        case TDRectCornerMidMid:
+            res = NSLocalizedString(@"Center", @"");
+            break;
+        case TDRectCornerMidRit:
+            res = NSLocalizedString(@"Center Right", @"");
+            break;
+            
+        case TDRectCornerBotLef:
+            res = NSLocalizedString(@"Bottom Left", @"");
+            break;
+        case TDRectCornerBotMid:
+            res = NSLocalizedString(@"Bottom Center", @"");
+            break;
+        case TDRectCornerBotRit:
+            res = NSLocalizedString(@"Bottom Right", @"");
+            break;
+            
+        case TDRectCornerNone:
+            res = NSLocalizedString(@"None", @"");
+            break;
+        default:
+            assert(0);
+            break;
+    }
+    
+    return res;
+}
+
+
+CGPoint TDRectGetMidMidPoint(CGRect r) {
+    return CGPointMake(NSMidX(r), NSMidY(r));
+}
+
+
+CGPoint TDRectGetTopLefPoint(CGRect r) {
+    return CGPointMake(NSMinX(r), NSMinY(r));
+}
+
+
+CGPoint TDRectGetTopMidPoint(CGRect r) {
+    return CGPointMake(NSMidX(r), NSMinY(r));
+}
+
+
+CGPoint TDRectGetTopRitPoint(CGRect r) {
+    return CGPointMake(NSMaxX(r), NSMinY(r));
+}
+
+
+CGPoint TDRectGetMidLefPoint(CGRect r) {
+    return CGPointMake(NSMinX(r), NSMidY(r));
+}
+
+
+CGPoint TDRectGetMidRitPoint(CGRect r) {
+    return CGPointMake(NSMaxX(r), NSMidY(r));
+}
+
+
+CGPoint TDRectGetBotLefPoint(CGRect r) {
+    return CGPointMake(NSMinX(r), NSMaxY(r));
+}
+
+
+CGPoint TDRectGetBotMidPoint(CGRect r) {
+    return CGPointMake(NSMidX(r), NSMaxY(r));
+}
+
+
+CGPoint TDRectGetBotRitPoint(CGRect r) {
+    return CGPointMake(NSMaxX(r), NSMaxY(r));
+}
+
+
+CGPoint TDRectGetCornerPoint(CGRect r, TDRectCorner corner) {
+    CGPoint p = CGPointZero;
+    
+    switch (corner) {
+        case TDRectCornerTopLef:
+            p = TDRectGetTopLefPoint(r);
+            break;
+        case TDRectCornerTopMid:
+            p = TDRectGetTopMidPoint(r);
+            break;
+        case TDRectCornerTopRit:
+            p = TDRectGetTopRitPoint(r);
+            break;
+            
+        case TDRectCornerMidLef:
+            p = TDRectGetMidLefPoint(r);
+            break;
+        case TDRectCornerMidMid:
+            p = TDRectGetMidMidPoint(r);
+            break;
+        case TDRectCornerMidRit:
+            p = TDRectGetMidRitPoint(r);
+            break;
+            
+        case TDRectCornerBotLef:
+            p = TDRectGetBotLefPoint(r);
+            break;
+        case TDRectCornerBotMid:
+            p = TDRectGetBotMidPoint(r);
+            break;
+        case TDRectCornerBotRit:
+            p = TDRectGetBotRitPoint(r);
+            break;
+            
+        case TDRectCornerNone:
+            p = CGPointZero;
+            break;
+            
+        case TDRectCornerAdjust:
+        case TDRectCornerRotation:
+        case TDRectCornerConnection:
+        case TDRectCornerConnectionOpt0:
+        case TDRectCornerConnectionOpt1:
+        case TDRectCornerConnectionOpt2:
+        case TDRectCornerConnectionOpt3:
+        case TDRectCornerConnectionOpt4:
+        default:
+            assert(0);
+            break;
+    }
+    
+    return p;
+}
+
+
+BOOL TDRectIsZero(CGRect r) {
+    return CGRectEqualToRect(r, CGRectZero);
+}
+
+
+BOOL TDSizeContainsSize(CGSize s1, CGSize s2) {
+    return s1.width >= s2.width && s1.height >= s2.height;
+}
+
+
+CGRect TDCombineRects(CGRect r1, CGRect r2) {
+    CGRect result = CGRectZero;
+    
+    BOOL is1Zero = TDRectIsZero(r1);
+    BOOL is2Zero = TDRectIsZero(r2);
+    
+    if (is1Zero && is2Zero) {
+        // result = CGRectZero;
+    } else if (is1Zero) {
+        result = r2;
+    } else if (is2Zero) {
+        result = r1;
+    } else {
+        result = CGRectUnion(r1, r2);
+    }
+    
+    return result;
+}
+
 @interface EDDocument ()
 @property (nonatomic, retain) NSMutableArray *tempTabModels;
 @end
@@ -32,6 +253,8 @@
         
         _gridEnabled = [[EDUserDefaults instance] isGridEnabled];
         _gridTolerance = [[EDUserDefaults instance] gridTolerance];
+        
+        _rulerOriginCorner = TDRectCornerTopLef;
         
         _exportType = EDExportTypePNG;
         _exportAlphaEnabled = YES;
@@ -80,6 +303,8 @@
         dict[@"zoomScaleIndex"] = @(_zoomScaleIndex);
         dict[@"gridEnabled"] = @(_gridEnabled);
         dict[@"gridTolerance"] = @(_gridTolerance);
+
+        dict[@"rulerOriginCorner"] = @(_rulerOriginCorner);
         
         dict[@"exportType"] = @(_exportType);
         dict[@"exportAlphaEnabled"] = @(_exportAlphaEnabled);
@@ -113,7 +338,9 @@
         _zoomScaleIndex = [dict[@"zoomScaleIndex"] integerValue];
         _gridEnabled = [dict[@"gridEnabled"] boolValue];
         _gridTolerance = [dict[@"gridTolerance"] integerValue];
-        
+
+        _rulerOriginCorner = [dict[@"rulerOriginCorner"] integerValue];
+
         _exportType = [dict[@"exportType"] unsignedIntegerValue];
         _exportAlphaEnabled = [dict[@"exportAlphaEnabled"] boolValue];
         _exportCompressionMethod = [dict[@"exportCompressionMethod"] integerValue];
