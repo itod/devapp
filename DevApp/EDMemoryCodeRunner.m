@@ -432,6 +432,12 @@ void TDPerformAfterDelay(dispatch_queue_t q, double delay, void (^block)(void)) 
         info = [[@{kEDCodeRunnerReturnCodeKey:@1, kEDCodeRunnerDoneKey:@YES, kEDCodeRunnerErrorKey:err} mutableCopy] autorelease];
     } else {
         info = [[@{kEDCodeRunnerReturnCodeKey:@0, kEDCodeRunnerDoneKey:@YES} mutableCopy] autorelease];
+        
+        TDAssert(!err);
+        [_interp interpretString:@"if setup {setup()}" filePath:path error:&err];
+        if (err) {
+            info = [[@{kEDCodeRunnerReturnCodeKey:@1, kEDCodeRunnerDoneKey:@YES, kEDCodeRunnerErrorKey:err} mutableCopy] autorelease];
+        }
     }
     
     BOOL live = YES;
