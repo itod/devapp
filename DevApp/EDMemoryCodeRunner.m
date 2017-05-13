@@ -400,7 +400,7 @@ void TDPerformAfterDelay(dispatch_queue_t q, double delay, void (^block)(void)) 
 
 
 
-- (void)doRun:(NSString *)srcStr filePath:(NSString *)path breakpoints:(id)bpPlist {
+- (id)doRun:(NSString *)srcStr filePath:(NSString *)path breakpoints:(id)bpPlist {
     // only called on EXECUTE-THREAD
     TDAssertExecuteThread();
     
@@ -435,12 +435,14 @@ void TDPerformAfterDelay(dispatch_queue_t q, double delay, void (^block)(void)) 
     }
     
     BOOL live = YES;
-    if (result && live) {
+    if (!err && live) {
         [self loop];
         [self pauseWithInfo:[[@{kEDCodeRunnerDoneKey:@NO} mutableCopy] autorelease]];
     } else {
         [self dieWithInfo:info];
     }
+    
+    return result;
 }
 
 
