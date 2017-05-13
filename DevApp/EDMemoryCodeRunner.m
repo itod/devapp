@@ -428,11 +428,10 @@ void TDPerformAfterDelay(dispatch_queue_t q, double delay, void (^block)(void)) 
     id result = [_interp interpretString:srcStr filePath:path error:&err];
     
     NSMutableDictionary *info = nil;
-    if (result) {
-        info = [[@{kEDCodeRunnerReturnCodeKey:@0, kEDCodeRunnerDoneKey:@YES} mutableCopy] autorelease];
-    } else {
-        TDAssert(err);
+    if (err) {
         info = [[@{kEDCodeRunnerReturnCodeKey:@1, kEDCodeRunnerDoneKey:@YES, kEDCodeRunnerErrorKey:err} mutableCopy] autorelease];
+    } else {
+        info = [[@{kEDCodeRunnerReturnCodeKey:@0, kEDCodeRunnerDoneKey:@YES} mutableCopy] autorelease];
     }
     
     BOOL live = YES;
