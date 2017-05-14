@@ -53,10 +53,22 @@
     
     if (2 == argc) {
         if (x1Obj.isArrayObject && 2 == [x1Obj.value count] && y1Obj.isArrayObject && 2 == [y1Obj.value count]) {
-            x1Obj = [x1Obj.value objectAtIndex:0];
-            y1Obj = [x1Obj.value objectAtIndex:1];
-            x2Obj = [y1Obj.value objectAtIndex:0];
             y2Obj = [y1Obj.value objectAtIndex:1];
+            x2Obj = [y1Obj.value objectAtIndex:0];
+            y1Obj = [x1Obj.value objectAtIndex:1];
+            x1Obj = [x1Obj.value objectAtIndex:0];
+        } else {
+            [self raise:XPTypeError format:@"when calling `%@()` with two arguments, argument must be an Array containting two point Array objects: [x1, y1], [x2, y2]", [[self class] name]];
+        }
+    } else if (1 == argc) {
+        if (x1Obj.isArrayObject && 2 == [x1Obj.value count] &&
+            [[x1Obj.value objectAtIndex:0] isArrayObject] && 2 == [[[x1Obj.value objectAtIndex:0] value] count] &&
+            [[x1Obj.value objectAtIndex:1] isArrayObject] && 2 == [[[x1Obj.value objectAtIndex:1] value] count])
+        {
+            y2Obj = [[[x1Obj.value objectAtIndex:1] value] objectAtIndex:1];
+            x2Obj = [[[x1Obj.value objectAtIndex:1] value] objectAtIndex:0];
+            y1Obj = [[[x1Obj.value objectAtIndex:0] value] objectAtIndex:1];
+            x1Obj = [[[x1Obj.value objectAtIndex:0] value] objectAtIndex:0];
         } else {
             [self raise:XPTypeError format:@"when calling `%@()` with one argument, argument must be an Array containting two point Array objects: [[x1, y1], [x2, y2]]", [[self class] name]];
         }

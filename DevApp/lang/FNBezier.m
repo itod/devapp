@@ -81,6 +81,25 @@
             y1Obj = [x1Obj.value objectAtIndex:1];
             x1Obj = [x1Obj.value objectAtIndex:0];
         } else {
+            [self raise:XPTypeError format:@"when calling `%@()` with four arguments, argument must be an Array containting four point Array objects: [x1, y1], [x2, y2], [x3, y3], [x4, y4]", [[self class] name]];
+        }
+    } else  if (1 == argc) {
+        if (x1Obj.isArrayObject && 4 == [x1Obj.value count] &&
+            [[x1Obj.value objectAtIndex:0] isArrayObject] && 2 == [[[x1Obj.value objectAtIndex:0] value] count] &&
+            [[x1Obj.value objectAtIndex:1] isArrayObject] && 2 == [[[x1Obj.value objectAtIndex:1] value] count] &&
+            [[x1Obj.value objectAtIndex:2] isArrayObject] && 2 == [[[x1Obj.value objectAtIndex:2] value] count] &&
+            [[x1Obj.value objectAtIndex:3] isArrayObject] && 2 == [[[x1Obj.value objectAtIndex:3] value] count])
+        {
+            y4Obj = [[[x1Obj.value objectAtIndex:3] value] objectAtIndex:1];
+            x4Obj = [[[x1Obj.value objectAtIndex:3] value] objectAtIndex:0];
+            y3Obj = [[[x1Obj.value objectAtIndex:2] value] objectAtIndex:1];
+            x3Obj = [[[x1Obj.value objectAtIndex:2] value] objectAtIndex:0];
+
+            y2Obj = [[[x1Obj.value objectAtIndex:1] value] objectAtIndex:1];
+            x2Obj = [[[x1Obj.value objectAtIndex:1] value] objectAtIndex:0];
+            y1Obj = [[[x1Obj.value objectAtIndex:0] value] objectAtIndex:1];
+            x1Obj = [[[x1Obj.value objectAtIndex:0] value] objectAtIndex:0];
+        } else {
             [self raise:XPTypeError format:@"when calling `%@()` with one argument, argument must be an Array containting four point Array objects: [[x1, y1], [x2, y2], [x3, y3], [x4, y4]]", [[self class] name]];
         }
     }
