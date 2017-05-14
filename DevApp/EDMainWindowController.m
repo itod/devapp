@@ -1184,6 +1184,14 @@
 }
 
 
+- (void)codeRunnerWillCallSetup:(NSString *)identifier {
+    EDAssert([identifier isEqualToString:self.identifier]);
+    EDAssertMainThread();
+    
+    self.statusText = NSLocalizedString(@"In Setup", @"");
+}
+
+
 - (void)codeRunner:(NSString *)identifier messageFromStdOut:(NSString *)msg {
     EDAssert([identifier isEqualToString:self.identifier]);
     EDAssertMainThread();

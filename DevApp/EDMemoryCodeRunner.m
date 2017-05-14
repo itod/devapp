@@ -433,6 +433,12 @@ void TDPerformAfterDelay(dispatch_queue_t q, double delay, void (^block)(void)) 
     } else {
         info = [[@{kEDCodeRunnerReturnCodeKey:@0, kEDCodeRunnerDoneKey:@YES} mutableCopy] autorelease];
         
+        PerformOnMainThread(^{
+            TDAssert(self.delegate);
+            TDAssert(self.identifier);
+            [self.delegate codeRunnerWillCallSetup:self.identifier];
+        });
+        
         TDAssert(!err);
         [_interp interpretString:@"if setup {setup()}" filePath:path error:&err];
         if (err) {

@@ -25,6 +25,7 @@
 
 @protocol EDCodeRunnerDelegate <NSObject>
 - (void)codeRunnerDidStartup:(NSString *)identifier;
+- (void)codeRunnerWillCallSetup:(NSString *)identifier;
 
 - (void)codeRunner:(NSString *)identifier didPause:(NSDictionary *)info;
 - (void)codeRunnerWillResume:(NSString *)identifier;
