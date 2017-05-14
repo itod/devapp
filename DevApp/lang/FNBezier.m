@@ -115,35 +115,22 @@
     
     NSInteger weight = [[self.strokeWeightStack lastObject] integerValue];
 
-    CGMutablePathRef path = CGPathCreateMutable(); {
-        BOOL isOdd = (weight & 1);
-        if (isOdd) {
-            if (x1 == x2) {
-                x1 += 0.5;
-                x2 += 0.5;
-            }
-            if (x3 == x4) {
-                x3 += 0.5;
-                x4 += 0.5;
-            }
-            if (y1 == y2) {
-                y1 += 0.5;
-                y2 += 0.5;
-            }
-            if (y3 == y4) {
-                y3 += 0.5;
-                y4 += 0.5;
-            }
+    BOOL isOdd = (weight & 1);
+    if (isOdd) {
+        if (x1 == x4) {
+            x1 += 0.5;
+            x4 += 0.5;
         }
-        
-        CGPathMoveToPoint(path, NULL, x1, y1);
-        CGPathAddCurveToPoint(path, NULL, x2, y2, x3, y3, x4, y4);
-
-        CGContextRef ctx = [self.canvasGraphicsContext graphicsPort];
-        CGContextAddPath(ctx, path);
-        CGContextStrokePath(ctx);
-        
-    } CGPathRelease(path);
+        if (y1 == y4) {
+            y1 += 0.5;
+            y4 += 0.5;
+        }
+    }
+    
+    CGContextRef ctx = [self.canvasGraphicsContext graphicsPort];
+    CGContextMoveToPoint(ctx, x1, y1);
+    CGContextAddCurveToPoint(ctx, x2, y2, x3, y3, x4, y4);
+    CGContextStrokePath(ctx);
     
     [self postUpdate];
     
