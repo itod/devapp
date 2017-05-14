@@ -23,10 +23,21 @@
     XPFunctionSymbol *funcSym = [XPFunctionSymbol symbolWithName:[[self class] name] enclosingScope:nil];
     funcSym.nativeBody = self;
     
-    XPSymbol *color = [XPSymbol symbolWithName:@"color"];
-    funcSym.orderedParams = [NSMutableArray arrayWithObjects:color, nil];
+    XPSymbol *r = [XPSymbol symbolWithName:@"r"];
+    XPSymbol *b = [XPSymbol symbolWithName:@"b"];
+    XPSymbol *g = [XPSymbol symbolWithName:@"g"];
+    XPSymbol *a = [XPSymbol symbolWithName:@"a"];
+    funcSym.orderedParams = [NSMutableArray arrayWithObjects:r, g, b, a, nil];
+    funcSym.defaultParamObjects = [NSMutableDictionary dictionaryWithObjectsAndKeys:
+                                   [XPObject number:0.0], @"g",
+                                   [XPObject number:0.0], @"b",
+                                   [XPObject number:1.0], @"a",
+                                   nil];
     funcSym.params = [NSMutableDictionary dictionaryWithObjectsAndKeys:
-                      color, @"color",
+                      r, @"r",
+                      g, @"g",
+                      b, @"b",
+                      a, @"a",
                       nil];
     
     return funcSym;
