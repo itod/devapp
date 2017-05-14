@@ -13,9 +13,6 @@
 #import "XPFunctionSymbol.h"
 #import "XPMemorySpace.h"
 
-#define TDIsAngleBetween(angle, low, high) ((angle) >= (low) && (angle) <= (high))
-#define TDGetAngleBetween(p1, p2) (TDR2D(atan2((p2).y - (p1).y, (p2).x - (p1).x)) + 180.0)
-
 @implementation FNLine
 
 + (NSString *)name {
@@ -61,7 +58,7 @@
             x2Obj = [y1Obj.value objectAtIndex:0];
             y2Obj = [y1Obj.value objectAtIndex:1];
         } else {
-            [self raise:XPTypeError format:@"when calling `%@()` with one argument, argument must be an Array containting two point Array objects: [[x, y], [x, y]]", [[self class] name]];
+            [self raise:XPTypeError format:@"when calling `%@()` with one argument, argument must be an Array containting two point Array objects: [[x1, y1], [x2, y2]]", [[self class] name]];
         }
     }
     
@@ -84,12 +81,9 @@
             y1 += 0.5;
             y2 += 0.5;
         }
-        CGContextMoveToPoint(ctx, x1, y1);
-        CGContextAddLineToPoint(ctx, x2, y2);
-    } else {
-        CGContextMoveToPoint(ctx, x1, y1);
-        CGContextAddLineToPoint(ctx, x2, y2);
     }
+    CGContextMoveToPoint(ctx, x1, y1);
+    CGContextAddLineToPoint(ctx, x2, y2);
     CGContextStrokePath(ctx);
     
     [self postUpdate];

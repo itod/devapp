@@ -28,6 +28,7 @@
 #import "FNEllipse.h"
 #import "FNArc.h"
 #import "FNLine.h"
+#import "FNBezier.h"
 
 void PerformOnMainThread(void (^block)(void)) {
     assert(block);
@@ -187,7 +188,10 @@ void TDPerformAfterDelay(dispatch_queue_t q, double delay, void (^block)(void)) 
             NSString *srcStr = [NSString stringWithContentsOfFile:userCmd encoding:NSUTF8StringEncoding error:&err];
             
             if (!srcStr) {
-                id info = [[@{kEDCodeRunnerErrorKey: err, kEDCodeRunnerDoneKey: @YES} mutableCopy] autorelease];
+                NSMutableDictionary *info = [NSMutableDictionary dictionaryWithObjectsAndKeys:
+                                             @YES, kEDCodeRunnerDoneKey,
+                                             err, kEDCodeRunnerErrorKey,
+                                             nil];
                 [self fireDelegateDidFail:info];
                 return;
             }
@@ -382,6 +386,14 @@ void TDPerformAfterDelay(dispatch_queue_t q, double delay, void (^block)(void)) 
             TDAssert(self.interp);
             NSError *err = nil;
             [self.interp interpretString:@"draw()" filePath:self.filePath error:&err];
+            
+            if (err) {
+                NSMutableDictionary *info = [NSMutableDictionary dictionaryWithObjectsAndKeys:
+                                             @1, kEDCodeRunnerReturnCodeKey,
+                                             err, kEDCodeRunnerErrorKey,
+                                             nil];
+                [self fireDelegateDidFail:info];
+            }
         }
     }];
     
@@ -483,6 +495,7 @@ void TDPerformAfterDelay(dispatch_queue_t q, double delay, void (^block)(void)) 
     [i declareNativeFunction:[FNEllipse class]];
     [i declareNativeFunction:[FNArc class]];
     [i declareNativeFunction:[FNLine class]];
+    [i declareNativeFunction:[FNBezier class]];
 }
 
 

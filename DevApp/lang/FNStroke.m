@@ -9,6 +9,7 @@
 #import "FNStroke.h"
 #import <Language/XPObject.h>
 #import <Language/XPTreeWalker.h>
+#import <Language/XPException.h>
 #import "XPFunctionSymbol.h"
 #import "XPMemorySpace.h"
 
@@ -33,7 +34,7 @@
 }
 
 
-- (XPObject *)callWithWalker:(XPTreeWalker *)walker functionSpace:(XPMemorySpace *)space argc:(NSUInteger)argc {
+- (XPObject *)callWithWalker:(XPTreeWalker *)walker functionSpace:(XPMemorySpace *)space argc:(NSUInteger)argc {    
     XPObject *colorObj = [space objectForName:@"color"]; TDAssert(colorObj);
 
     NSColor *c = [self asColor:colorObj];

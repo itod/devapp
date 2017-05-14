@@ -247,6 +247,7 @@
 		D34A56641E7F3FE80064DF65 /* FNLine.m in Sources */ = {isa = PBXBuildFile; fileRef = D34A56631E7F3FE80064DF65 /* FNLine.m */; };
 		D34A566A1E7F7D0C0064DF65 /* FNStrokeCap.m in Sources */ = {isa = PBXBuildFile; fileRef = D34A56691E7F7D0C0064DF65 /* FNStrokeCap.m */; };
 		D34A566D1E7F7DC00064DF65 /* FNStrokeJoin.m in Sources */ = {isa = PBXBuildFile; fileRef = D34A566C1E7F7DC00064DF65 /* FNStrokeJoin.m */; };
+		D37CFCB51EC8B90600068FEB /* FNBezier.m in Sources */ = {isa = PBXBuildFile; fileRef = D37CFCB41EC8B90600068FEB /* FNBezier.m */; };
 		D3D705601E6F710D00D7EA61 /* EDBreakpointCollection.m in Sources */ = {isa = PBXBuildFile; fileRef = D3D7055F1E6F710D00D7EA61 /* EDBreakpointCollection.m */; };
 		D3DA17D01E77702700492A04 /* OkudaKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3DA17CD1E77701200492A04 /* OkudaKit.framework */; };
 		D3DA17D31E77703E00492A04 /* OkudaKit.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = D3DA17CD1E77701200492A04 /* OkudaKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -845,6 +846,8 @@
 		D34A56691E7F7D0C0064DF65 /* FNStrokeCap.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FNStrokeCap.m; path = lang/FNStrokeCap.m; sourceTree = "<group>"; };
 		D34A566B1E7F7DC00064DF65 /* FNStrokeJoin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FNStrokeJoin.h; path = lang/FNStrokeJoin.h; sourceTree = "<group>"; };
 		D34A566C1E7F7DC00064DF65 /* FNStrokeJoin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FNStrokeJoin.m; path = lang/FNStrokeJoin.m; sourceTree = "<group>"; };
+		D37CFCB31EC8B90600068FEB /* FNBezier.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FNBezier.h; path = lang/FNBezier.h; sourceTree = "<group>"; };
+		D37CFCB41EC8B90600068FEB /* FNBezier.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FNBezier.m; path = lang/FNBezier.m; sourceTree = "<group>"; };
 		D3D7055E1E6F710D00D7EA61 /* EDBreakpointCollection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EDBreakpointCollection.h; sourceTree = "<group>"; };
 		D3D7055F1E6F710D00D7EA61 /* EDBreakpointCollection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EDBreakpointCollection.m; sourceTree = "<group>"; };
 		D3DA17C71E77701200492A04 /* OkudaKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = OkudaKit.xcodeproj; path = lib/OkudaKit/OkudaKit.xcodeproj; sourceTree = "<group>"; };
@@ -1706,6 +1709,8 @@
 				D34A56601E7F3EAE0064DF65 /* FNArc.m */,
 				D34A56621E7F3FE80064DF65 /* FNLine.h */,
 				D34A56631E7F3FE80064DF65 /* FNLine.m */,
+				D37CFCB31EC8B90600068FEB /* FNBezier.h */,
+				D37CFCB41EC8B90600068FEB /* FNBezier.m */,
 			);
 			name = Functions;
 			sourceTree = "<group>";
@@ -2116,6 +2121,7 @@
 				D3166F431E5907C900DEE3A0 /* EDUtils.m in Sources */,
 				D3369B1F1E36C25A00FEB7BF /* TKTabListItemStyle.m in Sources */,
 				D31670871E5A14A400DEE3A0 /* EDToolbarProgressView.m in Sources */,
+				D37CFCB51EC8B90600068FEB /* FNBezier.m in Sources */,
 				D309BCCB1E5BB861002B3199 /* TDInterpreterSync.m in Sources */,
 				D316704D1E59FB0400DEE3A0 /* EDConsoleControlButtonCell.m in Sources */,
 				D31670841E5A14A400DEE3A0 /* EDToolbarButtonCell.m in Sources */,
