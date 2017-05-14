@@ -73,16 +73,16 @@
             } break;
                 
             case 3: {
-                double r = [obj.value[0] doubleValue];
-                double g = [obj.value[1] doubleValue];
+                double r = [obj.value[0] doubleValue]/255.0;
+                double g = [obj.value[1] doubleValue]/255.0;
                 double b = [obj.value[2] doubleValue];
                 c = [NSColor colorWithRed:r green:g blue:b alpha:1.0];
             } break;
                 
             case 4: {
-                double r = [obj.value[0] doubleValue];
-                double g = [obj.value[1] doubleValue];
-                double b = [obj.value[2] doubleValue];
+                double r = [obj.value[0] doubleValue]/255.0;
+                double g = [obj.value[1] doubleValue]/255.0;
+                double b = [obj.value[2] doubleValue]/255.0;
                 double a = [obj.value[3] doubleValue];
                 c = [NSColor colorWithRed:r green:g blue:b alpha:a];
             } break;
@@ -107,16 +107,16 @@
             } break;
                 
             case 3: {
-                double r = [obj.value[@"r"] doubleValue];
-                double g = [obj.value[@"g"] doubleValue];
-                double b = [obj.value[@"b"] doubleValue];
+                double r = [obj.value[@"r"] doubleValue]/255.0;
+                double g = [obj.value[@"g"] doubleValue]/255.0;
+                double b = [obj.value[@"b"] doubleValue]/255.0;
                 c = [NSColor colorWithRed:r green:g blue:b alpha:1.0];
             } break;
                 
             case 4: {
-                double r = [obj.value[@"r"] doubleValue];
-                double g = [obj.value[@"g"] doubleValue];
-                double b = [obj.value[@"b"] doubleValue];
+                double r = [obj.value[@"r"] doubleValue]/255.0;
+                double g = [obj.value[@"g"] doubleValue]/255.0;
+                double b = [obj.value[@"b"] doubleValue]/255.0;
                 double a = [obj.value[@"a"] doubleValue];
                 c = [NSColor colorWithRed:r green:g blue:b alpha:a];
             } break;

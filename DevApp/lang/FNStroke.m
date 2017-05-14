@@ -49,19 +49,34 @@
     XPObject *rObj = [space objectForName:@"r"]; TDAssert(rObj);
     
     CGContextRef ctx = [self.canvasGraphicsContext graphicsPort];
-    if (1 == argc) {
-        NSColor *c = [self asColor:rObj];
-        CGContextSetRGBStrokeColor(ctx, [c redComponent], [c greenComponent], [c blueComponent], [c alphaComponent]);
-    } else {
-        XPObject *gObj = [space objectForName:@"g"]; TDAssert(gObj);
-        XPObject *bObj = [space objectForName:@"b"]; TDAssert(bObj);
-        XPObject *aObj = [space objectForName:@"a"]; TDAssert(aObj);
-        
-        double r = rObj.doubleValue;
-        double g = gObj.doubleValue;
-        double b = bObj.doubleValue;
-        double a = aObj.doubleValue;
-        CGContextSetRGBStrokeColor(ctx, r, g, b, a);
+    
+    switch (argc) {
+        case 1: {
+            NSColor *c = [self asColor:rObj];
+            CGContextSetRGBStrokeColor(ctx, [c redComponent], [c greenComponent], [c blueComponent], [c alphaComponent]);
+        } break;
+        case 2: {
+            XPObject *gObj = [space objectForName:@"g"]; TDAssert(gObj);
+            double white = rObj.doubleValue;
+            double alhpa = gObj.doubleValue;
+            CGContextSetGrayStrokeColor(ctx, white, alhpa);
+        } break;
+        case 3:
+        case 4:
+        {
+            XPObject *gObj = [space objectForName:@"g"]; TDAssert(gObj);
+            XPObject *bObj = [space objectForName:@"b"]; TDAssert(bObj);
+            XPObject *aObj = [space objectForName:@"a"]; TDAssert(aObj);
+            
+            double r = rObj.doubleValue/255.0;
+            double g = gObj.doubleValue/255.0;
+            double b = bObj.doubleValue/255.0;
+            double a = aObj.doubleValue;
+            CGContextSetRGBStrokeColor(ctx, r, g, b, a);
+        } break;
+        default:
+            TDAssert(0);
+            break;
     }
     
     return nil;
