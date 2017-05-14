@@ -130,7 +130,7 @@
     CGContextRef ctx = [self.canvasGraphicsContext graphicsPort];
     CGContextMoveToPoint(ctx, x1, y1);
     CGContextAddCurveToPoint(ctx, x2, y2, x3, y3, x4, y4);
-    CGContextStrokePath(ctx);
+    CGContextDrawPath(ctx, kCGPathFillStroke);
     
     [self postUpdate];
     
