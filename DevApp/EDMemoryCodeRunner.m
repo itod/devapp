@@ -10,6 +10,8 @@
 #import <TDThreadUtils/TDInterpreterSync.h>
 #import <Language/Language.h>
 
+#import "XPMemorySpace.h"
+
 #import "FNNoStroke.h"
 #import "FNNoFill.h"
 #import "FNSize.h"
@@ -452,13 +454,17 @@ void TDPerformAfterDelay(dispatch_queue_t q, double delay, void (^block)(void)) 
         });
         
         TDAssert(!err);
-        [_interp interpretString:@"if setup {setup()}" filePath:path error:&err];
+        XPObject *setup = [_interp.globals objectForName:@"setup"];
+        if (setup && setup.isFunctionObject) {
+            [_interp interpretString:@"setup()" filePath:path error:&err];
+        }
         if (err) {
             info = [[@{kEDCodeRunnerReturnCodeKey:@1, kEDCodeRunnerDoneKey:@YES, kEDCodeRunnerErrorKey:err} mutableCopy] autorelease];
         }
     }
     
-    BOOL live = YES;
+    XPObject *draw = [_interp.globals objectForName:@"draw"];
+    BOOL live = draw && draw.isFunctionObject;
     if (!err && live) {
         [self loop];
         [self pauseWithInfo:[[@{kEDCodeRunnerDoneKey:@NO} mutableCopy] autorelease]];
