@@ -15,4 +15,8 @@
 
 - (NSMutableArray *)strokeWeightStackForIdentifier:(NSString *)identifier;
 - (void)setStrokeWeightStack:(NSMutableArray *)stack forIdentifier:(NSString *)identifier;
+
+- (BOOL)loopForIdentifier:(NSString *)identifier;
+- (void)setLoop:(BOOL)yn forIdentifier:(NSString *)identifier;
+
 @end

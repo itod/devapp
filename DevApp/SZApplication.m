@@ -11,6 +11,7 @@
 @interface SZApplication ()
 @property (nonatomic, retain) NSMutableDictionary *contextTab;
 @property (nonatomic, retain) NSMutableDictionary *stackTab;
+@property (nonatomic, retain) NSMutableDictionary *loopTab;
 @end
 
 @implementation SZApplication
@@ -20,6 +21,7 @@
     if (self) {
         self.contextTab = [NSMutableDictionary dictionary];
         self.stackTab = [NSMutableDictionary dictionary];
+        self.loopTab = [NSMutableDictionary dictionary];
     }
     return self;
 }
@@ -28,6 +30,7 @@
 - (void)dealloc {
     self.contextTab = nil;
     self.stackTab = nil;
+    self.loopTab = nil;
     [super dealloc];
 }
 
@@ -62,6 +65,22 @@
     TDAssert([identifier length]);
     TDAssert(_stackTab);
     [_stackTab setObject:stack forKey:identifier];
+}
+
+
+- (BOOL)loopForIdentifier:(NSString *)identifier {
+    TDAssert(_loopTab);
+    TDAssert([identifier length]);
+    id res = [_loopTab objectForKey:identifier];
+    TDAssert(res);
+    return [res boolValue];
+}
+
+
+- (void)setLoop:(BOOL)yn forIdentifier:(NSString *)identifier {
+    TDAssert([identifier length]);
+    TDAssert(_loopTab);
+    [_loopTab setObject:@(yn) forKey:identifier];
 }
 
 @end

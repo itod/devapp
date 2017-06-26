@@ -7,11 +7,14 @@
 //
 
 #import "EDMemoryCodeRunner.h"
+#import "SZApplication.h"
 #import <TDThreadUtils/TDInterpreterSync.h>
 #import <Language/Language.h>
 
 #import "XPMemorySpace.h"
 
+#import "FNLoop.h"
+#import "FNNoLoop.h"
 #import "FNNoStroke.h"
 #import "FNNoFill.h"
 #import "FNSize.h"
@@ -373,8 +376,10 @@ void TDPerformAfterDelay(dispatch_queue_t q, double delay, void (^block)(void)) 
 - (void)loop {
     TDAssertExecuteThread();
 
+    BOOL repeats = [[SZApplication instance] loopForIdentifier:self.identifier];
+    
     // DO I NEED TO SWITCH TO CONTROL THREAD HERE? YES
-    NSTimer *t = [NSTimer timerWithTimeInterval:1.0/30.0 repeats:YES block:^(NSTimer *timer) {
+    NSTimer *t = [NSTimer timerWithTimeInterval:1.0/30.0 repeats:repeats block:^(NSTimer *timer) {
         TDAssertExecuteThread();
         
         if (self.stopped) {
@@ -483,6 +488,8 @@ void TDPerformAfterDelay(dispatch_queue_t q, double delay, void (^block)(void)) 
     TDAssertExecuteThread();
     [FNAbstractFunction setIdentifier:self.identifier];
 
+    [i declareNativeFunction:[FNLoop class]];
+    [i declareNativeFunction:[FNNoLoop class]];
     [i declareNativeFunction:[FNNoStroke class]];
     [i declareNativeFunction:[FNNoFill class]];
     [i declareNativeFunction:[FNSize class]];

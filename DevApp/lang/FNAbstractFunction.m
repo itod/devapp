@@ -153,6 +153,7 @@
     [[[NSThread currentThread] threadDictionary] setObject:identifier forKey:@"EDIdentifier"];
 
     [[SZApplication instance] setStrokeWeightStack:[NSMutableArray arrayWithObject:@1] forIdentifier:identifier];
+    [[SZApplication instance] setLoop:YES forIdentifier:identifier];
 }
 
 
@@ -171,6 +172,18 @@
 - (NSMutableArray *)strokeWeightStack {
     TDAssertExecuteThread();
     return [[SZApplication instance] strokeWeightStackForIdentifier:[[self class] identifier]];
+}
+
+
+- (BOOL)loop {
+    TDAssertExecuteThread();
+    return [[SZApplication instance] loopForIdentifier:[[self class] identifier]];
+}
+
+
+- (void)setLoop:(BOOL)yn {
+    TDAssertExecuteThread();
+    [[SZApplication instance] setLoop:yn forIdentifier:[[self class] identifier]];
 }
 
 @end

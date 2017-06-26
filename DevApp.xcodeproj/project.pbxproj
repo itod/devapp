@@ -252,6 +252,8 @@
 		D3DA17D01E77702700492A04 /* OkudaKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3DA17CD1E77701200492A04 /* OkudaKit.framework */; };
 		D3DA17D31E77703E00492A04 /* OkudaKit.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = D3DA17CD1E77701200492A04 /* OkudaKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D3DA17E81E77721700492A04 /* OKLanguageParser.m in Sources */ = {isa = PBXBuildFile; fileRef = D3DA17E71E77721700492A04 /* OKLanguageParser.m */; settings = {COMPILER_FLAGS = "-Wno-undeclared-selector"; }; };
+		D3DE65F81F01C799003EB91F /* FNNoLoop.m in Sources */ = {isa = PBXBuildFile; fileRef = D3DE65F71F01C799003EB91F /* FNNoLoop.m */; };
+		D3DE66041F01C899003EB91F /* FNLoop.m in Sources */ = {isa = PBXBuildFile; fileRef = D3DE66031F01C899003EB91F /* FNLoop.m */; };
 		D3E799D61E8B1D39001F9DC7 /* FNBackground.m in Sources */ = {isa = PBXBuildFile; fileRef = D3E799D51E8B1D39001F9DC7 /* FNBackground.m */; };
 		D3E799E61E8B43B8001F9DC7 /* FNNoStroke.m in Sources */ = {isa = PBXBuildFile; fileRef = D3E799E51E8B43B8001F9DC7 /* FNNoStroke.m */; };
 		D3E799F21E8B443F001F9DC7 /* FNNoFill.m in Sources */ = {isa = PBXBuildFile; fileRef = D3E799F11E8B443F001F9DC7 /* FNNoFill.m */; };
@@ -853,6 +855,10 @@
 		D3DA17C71E77701200492A04 /* OkudaKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = OkudaKit.xcodeproj; path = lib/OkudaKit/OkudaKit.xcodeproj; sourceTree = "<group>"; };
 		D3DA17E61E77721700492A04 /* OKLanguageParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OKLanguageParser.h; sourceTree = "<group>"; };
 		D3DA17E71E77721700492A04 /* OKLanguageParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OKLanguageParser.m; sourceTree = "<group>"; };
+		D3DE65F61F01C799003EB91F /* FNNoLoop.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FNNoLoop.h; path = lang/FNNoLoop.h; sourceTree = "<group>"; };
+		D3DE65F71F01C799003EB91F /* FNNoLoop.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FNNoLoop.m; path = lang/FNNoLoop.m; sourceTree = "<group>"; };
+		D3DE66021F01C899003EB91F /* FNLoop.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FNLoop.h; path = lang/FNLoop.h; sourceTree = "<group>"; };
+		D3DE66031F01C899003EB91F /* FNLoop.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FNLoop.m; path = lang/FNLoop.m; sourceTree = "<group>"; };
 		D3E799D41E8B1D39001F9DC7 /* FNBackground.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FNBackground.h; path = lang/FNBackground.h; sourceTree = "<group>"; };
 		D3E799D51E8B1D39001F9DC7 /* FNBackground.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FNBackground.m; path = lang/FNBackground.m; sourceTree = "<group>"; };
 		D3E799E41E8B43B8001F9DC7 /* FNNoStroke.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FNNoStroke.h; path = lang/FNNoStroke.h; sourceTree = "<group>"; };
@@ -1673,6 +1679,10 @@
 			children = (
 				D34A55ED1E7E13050064DF65 /* FNAbstractFunction.h */,
 				D34A55EE1E7E13050064DF65 /* FNAbstractFunction.m */,
+				D3DE66021F01C899003EB91F /* FNLoop.h */,
+				D3DE66031F01C899003EB91F /* FNLoop.m */,
+				D3DE65F61F01C799003EB91F /* FNNoLoop.h */,
+				D3DE65F71F01C799003EB91F /* FNNoLoop.m */,
 				D34A55E91E7E090D0064DF65 /* FNSize.h */,
 				D34A55EA1E7E090D0064DF65 /* FNSize.m */,
 				D34A55FF1E7E31120064DF65 /* FNPushStyle.h */,
@@ -2081,6 +2091,7 @@
 				D316704A1E59FB0400DEE3A0 /* EDConsoleContainerView.m in Sources */,
 				D309BCE81E60B362002B3199 /* EDShellViewController.m in Sources */,
 				D3166FF51E592C6A00DEE3A0 /* EDAction.m in Sources */,
+				D3DE66041F01C899003EB91F /* FNLoop.m in Sources */,
 				D3DA17E81E77721700492A04 /* OKLanguageParser.m in Sources */,
 				D3369B161E36C25A00FEB7BF /* TKDocument.m in Sources */,
 				D3369ACC1E36BEED00FEB7BF /* OAPreferencesWindow.m in Sources */,
@@ -2103,6 +2114,7 @@
 				D316700C1E59F71F00DEE3A0 /* EDStackTraceContainerView.m in Sources */,
 				D316701D1E59F76700DEE3A0 /* EDTabBarFilesystemButtonCell.m in Sources */,
 				D34A56041E7E313D0064DF65 /* FNPopStyle.m in Sources */,
+				D3DE65F81F01C799003EB91F /* FNNoLoop.m in Sources */,
 				D34A55FE1E7E30C20064DF65 /* FNStrokeWeight.m in Sources */,
 				D31670CC1E5A18B900DEE3A0 /* EDFilesystemNavBar.m in Sources */,
 				D31E2C8C1E7D85F50023E924 /* EDCanvasView.m in Sources */,
