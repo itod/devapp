@@ -350,7 +350,9 @@ void TDPerformAfterDelay(dispatch_queue_t q, double delay, void (^block)(void)) 
         prefix = [cmd substringWithRange:NSMakeRange(0, wsRange.location)];
     }
     
-    if ([@"c" isEqualToString:prefix] || [@"continue" isEqualToString:prefix]) {
+    if ([@"pause" isEqualToString:prefix]) {
+        [_interp pause];
+    } else if ([@"c" isEqualToString:prefix] || [@"continue" isEqualToString:prefix]) {
         [_interp cont];
     } else if ([@"s" isEqualToString:prefix] || [@"step" isEqualToString:prefix]) {
         [_interp stepIn];

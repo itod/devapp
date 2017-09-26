@@ -2176,8 +2176,14 @@
 }
 
 
-- (IBAction)contine:(id)sender {
-    EDAssertMainThread();    
+- (IBAction)pause:(id)sender {
+    EDAssertMainThread();
+    [self.codeRunner performCommand:@"pause" identifier:self.identifier];
+}
+
+
+- (IBAction)cont:(id)sender {
+    EDAssertMainThread();
     [self.codeRunner performCommand:@"c" identifier:self.identifier];
 }
 
@@ -2541,7 +2547,7 @@
     } else if (@selector(toggleBreakpointsEnabled:) == action) {
         BOOL bpEnabled = [[self document] breakpointsEnabled];
         [item setTitle:bpEnabled ? NSLocalizedString(@"Deactivate Breakpoints", @"") : NSLocalizedString(@"Activate Breakpoints", @"")];
-    } else if (@selector(contine:) == action) {
+    } else if (@selector(cont:) == action) {
         enabled = self.canStop;
     } else if (@selector(next:) == action) {
         enabled = self.canStop;

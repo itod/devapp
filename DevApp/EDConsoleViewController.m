@@ -68,7 +68,8 @@ static NSDictionary *sValueAttrs = nil;
 
 - (void)dealloc {
     [[NSNotificationCenter defaultCenter] removeObserver:self];
-    
+    [self removeObserver:self forKeyPath:@"isRunning"];
+
     self.delegate = nil;
     self.continueButton = nil;
     self.nextButton = nil;
@@ -122,6 +123,33 @@ static NSDictionary *sValueAttrs = nil;
     }
 
     [self updateThemeInVarsOutlineView];
+    
+    [self addObserver:self forKeyPath:@"isRunning" options:0 context:NULL];
+}
+
+
+#pragma mark -
+#pragma mark KVO
+
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)ctx {
+    if ([@"isRunning" isEqualToString:keyPath]) {
+        TDAssert(self.continueButton);
+        
+        SEL action = NULL;
+        NSImage *img = nil;
+        
+        if (self.isRunning) {
+            action = @selector(pause:);
+            img = [NSImage imageNamed:@"pause"];
+        } else {
+            action = @selector(cont:);
+            img = [NSImage imageNamed:@"continue"];
+        }
+        
+        TDAssert(_continueButton);
+        [_continueButton setAction:action];
+        [_continueButton setImage:img];
+    }
 }
 
 

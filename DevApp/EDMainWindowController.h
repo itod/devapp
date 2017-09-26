@@ -72,7 +72,8 @@
 
 - (IBAction)newREPLTab:(id)sender;
 - (IBAction)newFile:(id)sender;
-- (IBAction)contine:(id)sender;
+- (IBAction)pause:(id)sender;
+- (IBAction)cont:(id)sender;
 - (IBAction)next:(id)sender;
 - (IBAction)step:(id)sender;
 - (IBAction)finish:(id)sender;
