@@ -252,6 +252,32 @@ void TDPerformAfterDelay(dispatch_queue_t q, double delay, void (^block)(void)) 
 }
 
 
+- (void)fireDelegateDidStartup {
+    // called on EXECUTE-THREAD
+    TDAssertExecuteThread();
+    
+    PerformOnMainThread(^{
+        TDAssert(self.delegate);
+        TDAssert(self.identifier);
+        [self.delegate codeRunnerDidStartup:self.identifier];
+    });
+
+}
+
+
+- (void)fireDelegateWillCallSetup {
+    // called on EXECUTE-THREAD
+    TDAssertExecuteThread();
+    
+    PerformOnMainThread(^{
+        TDAssert(self.delegate);
+        TDAssert(self.identifier);
+        [self.delegate codeRunnerWillCallSetup:self.identifier];
+    });
+
+}
+
+
 - (void)fireDelegateDidPause:(NSMutableDictionary *)info {
     // called on CONTROL-THREAD
     TDAssertControlThread();
@@ -378,10 +404,11 @@ void TDPerformAfterDelay(dispatch_queue_t q, double delay, void (^block)(void)) 
 - (void)loop {
     TDAssertExecuteThread();
 
-    BOOL repeats = [[SZApplication instance] loopForIdentifier:self.identifier];
+    BOOL loops = [[SZApplication instance] loopForIdentifier:self.identifier];
+    TDAssert(loops); // TODO
     
     // DO I NEED TO SWITCH TO CONTROL THREAD HERE? YES
-    NSTimer *t = [NSTimer timerWithTimeInterval:1.0/30.0 repeats:repeats block:^(NSTimer *timer) {
+    NSTimer *t = [NSTimer timerWithTimeInterval:1.0/30.0 repeats:loops block:^(NSTimer *timer) {
         TDAssertExecuteThread();
         
         if (self.stopped) {
@@ -420,16 +447,11 @@ void TDPerformAfterDelay(dispatch_queue_t q, double delay, void (^block)(void)) 
 }
 
 
-
 - (id)doRun:(NSString *)srcStr filePath:(NSString *)path breakpoints:(id)bpPlist {
     // only called on EXECUTE-THREAD
     TDAssertExecuteThread();
     
-    PerformOnMainThread(^{
-        TDAssert(self.delegate);
-        TDAssert(self.identifier);
-        [self.delegate codeRunnerDidStartup:self.identifier];
-    });
+    [self fireDelegateDidStartup];
     
     self.filePath = path;
     
@@ -454,11 +476,7 @@ void TDPerformAfterDelay(dispatch_queue_t q, double delay, void (^block)(void)) 
     } else {
         info = [[@{kEDCodeRunnerReturnCodeKey:@0, kEDCodeRunnerDoneKey:@YES} mutableCopy] autorelease];
         
-        PerformOnMainThread(^{
-            TDAssert(self.delegate);
-            TDAssert(self.identifier);
-            [self.delegate codeRunnerWillCallSetup:self.identifier];
-        });
+        [self fireDelegateWillCallSetup];
         
         TDAssert(!err);
         XPObject *setup = [_interp.globals objectForName:@"setup"];
@@ -470,9 +488,9 @@ void TDPerformAfterDelay(dispatch_queue_t q, double delay, void (^block)(void)) 
         }
     }
     
-    XPObject *draw = [_interp.globals objectForName:@"draw"];
-    BOOL live = draw && draw.isFunctionObject;
-    if (!err && live) {
+    BOOL loops = [[SZApplication instance] loopForIdentifier:self.identifier];
+
+    if (!err && loops) {
         [self loop];
         [self pauseWithInfo:[[@{kEDCodeRunnerDoneKey:@NO} mutableCopy] autorelease]];
     } else {

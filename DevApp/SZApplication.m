@@ -40,47 +40,64 @@
 
 - (NSGraphicsContext *)graphicsContextForIdentifier:(NSString *)identifier {
     TDAssert(_contextTab);
-    return [_contextTab objectForKey:identifier];
+    NSGraphicsContext *g = nil;
+    @synchronized(_contextTab) {
+        g = [_contextTab objectForKey:identifier];
+    }
+    return g;
 }
 
 
 - (void)setGraphicsContext:(NSGraphicsContext *)g forIdentifier:(NSString *)identifier {
     TDAssert([identifier length]);
     TDAssert(_contextTab);
-    [_contextTab setObject:g forKey:identifier];
+    @synchronized(_contextTab) {
+        [_contextTab setObject:g forKey:identifier];
+    }
 }
 
 
 - (NSMutableArray *)strokeWeightStackForIdentifier:(NSString *)identifier {
-    TDAssert(_stackTab);
     TDAssert([identifier length]);
-    id res = [_stackTab objectForKey:identifier];
+    TDAssert(_stackTab);
+    id res = nil;
+    @synchronized(_stackTab) {
+        res = [_stackTab objectForKey:identifier];
+    }
     TDAssert(res);
     return res;
 }
 
 
 - (void)setStrokeWeightStack:(NSMutableArray *)stack forIdentifier:(NSString *)identifier {
-    TDAssert(stack);
     TDAssert([identifier length]);
+    TDAssert(stack);
     TDAssert(_stackTab);
-    [_stackTab setObject:stack forKey:identifier];
+    @synchronized(_stackTab) {
+        [_stackTab setObject:stack forKey:identifier];
+    }
 }
 
 
 - (BOOL)loopForIdentifier:(NSString *)identifier {
-    TDAssert(_loopTab);
     TDAssert([identifier length]);
-    id res = [_loopTab objectForKey:identifier];
-    TDAssert(res);
-    return [res boolValue];
+    TDAssert(_loopTab);
+    id val = nil;
+    @synchronized(_loopTab) {
+       val = [_loopTab objectForKey:identifier];
+    }
+    TDAssert(val);
+    return [val boolValue];
 }
 
 
 - (void)setLoop:(BOOL)yn forIdentifier:(NSString *)identifier {
     TDAssert([identifier length]);
     TDAssert(_loopTab);
-    [_loopTab setObject:@(yn) forKey:identifier];
+    id val = @(yn);
+    @synchronized(_loopTab) {
+        [_loopTab setObject:val forKey:identifier];
+    }
 }
 
 @end
