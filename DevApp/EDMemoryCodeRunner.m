@@ -346,7 +346,9 @@ void TDPerformAfterDelay(dispatch_queue_t q, double delay, void (^block)(void)) 
     TDAssertExecuteThread();
     TDAssert(inInfo);
     
-    inInfo[kEDCodeRunnerDoneKey] = @NO;
+    if (!inInfo[kEDCodeRunnerDoneKey]) {
+        inInfo[kEDCodeRunnerDoneKey] = @NO;
+    }
     
     TDAssert(_debugSync);
     [_debugSync pauseWithInfo:inInfo];
@@ -401,40 +403,44 @@ void TDPerformAfterDelay(dispatch_queue_t q, double delay, void (^block)(void)) 
 }
 
 
-- (void)loop {
+- (void)runLoop {
     TDAssertExecuteThread();
 
-    BOOL loops = [[SZApplication instance] loopForIdentifier:self.identifier];
-    TDAssert(loops); // TODO
+    BOOL repeats = [[SZApplication instance] loopForIdentifier:self.identifier];
     
     // DO I NEED TO SWITCH TO CONTROL THREAD HERE? YES
-    NSTimer *t = [NSTimer timerWithTimeInterval:1.0/30.0 repeats:loops block:^(NSTimer *timer) {
-        TDAssertExecuteThread();
-        
-        if (self.stopped) {
-            NSMutableDictionary *info = [NSMutableDictionary dictionaryWithObjectsAndKeys:
-                                         @1, kEDCodeRunnerReturnCodeKey,
-                                         @YES, kEDCodeRunnerDoneKey,
-                                         [NSError errorWithDomain:XPErrorDomain code:0 userInfo:@{NSLocalizedDescriptionKey:XPUserInterruptException}], kEDCodeRunnerErrorKey,
-                                         nil];
-            [self dieWithInfo:info];
-        } else {
-            TDAssert(self.interp);
-            NSError *err = nil;
-            [self.interp interpretString:@"draw()" filePath:self.filePath error:&err];
-            
-            if (err) {
-                NSMutableDictionary *info = [NSMutableDictionary dictionaryWithObjectsAndKeys:
-                                             @1, kEDCodeRunnerReturnCodeKey,
-                                             err, kEDCodeRunnerErrorKey,
-                                             nil];
-                [self fireDelegateDidFail:info];
-            }
-        }
+    NSTimer *t = [NSTimer timerWithTimeInterval:1.0/30.0 repeats:repeats block:^(NSTimer *timer) {
+        [self loop];
     }];
     
     [[NSRunLoop currentRunLoop] addTimer:t forMode:NSDefaultRunLoopMode];
     [[NSRunLoop currentRunLoop] run];
+}
+
+
+- (void)loop {
+    TDAssertExecuteThread();
+    
+    if (self.stopped) {
+        NSMutableDictionary *info = [NSMutableDictionary dictionaryWithObjectsAndKeys:
+                                     @1, kEDCodeRunnerReturnCodeKey,
+                                     @YES, kEDCodeRunnerDoneKey,
+                                     [NSError errorWithDomain:XPErrorDomain code:0 userInfo:@{NSLocalizedDescriptionKey:XPUserInterruptException}], kEDCodeRunnerErrorKey,
+                                     nil];
+        [self dieWithInfo:info];
+    } else {
+        TDAssert(self.interp);
+        NSError *err = nil;
+        [self.interp interpretString:@"draw()" filePath:self.filePath error:&err];
+        
+        if (err) {
+            NSMutableDictionary *info = [NSMutableDictionary dictionaryWithObjectsAndKeys:
+                                         @1, kEDCodeRunnerReturnCodeKey,
+                                         err, kEDCodeRunnerErrorKey,
+                                         nil];
+            [self fireDelegateDidFail:info];
+        }
+    }
 }
 
 
@@ -488,11 +494,17 @@ void TDPerformAfterDelay(dispatch_queue_t q, double delay, void (^block)(void)) 
         }
     }
     
-    BOOL loops = [[SZApplication instance] loopForIdentifier:self.identifier];
-
-    if (!err && loops) {
-        [self loop];
-        [self pauseWithInfo:[[@{kEDCodeRunnerDoneKey:@NO} mutableCopy] autorelease]];
+    if (!err) {
+        BOOL done = NO;
+        BOOL loops = [[SZApplication instance] loopForIdentifier:self.identifier];
+        if (loops) {
+            [self runLoop];
+            done = NO;
+        } else {
+            [self loop];
+            done = YES;
+        }
+        [self pauseWithInfo:[[@{kEDCodeRunnerDoneKey:@(done)} mutableCopy] autorelease]];
     } else {
         [self dieWithInfo:info];
     }
