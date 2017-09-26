@@ -369,7 +369,7 @@
 - (void)setUpConsoleView {
     self.consoleViewController = [[[EDConsoleViewController alloc] init] autorelease];
     _consoleViewController.delegate = self;
-    [_consoleViewController bind:@"isRunning" toObject:self withKeyPath:@"canStop" options:nil];
+    [_consoleViewController bind:@"isRunning" toObject:self withKeyPath:@"paused" options:nil];
     
     [self showConsoleView];
 }

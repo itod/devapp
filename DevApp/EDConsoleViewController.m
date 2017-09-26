@@ -131,7 +131,10 @@ static NSDictionary *sValueAttrs = nil;
 #pragma mark -
 #pragma mark KVO
 
-- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)ctx {
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)obj change:(NSDictionary *)change context:(void *)ctx {
+    TDAssertMainThread();
+    TDAssert(self == obj);
+             
     if ([@"isRunning" isEqualToString:keyPath]) {
         TDAssert(self.continueButton);
         
