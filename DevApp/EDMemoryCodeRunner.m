@@ -60,6 +60,7 @@ void TDPerformAfterDelay(dispatch_queue_t q, double delay, void (^block)(void)) 
 @property (retain) NSPipe *stdErrPipe;
 
 @property (assign) BOOL stopped;
+@property (assign) BOOL paused;
 @end
 
 @implementation EDMemoryCodeRunner {
@@ -128,6 +129,10 @@ void TDPerformAfterDelay(dispatch_queue_t q, double delay, void (^block)(void)) 
 
 - (void)performCommand:(NSString *)cmd identifier:(NSString *)identifier {
     TDAssert([cmd length]);
+    
+    if ([cmd isEqualToString:@"pause"]) {
+        self.paused = YES;
+    }
     
     NSMutableDictionary *info = [NSMutableDictionary dictionaryWithObjectsAndKeys:
                                  @NO, kEDCodeRunnerDoneKey,
@@ -222,6 +227,8 @@ void TDPerformAfterDelay(dispatch_queue_t q, double delay, void (^block)(void)) 
         [self fireDelegateWillResume];
 
         [_debugSync resumeWithInfo:info];
+        self.stopped = NO;
+        self.paused = NO;
         [self awaitPause];
     });
 }
@@ -430,6 +437,11 @@ void TDPerformAfterDelay(dispatch_queue_t q, double delay, void (^block)(void)) 
         [self dieWithInfo:info];
     } else {
         TDAssert(self.interp);
+        
+        if (self.paused) {
+            self.interp.paused = YES;
+        }
+        
         NSError *err = nil;
         [self.interp interpretString:@"draw()" filePath:self.filePath error:&err];
         

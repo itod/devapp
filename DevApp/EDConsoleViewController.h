@@ -34,7 +34,8 @@
 
 @property (nonatomic, retain) IDEUberView *uberView;
 
-@property (nonatomic, assign) BOOL isRunning;
+@property (nonatomic, assign) BOOL canStop;
+@property (nonatomic, assign) BOOL paused;
 
 - (IBAction)menuPrintValue:(id)sender;
 

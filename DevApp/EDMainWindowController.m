@@ -119,7 +119,8 @@
 
     EDAssert(_consoleViewController.delegate == self);
     _consoleViewController.delegate = nil;
-    [_consoleViewController unbind:@"isRunning"];
+    [_consoleViewController unbind:@"canStop"];
+    [_consoleViewController unbind:@"paused"];
 
     for (TKTabModel *tm in self.tabModels) {
         if ([EDTabModelTypeSourceCodeFile isEqualToString:tm.type]) {
@@ -369,8 +370,9 @@
 - (void)setUpConsoleView {
     self.consoleViewController = [[[EDConsoleViewController alloc] init] autorelease];
     _consoleViewController.delegate = self;
-    [_consoleViewController bind:@"isRunning" toObject:self withKeyPath:@"paused" options:nil];
-    
+    [_consoleViewController bind:@"canStop" toObject:self withKeyPath:@"canStop" options:nil];
+    [_consoleViewController bind:@"paused" toObject:self withKeyPath:@"paused" options:nil];
+
     [self showConsoleView];
 }
 

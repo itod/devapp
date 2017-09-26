@@ -68,7 +68,8 @@ static NSDictionary *sValueAttrs = nil;
 
 - (void)dealloc {
     [[NSNotificationCenter defaultCenter] removeObserver:self];
-    [self removeObserver:self forKeyPath:@"isRunning"];
+    [self removeObserver:self forKeyPath:@"canStop"];
+    [self removeObserver:self forKeyPath:@"paused"];
 
     self.delegate = nil;
     self.continueButton = nil;
@@ -124,7 +125,8 @@ static NSDictionary *sValueAttrs = nil;
 
     [self updateThemeInVarsOutlineView];
     
-    [self addObserver:self forKeyPath:@"isRunning" options:0 context:NULL];
+    [self addObserver:self forKeyPath:@"canStop" options:0 context:NULL];
+    [self addObserver:self forKeyPath:@"paused" options:0 context:NULL];
 }
 
 
@@ -135,13 +137,13 @@ static NSDictionary *sValueAttrs = nil;
     TDAssertMainThread();
     TDAssert(self == obj);
              
-    if ([@"isRunning" isEqualToString:keyPath]) {
+    if ([@"canStop" isEqualToString:keyPath] || [@"paused" isEqualToString:keyPath]) {
         TDAssert(self.continueButton);
         
         SEL action = NULL;
         NSImage *img = nil;
         
-        if (self.isRunning) {
+        if (self.canStop && !self.paused) {
             action = @selector(pause:);
             img = [NSImage imageNamed:@"pause"];
         } else {

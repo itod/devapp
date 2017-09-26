@@ -37,7 +37,7 @@
                             </buttonCell>
                             <connections>
                                 <action selector="contine:" target="-1" id="32"/>
-                                <binding destination="-2" name="enabled" keyPath="isRunning" id="46"/>
+                                <binding destination="-2" name="enabled" keyPath="canStop" id="dZn-q7-qyk"/>
                                 <outlet property="nextKeyView" destination="22" id="36"/>
                             </connections>
                         </button>
@@ -50,7 +50,7 @@
                             </buttonCell>
                             <connections>
                                 <action selector="next:" target="-1" id="33"/>
-                                <binding destination="-2" name="enabled" keyPath="isRunning" id="48"/>
+                                <binding destination="-2" name="enabled" keyPath="paused" id="ZZK-j0-xMd"/>
                                 <outlet property="nextKeyView" destination="24" id="37"/>
                             </connections>
                         </button>
@@ -63,7 +63,7 @@
                             </buttonCell>
                             <connections>
                                 <action selector="step:" target="-1" id="34"/>
-                                <binding destination="-2" name="enabled" keyPath="isRunning" id="50"/>
+                                <binding destination="-2" name="enabled" keyPath="paused" id="W60-hV-QNl"/>
                                 <outlet property="nextKeyView" destination="26" id="38"/>
                             </connections>
                         </button>
@@ -76,7 +76,7 @@
                             </buttonCell>
                             <connections>
                                 <action selector="finish:" target="-1" id="9ay-da-NQY"/>
-                                <binding destination="-2" name="enabled" keyPath="isRunning" id="52"/>
+                                <binding destination="-2" name="enabled" keyPath="paused" id="5EW-aX-IeY"/>
                             </connections>
                         </button>
                         <button toolTip="Toggle Local Vars Display" focusRingType="none" id="9x6-MR-gSG" customClass="EDConsoleControlButton">
@@ -119,7 +119,7 @@
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                     <clipView key="contentView" drawsBackground="NO" id="a9L-cE-DF5">
                         <rect key="frame" x="0.0" y="0.0" width="240" height="136"/>
-                        <autoresizingMask key="autoresizingMask"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <outlineView focusRingType="none" appearanceType="vibrantLight" verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" selectionHighlightStyle="sourceList" columnReordering="NO" columnResizing="NO" multipleSelection="NO" autosaveColumns="NO" autosaveName="varsOutlineView" rowHeight="18" outlineTableColumn="U77-0j-UeU" id="VWm-nq-jR2" customClass="EDConsoleOutlineView">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="136"/>
