@@ -49,6 +49,14 @@ void TDPerformAfterDelay(dispatch_queue_t q, double delay, void (^block)(void)) 
     dispatch_after(popTime, q, block);
 }
 
+typedef NS_ENUM(NSUInteger, EDCodeRunnerState) {
+    EDCodeRunnerStateInactive,
+    EDCodeRunnerStateActive,
+    EDCodeRunnerStateStopped,
+    EDCodeRunnerStatePaused,
+    EDCodeRunnerStateReceivedEvent,
+};
+
 @interface EDMemoryCodeRunner ()
 @property (assign) id <EDCodeRunnerDelegate>delegate; // weakref
 @property (retain) XPInterpreter *interp;
@@ -61,8 +69,10 @@ void TDPerformAfterDelay(dispatch_queue_t q, double delay, void (^block)(void)) 
 
 @property (retain) NSRunLoop *runLoop;
 
-@property (assign) BOOL stopped;
-@property (assign) BOOL paused;
+@property (assign) EDCodeRunnerState state;
+
+//@property (assign) BOOL stopped;
+//@property (assign) BOOL paused;
 @end
 
 @implementation EDMemoryCodeRunner {
@@ -122,7 +132,7 @@ void TDPerformAfterDelay(dispatch_queue_t q, double delay, void (^block)(void)) 
 - (void)stop:(NSString *)identifier {
     TDAssertMainThread();
     
-    self.stopped = YES;
+    self.state = EDCodeRunnerStateStopped;
     NSMutableDictionary *info = [NSMutableDictionary dictionaryWithObjectsAndKeys:
                                  @YES, kEDCodeRunnerDoneKey,
                                  nil];
@@ -132,10 +142,13 @@ void TDPerformAfterDelay(dispatch_queue_t q, double delay, void (^block)(void)) 
 
 
 - (void)performCommand:(NSString *)cmd identifier:(NSString *)identifier {
+    TDAssertMainThread();
     TDAssert([cmd length]);
     
     if ([cmd isEqualToString:@"pause"]) {
-        self.paused = YES;
+        self.state = EDCodeRunnerStatePaused;
+    } else if ([cmd isEqualToString:@"receivedEvent"]) {
+        self.state = EDCodeRunnerStateReceivedEvent;
     }
     
     NSMutableDictionary *info = [NSMutableDictionary dictionaryWithObjectsAndKeys:
@@ -158,16 +171,7 @@ void TDPerformAfterDelay(dispatch_queue_t q, double delay, void (^block)(void)) 
 
 - (void)handleMouseEvent:(NSEvent *)evt {
     TDAssertMainThread();
-
-    TDAssert(_executeThread);
-    dispatch_async(_executeThread, ^{
-        TDAssert(_runLoop);
-        [_runLoop performBlock:^{
-            TDAssertExecuteThread();
-            
-            NSLog(@"hi");
-        }];
-    });
+    [self performCommand:@"receivedEvent" identifier:self.identifier];
 }
 
 
@@ -246,8 +250,6 @@ void TDPerformAfterDelay(dispatch_queue_t q, double delay, void (^block)(void)) 
         [self fireDelegateWillResume];
 
         [_debugSync resumeWithInfo:info];
-        self.stopped = NO;
-        self.paused = NO;
         [self awaitPause];
     });
 }
@@ -378,22 +380,22 @@ void TDPerformAfterDelay(dispatch_queue_t q, double delay, void (^block)(void)) 
     
     TDAssert(_debugSync);
     [_debugSync pauseWithInfo:inInfo];
+    self.state = EDCodeRunnerStatePaused;
     NSMutableDictionary *outInfo = [_debugSync awaitResume];
     
     BOOL done = [outInfo[kEDCodeRunnerDoneKey] boolValue];
     
     if (done) {
+        self.state = EDCodeRunnerStateInactive;
         [XPException raise:XPUserInterruptException format:@"User stopped execution."];
         return;
     }
     
+    self.state = EDCodeRunnerStateActive;
     NSMutableString *cmd = [[outInfo[kEDCodeRunnerUserCommandKey] mutableCopy] autorelease];
     TDAssert([cmd length]);
     
     CFStringTrimWhitespace((CFMutableStringRef)cmd);
-    
-    //get on control thread
-    TDAssert(_interp);
     
     NSRange wsRange = [cmd rangeOfCharacterFromSet:[NSCharacterSet whitespaceCharacterSet]];
     NSString *prefix = nil;
@@ -404,6 +406,7 @@ void TDPerformAfterDelay(dispatch_queue_t q, double delay, void (^block)(void)) 
         prefix = [cmd substringWithRange:NSMakeRange(0, wsRange.location)];
     }
     
+    TDAssert(_interp);
     if ([@"pause" isEqualToString:prefix]) {
         [_interp pause];
     } else if ([@"c" isEqualToString:prefix] || [@"continue" isEqualToString:prefix]) {
@@ -455,7 +458,7 @@ void TDPerformAfterDelay(dispatch_queue_t q, double delay, void (^block)(void)) 
 - (void)loop {
     TDAssertExecuteThread();
     
-    if (self.stopped) {
+    if (EDCodeRunnerStateStopped == self.state) {
         NSMutableDictionary *info = [NSMutableDictionary dictionaryWithObjectsAndKeys:
                                      @1, kEDCodeRunnerReturnCodeKey,
                                      @YES, kEDCodeRunnerDoneKey,
@@ -465,12 +468,21 @@ void TDPerformAfterDelay(dispatch_queue_t q, double delay, void (^block)(void)) 
     } else {
         TDAssert(self.interp);
         
-        if (self.paused) {
-            self.interp.paused = YES;
-        }
-        
         NSError *err = nil;
-        [self.interp interpretString:@"draw()" filePath:self.filePath error:&err];
+        if (EDCodeRunnerStateReceivedEvent == self.state) {
+            self.interp.paused = NO;
+            [_runLoop performSelector:@selector(doMouseEvent) withObject:nil afterDelay:0.0 inModes:NSDefaultRunLoopMode];
+//            [_runLoop performBlock:^{
+//                self.state = EDCodeRunnerStateActive;
+//                [self.interp interpretString:@"mouseDown()" filePath:self.filePath error:nil];
+//            }];
+        } else {
+            if (EDCodeRunnerStatePaused == self.state) {
+                self.interp.paused = YES;
+            }
+            
+            [self.interp interpretString:@"draw()" filePath:self.filePath error:&err];
+        }
         
         if (err) {
             NSMutableDictionary *info = [NSMutableDictionary dictionaryWithObjectsAndKeys:
@@ -480,6 +492,14 @@ void TDPerformAfterDelay(dispatch_queue_t q, double delay, void (^block)(void)) 
             [self fireDelegateDidFail:info];
         }
     }
+}
+
+
+- (void)doMouseEvent {
+    TDAssertExecuteThread();
+
+    self.state = EDCodeRunnerStateActive;
+    [self.interp interpretString:@"mouseDown()" filePath:self.filePath error:nil];
 }
 
 
