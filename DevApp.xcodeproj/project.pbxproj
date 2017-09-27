@@ -250,6 +250,8 @@
 		D37CFCB51EC8B90600068FEB /* FNBezier.m in Sources */ = {isa = PBXBuildFile; fileRef = D37CFCB41EC8B90600068FEB /* FNBezier.m */; };
 		D393578C1F7C4D39008AE4A8 /* TDDispatcherGDC.m in Sources */ = {isa = PBXBuildFile; fileRef = D393578B1F7C4D39008AE4A8 /* TDDispatcherGDC.m */; };
 		D393578F1F7C4E4F008AE4A8 /* EDBaseCodeRunner.m in Sources */ = {isa = PBXBuildFile; fileRef = D393578E1F7C4E4F008AE4A8 /* EDBaseCodeRunner.m */; };
+		D39357921F7C508D008AE4A8 /* TDDispatcherThread.m in Sources */ = {isa = PBXBuildFile; fileRef = D39357911F7C508C008AE4A8 /* TDDispatcherThread.m */; };
+		D39357961F7C5378008AE4A8 /* TDRunLoopThread.m in Sources */ = {isa = PBXBuildFile; fileRef = D39357951F7C5377008AE4A8 /* TDRunLoopThread.m */; };
 		D3D705601E6F710D00D7EA61 /* EDBreakpointCollection.m in Sources */ = {isa = PBXBuildFile; fileRef = D3D7055F1E6F710D00D7EA61 /* EDBreakpointCollection.m */; };
 		D3DA17D01E77702700492A04 /* OkudaKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3DA17CD1E77701200492A04 /* OkudaKit.framework */; };
 		D3DA17D31E77703E00492A04 /* OkudaKit.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = D3DA17CD1E77701200492A04 /* OkudaKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -864,6 +866,10 @@
 		D393578B1F7C4D39008AE4A8 /* TDDispatcherGDC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TDDispatcherGDC.m; sourceTree = "<group>"; };
 		D393578D1F7C4E4F008AE4A8 /* EDBaseCodeRunner.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EDBaseCodeRunner.h; sourceTree = "<group>"; };
 		D393578E1F7C4E4F008AE4A8 /* EDBaseCodeRunner.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EDBaseCodeRunner.m; sourceTree = "<group>"; };
+		D39357901F7C508C008AE4A8 /* TDDispatcherThread.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TDDispatcherThread.h; sourceTree = "<group>"; };
+		D39357911F7C508C008AE4A8 /* TDDispatcherThread.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TDDispatcherThread.m; sourceTree = "<group>"; };
+		D39357941F7C5377008AE4A8 /* TDRunLoopThread.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TDRunLoopThread.h; sourceTree = "<group>"; };
+		D39357951F7C5377008AE4A8 /* TDRunLoopThread.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TDRunLoopThread.m; sourceTree = "<group>"; };
 		D3D7055E1E6F710D00D7EA61 /* EDBreakpointCollection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EDBreakpointCollection.h; sourceTree = "<group>"; };
 		D3D7055F1E6F710D00D7EA61 /* EDBreakpointCollection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EDBreakpointCollection.m; sourceTree = "<group>"; };
 		D3DA17C71E77701200492A04 /* OkudaKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = OkudaKit.xcodeproj; path = lib/OkudaKit/OkudaKit.xcodeproj; sourceTree = "<group>"; };
@@ -1281,6 +1287,10 @@
 				D393577D1F7C4CB2008AE4A8 /* TDDispatcher.h */,
 				D393578A1F7C4D39008AE4A8 /* TDDispatcherGDC.h */,
 				D393578B1F7C4D39008AE4A8 /* TDDispatcherGDC.m */,
+				D39357901F7C508C008AE4A8 /* TDDispatcherThread.h */,
+				D39357911F7C508C008AE4A8 /* TDDispatcherThread.m */,
+				D39357941F7C5377008AE4A8 /* TDRunLoopThread.h */,
+				D39357951F7C5377008AE4A8 /* TDRunLoopThread.m */,
 			);
 			name = "Code Runner";
 			sourceTree = "<group>";
@@ -2122,6 +2132,7 @@
 				D3166FF51E592C6A00DEE3A0 /* EDAction.m in Sources */,
 				D3DE66041F01C899003EB91F /* FNLoop.m in Sources */,
 				D3DA17E81E77721700492A04 /* OKLanguageParser.m in Sources */,
+				D39357961F7C5378008AE4A8 /* TDRunLoopThread.m in Sources */,
 				D3369B161E36C25A00FEB7BF /* TKDocument.m in Sources */,
 				D3369ACC1E36BEED00FEB7BF /* OAPreferencesWindow.m in Sources */,
 				D3369AC41E36BEED00FEB7BF /* NSToolbar-OAExtensions.m in Sources */,
@@ -2146,6 +2157,7 @@
 				D3DE65F81F01C799003EB91F /* FNNoLoop.m in Sources */,
 				D34A55FE1E7E30C20064DF65 /* FNStrokeWeight.m in Sources */,
 				D31670CC1E5A18B900DEE3A0 /* EDFilesystemNavBar.m in Sources */,
+				D39357921F7C508D008AE4A8 /* TDDispatcherThread.m in Sources */,
 				D31E2C8C1E7D85F50023E924 /* EDCanvasView.m in Sources */,
 				D3369AB31E36BEED00FEB7BF /* IDEMainWindow.m in Sources */,
 				D3369BD81E36C73800FEB7BF /* TDDraggableBar.m in Sources */,
