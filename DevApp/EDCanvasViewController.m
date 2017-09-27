@@ -68,6 +68,7 @@
     self.metricsButton = nil;
     
     self.document = nil;
+    self.delegate = nil;
 
     [super dealloc];
 }
@@ -156,7 +157,7 @@
 
 
 #pragma mark -
-#pragma mark
+#pragma mark EDCanvasViewDelegate
 
 - (void)canvas:(EDCanvasView *)canvas didMoveUserGuide:(EDGuide *)g from:(CGPoint)oldPoint to:(CGPoint)newPoint {
     EDAssert(_canvasView);
@@ -185,6 +186,42 @@
     }
     
     [rulerView moveRulerlineFromLocation:oldLoc toLocation:newLoc];
+}
+
+
+- (void)canvas:(EDCanvasView *)canvas mouseEntered:(NSEvent *)evt {
+    TDAssertMainThread();
+    [self.delegate canvasViewController:self mouseEvent:evt];
+}
+
+
+- (void)canvas:(EDCanvasView *)canvas mouseExited:(NSEvent *)evt {
+    TDAssertMainThread();
+    [self.delegate canvasViewController:self mouseEvent:evt];
+}
+
+
+- (void)canvas:(EDCanvasView *)canvas mouseDown:(NSEvent *)evt {
+    TDAssertMainThread();
+    [self.delegate canvasViewController:self mouseEvent:evt];
+}
+
+
+- (void)canvas:(EDCanvasView *)canvas mouseUp:(NSEvent *)evt {
+    TDAssertMainThread();
+    [self.delegate canvasViewController:self mouseEvent:evt];
+}
+
+
+- (void)canvas:(EDCanvasView *)canvas mouseMoved:(NSEvent *)evt {
+    TDAssertMainThread();
+    [self.delegate canvasViewController:self mouseEvent:evt];
+}
+
+
+- (void)canvas:(EDCanvasView *)canvas mouseDragged:(NSEvent *)evt {
+    TDAssertMainThread();
+    [self.delegate canvasViewController:self mouseEvent:evt];
 }
 
 

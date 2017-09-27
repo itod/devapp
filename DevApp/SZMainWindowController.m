@@ -204,6 +204,15 @@
 
 
 #pragma mark -
+#pragma mark EDCanvasViewControllerDelegate
+
+- (void)canvasViewController:(EDCanvasViewController *)cvc mouseEvent:(NSEvent *)evt {
+    TDAssertMainThread();
+    [self.codeRunner handleMouseEvent:evt];
+}
+
+
+#pragma mark -
 #pragma mark Export
 
 - (void)enableTermination {

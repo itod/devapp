@@ -7,8 +7,9 @@
 //
 
 #import "EDMainWindowController.h"
+#import "EDCanvasViewController.h"
 
-@interface SZMainWindowController : EDMainWindowController
+@interface SZMainWindowController : EDMainWindowController <EDCanvasViewControllerDelegate>
 
 - (IBAction)toggleGridEnabled:(id)sender;
 - (IBAction)changeGridTolerance:(id)sender;

@@ -47,8 +47,6 @@ static CGColorSpaceRef sPatternColorSpace = NULL;
 @end
 
 @interface EDCanvasView ()
-@property (nonatomic, retain) NSTimer *timer;
-
 - (CGPatternRef)gridPattern;
 - (void)setGridPattern:(CGPatternRef)gridPattern;
 @end
@@ -91,6 +89,8 @@ static CGColorSpaceRef sPatternColorSpace = NULL;
 - (id)initWithFrame:(NSRect)frame {
     self = [super initWithFrame:frame];
     if (self) {
+        [[self window] setAcceptsMouseMovedEvents:YES];
+
         NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
         [nc addObserver:self selector:@selector(compositionMetricsDidChange:) name:EDCompositionMetricsDidChangeNotification object:nil];
         [nc addObserver:self selector:@selector(compositionZoomScaleDidChange:) name:EDCompositionZoomScaleDidChangeNotification object:nil];
@@ -119,7 +119,6 @@ static CGColorSpaceRef sPatternColorSpace = NULL;
     self.draggingUserGuide = nil;
 
     [self setGridPattern:NULL];
-    [self killTimer];
     
     [super dealloc];
 }
@@ -395,54 +394,25 @@ static void EDDrawPatternFunc(void *info, CGContextRef ctx) {
 
 
 #pragma mark -
-#pragma mark Right Click
+#pragma mark Mouse Events
 
-- (void)killTimer {
-    if (_timer) {
-        [_timer invalidate];
-        self.timer = nil;
-    }
+- (void)mouseEntered:(NSEvent *)evt {
+    [super mouseEntered:evt];
+    [self.delegate canvas:self mouseEntered:evt];
 }
 
 
-//- (void)displayContextMenu:(NSTimer *)t {
-//    NSEvent *evt = [_timer userInfo];
-//    
-//    NSEvent *click = [NSEvent mouseEventWithType:[evt type] 
-//                                        location:[evt locationInWindow]
-//                                   modifierFlags:[evt modifierFlags] 
-//                                       timestamp:[evt timestamp] 
-//                                    windowNumber:[evt windowNumber] 
-//                                         context:[evt context]
-//                                     eventNumber:[evt eventNumber] 
-//                                      clickCount:[evt clickCount] 
-//                                        pressure:[evt pressure]]; 
-//    
-//    NSMenu *menu = nil; //[[[self window] windowController] contextMenuForSelectionAtLocationInComposition:_lastClickedPoint];
-//    [NSMenu popUpContextMenu:menu withEvent:click forView:self];
-//    [self killTimer];
-//}
-//
-//
-//- (void)rightMouseDown:(NSEvent *)evt {
-//    _hasBegunUndoGroup = NO;
-//
-//    _lastClickedPoint = [self locationInComposition:evt];
-//
-//    [self leftMouseDownSingleClick:evt];
-//
-//    self.timer = [NSTimer timerWithTimeInterval:0.0
-//                                         target:self 
-//                                       selector:@selector(displayContextMenu:) 
-//                                       userInfo:evt 
-//                                        repeats:NO];
-//    
-//    [[NSRunLoop currentRunLoop] addTimer:_timer forMode:NSDefaultRunLoopMode];
-//} 
+- (void)mouseExited:(NSEvent *)evt {
+    [super mouseExited:evt];
+    [self.delegate canvas:self mouseExited:evt];
+}
 
 
-#pragma mark -
-#pragma mark Left Click
+- (void)mouseMoved:(NSEvent *)evt {
+    [super mouseMoved:evt];
+    [self.delegate canvas:self mouseMoved:evt];
+}
+
 
 - (void)mouseDown:(NSEvent *)evt {
     [super mouseDown:evt];
@@ -452,13 +422,63 @@ static void EDDrawPatternFunc(void *info, CGContextRef ctx) {
 
     if ([evt isControlKeyPressed]) {
         [self rightMouseDown:evt];
+    } else if (_isDragScroll) {
+        [self pushCursor:[NSCursor closedHandCursor]];
     } else {
         [self leftMouseDownSingleClick:evt];
     }
+}
+
+
+- (void)mouseUp:(NSEvent *)evt {
+    //NSLog(@"%s %d", __PRETTY_FUNCTION__, [evt clickCount]);
+    _hasMetDragThreshold = NO;
+    
+    if ([evt clickCount] > 2) return;
+    
+    if (_hasBegunUndoGroup) {
+        _hasBegunUndoGroup = NO;
+        [self endUndoGrouping];
+    }
+    
+    if (_draggingUserGuide) {
+        CGPoint p = [self convertPoint:[evt locationInWindow] fromView:nil];
+        [self userGuideMouseUp:evt atPoint:p];
+        [self endUndoGrouping];
+        return;
+    }
     
     if (_isDragScroll) {
-        [self pushCursor:[NSCursor closedHandCursor]];
+        [self popCursor];
+    } else {
+        [self.delegate canvas:self mouseUp:evt];
     }
+    
+    self.dragStartPoint = CGPointZero;
+}
+
+
+- (void)rightMouseDown:(NSEvent *)evt {
+    [super rightMouseDown:evt];
+    [self.delegate canvas:self mouseDown:evt];
+}
+
+
+- (void)rightMouseUp:(NSEvent *)evt {
+    [super rightMouseUp:evt];
+    [self.delegate canvas:self mouseUp:evt];
+}
+
+
+- (void)otherMouseDown:(NSEvent *)evt {
+    [super otherMouseDown:evt];
+    [self.delegate canvas:self mouseDown:evt];
+}
+
+
+- (void)otherMouseUp:(NSEvent *)evt {
+    [super otherMouseUp:evt];
+    [self.delegate canvas:self mouseUp:evt];
 }
 
 
@@ -474,15 +494,12 @@ static void EDDrawPatternFunc(void *info, CGContextRef ctx) {
     
     self.dragStartPoint = _lastClickedPoint;
 
-    // check for dragScroll
-    if (_isDragScroll) {
-        return;
-    }
-    
     self.draggingUserGuide = [self userGuideAtPoint:_dragStartPoint];
     if (_draggingUserGuide) {
         [[self undoManager] beginUndoGrouping];
         return;
+    } else {
+        [self.delegate canvas:self mouseDown:evt];
     }
     
     if (!CGRectIsEmpty(dirtyRect)) {
@@ -501,33 +518,6 @@ static void EDDrawPatternFunc(void *info, CGContextRef ctx) {
     [[NSCursor currentCursor] pop];
     [[self enclosingScrollView] setDocumentCursor:[NSCursor currentCursor]];
 }
-
-
-- (void)mouseUp:(NSEvent *)evt {
-    //NSLog(@"%s %d", __PRETTY_FUNCTION__, [evt clickCount]);
-    _hasMetDragThreshold = NO;
-    
-    if ([evt clickCount] > 2) return;
-        
-    if (_hasBegunUndoGroup) {
-        _hasBegunUndoGroup = NO;
-        [self endUndoGrouping];
-    }
-
-    if (_draggingUserGuide) {
-        CGPoint p = [self convertPoint:[evt locationInWindow] fromView:nil];
-        [self userGuideMouseUp:evt atPoint:p];
-        [self endUndoGrouping];
-        return;
-    }
-
-    if (_isDragScroll) {
-        [self popCursor];
-    }
-    
-    self.dragStartPoint = CGPointZero;
-}
-
 
 
 #pragma mark -

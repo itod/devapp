@@ -13,11 +13,13 @@
 @class TDStatusBarPopUpView;
 @class SZDocument;
 
-//@class EDCanvasViewController;
-//
-//@protocol EDCanvasViewControllerDelegate <NSObject>
+@class EDCanvasViewController;
+
+@protocol EDCanvasViewControllerDelegate <NSObject>
 //- (EDMetrics *)metricsForCanvasViewController:(EDCanvasViewController *)cvc;
-//@end
+
+- (void)canvasViewController:(EDCanvasViewController *)cvc mouseEvent:(NSEvent *)evt;
+@end
 
 @interface EDCanvasViewController : TDViewController <EDCanvasViewDelegate>
 - (void)update;
@@ -31,4 +33,5 @@
 @property (nonatomic, retain) IBOutlet TDStatusBarButton *metricsButton;
 
 @property (nonatomic, assign) SZDocument *document; // weakref
+@property (nonatomic, assign) id <EDCanvasViewControllerDelegate>delegate; // weakref
 @end

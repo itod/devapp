@@ -18,6 +18,13 @@ extern NSString * const EDCompositionRulerOriginDidChangeNotification;
 
 @protocol EDCanvasViewDelegate <NSObject>
 - (void)canvas:(EDCanvasView *)canvas didMoveUserGuide:(EDGuide *)g from:(CGPoint)oldPoint to:(CGPoint)newPoint;
+
+- (void)canvas:(EDCanvasView *)canvas mouseEntered:(NSEvent *)evt;
+- (void)canvas:(EDCanvasView *)canvas mouseExited:(NSEvent *)evt;
+- (void)canvas:(EDCanvasView *)canvas mouseDown:(NSEvent *)evt;
+- (void)canvas:(EDCanvasView *)canvas mouseUp:(NSEvent *)evt;
+- (void)canvas:(EDCanvasView *)canvas mouseMoved:(NSEvent *)evt;
+- (void)canvas:(EDCanvasView *)canvas mouseDragged:(NSEvent *)evt;
 @end
 
 @interface EDCanvasView : NSView
