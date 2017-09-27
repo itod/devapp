@@ -49,14 +49,6 @@ void TDPerformAfterDelay(dispatch_queue_t q, double delay, void (^block)(void)) 
     dispatch_after(popTime, q, block);
 }
 
-typedef NS_ENUM(NSUInteger, EDCodeRunnerState) {
-    EDCodeRunnerStateInactive,
-    EDCodeRunnerStateActive,
-    EDCodeRunnerStateStopped,
-    EDCodeRunnerStatePaused,
-    EDCodeRunnerStateReceivedEvent,
-};
-
 @interface EDMemoryCodeRunner ()
 @property (assign) id <EDCodeRunnerDelegate>delegate; // weakref
 @property (retain) XPInterpreter *interp;
@@ -69,10 +61,8 @@ typedef NS_ENUM(NSUInteger, EDCodeRunnerState) {
 
 @property (retain) NSRunLoop *runLoop;
 
-@property (assign) EDCodeRunnerState state;
-
-//@property (assign) BOOL stopped;
-//@property (assign) BOOL paused;
+@property (assign) BOOL stopped;
+@property (assign) BOOL paused;
 @end
 
 @implementation EDMemoryCodeRunner {
@@ -132,7 +122,7 @@ typedef NS_ENUM(NSUInteger, EDCodeRunnerState) {
 - (void)stop:(NSString *)identifier {
     TDAssertMainThread();
     
-    self.state = EDCodeRunnerStateStopped;
+    self.stopped = YES;
     NSMutableDictionary *info = [NSMutableDictionary dictionaryWithObjectsAndKeys:
                                  @YES, kEDCodeRunnerDoneKey,
                                  nil];
@@ -146,9 +136,7 @@ typedef NS_ENUM(NSUInteger, EDCodeRunnerState) {
     TDAssert([cmd length]);
     
     if ([cmd isEqualToString:@"pause"]) {
-        self.state = EDCodeRunnerStatePaused;
-    } else if ([cmd isEqualToString:@"receivedEvent"]) {
-        self.state = EDCodeRunnerStateReceivedEvent;
+        self.paused = YES;
     }
     
     NSMutableDictionary *info = [NSMutableDictionary dictionaryWithObjectsAndKeys:
@@ -171,7 +159,7 @@ typedef NS_ENUM(NSUInteger, EDCodeRunnerState) {
 
 - (void)handleMouseEvent:(NSEvent *)evt {
     TDAssertMainThread();
-    [self performCommand:@"receivedEvent" identifier:self.identifier];
+//    [self performCommand:@"receivedEvent" identifier:self.identifier];
 }
 
 
@@ -380,18 +368,15 @@ typedef NS_ENUM(NSUInteger, EDCodeRunnerState) {
     
     TDAssert(_debugSync);
     [_debugSync pauseWithInfo:inInfo];
-    self.state = EDCodeRunnerStatePaused;
     NSMutableDictionary *outInfo = [_debugSync awaitResume];
     
     BOOL done = [outInfo[kEDCodeRunnerDoneKey] boolValue];
     
     if (done) {
-        self.state = EDCodeRunnerStateInactive;
         [XPException raise:XPUserInterruptException format:@"User stopped execution."];
         return;
     }
     
-    self.state = EDCodeRunnerStateActive;
     NSMutableString *cmd = [[outInfo[kEDCodeRunnerUserCommandKey] mutableCopy] autorelease];
     TDAssert([cmd length]);
     
@@ -458,7 +443,7 @@ typedef NS_ENUM(NSUInteger, EDCodeRunnerState) {
 - (void)loop {
     TDAssertExecuteThread();
     
-    if (EDCodeRunnerStateStopped == self.state) {
+    if (self.stopped) {
         NSMutableDictionary *info = [NSMutableDictionary dictionaryWithObjectsAndKeys:
                                      @1, kEDCodeRunnerReturnCodeKey,
                                      @YES, kEDCodeRunnerDoneKey,
@@ -469,20 +454,11 @@ typedef NS_ENUM(NSUInteger, EDCodeRunnerState) {
         TDAssert(self.interp);
         
         NSError *err = nil;
-        if (EDCodeRunnerStateReceivedEvent == self.state) {
-            self.interp.paused = NO;
-            [_runLoop performSelector:@selector(doMouseEvent) withObject:nil afterDelay:0.0 inModes:NSDefaultRunLoopMode];
-//            [_runLoop performBlock:^{
-//                self.state = EDCodeRunnerStateActive;
-//                [self.interp interpretString:@"mouseDown()" filePath:self.filePath error:nil];
-//            }];
-        } else {
-            if (EDCodeRunnerStatePaused == self.state) {
-                self.interp.paused = YES;
-            }
-            
-            [self.interp interpretString:@"draw()" filePath:self.filePath error:&err];
+        if (self.paused) {
+            self.interp.paused = YES;
         }
+        
+        [self.interp interpretString:@"draw()" filePath:self.filePath error:&err];
         
         if (err) {
             NSMutableDictionary *info = [NSMutableDictionary dictionaryWithObjectsAndKeys:
@@ -492,14 +468,6 @@ typedef NS_ENUM(NSUInteger, EDCodeRunnerState) {
             [self fireDelegateDidFail:info];
         }
     }
-}
-
-
-- (void)doMouseEvent {
-    TDAssertExecuteThread();
-
-    self.state = EDCodeRunnerStateActive;
-    [self.interp interpretString:@"mouseDown()" filePath:self.filePath error:nil];
 }
 
 

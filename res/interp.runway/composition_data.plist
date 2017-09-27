@@ -1952,7 +1952,7 @@
 					<key>fillType</key>
 					<integer>0</integer>
 					<key>frame</key>
-					<string>{{313, 223}, {150, 32}}</string>
+					<string>{{313, 223}, {150, 41}}</string>
 					<key>hidden</key>
 					<false/>
 					<key>identifier</key>
