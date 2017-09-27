@@ -35,20 +35,6 @@
 #import "FNLine.h"
 #import "FNBezier.h"
 
-void PerformOnMainThread(void (^block)(void)) {
-    assert(block);
-    dispatch_async(dispatch_get_main_queue(), block);
-}
-
-void TDPerformAfterDelay(dispatch_queue_t q, double delay, void (^block)(void)) {
-    assert(block);
-    assert(delay >= 0.0);
-    
-    double delayInSeconds = delay;
-    dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
-    dispatch_after(popTime, q, block);
-}
-
 //typedef NS_ENUM(NSUInteger, EDCodeRunnerState) {
 //    EDCodeRunnerStateInactive,
 //    EDCodeRunnerStateActive,
@@ -73,27 +59,20 @@ void TDPerformAfterDelay(dispatch_queue_t q, double delay, void (^block)(void)) 
 @property (assign) BOOL paused;
 @end
 
-@implementation EDMemoryCodeRunner {
-    dispatch_queue_t _controlThread;
-    dispatch_queue_t _executeThread;
-}
+@implementation EDMemoryCodeRunner
 
 - (id)initWithDelegate:(id <EDCodeRunnerDelegate>)d {
     TDAssert(d);
     self = [super init];
     if (self) {
         self.delegate = d;
-
-        _controlThread = dispatch_queue_create("CONTROL-THREAD", DISPATCH_QUEUE_SERIAL);
-        _executeThread = dispatch_queue_create("EXECUTE-THREAD", DISPATCH_QUEUE_SERIAL);
     }
     return self;
 }
 
 
 - (void)dealloc {
-    [self killResources];
-    
+
     [super dealloc];
 }
 
@@ -108,9 +87,6 @@ void TDPerformAfterDelay(dispatch_queue_t q, double delay, void (^block)(void)) 
     self.interp = nil;
     
     self.debugSync = nil;
-
-    if (_controlThread) {dispatch_release(_controlThread), _controlThread = NULL;}
-    if (_executeThread) {dispatch_release(_executeThread), _executeThread = NULL;}
     
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 
@@ -121,38 +97,8 @@ void TDPerformAfterDelay(dispatch_queue_t q, double delay, void (^block)(void)) 
     self.stdErrPipe = nil;
     
     self.runLoop = nil;
-}
 
-
-#pragma mark -
-#pragma mark Thread Control
-
-- (void)performOnMainThread:(void (^)(void))block {
-    TDAssert(block);
-    PerformOnMainThread(^{
-        TDAssertMainThread();
-        block();
-    });
-}
-
-
-- (void)performOnControlThread:(void (^)(void))block {
-    TDAssert(block);
-    TDAssert(_controlThread);
-    dispatch_async(_controlThread, ^{
-        TDAssertControlThread();
-        block();
-    });
-}
-
-
-- (void)performOnExecuteThread:(void (^)(void))block {
-    TDAssert(block);
-    TDAssert(_executeThread);
-    dispatch_async(_executeThread, ^{
-        TDAssertExecuteThread();
-        block();
-    });
+    [super killResources];
 }
 
 
@@ -266,13 +212,12 @@ void TDPerformAfterDelay(dispatch_queue_t q, double delay, void (^block)(void)) 
 - (void)resumeWithInfo:(NSMutableDictionary *)info {
     TDAssertMainThread();
     
-    TDAssert(_controlThread);
     [self performOnControlThread:^{
-        TDAssert(_debugSync);
+        TDAssert(self.debugSync);
 
         [self fireDelegateWillResume];
 
-        [_debugSync resumeWithInfo:info];
+        [self.debugSync resumeWithInfo:info];
         [self awaitPause];
     }];
 }
@@ -285,8 +230,8 @@ void TDPerformAfterDelay(dispatch_queue_t q, double delay, void (^block)(void)) 
     // only called on CONTROL-THREAD
     TDAssertControlThread();
     
-    TDAssert(_debugSync);
-    NSMutableDictionary *info = [_debugSync awaitPause];
+    TDAssert(self.debugSync);
+    NSMutableDictionary *info = [self.debugSync awaitPause];
     
     BOOL done = [info[kEDCodeRunnerDoneKey] boolValue];
     
@@ -401,9 +346,9 @@ void TDPerformAfterDelay(dispatch_queue_t q, double delay, void (^block)(void)) 
         inInfo[kEDCodeRunnerDoneKey] = @NO;
     }
     
-    TDAssert(_debugSync);
-    [_debugSync pauseWithInfo:inInfo];
-    NSMutableDictionary *outInfo = [_debugSync awaitResume];
+    TDAssert(self.debugSync);
+    [self.debugSync pauseWithInfo:inInfo];
+    NSMutableDictionary *outInfo = [self.debugSync awaitResume];
     
     BOOL done = [outInfo[kEDCodeRunnerDoneKey] boolValue];
     
@@ -509,8 +454,8 @@ void TDPerformAfterDelay(dispatch_queue_t q, double delay, void (^block)(void)) 
 - (void)dieWithInfo:(NSMutableDictionary *)info {
     TDAssertExecuteThread();
     
-    TDAssert(_debugSync);
-    [_debugSync pauseWithInfo:info]; // allow CONTROL-THREAD to complete naturally
+    TDAssert(self.debugSync);
+    [self.debugSync pauseWithInfo:info]; // allow CONTROL-THREAD to complete naturally
     // and then don't await resume
 }
 
@@ -529,7 +474,7 @@ void TDPerformAfterDelay(dispatch_queue_t q, double delay, void (^block)(void)) 
     _interp.stdOut = _stdOutPipe.fileHandleForWriting;
     _interp.stdErr = _stdErrPipe.fileHandleForWriting;
 
-    if (_debugSync) {
+    if (self.debugSync) {
         _interp.debug = YES;
         _interp.debugDelegate = self;
         _interp.breakpointCollection = [XPBreakpointCollection fromPlist:bpPlist];

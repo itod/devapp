@@ -248,6 +248,8 @@
 		D34A566A1E7F7D0C0064DF65 /* FNStrokeCap.m in Sources */ = {isa = PBXBuildFile; fileRef = D34A56691E7F7D0C0064DF65 /* FNStrokeCap.m */; };
 		D34A566D1E7F7DC00064DF65 /* FNStrokeJoin.m in Sources */ = {isa = PBXBuildFile; fileRef = D34A566C1E7F7DC00064DF65 /* FNStrokeJoin.m */; };
 		D37CFCB51EC8B90600068FEB /* FNBezier.m in Sources */ = {isa = PBXBuildFile; fileRef = D37CFCB41EC8B90600068FEB /* FNBezier.m */; };
+		D393578C1F7C4D39008AE4A8 /* TDDispatcherGDC.m in Sources */ = {isa = PBXBuildFile; fileRef = D393578B1F7C4D39008AE4A8 /* TDDispatcherGDC.m */; };
+		D393578F1F7C4E4F008AE4A8 /* EDBaseCodeRunner.m in Sources */ = {isa = PBXBuildFile; fileRef = D393578E1F7C4E4F008AE4A8 /* EDBaseCodeRunner.m */; };
 		D3D705601E6F710D00D7EA61 /* EDBreakpointCollection.m in Sources */ = {isa = PBXBuildFile; fileRef = D3D7055F1E6F710D00D7EA61 /* EDBreakpointCollection.m */; };
 		D3DA17D01E77702700492A04 /* OkudaKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3DA17CD1E77701200492A04 /* OkudaKit.framework */; };
 		D3DA17D31E77703E00492A04 /* OkudaKit.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = D3DA17CD1E77701200492A04 /* OkudaKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -857,6 +859,11 @@
 		D34A566C1E7F7DC00064DF65 /* FNStrokeJoin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FNStrokeJoin.m; path = lang/FNStrokeJoin.m; sourceTree = "<group>"; };
 		D37CFCB31EC8B90600068FEB /* FNBezier.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FNBezier.h; path = lang/FNBezier.h; sourceTree = "<group>"; };
 		D37CFCB41EC8B90600068FEB /* FNBezier.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FNBezier.m; path = lang/FNBezier.m; sourceTree = "<group>"; };
+		D393577D1F7C4CB2008AE4A8 /* TDDispatcher.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TDDispatcher.h; sourceTree = "<group>"; };
+		D393578A1F7C4D39008AE4A8 /* TDDispatcherGDC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TDDispatcherGDC.h; sourceTree = "<group>"; };
+		D393578B1F7C4D39008AE4A8 /* TDDispatcherGDC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TDDispatcherGDC.m; sourceTree = "<group>"; };
+		D393578D1F7C4E4F008AE4A8 /* EDBaseCodeRunner.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EDBaseCodeRunner.h; sourceTree = "<group>"; };
+		D393578E1F7C4E4F008AE4A8 /* EDBaseCodeRunner.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EDBaseCodeRunner.m; sourceTree = "<group>"; };
 		D3D7055E1E6F710D00D7EA61 /* EDBreakpointCollection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EDBreakpointCollection.h; sourceTree = "<group>"; };
 		D3D7055F1E6F710D00D7EA61 /* EDBreakpointCollection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EDBreakpointCollection.m; sourceTree = "<group>"; };
 		D3DA17C71E77701200492A04 /* OkudaKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = OkudaKit.xcodeproj; path = lib/OkudaKit/OkudaKit.xcodeproj; sourceTree = "<group>"; };
@@ -1267,8 +1274,13 @@
 			isa = PBXGroup;
 			children = (
 				D31670B61E5A17D900DEE3A0 /* EDCodeRunner.h */,
+				D393578D1F7C4E4F008AE4A8 /* EDBaseCodeRunner.h */,
+				D393578E1F7C4E4F008AE4A8 /* EDBaseCodeRunner.m */,
 				D309BCC31E5B9E77002B3199 /* EDMemoryCodeRunner.h */,
 				D309BCC41E5B9E77002B3199 /* EDMemoryCodeRunner.m */,
+				D393577D1F7C4CB2008AE4A8 /* TDDispatcher.h */,
+				D393578A1F7C4D39008AE4A8 /* TDDispatcherGDC.h */,
+				D393578B1F7C4D39008AE4A8 /* TDDispatcherGDC.m */,
 			);
 			name = "Code Runner";
 			sourceTree = "<group>";
@@ -2023,8 +2035,10 @@
 				D3369BEE1E36C73800FEB7BF /* TDTabBarController.m in Sources */,
 				D3166EF11E5902A800DEE3A0 /* EDThemeRulesTableView.m in Sources */,
 				D31670851E5A14A400DEE3A0 /* EDToolbarButtonItem.m in Sources */,
+				D393578C1F7C4D39008AE4A8 /* TDDispatcherGDC.m in Sources */,
 				D3369BDA1E36C73800FEB7BF /* TDFlippedColorView.m in Sources */,
 				D3166FCD1E59292A00DEE3A0 /* AquaticPrime.m in Sources */,
+				D393578F1F7C4E4F008AE4A8 /* EDBaseCodeRunner.m in Sources */,
 				D3369B241E36C25A00FEB7BF /* TKTabModel+Scripting.m in Sources */,
 				D3369BFE1E36C73800FEB7BF /* TDUtils.m in Sources */,
 				D3369B191E36C25A00FEB7BF /* TKMainWindow.m in Sources */,

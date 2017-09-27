@@ -40,6 +40,7 @@
 
 @protocol EDCodeRunner <NSObject>
 
+@optional
 - (id)initWithDelegate:(id <EDCodeRunnerDelegate>)d;
 - (void)killResources;
 

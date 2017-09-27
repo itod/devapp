@@ -6,9 +6,9 @@
 //  Copyright © 2017 Celestial Teapot. All rights reserved.
 //
 
-#import "EDCodeRunner.h"
+#import "EDBaseCodeRunner.h"
 #import <Language/XPInterpreter.h>
 
-@interface EDMemoryCodeRunner : NSObject <EDCodeRunner, XPInterpreterDelegate, XPInterpreterDebugDelegate, NSStreamDelegate>
+@interface EDMemoryCodeRunner : EDBaseCodeRunner <XPInterpreterDelegate, XPInterpreterDebugDelegate, NSStreamDelegate>
 
 @end
