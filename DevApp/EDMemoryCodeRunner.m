@@ -125,6 +125,38 @@ void TDPerformAfterDelay(dispatch_queue_t q, double delay, void (^block)(void)) 
 
 
 #pragma mark -
+#pragma mark Thread Control
+
+- (void)performOnMainThread:(void (^)(void))block {
+    TDAssert(block);
+    PerformOnMainThread(^{
+        TDAssertMainThread();
+        block();
+    });
+}
+
+
+- (void)performOnControlThread:(void (^)(void))block {
+    TDAssert(block);
+    TDAssert(_controlThread);
+    dispatch_async(_controlThread, ^{
+        TDAssertControlThread();
+        block();
+    });
+}
+
+
+- (void)performOnExecuteThread:(void (^)(void))block {
+    TDAssert(block);
+    TDAssert(_executeThread);
+    dispatch_async(_executeThread, ^{
+        TDAssertExecuteThread();
+        block();
+    });
+}
+
+
+#pragma mark -
 #pragma mark EDCodeRunner
 
 - (void)stop:(NSString *)identifier {
@@ -190,28 +222,23 @@ void TDPerformAfterDelay(dispatch_queue_t q, double delay, void (^block)(void)) 
     _stdOutPipe.fileHandleForReading.readabilityHandler = ^(NSFileHandle *fh) {
         NSString *msg = [[[NSString alloc] initWithData:fh.availableData encoding:NSUTF8StringEncoding] autorelease];
         
-        PerformOnMainThread(^{
+        [self performOnMainThread:^{
             TDAssert(_delegate);
             [_delegate codeRunner:_identifier messageFromStdOut:msg];
-        });
+        }];
     };
 
     _stdErrPipe.fileHandleForReading.readabilityHandler = ^(NSFileHandle *fh) {
         NSString *msg = [[[NSString alloc] initWithData:fh.availableData encoding:NSUTF8StringEncoding] autorelease];
         
-        PerformOnMainThread(^{
+        [self performOnMainThread:^{
             TDAssert(_delegate);
             [_delegate codeRunner:_identifier messageFromStdErr:msg];
-        });
+        }];
     };
 
-    TDAssert(_controlThread);
-    dispatch_async(_controlThread, ^{
-        TDAssertControlThread();
-        
-        TDAssert(_executeThread);
-        dispatch_async(_executeThread, ^{
-            
+    [self performOnControlThread:^{
+        [self performOnExecuteThread:^{
             // load source str
             NSError *err = nil;
             NSString *srcStr = [NSString stringWithContentsOfFile:userCmd encoding:NSUTF8StringEncoding error:&err];
@@ -224,12 +251,12 @@ void TDPerformAfterDelay(dispatch_queue_t q, double delay, void (^block)(void)) 
                 [self fireDelegateDidFail:info];
                 return;
             }
-
+            
             [self doRun:srcStr filePath:userCmd breakpoints:bpPlist];
-        });
+        }];
         
         [self awaitPause];
-    });
+    }];
 }
 
 
@@ -240,14 +267,14 @@ void TDPerformAfterDelay(dispatch_queue_t q, double delay, void (^block)(void)) 
     TDAssertMainThread();
     
     TDAssert(_controlThread);
-    dispatch_async(_controlThread, ^{
+    [self performOnControlThread:^{
         TDAssert(_debugSync);
 
         [self fireDelegateWillResume];
 
         [_debugSync resumeWithInfo:info];
         [self awaitPause];
-    });
+    }];
 }
 
 
@@ -280,11 +307,11 @@ void TDPerformAfterDelay(dispatch_queue_t q, double delay, void (^block)(void)) 
     // called on EXECUTE-THREAD
     TDAssertExecuteThread();
     
-    PerformOnMainThread(^{
+    [self performOnMainThread:^{
         TDAssert(self.delegate);
         TDAssert(self.identifier);
         [self.delegate codeRunnerDidStartup:self.identifier];
-    });
+    }];
 
 }
 
@@ -293,11 +320,11 @@ void TDPerformAfterDelay(dispatch_queue_t q, double delay, void (^block)(void)) 
     // called on EXECUTE-THREAD
     TDAssertExecuteThread();
     
-    PerformOnMainThread(^{
+    [self performOnMainThread:^{
         TDAssert(self.delegate);
         TDAssert(self.identifier);
         [self.delegate codeRunnerWillCallSetup:self.identifier];
-    });
+    }];
 
 }
 
@@ -306,11 +333,11 @@ void TDPerformAfterDelay(dispatch_queue_t q, double delay, void (^block)(void)) 
     // called on CONTROL-THREAD
     TDAssertControlThread();
     
-    PerformOnMainThread(^{
+    [self performOnMainThread:^{
         TDAssert(self.delegate);
         TDAssert(self.identifier);
         [self.delegate codeRunner:self.identifier didPause:info];
-    });
+    }];
 }
 
 
@@ -318,11 +345,11 @@ void TDPerformAfterDelay(dispatch_queue_t q, double delay, void (^block)(void)) 
     // called on CONTROL-THREAD
     TDAssertControlThread();
     
-    PerformOnMainThread(^{
+    [self performOnMainThread:^{
         TDAssert(self.delegate);
         TDAssert(self.identifier);
         [self.delegate codeRunnerWillResume:self.identifier];
-    });
+    }];
 }
 
 
@@ -330,11 +357,11 @@ void TDPerformAfterDelay(dispatch_queue_t q, double delay, void (^block)(void)) 
     // called on CONTROL-THREAD or EXECUTE-THREAD
     TDAssertNotMainThread();
     
-    PerformOnMainThread(^{
+    [self performOnMainThread:^{
         TDAssert(self.delegate);
         TDAssert(self.identifier);
         [self.delegate codeRunner:self.identifier didSucceed:info];
-    });
+    }];
 }
 
 
@@ -342,11 +369,11 @@ void TDPerformAfterDelay(dispatch_queue_t q, double delay, void (^block)(void)) 
     // called on CONTROL-THREAD or EXECUTE-THREAD
     TDAssertNotMainThread();
     
-    PerformOnMainThread(^{
+    [self performOnMainThread:^{
         TDAssert(self.delegate);
         TDAssert(self.identifier);
         [self.delegate codeRunner:self.identifier didFail:info];
-    });
+    }];
 }
 
 
@@ -354,11 +381,11 @@ void TDPerformAfterDelay(dispatch_queue_t q, double delay, void (^block)(void)) 
     // called on CONTROL-THREAD or EXECUTE-THREAD
     TDAssertNotMainThread();
     
-    PerformOnMainThread(^{
+    [self performOnMainThread:^{
         TDAssert(self.delegate);
         TDAssert(self.identifier);
         [self.delegate codeRunner:self.identifier didUpdate:info];
-    });
+    }];
 }
 
 
