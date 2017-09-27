@@ -38,6 +38,10 @@
     self.exportAccessoryView = nil;
     self.exportTabView = nil;
     
+    self.canvasViewController.document = nil;
+    self.canvasViewController.delegate = nil;
+    self.canvasViewController = nil;
+
     [super dealloc];
 }
 
@@ -61,7 +65,8 @@
     [self updateCanvasPreferredSplitWidth];
     
     self.canvasViewController.document = [self document];
-    
+    self.canvasViewController.delegate = self;
+
     if ([[EDUserDefaults instance] canvasViewVisible]) {
         [self.outerUberView openRightTopView:nil];
     }
