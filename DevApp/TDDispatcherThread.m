@@ -21,6 +21,9 @@
     if (self) {
         self.controlThread = [[[TDRunLoopThread alloc] initWithName:@"CONTROL"] autorelease];
         self.executeThread = [[[TDRunLoopThread alloc] initWithName:@"EXECUTE"] autorelease];
+
+        [self.controlThread start];
+        [self.executeThread start];
     }
     return self;
 }

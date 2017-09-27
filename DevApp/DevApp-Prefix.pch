@@ -30,8 +30,8 @@
 #define TDAssertMainThread() NSAssert1([NSThread isMainThread], @"%s should be called on the main thread only.", __PRETTY_FUNCTION__);
 #define TDAssertNotMainThread() NSAssert1(![NSThread isMainThread], @"%s should be called on the main thread only.", __PRETTY_FUNCTION__);
 
-#define TDAssertControlThread() NSAssert1(0==strcmp("CONTROL-THREAD", dispatch_queue_get_label(DISPATCH_CURRENT_QUEUE_LABEL)), @"%s should be called on the CONTROL-THREAD only.", __PRETTY_FUNCTION__);
-#define TDAssertExecuteThread() NSAssert1(0==strcmp("EXECUTE-THREAD", dispatch_queue_get_label(DISPATCH_CURRENT_QUEUE_LABEL)), @"%s should be called on the EXECUTE-THREAD only.", __PRETTY_FUNCTION__);
+#define TDAssertControlThread() NSAssert1(0==strcmp("CONTROL-THREAD", dispatch_queue_get_label(DISPATCH_CURRENT_QUEUE_LABEL))||[[[NSThread currentThread] name] isEqualToString:@"CONTROL-THREAD"], @"%s should be called on the CONTROL-THREAD only.", __PRETTY_FUNCTION__);
+#define TDAssertExecuteThread() NSAssert1(0==strcmp("EXECUTE-THREAD", dispatch_queue_get_label(DISPATCH_CURRENT_QUEUE_LABEL))||[[[NSThread currentThread] name] isEqualToString:@"EXECUTE-THREAD"], @"%s should be called on the EXECUTE-THREAD only.", __PRETTY_FUNCTION__);
 
 #define IDEAssert(b) NSAssert2((b), @" %s : assert(%@)", __PRETTY_FUNCTION__, @#b);
 #define IDEAssertMainThread() NSAssert1([NSThread isMainThread], @"%s should be called on the main thread only.", __PRETTY_FUNCTION__);

@@ -7,7 +7,14 @@
 //
 
 #import "EDBaseCodeRunner.h"
+
+#define USE_GCD 1
+
+#if USE_GCD
 #import "TDDispatcherGDC.h"
+#else
+#import "TDDispatcherThread.h"
+#endif
 
 @interface EDBaseCodeRunner ()
 @property (retain) id <TDDispatcher>dispatcher;
@@ -18,7 +25,11 @@
 - (instancetype)init {
     self = [super init];
     if (self) {
+#if USE_GCD
         self.dispatcher = [[[TDDispatcherGDC alloc] init] autorelease];
+#else
+        self.dispatcher = [[[TDDispatcherThread alloc] init] autorelease];
+#endif
     }
     return self;
 }
