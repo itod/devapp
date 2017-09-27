@@ -49,6 +49,14 @@ void TDPerformAfterDelay(dispatch_queue_t q, double delay, void (^block)(void)) 
     dispatch_after(popTime, q, block);
 }
 
+//typedef NS_ENUM(NSUInteger, EDCodeRunnerState) {
+//    EDCodeRunnerStateInactive,
+//    EDCodeRunnerStateActive,
+//    EDCodeRunnerStateStopped,
+//    EDCodeRunnerStatePaused,
+//    EDCodeRunnerStateReceivedEvent,
+//};
+
 @interface EDMemoryCodeRunner ()
 @property (assign) id <EDCodeRunnerDelegate>delegate; // weakref
 @property (retain) XPInterpreter *interp;
