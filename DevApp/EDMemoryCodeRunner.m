@@ -59,6 +59,8 @@ void TDPerformAfterDelay(dispatch_queue_t q, double delay, void (^block)(void)) 
 @property (retain) NSPipe *stdOutPipe;
 @property (retain) NSPipe *stdErrPipe;
 
+@property (retain) NSRunLoop *runLoop;
+
 @property (assign) BOOL stopped;
 @property (assign) BOOL paused;
 @end
@@ -109,6 +111,8 @@ void TDPerformAfterDelay(dispatch_queue_t q, double delay, void (^block)(void)) 
     
     self.stdOutPipe = nil;
     self.stdErrPipe = nil;
+    
+    self.runLoop = nil;
 }
 
 
@@ -155,10 +159,15 @@ void TDPerformAfterDelay(dispatch_queue_t q, double delay, void (^block)(void)) 
 - (void)handleMouseEvent:(NSEvent *)evt {
     TDAssertMainThread();
 
-//    TDAssert(_executeThread);
-//    dispatch_async(_executeThread, ^{
-//        [[NSRunLoop currentRunLoop] performSelector:@selector(foo) withObject:nil afterDelay:0.0];
-//    });
+    TDAssert(_executeThread);
+    dispatch_async(_executeThread, ^{
+        TDAssert(_runLoop);
+        [_runLoop performBlock:^{
+            TDAssertExecuteThread();
+            
+            NSLog(@"hi");
+        }];
+    });
 }
 
 
@@ -420,9 +429,10 @@ void TDPerformAfterDelay(dispatch_queue_t q, double delay, void (^block)(void)) 
 }
 
 
-- (BOOL)runLoop {
+- (BOOL)doRunLoop {
     TDAssertExecuteThread();
 
+    self.runLoop = [NSRunLoop currentRunLoop];
     BOOL repeats = [[SZApplication instance] loopForIdentifier:self.identifier];
 
     if (repeats) {
@@ -431,13 +441,14 @@ void TDPerformAfterDelay(dispatch_queue_t q, double delay, void (^block)(void)) 
             [self loop];
         }];
         
-        [[NSRunLoop currentRunLoop] addTimer:t forMode:NSDefaultRunLoopMode];
+        [_runLoop addTimer:t forMode:NSDefaultRunLoopMode];
     }
     
     [self loop]; // first loop iter
-    [[NSRunLoop currentRunLoop] run]; // run the loop
+    [_runLoop run]; // run the loop
 
-    return repeats;
+    BOOL done = !repeats;
+    return done;
 }
 
 
@@ -523,7 +534,7 @@ void TDPerformAfterDelay(dispatch_queue_t q, double delay, void (^block)(void)) 
     }
     
     if (!err) {
-        BOOL done = [self runLoop];
+        BOOL done = [self doRunLoop];
         [self pauseWithInfo:[[@{kEDCodeRunnerDoneKey:@(done)} mutableCopy] autorelease]];
     } else {
         [self dieWithInfo:info];
