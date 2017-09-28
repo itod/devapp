@@ -261,7 +261,32 @@ void TDPerformAfterDelay(dispatch_queue_t q, double delay, void (^block)(void)) 
                                              nil];
                 [self fireDelegateDidFail:info];
             } else {
-                [self pauseWithInfo:[[@{kEDCodeRunnerDoneKey:@YES} mutableCopy] autorelease]];
+                NSError *err = nil;
+                
+                // LOOP
+                BOOL loops = [[SZApplication instance] loopForIdentifier:self.identifier];
+                static useconds_t sDuration = 1000000.0/30.0;
+                while (loops) {
+                    usleep(sDuration);
+                    if (self.stopped) break;
+                    if (self.paused) {
+                        [self pauseWithInfo:[[@{kEDCodeRunnerDoneKey: @NO} mutableCopy] autorelease]];
+                    }
+                    err = [self draw];
+                    if (err) break;
+                    
+                    loops = [[SZApplication instance] loopForIdentifier:self.identifier];
+                }
+                NSMutableDictionary *info = [NSMutableDictionary dictionaryWithObjectsAndKeys:
+                                             @YES, kEDCodeRunnerDoneKey,
+                                             nil];
+                if (err) {
+                    [info setObject:err forKey:kEDCodeRunnerErrorKey];
+                    [info setObject:@1 forKey:kEDCodeRunnerReturnCodeKey];
+                } else {
+                    [info setObject:@0 forKey:kEDCodeRunnerReturnCodeKey];
+                }
+                [self pauseWithInfo:info];
             }
         }
         
@@ -446,10 +471,7 @@ void TDPerformAfterDelay(dispatch_queue_t q, double delay, void (^block)(void)) 
     }
     
     TDAssert(_interp);
-    if ([@"draw" isEqualToString:prefix]) {
-        [self draw];
-//        [self pauseWithInfo:inInfo];
-    } else if ([@"pause" isEqualToString:prefix]) {
+    if ([@"pause" isEqualToString:prefix]) {
         [_interp pause];
     } else if ([@"c" isEqualToString:prefix] || [@"continue" isEqualToString:prefix]) {
         [_interp cont];
@@ -514,9 +536,9 @@ void TDPerformAfterDelay(dispatch_queue_t q, double delay, void (^block)(void)) 
         }
     }
     
-    if (!err) {
-        err = [self draw];
-    }
+//    if (!err) {
+//        err = [self draw];
+//    }
     
     return err;
 }
@@ -526,33 +548,33 @@ void TDPerformAfterDelay(dispatch_queue_t q, double delay, void (^block)(void)) 
     NSError *err = nil;
     [self.interp interpretString:@"draw()" filePath:self.filePath error:&err];
     
-    BOOL loops = [[SZApplication instance] loopForIdentifier:self.identifier];
-    if (loops) {
-        [self scheduleDraw];
-    }
+//    BOOL loops = [[SZApplication instance] loopForIdentifier:self.identifier];
+//    if (loops) {
+//        [self scheduleDraw];
+//    }
 
     return err;
 }
 
 
-- (void)scheduleDraw {
-    // from main queue?
-    TDPerformAfterDelay(dispatch_get_main_queue(), 1.0/30.0, ^{
-        
-        //[self resumeWithInfo:[[@{kEDCodeRunnerUserCommandKey: @"draw"} mutableCopy] autorelease]];
-        
-        [self performOnControlThread:^{
-            [self performOnExecuteThread:^NSError *{
-                [FNAbstractFunction setIdentifier:self.identifier];
-                //[self fireDelegateDidStartup];
-                
-                id err = [self draw];
-                return err;
-            }];
-            [self awaitPause];
-        }];
-    });
-}
+//- (void)scheduleDraw {
+//    // from main queue?
+//    TDPerformAfterDelay(dispatch_get_main_queue(), 1.0/30.0, ^{
+//
+//        //[self resumeWithInfo:[[@{kEDCodeRunnerUserCommandKey: @"draw"} mutableCopy] autorelease]];
+//
+//        [self performOnControlThread:^{
+//            [self performOnExecuteThread:^NSError *{
+//                [FNAbstractFunction setIdentifier:self.identifier];
+//                //[self fireDelegateDidStartup];
+//
+//                id err = [self draw];
+//                return err;
+//            }];
+//            [self awaitPause];
+//        }];
+//    });
+//}
 
 
 #pragma mark -
