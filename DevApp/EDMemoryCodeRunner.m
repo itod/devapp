@@ -261,13 +261,7 @@ void TDPerformAfterDelay(dispatch_queue_t q, double delay, void (^block)(void)) 
                                              nil];
                 [self fireDelegateDidFail:info];
             } else {
-                BOOL loops = [[SZApplication instance] loopForIdentifier:self.identifier];
-                
-                if (loops) {
-                    [self scheduleDraw];
-                }
-                
-                [self pauseWithInfo:[[@{kEDCodeRunnerDoneKey:@(!loops)} mutableCopy] autorelease]];
+                [self pauseWithInfo:[[@{kEDCodeRunnerDoneKey:@YES} mutableCopy] autorelease]];
             }
         }
         
@@ -312,6 +306,7 @@ void TDPerformAfterDelay(dispatch_queue_t q, double delay, void (^block)(void)) 
             [self fireDelegateDidFail:info];
         }
     } else {
+        // TODO must distinguish sleep (waiting for scheduled draw) vs paused (hit bp)
         [self fireDelegateDidPause:info];
     }
 }
@@ -451,7 +446,10 @@ void TDPerformAfterDelay(dispatch_queue_t q, double delay, void (^block)(void)) 
     }
     
     TDAssert(_interp);
-    if ([@"pause" isEqualToString:prefix]) {
+    if ([@"draw" isEqualToString:prefix]) {
+        [self draw];
+//        [self pauseWithInfo:inInfo];
+    } else if ([@"pause" isEqualToString:prefix]) {
         [_interp pause];
     } else if ([@"c" isEqualToString:prefix] || [@"continue" isEqualToString:prefix]) {
         [_interp cont];
@@ -527,16 +525,29 @@ void TDPerformAfterDelay(dispatch_queue_t q, double delay, void (^block)(void)) 
 - (NSError *)draw {
     NSError *err = nil;
     [self.interp interpretString:@"draw()" filePath:self.filePath error:&err];
+    
+    BOOL loops = [[SZApplication instance] loopForIdentifier:self.identifier];
+    if (loops) {
+        [self scheduleDraw];
+    }
+
     return err;
 }
 
 
 - (void)scheduleDraw {
     // from main queue?
-    TDPerformAfterDelay(dispatch_get_main_queue(), 60.0/30.0, ^{
+    TDPerformAfterDelay(dispatch_get_main_queue(), 1.0/30.0, ^{
+        
+        //[self resumeWithInfo:[[@{kEDCodeRunnerUserCommandKey: @"draw"} mutableCopy] autorelease]];
+        
         [self performOnControlThread:^{
             [self performOnExecuteThread:^NSError *{
-                return [self draw];
+                [FNAbstractFunction setIdentifier:self.identifier];
+                //[self fireDelegateDidStartup];
+                
+                id err = [self draw];
+                return err;
             }];
             [self awaitPause];
         }];
