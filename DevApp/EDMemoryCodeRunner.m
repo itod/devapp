@@ -45,7 +45,7 @@
 //    EDCodeRunnerStateReceivedEvent,
 //};
 
-typedef NSError *(^EDExecuteBlock)(void);
+//typedef NSError *(^EDExecuteBlock)(void);
 
 void TDPerformAfterDelay(dispatch_queue_t q, double delay, void (^block)(void)) {
     assert(block);
@@ -233,64 +233,8 @@ void TDPerformAfterDelay(dispatch_queue_t q, double delay, void (^block)(void)) 
 }
 
 
-- (void)performOnExecuteThread:(EDExecuteBlock)block {
-    [self.dispatcher performOnExecuteThread:^ {
-
-        if (self.stopped) {
-            NSError *err = [NSError errorWithDomain:XPErrorDomain
-                                               code:0
-                                           userInfo:@{NSLocalizedDescriptionKey: XPUserInterruptException}];
-            NSMutableDictionary *info = [NSMutableDictionary dictionaryWithObjectsAndKeys:
-                                         @1, kEDCodeRunnerReturnCodeKey,
-                                         @YES, kEDCodeRunnerDoneKey,
-                                         err, kEDCodeRunnerErrorKey,
-                                         nil];
-            [self pauseWithInfo:info];
-        } else {
-            if (self.paused) {
-                TDAssert(self.interp);
-                self.interp.paused = YES;
-            }
-
-            NSError *err = block();
-            
-            if (err) {
-                NSMutableDictionary *info = [NSMutableDictionary dictionaryWithObjectsAndKeys:
-                                             @1, kEDCodeRunnerReturnCodeKey,
-                                             err, kEDCodeRunnerErrorKey,
-                                             nil];
-                [self fireDelegateDidFail:info];
-            } else {
-                NSError *err = nil;
-                
-                // LOOP
-                BOOL loops = [[SZApplication instance] loopForIdentifier:self.identifier];
-                static useconds_t sDuration = 1000000.0/30.0;
-                while (loops) {
-                    usleep(sDuration);
-                    if (self.stopped) break;
-                    if (self.paused) {
-                        [self pauseWithInfo:[[@{kEDCodeRunnerDoneKey: @NO} mutableCopy] autorelease]];
-                    }
-                    err = [self draw];
-                    if (err) break;
-                    
-                    loops = [[SZApplication instance] loopForIdentifier:self.identifier];
-                }
-                NSMutableDictionary *info = [NSMutableDictionary dictionaryWithObjectsAndKeys:
-                                             @YES, kEDCodeRunnerDoneKey,
-                                             nil];
-                if (err) {
-                    [info setObject:err forKey:kEDCodeRunnerErrorKey];
-                    [info setObject:@1 forKey:kEDCodeRunnerReturnCodeKey];
-                } else {
-                    [info setObject:@0 forKey:kEDCodeRunnerReturnCodeKey];
-                }
-                [self pauseWithInfo:info];
-            }
-        }
-        
-    }];
+- (void)performOnExecuteThread:(void (^)(void))block {
+    [self.dispatcher performOnExecuteThread:block];
 }
 
 
@@ -536,10 +480,44 @@ void TDPerformAfterDelay(dispatch_queue_t q, double delay, void (^block)(void)) 
         }
     }
     
-//    if (!err) {
-//        err = [self draw];
-//    }
-    
+    // LOOP
+    {
+        NSError *err = nil;
+        static useconds_t sDuration = 1000000.0/30.0;
+
+        BOOL loops = YES;
+        while (loops) {
+            if (self.stopped) {
+                err = [NSError errorWithDomain:XPErrorDomain code:0 userInfo:@{NSLocalizedDescriptionKey: XPUserInterruptException}];
+                break;
+            }
+            if (self.paused) {
+                TDAssert(self.interp);
+                self.interp.paused = YES;
+                [self pauseWithInfo:[[@{kEDCodeRunnerDoneKey: @NO} mutableCopy] autorelease]];
+            }
+            err = [self draw];
+            if (err) break;
+            
+            loops = [[SZApplication instance] loopForIdentifier:self.identifier];
+            if (loops) {
+                usleep(sDuration);
+            }
+        }
+        
+        NSMutableDictionary *info = [NSMutableDictionary dictionaryWithObjectsAndKeys:
+                                     @YES, kEDCodeRunnerDoneKey,
+                                     nil];
+        if (err) {
+            [info setObject:err forKey:kEDCodeRunnerErrorKey];
+            [info setObject:@1 forKey:kEDCodeRunnerReturnCodeKey];
+            [self fireDelegateDidFail:info]; // ??
+        } else {
+            [info setObject:@0 forKey:kEDCodeRunnerReturnCodeKey];
+            [self pauseWithInfo:info];
+        }
+    }
+
     return err;
 }
 
@@ -547,34 +525,8 @@ void TDPerformAfterDelay(dispatch_queue_t q, double delay, void (^block)(void)) 
 - (NSError *)draw {
     NSError *err = nil;
     [self.interp interpretString:@"draw()" filePath:self.filePath error:&err];
-    
-//    BOOL loops = [[SZApplication instance] loopForIdentifier:self.identifier];
-//    if (loops) {
-//        [self scheduleDraw];
-//    }
-
     return err;
 }
-
-
-//- (void)scheduleDraw {
-//    // from main queue?
-//    TDPerformAfterDelay(dispatch_get_main_queue(), 1.0/30.0, ^{
-//
-//        //[self resumeWithInfo:[[@{kEDCodeRunnerUserCommandKey: @"draw"} mutableCopy] autorelease]];
-//
-//        [self performOnControlThread:^{
-//            [self performOnExecuteThread:^NSError *{
-//                [FNAbstractFunction setIdentifier:self.identifier];
-//                //[self fireDelegateDidStartup];
-//
-//                id err = [self draw];
-//                return err;
-//            }];
-//            [self awaitPause];
-//        }];
-//    });
-//}
 
 
 #pragma mark -
