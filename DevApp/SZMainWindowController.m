@@ -213,7 +213,49 @@
 
 - (void)canvasViewController:(EDCanvasViewController *)cvc mouseEvent:(NSEvent *)evt {
     TDAssertMainThread();
-    [self.codeRunner handleMouseEvent:evt];
+    
+    NSString *type = nil;
+    switch ([evt type]) {
+        case NSEventTypeLeftMouseDown:
+        case NSEventTypeRightMouseDown:
+        case NSEventTypeOtherMouseDown:
+            type = @"mouseDown";
+            break;
+        case NSEventTypeLeftMouseUp:
+        case NSEventTypeRightMouseUp:
+        case NSEventTypeOtherMouseUp:
+            type = @"mouseUp";
+            break;
+        case NSEventTypeLeftMouseDragged:
+        case NSEventTypeRightMouseDragged:
+        case NSEventTypeOtherMouseDragged:
+            type = @"mouseDragged";
+            break;
+        case NSEventTypeMouseMoved:
+            type = @"mouseMoved";
+            break;
+        case NSEventTypeMouseEntered:
+            type = @"mouseEntered";
+            break;
+        case NSEventTypeMouseExited:
+            type = @"mouseExited";
+            break;
+        default:
+            TDAssert(0);
+            break;
+    }
+    
+    CGPoint loc = evt.locationInWindow;
+    loc = [self.canvasViewController.canvasView convertPoint:loc fromView:nil];
+    loc = [self.canvasViewController.canvasView convertPointToComposition:loc];
+    
+    id evtTab = @{
+        @"type": type,
+        @"mouseLocation": [NSValue valueWithPoint:loc],
+        @"buttonNumber": @([evt buttonNumber]),
+    };
+
+    [self.codeRunner handleEvent:evtTab];
 }
 
 

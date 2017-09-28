@@ -12,6 +12,7 @@
 @property (nonatomic, retain) NSMutableDictionary *contextTab;
 @property (nonatomic, retain) NSMutableDictionary *stackTab;
 @property (nonatomic, retain) NSMutableDictionary *loopTab;
+@property (nonatomic, retain) NSMutableDictionary *redrawTab;
 @end
 
 @implementation SZApplication
@@ -22,6 +23,7 @@
         self.contextTab = [NSMutableDictionary dictionary];
         self.stackTab = [NSMutableDictionary dictionary];
         self.loopTab = [NSMutableDictionary dictionary];
+        self.redrawTab = [NSMutableDictionary dictionary];
     }
     return self;
 }
@@ -31,6 +33,7 @@
     self.contextTab = nil;
     self.stackTab = nil;
     self.loopTab = nil;
+    self.redrawTab = nil;
     [super dealloc];
 }
 
@@ -97,6 +100,28 @@
     id val = @(yn);
     @synchronized(_loopTab) {
         [_loopTab setObject:val forKey:identifier];
+    }
+}
+
+
+- (BOOL)redrawForIdentifier:(NSString *)identifier {
+    TDAssert([identifier length]);
+    TDAssert(_redrawTab);
+    id val = nil;
+    @synchronized(_redrawTab) {
+        val = [_redrawTab objectForKey:identifier];
+    }
+    TDAssert(val);
+    return [val boolValue];
+}
+
+
+- (void)setRedraw:(BOOL)yn forIdentifier:(NSString *)identifier {
+    TDAssert([identifier length]);
+    TDAssert(_redrawTab);
+    id val = @(yn);
+    @synchronized(_redrawTab) {
+        [_redrawTab setObject:val forKey:identifier];
     }
 }
 

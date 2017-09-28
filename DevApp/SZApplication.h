@@ -19,4 +19,7 @@
 - (BOOL)loopForIdentifier:(NSString *)identifier;
 - (void)setLoop:(BOOL)yn forIdentifier:(NSString *)identifier;
 
+- (BOOL)redrawForIdentifier:(NSString *)identifier;
+- (void)setRedraw:(BOOL)yn forIdentifier:(NSString *)identifier;
+
 @end

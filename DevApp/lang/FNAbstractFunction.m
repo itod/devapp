@@ -186,4 +186,16 @@
     [[SZApplication instance] setLoop:yn forIdentifier:[[self class] identifier]];
 }
 
+
+- (BOOL)redraw {
+    TDAssertExecuteThread();
+    return [[SZApplication instance] redrawForIdentifier:[[self class] identifier]];
+}
+
+
+- (void)setRedraw:(BOOL)yn {
+    TDAssertExecuteThread();
+    [[SZApplication instance] setRedraw:yn forIdentifier:[[self class] identifier]];
+}
+
 @end

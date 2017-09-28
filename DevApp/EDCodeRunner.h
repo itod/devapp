@@ -54,7 +54,7 @@
 - (void)setAllBreakpoints:(NSArray *)bpPlist identifier:(NSString *)identifier;
 - (void)clearAllBreakpoints:(NSString *)identifier;
 
-- (void)handleMouseEvent:(NSEvent *)evt;
+- (void)handleEvent:(NSDictionary *)evtTab;
 
 - (void)run:(NSString *)userCmd inWorkingDirectory:(NSString *)workingDir exePath:(NSString *)exePath env:(NSDictionary *)envVars breakpointsEnabled:(BOOL)bpEnabled breakpoints:(id)bpPlist identifier:(NSString *)identifier;
 @end

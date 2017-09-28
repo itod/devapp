@@ -89,8 +89,6 @@ static CGColorSpaceRef sPatternColorSpace = NULL;
 - (id)initWithFrame:(NSRect)frame {
     self = [super initWithFrame:frame];
     if (self) {
-        [[self window] setAcceptsMouseMovedEvents:YES];
-
         NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
         [nc addObserver:self selector:@selector(compositionMetricsDidChange:) name:EDCompositionMetricsDidChangeNotification object:nil];
         [nc addObserver:self selector:@selector(compositionZoomScaleDidChange:) name:EDCompositionZoomScaleDidChangeNotification object:nil];
@@ -140,6 +138,20 @@ static CGColorSpaceRef sPatternColorSpace = NULL;
 - (BOOL)acceptsFirstResponder { 
     return YES; 
 }
+
+
+- (void)viewDidMoveToWindow {
+    [super viewDidMoveToWindow];
+    
+    NSWindow *win = [self window];
+    if (win) {
+        [[self window] setAcceptsMouseMovedEvents:YES];
+    }
+}
+
+
+#pragma mark -
+#pragma mark NSResponder
 
 
 - (void)keyDown:(NSEvent *)evt {

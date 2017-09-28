@@ -18,4 +18,5 @@
 @property (nonatomic, assign) NSGraphicsContext *canvasGraphicsContext;
 @property (nonatomic, assign, readonly) NSMutableArray *strokeWeightStack;
 @property (nonatomic, assign) BOOL loop;
+@property (nonatomic, assign) BOOL redraw;
 @end

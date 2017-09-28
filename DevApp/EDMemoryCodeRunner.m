@@ -16,6 +16,7 @@
 #import <Language/Language.h>
 #import "XPMemorySpace.h"
 
+#import "FNRedraw.h"
 #import "FNLoop.h"
 #import "FNNoLoop.h"
 #import "FNNoStroke.h"
@@ -67,9 +68,9 @@ void TDPerformAfterDelay(dispatch_queue_t q, double delay, void (^block)(void)) 
 @property (retain) NSPipe *stdOutPipe;
 @property (retain) NSPipe *stdErrPipe;
 
-@property (retain) TDTrigger *trigger;
 @property (retain) id <TDDispatcher>dispatcher;
-@property (retain) NSEvent *mouseEvent;
+@property (retain) TDTrigger *trigger;
+@property (retain) NSDictionary *event;
 
 @property (assign) BOOL stopped;
 @property (assign) BOOL paused;
@@ -86,7 +87,6 @@ void TDPerformAfterDelay(dispatch_queue_t q, double delay, void (^block)(void)) 
     if (self) {
         self.delegate = d;
         _triggerFireQueue = dispatch_queue_create("TRIGGER-FIRE-THREAD", DISPATCH_QUEUE_SERIAL);
-        _mouseLocation = CGPointZero;
     }
     return self;
 }
@@ -120,8 +120,9 @@ void TDPerformAfterDelay(dispatch_queue_t q, double delay, void (^block)(void)) 
     self.stdOutPipe = nil;
     self.stdErrPipe = nil;
     
-    self.trigger = nil;
     self.dispatcher = nil;
+    self.trigger = nil;
+    self.event = nil;
 }
 
 
@@ -166,9 +167,9 @@ void TDPerformAfterDelay(dispatch_queue_t q, double delay, void (^block)(void)) 
 }
 
 
-- (void)handleMouseEvent:(NSEvent *)evt {
+- (void)handleEvent:(NSDictionary *)evtTab {
     TDAssertMainThread();
-    self.mouseEvent = [[evt copy] autorelease];
+    self.event = [[evtTab copy] autorelease];
     [self.trigger fire];
 }
 
@@ -495,7 +496,10 @@ void TDPerformAfterDelay(dispatch_queue_t q, double delay, void (^block)(void)) 
         }
     }
     
-    // DRAW LOOP
+    _mouseLocation = CGPointZero;
+    [self updateMouseLocation:_mouseLocation];
+    
+    // EVENT LOOP
     {
         NSError *err = nil;
         do {
@@ -507,18 +511,27 @@ void TDPerformAfterDelay(dispatch_queue_t q, double delay, void (^block)(void)) 
                 TDAssert(self.interp);
                 self.interp.paused = YES;
             }
-            if (self.mouseEvent) {
-                err = [self processMouseEvent];
+            
+            BOOL wantsDraw = YES;
+            
+            // handle event or draw
+            if (self.event) {
+                wantsDraw = NO;
+                err = [self processEvent];
                 if (err) break;
+                wantsDraw = [[SZApplication instance] redrawForIdentifier:self.identifier];
             }
             
-            [self.interp interpretString:@"draw()" filePath:self.filePath error:&err];
-            if (err) break;
+            if (wantsDraw) {
+                [[SZApplication instance] setRedraw:NO forIdentifier:self.identifier];
+                err = [self draw];
+                if (err) break;
+            }
             
             self.trigger = [TDTrigger trigger];
             
             if ([[SZApplication instance] loopForIdentifier:self.identifier]) {
-                [self drawLater];
+                [self updateLater];
             }
             
             [self.trigger await];
@@ -541,59 +554,45 @@ void TDPerformAfterDelay(dispatch_queue_t q, double delay, void (^block)(void)) 
 }
 
 
-- (NSError *)processMouseEvent {
-    TDAssertExecuteThread();
-    
-    NSString *handlerName = nil;
-    switch ([self.mouseEvent type]) {
-        case NSEventTypeLeftMouseDown:
-        case NSEventTypeRightMouseDown:
-        case NSEventTypeOtherMouseDown:
-            handlerName = @"mouseDown";
-            break;
-        case NSEventTypeLeftMouseUp:
-        case NSEventTypeRightMouseUp:
-        case NSEventTypeOtherMouseUp:
-            handlerName = @"mouseUp";
-            break;
-        case NSEventTypeLeftMouseDragged:
-        case NSEventTypeRightMouseDragged:
-        case NSEventTypeOtherMouseDragged:
-            handlerName = @"mouseDragged";
-            break;
-        case NSEventTypeMouseMoved:
-            handlerName = @"mouseMoved";
-            break;
-        case NSEventTypeMouseEntered:
-            handlerName = @"mouseEntered";
-            break;
-        case NSEventTypeMouseExited:
-            handlerName = @"mouseExited";
-            break;
-        default:
-            TDAssert(0);
-            break;
-    }
-    
+- (void)updateMouseLocation:(CGPoint)loc {
+    TDAssert(self.interp.globals);
     [self.interp.globals setObject:[XPObject number:_mouseLocation.x] forName:@"pmouseX"];
     [self.interp.globals setObject:[XPObject number:_mouseLocation.y] forName:@"pmouseY"];
     
-    _mouseLocation = self.mouseEvent.locationInWindow; // TODO
+    _mouseLocation = loc;
     [self.interp.globals setObject:[XPObject number:_mouseLocation.x] forName:@"mouseX"];
     [self.interp.globals setObject:[XPObject number:_mouseLocation.y] forName:@"mouseY"];
+}
 
-    self.mouseEvent = nil;
+
+- (NSError *)processEvent {
+    TDAssertExecuteThread();
+    
+    NSString *type = [self.event objectForKey:@"type"];
+    [self updateMouseLocation:[[self.event objectForKey:@"mouseLocation"] pointValue]];
+
+    self.event = nil;
     
     NSError *err  = nil;
-    XPObject *handler = [_interp.globals objectForName:handlerName];
+    XPObject *handler = [_interp.globals objectForName:type];
     if (handler && handler.isFunctionObject) {
-        [self.interp interpretString:[NSString stringWithFormat:@"%@()", handlerName] filePath:self.filePath error:&err];
+        [self.interp interpretString:[NSString stringWithFormat:@"%@()", type] filePath:self.filePath error:&err];
     }
     return err;
 }
 
 
-- (void)drawLater {
+- (NSError *)draw {
+    NSError *err  = nil;
+    XPObject *handler = [_interp.globals objectForName:@"draw"];
+    if (handler && handler.isFunctionObject) {
+        [self.interp interpretString:@"draw()" filePath:self.filePath error:&err];
+    }
+    return err;
+}
+
+
+- (void)updateLater {
     TDAssertExecuteThread();
     
     static double duration = 1.0/30;
@@ -612,6 +611,7 @@ void TDPerformAfterDelay(dispatch_queue_t q, double delay, void (^block)(void)) 
     TDAssertExecuteThread();
     [FNAbstractFunction setIdentifier:self.identifier];
 
+    [i declareNativeFunction:[FNRedraw class]];
     [i declareNativeFunction:[FNLoop class]];
     [i declareNativeFunction:[FNNoLoop class]];
     [i declareNativeFunction:[FNNoStroke class]];
