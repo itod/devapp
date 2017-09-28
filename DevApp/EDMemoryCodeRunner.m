@@ -484,8 +484,7 @@ void TDPerformAfterDelay(dispatch_queue_t q, double delay, void (^block)(void)) 
     
     self.filePath = path;
     
-    self.interp = [[[XPInterpreter alloc] init] autorelease];
-    _interp.delegate = self;
+    self.interp = [[[XPInterpreter alloc] initWithDelegate:self] autorelease];
     
     _interp.stdOut = _stdOutPipe.fileHandleForWriting;
     _interp.stdErr = _stdErrPipe.fileHandleForWriting;

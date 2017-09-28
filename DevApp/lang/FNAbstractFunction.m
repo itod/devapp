@@ -153,7 +153,7 @@
     [[[NSThread currentThread] threadDictionary] setObject:identifier forKey:@"EDIdentifier"];
 
     [[SZApplication instance] setStrokeWeightStack:[NSMutableArray arrayWithObject:@1] forIdentifier:identifier];
-    [[SZApplication instance] setLoop:YES forIdentifier:identifier];
+    [[SZApplication instance] setLoop:YES forIdentifier:identifier]; // default is YES
 }
 
 
