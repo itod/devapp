@@ -197,7 +197,7 @@ void TDPerformAfterDelay(dispatch_queue_t q, double delay, void (^block)(void)) 
     };
 
     [self performOnControlThread:^{
-        [self performOnExecuteThread:(id)^(void){
+        [self performOnExecuteThread:^{
             // load source str
             NSError *err = nil;
             NSString *srcStr = [NSString stringWithContentsOfFile:userCmd encoding:NSUTF8StringEncoding error:&err];
@@ -210,9 +210,8 @@ void TDPerformAfterDelay(dispatch_queue_t q, double delay, void (^block)(void)) 
                                              nil];
                 [self fireDelegateDidFail:info];
             } else {
-                err = [self doRun:srcStr filePath:userCmd breakpoints:bpPlist];
+                [self doRun:srcStr filePath:userCmd breakpoints:bpPlist];
             }
-            return err;
         }];
         
         [self awaitPause];
@@ -392,7 +391,11 @@ void TDPerformAfterDelay(dispatch_queue_t q, double delay, void (^block)(void)) 
     }
     
     NSMutableDictionary *outInfo = [self.debugSync awaitResume];
-    
+
+    self.paused = NO;
+    TDAssert(self.interp);
+    self.interp.paused = NO;
+
     done = [[outInfo objectForKey:kEDCodeRunnerDoneKey] boolValue];
     
     if (done) {
@@ -440,7 +443,7 @@ void TDPerformAfterDelay(dispatch_queue_t q, double delay, void (^block)(void)) 
 }
 
 
-- (NSError *)doRun:(NSString *)srcStr filePath:(NSString *)path breakpoints:(id)bpPlist {
+- (void)doRun:(NSString *)srcStr filePath:(NSString *)path breakpoints:(id)bpPlist {
     // only called on EXECUTE-THREAD
     TDAssertExecuteThread();
     
@@ -494,7 +497,7 @@ void TDPerformAfterDelay(dispatch_queue_t q, double delay, void (^block)(void)) 
             if (self.paused) {
                 TDAssert(self.interp);
                 self.interp.paused = YES;
-                [self pauseWithInfo:[[@{kEDCodeRunnerDoneKey: @NO} mutableCopy] autorelease]];
+                //[self pauseWithInfo:[[@{kEDCodeRunnerDoneKey: @NO} mutableCopy] autorelease]];
             }
             err = [self draw];
             if (err) break;
@@ -517,8 +520,6 @@ void TDPerformAfterDelay(dispatch_queue_t q, double delay, void (^block)(void)) 
             [self pauseWithInfo:info];
         }
     }
-
-    return err;
 }
 
 
