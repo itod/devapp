@@ -556,15 +556,15 @@ static void EDDrawPatternFunc(void *info, CGContextRef ctx) {
 
 
 - (void)mouseDragged:(NSEvent *)evt {
-    CGPoint p = [self locationInComposition:evt];
     
     if (_isDragScroll) {
+        CGPoint p = [self locationInComposition:evt];
         [self dragScrollToPoint:p];
-        return;
-    }
-    
-    if (_draggingUserGuide) {
+    } else if (_draggingUserGuide) {
+        CGPoint p = [self locationInComposition:evt];
         [self userGuideDraggedEvent:evt atPoint:p];
+    } else {
+        [self.delegate canvas:self mouseDragged:evt];
     }
 }
 
