@@ -7,6 +7,7 @@
 //
 
 #import "EDBaseCodeRunner.h"
+#import "SZApplication.h"
 
 #define USE_GCD 1
 
@@ -62,7 +63,9 @@
 
 
 - (void)performOnExecuteThread:(void (^)(void))block {
-    [self.dispatcher performOnExecuteThread:block];
+    [self.dispatcher performOnExecuteThread:^ {
+        block();
+    }];
 }
 
 

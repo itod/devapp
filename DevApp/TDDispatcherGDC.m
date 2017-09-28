@@ -13,15 +13,6 @@ void PerformOnMainThread(void (^block)(void)) {
     dispatch_async(dispatch_get_main_queue(), block);
 }
 
-//void TDPerformAfterDelay(dispatch_queue_t q, double delay, void (^block)(void)) {
-//    assert(block);
-//    assert(delay >= 0.0);
-//
-//    double delayInSeconds = delay;
-//    dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
-//    dispatch_after(popTime, q, block);
-//}
-
 @implementation TDDispatcherGDC {
     dispatch_queue_t _controlThread;
     dispatch_queue_t _executeThread;

@@ -8,9 +8,11 @@
 
 #import "EDMemoryCodeRunner.h"
 #import "SZApplication.h"
-#import <TDThreadUtils/TDInterpreterSync.h>
-#import <Language/Language.h>
 
+#import <TDThreadUtils/TDInterpreterSync.h>
+#import "TDDispatcherGDC.h"
+
+#import <Language/Language.h>
 #import "XPMemorySpace.h"
 
 #import "FNLoop.h"
@@ -43,6 +45,17 @@
 //    EDCodeRunnerStateReceivedEvent,
 //};
 
+typedef NSError *(^EDExecuteBlock)(void);
+
+void TDPerformAfterDelay(dispatch_queue_t q, double delay, void (^block)(void)) {
+    assert(block);
+    assert(delay >= 0.0);
+
+    double delayInSeconds = delay;
+    dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
+    dispatch_after(popTime, q, block);
+}
+
 @interface EDMemoryCodeRunner ()
 @property (assign) id <EDCodeRunnerDelegate>delegate; // weakref
 @property (retain) XPInterpreter *interp;
@@ -53,7 +66,7 @@
 @property (retain) NSPipe *stdOutPipe;
 @property (retain) NSPipe *stdErrPipe;
 
-@property (retain) NSRunLoop *runLoop;
+@property (retain) id <TDDispatcher>dispatcher;
 
 @property (assign) BOOL stopped;
 @property (assign) BOOL paused;
@@ -72,6 +85,7 @@
 
 
 - (void)dealloc {
+    [self killResources];
 
     [super dealloc];
 }
@@ -96,9 +110,7 @@
     self.stdOutPipe = nil;
     self.stdErrPipe = nil;
     
-    self.runLoop = nil;
-
-    [super killResources];
+    self.dispatcher = nil;
 }
 
 
@@ -161,6 +173,7 @@
 
     self.identifier = identifier;
     self.debugSync = [[[TDInterpreterSync alloc] init] autorelease];
+    self.dispatcher = [[[TDDispatcherGDC alloc] init] autorelease];
 
     self.stdOutPipe = [NSPipe pipe];
     self.stdErrPipe = [NSPipe pipe];
@@ -184,24 +197,80 @@
     };
 
     [self performOnControlThread:^{
-        [self performOnExecuteThread:^{
+        [self performOnExecuteThread:(id)^(void){
             // load source str
             NSError *err = nil;
             NSString *srcStr = [NSString stringWithContentsOfFile:userCmd encoding:NSUTF8StringEncoding error:&err];
             
             if (!srcStr) {
+                TDAssert(err);
                 NSMutableDictionary *info = [NSMutableDictionary dictionaryWithObjectsAndKeys:
                                              @YES, kEDCodeRunnerDoneKey,
                                              err, kEDCodeRunnerErrorKey,
                                              nil];
                 [self fireDelegateDidFail:info];
-                return;
+            } else {
+                err = [self doRun:srcStr filePath:userCmd breakpoints:bpPlist];
             }
-            
-            [self doRun:srcStr filePath:userCmd breakpoints:bpPlist];
+            return err;
         }];
         
         [self awaitPause];
+    }];
+}
+
+
+#pragma mark -
+#pragma mark Thread Control
+
+- (void)performOnMainThread:(void (^)(void))block {
+    [self.dispatcher performOnMainThread:block];
+}
+
+
+- (void)performOnControlThread:(void (^)(void))block {
+    [self.dispatcher performOnControlThread:block];
+}
+
+
+- (void)performOnExecuteThread:(EDExecuteBlock)block {
+    [self.dispatcher performOnExecuteThread:^ {
+
+        if (self.stopped) {
+            NSError *err = [NSError errorWithDomain:XPErrorDomain
+                                               code:0
+                                           userInfo:@{NSLocalizedDescriptionKey: XPUserInterruptException}];
+            NSMutableDictionary *info = [NSMutableDictionary dictionaryWithObjectsAndKeys:
+                                         @1, kEDCodeRunnerReturnCodeKey,
+                                         @YES, kEDCodeRunnerDoneKey,
+                                         err, kEDCodeRunnerErrorKey,
+                                         nil];
+            [self pauseWithInfo:info];
+        } else {
+            if (self.paused) {
+                TDAssert(self.interp);
+                self.interp.paused = YES;
+            }
+
+            NSError *err = block();
+            
+            if (err) {
+                NSMutableDictionary *info = [NSMutableDictionary dictionaryWithObjectsAndKeys:
+                                             @1, kEDCodeRunnerReturnCodeKey,
+                                             err, kEDCodeRunnerErrorKey,
+                                             nil];
+                [self fireDelegateDidFail:info];
+            } else {
+                BOOL loops = [[SZApplication instance] loopForIdentifier:self.identifier];
+                
+                if (loops) {
+                    [self scheduleDraw];
+                }
+                
+                [self pauseWithInfo:[[@{kEDCodeRunnerDoneKey:@(!loops)} mutableCopy] autorelease]];
+            }
+        }
+        
     }];
 }
 
@@ -233,10 +302,10 @@
     TDAssert(self.debugSync);
     NSMutableDictionary *info = [self.debugSync awaitPause];
     
-    BOOL done = [info[kEDCodeRunnerDoneKey] boolValue];
+    BOOL done = [[info objectForKey:kEDCodeRunnerDoneKey] boolValue];
     
     if (done) {
-        BOOL success = ![info[kEDCodeRunnerReturnCodeKey] boolValue];
+        BOOL success = ![[info objectForKey:kEDCodeRunnerReturnCodeKey] boolValue];
         if (success) {
             [self fireDelegateDidSucceed:info];
         } else {
@@ -342,22 +411,32 @@
     TDAssertExecuteThread();
     TDAssert(inInfo);
     
-    if (!inInfo[kEDCodeRunnerDoneKey]) {
-        inInfo[kEDCodeRunnerDoneKey] = @NO;
+    BOOL done = NO;
+    id doneObj = [inInfo objectForKey:kEDCodeRunnerDoneKey];
+    if (doneObj) {
+        done = [doneObj boolValue];
+    } else {
+        [inInfo setObject:@(done) forKey:kEDCodeRunnerDoneKey];
     }
     
     TDAssert(self.debugSync);
     [self.debugSync pauseWithInfo:inInfo];
+    
+    if (done) {
+        // allow CONTROL-THREAD to complete naturally by not awaiting resume
+        return;
+    }
+    
     NSMutableDictionary *outInfo = [self.debugSync awaitResume];
     
-    BOOL done = [outInfo[kEDCodeRunnerDoneKey] boolValue];
+    done = [[outInfo objectForKey:kEDCodeRunnerDoneKey] boolValue];
     
     if (done) {
         [XPException raise:XPUserInterruptException format:@"User stopped execution."];
         return;
     }
     
-    NSMutableString *cmd = [[outInfo[kEDCodeRunnerUserCommandKey] mutableCopy] autorelease];
+    NSMutableString *cmd = [[[outInfo objectForKey:kEDCodeRunnerUserCommandKey] mutableCopy] autorelease];
     TDAssert([cmd length]);
     
     CFStringTrimWhitespace((CFMutableStringRef)cmd);
@@ -397,70 +476,7 @@
 }
 
 
-- (BOOL)doRunLoop {
-    TDAssertExecuteThread();
-
-    self.runLoop = [NSRunLoop currentRunLoop];
-    BOOL repeats = [[SZApplication instance] loopForIdentifier:self.identifier];
-
-    if (repeats) {
-        // DO I NEED TO SWITCH TO CONTROL THREAD HERE? YES
-        NSTimer *t = [NSTimer timerWithTimeInterval:1.0/30.0 repeats:YES block:^(NSTimer *timer) {
-            [self loop];
-        }];
-        
-        [_runLoop addTimer:t forMode:NSDefaultRunLoopMode];
-    }
-    
-    [self loop]; // first loop iter
-    [_runLoop run]; // run the loop
-
-    BOOL done = !repeats;
-    return done;
-}
-
-
-- (void)loop {
-    TDAssertExecuteThread();
-    
-    if (self.stopped) {
-        NSMutableDictionary *info = [NSMutableDictionary dictionaryWithObjectsAndKeys:
-                                     @1, kEDCodeRunnerReturnCodeKey,
-                                     @YES, kEDCodeRunnerDoneKey,
-                                     [NSError errorWithDomain:XPErrorDomain code:0 userInfo:@{NSLocalizedDescriptionKey:XPUserInterruptException}], kEDCodeRunnerErrorKey,
-                                     nil];
-        [self dieWithInfo:info];
-    } else {
-        TDAssert(self.interp);
-        
-        NSError *err = nil;
-        if (self.paused) {
-            self.interp.paused = YES;
-        }
-        
-        [self.interp interpretString:@"draw()" filePath:self.filePath error:&err];
-        
-        if (err) {
-            NSMutableDictionary *info = [NSMutableDictionary dictionaryWithObjectsAndKeys:
-                                         @1, kEDCodeRunnerReturnCodeKey,
-                                         err, kEDCodeRunnerErrorKey,
-                                         nil];
-            [self fireDelegateDidFail:info];
-        }
-    }
-}
-
-
-- (void)dieWithInfo:(NSMutableDictionary *)info {
-    TDAssertExecuteThread();
-    
-    TDAssert(self.debugSync);
-    [self.debugSync pauseWithInfo:info]; // allow CONTROL-THREAD to complete naturally
-    // and then don't await resume
-}
-
-
-- (id)doRun:(NSString *)srcStr filePath:(NSString *)path breakpoints:(id)bpPlist {
+- (NSError *)doRun:(NSString *)srcStr filePath:(NSString *)path breakpoints:(id)bpPlist {
     // only called on EXECUTE-THREAD
     TDAssertExecuteThread();
     
@@ -481,7 +497,7 @@
     }
     
     NSError *err = nil;
-    id result = [_interp interpretString:srcStr filePath:path error:&err];
+    [_interp interpretString:srcStr filePath:path error:&err];
     
     NSMutableDictionary *info = nil;
     if (err) {
@@ -502,13 +518,30 @@
     }
     
     if (!err) {
-        BOOL done = [self doRunLoop];
-        [self pauseWithInfo:[[@{kEDCodeRunnerDoneKey:@(done)} mutableCopy] autorelease]];
-    } else {
-        [self dieWithInfo:info];
+        err = [self draw];
     }
     
-    return result;
+    return err;
+}
+
+
+- (NSError *)draw {
+    NSError *err = nil;
+    [self.interp interpretString:@"draw()" filePath:self.filePath error:&err];
+    return err;
+}
+
+
+- (void)scheduleDraw {
+    // from main queue?
+    TDPerformAfterDelay(dispatch_get_main_queue(), 60.0/30.0, ^{
+        [self performOnControlThread:^{
+            [self performOnExecuteThread:^NSError *{
+                return [self draw];
+            }];
+            [self awaitPause];
+        }];
+    });
 }
 
 
