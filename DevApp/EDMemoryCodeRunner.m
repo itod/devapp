@@ -485,8 +485,8 @@ void TDPerformAfterDelay(dispatch_queue_t q, double delay, void (^block)(void)) 
         NSError *err = nil;
         static useconds_t sDuration = 1000000.0/30.0;
 
-        BOOL loops = YES;
-        while (loops) {
+        BOOL loops = NO;
+        do {
             if (self.stopped) {
                 err = [NSError errorWithDomain:XPErrorDomain code:0 userInfo:@{NSLocalizedDescriptionKey: XPUserInterruptException}];
                 break;
@@ -503,7 +503,7 @@ void TDPerformAfterDelay(dispatch_queue_t q, double delay, void (^block)(void)) 
             if (loops) {
                 usleep(sDuration);
             }
-        }
+        } while (loops);
         
         NSMutableDictionary *info = [NSMutableDictionary dictionaryWithObjectsAndKeys:
                                      @YES, kEDCodeRunnerDoneKey,
