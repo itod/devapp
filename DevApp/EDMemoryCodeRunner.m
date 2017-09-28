@@ -162,6 +162,7 @@ void TDPerformAfterDelay(dispatch_queue_t q, double delay, void (^block)(void)) 
 - (void)handleMouseEvent:(NSEvent *)evt {
     TDAssertMainThread();
     self.mouseEvent = [[evt copy] autorelease];
+    [self.trigger fire];
 }
 
 
@@ -490,9 +491,7 @@ void TDPerformAfterDelay(dispatch_queue_t q, double delay, void (^block)(void)) 
     // LOOP
     {
         NSError *err = nil;
-        //static useconds_t sDuration = 1000000.0/30.0;
 
-        BOOL loops = NO;
         do {
             if (self.stopped) {
                 err = [NSError errorWithDomain:XPErrorDomain code:0 userInfo:@{NSLocalizedDescriptionKey: XPUserInterruptException}];
@@ -501,7 +500,6 @@ void TDPerformAfterDelay(dispatch_queue_t q, double delay, void (^block)(void)) 
             if (self.paused) {
                 TDAssert(self.interp);
                 self.interp.paused = YES;
-                //[self pauseWithInfo:[[@{kEDCodeRunnerDoneKey: @NO} mutableCopy] autorelease]];
             }
             if (self.mouseEvent) {
                 [self doMouseEvent];
@@ -509,16 +507,18 @@ void TDPerformAfterDelay(dispatch_queue_t q, double delay, void (^block)(void)) 
             err = [self draw];
             if (err) break;
             
-            loops = [[SZApplication instance] loopForIdentifier:self.identifier];
+            self.trigger = [TDTrigger trigger];
+            
+            BOOL loops = [[SZApplication instance] loopForIdentifier:self.identifier];
             if (loops) {
-                self.trigger = [TDTrigger trigger];
                 TDPerformAfterDelay(dispatch_get_main_queue(), 1.0/30.0, ^{
                     [self.trigger fire];
                 });
-                [self.trigger await];
-                //usleep(sDuration);
             }
-        } while (loops);
+            [self.trigger await];
+            self.trigger = nil;
+            
+        } while (1);
         
         NSMutableDictionary *info = [NSMutableDictionary dictionaryWithObjectsAndKeys:
                                      @YES, kEDCodeRunnerDoneKey,
