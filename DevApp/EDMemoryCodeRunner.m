@@ -11,6 +11,7 @@
 
 #import <TDThreadUtils/TDInterpreterSync.h>
 #import "TDDispatcherGDC.h"
+#import "TDTrigger.h"
 
 #import <Language/Language.h>
 #import "XPMemorySpace.h"
@@ -66,6 +67,7 @@ void TDPerformAfterDelay(dispatch_queue_t q, double delay, void (^block)(void)) 
 @property (retain) NSPipe *stdOutPipe;
 @property (retain) NSPipe *stdErrPipe;
 
+@property (retain) TDTrigger *trigger;
 @property (retain) id <TDDispatcher>dispatcher;
 @property (retain) NSEvent *mouseEvent;
 
@@ -111,6 +113,7 @@ void TDPerformAfterDelay(dispatch_queue_t q, double delay, void (^block)(void)) 
     self.stdOutPipe = nil;
     self.stdErrPipe = nil;
     
+    self.trigger = nil;
     self.dispatcher = nil;
 }
 
@@ -488,7 +491,6 @@ void TDPerformAfterDelay(dispatch_queue_t q, double delay, void (^block)(void)) 
     {
         NSError *err = nil;
         //static useconds_t sDuration = 1000000.0/30.0;
-        NSRunLoop *runLoop = [NSRunLoop currentRunLoop];
 
         BOOL loops = NO;
         do {
@@ -509,7 +511,11 @@ void TDPerformAfterDelay(dispatch_queue_t q, double delay, void (^block)(void)) 
             
             loops = [[SZApplication instance] loopForIdentifier:self.identifier];
             if (loops) {
-                [runLoop runMode:NSDefaultRunLoopMode beforeDate:[NSDate dateWithTimeIntervalSinceNow:1.0/30.0]];
+                self.trigger = [TDTrigger trigger];
+                TDPerformAfterDelay(dispatch_get_main_queue(), 1.0/30.0, ^{
+                    [self.trigger fire];
+                });
+                [self.trigger await];
                 //usleep(sDuration);
             }
         } while (loops);

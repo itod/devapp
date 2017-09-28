@@ -249,6 +249,7 @@
 		D34A566D1E7F7DC00064DF65 /* FNStrokeJoin.m in Sources */ = {isa = PBXBuildFile; fileRef = D34A566C1E7F7DC00064DF65 /* FNStrokeJoin.m */; };
 		D37CFCB51EC8B90600068FEB /* FNBezier.m in Sources */ = {isa = PBXBuildFile; fileRef = D37CFCB41EC8B90600068FEB /* FNBezier.m */; };
 		D393578C1F7C4D39008AE4A8 /* TDDispatcherGDC.m in Sources */ = {isa = PBXBuildFile; fileRef = D393578B1F7C4D39008AE4A8 /* TDDispatcherGDC.m */; };
+		D39357991F7D91AD008AE4A8 /* TDTrigger.m in Sources */ = {isa = PBXBuildFile; fileRef = D39357981F7D91AD008AE4A8 /* TDTrigger.m */; };
 		D3D705601E6F710D00D7EA61 /* EDBreakpointCollection.m in Sources */ = {isa = PBXBuildFile; fileRef = D3D7055F1E6F710D00D7EA61 /* EDBreakpointCollection.m */; };
 		D3DA17D01E77702700492A04 /* OkudaKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3DA17CD1E77701200492A04 /* OkudaKit.framework */; };
 		D3DA17D31E77703E00492A04 /* OkudaKit.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = D3DA17CD1E77701200492A04 /* OkudaKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -867,6 +868,8 @@
 		D39357911F7C508C008AE4A8 /* TDDispatcherThread.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TDDispatcherThread.m; sourceTree = "<group>"; };
 		D39357941F7C5377008AE4A8 /* TDRunLoopThread.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TDRunLoopThread.h; sourceTree = "<group>"; };
 		D39357951F7C5377008AE4A8 /* TDRunLoopThread.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TDRunLoopThread.m; sourceTree = "<group>"; };
+		D39357971F7D91A6008AE4A8 /* TDTrigger.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = TDTrigger.h; path = lib/TDThreadUtils/include/TDThreadUtils/TDTrigger.h; sourceTree = SOURCE_ROOT; };
+		D39357981F7D91AD008AE4A8 /* TDTrigger.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = TDTrigger.m; path = lib/TDThreadUtils/src/TDTrigger.m; sourceTree = SOURCE_ROOT; };
 		D3D7055E1E6F710D00D7EA61 /* EDBreakpointCollection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EDBreakpointCollection.h; sourceTree = "<group>"; };
 		D3D7055F1E6F710D00D7EA61 /* EDBreakpointCollection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EDBreakpointCollection.m; sourceTree = "<group>"; };
 		D3DA17C71E77701200492A04 /* OkudaKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = OkudaKit.xcodeproj; path = lib/OkudaKit/OkudaKit.xcodeproj; sourceTree = "<group>"; };
@@ -1475,6 +1478,8 @@
 				D309BCD01E5BB873002B3199 /* TDSemaphore.m */,
 				D309BCCF1E5BB86C002B3199 /* TDSynchronousChannel.h */,
 				D309BCCA1E5BB861002B3199 /* TDSynchronousChannel.m */,
+				D39357971F7D91A6008AE4A8 /* TDTrigger.h */,
+				D39357981F7D91AD008AE4A8 /* TDTrigger.m */,
 			);
 			name = ThreadUtils;
 			sourceTree = "<group>";
@@ -2000,6 +2005,7 @@
 				D31670B21E5A171500DEE3A0 /* NSString+Score.m in Sources */,
 				D3369BD71E36C73800FEB7BF /* TDComboFieldTextView.m in Sources */,
 				D3369ACD1E36BEED00FEB7BF /* OBObject.m in Sources */,
+				D39357991F7D91AD008AE4A8 /* TDTrigger.m in Sources */,
 				D3369C011E36C73800FEB7BF /* TDViewControllerView.m in Sources */,
 				D34A55FB1E7E1AFE0064DF65 /* FNFill.m in Sources */,
 				D309BCC51E5B9E77002B3199 /* EDMemoryCodeRunner.m in Sources */,
