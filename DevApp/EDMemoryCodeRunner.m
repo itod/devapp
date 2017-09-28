@@ -75,13 +75,18 @@ void TDPerformAfterDelay(dispatch_queue_t q, double delay, void (^block)(void)) 
 @property (assign) BOOL paused;
 @end
 
-@implementation EDMemoryCodeRunner
+@implementation EDMemoryCodeRunner {
+    dispatch_queue_t _triggerFireQueue;
+    CGPoint _mouseLocation;
+}
 
 - (id)initWithDelegate:(id <EDCodeRunnerDelegate>)d {
     TDAssert(d);
     self = [super init];
     if (self) {
         self.delegate = d;
+        _triggerFireQueue = dispatch_queue_create("TRIGGER-FIRE-THREAD", DISPATCH_QUEUE_SERIAL);
+        _mouseLocation = CGPointZero;
     }
     return self;
 }
@@ -90,6 +95,8 @@ void TDPerformAfterDelay(dispatch_queue_t q, double delay, void (^block)(void)) 
 - (void)dealloc {
     [self killResources];
 
+    if (_triggerFireQueue) {dispatch_release(_triggerFireQueue), _triggerFireQueue = NULL;}
+    
     [super dealloc];
 }
 
@@ -488,10 +495,9 @@ void TDPerformAfterDelay(dispatch_queue_t q, double delay, void (^block)(void)) 
         }
     }
     
-    // LOOP
+    // DRAW LOOP
     {
         NSError *err = nil;
-
         do {
             if (self.stopped) {
                 err = [NSError errorWithDomain:XPErrorDomain code:0 userInfo:@{NSLocalizedDescriptionKey: XPUserInterruptException}];
@@ -502,19 +508,19 @@ void TDPerformAfterDelay(dispatch_queue_t q, double delay, void (^block)(void)) 
                 self.interp.paused = YES;
             }
             if (self.mouseEvent) {
-                [self doMouseEvent];
+                err = [self processMouseEvent];
+                if (err) break;
             }
-            err = [self draw];
+            
+            [self.interp interpretString:@"draw()" filePath:self.filePath error:&err];
             if (err) break;
             
             self.trigger = [TDTrigger trigger];
             
-            BOOL loops = [[SZApplication instance] loopForIdentifier:self.identifier];
-            if (loops) {
-                TDPerformAfterDelay(dispatch_get_main_queue(), 1.0/30.0, ^{
-                    [self.trigger fire];
-                });
+            if ([[SZApplication instance] loopForIdentifier:self.identifier]) {
+                [self drawLater];
             }
+            
             [self.trigger await];
             self.trigger = nil;
             
@@ -535,21 +541,67 @@ void TDPerformAfterDelay(dispatch_queue_t q, double delay, void (^block)(void)) 
 }
 
 
-- (NSError *)draw {
-    NSError *err = nil;
-    [self.interp interpretString:@"draw()" filePath:self.filePath error:&err];
+- (NSError *)processMouseEvent {
+    TDAssertExecuteThread();
+    
+    NSString *handlerName = nil;
+    switch ([self.mouseEvent type]) {
+        case NSEventTypeLeftMouseDown:
+        case NSEventTypeRightMouseDown:
+        case NSEventTypeOtherMouseDown:
+            handlerName = @"mouseDown";
+            break;
+        case NSEventTypeLeftMouseUp:
+        case NSEventTypeRightMouseUp:
+        case NSEventTypeOtherMouseUp:
+            handlerName = @"mouseUp";
+            break;
+        case NSEventTypeLeftMouseDragged:
+        case NSEventTypeRightMouseDragged:
+        case NSEventTypeOtherMouseDragged:
+            handlerName = @"mouseDragged";
+            break;
+        case NSEventTypeMouseMoved:
+            handlerName = @"mouseMoved";
+            break;
+        case NSEventTypeMouseEntered:
+            handlerName = @"mouseEntered";
+            break;
+        case NSEventTypeMouseExited:
+            handlerName = @"mouseExited";
+            break;
+        default:
+            TDAssert(0);
+            break;
+    }
+    
+    [self.interp.globals setObject:[XPObject number:_mouseLocation.x] forName:@"pmouseX"];
+    [self.interp.globals setObject:[XPObject number:_mouseLocation.y] forName:@"pmouseY"];
+    
+    _mouseLocation = self.mouseEvent.locationInWindow; // TODO
+    [self.interp.globals setObject:[XPObject number:_mouseLocation.x] forName:@"mouseX"];
+    [self.interp.globals setObject:[XPObject number:_mouseLocation.y] forName:@"mouseY"];
+
+    self.mouseEvent = nil;
+    
+    NSError *err  = nil;
+    XPObject *handler = [_interp.globals objectForName:handlerName];
+    if (handler && handler.isFunctionObject) {
+        [self.interp interpretString:[NSString stringWithFormat:@"%@()", handlerName] filePath:self.filePath error:&err];
+    }
     return err;
 }
 
 
-- (NSError *)doMouseEvent {
-    // TODO
+- (void)drawLater {
+    TDAssertExecuteThread();
     
-    self.mouseEvent = nil;
-    
-    NSError *err = nil;
-    [self.interp interpretString:@"mouseDown()" filePath:self.filePath error:&err];
-    return err;
+    static double duration = 1.0/30;
+
+    TDAssert(_triggerFireQueue);
+    TDPerformAfterDelay(_triggerFireQueue, duration, ^{
+        [self.trigger fire];
+    });
 }
 
 
