@@ -67,6 +67,7 @@ void TDPerformAfterDelay(dispatch_queue_t q, double delay, void (^block)(void)) 
 @property (retain) NSPipe *stdErrPipe;
 
 @property (retain) id <TDDispatcher>dispatcher;
+@property (retain) NSEvent *mouseEvent;
 
 @property (assign) BOOL stopped;
 @property (assign) BOOL paused;
@@ -157,7 +158,7 @@ void TDPerformAfterDelay(dispatch_queue_t q, double delay, void (^block)(void)) 
 
 - (void)handleMouseEvent:(NSEvent *)evt {
     TDAssertMainThread();
-//    [self performCommand:@"receivedEvent" identifier:self.identifier];
+    self.mouseEvent = [[evt copy] autorelease];
 }
 
 
@@ -486,7 +487,8 @@ void TDPerformAfterDelay(dispatch_queue_t q, double delay, void (^block)(void)) 
     // LOOP
     {
         NSError *err = nil;
-        static useconds_t sDuration = 1000000.0/30.0;
+        //static useconds_t sDuration = 1000000.0/30.0;
+        NSRunLoop *runLoop = [NSRunLoop currentRunLoop];
 
         BOOL loops = NO;
         do {
@@ -499,12 +501,16 @@ void TDPerformAfterDelay(dispatch_queue_t q, double delay, void (^block)(void)) 
                 self.interp.paused = YES;
                 //[self pauseWithInfo:[[@{kEDCodeRunnerDoneKey: @NO} mutableCopy] autorelease]];
             }
+            if (self.mouseEvent) {
+                [self doMouseEvent];
+            }
             err = [self draw];
             if (err) break;
             
             loops = [[SZApplication instance] loopForIdentifier:self.identifier];
             if (loops) {
-                usleep(sDuration);
+                [runLoop runMode:NSDefaultRunLoopMode beforeDate:[NSDate dateWithTimeIntervalSinceNow:1.0/30.0]];
+                //usleep(sDuration);
             }
         } while (loops);
         
@@ -526,6 +532,17 @@ void TDPerformAfterDelay(dispatch_queue_t q, double delay, void (^block)(void)) 
 - (NSError *)draw {
     NSError *err = nil;
     [self.interp interpretString:@"draw()" filePath:self.filePath error:&err];
+    return err;
+}
+
+
+- (NSError *)doMouseEvent {
+    // TODO
+    
+    self.mouseEvent = nil;
+    
+    NSError *err = nil;
+    [self.interp interpretString:@"mouseDown()" filePath:self.filePath error:&err];
     return err;
 }
 
