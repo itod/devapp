@@ -55,7 +55,11 @@
     TDAssert([identifier length]);
     TDAssert(_contextTab);
     @synchronized(_contextTab) {
-        [_contextTab setObject:g forKey:identifier];
+        if (g) {
+            [_contextTab setObject:g forKey:identifier];
+        } else {
+            [_contextTab removeObjectForKey:identifier];
+        }
     }
 }
 

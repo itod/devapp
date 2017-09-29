@@ -49,6 +49,14 @@
 #pragma mark -
 #pragma mark EDMainWindowController
 
+- (IBAction)clear:(id)sender {
+    [super clear:sender];
+
+    EDAssert(self.canvasViewController);
+    [self.canvasViewController clear];
+}
+
+
 //- (NSString *)documentationHomeURLString {
 //    NSString *URLString = [[NSBundle mainBundle] pathForResource:@"index" ofType:@"html"];
 //    return URLString;
