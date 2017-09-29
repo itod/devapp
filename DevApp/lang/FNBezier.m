@@ -104,35 +104,34 @@
         }
     }
     
-    double x1 = x1Obj.doubleValue;
-    double y1 = y1Obj.doubleValue;
-    double x2 = x2Obj.doubleValue;
-    double y2 = y2Obj.doubleValue;
-    double x3 = x3Obj.doubleValue;
-    double y3 = y3Obj.doubleValue;
-    double x4 = x4Obj.doubleValue;
-    double y4 = y4Obj.doubleValue;
-    
-    NSInteger weight = [[self.strokeWeightStack lastObject] integerValue];
-
-    BOOL isOdd = (weight & 1);
-    if (isOdd) {
-        if (x1 == x4) {
-            x1 += 0.5;
-            x4 += 0.5;
+    [self render:^(CGContextRef ctx) {
+        double x1 = x1Obj.doubleValue;
+        double y1 = y1Obj.doubleValue;
+        double x2 = x2Obj.doubleValue;
+        double y2 = y2Obj.doubleValue;
+        double x3 = x3Obj.doubleValue;
+        double y3 = y3Obj.doubleValue;
+        double x4 = x4Obj.doubleValue;
+        double y4 = y4Obj.doubleValue;
+        
+        NSInteger weight = [[self.strokeWeightStack lastObject] integerValue];
+        
+        BOOL isOdd = (weight & 1);
+        if (isOdd) {
+            if (x1 == x4) {
+                x1 += 0.5;
+                x4 += 0.5;
+            }
+            if (y1 == y4) {
+                y1 += 0.5;
+                y4 += 0.5;
+            }
         }
-        if (y1 == y4) {
-            y1 += 0.5;
-            y4 += 0.5;
-        }
-    }
-    
-    CGContextRef ctx = [self.canvasGraphicsContext graphicsPort];
-    CGContextMoveToPoint(ctx, x1, y1);
-    CGContextAddCurveToPoint(ctx, x2, y2, x3, y3, x4, y4);
-    CGContextDrawPath(ctx, kCGPathFillStroke);
-    
-    [self postUpdate];
+        
+        CGContextMoveToPoint(ctx, x1, y1);
+        CGContextAddCurveToPoint(ctx, x2, y2, x3, y3, x4, y4);
+        CGContextDrawPath(ctx, kCGPathFillStroke);
+    }];
     
     return nil;
 }

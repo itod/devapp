@@ -559,7 +559,7 @@ void TDPerformAfterDelay(dispatch_queue_t q, double delay, void (^block)(void)) 
     [self.interp.globals setObject:[XPObject number:_mouseLocation.x] forName:@"pmouseX"];
     [self.interp.globals setObject:[XPObject number:_mouseLocation.y] forName:@"pmouseY"];
     
-    _mouseLocation = loc;
+    _mouseLocation = CGPointMake(round(loc.x), round(loc.y));
     [self.interp.globals setObject:[XPObject number:_mouseLocation.x] forName:@"mouseX"];
     [self.interp.globals setObject:[XPObject number:_mouseLocation.y] forName:@"mouseY"];
 }

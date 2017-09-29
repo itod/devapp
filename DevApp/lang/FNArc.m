@@ -51,11 +51,9 @@
     XPObject *endAngle = [space objectForName:@"endAngle"]; TDAssert(endAngle);
     XPObject *clockwise = [space objectForName:@"clockwise"]; TDAssert(clockwise);
     
-    CGContextRef ctx = [self.canvasGraphicsContext graphicsPort];
-    
-    CGContextAddArc(ctx, x.doubleValue, y.doubleValue, radius.doubleValue, startAngle.doubleValue, endAngle.doubleValue, clockwise.doubleValue);
-    
-    [self postUpdate];
+    [self render:^(CGContextRef ctx) {
+        CGContextAddArc(ctx, x.doubleValue, y.doubleValue, radius.doubleValue, startAngle.doubleValue, endAngle.doubleValue, clockwise.doubleValue);
+    }];
     
     return nil;
 }

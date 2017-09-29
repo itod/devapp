@@ -83,31 +83,29 @@
             break;
     }
     
-    double x1 = x1Obj.doubleValue;
-    double y1 = y1Obj.doubleValue;
-    double x2 = x2Obj.doubleValue;
-    double y2 = y2Obj.doubleValue;
-    
-    CGContextRef ctx = [self.canvasGraphicsContext graphicsPort];
-    
-    NSInteger weight = [[self.strokeWeightStack lastObject] integerValue];
+    [self render:^(CGContextRef ctx) {
+        double x1 = x1Obj.doubleValue;
+        double y1 = y1Obj.doubleValue;
+        double x2 = x2Obj.doubleValue;
+        double y2 = y2Obj.doubleValue;
 
-    BOOL isOdd = (weight & 1);
-    if (isOdd) {
-        if (x1 == x2) {
-            x1 += 0.5;
-            x2 += 0.5;
+        NSInteger weight = [[self.strokeWeightStack lastObject] integerValue];
+        
+        BOOL isOdd = (weight & 1);
+        if (isOdd) {
+            if (x1 == x2) {
+                x1 += 0.5;
+                x2 += 0.5;
+            }
+            if (y1 == y2) {
+                y1 += 0.5;
+                y2 += 0.5;
+            }
         }
-        if (y1 == y2) {
-            y1 += 0.5;
-            y2 += 0.5;
-        }
-    }
-    CGContextMoveToPoint(ctx, x1, y1);
-    CGContextAddLineToPoint(ctx, x2, y2);
-    CGContextStrokePath(ctx);
-    
-    [self postUpdate];
+        CGContextMoveToPoint(ctx, x1, y1);
+        CGContextAddLineToPoint(ctx, x2, y2);
+        CGContextStrokePath(ctx);
+    }];
     
     return nil;
 }

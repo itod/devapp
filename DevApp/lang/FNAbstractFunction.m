@@ -139,6 +139,17 @@
 }
 
 
+- (void)render:(FNRenderBlock)block {
+    TDAssert(block);
+    
+    CGContextRef ctx = [self.canvasGraphicsContext graphicsPort];
+
+    block(ctx);
+    
+    [self postUpdate];
+}
+
+
 #pragma mark -
 #pragma mark Properties
 

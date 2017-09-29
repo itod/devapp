@@ -68,32 +68,30 @@
     TDAssert(w);
     TDAssert(h);
 
-    CGContextRef ctx = [self.canvasGraphicsContext graphicsPort];
-    
-    // FILL
-    {
-        CGRect fillRect = CGRectMake(x.doubleValue, y.doubleValue, w.doubleValue, h.doubleValue);
-        CGContextFillEllipseInRect(ctx, fillRect);
-    }
-    
-    // STROKE
-    {
-        NSInteger weight = [[self.strokeWeightStack lastObject] integerValue];
-        if (weight > 0) {
-            CGRect strokeRect;
-            
-            BOOL isOdd = (weight & 1);
-            if (isOdd) {
-                strokeRect = CGRectMake(x.doubleValue+0.5, y.doubleValue+0.5, w.doubleValue, h.doubleValue);
-            } else {
-                strokeRect = CGRectMake(x.doubleValue, y.doubleValue, w.doubleValue, h.doubleValue);
-            }
-            
-            CGContextStrokeEllipseInRect(ctx, strokeRect);
+    [self render:^(CGContextRef ctx) {
+        // FILL
+        {
+            CGRect fillRect = CGRectMake(x.doubleValue, y.doubleValue, w.doubleValue, h.doubleValue);
+            CGContextFillEllipseInRect(ctx, fillRect);
         }
-    }
-    
-    [self postUpdate];
+        
+        // STROKE
+        {
+            NSInteger weight = [[self.strokeWeightStack lastObject] integerValue];
+            if (weight > 0) {
+                CGRect strokeRect;
+                
+                BOOL isOdd = (weight & 1);
+                if (isOdd) {
+                    strokeRect = CGRectMake(x.doubleValue+0.5, y.doubleValue+0.5, w.doubleValue, h.doubleValue);
+                } else {
+                    strokeRect = CGRectMake(x.doubleValue, y.doubleValue, w.doubleValue, h.doubleValue);
+                }
+                
+                CGContextStrokeEllipseInRect(ctx, strokeRect);
+            }
+        }
+    }];
     
     return nil;
 }

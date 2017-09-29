@@ -8,12 +8,16 @@
 
 #import "XPFunctionBody.h"
 
+typedef void(^FNRenderBlock)(CGContextRef ctx);
+
 @interface FNAbstractFunction : XPFunctionBody
 + (NSString *)identifier;
 + (void)setIdentifier:(NSString *)identifier;
 
 - (void)postUpdate;
 - (NSColor *)asColor:(XPObject *)obj;
+
+- (void)render:(FNRenderBlock)block;
 
 @property (nonatomic, assign) NSGraphicsContext *canvasGraphicsContext;
 @property (nonatomic, assign, readonly) NSMutableArray *strokeWeightStack;
