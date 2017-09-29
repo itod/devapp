@@ -144,7 +144,16 @@
     
     CGContextRef ctx = [self.canvasGraphicsContext graphicsPort];
 
-    block(ctx);
+    NSInteger weight = [[self.strokeWeightStack lastObject] integerValue];
+    
+    CGContextSaveGState(ctx); {
+        BOOL isOdd = (weight & 1);
+        if (isOdd) {
+            CGContextTranslateCTM(ctx, 0.5, 0.5);
+        }
+        
+        block(ctx);
+    } CGContextRestoreGState(ctx);
     
     [self postUpdate];
 }
