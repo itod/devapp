@@ -104,7 +104,7 @@
         }
     }
     
-    [self render:^(CGContextRef ctx) {
+    [self render:^(CGContextRef ctx, NSInteger strokeWeight) {
         double x1 = x1Obj.doubleValue;
         double y1 = y1Obj.doubleValue;
         double x2 = x2Obj.doubleValue;
@@ -114,19 +114,19 @@
         double x4 = x4Obj.doubleValue;
         double y4 = y4Obj.doubleValue;
         
-        NSInteger weight = [[self.strokeWeightStack lastObject] integerValue];
-        
-        BOOL isOdd = (weight & 1);
-        if (isOdd) {
-            if (x1 == x4) {
-                x1 += 0.5;
-                x4 += 0.5;
-            }
-            if (y1 == y4) {
-                y1 += 0.5;
-                y4 += 0.5;
-            }
-        }
+//        NSInteger weight = [[self.strokeWeightStack lastObject] integerValue];
+//        
+//        BOOL isOdd = (weight & 1);
+//        if (isOdd) {
+//            if (x1 == x4) {
+//                x1 += 0.5;
+//                x4 += 0.5;
+//            }
+//            if (y1 == y4) {
+//                y1 += 0.5;
+//                y4 += 0.5;
+//            }
+//        }
         
         CGContextMoveToPoint(ctx, x1, y1);
         CGContextAddCurveToPoint(ctx, x2, y2, x3, y3, x4, y4);

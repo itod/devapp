@@ -83,25 +83,25 @@
             break;
     }
     
-    [self render:^(CGContextRef ctx) {
+    [self render:^(CGContextRef ctx, NSInteger strokeWeight) {
         double x1 = x1Obj.doubleValue;
         double y1 = y1Obj.doubleValue;
         double x2 = x2Obj.doubleValue;
         double y2 = y2Obj.doubleValue;
 
-        NSInteger weight = [[self.strokeWeightStack lastObject] integerValue];
-        
-        BOOL isOdd = (weight & 1);
-        if (isOdd) {
-            if (x1 == x2) {
-                x1 += 0.5;
-                x2 += 0.5;
-            }
-            if (y1 == y2) {
-                y1 += 0.5;
-                y2 += 0.5;
-            }
-        }
+//        NSInteger weight = [[self.strokeWeightStack lastObject] integerValue];
+//        
+//        BOOL isOdd = (weight & 1);
+//        if (isOdd) {
+//            if (x1 == x2) {
+//                x1 += 0.5;
+//                x2 += 0.5;
+//            }
+//            if (y1 == y2) {
+//                y1 += 0.5;
+//                y2 += 0.5;
+//            }
+//        }
         CGContextMoveToPoint(ctx, x1, y1);
         CGContextAddLineToPoint(ctx, x2, y2);
         CGContextStrokePath(ctx);

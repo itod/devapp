@@ -51,7 +51,7 @@
     XPObject *endAngle = [space objectForName:@"endAngle"]; TDAssert(endAngle);
     XPObject *clockwise = [space objectForName:@"clockwise"]; TDAssert(clockwise);
     
-    [self render:^(CGContextRef ctx) {
+    [self render:^(CGContextRef ctx, NSInteger strokeWeight) {
         CGContextAddArc(ctx, x.doubleValue, y.doubleValue, radius.doubleValue, startAngle.doubleValue, endAngle.doubleValue, clockwise.doubleValue);
     }];
     

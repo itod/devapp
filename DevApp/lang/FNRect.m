@@ -68,7 +68,7 @@
     TDAssert(w);
     TDAssert(h);
     
-    [self render:^(CGContextRef ctx) {
+    [self render:^(CGContextRef ctx, NSInteger strokeWeight) {
         // FILL
         {
             CGRect fillRect = CGRectMake(x.doubleValue, y.doubleValue, w.doubleValue, h.doubleValue);
@@ -77,8 +77,7 @@
         
         // STROKE
         {
-            NSInteger weight = [[self.strokeWeightStack lastObject] integerValue];
-            if (weight > 0) {
+            if (strokeWeight > 0) {
                 CGRect strokeRect;
                 
 //                BOOL isOdd = (weight & 1);

@@ -863,12 +863,6 @@
 		D393577D1F7C4CB2008AE4A8 /* TDDispatcher.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TDDispatcher.h; sourceTree = "<group>"; };
 		D393578A1F7C4D39008AE4A8 /* TDDispatcherGDC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TDDispatcherGDC.h; sourceTree = "<group>"; };
 		D393578B1F7C4D39008AE4A8 /* TDDispatcherGDC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TDDispatcherGDC.m; sourceTree = "<group>"; };
-		D393578D1F7C4E4F008AE4A8 /* EDBaseCodeRunner.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EDBaseCodeRunner.h; sourceTree = "<group>"; };
-		D393578E1F7C4E4F008AE4A8 /* EDBaseCodeRunner.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EDBaseCodeRunner.m; sourceTree = "<group>"; };
-		D39357901F7C508C008AE4A8 /* TDDispatcherThread.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TDDispatcherThread.h; sourceTree = "<group>"; };
-		D39357911F7C508C008AE4A8 /* TDDispatcherThread.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TDDispatcherThread.m; sourceTree = "<group>"; };
-		D39357941F7C5377008AE4A8 /* TDRunLoopThread.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TDRunLoopThread.h; sourceTree = "<group>"; };
-		D39357951F7C5377008AE4A8 /* TDRunLoopThread.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TDRunLoopThread.m; sourceTree = "<group>"; };
 		D39357971F7D91A6008AE4A8 /* TDTrigger.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = TDTrigger.h; path = lib/TDThreadUtils/include/TDThreadUtils/TDTrigger.h; sourceTree = SOURCE_ROOT; };
 		D39357981F7D91AD008AE4A8 /* TDTrigger.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = TDTrigger.m; path = lib/TDThreadUtils/src/TDTrigger.m; sourceTree = SOURCE_ROOT; };
 		D393579A1F7DA2C5008AE4A8 /* FNRedraw.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = FNRedraw.m; path = lang/FNRedraw.m; sourceTree = "<group>"; };
@@ -1283,17 +1277,11 @@
 			isa = PBXGroup;
 			children = (
 				D31670B61E5A17D900DEE3A0 /* EDCodeRunner.h */,
-				D393578D1F7C4E4F008AE4A8 /* EDBaseCodeRunner.h */,
-				D393578E1F7C4E4F008AE4A8 /* EDBaseCodeRunner.m */,
 				D309BCC31E5B9E77002B3199 /* EDMemoryCodeRunner.h */,
 				D309BCC41E5B9E77002B3199 /* EDMemoryCodeRunner.m */,
 				D393577D1F7C4CB2008AE4A8 /* TDDispatcher.h */,
 				D393578A1F7C4D39008AE4A8 /* TDDispatcherGDC.h */,
 				D393578B1F7C4D39008AE4A8 /* TDDispatcherGDC.m */,
-				D39357901F7C508C008AE4A8 /* TDDispatcherThread.h */,
-				D39357911F7C508C008AE4A8 /* TDDispatcherThread.m */,
-				D39357941F7C5377008AE4A8 /* TDRunLoopThread.h */,
-				D39357951F7C5377008AE4A8 /* TDRunLoopThread.m */,
 			);
 			name = "Code Runner";
 			sourceTree = "<group>";

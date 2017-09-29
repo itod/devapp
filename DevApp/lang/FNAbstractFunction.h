@@ -8,7 +8,7 @@
 
 #import "XPFunctionBody.h"
 
-typedef void(^FNRenderBlock)(CGContextRef ctx);
+typedef void(^FNRenderBlock)(CGContextRef ctx, NSInteger strokeWeight);
 
 @interface FNAbstractFunction : XPFunctionBody
 + (NSString *)identifier;
