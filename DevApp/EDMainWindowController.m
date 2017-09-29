@@ -1285,13 +1285,13 @@
     EDAssert([identifier isEqualToString:self.identifier]);
     EDAssertMainThread();
     
-    NSError *err = info[kEDCodeRunnerErrorKey];
+    NSError *err = [info objectForKey:kEDCodeRunnerErrorKey];
     NSParameterAssert(err);
     NSLog(@"%@", err);
     
     [self clearDebugInfo];
     
-    NSUInteger lineNum = [err.userInfo[kEDCodeRunnerLineNumberKey] unsignedIntegerValue];
+    NSUInteger lineNum = [[err.userInfo objectForKey:kEDCodeRunnerLineNumberKey] unsignedIntegerValue];
 
     OKViewController *okvc = self.selectedSourceViewController;
     [okvc highlightLineNumber:lineNum scrollToVisible:NO];
@@ -1335,7 +1335,8 @@
     self.busy = NO;
     self.paused = NO;
 
-    self.statusText = NSLocalizedString(@"Failed.", @"");
+    NSString *txt = [err.localizedDescription isEqualToString:@"UserInterruptException"] ? NSLocalizedString(@"Stopped.", @"") : NSLocalizedString(@"Failed.", @"");
+    self.statusText = txt;
 
     [[self window] makeFirstResponder:self.selectedSourceViewController.textView];
 }
