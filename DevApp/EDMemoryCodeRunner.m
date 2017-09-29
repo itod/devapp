@@ -181,9 +181,6 @@ void TDPerformAfterDelay(dispatch_queue_t q, double delay, void (^block)(void)) 
     TDAssert(identifier);
     TDAssert(self.delegate);
 
-    NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
-    [nc addObserver:self selector:@selector(canvasDidUpdate:) name:@"CanvasDidUpdateNotification" object:identifier];
-
     self.identifier = identifier;
     self.debugSync = [[[TDInterpreterSync alloc] init] autorelease];
     self.dispatcher = [[[TDDispatcherGDC alloc] init] autorelease];
@@ -587,6 +584,8 @@ void TDPerformAfterDelay(dispatch_queue_t q, double delay, void (^block)(void)) 
     XPObject *handler = [_interp.globals objectForName:@"draw"];
     if (handler && handler.isFunctionObject) {
         [self.interp interpretString:@"draw()" filePath:self.filePath error:&err];
+
+        [self fireDelegateDidUpdate:nil];
     }
     return err;
 }
@@ -642,15 +641,6 @@ void TDPerformAfterDelay(dispatch_queue_t q, double delay, void (^block)(void)) 
 - (void)interpreter:(XPInterpreter *)i didPause:(NSMutableDictionary *)debugInfo {
     TDAssertExecuteThread();
     [self pauseWithInfo:debugInfo];
-}
-
-
-#pragma mark -
-#pragma mark Notifications
-
-- (void)canvasDidUpdate:(NSNotification *)n {
-    TDAssertExecuteThread();
-    [self fireDelegateDidUpdate:nil];
 }
 
 @end

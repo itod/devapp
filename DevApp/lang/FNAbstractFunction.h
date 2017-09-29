@@ -14,7 +14,6 @@ typedef void(^FNRenderBlock)(CGContextRef ctx, NSInteger strokeWeight);
 + (NSString *)identifier;
 + (void)setIdentifier:(NSString *)identifier;
 
-- (void)postUpdate;
 - (NSColor *)asColor:(XPObject *)obj;
 
 - (void)render:(FNRenderBlock)block;

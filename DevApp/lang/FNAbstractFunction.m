@@ -133,12 +133,6 @@
 }
 
 
-- (void)postUpdate {
-    NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
-    [nc postNotificationName:@"CanvasDidUpdateNotification" object:[[self class] identifier]];
-}
-
-
 - (void)render:(FNRenderBlock)block {
     TDAssert(block);
     
@@ -154,8 +148,6 @@
         
         block(ctx, strokeWeight);
     } CGContextRestoreGState(ctx);
-    
-    [self postUpdate];
 }
 
 

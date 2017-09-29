@@ -47,8 +47,6 @@
         CGRect r = CGRectMake(0.0, 0.0, CGBitmapContextGetWidth(ctx), CGBitmapContextGetHeight(ctx));
         CGContextFillRect(ctx, r);
     } CGContextRestoreGState(ctx);
-    
-    [self postUpdate];
 
     return nil;
 }

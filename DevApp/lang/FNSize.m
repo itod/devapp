@@ -57,8 +57,6 @@
     TDAssert(h);
 
     self.canvasGraphicsContext = [[self newContextWithSize:CGSizeMake(w.doubleValue, h.doubleValue)] autorelease];
-
-    [self postUpdate];
     
     return nil;
 }
