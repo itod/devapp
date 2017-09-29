@@ -105,9 +105,6 @@
     EDAssertMainThread();
     EDAssert(_progressIndicator);
     
-    EDMainWindowController *wc = [[self window] windowController];
-    wc.statusText = NSLocalizedString(@"Initializing Interpreter…", @"");
-
     [_progressIndicator startAnimation:nil];
 }
 
@@ -131,9 +128,6 @@
         } else {
             [self killAnimeTimer];
             [_progressIndicator stopAnimation:nil];
-
-            EDMainWindowController *wc = [[self window] windowController];
-            wc.statusText = wc.canStop ? NSLocalizedString(@"Running…", @"") : @"";
         }
 
         [self didChangeValueForKey:@"busy"];

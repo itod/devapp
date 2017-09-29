@@ -1183,6 +1183,8 @@
 - (void)codeRunnerDidStartup:(NSString *)identifier {
     EDAssert([identifier isEqualToString:self.identifier]);
     EDAssertMainThread();
+
+    self.statusText = NSLocalizedString(@"Initializing Interpreter…", @"");
 }
 
 
@@ -1190,7 +1192,7 @@
     EDAssert([identifier isEqualToString:self.identifier]);
     EDAssertMainThread();
     
-    self.statusText = NSLocalizedString(@"In Setup", @"");
+    self.statusText = NSLocalizedString(@"In Setup.", @"");
 }
 
 
@@ -1253,6 +1255,7 @@
     EDAssert([identifier isEqualToString:self.identifier]);
     EDAssertMainThread();
     
+    self.statusText = NSLocalizedString(@"Running…", @"");
     [self clearDebugInfo];
     
     //TDAssert(self.paused);
