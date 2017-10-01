@@ -636,6 +636,7 @@ void TDPerformAfterDelay(dispatch_queue_t q, double delay, void (^block)(void)) 
     [i declareNativeFunction:[FNLine class]];
     [i declareNativeFunction:[FNBezier class]];
     
+    TDAssert(i.globals);
     [i.globals setObject:[XPObject number:M_PI] forName:@"PI"];
     [i.globals setObject:[XPObject number:M_PI_2] forName:@"HALF_PI"];
     [i.globals setObject:[XPObject number:M_PI_4] forName:@"QUARTER_PI"];
