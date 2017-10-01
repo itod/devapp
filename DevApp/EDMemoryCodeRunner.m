@@ -473,6 +473,9 @@ void TDPerformAfterDelay(dispatch_queue_t q, double delay, void (^block)(void)) 
         _interp.debug = YES;
         _interp.debugDelegate = self;
         _interp.breakpointCollection = [XPBreakpointCollection fromPlist:bpPlist];
+        
+        NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
+        [nc addObserver:self selector:@selector(canvasDidDebugUpdate:) name:FNCanvasDidDebugUpdateNotification object:self.identifier];
     }
     
     {
@@ -625,6 +628,12 @@ void TDPerformAfterDelay(dispatch_queue_t q, double delay, void (^block)(void)) 
     TDPerformAfterDelay(_triggerFireQueue, duration, ^{
         [self.trigger fire];
     });
+}
+
+
+- (void)canvasDidDebugUpdate:(NSNotification *)n {
+    TDAssertExecuteThread();
+    [self renderContextToSharedImage];
 }
 
 

@@ -12,6 +12,8 @@
 #import <Language/XPException.h>
 #import <TDAppKit/TDUtils.h>
 
+NSString * const FNCanvasDidDebugUpdateNotification = @"FNCanvasDidDebugUpdateNotification";
+
 @implementation FNAbstractFunction
 
 - (NSColor *)asColor:(XPObject *)obj {
@@ -152,6 +154,14 @@
         
         block(ctx, strokeWeight);
     } CGContextRestoreGState(ctx);
+    
+    [self postCanvasDebugUpdate];
+}
+
+
+- (void)postCanvasDebugUpdate {
+    NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
+    [nc postNotificationName:FNCanvasDidDebugUpdateNotification object:[[self class] identifier]];
 }
 
 

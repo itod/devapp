@@ -8,6 +8,8 @@
 
 #import "XPFunctionBody.h"
 
+extern NSString * const FNCanvasDidDebugUpdateNotification;
+
 typedef void(^FNRenderBlock)(CGContextRef ctx, NSInteger strokeWeight);
 
 @interface FNAbstractFunction : XPFunctionBody
@@ -17,6 +19,8 @@ typedef void(^FNRenderBlock)(CGContextRef ctx, NSInteger strokeWeight);
 - (NSColor *)asColor:(XPObject *)obj;
 
 - (void)render:(FNRenderBlock)block;
+
+- (void)postCanvasDebugUpdate;
 
 @property (nonatomic, assign) NSGraphicsContext *canvasGraphicsContext;
 @property (nonatomic, assign, readonly) NSMutableArray *strokeWeightStack;
