@@ -10,6 +10,7 @@
 
 @interface SZApplication ()
 @property (nonatomic, retain) NSMutableDictionary *contextTab;
+@property (nonatomic, retain) NSMutableDictionary *imageTab;
 @property (nonatomic, retain) NSMutableDictionary *stackTab;
 @property (nonatomic, retain) NSMutableDictionary *loopTab;
 @property (nonatomic, retain) NSMutableDictionary *redrawTab;
@@ -21,6 +22,7 @@
     self = [super init];
     if (self) {
         self.contextTab = [NSMutableDictionary dictionary];
+        self.imageTab = [NSMutableDictionary dictionary];
         self.stackTab = [NSMutableDictionary dictionary];
         self.loopTab = [NSMutableDictionary dictionary];
         self.redrawTab = [NSMutableDictionary dictionary];
@@ -31,6 +33,7 @@
 
 - (void)dealloc {
     self.contextTab = nil;
+    self.imageTab = nil;
     self.stackTab = nil;
     self.loopTab = nil;
     self.redrawTab = nil;
@@ -42,23 +45,48 @@
 #pragma mark Public
 
 - (NSGraphicsContext *)graphicsContextForIdentifier:(NSString *)identifier {
+    TDAssertExecuteThread();
     TDAssert(_contextTab);
     NSGraphicsContext *g = nil;
-    @synchronized(_contextTab) {
+    //@synchronized(_contextTab) {
         g = [_contextTab objectForKey:identifier];
-    }
+    //}
     return g;
 }
 
 
 - (void)setGraphicsContext:(NSGraphicsContext *)g forIdentifier:(NSString *)identifier {
+    TDAssertExecuteThread();
     TDAssert([identifier length]);
     TDAssert(_contextTab);
-    @synchronized(_contextTab) {
+    //@synchronized(_contextTab) {
         if (g) {
             [_contextTab setObject:g forKey:identifier];
         } else {
             [_contextTab removeObjectForKey:identifier];
+        }
+    //}
+}
+
+
+- (NSImage *)renderedImageForIdentifier:(NSString *)identifier {
+    TDAssert(_imageTab);
+    NSImage *g = nil;
+    @synchronized(_imageTab) {
+        g = [_imageTab objectForKey:identifier];
+    }
+    return g;
+}
+
+
+- (void)setRenderedImage:(NSImage *)img forIdentifier:(NSString *)identifier {
+    TDAssert([identifier length]);
+    TDAssert(_imageTab);
+    @synchronized(_imageTab) {
+        if (img) {
+            [_imageTab setObject:img forKey:identifier];
+        } else {
+            [_imageTab removeObjectForKey:identifier];
         }
     }
 }

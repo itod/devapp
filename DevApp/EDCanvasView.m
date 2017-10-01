@@ -823,19 +823,12 @@ static void EDDrawPatternFunc(void *info, CGContextRef ctx) {
 #pragma mark Public
 
 - (CGRect)compositionBounds {
+    TDAssertMainThread();
     NSString *identifier = [[[self window] windowController] identifier];
-    NSGraphicsContext *g = [[SZApplication instance] graphicsContextForIdentifier:identifier];
-    CGContextRef ctx = [g graphicsPort];
-    
-    CGFloat w = 0.0;
-    CGFloat h = 0.0;
-    
-    if (ctx) {
-        w = CGBitmapContextGetWidth(ctx);
-        h = CGBitmapContextGetHeight(ctx);
-    }
-    
-    CGRect compBounds = CGRectMake(0.0, 0.0, w, h);
+    NSImage *img = [[SZApplication instance] renderedImageForIdentifier:identifier];
+
+    CGSize imgSize = [img size];
+    CGRect compBounds = CGRectMake(0.0, 0.0, imgSize.width, imgSize.height);
     return compBounds;
 }
 

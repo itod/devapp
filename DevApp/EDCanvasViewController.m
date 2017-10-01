@@ -122,22 +122,11 @@
 #pragma mark Public
 
 - (void)update {
+    TDAssertMainThread();
     EDAssert(_canvasView);
 
-    NSImage *img = nil;
     NSString *identifier = [[[self.view window] windowController] identifier];
-    NSGraphicsContext *g = [[SZApplication instance] graphicsContextForIdentifier:identifier];
-
-    if (g) {
-        CGContextRef ctx = [g graphicsPort];
-        CGSize size = CGSizeMake(CGBitmapContextGetWidth(ctx), CGBitmapContextGetHeight(ctx));
-        
-        CGImageRef cgimg = CGBitmapContextCreateImage(ctx);
-        
-        img = [[[NSImage alloc] initWithCGImage:cgimg size:size] autorelease];
-        
-        CGImageRelease(cgimg);
-    }
+    NSImage *img = [[SZApplication instance] renderedImageForIdentifier:identifier];
     
     _canvasView.image = img;
     //_canvasView.context = ctx;
@@ -149,8 +138,9 @@
 
 
 - (void)clear {
+    TDAssertMainThread();
     NSString *identifier = [[[self.view window] windowController] identifier];
-    [[SZApplication instance] setGraphicsContext:nil forIdentifier:identifier];
+    [[SZApplication instance] setRenderedImage:nil forIdentifier:identifier];
     
     [self update];
 }

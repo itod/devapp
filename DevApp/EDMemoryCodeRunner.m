@@ -368,8 +368,8 @@ void TDPerformAfterDelay(dispatch_queue_t q, double delay, void (^block)(void)) 
 
 
 - (void)fireDelegateDidUpdate:(NSMutableDictionary *)info {
-    // called on CONTROL-THREAD or EXECUTE-THREAD
-    TDAssertNotMainThread();
+    // EXECUTE-THREAD
+    TDAssertExecuteThread();
     
     [self performOnMainThread:^{
         TDAssert(self.delegate);
@@ -587,6 +587,19 @@ void TDPerformAfterDelay(dispatch_queue_t q, double delay, void (^block)(void)) 
     XPObject *handler = [_interp.globals objectForName:@"draw"];
     if (handler && handler.isFunctionObject) {
         [self.interp interpretString:@"draw()" filePath:self.filePath error:&err];
+
+        // Render ctx as img for use in UI/MainThread
+        {
+            NSGraphicsContext *g = [[SZApplication instance] graphicsContextForIdentifier:self.identifier];
+            CGContextRef ctx = [g graphicsPort];
+            CGSize size = CGSizeMake(CGBitmapContextGetWidth(ctx), CGBitmapContextGetHeight(ctx));
+            
+            CGImageRef cgimg = CGBitmapContextCreateImage(ctx);
+            NSImage *img = [[[NSImage alloc] initWithCGImage:cgimg size:size] autorelease];
+            CGImageRelease(cgimg);
+            
+            [[SZApplication instance] setRenderedImage:img forIdentifier:self.identifier];
+        }
 
         [self fireDelegateDidUpdate:nil];
     }
