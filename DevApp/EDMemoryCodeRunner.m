@@ -39,13 +39,11 @@
 #import "FNLine.h"
 #import "FNBezier.h"
 
-//typedef NS_ENUM(NSUInteger, EDCodeRunnerState) {
-//    EDCodeRunnerStateInactive,
-//    EDCodeRunnerStateActive,
-//    EDCodeRunnerStateStopped,
-//    EDCodeRunnerStatePaused,
-//    EDCodeRunnerStateReceivedEvent,
-//};
+typedef NS_ENUM(NSUInteger, EDCodeRunnerFlag) {
+    EDCodeRunnerFlagNone,
+    EDCodeRunnerFlagStopped,
+    EDCodeRunnerFlagPaused,
+};
 
 //typedef NSError *(^EDExecuteBlock)(void);
 
@@ -72,8 +70,8 @@ void TDPerformAfterDelay(dispatch_queue_t q, double delay, void (^block)(void)) 
 @property (retain) TDTrigger *trigger;
 @property (retain) NSDictionary *event;
 
-@property (assign) BOOL stopped;
-@property (assign) BOOL paused;
+@property (assign) EDCodeRunnerFlag flag;
+@property (retain) NSLock *flagLock;
 @end
 
 @implementation EDMemoryCodeRunner {
@@ -87,6 +85,8 @@ void TDPerformAfterDelay(dispatch_queue_t q, double delay, void (^block)(void)) 
     if (self) {
         self.delegate = d;
         _triggerFireQueue = dispatch_queue_create("TRIGGER-FIRE-THREAD", DISPATCH_QUEUE_SERIAL);
+        
+        self.flagLock = [[[NSLock alloc] init] autorelease];
     }
     return self;
 }
@@ -96,6 +96,8 @@ void TDPerformAfterDelay(dispatch_queue_t q, double delay, void (^block)(void)) 
     [self killResources];
 
     if (_triggerFireQueue) {dispatch_release(_triggerFireQueue), _triggerFireQueue = NULL;}
+    
+    self.flagLock = nil;
     
     [super dealloc];
 }
@@ -123,6 +125,18 @@ void TDPerformAfterDelay(dispatch_queue_t q, double delay, void (^block)(void)) 
     self.dispatcher = nil;
     self.trigger = nil;
     self.event = nil;
+    
+    self.flagLock = nil;
+}
+
+
+- (void)synchronizedOnFlagLock:(void(^)(void))block {
+    TDAssert(self.flagLock);
+    [self.flagLock lock];
+    
+    block();
+    
+    [self.flagLock unlock];
 }
 
 
@@ -132,7 +146,10 @@ void TDPerformAfterDelay(dispatch_queue_t q, double delay, void (^block)(void)) 
 - (void)stop:(NSString *)identifier {
     TDAssertMainThread();
     
-    self.stopped = YES;
+    [self synchronizedOnFlagLock:^{
+        self.flag = EDCodeRunnerFlagStopped;
+    }];
+    
     NSMutableDictionary *info = [NSMutableDictionary dictionaryWithObjectsAndKeys:
                                  @YES, kEDCodeRunnerDoneKey,
                                  nil];
@@ -146,7 +163,9 @@ void TDPerformAfterDelay(dispatch_queue_t q, double delay, void (^block)(void)) 
     TDAssert([cmd length]);
     
     if ([cmd isEqualToString:@"pause"]) {
-        self.paused = YES;
+        [self synchronizedOnFlagLock:^{
+            self.flag = EDCodeRunnerFlagPaused;
+        }];
     }
     
     NSMutableDictionary *info = [NSMutableDictionary dictionaryWithObjectsAndKeys:
@@ -401,8 +420,7 @@ void TDPerformAfterDelay(dispatch_queue_t q, double delay, void (^block)(void)) 
     }
     
     NSMutableDictionary *outInfo = [self.debugSync awaitResume];
-
-    self.paused = NO;
+    
     TDAssert(self.interp);
     self.interp.paused = NO;
 
@@ -500,11 +518,18 @@ void TDPerformAfterDelay(dispatch_queue_t q, double delay, void (^block)(void)) 
     {
         NSError *err = nil;
         do {
-            if (self.stopped) {
+            
+            __block EDCodeRunnerFlag flag;
+            [self synchronizedOnFlagLock:^{
+                flag = self.flag;
+                self.flag = EDCodeRunnerFlagNone;
+            }];
+
+            if (EDCodeRunnerFlagStopped == flag) {
                 err = [NSError errorWithDomain:XPErrorDomain code:0 userInfo:@{NSLocalizedDescriptionKey: XPUserInterruptException}];
                 break;
             }
-            if (self.paused) {
+            if (EDCodeRunnerFlagPaused == flag) {
                 TDAssert(self.interp);
                 self.interp.paused = YES;
             }
