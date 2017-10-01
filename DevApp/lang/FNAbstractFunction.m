@@ -35,8 +35,10 @@
                         @(0xC0C0C0), @"silver",
                         @(0x808080), @"gray",
                         @(0x000000), @"black",
+                        @(0xFF80FF), @"pink",
                         @(0xFF0000), @"red",
                         @(0x800000), @"maroon",
+                        @(0xFF8000), @"orange",
                         @(0xFFFF00), @"yellow",
                         @(0x808000), @"olive",
                         @(0x00FF00), @"lime",
@@ -46,6 +48,7 @@
                         @(0x0000FF), @"blue",
                         @(0x000080), @"navy",
                         @(0xFF00FF), @"fuchsia",
+                        @(0xFF00FF), @"magenta",
                         @(0x800080), @"purple",
                         nil];
         }
