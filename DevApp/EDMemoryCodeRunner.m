@@ -490,9 +490,9 @@ void TDPerformAfterDelay(dispatch_queue_t q, double delay, void (^block)(void)) 
         XPObject *setup = [_interp.globals objectForName:@"setup"];
         if (setup && setup.isFunctionObject) {
             [_interp interpretString:@"setup()" filePath:path error:&err];
-        }
-        if (err) {
-            info = [[@{kEDCodeRunnerReturnCodeKey:@1, kEDCodeRunnerDoneKey:@YES, kEDCodeRunnerErrorKey:err} mutableCopy] autorelease];
+            if (err) {
+                info = [[@{kEDCodeRunnerReturnCodeKey:@1, kEDCodeRunnerDoneKey:@YES, kEDCodeRunnerErrorKey:err} mutableCopy] autorelease];
+            }
         }
     }
     
@@ -526,6 +526,7 @@ void TDPerformAfterDelay(dispatch_queue_t q, double delay, void (^block)(void)) 
                 [[SZApplication instance] setRedraw:NO forIdentifier:self.identifier];
                 err = [self draw];
                 if (err) break;
+                [self renderContextToSharedImage];
             }
             
             self.trigger = [TDTrigger trigger];
@@ -587,23 +588,25 @@ void TDPerformAfterDelay(dispatch_queue_t q, double delay, void (^block)(void)) 
     XPObject *handler = [_interp.globals objectForName:@"draw"];
     if (handler && handler.isFunctionObject) {
         [self.interp interpretString:@"draw()" filePath:self.filePath error:&err];
-
-        // Render ctx as img for use in UI/MainThread
-        {
-            NSGraphicsContext *g = [[SZApplication instance] graphicsContextForIdentifier:self.identifier];
-            CGContextRef ctx = [g graphicsPort];
-            CGSize size = CGSizeMake(CGBitmapContextGetWidth(ctx), CGBitmapContextGetHeight(ctx));
-            
-            CGImageRef cgimg = CGBitmapContextCreateImage(ctx);
-            NSImage *img = [[[NSImage alloc] initWithCGImage:cgimg size:size] autorelease];
-            CGImageRelease(cgimg);
-            
-            [[SZApplication instance] setRenderedImage:img forIdentifier:self.identifier];
-        }
-
-        [self fireDelegateDidUpdate:nil];
     }
     return err;
+}
+
+
+- (void)renderContextToSharedImage {
+    TDAssertExecuteThread();
+    // Render ctx as img for use in UI/MainThread
+    NSGraphicsContext *g = [[SZApplication instance] graphicsContextForIdentifier:self.identifier];
+    CGContextRef ctx = [g graphicsPort];
+    CGSize size = CGSizeMake(CGBitmapContextGetWidth(ctx), CGBitmapContextGetHeight(ctx));
+    
+    CGImageRef cgimg = CGBitmapContextCreateImage(ctx);
+    NSImage *img = [[[NSImage alloc] initWithCGImage:cgimg size:size] autorelease];
+    CGImageRelease(cgimg);
+    
+    [[SZApplication instance] setSharedImage:img forIdentifier:self.identifier];
+
+    [self fireDelegateDidUpdate:nil];
 }
 
 

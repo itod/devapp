@@ -825,7 +825,7 @@ static void EDDrawPatternFunc(void *info, CGContextRef ctx) {
 - (CGRect)compositionBounds {
     TDAssertMainThread();
     NSString *identifier = [[[self window] windowController] identifier];
-    NSImage *img = [[SZApplication instance] renderedImageForIdentifier:identifier];
+    NSImage *img = [[SZApplication instance] sharedImageForIdentifier:identifier];
 
     CGSize imgSize = [img size];
     CGRect compBounds = CGRectMake(0.0, 0.0, imgSize.width, imgSize.height);

@@ -13,8 +13,8 @@
 - (NSGraphicsContext *)graphicsContextForIdentifier:(NSString *)identifier;
 - (void)setGraphicsContext:(NSGraphicsContext *)g forIdentifier:(NSString *)identifier;
 
-- (NSImage *)renderedImageForIdentifier:(NSString *)identifier;
-- (void)setRenderedImage:(NSImage *)img forIdentifier:(NSString *)identifier;
+- (NSImage *)sharedImageForIdentifier:(NSString *)identifier;
+- (void)setSharedImage:(NSImage *)img forIdentifier:(NSString *)identifier;
 
 - (NSMutableArray *)strokeWeightStackForIdentifier:(NSString *)identifier;
 - (void)setStrokeWeightStack:(NSMutableArray *)stack forIdentifier:(NSString *)identifier;

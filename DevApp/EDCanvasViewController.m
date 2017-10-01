@@ -126,7 +126,7 @@
     EDAssert(_canvasView);
 
     NSString *identifier = [[[self.view window] windowController] identifier];
-    NSImage *img = [[SZApplication instance] renderedImageForIdentifier:identifier];
+    NSImage *img = [[SZApplication instance] sharedImageForIdentifier:identifier];
     
     _canvasView.image = img;
     //_canvasView.context = ctx;
@@ -140,7 +140,7 @@
 - (void)clear {
     TDAssertMainThread();
     NSString *identifier = [[[self.view window] windowController] identifier];
-    [[SZApplication instance] setRenderedImage:nil forIdentifier:identifier];
+    [[SZApplication instance] setSharedImage:nil forIdentifier:identifier];
     
     [self update];
 }

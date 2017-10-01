@@ -69,7 +69,7 @@
 }
 
 
-- (NSImage *)renderedImageForIdentifier:(NSString *)identifier {
+- (NSImage *)sharedImageForIdentifier:(NSString *)identifier {
     TDAssert(_imageTab);
     NSImage *g = nil;
     @synchronized(_imageTab) {
@@ -79,7 +79,7 @@
 }
 
 
-- (void)setRenderedImage:(NSImage *)img forIdentifier:(NSString *)identifier {
+- (void)setSharedImage:(NSImage *)img forIdentifier:(NSString *)identifier {
     TDAssert([identifier length]);
     TDAssert(_imageTab);
     @synchronized(_imageTab) {
