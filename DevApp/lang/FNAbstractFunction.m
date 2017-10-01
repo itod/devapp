@@ -58,7 +58,8 @@
         if (n) {
             c = TDHexColor([n doubleValue]);
         } else {
-            @throw @"TODO";
+            TDAssert(0);
+            c = [NSColor blackColor];
         }
     } else if (obj.isArrayObject) {
         NSUInteger argc = [obj.value count];
