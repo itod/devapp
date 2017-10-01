@@ -56,13 +56,13 @@
     TDAssert(w);
     TDAssert(h);
 
-    self.canvasGraphicsContext = [[self newContextWithSize:CGSizeMake(w.doubleValue, h.doubleValue)] autorelease];
+    self.canvasGraphicsContext = [[[self class] newGraphicsContextWithSize:CGSizeMake(w.doubleValue, h.doubleValue)] autorelease];
     
     return nil;
 }
 
 
-- (NSGraphicsContext *)newContextWithSize:(CGSize)size {
++ (NSGraphicsContext *)newGraphicsContextWithSize:(CGSize)size {
     NSBitmapImageRep *offscreenRep = [[[NSBitmapImageRep alloc]
                                        initWithBitmapDataPlanes:NULL
                                        pixelsWide:size.width

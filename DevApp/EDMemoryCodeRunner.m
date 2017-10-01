@@ -475,6 +475,12 @@ void TDPerformAfterDelay(dispatch_queue_t q, double delay, void (^block)(void)) 
         _interp.breakpointCollection = [XPBreakpointCollection fromPlist:bpPlist];
     }
     
+    {
+        // default "setup()" - just create reasonably-sized context
+        NSGraphicsContext *g = [[FNSize newGraphicsContextWithSize:CGSizeMake(600.0, 480.0)] autorelease];
+        [[SZApplication instance] setGraphicsContext:g forIdentifier:self.identifier];
+    }
+    
     NSError *err = nil;
     [_interp interpretString:srcStr filePath:path error:&err];
     
