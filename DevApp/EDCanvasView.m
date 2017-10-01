@@ -95,6 +95,10 @@ static CGColorSpaceRef sPatternColorSpace = NULL;
         [nc addObserver:self selector:@selector(compositionGridDidChange:) name:EDCompositionGridEnabledDidChangeNotification object:nil];
         [nc addObserver:self selector:@selector(compositionGridDidChange:) name:EDCompositionGridToleranceDidChangeNotification object:nil];
         [nc addObserver:self selector:@selector(compositionRulerOriginDidChange:) name:EDCompositionRulerOriginDidChangeNotification object:nil];
+        
+        NSTrackingAreaOptions opts = NSTrackingMouseEnteredAndExited|NSTrackingMouseMoved|NSTrackingActiveInKeyWindow|NSTrackingInVisibleRect;
+        NSTrackingArea *ta = [[[NSTrackingArea alloc] initWithRect:[self bounds] options:opts owner:self userInfo:nil] autorelease];
+        [self addTrackingArea:ta];
     }
     
     return self;
@@ -137,16 +141,6 @@ static CGColorSpaceRef sPatternColorSpace = NULL;
 
 - (BOOL)acceptsFirstResponder { 
     return YES; 
-}
-
-
-- (void)viewDidMoveToWindow {
-    [super viewDidMoveToWindow];
-    
-    NSWindow *win = [self window];
-    if (win) {
-        [[self window] setAcceptsMouseMovedEvents:YES];
-    }
 }
 
 
@@ -535,6 +529,20 @@ static void EDDrawPatternFunc(void *info, CGContextRef ctx) {
 #pragma mark -
 #pragma mark  Dragging
 
+- (void)mouseDragged:(NSEvent *)evt {
+    
+    if (_isDragScroll) {
+        CGPoint p = [self locationInComposition:evt];
+        [self dragScrollToPoint:p];
+    } else if (_draggingUserGuide) {
+        CGPoint p = [self locationInComposition:evt];
+        [self userGuideDraggedEvent:evt atPoint:p];
+    } else {
+        [self.delegate canvas:self mouseDragged:evt];
+    }
+}
+
+
 - (BOOL)dragPointMeetsDragThreshold:(CGPoint)p {
     if (_hasMetDragThreshold) return YES;
 
@@ -552,20 +560,6 @@ static void EDDrawPatternFunc(void *info, CGContextRef ctx) {
     _hasMetDragThreshold = (diffX > threshold || diffY > threshold);
 
     return _hasMetDragThreshold;
-}
-
-
-- (void)mouseDragged:(NSEvent *)evt {
-    
-    if (_isDragScroll) {
-        CGPoint p = [self locationInComposition:evt];
-        [self dragScrollToPoint:p];
-    } else if (_draggingUserGuide) {
-        CGPoint p = [self locationInComposition:evt];
-        [self userGuideDraggedEvent:evt atPoint:p];
-    } else {
-        [self.delegate canvas:self mouseDragged:evt];
-    }
 }
 
 
