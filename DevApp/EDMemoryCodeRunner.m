@@ -343,9 +343,9 @@ void TDPerformAfterDelay(dispatch_queue_t q, double delay, void (^block)(void)) 
 
 
 - (void)fireDelegateWillResume {
-    // called on CONTROL-THREAD
-    TDAssertControlThread();
-    
+    // called on CONTROL-THREAD or EXECUTE-THREAD
+    TDAssertNotMainThread();
+
     [self performOnMainThread:^{
         TDAssert(self.delegate);
         TDAssert(self.identifier);
@@ -514,6 +514,8 @@ void TDPerformAfterDelay(dispatch_queue_t q, double delay, void (^block)(void)) 
             }
         }
     }
+    
+    [self fireDelegateWillResume];
     
     _mouseLocation = CGPointZero;
     [self updateMouseLocation:_mouseLocation];
