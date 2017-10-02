@@ -22,7 +22,7 @@
 #define MIN_WIDTH 2.0
 #define MIN_HEIGHT 2.0
 
-#define CANVAS_MARGIN 50.0
+#define CANVAS_MARGIN 0.0
 
 #define DEFAULT_TOLERANCE 20
 #define MIN_TOLERANCE 2
