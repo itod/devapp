@@ -2285,7 +2285,7 @@
         [self killCodeRunner];
         
         self.codeRunner = [[[EDMemoryCodeRunner alloc] initWithDelegate:self] autorelease];
-        [_codeRunner run:cmd inWorkingDirectory:srcDirPath exePath:nil env:envVarsTab breakpointsEnabled:bpEnabled breakpoints:bpPlist identifier:identifier];
+        [_codeRunner run:cmd workingDirectory:srcDirPath exePath:nil env:envVarsTab breakpoints:bpPlist identifier:identifier];
     });
 }
 

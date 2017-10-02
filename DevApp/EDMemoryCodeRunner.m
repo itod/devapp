@@ -174,7 +174,7 @@ void TDPerformAfterDelay(dispatch_queue_t q, double delay, void (^block)(void)) 
 }
 
 
-- (void)run:(NSString *)userCmd inWorkingDirectory:(NSString *)workingDir exePath:(NSString *)exePath env:(NSDictionary *)envVars breakpointsEnabled:(BOOL)bpEnabled breakpoints:(id)bpPlist identifier:(NSString *)identifier {
+- (void)run:(NSString *)userCmd workingDirectory:(NSString *)workingDir exePath:(NSString *)exePath env:(NSDictionary *)envVars breakpoints:(id)bpPlist identifier:(NSString *)identifier {
     TDAssertMainThread();
     TDAssert(userCmd);
     TDAssert(workingDir);
@@ -469,7 +469,7 @@ void TDPerformAfterDelay(dispatch_queue_t q, double delay, void (^block)(void)) 
     _interp.stdOut = _stdOutPipe.fileHandleForWriting;
     _interp.stdErr = _stdErrPipe.fileHandleForWriting;
 
-    if (self.debugSync) {
+    if (bpPlist) {
         _interp.debug = YES;
         _interp.debugDelegate = self;
         _interp.breakpointCollection = [XPBreakpointCollection fromPlist:bpPlist];
