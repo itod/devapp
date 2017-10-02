@@ -202,7 +202,6 @@
     [_windowContainerView setNeedsLayout];
     [_windowContainerView layoutSubviews]; // yes, force a layout now, before window appears on screen.
 
-    //self.canRun = YES;
     self.canStop = NO;
     self.paused = NO;
 
@@ -1269,7 +1268,6 @@
     
     [self clearDebugInfo];
     
-    //self.canRun = YES;
     self.canStop = NO;
     self.busy = NO;
     self.paused = NO;
@@ -1330,7 +1328,6 @@
     
     [_codeRunner stop:self.identifier]; // ?? TODO
     
-    //self.canRun = YES;
     self.canStop = NO;
     self.busy = NO;
     self.paused = NO;
@@ -2240,11 +2237,6 @@
 - (IBAction)run:(id)sender {
     EDAssertMainThread();
     
-//    if (!self.canRun) {
-//        NSBeep();
-//        return;
-//    }
-    
     double delay = self.canStop ? 0.2 : 0.0;
     
     [self stop:nil];
@@ -2257,7 +2249,6 @@
 
 
 - (void)doRun {
-    //self.canRun = NO;
     self.canStop = YES;
     self.busy = YES;
     self.paused = NO;
@@ -2325,7 +2316,6 @@
     self.statusText = NSLocalizedString(@"Stopped.", @"");
     [_consoleViewController removePrompt];
 
-//    self.canRun = YES;
     self.canStop = NO;
     self.busy = NO;
     self.paused = NO;
@@ -2556,7 +2546,7 @@
     SEL action = [item action];
     
     if (@selector(run:) == action) {
-        enabled = YES; //self.canRun;
+        enabled = YES;
     } else if (@selector(stop:) == action) {
         enabled = self.canStop;
     } else if (@selector(toggleBreakpointsEnabled:) == action) {
