@@ -63,7 +63,7 @@
 - (IBAction)stop:(id)sender;
 - (IBAction)clear:(id)sender;
 
-@property (nonatomic, assign) BOOL canRun;
+//@property (nonatomic, assign) BOOL canRun;
 @property (nonatomic, assign) BOOL canStop;
 @property (nonatomic, assign) BOOL busy;
 @property (nonatomic, assign) BOOL paused;

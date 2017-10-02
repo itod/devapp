@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="13196" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="11762"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="13196"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -37,7 +37,6 @@
                     <toolbarItem implicitItemIdentifier="E88831DB-C0F1-42A0-91D8-9E07A967ED60" explicitItemIdentifier="Run" label="Run" paletteLabel="Run" toolTip="Run" tag="2020" image="NSGoRightTemplate" id="eP4-gO-Mjl" customClass="EDToolbarButtonItem">
                         <connections>
                             <action selector="run:" target="-1" id="3Po-17-Njf"/>
-                            <binding destination="-2" name="enabled" keyPath="canRun" id="5dB-Tx-8cS"/>
                         </connections>
                     </toolbarItem>
                     <toolbarItem implicitItemIdentifier="AA254FDA-D1BD-4F81-8362-0E7F17BD03A1" explicitItemIdentifier="Stop" label="Stop" paletteLabel="Stop" toolTip="Stop" tag="2030" image="NSStopProgressTemplate" id="ekh-mq-PVQ" customClass="EDToolbarButtonItem">
@@ -91,7 +90,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="301" height="86"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <textField verticalHuggingPriority="750" id="nSJ-4f-Y7G">
+                    <textField verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="YES" id="nSJ-4f-Y7G">
                         <rect key="frame" x="17" y="49" width="300" height="17"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Remove Page?" id="Aj0-CX-NhZ">
@@ -143,7 +142,7 @@ Gw
                     <rect key="frame" x="0.0" y="0.0" width="480" height="18"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                     <subviews>
-                        <textField verticalHuggingPriority="750" id="wIu-3s-zyX">
+                        <textField verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="YES" id="wIu-3s-zyX">
                             <rect key="frame" x="7" y="3" width="465" height="11"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                             <textFieldCell key="cell" controlSize="mini" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Label" id="PYt-pd-G4a">
