@@ -61,6 +61,8 @@
 @property (nonatomic, assign) BOOL consoleViewVisible;
 @property (nonatomic, assign) BOOL canvasViewVisible;
 
+@property (nonatomic, assign) BOOL wantsReRun;
+
 @property (nonatomic, assign) NSUInteger stackFrameIndex;
 @property (nonatomic, retain) NSArray *frameStack;
 
@@ -1336,6 +1338,13 @@
     self.statusText = txt;
 
     [[self window] makeFirstResponder:self.selectedSourceViewController.textView];
+    
+    if (self.wantsReRun) {
+        self.wantsReRun = NO;
+        TDPerformOnMainThreadAfterDelay(0.0, ^{
+            [self doRun];
+        });
+    }
 }
 
 
@@ -2237,14 +2246,13 @@
 - (IBAction)run:(id)sender {
     EDAssertMainThread();
     
-    double delay = self.canStop ? 0.2 : 0.0;
-    
-    [self stop:nil];
-    [self clearDebugInfo];
-
-    TDPerformOnMainThreadAfterDelay(delay, ^{
+    if (self.canStop) {
+        self.wantsReRun = YES;
+        [self stop:nil];
+        [self clearDebugInfo];
+    } else {
         [self doRun];
-    });
+    }
 }
 
 
