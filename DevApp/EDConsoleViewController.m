@@ -247,19 +247,6 @@ static NSDictionary *sValueAttrs = nil;
 #pragma mark -
 #pragma mark Public
 
-
-- (void)append:(NSString *)msg {
-    // don't append a new prompt if already at prompt
-    NSString *trimmedMsg = [msg stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
-    NSString *currPrompt = nil;
-    if ([self.prompts[0] isEqualToString:trimmedMsg] && [self isAtPrompt:&currPrompt] && [self.prompts[0] isEqualToString:currPrompt]) {
-        return;
-    }
-    
-    [super append:msg];
-}
-
-
 - (NSArray *)prompts {
     return @[[_delegate promptForConsole:self]];
 }

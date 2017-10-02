@@ -22,7 +22,7 @@
 @end
 
 @interface EDShellViewController ()
-
+@property (nonatomic, assign, getter=isAtPrompt) BOOL atPrompt;
 @end
 
 @implementation EDShellViewController
@@ -125,11 +125,16 @@
 #pragma mark Public
 
 - (void)appendPrompt {
-    [self append:[NSString stringWithFormat:@"%@ ", self.prompts[0]]];
+    TDAssertMainThread();
+    if (!_atPrompt) {
+        [self append:[NSString stringWithFormat:@"%@ ", self.prompts[0]]];
+        self.atPrompt = YES;
+    }
 }
 
 
 - (void)removePrompt {
+    TDAssertMainThread();
     // if last line starts with a prompt. delete entire line.
     NSRange lastLineRange;
     NSString *lastLine = [_textView getLineRange:&lastLineRange inRange:[_textView selectedRange]];
@@ -137,15 +142,18 @@
     if (0 == promptRangeInLastLine.location) {
         EDAssert(promptRangeInLastLine.length);
         [[_textView textStorage] replaceCharactersInRange:lastLineRange withString:@""];
+        self.atPrompt = NO;
     }
 }
 
 
 - (void)clearPrompt {
+    TDAssertMainThread();
     NSRange lastLineRange;
     NSString *lastLine = [_textView getLineRange:&lastLineRange inRange:[_textView selectedRange]];
     NSRange promptRangeInLastLine = [self rangeOfPromptInLine:lastLine];
     if (0 == promptRangeInLastLine.location) {
+        self.atPrompt = NO;
         EDAssert(promptRangeInLastLine.length);
         NSUInteger loc = lastLineRange.location;// + NSMaxRange(promptRangeInLastLine);
         NSUInteger len = NSMaxRange(lastLineRange) - loc;
@@ -163,6 +171,9 @@
 
 
 - (void)append:(NSString *)msg {
+    TDAssertMainThread();
+    self.atPrompt = NO;
+    
     // trim multiple newlines at start of msg
     while ([msg length] > 3) {
         if ('\r' == [msg characterAtIndex:0] && '\n' == [msg characterAtIndex:1] && '\r' == [msg characterAtIndex:2] && '\n' == [msg characterAtIndex:3]) {
@@ -251,41 +262,6 @@
     }
     
     return r;
-}
-
-
-- (BOOL)isAtPrompt:(NSString **)outPrompt {
-    BOOL result = NO;
-    
-    NSString *str = [_textView string];
-    NSUInteger strLen = [str length];
-    if (strLen) {
-        NSRange selRange = [_textView selectedRange];
-        
-        if (NSNotFound != selRange.location) {
-            
-            NSRange lastLineRange = [str lineRangeForRange:NSMakeRange(strLen, 0)];
-            EDAssert(NSNotFound != lastLineRange.location);
-            EDAssert(NSMaxRange(lastLineRange) <= strLen);
-            //NSLog(@"`%@`", [str substringWithRange:lastLineRange]);
-            
-            if (selRange.location > lastLineRange.location) {
-                EDAssert(NSNotFound != selRange.location);
-                EDAssert(NSMaxRange(selRange) <= strLen);
-                
-                for (NSString *prompt in self.prompts) {
-                    NSRange absPromptRange = NSMakeRange(lastLineRange.location, [prompt length]);
-                    result = [prompt isEqualToString:[str substringWithRange:absPromptRange]] && NSMaxRange(absPromptRange) + 1 == selRange.location; // +1 for padding
-                    if (result) {
-                        if (outPrompt) *outPrompt = prompt;
-                        break;
-                    }
-                }
-            }
-        }
-    }
-    
-    return result;
 }
 
 
@@ -465,7 +441,7 @@
     
     NSString *cmd = nil;
     if ([self isMoveLeftSelector:sel]) {
-        if ([self isAtPrompt:nil]) {
+        if ([self isAtPrompt]) {
             NSRange selRange = [tv selectedRange];
             if (selRange.length) {
                 if ([self isMoveLeftToBeginningAndModifySelector:sel] || @selector(moveWordLeftAndModifySelection:) == sel || @selector(moveLeftAndModifySelection:) == sel) {
