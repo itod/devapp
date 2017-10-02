@@ -112,7 +112,7 @@ void TDPerformAfterDelay(dispatch_queue_t q, double delay, void (^block)(void)) 
     
     self.debugSync = nil;
     
-    [[NSNotificationCenter defaultCenter] removeObserver:self];
+    [self stopObservingCanvasDebugUpdate];
 
     self.stdOutPipe.fileHandleForReading.readabilityHandler = nil;
     self.stdErrPipe.fileHandleForReading.readabilityHandler = nil;
@@ -123,6 +123,17 @@ void TDPerformAfterDelay(dispatch_queue_t q, double delay, void (^block)(void)) 
     self.dispatcher = nil;
     self.trigger = nil;
     self.event = nil;
+}
+
+
+- (void)startObservingCanvasDebugUpdate {
+    NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
+    [nc addObserver:self selector:@selector(canvasDidDebugUpdate:) name:FNCanvasDidDebugUpdateNotification object:self.identifier];
+}
+
+
+- (void)stopObservingCanvasDebugUpdate {
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:FNCanvasDidDebugUpdateNotification object:nil];
 }
 
 
@@ -474,12 +485,11 @@ void TDPerformAfterDelay(dispatch_queue_t q, double delay, void (^block)(void)) 
         _interp.debugDelegate = self;
         _interp.breakpointCollection = [XPBreakpointCollection fromPlist:bpPlist];
         
-        NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
-        [nc addObserver:self selector:@selector(canvasDidDebugUpdate:) name:FNCanvasDidDebugUpdateNotification object:self.identifier];
+        [self startObservingCanvasDebugUpdate];
     }
     
+    // default "setup()" - just create reasonably-sized context
     {
-        // default "setup()" - just create reasonably-sized context
         NSGraphicsContext *g = [[FNSize newGraphicsContextWithSize:CGSizeMake(480.0, 640.0)] autorelease];
         [[SZApplication instance] setGraphicsContext:g forIdentifier:self.identifier];
     }
@@ -526,24 +536,23 @@ void TDPerformAfterDelay(dispatch_queue_t q, double delay, void (^block)(void)) 
             // handle event or draw
             if (self.event) {
                 wantsDraw = NO;
-                err = [self processEvent];
+                [self processEvent:&err];
                 if (err) break;
                 wantsDraw = [[SZApplication instance] redrawForIdentifier:self.identifier];
             }
             
             if (wantsDraw) {
                 [[SZApplication instance] setRedraw:NO forIdentifier:self.identifier];
-                err = [self draw];
+                [self draw:&err];
                 if (err) break;
                 [self renderContextToSharedImage];
             }
-            
-            self.trigger = [TDTrigger trigger];
             
             if ([[SZApplication instance] loopForIdentifier:self.identifier]) {
                 [self updateLater];
             }
             
+            self.trigger = [TDTrigger trigger];
             [self.trigger await];
             self.trigger = nil;
             
@@ -575,30 +584,38 @@ void TDPerformAfterDelay(dispatch_queue_t q, double delay, void (^block)(void)) 
 }
 
 
-- (NSError *)processEvent {
+- (BOOL)processEvent:(NSError **)outErr {
     TDAssertExecuteThread();
+    
+    BOOL hasHandlerFunc = NO;
     
     NSString *type = [self.event objectForKey:@"type"];
     [self updateMouseLocation:[[self.event objectForKey:@"mouseLocation"] pointValue]];
 
     self.event = nil;
     
-    NSError *err  = nil;
     XPObject *handler = [_interp.globals objectForName:type];
     if (handler && handler.isFunctionObject) {
-        [self.interp interpretString:[NSString stringWithFormat:@"%@()", type] filePath:self.filePath error:&err];
+        [self.interp interpretString:[NSString stringWithFormat:@"%@()", type] filePath:self.filePath error:outErr];
+        hasHandlerFunc = YES;
     }
-    return err;
+    
+    return hasHandlerFunc;
 }
 
 
-- (NSError *)draw {
-    NSError *err  = nil;
+- (BOOL)draw:(NSError **)outErr {
+    TDAssertExecuteThread();
+    
+    BOOL hasDrawFunc = NO;
+    
     XPObject *handler = [_interp.globals objectForName:@"draw"];
     if (handler && handler.isFunctionObject) {
-        [self.interp interpretString:@"draw()" filePath:self.filePath error:&err];
+        [self.interp interpretString:@"draw()" filePath:self.filePath error:outErr];
+        hasDrawFunc = YES;
     }
-    return err;
+    
+    return hasDrawFunc;
 }
 
 
