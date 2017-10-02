@@ -234,7 +234,6 @@ void EDDrawREPL(CGContextRef ctx, CGRect frame, NSEdgeInsets insets, CGSize offs
         if (TAG_RUN == tag) {
             frame.origin.x += 1.0;
         }
-        frame.origin.y += 1.0;
         [super drawImage:img withFrame:frame inView:cv];
     } else {
         CGContextRef ctx = [[NSGraphicsContext currentContext] graphicsPort];
