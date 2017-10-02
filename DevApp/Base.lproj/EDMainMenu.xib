@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="13196" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="11762"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="13196"/>
     </dependencies>
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="NSApplication"/>
@@ -158,7 +158,7 @@
                                     <action selector="performClose:" target="-1" id="L0o-IE-eQg"/>
                                 </connections>
                             </menuItem>
-                            <menuItem title="Close Other Tabs" keyEquivalent="w" id="Fed-wy-r05">
+                            <menuItem title="Close Other Tabs" hidden="YES" keyEquivalent="w" id="Fed-wy-r05">
                                 <modifierMask key="keyEquivalentModifierMask" control="YES" command="YES"/>
                                 <connections>
                                     <action selector="closeOtherTabs:" target="-1" id="ozG-bY-EgO"/>
@@ -178,10 +178,10 @@
                                     <action selector="revertDocumentToSaved:" target="-1" id="364"/>
                                 </connections>
                             </menuItem>
-                            <menuItem isSeparatorItem="YES" id="74">
+                            <menuItem isSeparatorItem="YES" hidden="YES" id="74">
                                 <modifierMask key="keyEquivalentModifierMask" command="YES"/>
                             </menuItem>
-                            <menuItem title="Export…" keyEquivalent="E" id="rO8-2N-ETZ">
+                            <menuItem title="Export…" hidden="YES" keyEquivalent="E" id="rO8-2N-ETZ">
                                 <connections>
                                     <action selector="export:" target="-1" id="hjT-48-16V"/>
                                 </connections>
@@ -198,13 +198,13 @@
                             <menuItem isSeparatorItem="YES" id="aNg-u6-Hly">
                                 <modifierMask key="keyEquivalentModifierMask" command="YES"/>
                             </menuItem>
-                            <menuItem title="Page Setup..." keyEquivalent="P" id="77">
+                            <menuItem title="Page Setup..." hidden="YES" keyEquivalent="P" id="77">
                                 <modifierMask key="keyEquivalentModifierMask" shift="YES" command="YES"/>
                                 <connections>
                                     <action selector="runPageLayout:" target="-1" id="87"/>
                                 </connections>
                             </menuItem>
-                            <menuItem title="Print…" keyEquivalent="p" id="78">
+                            <menuItem title="Print…" hidden="YES" keyEquivalent="p" id="78">
                                 <connections>
                                     <action selector="printDocument:" target="-1" id="373"/>
                                 </connections>
@@ -713,7 +713,7 @@
                 <menuItem title="View" id="295">
                     <menu key="submenu" title="View" id="296">
                         <items>
-                            <menuItem title="Show Tab Bar" keyEquivalent="A" id="C2y-Nl-ToG">
+                            <menuItem title="Show Tab Bar" hidden="YES" keyEquivalent="A" id="C2y-Nl-ToG">
                                 <connections>
                                     <action selector="toggleTabsListViewVisible:" target="-1" id="UNg-XF-bc4"/>
                                 </connections>
@@ -960,37 +960,37 @@
                             <menuItem isSeparatorItem="YES" id="92">
                                 <modifierMask key="keyEquivalentModifierMask" command="YES"/>
                             </menuItem>
-                            <menuItem title="Go Back" tag="1" keyEquivalent="" id="jek-Yd-C8v">
+                            <menuItem title="Go Back" tag="1" hidden="YES" keyEquivalent="" id="jek-Yd-C8v">
                                 <modifierMask key="keyEquivalentModifierMask" control="YES" command="YES"/>
                                 <connections>
                                     <action selector="goBack:" target="-1" id="fwb-oN-b50"/>
                                 </connections>
                             </menuItem>
-                            <menuItem title="Go Forward" tag="1" keyEquivalent="" id="Dzg-X4-DjK">
+                            <menuItem title="Go Forward" tag="1" hidden="YES" keyEquivalent="" id="Dzg-X4-DjK">
                                 <modifierMask key="keyEquivalentModifierMask" control="YES" command="YES"/>
                                 <connections>
                                     <action selector="goForward:" target="-1" id="GeU-S2-69g"/>
                                 </connections>
                             </menuItem>
-                            <menuItem isSeparatorItem="YES" id="mMP-tl-IOv">
+                            <menuItem isSeparatorItem="YES" hidden="YES" id="mMP-tl-IOv">
                                 <modifierMask key="keyEquivalentModifierMask" command="YES"/>
                             </menuItem>
-                            <menuItem title="Select Previous Tab" keyEquivalent="[" id="PdL-ow-WRc">
+                            <menuItem title="Select Previous Tab" hidden="YES" keyEquivalent="[" id="PdL-ow-WRc">
                                 <modifierMask key="keyEquivalentModifierMask" shift="YES" command="YES"/>
                                 <connections>
                                     <action selector="selectPreviousTab:" target="-1" id="s4R-AH-v3z"/>
                                 </connections>
                             </menuItem>
-                            <menuItem title="Select Next Tab" keyEquivalent="]" id="cov-qI-2NN">
+                            <menuItem title="Select Next Tab" hidden="YES" keyEquivalent="]" id="cov-qI-2NN">
                                 <modifierMask key="keyEquivalentModifierMask" shift="YES" command="YES"/>
                                 <connections>
                                     <action selector="selectNextTab:" target="-1" id="Tci-Ib-kVM"/>
                                 </connections>
                             </menuItem>
-                            <menuItem isSeparatorItem="YES" id="ueW-K3-56E">
+                            <menuItem isSeparatorItem="YES" hidden="YES" id="ueW-K3-56E">
                                 <modifierMask key="keyEquivalentModifierMask" command="YES"/>
                             </menuItem>
-                            <menuItem title="Welcome to Exedore" keyEquivalent="1" id="5">
+                            <menuItem title="Welcome to DevApp" keyEquivalent="1" id="5">
                                 <modifierMask key="keyEquivalentModifierMask" shift="YES" command="YES"/>
                                 <connections>
                                     <action selector="showWelcomeWindow:" target="vbL-oh-XuP" id="TrO-gK-gH8"/>
