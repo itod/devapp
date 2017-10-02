@@ -518,7 +518,7 @@ void TDPerformAfterDelay(dispatch_queue_t q, double delay, void (^block)(void)) 
     [self fireDelegateWillResume];
     
     _mouseLocation = CGPointZero;
-    [self updateMouseLocation:_mouseLocation];
+    [self updateMouseLocation:_mouseLocation button:-1];
     
     // EVENT LOOP
     {
@@ -575,7 +575,7 @@ void TDPerformAfterDelay(dispatch_queue_t q, double delay, void (^block)(void)) 
 }
 
 
-- (void)updateMouseLocation:(CGPoint)loc {
+- (void)updateMouseLocation:(CGPoint)loc button:(NSInteger)button {
     TDAssert(self.interp.globals);
     [self.interp.globals setObject:[XPObject number:_mouseLocation.x] forName:@"pmouseX"];
     [self.interp.globals setObject:[XPObject number:_mouseLocation.y] forName:@"pmouseY"];
@@ -583,6 +583,8 @@ void TDPerformAfterDelay(dispatch_queue_t q, double delay, void (^block)(void)) 
     _mouseLocation = CGPointMake(round(loc.x), round(loc.y));
     [self.interp.globals setObject:[XPObject number:_mouseLocation.x] forName:@"mouseX"];
     [self.interp.globals setObject:[XPObject number:_mouseLocation.y] forName:@"mouseY"];
+
+    [self.interp.globals setObject:[XPObject number:button] forName:@"mouseButton"];
 }
 
 
@@ -592,7 +594,9 @@ void TDPerformAfterDelay(dispatch_queue_t q, double delay, void (^block)(void)) 
     BOOL hasHandlerFunc = NO;
     
     NSString *type = [self.event objectForKey:@"type"];
-    [self updateMouseLocation:[[self.event objectForKey:@"mouseLocation"] pointValue]];
+    CGPoint loc = [[self.event objectForKey:@"mouseLocation"] pointValue];
+    NSInteger button = [[self.event objectForKey:@"buttonNumber"] integerValue];
+    [self updateMouseLocation:loc button:button];
 
     self.event = nil;
     
