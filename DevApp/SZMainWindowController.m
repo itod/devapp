@@ -8,7 +8,7 @@
 
 #import "SZMainWindowController.h"
 #import "SZDocument.h"
-#import "EDApplication.h"
+#import "SZApplication.h"
 #import "EDDocumentController.h"
 #import "EDMetrics.h"
 #import "EDTabModel.h"
@@ -34,6 +34,8 @@
 @implementation SZMainWindowController
 
 - (void)dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+    
     self.savePanel = nil;
     self.exportAccessoryView = nil;
     self.exportTabView = nil;
@@ -78,6 +80,15 @@
     if ([[EDUserDefaults instance] canvasViewVisible]) {
         [self.outerUberView openRightTopView:nil];
     }
+    
+    NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
+    [nc addObserver:self selector:@selector(graphicsContextDidChangeSize:) name:SZGraphicsContextDidChangeSizeNotification object:self.identifier];
+}
+
+
+- (void)graphicsContextDidChangeSize:(NSNotification *)n {
+    [self.canvasViewController.canvasView updateRulersOrigin];
+    [self.canvasViewController.canvasView setNeedsDisplay:YES];
 }
 
 

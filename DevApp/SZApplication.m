@@ -7,6 +7,9 @@
 //
 
 #import "SZApplication.h"
+#import "TDUtils.h"
+
+NSString * const SZGraphicsContextDidChangeSizeNotification = @"SZGraphicsContextDidChangeSizeNotification";
 
 @interface SZApplication ()
 @property (nonatomic, retain) NSMutableDictionary *contextTab;
@@ -41,16 +44,28 @@
 }
 
 
+- (void)notifyLater:(NSString *)identifier {
+    TDPerformOnMainThread(^{
+        [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(notifyNow:) object:identifier];
+        [self performSelector:@selector(notifyNow:) withObject:identifier afterDelay:0.05];
+    });
+}
+
+
+- (void)notifyNow:(NSString *)identifier {
+    TDAssertMainThread();
+    NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
+    [nc postNotificationName:SZGraphicsContextDidChangeSizeNotification object:identifier];
+}
+
+
 #pragma mark -
 #pragma mark Public
 
 - (NSGraphicsContext *)graphicsContextForIdentifier:(NSString *)identifier {
     TDAssertExecuteThread();
     TDAssert(_contextTab);
-    NSGraphicsContext *g = nil;
-    //@synchronized(_contextTab) {
-        g = [_contextTab objectForKey:identifier];
-    //}
+    NSGraphicsContext *g = [_contextTab objectForKey:identifier];
     return g;
 }
 
@@ -59,13 +74,13 @@
     TDAssertExecuteThread();
     TDAssert([identifier length]);
     TDAssert(_contextTab);
-    //@synchronized(_contextTab) {
-        if (g) {
-            [_contextTab setObject:g forKey:identifier];
-        } else {
-            [_contextTab removeObjectForKey:identifier];
-        }
-    //}
+    if (g) {
+        [_contextTab setObject:g forKey:identifier];
+    } else {
+        [_contextTab removeObjectForKey:identifier];
+    }
+
+    [self notifyLater:identifier];
 }
 
 

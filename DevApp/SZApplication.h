@@ -8,6 +8,8 @@
 
 #import "EDApplication.h"
 
+extern NSString * const SZGraphicsContextDidChangeSizeNotification;
+
 @interface SZApplication : EDApplication
 
 - (NSGraphicsContext *)graphicsContextForIdentifier:(NSString *)identifier;

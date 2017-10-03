@@ -48,6 +48,7 @@ extern NSString * const EDCompositionRulerOriginDidChangeNotification;
 - (void)scrollRectToCenter:(CGRect)r;
 
 - (void)updateForZoomScale;
+- (void)updateRulersOrigin;
 
 - (CGRect)scaledCompositionFrame;
 - (CGRect)scaledCompositionBounds;
