@@ -517,7 +517,7 @@ void TDPerformAfterDelay(dispatch_queue_t q, double delay, void (^block)(void)) 
     
     [self fireDelegateWillResume];
     
-    _mouseLocation = CGPointZero;
+    _mouseLocation = CGPointMake(-INFINITY, -INFINITY);
     [self updateMouseLocation:_mouseLocation button:-1];
     
     // EVENT LOOP
