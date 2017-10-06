@@ -533,8 +533,6 @@ void TDPerformAfterDelay(dispatch_queue_t q, double delay, void (^block)(void)) 
                 self.interp.paused = YES;
             }
             
-            BOOL wantsDraw = YES;
-            
             // handle event or draw
             if (self.event) {
                 @try {
@@ -543,10 +541,12 @@ void TDPerformAfterDelay(dispatch_queue_t q, double delay, void (^block)(void)) 
                     self.event = nil;
                 }
                 if (err) break;
-                wantsDraw = [[SZApplication instance] redrawForIdentifier:self.identifier];
+                if ([[SZApplication instance] redrawForIdentifier:self.identifier]) {
+                    [self updateNow];
+                }
             }
             
-            if (wantsDraw) {
+            else {
                 [[SZApplication instance] setRedraw:NO forIdentifier:self.identifier];
                 [self draw:&err];
                 if (err) break;
@@ -649,15 +649,26 @@ void TDPerformAfterDelay(dispatch_queue_t q, double delay, void (^block)(void)) 
     dispatch_async(dispatch_get_main_queue(), ^{
         static double duration = 1.0/30;
         
-        [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(updateNow) object:nil];
-        [self performSelector:@selector(updateNow) withObject:nil afterDelay:duration];
+        [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(update) object:nil];
+        [self performSelector:@selector(update) withObject:nil afterDelay:duration];
     });
 }
 
 
 - (void)updateNow {
+    dispatch_async(dispatch_get_main_queue(), ^{
+        static double duration = 0.0;
+        
+        [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(update) object:nil];
+        [self performSelector:@selector(update) withObject:nil afterDelay:duration];
+    });
+}
+
+
+- (void)update {
     TDAssertMainThread();
     [self.trigger fire];
+
 }
 
 
