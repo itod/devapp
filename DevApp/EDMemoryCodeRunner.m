@@ -77,7 +77,6 @@ void TDPerformAfterDelay(dispatch_queue_t q, double delay, void (^block)(void)) 
 @end
 
 @implementation EDMemoryCodeRunner {
-    dispatch_queue_t _triggerFireQueue;
     CGPoint _mouseLocation;
 }
 
@@ -86,7 +85,6 @@ void TDPerformAfterDelay(dispatch_queue_t q, double delay, void (^block)(void)) 
     self = [super init];
     if (self) {
         self.delegate = d;
-        _triggerFireQueue = dispatch_queue_create("TRIGGER-FIRE-THREAD", DISPATCH_QUEUE_SERIAL);
     }
     return self;
 }
@@ -95,8 +93,6 @@ void TDPerformAfterDelay(dispatch_queue_t q, double delay, void (^block)(void)) 
 - (void)dealloc {
     [self killResources];
 
-    if (_triggerFireQueue) {dispatch_release(_triggerFireQueue), _triggerFireQueue = NULL;}
-    
     [super dealloc];
 }
 
@@ -544,7 +540,6 @@ void TDPerformAfterDelay(dispatch_queue_t q, double delay, void (^block)(void)) 
                 wantsDraw = NO;
                 [self processEvent:&err];
                 if (err) break;
-                wantsDraw = [[SZApplication instance] redrawForIdentifier:self.identifier];
             }
             
             if (wantsDraw) {
@@ -649,12 +644,18 @@ void TDPerformAfterDelay(dispatch_queue_t q, double delay, void (^block)(void)) 
 - (void)updateLater {
     TDAssertExecuteThread();
     
-    static double duration = 1.0/30;
-
-    TDAssert(_triggerFireQueue);
-    TDPerformAfterDelay(_triggerFireQueue, duration, ^{
-        [self.trigger fire];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        static double duration = 1.0/30;
+        
+        [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(updateNow) object:nil];
+        [self performSelector:@selector(updateNow) withObject:nil afterDelay:duration];
     });
+}
+
+
+- (void)updateNow {
+    TDAssertMainThread();
+    [self.trigger fire];
 }
 
 
