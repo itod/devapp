@@ -537,9 +537,13 @@ void TDPerformAfterDelay(dispatch_queue_t q, double delay, void (^block)(void)) 
             
             // handle event or draw
             if (self.event) {
-                wantsDraw = NO;
-                [self processEvent:&err];
+                @try {
+                    [self processEvent:&err];
+                } @finally {
+                    self.event = nil;
+                }
                 if (err) break;
+                wantsDraw = [[SZApplication instance] redrawForIdentifier:self.identifier];
             }
             
             if (wantsDraw) {
@@ -547,10 +551,10 @@ void TDPerformAfterDelay(dispatch_queue_t q, double delay, void (^block)(void)) 
                 [self draw:&err];
                 if (err) break;
                 [self renderContextToSharedImage];
-            }
-            
-            if ([[SZApplication instance] loopForIdentifier:self.identifier]) {
-                [self updateLater];
+
+                if ([[SZApplication instance] loopForIdentifier:self.identifier]) {
+                    [self updateLater];
+                }
             }
             
             self.trigger = [TDTrigger trigger];
@@ -596,8 +600,6 @@ void TDPerformAfterDelay(dispatch_queue_t q, double delay, void (^block)(void)) 
     CGPoint loc = [[self.event objectForKey:@"mouseLocation"] pointValue];
     NSInteger button = [[self.event objectForKey:@"buttonNumber"] integerValue];
     [self updateMouseLocation:loc button:button];
-
-    self.event = nil;
     
     XPObject *handler = [_interp.globals objectForName:type];
     if (handler && handler.isFunctionObject) {
