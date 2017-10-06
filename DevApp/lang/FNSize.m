@@ -56,6 +56,9 @@
     TDAssert(w);
     TDAssert(h);
 
+    [walker.globals setObject:w forName:@"width"];
+    [walker.globals setObject:h forName:@"height"];
+
     self.canvasGraphicsContext = [[[self class] newGraphicsContextWithSize:CGSizeMake(w.doubleValue, h.doubleValue)] autorelease];
     
     return nil;

@@ -273,9 +273,12 @@
     
         //self.statementTerminator = @";";
         self.singleLineCommentMarker = @"//";
-		self.blockStartMarker = @"{";
-		self.blockEndMarker = @"}";
+        self.blockStartMarker = @"{";
+        self.blockEndMarker = @"}";
         self.braces = @"( ) [ ]";
+        [self.tokenizer.wordState setWordChars:NO from:'-' to:'-'];
+        [self.tokenizer setTokenizerState:self.tokenizer.symbolState from:'-' to:'-'];
+
 
 		PKTokenizer *t = self.tokenizer;
 	

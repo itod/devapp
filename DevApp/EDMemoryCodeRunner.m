@@ -490,8 +490,12 @@ void TDPerformAfterDelay(dispatch_queue_t q, double delay, void (^block)(void)) 
     
     // default "setup()" - just create reasonably-sized context
     {
-        NSGraphicsContext *g = [[FNSize newGraphicsContextWithSize:CGSizeMake(480.0, 640.0)] autorelease];
+        CGSize size = CGSizeMake(480.0, 640.0);
+        NSGraphicsContext *g = [[FNSize newGraphicsContextWithSize:size] autorelease];
         [[SZApplication instance] setGraphicsContext:g forIdentifier:self.identifier];
+        
+        [_interp.globals setObject:[XPObject number:size.width] forName:@"width"];
+        [_interp.globals setObject:[XPObject number:size.height] forName:@"height"];
     }
     
     NSError *err = nil;
