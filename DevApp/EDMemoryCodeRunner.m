@@ -526,9 +526,12 @@ void TDPerformAfterDelay(dispatch_queue_t q, double delay, void (^block)(void)) 
                 BOOL wantsDraw = YES;
                 
                 if (self.event) {
-                    [self processEvent:&err];
+                    wantsDraw = NO;
+                    BOOL didHandle = [self processEvent:&err];
                     if (err) {[err retain]; break;} //+1
-                    wantsDraw = [[SZApplication instance] redrawForIdentifier:self.identifier];
+                    if (didHandle) {
+                        wantsDraw = [[SZApplication instance] redrawForIdentifier:self.identifier];
+                    }
                 }
                 
                 if (wantsDraw) {
@@ -582,7 +585,7 @@ void TDPerformAfterDelay(dispatch_queue_t q, double delay, void (^block)(void)) 
 - (BOOL)processEvent:(NSError **)outErr {
     TDAssertExecuteThread();
     
-    BOOL hasHandlerFunc = NO;
+    BOOL didHandle = NO;
     
     @try {
         NSString *type = [self.event objectForKey:@"type"];
@@ -593,30 +596,30 @@ void TDPerformAfterDelay(dispatch_queue_t q, double delay, void (^block)(void)) 
         XPObject *handler = [_interp.globals objectForName:type];
         if (handler && handler.isFunctionObject) {
             [self.interp interpretString:[NSString stringWithFormat:@"%@()", type] filePath:self.filePath error:outErr];
-            hasHandlerFunc = YES;
+            didHandle = YES;
         }
     } @finally {
         self.event = nil;
     }
 
-    return hasHandlerFunc;
+    return didHandle;
 }
 
 
 - (BOOL)draw:(NSError **)outErr {
     TDAssertExecuteThread();
     
-    BOOL hasDrawFunc = NO;
+    BOOL didDraw = NO;
     
     [[SZApplication instance] setRedraw:NO forIdentifier:self.identifier];
 
     XPObject *handler = [_interp.globals objectForName:@"draw"];
     if (handler && handler.isFunctionObject) {
         [self.interp interpretString:@"draw()" filePath:self.filePath error:outErr];
-        hasDrawFunc = YES;
+        didDraw = YES;
     }
     
-    return hasDrawFunc;
+    return didDraw;
 }
 
 

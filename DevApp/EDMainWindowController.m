@@ -1389,7 +1389,9 @@
                      [OKTrigger triggerWithTemplate:@"catch ${e}" specifier:@"catch"],
                      [OKTrigger triggerWithTemplate:@"finally" specifier:@"finally"],
                      //[OKTrigger triggerWithTemplate:@"import ${module} as ${foo}" specifier:@"importas"],
-                     
+                     [OKTrigger triggerWithTemplate:@"true" specifier:@"true"],
+                     [OKTrigger triggerWithTemplate:@"false" specifier:@"false"],
+
                      // builtin functions
                      [OKTrigger triggerWithTemplate:@"print(${object})" specifier:@"print"],
                      [OKTrigger triggerWithTemplate:@"assert(${condition})" specifier:@"assert"],
