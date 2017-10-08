@@ -509,43 +509,47 @@ void TDPerformAfterDelay(dispatch_queue_t q, double delay, void (^block)(void)) 
         
         // EVENT LOOP
         NSError *err = nil;
+        
         do {
-            if (self.stopped) {
-                err = [NSError errorWithDomain:XPErrorDomain code:0 userInfo:@{NSLocalizedDescriptionKey: XPUserInterruptException}];
-                break;
+            @autoreleasepool {
+                if (self.stopped) {
+                    err = [[NSError errorWithDomain:XPErrorDomain code:0 userInfo:@{NSLocalizedDescriptionKey: XPUserInterruptException}] retain];
+                    break;
+                }
+                if (self.paused) {
+                    TDAssert(self.interp);
+                    self.interp.paused = YES;
+                }
+                
+                // handle event or draw
+                
+                BOOL wantsDraw = YES;
+                
+                if (self.event) {
+                    [self processEvent:&err];
+                    if (err) {[err retain]; break;}
+                    wantsDraw = [[SZApplication instance] redrawForIdentifier:self.identifier];
+                }
+                
+                if (wantsDraw) {
+                    [self draw:&err];
+                    if (err) {[err retain]; break;}
+                    [self renderContextToSharedImage];
+                }
+                
+                TDTrigger *trig = [TDTrigger trigger];
+                self.trigger = trig;
+                
+                if ([[SZApplication instance] loopForIdentifier:self.identifier]) {
+                    [self updateLater];
+                }
+                
+                [trig await];
+                self.trigger = nil;
             }
-            if (self.paused) {
-                TDAssert(self.interp);
-                self.interp.paused = YES;
-            }
-            
-            // handle event or draw
-            
-            BOOL wantsDraw = YES;
-            
-            if (self.event) {
-                [self processEvent:&err];
-                if (err) break;
-                wantsDraw = [[SZApplication instance] redrawForIdentifier:self.identifier];
-            }
-            
-            if (wantsDraw) {
-                [self draw:&err];
-                if (err) break;
-                [self renderContextToSharedImage];
-            }
-            
-            TDTrigger *trig = [TDTrigger trigger];
-            self.trigger = trig;
-            
-            if ([[SZApplication instance] loopForIdentifier:self.identifier]) {
-                [self updateLater];
-            }
-            
-            [trig await];
-            self.trigger = nil;
-            
         } while (1);
+
+        [err autorelease];
     }
     
     NSMutableDictionary *info = [NSMutableDictionary dictionaryWithObjectsAndKeys:
