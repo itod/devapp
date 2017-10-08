@@ -491,31 +491,23 @@ void TDPerformAfterDelay(dispatch_queue_t q, double delay, void (^block)(void)) 
     NSError *err = nil;
     [_interp interpretString:srcStr filePath:path error:&err];
     
-    NSMutableDictionary *info = nil;
-    if (err) {
-        info = [[@{kEDCodeRunnerReturnCodeKey:@1, kEDCodeRunnerDoneKey:@YES, kEDCodeRunnerErrorKey:err} mutableCopy] autorelease];
-    } else {
-        info = [[@{kEDCodeRunnerReturnCodeKey:@0, kEDCodeRunnerDoneKey:@YES} mutableCopy] autorelease];
-        
+    if (!err) {
         [self fireDelegateWillCallSetup];
         
         TDAssert(!err);
         XPObject *setup = [_interp.globals objectForName:@"setup"];
         if (setup && setup.isFunctionObject) {
             [_interp interpretString:@"setup()" filePath:path error:&err];
-            if (err) {
-                info = [[@{kEDCodeRunnerReturnCodeKey:@1, kEDCodeRunnerDoneKey:@YES, kEDCodeRunnerErrorKey:err} mutableCopy] autorelease];
-            }
         }
     }
     
-    [self fireDelegateWillResume];
-    
-    _mouseLocation = CGPointMake(-INFINITY, -INFINITY);
-    [self updateMouseLocation:_mouseLocation button:-1];
-    
-    // EVENT LOOP
-    {
+    if (!err) {
+        [self fireDelegateWillResume];
+        
+        _mouseLocation = CGPointMake(-INFINITY, -INFINITY);
+        [self updateMouseLocation:_mouseLocation button:-1];
+        
+        // EVENT LOOP
         NSError *err = nil;
         do {
             if (self.stopped) {
@@ -545,27 +537,27 @@ void TDPerformAfterDelay(dispatch_queue_t q, double delay, void (^block)(void)) 
             
             TDTrigger *trig = [TDTrigger trigger];
             self.trigger = trig;
-
+            
             if ([[SZApplication instance] loopForIdentifier:self.identifier]) {
                 [self updateLater];
             }
-
+            
             [trig await];
             self.trigger = nil;
             
         } while (1);
-        
-        NSMutableDictionary *info = [NSMutableDictionary dictionaryWithObjectsAndKeys:
-                                     @YES, kEDCodeRunnerDoneKey,
-                                     nil];
-        if (err) {
-            [info setObject:err forKey:kEDCodeRunnerErrorKey];
-            [info setObject:@1 forKey:kEDCodeRunnerReturnCodeKey];
-            [self fireDelegateDidFail:info]; // ??
-        } else {
-            [info setObject:@0 forKey:kEDCodeRunnerReturnCodeKey];
-            [self pauseWithInfo:info];
-        }
+    }
+    
+    NSMutableDictionary *info = [NSMutableDictionary dictionaryWithObjectsAndKeys:
+                                 @YES, kEDCodeRunnerDoneKey,
+                                 nil];
+    if (err) {
+        [info setObject:err forKey:kEDCodeRunnerErrorKey];
+        [info setObject:@1 forKey:kEDCodeRunnerReturnCodeKey];
+        [self fireDelegateDidFail:info]; // ??
+    } else {
+        [info setObject:@0 forKey:kEDCodeRunnerReturnCodeKey];
+        [self pauseWithInfo:info];
     }
 }
 
