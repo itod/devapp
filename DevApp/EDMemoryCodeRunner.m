@@ -655,9 +655,11 @@ void TDPerformAfterDelay(dispatch_queue_t q, double delay, void (^block)(void)) 
         if (self.waiting) return;
 
         self.waiting = YES;
-        static double duration = 1.0/30;
-        [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(update) object:nil];
-        [self performSelector:@selector(update) withObject:nil afterDelay:duration];
+
+        static double frameRate = 1.0/30;
+        TDPerformAfterDelay(dispatch_get_main_queue(), frameRate, ^{
+            [self update];
+        });
     });
 }
 
