@@ -513,7 +513,7 @@ void TDPerformAfterDelay(dispatch_queue_t q, double delay, void (^block)(void)) 
         do {
             @autoreleasepool {
                 if (self.stopped) {
-                    err = [[NSError errorWithDomain:XPErrorDomain code:0 userInfo:@{NSLocalizedDescriptionKey: XPUserInterruptException}] retain];
+                    err = [[NSError errorWithDomain:XPErrorDomain code:0 userInfo:@{NSLocalizedDescriptionKey: XPUserInterruptException}] retain]; //+1
                     break;
                 }
                 if (self.paused) {
@@ -527,13 +527,13 @@ void TDPerformAfterDelay(dispatch_queue_t q, double delay, void (^block)(void)) 
                 
                 if (self.event) {
                     [self processEvent:&err];
-                    if (err) {[err retain]; break;}
+                    if (err) {[err retain]; break;} //+1
                     wantsDraw = [[SZApplication instance] redrawForIdentifier:self.identifier];
                 }
                 
                 if (wantsDraw) {
                     [self draw:&err];
-                    if (err) {[err retain]; break;}
+                    if (err) {[err retain]; break;} //+1
                     [self renderContextToSharedImage];
                 }
                 
@@ -549,7 +549,7 @@ void TDPerformAfterDelay(dispatch_queue_t q, double delay, void (^block)(void)) 
             }
         } while (1);
 
-        [err autorelease];
+        [err autorelease]; //-1
     }
     
     NSMutableDictionary *info = [NSMutableDictionary dictionaryWithObjectsAndKeys:
