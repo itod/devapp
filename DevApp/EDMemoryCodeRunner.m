@@ -537,7 +537,6 @@ void TDPerformAfterDelay(dispatch_queue_t q, double delay, void (^block)(void)) 
             }
             
             if (wantsDraw) {
-                [[SZApplication instance] setRedraw:NO forIdentifier:self.identifier];
                 [self draw:&err];
                 if (err) break;
                 [self renderContextToSharedImage];
@@ -610,6 +609,8 @@ void TDPerformAfterDelay(dispatch_queue_t q, double delay, void (^block)(void)) 
     
     BOOL hasDrawFunc = NO;
     
+    [[SZApplication instance] setRedraw:NO forIdentifier:self.identifier];
+
     XPObject *handler = [_interp.globals objectForName:@"draw"];
     if (handler && handler.isFunctionObject) {
         [self.interp interpretString:@"draw()" filePath:self.filePath error:outErr];
