@@ -27,4 +27,7 @@ extern NSString * const SZGraphicsContextDidChangeSizeNotification;
 - (BOOL)redrawForIdentifier:(NSString *)identifier;
 - (void)setRedraw:(BOOL)yn forIdentifier:(NSString *)identifier;
 
+- (double)frameRateForIdentifier:(NSString *)identifier;
+- (void)setFrameRate:(double)frameRate forIdentifier:(NSString *)identifier;
+
 @end

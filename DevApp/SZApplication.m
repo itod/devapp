@@ -17,6 +17,7 @@ NSString * const SZGraphicsContextDidChangeSizeNotification = @"SZGraphicsContex
 @property (nonatomic, retain) NSMutableDictionary *stackTab;
 @property (nonatomic, retain) NSMutableDictionary *loopTab;
 @property (nonatomic, retain) NSMutableDictionary *redrawTab;
+@property (nonatomic, retain) NSMutableDictionary *frameRateTab;
 @end
 
 @implementation SZApplication
@@ -29,6 +30,7 @@ NSString * const SZGraphicsContextDidChangeSizeNotification = @"SZGraphicsContex
         self.stackTab = [NSMutableDictionary dictionary];
         self.loopTab = [NSMutableDictionary dictionary];
         self.redrawTab = [NSMutableDictionary dictionary];
+        self.frameRateTab = [NSMutableDictionary dictionary];
     }
     return self;
 }
@@ -40,6 +42,7 @@ NSString * const SZGraphicsContextDidChangeSizeNotification = @"SZGraphicsContex
     self.stackTab = nil;
     self.loopTab = nil;
     self.redrawTab = nil;
+    self.frameRateTab = nil;
     [super dealloc];
 }
 
@@ -169,6 +172,28 @@ NSString * const SZGraphicsContextDidChangeSizeNotification = @"SZGraphicsContex
     id val = @(yn);
     @synchronized(_redrawTab) {
         [_redrawTab setObject:val forKey:identifier];
+    }
+}
+
+
+- (double)frameRateForIdentifier:(NSString *)identifier {
+    TDAssert([identifier length]);
+    TDAssert(_frameRateTab);
+    id val = nil;
+    @synchronized(_frameRateTab) {
+        val = [_frameRateTab objectForKey:identifier];
+    }
+    TDAssert(val);
+    return [val doubleValue];
+}
+
+
+- (void)setFrameRate:(double)frameRate forIdentifier:(NSString *)identifier {
+    TDAssert([identifier length]);
+    TDAssert(_frameRateTab);
+    id val = @(frameRate);
+    @synchronized(_frameRateTab) {
+        [_frameRateTab setObject:val forKey:identifier];
     }
 }
 

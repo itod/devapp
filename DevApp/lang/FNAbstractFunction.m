@@ -178,8 +178,9 @@ NSString * const FNCanvasDidDebugUpdateNotification = @"FNCanvasDidDebugUpdateNo
     TDAssert([identifier length]);
     [[[NSThread currentThread] threadDictionary] setObject:identifier forKey:@"EDIdentifier"];
 
-    [[SZApplication instance] setStrokeWeightStack:[NSMutableArray arrayWithObject:@1] forIdentifier:identifier];
+    [[SZApplication instance] setStrokeWeightStack:[NSMutableArray arrayWithObject:@1] forIdentifier:identifier]; // default is 1
     [[SZApplication instance] setLoop:YES forIdentifier:identifier]; // default is YES
+    [[SZApplication instance] setFrameRate:60.0 forIdentifier:identifier]; // default is 60 fps
 }
 
 

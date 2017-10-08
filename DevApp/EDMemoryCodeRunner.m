@@ -656,7 +656,7 @@ void TDPerformAfterDelay(dispatch_queue_t q, double delay, void (^block)(void)) 
 
         self.waiting = YES;
 
-        static double frameRate = 1.0/30;
+        double frameRate = 1.0 / [[SZApplication instance] frameRateForIdentifier:self.identifier];
         TDPerformAfterDelay(dispatch_get_main_queue(), frameRate, ^{
             [self update];
         });
