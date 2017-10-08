@@ -16,6 +16,7 @@
 #import <Language/Language.h>
 #import "XPMemorySpace.h"
 
+#import "FNFrameRate.h"
 #import "FNRedraw.h"
 #import "FNLoop.h"
 #import "FNNoLoop.h"
@@ -684,6 +685,7 @@ void TDPerformAfterDelay(dispatch_queue_t q, double delay, void (^block)(void)) 
     TDAssertExecuteThread();
     [FNAbstractFunction setIdentifier:self.identifier];
 
+    [i declareNativeFunction:[FNFrameRate class]];
     [i declareNativeFunction:[FNRedraw class]];
     [i declareNativeFunction:[FNLoop class]];
     [i declareNativeFunction:[FNNoLoop class]];

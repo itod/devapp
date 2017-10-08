@@ -230,6 +230,7 @@
 		D3369C001E36C73800FEB7BF /* TDViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D3369BBC1E36C73800FEB7BF /* TDViewController.m */; };
 		D3369C011E36C73800FEB7BF /* TDViewControllerView.m in Sources */ = {isa = PBXBuildFile; fileRef = D3369BBD1E36C73800FEB7BF /* TDViewControllerView.m */; };
 		D3369C071E36C75F00FEB7BF /* TDRegisterWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = D3369C051E36C75F00FEB7BF /* TDRegisterWindow.xib */; };
+		D33C337D1F8A803500B59CA5 /* FNFrameRate.m in Sources */ = {isa = PBXBuildFile; fileRef = D33C337C1F8A803400B59CA5 /* FNFrameRate.m */; };
 		D34A55EB1E7E090D0064DF65 /* FNSize.m in Sources */ = {isa = PBXBuildFile; fileRef = D34A55EA1E7E090D0064DF65 /* FNSize.m */; };
 		D34A55EF1E7E13050064DF65 /* FNAbstractFunction.m in Sources */ = {isa = PBXBuildFile; fileRef = D34A55EE1E7E13050064DF65 /* FNAbstractFunction.m */; };
 		D34A55F21E7E14900064DF65 /* FNRect.m in Sources */ = {isa = PBXBuildFile; fileRef = D34A55F11E7E14900064DF65 /* FNRect.m */; };
@@ -824,6 +825,8 @@
 		D3369BBC1E36C73800FEB7BF /* TDViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TDViewController.m; path = lib/TDAppKit/src/TDViewController.m; sourceTree = SOURCE_ROOT; };
 		D3369BBD1E36C73800FEB7BF /* TDViewControllerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TDViewControllerView.m; path = lib/TDAppKit/src/TDViewControllerView.m; sourceTree = SOURCE_ROOT; };
 		D3369C061E36C75F00FEB7BF /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = lib/TDAppKit/en.lproj/TDRegisterWindow.xib; sourceTree = SOURCE_ROOT; };
+		D33C33711F8A803400B59CA5 /* FNFrameRate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = FNFrameRate.h; path = lang/FNFrameRate.h; sourceTree = "<group>"; };
+		D33C337C1F8A803400B59CA5 /* FNFrameRate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = FNFrameRate.m; path = lang/FNFrameRate.m; sourceTree = "<group>"; };
 		D34A55E91E7E090D0064DF65 /* FNSize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FNSize.h; path = lang/FNSize.h; sourceTree = "<group>"; };
 		D34A55EA1E7E090D0064DF65 /* FNSize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FNSize.m; path = lang/FNSize.m; sourceTree = "<group>"; };
 		D34A55ED1E7E13050064DF65 /* FNAbstractFunction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FNAbstractFunction.h; path = lang/FNAbstractFunction.h; sourceTree = "<group>"; };
@@ -1702,6 +1705,8 @@
 			children = (
 				D34A55ED1E7E13050064DF65 /* FNAbstractFunction.h */,
 				D34A55EE1E7E13050064DF65 /* FNAbstractFunction.m */,
+				D33C33711F8A803400B59CA5 /* FNFrameRate.h */,
+				D33C337C1F8A803400B59CA5 /* FNFrameRate.m */,
 				D393579B1F7DA2C5008AE4A8 /* FNRedraw.h */,
 				D393579A1F7DA2C5008AE4A8 /* FNRedraw.m */,
 				D3DE66021F01C899003EB91F /* FNLoop.h */,
@@ -2065,6 +2070,7 @@
 				D3369AA81E36BEED00FEB7BF /* EDUpdatePreferences.m in Sources */,
 				D3369B1E1E36C25A00FEB7BF /* TKTabListItemFlatStyleOverflowButton.m in Sources */,
 				D31670031E592CEF00DEE3A0 /* EDActionArgumentsFacet.m in Sources */,
+				D33C337D1F8A803500B59CA5 /* FNFrameRate.m in Sources */,
 				D31671101E5AB89300DEE3A0 /* DOMNode+TDAdditions.m in Sources */,
 				D3166EED1E5902A800DEE3A0 /* EDTheme.m in Sources */,
 				D3166FEB1E592C3700DEE3A0 /* EDStatusBar.m in Sources */,

@@ -26,4 +26,5 @@ typedef void(^FNRenderBlock)(CGContextRef ctx, NSInteger strokeWeight);
 @property (nonatomic, assign, readonly) NSMutableArray *strokeWeightStack;
 @property (nonatomic, assign) BOOL loop;
 @property (nonatomic, assign) BOOL redraw;
+@property (nonatomic, assign) double frameRate;
 @end

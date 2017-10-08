@@ -225,4 +225,16 @@ NSString * const FNCanvasDidDebugUpdateNotification = @"FNCanvasDidDebugUpdateNo
     [[SZApplication instance] setRedraw:yn forIdentifier:[[self class] identifier]];
 }
 
+
+- (double)frameRate {
+    TDAssertExecuteThread();
+    return [[SZApplication instance] frameRateForIdentifier:[[self class] identifier]];
+}
+
+
+- (void)setFrameRate:(double)frameRate {
+    TDAssertExecuteThread();
+    [[SZApplication instance] setFrameRate:frameRate forIdentifier:[[self class] identifier]];
+}
+
 @end
