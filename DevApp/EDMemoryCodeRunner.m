@@ -74,6 +74,8 @@ void TDPerformAfterDelay(dispatch_queue_t q, double delay, void (^block)(void)) 
 
 @property (assign) BOOL stopped;
 @property (assign) BOOL paused;
+
+@property (assign) BOOL waiting;
 @end
 
 @implementation EDMemoryCodeRunner {
@@ -534,25 +536,26 @@ void TDPerformAfterDelay(dispatch_queue_t q, double delay, void (^block)(void)) 
             }
             
             // handle event or draw
+            
+            BOOL wantsDraw = YES;
+            
             if (self.event) {
                 [self processEvent:&err];
                 if (err) break;
-                if ([[SZApplication instance] redrawForIdentifier:self.identifier]) {
-                    [self updateNow];
-                }
+                wantsDraw = [[SZApplication instance] redrawForIdentifier:self.identifier];
             }
             
-            else {
+            if (wantsDraw) {
                 [[SZApplication instance] setRedraw:NO forIdentifier:self.identifier];
                 [self draw:&err];
                 if (err) break;
                 [self renderContextToSharedImage];
-
-                if ([[SZApplication instance] loopForIdentifier:self.identifier]) {
-                    [self updateLater];
-                }
             }
-            
+
+            if ([[SZApplication instance] loopForIdentifier:self.identifier]) {
+                [self updateLater];
+            }
+
             self.trigger = [TDTrigger trigger];
             [self.trigger await];
             self.trigger = nil;
@@ -647,18 +650,12 @@ void TDPerformAfterDelay(dispatch_queue_t q, double delay, void (^block)(void)) 
     TDAssertExecuteThread();
     
     dispatch_async(dispatch_get_main_queue(), ^{
+        TDAssertMainThread();
+        
+        if (self.waiting) return;
+
+        self.waiting = YES;
         static double duration = 1.0/30;
-        
-        [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(update) object:nil];
-        [self performSelector:@selector(update) withObject:nil afterDelay:duration];
-    });
-}
-
-
-- (void)updateNow {
-    dispatch_async(dispatch_get_main_queue(), ^{
-        static double duration = 0.0;
-        
         [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(update) object:nil];
         [self performSelector:@selector(update) withObject:nil afterDelay:duration];
     });
@@ -668,7 +665,7 @@ void TDPerformAfterDelay(dispatch_queue_t q, double delay, void (^block)(void)) 
 - (void)update {
     TDAssertMainThread();
     [self.trigger fire];
-
+    self.waiting = NO;
 }
 
 
