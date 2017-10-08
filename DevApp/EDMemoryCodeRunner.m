@@ -541,13 +541,15 @@ void TDPerformAfterDelay(dispatch_queue_t q, double delay, void (^block)(void)) 
                 if (err) break;
                 [self renderContextToSharedImage];
             }
+            
+            TDTrigger *trig = [TDTrigger trigger];
+            self.trigger = trig;
 
             if ([[SZApplication instance] loopForIdentifier:self.identifier]) {
                 [self updateLater];
             }
 
-            self.trigger = [TDTrigger trigger];
-            [self.trigger await];
+            [trig await];
             self.trigger = nil;
             
         } while (1);
