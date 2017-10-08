@@ -75,7 +75,7 @@ void TDPerformAfterDelay(dispatch_queue_t q, double delay, void (^block)(void)) 
 @property (assign) BOOL stopped;
 @property (assign) BOOL paused;
 
-@property (assign) BOOL waiting;
+@property (nonatomic, assign) BOOL waiting;
 @end
 
 @implementation EDMemoryCodeRunner {
