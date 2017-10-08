@@ -1440,6 +1440,11 @@
                      [OKTrigger triggerWithTemplate:@"globals()" specifier:@"globals"],
                      
                      // graphics funcs
+                     [OKTrigger triggerWithTemplate:@"frameRate(${rate})" specifier:@"frameRate"],
+                     [OKTrigger triggerWithTemplate:@"noStroke()" specifier:@"noStroke"],
+                     [OKTrigger triggerWithTemplate:@"redraw()" specifier:@"redraw"],
+                     [OKTrigger triggerWithTemplate:@"loop()" specifier:@"loop"],
+                     [OKTrigger triggerWithTemplate:@"noLoop()" specifier:@"noLoop"],
                      [OKTrigger triggerWithTemplate:@"noStroke()" specifier:@"noStroke"],
                      [OKTrigger triggerWithTemplate:@"noFill()" specifier:@"noFill"],
                      [OKTrigger triggerWithTemplate:@"size(${sizeArray})" specifier:@"size"],
@@ -1464,6 +1469,8 @@
                      [OKTrigger triggerWithTemplate:@"arc(${x}, ${y}, ${radius}, ${startAngle}, ${endAngle}, ${clockwise})" specifier:@"arc"],
                      [OKTrigger triggerWithTemplate:@"line(${point1Array}, ${point2Array})" specifier:@"line"],
                      [OKTrigger triggerWithTemplate:@"line(${x1}, ${y1}, ${x2}, ${y2})" specifier:@"line"],
+                     [OKTrigger triggerWithTemplate:@"bezier(${point1Array}, ${point2Array}, ${point3Array}, ${point4Array})" specifier:@"bezier"],
+                     [OKTrigger triggerWithTemplate:@"bezier(${x1}, ${y1}, ${x2}, ${y2}, ${x3}, ${y3}, ${x4}, ${y4})" specifier:@"bezier"],
 
                      nil];
     }
