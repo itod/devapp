@@ -535,11 +535,7 @@ void TDPerformAfterDelay(dispatch_queue_t q, double delay, void (^block)(void)) 
             
             // handle event or draw
             if (self.event) {
-                @try {
-                    [self processEvent:&err];
-                } @finally {
-                    self.event = nil;
-                }
+                [self processEvent:&err];
                 if (err) break;
                 if ([[SZApplication instance] redrawForIdentifier:self.identifier]) {
                     [self updateNow];
@@ -596,17 +592,21 @@ void TDPerformAfterDelay(dispatch_queue_t q, double delay, void (^block)(void)) 
     
     BOOL hasHandlerFunc = NO;
     
-    NSString *type = [self.event objectForKey:@"type"];
-    CGPoint loc = [[self.event objectForKey:@"mouseLocation"] pointValue];
-    NSInteger button = [[self.event objectForKey:@"buttonNumber"] integerValue];
-    [self updateMouseLocation:loc button:button];
-    
-    XPObject *handler = [_interp.globals objectForName:type];
-    if (handler && handler.isFunctionObject) {
-        [self.interp interpretString:[NSString stringWithFormat:@"%@()", type] filePath:self.filePath error:outErr];
-        hasHandlerFunc = YES;
+    @try {
+        NSString *type = [self.event objectForKey:@"type"];
+        CGPoint loc = [[self.event objectForKey:@"mouseLocation"] pointValue];
+        NSInteger button = [[self.event objectForKey:@"buttonNumber"] integerValue];
+        [self updateMouseLocation:loc button:button];
+        
+        XPObject *handler = [_interp.globals objectForName:type];
+        if (handler && handler.isFunctionObject) {
+            [self.interp interpretString:[NSString stringWithFormat:@"%@()", type] filePath:self.filePath error:outErr];
+            hasHandlerFunc = YES;
+        }
+    } @finally {
+        self.event = nil;
     }
-    
+
     return hasHandlerFunc;
 }
 
