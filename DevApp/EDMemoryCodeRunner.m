@@ -40,16 +40,6 @@
 #import "FNLine.h"
 #import "FNBezier.h"
 
-//typedef NS_ENUM(NSUInteger, EDCodeRunnerState) {
-//    EDCodeRunnerStateInactive,
-//    EDCodeRunnerStateActive,
-//    EDCodeRunnerStateStopped,
-//    EDCodeRunnerStatePaused,
-//    EDCodeRunnerStateReceivedEvent,
-//};
-
-//typedef NSError *(^EDExecuteBlock)(void);
-
 void TDPerformAfterDelay(dispatch_queue_t q, double delay, void (^block)(void)) {
     assert(block);
     assert(delay >= 0.0);
