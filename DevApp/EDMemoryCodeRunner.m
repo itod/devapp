@@ -530,7 +530,7 @@ void TDPerformAfterDelay(dispatch_queue_t q, double delay, void (^block)(void)) 
                     BOOL didHandle = [self processEvent:&err];
                     if (err) {[err retain]; break;} //+1
                     if (didHandle) {
-                        wantsDraw = [[SZApplication instance] redrawForIdentifier:self.identifier];
+                        wantsDraw = [[SZApplication instance] redrawForIdentifier:self.identifier] && ![[SZApplication instance] loopForIdentifier:self.identifier];
                     }
                 }
                 
