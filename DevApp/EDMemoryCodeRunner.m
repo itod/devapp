@@ -91,17 +91,18 @@ void TDPerformAfterDelay(dispatch_queue_t q, double delay, void (^block)(void)) 
 
 
 - (void)killResources {
-    self.identifier = nil;
+    [self stopObservingCanvasDebugUpdate];
+
     self.delegate = nil;
-    
+
     self.interp.delegate = nil;
     self.interp.stdOut = nil;
     self.interp.stdErr = nil;
     self.interp = nil;
-    
+
     self.debugSync = nil;
-    
-    [self stopObservingCanvasDebugUpdate];
+    self.identifier = nil;
+    self.filePath = nil;
 
     self.stdOutPipe.fileHandleForReading.readabilityHandler = nil;
     self.stdErrPipe.fileHandleForReading.readabilityHandler = nil;
