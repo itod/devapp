@@ -61,7 +61,8 @@ void TDPerformAfterDelay(dispatch_queue_t q, double delay, void (^block)(void)) 
 
 @property (retain) id <TDDispatcher>dispatcher;
 @property (retain) TDTrigger *trigger;
-@property (retain) NSDictionary *event;
+@property (retain) NSMutableArray *eventQueue;
+@property (retain) NSLock *eventQueueLock;
 
 @property (assign) BOOL stopped;
 @property (assign) BOOL paused;
@@ -78,6 +79,7 @@ void TDPerformAfterDelay(dispatch_queue_t q, double delay, void (^block)(void)) 
     self = [super init];
     if (self) {
         self.delegate = d;
+        self.eventQueueLock = [[[NSLock alloc] init] autorelease];
     }
     return self;
 }
@@ -85,6 +87,7 @@ void TDPerformAfterDelay(dispatch_queue_t q, double delay, void (^block)(void)) 
 
 - (void)dealloc {
     [self killResources];
+    self.eventQueueLock = nil;
 
     [super dealloc];
 }
@@ -112,7 +115,7 @@ void TDPerformAfterDelay(dispatch_queue_t q, double delay, void (^block)(void)) 
     
     self.dispatcher = nil;
     self.trigger = nil;
-    self.event = nil;
+    self.eventQueue = nil;
 }
 
 
@@ -170,7 +173,11 @@ void TDPerformAfterDelay(dispatch_queue_t q, double delay, void (^block)(void)) 
 
 - (void)handleEvent:(NSDictionary *)evtTab {
     TDAssertMainThread();
-    self.event = [[evtTab copy] autorelease];
+    
+    [self.eventQueueLock lock]; {
+        [self.eventQueue insertObject:[[evtTab copy] autorelease] atIndex:0];
+    } [self.eventQueueLock unlock];
+
     [self.trigger fire];
 }
 
@@ -507,6 +514,8 @@ void TDPerformAfterDelay(dispatch_queue_t q, double delay, void (^block)(void)) 
         _mouseLocation = CGPointMake(-INFINITY, -INFINITY);
         [self updateMouseLocation:_mouseLocation button:-1];
         
+        self.eventQueue = [NSMutableArray array];
+        
         // EVENT LOOP
         NSError *err = nil;
         
@@ -525,12 +534,21 @@ void TDPerformAfterDelay(dispatch_queue_t q, double delay, void (^block)(void)) 
                 
                 BOOL wantsDraw = YES;
                 
-                if (self.event) {
+                NSArray *queue = nil;
+                [self.eventQueueLock lock]; {
+                    queue = [[self.eventQueue copy] autorelease];
+                    [self.eventQueue removeAllObjects];
+                } [self.eventQueueLock unlock];
+                
+                if ([queue count]) {
                     wantsDraw = NO;
-                    BOOL didHandle = [self processEvent:&err];
-                    if (err) {[err retain]; break;} //+1
-                    if (didHandle) {
-                        wantsDraw = [[SZApplication instance] redrawForIdentifier:self.identifier] && ![[SZApplication instance] loopForIdentifier:self.identifier];
+                    for (NSDictionary *evtTab in [queue reverseObjectEnumerator]) {
+                        
+                        BOOL didHandle = [self processEvent:evtTab error:&err];
+                        if (err) {[err retain]; break;} //+1
+                        if (didHandle && !wantsDraw) {
+                            wantsDraw = [[SZApplication instance] redrawForIdentifier:self.identifier] && ![[SZApplication instance] loopForIdentifier:self.identifier];
+                        }
                     }
                 }
                 
@@ -582,24 +600,20 @@ void TDPerformAfterDelay(dispatch_queue_t q, double delay, void (^block)(void)) 
 }
 
 
-- (BOOL)processEvent:(NSError **)outErr {
+- (BOOL)processEvent:(NSDictionary *)evtTab error:(NSError **)outErr {
     TDAssertExecuteThread();
     
     BOOL didHandle = NO;
     
-    @try {
-        NSString *type = [self.event objectForKey:@"type"];
-        CGPoint loc = [[self.event objectForKey:@"mouseLocation"] pointValue];
-        NSInteger button = [[self.event objectForKey:@"buttonNumber"] integerValue];
-        [self updateMouseLocation:loc button:button];
-        
-        XPObject *handler = [_interp.globals objectForName:type];
-        if (handler && handler.isFunctionObject) {
-            [self.interp interpretString:[NSString stringWithFormat:@"%@()", type] filePath:self.filePath error:outErr];
-            didHandle = YES;
-        }
-    } @finally {
-        self.event = nil;
+    NSString *type = [evtTab objectForKey:@"type"];
+    CGPoint loc = [[evtTab objectForKey:@"mouseLocation"] pointValue];
+    NSInteger button = [[evtTab objectForKey:@"buttonNumber"] integerValue];
+    [self updateMouseLocation:loc button:button];
+    
+    XPObject *handler = [_interp.globals objectForName:type];
+    if (handler && handler.isFunctionObject) {
+        [self.interp interpretString:[NSString stringWithFormat:@"%@()", type] filePath:self.filePath error:outErr];
+        didHandle = YES;
     }
 
     return didHandle;
