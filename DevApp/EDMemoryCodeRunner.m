@@ -157,6 +157,8 @@ void TDPerformAfterDelay(dispatch_queue_t q, double delay, void (^block)(void)) 
                                  @NO, kEDCodeRunnerDoneKey,
                                  cmd, kEDCodeRunnerUserCommandKey,
                                  nil];
+
+    [self fireDelegateWillResume];
     [self resumeWithInfo:info];
 }
 
@@ -267,8 +269,6 @@ void TDPerformAfterDelay(dispatch_queue_t q, double delay, void (^block)(void)) 
     [self performOnControlThread:^{
         TDAssert(self.debugSync);
 
-        [self fireDelegateWillResume];
-
         [self.debugSync resumeWithInfo:info];
         [self awaitPause];
     }];
@@ -340,8 +340,7 @@ void TDPerformAfterDelay(dispatch_queue_t q, double delay, void (^block)(void)) 
 
 
 - (void)fireDelegateWillResume {
-    // called on CONTROL-THREAD or EXECUTE-THREAD
-    TDAssertNotMainThread();
+    // called on CONTROL-THREAD or MAIN-THREAD
 
     [self performOnMainThread:^{
         TDAssert(self.delegate);
