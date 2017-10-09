@@ -175,7 +175,7 @@ void TDPerformAfterDelay(dispatch_queue_t q, double delay, void (^block)(void)) 
     TDAssertMainThread();
     
     [self.eventQueueLock lock]; {
-        [self.eventQueue insertObject:[[evtTab copy] autorelease] atIndex:0];
+        [self.eventQueue addObject:[[evtTab copy] autorelease]];
     } [self.eventQueueLock unlock];
 
     [self.trigger fire];
@@ -542,8 +542,7 @@ void TDPerformAfterDelay(dispatch_queue_t q, double delay, void (^block)(void)) 
                 
                 if ([queue count]) {
                     wantsDraw = NO;
-                    for (NSDictionary *evtTab in [queue reverseObjectEnumerator]) {
-                        
+                    for (NSDictionary *evtTab in queue) {
                         BOOL didHandle = [self processEvent:evtTab error:&err];
                         if (err) {[err retain]; break;} //+1
                         if (didHandle && !wantsDraw) {
