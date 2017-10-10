@@ -551,9 +551,15 @@ void TDPerformAfterDelay(dispatch_queue_t q, double delay, void (^block)(void)) 
                 }
                 
                 if (wantsDraw) {
-                    [self draw:&err];
+                    BOOL didDraw = [self draw:&err];
                     if (err) {[err retain]; break;} //+1
                     [self renderContextToSharedImage];
+                    
+                    // if there's no draw() func, disable looping
+                    if (!didDraw) {
+                        [[SZApplication instance] setLoop:NO forIdentifier:self.identifier];
+                        break;
+                    }
                 }
                 
                 TDTrigger *trig = [TDTrigger trigger];
