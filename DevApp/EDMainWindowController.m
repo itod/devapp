@@ -1308,23 +1308,37 @@
             //if (lineNum > 0) [_consoleViewController appendFormat:@", line %ld:", lineNum];
             [_consoleViewController appendNewLine];
         }
-        
+
+        NSString *srcStr = [NSString stringWithFormat:@"%@\n", [okvc.textView string]]; // ensure final terminator, like interpreter does
+
         NSRange lineRange = [okvc.textView rangeOfLine:lineNum];
-        NSString *line = [[okvc.textView string] substringWithRange:lineRange];
+        NSString *line = [srcStr substringWithRange:lineRange];
         [_consoleViewController append:[NSString stringWithFormat:@"\n%@", line]];
         
         if (err.userInfo[kEDCodeRunnerRangeKey]) {
             NSRange errRange = [err.userInfo[kEDCodeRunnerRangeKey] rangeValue];
-            TDAssert(errRange.location >= lineRange.location);
-            TDAssert(NSMaxRange(errRange) <= NSMaxRange(lineRange)); // ??
+            TDAssert(NSMaxRange(errRange) <= [srcStr length]);
             
-            NSMutableString *buf = [NSMutableString stringWithString:@"\n"];
-            for (NSUInteger i = lineRange.location; i < errRange.location; ++i) {
-                [buf appendString:@" "];
+            if (NSMaxRange(errRange) <= [srcStr length]) {
+                //            NSString *errStr = [srcStr substringWithRange:errRange];
+                //            [_consoleViewController append:[NSString stringWithFormat:@"\n%@", errStr]];
+                
+                NSMutableString *buf = [NSMutableString stringWithString:@"\n"];
+                for (NSUInteger i = lineRange.location; i < errRange.location; ++i) {
+                    [buf appendString:@" "];
+                }
+                [buf appendString:@"^"];
+                
+                [_consoleViewController append:buf];
+                
+                
+                //            // add 1 following line
+                //            if ([srcStr length] > NSMaxRange(lineRange)+1) {
+                //                line = [srcStr substringWithRange:[okvc.textView rangeOfLine:lineNum+1]];
+                //            }
+                //
+                //            [_consoleViewController append:[NSString stringWithFormat:@"\n%@", line]];
             }
-            [buf appendString:@"^"];
-            
-            [_consoleViewController append:buf];
         }
     }
     
