@@ -1305,7 +1305,7 @@
         if (err.localizedDescription) {
             [_consoleViewController appendFormat:@"%@", err.localizedDescription];
             if (err.localizedFailureReason) [_consoleViewController appendFormat:@": %@", err.localizedFailureReason];
-            //if (lineNum > 0) [_consoleViewController appendFormat:@", line %ld:", lineNum];
+            if (lineNum > 0) [_consoleViewController appendFormat:@"\n\nLine %ld:", lineNum];
             [_consoleViewController appendNewLine];
         }
 
