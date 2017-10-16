@@ -35,6 +35,7 @@
     if (self) {
         NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
         [nc addObserver:self selector:@selector(compositionMetricsDidChange:) name:EDCompositionMetricsDidChangeNotification object:nil];
+        [nc addObserver:self selector:@selector(graphicsContextDidChange:) name:SZGraphicsContextDidChangeSizeNotification object:nil];
     }
     return self;
 }
@@ -110,10 +111,7 @@
     _metricsButton.mainBgGradient = grad;
     
     TDPerformOnMainThreadAfterDelay(0.0, ^{
-        EDAssert(_canvasView);
-        [_canvasView setFrame:[_canvasView frame]];
-        [_canvasView setNeedsDisplay:YES];
-        [_canvasView scrollToCenter];
+        [self jiggleCanvasFrame];
     });
 }
 
@@ -296,6 +294,20 @@
     if (doc == _document) {
         [self updateCompositionMetricsPopUp];
     }
+}
+
+
+- (void)graphicsContextDidChange:(NSNotification *)n {
+    [self jiggleCanvasFrame];
+}
+
+
+- (void)jiggleCanvasFrame {
+    TDAssertMainThread();
+    TDAssert(_canvasView);
+    [_canvasView setFrame:[_canvasView frame]];
+    [_canvasView setNeedsDisplay:YES];
+    [_canvasView scrollToCenter];
 }
 
 
