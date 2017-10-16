@@ -54,36 +54,36 @@
 
 #define REFRESH_AFTER_SCROLL 0
 
-#define APP_NAME @"DevApp"
-#define MY_BUNDLE_ID @"com.celestialteapot.DevApp"
+#define APP_NAME @"Malerei"
+#define MY_BUNDLE_ID @"com.celestialteapot.Malerei"
 
-#define FILE_DOC_EXT @"devapp"
+#define FILE_DOC_EXT @"malerei"
 
-#define FILE_DOC_TYPE @"com.celestialteapot.devappdoc"
+#define FILE_DOC_TYPE @"com.celestialteapot.malereidoc"
 
 #define MULTI_FILE_ENABLED 0
 
-#define EditorTabPboardType @"com.celestialteapot.devapp.tab"
+#define EditorTabPboardType @"com.celestialteapot.malerei.tab"
 
 #define DOC_ICON_NAME @"DocIcon"
-#define EDProjectSettingsURL @"devapp://Project Settings"
+#define EDProjectSettingsURL @"malerei://Project Settings"
 
 #define MAX_NUM_BREAKPOINTS 10000
 
-#define LICENSE_EXT @"devapplicense"
+#define LICENSE_EXT @"malereilicense"
 
-#define LICENSE_FILENAME @"DevAppLicense"
+#define LICENSE_FILENAME @"MalereiLicense"
 
 #define PURCHASE_URL @"http://celestialteapot.com/exedore"
 #define SUPPORT_URL @"http://groups.google.com/group/exedoreapp"
 
-#define DEFAULT_VALUES_FILENAME @"DevApp-DefaultValues"
+#define DEFAULT_VALUES_FILENAME @"Malerei-DefaultValues"
 
 #define XFER_RAW_DATA 1
 
 #define SQUARE_PROGRESS_COMBO_FIELD 1
 
-#define PROJ_PLIST_NAME @"devapp_project"
+#define PROJ_PLIST_NAME @"malerei_project"
 #define SRC_DIR_NAME @"source"
 #define MAIN_FILE_BASE @"main"
 #define MAIN_FILE_EXT @"js"

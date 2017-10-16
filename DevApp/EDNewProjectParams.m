@@ -13,7 +13,7 @@
 - (instancetype)init {
     self = [super init];
     if (self) {
-        self.name = @".devapp";
+        self.name = @".malerei";
     }
     return self;
 }
