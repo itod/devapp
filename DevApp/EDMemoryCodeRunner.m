@@ -141,8 +141,8 @@ void TDPerformAfterDelay(dispatch_queue_t q, double delay, void (^block)(void)) 
     TDAssertMainThread();
     
     id stopEvt = @{kEDEventCategoryKey: @(EDEventCategoryStop)};
-    TDAssert(self.eventQueue);
-    [self.eventQueue put:stopEvt];
+    TDAssert(_eventQueue);
+    [_eventQueue put:stopEvt];
 
     NSMutableDictionary *info = [NSMutableDictionary dictionaryWithObjectsAndKeys:
                                  @YES, kEDCodeRunnerDoneKey,
@@ -158,8 +158,8 @@ void TDPerformAfterDelay(dispatch_queue_t q, double delay, void (^block)(void)) 
     
     if ([cmd isEqualToString:@"pause"]) {
         id pauseEvt = @{kEDEventCategoryKey: @(EDEventCategoryPause)};
-        TDAssert(self.eventQueue);
-        [self.eventQueue put:pauseEvt];
+        TDAssert(_eventQueue);
+        [_eventQueue put:pauseEvt];
     }
     
     NSMutableDictionary *info = [NSMutableDictionary dictionaryWithObjectsAndKeys:
@@ -188,8 +188,8 @@ void TDPerformAfterDelay(dispatch_queue_t q, double delay, void (^block)(void)) 
     id inputDeviceEvt = [NSMutableDictionary dictionaryWithDictionary:evtTab];
     [inputDeviceEvt setObject:@(EDEventCategoryInputDevice) forKey:kEDEventCategoryKey];
 
-    TDAssert(self.eventQueue);
-    [self.eventQueue put:inputDeviceEvt];
+    TDAssert(_eventQueue);
+    [_eventQueue put:inputDeviceEvt];
 }
 
 
@@ -198,7 +198,7 @@ void TDPerformAfterDelay(dispatch_queue_t q, double delay, void (^block)(void)) 
     TDAssert(userCmd);
     TDAssert(workingDir);
     TDAssert(identifier);
-    TDAssert(self.delegate);
+    TDAssert(_delegate);
 
     self.identifier = identifier;
     self.debugSync = [[[TDInterpreterSync alloc] init] autorelease];
@@ -253,17 +253,20 @@ void TDPerformAfterDelay(dispatch_queue_t q, double delay, void (^block)(void)) 
 #pragma mark Thread Control
 
 - (void)performOnMainThread:(void (^)(void))block {
-    [self.dispatcher performOnMainThread:block];
+    TDAssert(_dispatcher);
+    [_dispatcher performOnMainThread:block];
 }
 
 
 - (void)performOnControlThread:(void (^)(void))block {
-    [self.dispatcher performOnControlThread:block];
+    TDAssert(_dispatcher);
+    [_dispatcher performOnControlThread:block];
 }
 
 
 - (void)performOnExecuteThread:(void (^)(void))block {
-    [self.dispatcher performOnExecuteThread:block];
+    TDAssert(_dispatcher);
+    [_dispatcher performOnExecuteThread:block];
 }
 
 
@@ -274,9 +277,9 @@ void TDPerformAfterDelay(dispatch_queue_t q, double delay, void (^block)(void)) 
     TDAssertMainThread();
     
     [self performOnControlThread:^{
-        TDAssert(self.debugSync);
+        TDAssert(_debugSync);
 
-        [self.debugSync resumeWithInfo:info];
+        [_debugSync resumeWithInfo:info];
         [self awaitPause];
     }];
 }
@@ -289,8 +292,8 @@ void TDPerformAfterDelay(dispatch_queue_t q, double delay, void (^block)(void)) 
     // only called on CONTROL-THREAD
     TDAssertControlThread();
     
-    TDAssert(self.debugSync);
-    NSMutableDictionary *info = [self.debugSync awaitPause];
+    TDAssert(_debugSync);
+    NSMutableDictionary *info = [_debugSync awaitPause];
     
     BOOL done = [[info objectForKey:kEDCodeRunnerDoneKey] boolValue];
     
@@ -313,9 +316,9 @@ void TDPerformAfterDelay(dispatch_queue_t q, double delay, void (^block)(void)) 
     TDAssertExecuteThread();
     
     [self performOnMainThread:^{
-        TDAssert(self.delegate);
+        TDAssert(_delegate);
         TDAssert(self.identifier);
-        [self.delegate codeRunnerDidStartup:self.identifier];
+        [_delegate codeRunnerDidStartup:self.identifier];
     }];
 
 }
@@ -326,9 +329,9 @@ void TDPerformAfterDelay(dispatch_queue_t q, double delay, void (^block)(void)) 
     TDAssertExecuteThread();
     
     [self performOnMainThread:^{
-        TDAssert(self.delegate);
+        TDAssert(_delegate);
         TDAssert(self.identifier);
-        [self.delegate codeRunnerWillCallSetup:self.identifier];
+        [_delegate codeRunnerWillCallSetup:self.identifier];
     }];
 
 }
@@ -339,9 +342,9 @@ void TDPerformAfterDelay(dispatch_queue_t q, double delay, void (^block)(void)) 
     TDAssertControlThread();
     
     [self performOnMainThread:^{
-        TDAssert(self.delegate);
+        TDAssert(_delegate);
         TDAssert(self.identifier);
-        [self.delegate codeRunner:self.identifier didPause:info];
+        [_delegate codeRunner:self.identifier didPause:info];
     }];
 }
 
@@ -350,9 +353,9 @@ void TDPerformAfterDelay(dispatch_queue_t q, double delay, void (^block)(void)) 
     // called on CONTROL-THREAD or MAIN-THREAD
 
     [self performOnMainThread:^{
-        TDAssert(self.delegate);
+        TDAssert(_delegate);
         TDAssert(self.identifier);
-        [self.delegate codeRunnerWillResume:self.identifier];
+        [_delegate codeRunnerWillResume:self.identifier];
     }];
 }
 
@@ -362,9 +365,9 @@ void TDPerformAfterDelay(dispatch_queue_t q, double delay, void (^block)(void)) 
     TDAssertNotMainThread();
     
     [self performOnMainThread:^{
-        TDAssert(self.delegate);
+        TDAssert(_delegate);
         TDAssert(self.identifier);
-        [self.delegate codeRunner:self.identifier didSucceed:info];
+        [_delegate codeRunner:self.identifier didSucceed:info];
     }];
 }
 
@@ -374,9 +377,9 @@ void TDPerformAfterDelay(dispatch_queue_t q, double delay, void (^block)(void)) 
     TDAssertNotMainThread();
     
     [self performOnMainThread:^{
-        TDAssert(self.delegate);
+        TDAssert(_delegate);
         TDAssert(self.identifier);
-        [self.delegate codeRunner:self.identifier didFail:info];
+        [_delegate codeRunner:self.identifier didFail:info];
     }];
 }
 
@@ -386,9 +389,9 @@ void TDPerformAfterDelay(dispatch_queue_t q, double delay, void (^block)(void)) 
     TDAssertExecuteThread();
     
     [self performOnMainThread:^{
-        TDAssert(self.delegate);
+        TDAssert(_delegate);
         TDAssert(self.identifier);
-        [self.delegate codeRunner:self.identifier didUpdate:info];
+        [_delegate codeRunner:self.identifier didUpdate:info];
     }];
 }
 
@@ -409,18 +412,18 @@ void TDPerformAfterDelay(dispatch_queue_t q, double delay, void (^block)(void)) 
         [inInfo setObject:@(done) forKey:kEDCodeRunnerDoneKey];
     }
     
-    TDAssert(self.debugSync);
-    [self.debugSync pauseWithInfo:inInfo];
+    TDAssert(_debugSync);
+    [_debugSync pauseWithInfo:inInfo];
     
     if (done) {
         // allow CONTROL-THREAD to complete naturally by not awaiting resume
         return;
     }
     
-    NSMutableDictionary *outInfo = [self.debugSync awaitResume];
+    NSMutableDictionary *outInfo = [_debugSync awaitResume];
 
-    TDAssert(self.interp);
-    self.interp.paused = NO;
+    TDAssert(_interp);
+    _interp.paused = NO;
 
     done = [[outInfo objectForKey:kEDCodeRunnerDoneKey] boolValue];
     
@@ -535,8 +538,8 @@ void TDPerformAfterDelay(dispatch_queue_t q, double delay, void (^block)(void)) 
                 }
                 
                 else if (EDEventCategoryPause == evtCat) {
-                    TDAssert(self.interp);
-                    self.interp.paused = YES;
+                    TDAssert(_interp);
+                    _interp.paused = YES;
                 }
                 
                 else if (EDEventCategoryInputDevice == evtCat) {
@@ -573,8 +576,8 @@ void TDPerformAfterDelay(dispatch_queue_t q, double delay, void (^block)(void)) 
                 
             }
 
-            TDAssert(self.eventQueue);
-            evtTab = [self.eventQueue take]; // blocks
+            TDAssert(_eventQueue);
+            evtTab = [_eventQueue take]; // blocks
             
         } while (1);
         
@@ -598,15 +601,15 @@ void TDPerformAfterDelay(dispatch_queue_t q, double delay, void (^block)(void)) 
 
 
 - (void)updateMouseLocation:(CGPoint)loc button:(NSInteger)button {
-    TDAssert(self.interp.globals);
-    [self.interp.globals setObject:[XPObject number:_mouseLocation.x] forName:@"pmouseX"];
-    [self.interp.globals setObject:[XPObject number:_mouseLocation.y] forName:@"pmouseY"];
+    TDAssert(_interp.globals);
+    [_interp.globals setObject:[XPObject number:_mouseLocation.x] forName:@"pmouseX"];
+    [_interp.globals setObject:[XPObject number:_mouseLocation.y] forName:@"pmouseY"];
     
     _mouseLocation = CGPointMake(round(loc.x), round(loc.y));
-    [self.interp.globals setObject:[XPObject number:_mouseLocation.x] forName:@"mouseX"];
-    [self.interp.globals setObject:[XPObject number:_mouseLocation.y] forName:@"mouseY"];
+    [_interp.globals setObject:[XPObject number:_mouseLocation.x] forName:@"mouseX"];
+    [_interp.globals setObject:[XPObject number:_mouseLocation.y] forName:@"mouseY"];
 
-    [self.interp.globals setObject:[XPObject number:button] forName:@"mouseButton"];
+    [_interp.globals setObject:[XPObject number:button] forName:@"mouseButton"];
 }
 
 
@@ -620,9 +623,10 @@ void TDPerformAfterDelay(dispatch_queue_t q, double delay, void (^block)(void)) 
     NSInteger button = [[evtTab objectForKey:kEDEventButtonNumberKey] integerValue];
     [self updateMouseLocation:loc button:button];
     
+    TDAssert(_interp);
     XPObject *handler = [_interp.globals objectForName:type];
     if (handler && handler.isFunctionObject) {
-        [self.interp interpretString:[NSString stringWithFormat:@"%@()", type] filePath:self.filePath error:outErr];
+        [_interp interpretString:[NSString stringWithFormat:@"%@()", type] filePath:self.filePath error:outErr];
         didHandle = YES;
     }
 
@@ -639,7 +643,7 @@ void TDPerformAfterDelay(dispatch_queue_t q, double delay, void (^block)(void)) 
 
     XPObject *handler = [_interp.globals objectForName:@"draw"];
     if (handler && handler.isFunctionObject) {
-        [self.interp interpretString:@"draw()" filePath:self.filePath error:outErr];
+        [_interp interpretString:@"draw()" filePath:self.filePath error:outErr];
         didDraw = YES;
     }
     
@@ -679,8 +683,8 @@ void TDPerformAfterDelay(dispatch_queue_t q, double delay, void (^block)(void)) 
             TDAssertMainThread();
             
             id drawEvt = @{kEDEventCategoryKey: @(EDEventCategoryDraw)};
-            TDAssert(self.eventQueue);
-            [self.eventQueue put:drawEvt];
+            TDAssert(_eventQueue);
+            [_eventQueue put:drawEvt];
             
             self.waiting = NO;
         });
