@@ -859,7 +859,9 @@
 
 
 - (NSDictionary *)allEnabledBreakpointsPlist {
-    NSDictionary *result = nil;
+    TDAssert([[self document] breakpointsEnabled]);
+    
+    NSMutableDictionary *result = [NSMutableDictionary dictionary];
     NSArray *bps = [[[self document] breakpoints] allBreakpoints];
     NSString *srcDirPath = [self sourceDirPath];
 
@@ -876,10 +878,10 @@
             }
         }
         
-        result = @{@"all": all};
+        result[@"all"] = all;
     }
     
-    return result;
+    return [[result copy] autorelease];
 }
 
 

@@ -529,32 +529,30 @@ void TDPerformAfterDelay(dispatch_queue_t q, double delay, void (^block)(void)) 
                 BOOL wantsDraw = NO;
                 EDEventCategory evtCat = [[evtTab objectForKey:kEDEventCategoryKey] unsignedIntegerValue];
 
-                switch (evtCat) {
-                    case EDEventCategoryStop: {
-                        err = [[NSError errorWithDomain:XPErrorDomain code:0 userInfo:@{NSLocalizedDescriptionKey: XPUserInterruptException}] retain]; //+1
-                        goto done; // break outer loop
-                    } break;
-                    
-                    case EDEventCategoryPause: {
-                        TDAssert(self.interp);
-                        self.interp.paused = YES;
-                    } break;
-
-                    case EDEventCategoryInputDevice: {
-
-                        BOOL didHandle = [self processInputDeviceEvent:evtTab error:&err];
-                        if (err) {[err retain]; break;} //+1
-                        if (didHandle && !wantsDraw) {
-                            wantsDraw = [[SZApplication instance] redrawForIdentifier:self.identifier] && ![[SZApplication instance] loopForIdentifier:self.identifier];
-                        }
-
-                    } break;
-                    case EDEventCategoryDraw: {
-                        wantsDraw = YES;
-                    } break;
-                    default:
-                        TDAssert(0);
-                        break;
+                if (EDEventCategoryStop == evtCat) {
+                    err = [[NSError errorWithDomain:XPErrorDomain code:0 userInfo:@{NSLocalizedDescriptionKey: XPUserInterruptException}] retain]; //+1
+                    break;
+                }
+                
+                else if (EDEventCategoryPause == evtCat) {
+                    TDAssert(self.interp);
+                    self.interp.paused = YES;
+                }
+                
+                else if (EDEventCategoryInputDevice == evtCat) {
+                    BOOL didHandle = [self processInputDeviceEvent:evtTab error:&err];
+                    if (err) {[err retain]; break;} //+1
+                    if (didHandle && !wantsDraw) {
+                        wantsDraw = [[SZApplication instance] redrawForIdentifier:self.identifier] && ![[SZApplication instance] loopForIdentifier:self.identifier];
+                    }
+                }
+                
+                else if (EDEventCategoryDraw == evtCat) {
+                    wantsDraw = YES;
+                }
+                
+                else {
+                    TDAssert(0);
                 }
                 
                 if (wantsDraw) {
@@ -563,15 +561,16 @@ void TDPerformAfterDelay(dispatch_queue_t q, double delay, void (^block)(void)) 
                     [self renderContextToSharedImage];
                     
                     // if there's no draw() func, disable looping
-                    if (!didDraw) {
+                    if (didDraw) {
+                        if ([[SZApplication instance] loopForIdentifier:self.identifier]) {
+                            [self scheduleDraw];
+                        }
+                    } else {
                         [[SZApplication instance] setLoop:NO forIdentifier:self.identifier];
                         break;
                     }
                 }
                 
-                if ([[SZApplication instance] loopForIdentifier:self.identifier]) {
-                    [self scheduleDraw];
-                }
             }
 
             TDAssert(self.eventQueue);
