@@ -10,8 +10,8 @@
 #import "SZApplication.h"
 
 #import <TDThreadUtils/TDInterpreterSync.h>
+#import <TDThreadUtils/TDTrigger.h>
 #import "TDDispatcherGDC.h"
-#import "TDTrigger.h"
 
 #import <Language/Language.h>
 #import "XPMemorySpace.h"
