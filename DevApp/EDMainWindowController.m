@@ -845,7 +845,7 @@
 
 - (OKViewController *)selectedSourceViewController {
     TKTabModel *tm = self.selectedTabModel;
-    EDAssert(tm);
+    //EDAssert(tm);
 
     OKViewController *okvc = nil;
     

@@ -141,6 +141,7 @@ void TDPerformAfterDelay(dispatch_queue_t q, double delay, void (^block)(void)) 
     TDAssertMainThread();
     
     id stopEvt = @{kEDEventCategoryKey: @(EDEventCategoryStop)};
+    TDAssert(self.eventQueue);
     [self.eventQueue put:stopEvt];
 
     NSMutableDictionary *info = [NSMutableDictionary dictionaryWithObjectsAndKeys:
@@ -157,6 +158,7 @@ void TDPerformAfterDelay(dispatch_queue_t q, double delay, void (^block)(void)) 
     
     if ([cmd isEqualToString:@"pause"]) {
         id pauseEvt = @{kEDEventCategoryKey: @(EDEventCategoryPause)};
+        TDAssert(self.eventQueue);
         [self.eventQueue put:pauseEvt];
     }
     
@@ -184,8 +186,9 @@ void TDPerformAfterDelay(dispatch_queue_t q, double delay, void (^block)(void)) 
     TDAssertMainThread();
     
     id inputDeviceEvt = [NSMutableDictionary dictionaryWithDictionary:evtTab];
-    [inputDeviceEvt setObject:@(EDEventCategoryPause) forKey:kEDEventCategoryKey];
+    [inputDeviceEvt setObject:@(EDEventCategoryInputDevice) forKey:kEDEventCategoryKey];
 
+    TDAssert(self.eventQueue);
     [self.eventQueue put:inputDeviceEvt];
 }
 
@@ -571,6 +574,7 @@ void TDPerformAfterDelay(dispatch_queue_t q, double delay, void (^block)(void)) 
                 }
             }
 
+            TDAssert(self.eventQueue);
             evtTab = [self.eventQueue take]; // blocks
             
         } while (1);
@@ -676,6 +680,7 @@ void TDPerformAfterDelay(dispatch_queue_t q, double delay, void (^block)(void)) 
             TDAssertMainThread();
             
             id drawEvt = @{kEDEventCategoryKey: @(EDEventCategoryDraw)};
+            TDAssert(self.eventQueue);
             [self.eventQueue put:drawEvt];
             
             self.waiting = NO;
