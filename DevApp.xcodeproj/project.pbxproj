@@ -249,8 +249,8 @@
 		D34A566A1E7F7D0C0064DF65 /* FNStrokeCap.m in Sources */ = {isa = PBXBuildFile; fileRef = D34A56691E7F7D0C0064DF65 /* FNStrokeCap.m */; };
 		D34A566D1E7F7DC00064DF65 /* FNStrokeJoin.m in Sources */ = {isa = PBXBuildFile; fileRef = D34A566C1E7F7DC00064DF65 /* FNStrokeJoin.m */; };
 		D37CFCB51EC8B90600068FEB /* FNBezier.m in Sources */ = {isa = PBXBuildFile; fileRef = D37CFCB41EC8B90600068FEB /* FNBezier.m */; };
+		D38693741F9CF55100928048 /* TDLinkedQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = D38693691F9CF55000928048 /* TDLinkedQueue.m */; };
 		D393578C1F7C4D39008AE4A8 /* TDDispatcherGDC.m in Sources */ = {isa = PBXBuildFile; fileRef = D393578B1F7C4D39008AE4A8 /* TDDispatcherGDC.m */; };
-		D39357991F7D91AD008AE4A8 /* TDTrigger.m in Sources */ = {isa = PBXBuildFile; fileRef = D39357981F7D91AD008AE4A8 /* TDTrigger.m */; };
 		D393579C1F7DA2C6008AE4A8 /* FNRedraw.m in Sources */ = {isa = PBXBuildFile; fileRef = D393579A1F7DA2C5008AE4A8 /* FNRedraw.m */; };
 		D3D705601E6F710D00D7EA61 /* EDBreakpointCollection.m in Sources */ = {isa = PBXBuildFile; fileRef = D3D7055F1E6F710D00D7EA61 /* EDBreakpointCollection.m */; };
 		D3DA17D01E77702700492A04 /* OkudaKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3DA17CD1E77701200492A04 /* OkudaKit.framework */; };
@@ -863,11 +863,11 @@
 		D34A566C1E7F7DC00064DF65 /* FNStrokeJoin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FNStrokeJoin.m; path = lang/FNStrokeJoin.m; sourceTree = "<group>"; };
 		D37CFCB31EC8B90600068FEB /* FNBezier.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FNBezier.h; path = lang/FNBezier.h; sourceTree = "<group>"; };
 		D37CFCB41EC8B90600068FEB /* FNBezier.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FNBezier.m; path = lang/FNBezier.m; sourceTree = "<group>"; };
+		D38693691F9CF55000928048 /* TDLinkedQueue.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = TDLinkedQueue.m; path = lib/TDThreadUtils/src/TDLinkedQueue.m; sourceTree = SOURCE_ROOT; };
+		D38693751F9CF55900928048 /* TDLinkedQueue.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = TDLinkedQueue.h; path = lib/TDThreadUtils/include/TDThreadUtils/TDLinkedQueue.h; sourceTree = SOURCE_ROOT; };
 		D393577D1F7C4CB2008AE4A8 /* TDDispatcher.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TDDispatcher.h; sourceTree = "<group>"; };
 		D393578A1F7C4D39008AE4A8 /* TDDispatcherGDC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TDDispatcherGDC.h; sourceTree = "<group>"; };
 		D393578B1F7C4D39008AE4A8 /* TDDispatcherGDC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TDDispatcherGDC.m; sourceTree = "<group>"; };
-		D39357971F7D91A6008AE4A8 /* TDTrigger.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = TDTrigger.h; path = lib/TDThreadUtils/include/TDThreadUtils/TDTrigger.h; sourceTree = SOURCE_ROOT; };
-		D39357981F7D91AD008AE4A8 /* TDTrigger.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = TDTrigger.m; path = lib/TDThreadUtils/src/TDTrigger.m; sourceTree = SOURCE_ROOT; };
 		D393579A1F7DA2C5008AE4A8 /* FNRedraw.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = FNRedraw.m; path = lang/FNRedraw.m; sourceTree = "<group>"; };
 		D393579B1F7DA2C5008AE4A8 /* FNRedraw.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = FNRedraw.h; path = lang/FNRedraw.h; sourceTree = "<group>"; };
 		D3D7055E1E6F710D00D7EA61 /* EDBreakpointCollection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EDBreakpointCollection.h; sourceTree = "<group>"; };
@@ -1472,8 +1472,8 @@
 				D309BCD01E5BB873002B3199 /* TDSemaphore.m */,
 				D309BCCF1E5BB86C002B3199 /* TDSynchronousChannel.h */,
 				D309BCCA1E5BB861002B3199 /* TDSynchronousChannel.m */,
-				D39357971F7D91A6008AE4A8 /* TDTrigger.h */,
-				D39357981F7D91AD008AE4A8 /* TDTrigger.m */,
+				D38693751F9CF55900928048 /* TDLinkedQueue.h */,
+				D38693691F9CF55000928048 /* TDLinkedQueue.m */,
 			);
 			name = ThreadUtils;
 			sourceTree = "<group>";
@@ -2003,8 +2003,8 @@
 				D34A56551E7F3B4E0064DF65 /* FNRotate.m in Sources */,
 				D31670B21E5A171500DEE3A0 /* NSString+Score.m in Sources */,
 				D3369BD71E36C73800FEB7BF /* TDComboFieldTextView.m in Sources */,
+				D38693741F9CF55100928048 /* TDLinkedQueue.m in Sources */,
 				D3369ACD1E36BEED00FEB7BF /* OBObject.m in Sources */,
-				D39357991F7D91AD008AE4A8 /* TDTrigger.m in Sources */,
 				D3369C011E36C73800FEB7BF /* TDViewControllerView.m in Sources */,
 				D34A55FB1E7E1AFE0064DF65 /* FNFill.m in Sources */,
 				D309BCC51E5B9E77002B3199 /* EDMemoryCodeRunner.m in Sources */,

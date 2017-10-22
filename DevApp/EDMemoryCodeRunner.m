@@ -10,7 +10,7 @@
 #import "SZApplication.h"
 
 #import <TDThreadUtils/TDInterpreterSync.h>
-#import <TDThreadUtils/TDTrigger.h>
+#import <TDThreadUtils/TDLinkedQueue.h>
 #import "TDDispatcherGDC.h"
 
 #import <Language/Language.h>
@@ -40,6 +40,18 @@
 #import "FNLine.h"
 #import "FNBezier.h"
 
+#define kEDEventCategoryKey @"catetory"
+#define kEDEventTypeKey @"type"
+#define kEDEventMouseLocationKey @"mouseLocation"
+#define kEDEventButtonNumberKey @"buttonNumber"
+
+typedef NS_ENUM(NSUInteger, EDEventCategory) {
+    EDEventCategoryInputDevice = 0, // mouse, keyboard, trackpad
+    EDEventCategoryStop,
+    EDEventCategoryPause,
+    EDEventCategoryDraw,
+};
+
 void TDPerformAfterDelay(dispatch_queue_t q, double delay, void (^block)(void)) {
     assert(block);
     assert(delay >= 0.0);
@@ -60,12 +72,7 @@ void TDPerformAfterDelay(dispatch_queue_t q, double delay, void (^block)(void)) 
 @property (retain) NSPipe *stdErrPipe;
 
 @property (retain) id <TDDispatcher>dispatcher;
-@property (retain) TDTrigger *trigger;
-@property (retain) NSMutableArray *eventQueue;
-@property (retain) NSLock *eventQueueLock;
-
-@property (assign) BOOL stopped;
-@property (assign) BOOL paused;
+@property (retain) TDLinkedQueue *eventQueue;
 
 @property (nonatomic, assign) BOOL waiting;
 @end
@@ -79,7 +86,6 @@ void TDPerformAfterDelay(dispatch_queue_t q, double delay, void (^block)(void)) 
     self = [super init];
     if (self) {
         self.delegate = d;
-        self.eventQueueLock = [[[NSLock alloc] init] autorelease];
     }
     return self;
 }
@@ -87,7 +93,6 @@ void TDPerformAfterDelay(dispatch_queue_t q, double delay, void (^block)(void)) 
 
 - (void)dealloc {
     [self killResources];
-    self.eventQueueLock = nil;
 
     [super dealloc];
 }
@@ -114,7 +119,6 @@ void TDPerformAfterDelay(dispatch_queue_t q, double delay, void (^block)(void)) 
     self.stdErrPipe = nil;
     
     self.dispatcher = nil;
-    self.trigger = nil;
     self.eventQueue = nil;
 }
 
@@ -136,7 +140,9 @@ void TDPerformAfterDelay(dispatch_queue_t q, double delay, void (^block)(void)) 
 - (void)stop:(NSString *)identifier {
     TDAssertMainThread();
     
-    self.stopped = YES;
+    id stopEvt = @{kEDEventCategoryKey: @(EDEventCategoryStop)};
+    [self.eventQueue put:stopEvt];
+
     NSMutableDictionary *info = [NSMutableDictionary dictionaryWithObjectsAndKeys:
                                  @YES, kEDCodeRunnerDoneKey,
                                  nil];
@@ -150,7 +156,8 @@ void TDPerformAfterDelay(dispatch_queue_t q, double delay, void (^block)(void)) 
     TDAssert([cmd length]);
     
     if ([cmd isEqualToString:@"pause"]) {
-        self.paused = YES;
+        id pauseEvt = @{kEDEventCategoryKey: @(EDEventCategoryPause)};
+        [self.eventQueue put:pauseEvt];
     }
     
     NSMutableDictionary *info = [NSMutableDictionary dictionaryWithObjectsAndKeys:
@@ -176,11 +183,10 @@ void TDPerformAfterDelay(dispatch_queue_t q, double delay, void (^block)(void)) 
 - (void)handleEvent:(NSDictionary *)evtTab {
     TDAssertMainThread();
     
-    [self.eventQueueLock lock]; {
-        [self.eventQueue addObject:[[evtTab copy] autorelease]];
-    } [self.eventQueueLock unlock];
+    id inputDeviceEvt = [NSMutableDictionary dictionaryWithDictionary:evtTab];
+    [inputDeviceEvt setObject:@(EDEventCategoryPause) forKey:kEDEventCategoryKey];
 
-    [self.trigger fire];
+    [self.eventQueue put:inputDeviceEvt];
 }
 
 
@@ -194,12 +200,10 @@ void TDPerformAfterDelay(dispatch_queue_t q, double delay, void (^block)(void)) 
     self.identifier = identifier;
     self.debugSync = [[[TDInterpreterSync alloc] init] autorelease];
     self.dispatcher = [[[TDDispatcherGDC alloc] init] autorelease];
+    self.eventQueue = [[[TDLinkedQueue alloc] init] autorelease];
 
     self.stdOutPipe = [NSPipe pipe];
     self.stdErrPipe = [NSPipe pipe];
-    
-    self.stopped = NO;
-    self.paused = NO;
     
     _stdOutPipe.fileHandleForReading.readabilityHandler = ^(NSFileHandle *fh) {
         NSString *msg = [[[NSString alloc] initWithData:fh.availableData encoding:NSUTF8StringEncoding] autorelease];
@@ -412,7 +416,6 @@ void TDPerformAfterDelay(dispatch_queue_t q, double delay, void (^block)(void)) 
     
     NSMutableDictionary *outInfo = [self.debugSync awaitResume];
 
-    self.paused = NO;
     TDAssert(self.interp);
     self.interp.paused = NO;
 
@@ -513,41 +516,44 @@ void TDPerformAfterDelay(dispatch_queue_t q, double delay, void (^block)(void)) 
         _mouseLocation = CGPointMake(-INFINITY, -INFINITY);
         [self updateMouseLocation:_mouseLocation button:-1];
         
-        self.eventQueue = [NSMutableArray array];
-        
         // EVENT LOOP
         NSError *err = nil;
         
         do {
             @autoreleasepool {
-                if (self.stopped) {
-                    err = [[NSError errorWithDomain:XPErrorDomain code:0 userInfo:@{NSLocalizedDescriptionKey: XPUserInterruptException}] retain]; //+1
-                    break;
-                }
-                if (self.paused) {
-                    TDAssert(self.interp);
-                    self.interp.paused = YES;
-                }
-                
-                // handle event or draw
                 
                 BOOL wantsDraw = YES;
+                id evtTab = [self.eventQueue take]; // blocks
                 
-                NSArray *queue = nil;
-                [self.eventQueueLock lock]; {
-                    queue = [[self.eventQueue copy] autorelease];
-                    [self.eventQueue removeAllObjects];
-                } [self.eventQueueLock unlock];
+                EDEventCategory evtCat = [[evtTab objectForKey:kEDEventCategoryKey] unsignedIntegerValue];
                 
-                if ([queue count]) {
-                    wantsDraw = NO;
-                    for (NSDictionary *evtTab in queue) {
-                        BOOL didHandle = [self processEvent:evtTab error:&err];
+                switch (evtCat) {
+                    case EDEventCategoryStop: {
+                        err = [[NSError errorWithDomain:XPErrorDomain code:0 userInfo:@{NSLocalizedDescriptionKey: XPUserInterruptException}] retain]; //+1
+                        goto done; // break outer loop
+                    } break;
+                    
+                    case EDEventCategoryPause: {
+                        TDAssert(self.interp);
+                        self.interp.paused = YES;
+                    } break;
+
+                    case EDEventCategoryInputDevice: {
+                        wantsDraw = NO;
+
+                        BOOL didHandle = [self processInputDeviceEvent:evtTab error:&err];
                         if (err) {[err retain]; break;} //+1
                         if (didHandle && !wantsDraw) {
                             wantsDraw = [[SZApplication instance] redrawForIdentifier:self.identifier] && ![[SZApplication instance] loopForIdentifier:self.identifier];
                         }
-                    }
+
+                    } break;
+                    case EDEventCategoryDraw: {
+                        wantsDraw = YES;
+                    } break;
+                    default:
+                        TDAssert(0);
+                        break;
                 }
                 
                 if (wantsDraw) {
@@ -562,17 +568,13 @@ void TDPerformAfterDelay(dispatch_queue_t q, double delay, void (^block)(void)) 
                     }
                 }
                 
-                TDTrigger *trig = [TDTrigger trigger];
-                self.trigger = trig;
-                
                 if ([[SZApplication instance] loopForIdentifier:self.identifier]) {
-                    [self updateLater];
+                    [self scheduleDraw];
                 }
-                
-                [trig await];
-                self.trigger = nil;
             }
         } while (1);
+        
+    done:
 
         [err autorelease]; //-1
     }
@@ -604,14 +606,14 @@ void TDPerformAfterDelay(dispatch_queue_t q, double delay, void (^block)(void)) 
 }
 
 
-- (BOOL)processEvent:(NSDictionary *)evtTab error:(NSError **)outErr {
+- (BOOL)processInputDeviceEvent:(NSDictionary *)evtTab error:(NSError **)outErr {
     TDAssertExecuteThread();
     
     BOOL didHandle = NO;
     
-    NSString *type = [evtTab objectForKey:@"type"];
-    CGPoint loc = [[evtTab objectForKey:@"mouseLocation"] pointValue];
-    NSInteger button = [[evtTab objectForKey:@"buttonNumber"] integerValue];
+    NSString *type = [evtTab objectForKey:kEDEventTypeKey];
+    CGPoint loc = [[evtTab objectForKey:kEDEventMouseLocationKey] pointValue];
+    NSInteger button = [[evtTab objectForKey:kEDEventButtonNumberKey] integerValue];
     [self updateMouseLocation:loc button:button];
     
     XPObject *handler = [_interp.globals objectForName:type];
@@ -658,7 +660,7 @@ void TDPerformAfterDelay(dispatch_queue_t q, double delay, void (^block)(void)) 
 }
 
 
-- (void)updateLater {
+- (void)scheduleDraw {
     TDAssertExecuteThread();
     
     dispatch_async(dispatch_get_main_queue(), ^{
@@ -670,16 +672,14 @@ void TDPerformAfterDelay(dispatch_queue_t q, double delay, void (^block)(void)) 
 
         double frameRate = 1.0 / [[SZApplication instance] frameRateForIdentifier:self.identifier];
         TDPerformAfterDelay(dispatch_get_main_queue(), frameRate, ^{
-            [self update];
+            TDAssertMainThread();
+            
+            id drawEvt = @{kEDEventCategoryKey: @(EDEventCategoryDraw)};
+            [self.eventQueue put:drawEvt];
+            
+            self.waiting = NO;
         });
     });
-}
-
-
-- (void)update {
-    TDAssertMainThread();
-    [self.trigger fire];
-    self.waiting = NO;
 }
 
 
