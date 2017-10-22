@@ -518,15 +518,14 @@ void TDPerformAfterDelay(dispatch_queue_t q, double delay, void (^block)(void)) 
         
         // EVENT LOOP
         NSError *err = nil;
-        
+        id evtTab = @{kEDEventCategoryKey: @(EDEventCategoryDraw)};
+
         do {
             @autoreleasepool {
                 
-                BOOL wantsDraw = YES;
-                id evtTab = [self.eventQueue take]; // blocks
-                
+                BOOL wantsDraw = NO;
                 EDEventCategory evtCat = [[evtTab objectForKey:kEDEventCategoryKey] unsignedIntegerValue];
-                
+
                 switch (evtCat) {
                     case EDEventCategoryStop: {
                         err = [[NSError errorWithDomain:XPErrorDomain code:0 userInfo:@{NSLocalizedDescriptionKey: XPUserInterruptException}] retain]; //+1
@@ -539,7 +538,6 @@ void TDPerformAfterDelay(dispatch_queue_t q, double delay, void (^block)(void)) 
                     } break;
 
                     case EDEventCategoryInputDevice: {
-                        wantsDraw = NO;
 
                         BOOL didHandle = [self processInputDeviceEvent:evtTab error:&err];
                         if (err) {[err retain]; break;} //+1
@@ -572,6 +570,9 @@ void TDPerformAfterDelay(dispatch_queue_t q, double delay, void (^block)(void)) 
                     [self scheduleDraw];
                 }
             }
+
+            evtTab = [self.eventQueue take]; // blocks
+            
         } while (1);
         
     done:
