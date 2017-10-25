@@ -663,20 +663,17 @@ void TDPerformAfterDelay(dispatch_queue_t q, double delay, void (^block)(void)) 
     
     dispatch_async(dispatch_get_main_queue(), ^{
         TDAssertMainThread();
-        
         if (self.waiting) return;
-
         self.waiting = YES;
 
         double frameRate = 1.0 / [[SZApplication instance] frameRateForIdentifier:self.identifier];
         TDPerformAfterDelay(dispatch_get_main_queue(), frameRate, ^{
             TDAssertMainThread();
-            
+            self.waiting = NO;
+
             id drawEvt = @{kEDEventCategoryKey: @(EDEventCategoryDraw)};
             TDAssert(_eventQueue);
             [_eventQueue put:drawEvt];
-            
-            self.waiting = NO;
         });
     });
 }
