@@ -538,7 +538,7 @@ void TDPerformAfterDelay(dispatch_queue_t q, double delay, void (^block)(void)) 
                 else if (EDEventCategoryInputDevice == evtCat) {
                     BOOL didHandle = [self processInputDeviceEvent:evtTab error:&err];
                     if (err) {[err retain]; break;} //+1
-                    if (didHandle && !wantsDraw) {
+                    if (didHandle) {
                         wantsDraw = [[SZApplication instance] redrawForIdentifier:self.identifier] && ![[SZApplication instance] loopForIdentifier:self.identifier];
                     }
                 }
