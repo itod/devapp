@@ -566,7 +566,6 @@ void TDPerformAfterDelay(dispatch_queue_t q, double delay, void (^block)(void)) 
                         break;
                     }
                 }
-                
             }
 
             TDAssert(_eventQueue);
@@ -574,8 +573,6 @@ void TDPerformAfterDelay(dispatch_queue_t q, double delay, void (^block)(void)) 
             
         } while (1);
         
-    done:
-
         [err autorelease]; //-1
     }
     
