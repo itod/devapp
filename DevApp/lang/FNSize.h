@@ -9,5 +9,5 @@
 #import "FNAbstractFunction.h"
 
 @interface FNSize : FNAbstractFunction
-+ (NSGraphicsContext *)newGraphicsContextWithSize:(CGSize)size;
++ (void)setupCanvasWithSize:(CGSize)size globals:(XPMemorySpace *)globals;
 @end

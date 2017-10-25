@@ -12,6 +12,7 @@
 #import <Language/XPException.h>
 #import "XPFunctionSymbol.h"
 #import "XPMemorySpace.h"
+#import "SZApplication.h"
 
 @implementation FNSize
 
@@ -55,13 +56,23 @@
     
     TDAssert(w);
     TDAssert(h);
-
-    [walker.globals setObject:w forName:@"width"];
-    [walker.globals setObject:h forName:@"height"];
-
-    self.canvasGraphicsContext = [[[self class] newGraphicsContextWithSize:CGSizeMake(w.doubleValue, h.doubleValue)] autorelease];
+    
+    CGSize size = CGSizeMake(w.doubleValue, h.doubleValue);
+    [[self class] setupCanvasWithSize:size globals:walker.globals];
     
     return nil;
+}
+
+
++ (void)setupCanvasWithSize:(CGSize)size globals:(XPMemorySpace *)globals {
+    TDAssertExecuteThread();
+    TDAssert(globals);
+    
+    [globals setObject:[XPObject number:size.width] forName:@"width"];
+    [globals setObject:[XPObject number:size.height] forName:@"height"];
+
+    NSGraphicsContext *g = [[self newGraphicsContextWithSize:size] autorelease];
+    [[SZApplication instance] setGraphicsContext:g forIdentifier:[self identifier]];
 }
 
 
