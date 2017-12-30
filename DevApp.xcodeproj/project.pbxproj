@@ -1804,7 +1804,7 @@
 		D336999F1E36B78800FEB7BF /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0900;
+				LastUpgradeCheck = 0920;
 				ORGANIZATIONNAME = "Celestial Teapot";
 				TargetAttributes = {
 					D33699A61E36B78900FEB7BF = {
