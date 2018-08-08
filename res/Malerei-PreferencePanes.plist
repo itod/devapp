@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>id</key>
+		<string>EDGeneralPreferences</string>
+		<key>className</key>
+		<string>EDGeneralPreferences</string>
+		<key>iconName</key>
+		<string>NSPreferencesGeneral</string>
+		<key>title</key>
+		<string>General</string>
+	</dict>
+	<dict>
+		<key>id</key>
+		<string>EDTextEditingPreferences</string>
+		<key>className</key>
+		<string>EDTextEditingPreferences</string>
+		<key>iconName</key>
+		<string>BlankDocIcon</string>
+		<key>title</key>
+		<string>Text Editing</string>
+	</dict>
+	<dict>
+		<key>id</key>
+		<string>EDThemePreferences</string>
+		<key>className</key>
+		<string>EDThemePreferences</string>
+		<key>iconName</key>
+		<string>NSColorPanel</string>
+		<key>title</key>
+		<string>Theme</string>
+	</dict>
+	<dict>
+		<key>id</key>
+		<string>EDUpdatePreferences</string>
+		<key>className</key>
+		<string>EDUpdatePreferences</string>
+		<key>iconName</key>
+		<string>prefpane_icon_update</string>
+		<key>title</key>
+		<string>Update</string>
+	</dict>
+</array>
+</plist>

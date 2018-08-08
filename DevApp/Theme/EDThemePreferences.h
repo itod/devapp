@@ -6,13 +6,13 @@
 //  Copyright 2010 Todd Ditchendorf. All rights reserved.
 //
 
-#import <IDEKit/IDEBasePreferences.h>
+#import "TDPreferenceViewController.h"
 
 @class EDTheme;
 @class EDThemeRulesTableView;
 @class EDColorPickerButtonCell;
 
-@interface EDThemePreferences : IDEBasePreferences <NSTextFieldDelegate, NSTableViewDataSource, NSTableViewDelegate>
+@interface EDThemePreferences : TDPreferenceViewController <NSTextFieldDelegate, NSTableViewDataSource, NSTableViewDelegate>
 // <NSMenuDelegate, NSComboBoxDataSource>
 
 - (IBAction)selectFont:(id)sender;

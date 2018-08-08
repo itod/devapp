@@ -7,7 +7,6 @@
 //
 
 #import "EDApplication.h"
-#import "OAPreferenceController.h"
 #import "EDThemePreferences.h"
 #import <TDAppKit/TDUtils.h>
 
@@ -37,8 +36,46 @@
 
 
 - (BOOL)setUpAppSupportDir {
-    BOOL result = [super setUpAppSupportDir];
-    return result;
+    NSString *dirName = [[NSProcessInfo processInfo] processName];
+    NSArray *pathComps = [NSArray arrayWithObjects:@"~", @"Library", @"Application Support", dirName, nil];
+    NSString *path = [[NSString pathWithComponents:pathComps] stringByExpandingTildeInPath];
+    self.appSupportDirPath = path;
+
+    BOOL success = [self createDirAtPathIfDoesntExist:_appSupportDirPath];
+
+    if (success) {
+        self.startupItemsDirPath = [self.appSupportDirPath stringByAppendingPathComponent:@"Startup Items"];
+        [self createDirAtPathIfDoesntExist:self.startupItemsDirPath];
+
+        self.shutdownItemsDirPath = [self.appSupportDirPath stringByAppendingPathComponent:@"Shutdown Items"];
+        [self createDirAtPathIfDoesntExist:self.shutdownItemsDirPath];
+
+        self.scriptsDirPath = [self.appSupportDirPath stringByAppendingPathComponent:@"Menu Scripts"];
+        [self createDirAtPathIfDoesntExist:self.scriptsDirPath];
+
+        self.resourcesDirPath = [self.appSupportDirPath stringByAppendingPathComponent:@"Resources"];
+        [self createDirAtPathIfDoesntExist:self.resourcesDirPath];
+    }
+
+    return success;
+}
+
+
+- (BOOL)createDirAtPathIfDoesntExist:(NSString *)path {
+    BOOL exists, isDir;
+    exists = [[NSFileManager defaultManager] fileExistsAtPath:path isDirectory:&isDir];
+
+    BOOL success = (exists && isDir);
+
+    if (!success) {
+        NSError *err = nil;
+        success = [[NSFileManager defaultManager] createDirectoryAtPath:path withIntermediateDirectories:YES attributes:nil error:&err];
+        if (!success) {
+            NSLog(@"could not create dir at path: %@: %@", path, err);
+        }
+    }
+
+    return success;
 }
 
 

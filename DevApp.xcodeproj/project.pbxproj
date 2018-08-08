@@ -14,7 +14,6 @@
 		D309BCD11E5BB873002B3199 /* TDSemaphore.m in Sources */ = {isa = PBXBuildFile; fileRef = D309BCD01E5BB873002B3199 /* TDSemaphore.m */; };
 		D309BCE81E60B362002B3199 /* EDShellViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D31670511E59FB7800DEE3A0 /* EDShellViewController.m */; };
 		D3166EB51E57C54400DEE3A0 /* EDUpdatePreferences.xib in Resources */ = {isa = PBXBuildFile; fileRef = D3166EAB1E57C54400DEE3A0 /* EDUpdatePreferences.xib */; };
-		D3166EB91E57C54400DEE3A0 /* OAPreferencesWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = D3166EB31E57C54400DEE3A0 /* OAPreferencesWindow.xib */; };
 		D3166ED31E57C6FF00DEE3A0 /* Language.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3166ECE1E57C6E900DEE3A0 /* Language.framework */; };
 		D3166ED41E57C70B00DEE3A0 /* Language.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = D3166ECE1E57C6E900DEE3A0 /* Language.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D3166ED61E57C96D00DEE3A0 /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3166ED51E57C96D00DEE3A0 /* Sparkle.framework */; };
@@ -40,7 +39,6 @@
 		D3166F591E5908F000DEE3A0 /* EDGuidesPreferences.m in Sources */ = {isa = PBXBuildFile; fileRef = D3166F581E5908F000DEE3A0 /* EDGuidesPreferences.m */; };
 		D3166F5C1E5908FE00DEE3A0 /* EDGuidesPreferences.xib in Resources */ = {isa = PBXBuildFile; fileRef = D3166F5A1E5908FE00DEE3A0 /* EDGuidesPreferences.xib */; };
 		D3166F6A1E590A1300DEE3A0 /* EDModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D3166F691E590A1300DEE3A0 /* EDModel.m */; };
-		D3166F6D1E590B7F00DEE3A0 /* IDEBasePreferences.m in Sources */ = {isa = PBXBuildFile; fileRef = D3166F6C1E590B7F00DEE3A0 /* IDEBasePreferences.m */; };
 		D3166F701E590D7D00DEE3A0 /* EDGeneralPreferences.xib in Resources */ = {isa = PBXBuildFile; fileRef = D3166F6E1E590D7D00DEE3A0 /* EDGeneralPreferences.xib */; };
 		D3166F731E590D8C00DEE3A0 /* EDGeneralPreferences.m in Sources */ = {isa = PBXBuildFile; fileRef = D3166F721E590D8C00DEE3A0 /* EDGeneralPreferences.m */; };
 		D3166F921E590DF600DEE3A0 /* css in Resources */ = {isa = PBXBuildFile; fileRef = D3166F911E590DF600DEE3A0 /* css */; };
@@ -127,7 +125,6 @@
 		D31670F31E5A1A7B00DEE3A0 /* EDFaviconController.m in Sources */ = {isa = PBXBuildFile; fileRef = D31670ED1E5A1A7B00DEE3A0 /* EDFaviconController.m */; };
 		D31670F41E5A1A7B00DEE3A0 /* EDFindPanel.m in Sources */ = {isa = PBXBuildFile; fileRef = D31670EF1E5A1A7B00DEE3A0 /* EDFindPanel.m */; };
 		D31670F51E5A1A7B00DEE3A0 /* EDRecentURLController.m in Sources */ = {isa = PBXBuildFile; fileRef = D31670F11E5A1A7B00DEE3A0 /* EDRecentURLController.m */; };
-		D31670F81E5A1E8700DEE3A0 /* TKTabsListView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D31670F61E5A1E8700DEE3A0 /* TKTabsListView.xib */; };
 		D31671001E5A21F800DEE3A0 /* EDMainWindowController+NewProject.m in Sources */ = {isa = PBXBuildFile; fileRef = D31670661E59FD9B00DEE3A0 /* EDMainWindowController+NewProject.m */; };
 		D31671031E5A251000DEE3A0 /* EDBaseToolbarItem.m in Sources */ = {isa = PBXBuildFile; fileRef = D31671021E5A251000DEE3A0 /* EDBaseToolbarItem.m */; };
 		D31671051E5A599200DEE3A0 /* main.js in Resources */ = {isa = PBXBuildFile; fileRef = D31671041E5A599200DEE3A0 /* main.js */; };
@@ -160,37 +157,15 @@
 		D3369AB81E36BEED00FEB7BF /* IDEUberView.m in Sources */ = {isa = PBXBuildFile; fileRef = D3369A741E36BEED00FEB7BF /* IDEUberView.m */; };
 		D3369AB91E36BEED00FEB7BF /* IDEUberViewSplitView.m in Sources */ = {isa = PBXBuildFile; fileRef = D3369A761E36BEED00FEB7BF /* IDEUberViewSplitView.m */; };
 		D3369ABA1E36BEED00FEB7BF /* IDEUserDefaults.m in Sources */ = {isa = PBXBuildFile; fileRef = D3369A781E36BEED00FEB7BF /* IDEUserDefaults.m */; };
-		D3369ABD1E36BEED00FEB7BF /* NSArray-OFExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = D3369A7D1E36BEED00FEB7BF /* NSArray-OFExtensions.m */; };
-		D3369ABE1E36BEED00FEB7BF /* NSBundle-OAExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = D3369A7F1E36BEED00FEB7BF /* NSBundle-OAExtensions.m */; };
-		D3369ABF1E36BEED00FEB7BF /* NSImage-OAExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = D3369A811E36BEED00FEB7BF /* NSImage-OAExtensions.m */; };
-		D3369AC01E36BEED00FEB7BF /* NSMutableArray-OFExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = D3369A831E36BEED00FEB7BF /* NSMutableArray-OFExtensions.m */; };
-		D3369AC11E36BEED00FEB7BF /* NSObject-OFExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = D3369A851E36BEED00FEB7BF /* NSObject-OFExtensions.m */; };
-		D3369AC21E36BEED00FEB7BF /* NSString-OFReplacement.m in Sources */ = {isa = PBXBuildFile; fileRef = D3369A871E36BEED00FEB7BF /* NSString-OFReplacement.m */; };
-		D3369AC31E36BEED00FEB7BF /* NSString-OFSimpleMatching.m in Sources */ = {isa = PBXBuildFile; fileRef = D3369A891E36BEED00FEB7BF /* NSString-OFSimpleMatching.m */; };
-		D3369AC41E36BEED00FEB7BF /* NSToolbar-OAExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = D3369A8B1E36BEED00FEB7BF /* NSToolbar-OAExtensions.m */; };
-		D3369AC51E36BEED00FEB7BF /* OAPreferenceClient.m in Sources */ = {isa = PBXBuildFile; fileRef = D3369A8D1E36BEED00FEB7BF /* OAPreferenceClient.m */; };
-		D3369AC61E36BEED00FEB7BF /* OAPreferenceClientRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = D3369A8F1E36BEED00FEB7BF /* OAPreferenceClientRecord.m */; };
-		D3369AC71E36BEED00FEB7BF /* OAPreferenceController.m in Sources */ = {isa = PBXBuildFile; fileRef = D3369A911E36BEED00FEB7BF /* OAPreferenceController.m */; };
-		D3369AC81E36BEED00FEB7BF /* OAPreferencesIconView.m in Sources */ = {isa = PBXBuildFile; fileRef = D3369A931E36BEED00FEB7BF /* OAPreferencesIconView.m */; };
-		D3369AC91E36BEED00FEB7BF /* OAPreferencesNextButton.png in Resources */ = {isa = PBXBuildFile; fileRef = D3369A941E36BEED00FEB7BF /* OAPreferencesNextButton.png */; };
-		D3369ACA1E36BEED00FEB7BF /* OAPreferencesPreviousButton.png in Resources */ = {isa = PBXBuildFile; fileRef = D3369A951E36BEED00FEB7BF /* OAPreferencesPreviousButton.png */; };
-		D3369ACB1E36BEED00FEB7BF /* OAPreferencesToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = D3369A971E36BEED00FEB7BF /* OAPreferencesToolbar.m */; };
-		D3369ACC1E36BEED00FEB7BF /* OAPreferencesWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = D3369A991E36BEED00FEB7BF /* OAPreferencesWindow.m */; };
-		D3369ACD1E36BEED00FEB7BF /* OBObject.m in Sources */ = {isa = PBXBuildFile; fileRef = D3369A9C1E36BEED00FEB7BF /* OBObject.m */; };
-		D3369ACE1E36BEED00FEB7BF /* OFObject.m in Sources */ = {isa = PBXBuildFile; fileRef = D3369A9E1E36BEED00FEB7BF /* OFObject.m */; };
-		D3369ACF1E36BEED00FEB7BF /* OFPreference.m in Sources */ = {isa = PBXBuildFile; fileRef = D3369AA01E36BEED00FEB7BF /* OFPreference.m */; };
 		D3369B161E36C25A00FEB7BF /* TKDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = D3369AF11E36C25A00FEB7BF /* TKDocument.m */; };
 		D3369B171E36C25A00FEB7BF /* TKDocument+Scripting.m in Sources */ = {isa = PBXBuildFile; fileRef = D3369AF31E36C25A00FEB7BF /* TKDocument+Scripting.m */; };
 		D3369B181E36C25A00FEB7BF /* TKDocumentController.m in Sources */ = {isa = PBXBuildFile; fileRef = D3369AF51E36C25A00FEB7BF /* TKDocumentController.m */; };
 		D3369B191E36C25A00FEB7BF /* TKMainWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = D3369AF71E36C25A00FEB7BF /* TKMainWindow.m */; };
 		D3369B1A1E36C25A00FEB7BF /* TKMainWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = D3369AF91E36C25A00FEB7BF /* TKMainWindowController.m */; };
-		D3369B1B1E36C25A00FEB7BF /* TKOverflowButton.m in Sources */ = {isa = PBXBuildFile; fileRef = D3369AFB1E36C25A00FEB7BF /* TKOverflowButton.m */; };
 		D3369B1C1E36C25A00FEB7BF /* TKTabListItem.m in Sources */ = {isa = PBXBuildFile; fileRef = D3369AFD1E36C25A00FEB7BF /* TKTabListItem.m */; };
 		D3369B1D1E36C25A00FEB7BF /* TKTabListItemFlatStyleCloseButton.m in Sources */ = {isa = PBXBuildFile; fileRef = D3369AFF1E36C25A00FEB7BF /* TKTabListItemFlatStyleCloseButton.m */; };
 		D3369B1E1E36C25A00FEB7BF /* TKTabListItemFlatStyleOverflowButton.m in Sources */ = {isa = PBXBuildFile; fileRef = D3369B011E36C25A00FEB7BF /* TKTabListItemFlatStyleOverflowButton.m */; };
 		D3369B1F1E36C25A00FEB7BF /* TKTabListItemStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = D3369B031E36C25A00FEB7BF /* TKTabListItemStyle.m */; };
-		D3369B211E36C25A00FEB7BF /* TKTabListItemStyleFlat.m in Sources */ = {isa = PBXBuildFile; fileRef = D3369B071E36C25A00FEB7BF /* TKTabListItemStyleFlat.m */; };
-		D3369B221E36C25A00FEB7BF /* TKTabListItemStyleMerged.m in Sources */ = {isa = PBXBuildFile; fileRef = D3369B091E36C25A00FEB7BF /* TKTabListItemStyleMerged.m */; };
 		D3369B231E36C25A00FEB7BF /* TKTabModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D3369B0B1E36C25A00FEB7BF /* TKTabModel.m */; };
 		D3369B241E36C25A00FEB7BF /* TKTabModel+Scripting.m in Sources */ = {isa = PBXBuildFile; fileRef = D3369B0D1E36C25A00FEB7BF /* TKTabModel+Scripting.m */; };
 		D3369B251E36C25A00FEB7BF /* TKTabsListView.m in Sources */ = {isa = PBXBuildFile; fileRef = D3369B0F1E36C25A00FEB7BF /* TKTabsListView.m */; };
@@ -252,6 +227,17 @@
 		D38693741F9CF55100928048 /* TDLinkedQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = D38693691F9CF55000928048 /* TDLinkedQueue.m */; };
 		D393578C1F7C4D39008AE4A8 /* TDDispatcherGDC.m in Sources */ = {isa = PBXBuildFile; fileRef = D393578B1F7C4D39008AE4A8 /* TDDispatcherGDC.m */; };
 		D393579C1F7DA2C6008AE4A8 /* FNRedraw.m in Sources */ = {isa = PBXBuildFile; fileRef = D393579A1F7DA2C5008AE4A8 /* FNRedraw.m */; };
+		D3CF9C19211B7D4A00E92136 /* TKButton.m in Sources */ = {isa = PBXBuildFile; fileRef = D3CF9C17211B7D4900E92136 /* TKButton.m */; };
+		D3CF9C24211B7E2400E92136 /* TDPreferenceModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D3CF9C1E211B7E2300E92136 /* TDPreferenceModel.m */; };
+		D3CF9C25211B7E2400E92136 /* TDPreferencesWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = D3CF9C1F211B7E2300E92136 /* TDPreferencesWindowController.m */; };
+		D3CF9C26211B7E2400E92136 /* TDPreferenceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D3CF9C21211B7E2300E92136 /* TDPreferenceViewController.m */; };
+		D3CF9C28211B7F4900E92136 /* Malerei-PreferencePanes.plist in Resources */ = {isa = PBXBuildFile; fileRef = D3CF9C27211B7F4800E92136 /* Malerei-PreferencePanes.plist */; };
+		D3CF9C2B211B803900E92136 /* TKTabsListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D3CF9C29211B803800E92136 /* TKTabsListViewController.xib */; };
+		D3CF9C35211B80F100E92136 /* FlatTabStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = D3CF9C2D211B80F100E92136 /* FlatTabStyle.m */; };
+		D3CF9C36211B80F100E92136 /* FlatStyleCloseImageButton.m in Sources */ = {isa = PBXBuildFile; fileRef = D3CF9C30211B80F100E92136 /* FlatStyleCloseImageButton.m */; };
+		D3CF9C37211B80F100E92136 /* FlatStyleExtraButton.m in Sources */ = {isa = PBXBuildFile; fileRef = D3CF9C32211B80F100E92136 /* FlatStyleExtraButton.m */; };
+		D3CF9C38211B80F100E92136 /* FlatStyleCloseButton.m in Sources */ = {isa = PBXBuildFile; fileRef = D3CF9C34211B80F100E92136 /* FlatStyleCloseButton.m */; };
+		D3CF9C3B211B82F000E92136 /* TDPreferencesWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D3CF9C39211B82F000E92136 /* TDPreferencesWindowController.xib */; };
 		D3D705601E6F710D00D7EA61 /* EDBreakpointCollection.m in Sources */ = {isa = PBXBuildFile; fileRef = D3D7055F1E6F710D00D7EA61 /* EDBreakpointCollection.m */; };
 		D3DA17D01E77702700492A04 /* OkudaKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3DA17CD1E77701200492A04 /* OkudaKit.framework */; };
 		D3DA17D31E77703E00492A04 /* OkudaKit.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = D3DA17CD1E77701200492A04 /* OkudaKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -421,7 +407,6 @@
 		D309BCCF1E5BB86C002B3199 /* TDSynchronousChannel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = TDSynchronousChannel.h; path = lib/TDThreadUtils/include/TDThreadUtils/TDSynchronousChannel.h; sourceTree = SOURCE_ROOT; };
 		D309BCD01E5BB873002B3199 /* TDSemaphore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TDSemaphore.m; path = lib/TDThreadUtils/src/TDSemaphore.m; sourceTree = SOURCE_ROOT; };
 		D3166EAC1E57C54400DEE3A0 /* base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = base; path = base.lproj/EDUpdatePreferences.xib; sourceTree = "<group>"; };
-		D3166EB41E57C54400DEE3A0 /* base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = base; path = base.lproj/OAPreferencesWindow.xib; sourceTree = "<group>"; };
 		D3166EC81E57C6E900DEE3A0 /* Language.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Language.xcodeproj; path = lib/Language/Language.xcodeproj; sourceTree = "<group>"; };
 		D3166ED51E57C96D00DEE3A0 /* Sparkle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Sparkle.framework; path = lib/Sparkle/Sparkle.framework; sourceTree = SOURCE_ROOT; };
 		D3166EE31E5902A800DEE3A0 /* EDTheme.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EDTheme.h; sourceTree = "<group>"; };
@@ -466,8 +451,6 @@
 		D3166F5B1E5908FE00DEE3A0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/EDGuidesPreferences.xib; sourceTree = "<group>"; };
 		D3166F681E590A1300DEE3A0 /* EDModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EDModel.h; sourceTree = "<group>"; };
 		D3166F691E590A1300DEE3A0 /* EDModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EDModel.m; sourceTree = "<group>"; };
-		D3166F6B1E590B7F00DEE3A0 /* IDEBasePreferences.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDEBasePreferences.h; sourceTree = "<group>"; };
-		D3166F6C1E590B7F00DEE3A0 /* IDEBasePreferences.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IDEBasePreferences.m; sourceTree = "<group>"; };
 		D3166F6F1E590D7D00DEE3A0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/EDGeneralPreferences.xib; sourceTree = "<group>"; };
 		D3166F711E590D8C00DEE3A0 /* EDGeneralPreferences.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EDGeneralPreferences.h; sourceTree = "<group>"; };
 		D3166F721E590D8C00DEE3A0 /* EDGeneralPreferences.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EDGeneralPreferences.m; sourceTree = "<group>"; };
@@ -632,7 +615,6 @@
 		D31670EF1E5A1A7B00DEE3A0 /* EDFindPanel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EDFindPanel.m; sourceTree = "<group>"; };
 		D31670F01E5A1A7B00DEE3A0 /* EDRecentURLController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EDRecentURLController.h; sourceTree = "<group>"; };
 		D31670F11E5A1A7B00DEE3A0 /* EDRecentURLController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EDRecentURLController.m; sourceTree = "<group>"; };
-		D31670F71E5A1E8700DEE3A0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = lib/TabKit/Base.lproj/TKTabsListView.xib; sourceTree = SOURCE_ROOT; };
 		D31671011E5A251000DEE3A0 /* EDBaseToolbarItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EDBaseToolbarItem.h; sourceTree = "<group>"; };
 		D31671021E5A251000DEE3A0 /* EDBaseToolbarItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EDBaseToolbarItem.m; sourceTree = "<group>"; };
 		D31671041E5A599200DEE3A0 /* main.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; name = main.js; path = ../res/main.js; sourceTree = "<group>"; };
@@ -684,43 +666,6 @@
 		D3369A761E36BEED00FEB7BF /* IDEUberViewSplitView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IDEUberViewSplitView.m; sourceTree = "<group>"; };
 		D3369A771E36BEED00FEB7BF /* IDEUserDefaults.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDEUserDefaults.h; sourceTree = "<group>"; };
 		D3369A781E36BEED00FEB7BF /* IDEUserDefaults.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IDEUserDefaults.m; sourceTree = "<group>"; };
-		D3369A7C1E36BEED00FEB7BF /* NSArray-OFExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray-OFExtensions.h"; sourceTree = "<group>"; };
-		D3369A7D1E36BEED00FEB7BF /* NSArray-OFExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray-OFExtensions.m"; sourceTree = "<group>"; };
-		D3369A7E1E36BEED00FEB7BF /* NSBundle-OAExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSBundle-OAExtensions.h"; sourceTree = "<group>"; };
-		D3369A7F1E36BEED00FEB7BF /* NSBundle-OAExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSBundle-OAExtensions.m"; sourceTree = "<group>"; };
-		D3369A801E36BEED00FEB7BF /* NSImage-OAExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSImage-OAExtensions.h"; sourceTree = "<group>"; };
-		D3369A811E36BEED00FEB7BF /* NSImage-OAExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSImage-OAExtensions.m"; sourceTree = "<group>"; };
-		D3369A821E36BEED00FEB7BF /* NSMutableArray-OFExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableArray-OFExtensions.h"; sourceTree = "<group>"; };
-		D3369A831E36BEED00FEB7BF /* NSMutableArray-OFExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableArray-OFExtensions.m"; sourceTree = "<group>"; };
-		D3369A841E36BEED00FEB7BF /* NSObject-OFExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject-OFExtensions.h"; sourceTree = "<group>"; };
-		D3369A851E36BEED00FEB7BF /* NSObject-OFExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject-OFExtensions.m"; sourceTree = "<group>"; };
-		D3369A861E36BEED00FEB7BF /* NSString-OFReplacement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString-OFReplacement.h"; sourceTree = "<group>"; };
-		D3369A871E36BEED00FEB7BF /* NSString-OFReplacement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString-OFReplacement.m"; sourceTree = "<group>"; };
-		D3369A881E36BEED00FEB7BF /* NSString-OFSimpleMatching.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString-OFSimpleMatching.h"; sourceTree = "<group>"; };
-		D3369A891E36BEED00FEB7BF /* NSString-OFSimpleMatching.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString-OFSimpleMatching.m"; sourceTree = "<group>"; };
-		D3369A8A1E36BEED00FEB7BF /* NSToolbar-OAExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSToolbar-OAExtensions.h"; sourceTree = "<group>"; };
-		D3369A8B1E36BEED00FEB7BF /* NSToolbar-OAExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSToolbar-OAExtensions.m"; sourceTree = "<group>"; };
-		D3369A8C1E36BEED00FEB7BF /* OAPreferenceClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OAPreferenceClient.h; sourceTree = "<group>"; };
-		D3369A8D1E36BEED00FEB7BF /* OAPreferenceClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OAPreferenceClient.m; sourceTree = "<group>"; };
-		D3369A8E1E36BEED00FEB7BF /* OAPreferenceClientRecord.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OAPreferenceClientRecord.h; sourceTree = "<group>"; };
-		D3369A8F1E36BEED00FEB7BF /* OAPreferenceClientRecord.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OAPreferenceClientRecord.m; sourceTree = "<group>"; };
-		D3369A901E36BEED00FEB7BF /* OAPreferenceController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OAPreferenceController.h; sourceTree = "<group>"; };
-		D3369A911E36BEED00FEB7BF /* OAPreferenceController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OAPreferenceController.m; sourceTree = "<group>"; };
-		D3369A921E36BEED00FEB7BF /* OAPreferencesIconView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OAPreferencesIconView.h; sourceTree = "<group>"; };
-		D3369A931E36BEED00FEB7BF /* OAPreferencesIconView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OAPreferencesIconView.m; sourceTree = "<group>"; };
-		D3369A941E36BEED00FEB7BF /* OAPreferencesNextButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = OAPreferencesNextButton.png; sourceTree = "<group>"; };
-		D3369A951E36BEED00FEB7BF /* OAPreferencesPreviousButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = OAPreferencesPreviousButton.png; sourceTree = "<group>"; };
-		D3369A961E36BEED00FEB7BF /* OAPreferencesToolbar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OAPreferencesToolbar.h; sourceTree = "<group>"; };
-		D3369A971E36BEED00FEB7BF /* OAPreferencesToolbar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OAPreferencesToolbar.m; sourceTree = "<group>"; };
-		D3369A981E36BEED00FEB7BF /* OAPreferencesWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OAPreferencesWindow.h; sourceTree = "<group>"; };
-		D3369A991E36BEED00FEB7BF /* OAPreferencesWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OAPreferencesWindow.m; sourceTree = "<group>"; };
-		D3369A9A1E36BEED00FEB7BF /* OBDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OBDefines.h; sourceTree = "<group>"; };
-		D3369A9B1E36BEED00FEB7BF /* OBObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OBObject.h; sourceTree = "<group>"; };
-		D3369A9C1E36BEED00FEB7BF /* OBObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OBObject.m; sourceTree = "<group>"; };
-		D3369A9D1E36BEED00FEB7BF /* OFObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OFObject.h; sourceTree = "<group>"; };
-		D3369A9E1E36BEED00FEB7BF /* OFObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OFObject.m; sourceTree = "<group>"; };
-		D3369A9F1E36BEED00FEB7BF /* OFPreference.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OFPreference.h; sourceTree = "<group>"; };
-		D3369AA01E36BEED00FEB7BF /* OFPreference.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OFPreference.m; sourceTree = "<group>"; };
 		D3369AF01E36C25A00FEB7BF /* TKDocument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TKDocument.h; path = lib/TabKit/TKDocument.h; sourceTree = SOURCE_ROOT; };
 		D3369AF11E36C25A00FEB7BF /* TKDocument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TKDocument.m; path = lib/TabKit/TKDocument.m; sourceTree = SOURCE_ROOT; };
 		D3369AF21E36C25A00FEB7BF /* TKDocument+Scripting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "TKDocument+Scripting.h"; path = "lib/TabKit/TKDocument+Scripting.h"; sourceTree = SOURCE_ROOT; };
@@ -731,8 +676,6 @@
 		D3369AF71E36C25A00FEB7BF /* TKMainWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TKMainWindow.m; path = lib/TabKit/TKMainWindow.m; sourceTree = SOURCE_ROOT; };
 		D3369AF81E36C25A00FEB7BF /* TKMainWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TKMainWindowController.h; path = lib/TabKit/TKMainWindowController.h; sourceTree = SOURCE_ROOT; };
 		D3369AF91E36C25A00FEB7BF /* TKMainWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TKMainWindowController.m; path = lib/TabKit/TKMainWindowController.m; sourceTree = SOURCE_ROOT; };
-		D3369AFA1E36C25A00FEB7BF /* TKOverflowButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TKOverflowButton.h; path = lib/TabKit/TKOverflowButton.h; sourceTree = SOURCE_ROOT; };
-		D3369AFB1E36C25A00FEB7BF /* TKOverflowButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TKOverflowButton.m; path = lib/TabKit/TKOverflowButton.m; sourceTree = SOURCE_ROOT; };
 		D3369AFC1E36C25A00FEB7BF /* TKTabListItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TKTabListItem.h; path = lib/TabKit/TKTabListItem.h; sourceTree = SOURCE_ROOT; };
 		D3369AFD1E36C25A00FEB7BF /* TKTabListItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TKTabListItem.m; path = lib/TabKit/TKTabListItem.m; sourceTree = SOURCE_ROOT; };
 		D3369AFE1E36C25A00FEB7BF /* TKTabListItemFlatStyleCloseButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TKTabListItemFlatStyleCloseButton.h; path = lib/TabKit/TKTabListItemFlatStyleCloseButton.h; sourceTree = SOURCE_ROOT; };
@@ -741,12 +684,6 @@
 		D3369B011E36C25A00FEB7BF /* TKTabListItemFlatStyleOverflowButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TKTabListItemFlatStyleOverflowButton.m; path = lib/TabKit/TKTabListItemFlatStyleOverflowButton.m; sourceTree = SOURCE_ROOT; };
 		D3369B021E36C25A00FEB7BF /* TKTabListItemStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TKTabListItemStyle.h; path = lib/TabKit/TKTabListItemStyle.h; sourceTree = SOURCE_ROOT; };
 		D3369B031E36C25A00FEB7BF /* TKTabListItemStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TKTabListItemStyle.m; path = lib/TabKit/TKTabListItemStyle.m; sourceTree = SOURCE_ROOT; };
-		D3369B041E36C25A00FEB7BF /* TKTabListItemStyleBrowser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TKTabListItemStyleBrowser.h; path = lib/TabKit/TKTabListItemStyleBrowser.h; sourceTree = SOURCE_ROOT; };
-		D3369B051E36C25A00FEB7BF /* TKTabListItemStyleBrowser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TKTabListItemStyleBrowser.m; path = lib/TabKit/TKTabListItemStyleBrowser.m; sourceTree = SOURCE_ROOT; };
-		D3369B061E36C25A00FEB7BF /* TKTabListItemStyleFlat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TKTabListItemStyleFlat.h; path = lib/TabKit/TKTabListItemStyleFlat.h; sourceTree = SOURCE_ROOT; };
-		D3369B071E36C25A00FEB7BF /* TKTabListItemStyleFlat.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TKTabListItemStyleFlat.m; path = lib/TabKit/TKTabListItemStyleFlat.m; sourceTree = SOURCE_ROOT; };
-		D3369B081E36C25A00FEB7BF /* TKTabListItemStyleMerged.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TKTabListItemStyleMerged.h; path = lib/TabKit/TKTabListItemStyleMerged.h; sourceTree = SOURCE_ROOT; };
-		D3369B091E36C25A00FEB7BF /* TKTabListItemStyleMerged.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TKTabListItemStyleMerged.m; path = lib/TabKit/TKTabListItemStyleMerged.m; sourceTree = SOURCE_ROOT; };
 		D3369B0A1E36C25A00FEB7BF /* TKTabModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TKTabModel.h; path = lib/TabKit/TKTabModel.h; sourceTree = SOURCE_ROOT; };
 		D3369B0B1E36C25A00FEB7BF /* TKTabModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TKTabModel.m; path = lib/TabKit/TKTabModel.m; sourceTree = SOURCE_ROOT; };
 		D3369B0C1E36C25A00FEB7BF /* TKTabModel+Scripting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "TKTabModel+Scripting.h"; path = "lib/TabKit/TKTabModel+Scripting.h"; sourceTree = SOURCE_ROOT; };
@@ -870,6 +807,25 @@
 		D393578B1F7C4D39008AE4A8 /* TDDispatcherGDC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TDDispatcherGDC.m; sourceTree = "<group>"; };
 		D393579A1F7DA2C5008AE4A8 /* FNRedraw.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = FNRedraw.m; path = lang/FNRedraw.m; sourceTree = "<group>"; };
 		D393579B1F7DA2C5008AE4A8 /* FNRedraw.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = FNRedraw.h; path = lang/FNRedraw.h; sourceTree = "<group>"; };
+		D3CF9C17211B7D4900E92136 /* TKButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TKButton.m; path = lib/TabKit/TKButton.m; sourceTree = SOURCE_ROOT; };
+		D3CF9C18211B7D4A00E92136 /* TKButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TKButton.h; path = lib/TabKit/TKButton.h; sourceTree = SOURCE_ROOT; };
+		D3CF9C1E211B7E2300E92136 /* TDPreferenceModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDPreferenceModel.m; sourceTree = "<group>"; };
+		D3CF9C1F211B7E2300E92136 /* TDPreferencesWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDPreferencesWindowController.m; sourceTree = "<group>"; };
+		D3CF9C20211B7E2300E92136 /* TDPreferenceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDPreferenceViewController.h; sourceTree = "<group>"; };
+		D3CF9C21211B7E2300E92136 /* TDPreferenceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDPreferenceViewController.m; sourceTree = "<group>"; };
+		D3CF9C22211B7E2400E92136 /* TDPreferenceModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDPreferenceModel.h; sourceTree = "<group>"; };
+		D3CF9C23211B7E2400E92136 /* TDPreferencesWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDPreferencesWindowController.h; sourceTree = "<group>"; };
+		D3CF9C27211B7F4800E92136 /* Malerei-PreferencePanes.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "Malerei-PreferencePanes.plist"; path = "res/Malerei-PreferencePanes.plist"; sourceTree = SOURCE_ROOT; };
+		D3CF9C2A211B803800E92136 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = lib/TabKit/Base.lproj/TKTabsListViewController.xib; sourceTree = SOURCE_ROOT; };
+		D3CF9C2D211B80F100E92136 /* FlatTabStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlatTabStyle.m; sourceTree = "<group>"; };
+		D3CF9C2E211B80F100E92136 /* FlatStyleExtraButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlatStyleExtraButton.h; sourceTree = "<group>"; };
+		D3CF9C2F211B80F100E92136 /* FlatStyleCloseButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlatStyleCloseButton.h; sourceTree = "<group>"; };
+		D3CF9C30211B80F100E92136 /* FlatStyleCloseImageButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlatStyleCloseImageButton.m; sourceTree = "<group>"; };
+		D3CF9C31211B80F100E92136 /* FlatTabStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlatTabStyle.h; sourceTree = "<group>"; };
+		D3CF9C32211B80F100E92136 /* FlatStyleExtraButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlatStyleExtraButton.m; sourceTree = "<group>"; };
+		D3CF9C33211B80F100E92136 /* FlatStyleCloseImageButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlatStyleCloseImageButton.h; sourceTree = "<group>"; };
+		D3CF9C34211B80F100E92136 /* FlatStyleCloseButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlatStyleCloseButton.m; sourceTree = "<group>"; };
+		D3CF9C3A211B82F000E92136 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/TDPreferencesWindowController.xib; sourceTree = "<group>"; };
 		D3D7055E1E6F710D00D7EA61 /* EDBreakpointCollection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EDBreakpointCollection.h; sourceTree = "<group>"; };
 		D3D7055F1E6F710D00D7EA61 /* EDBreakpointCollection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EDBreakpointCollection.m; sourceTree = "<group>"; };
 		D3DA17C71E77701200492A04 /* OkudaKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = OkudaKit.xcodeproj; path = lib/OkudaKit/OkudaKit.xcodeproj; sourceTree = "<group>"; };
@@ -981,6 +937,13 @@
 		D3166F401E5907B100DEE3A0 /* Prefs */ = {
 			isa = PBXGroup;
 			children = (
+				D3CF9C23211B7E2400E92136 /* TDPreferencesWindowController.h */,
+				D3CF9C1F211B7E2300E92136 /* TDPreferencesWindowController.m */,
+				D3CF9C39211B82F000E92136 /* TDPreferencesWindowController.xib */,
+				D3CF9C20211B7E2300E92136 /* TDPreferenceViewController.h */,
+				D3CF9C21211B7E2300E92136 /* TDPreferenceViewController.m */,
+				D3CF9C22211B7E2400E92136 /* TDPreferenceModel.h */,
+				D3CF9C1E211B7E2300E92136 /* TDPreferenceModel.m */,
 				D3166F4F1E5908BB00DEE3A0 /* General */,
 				D3166F561E5908DA00DEE3A0 /* Text Editing */,
 				D3166EE21E5902A800DEE3A0 /* Theme */,
@@ -1434,6 +1397,7 @@
 				D33699AE1E36B78900FEB7BF /* main.m */,
 				D31671041E5A599200DEE3A0 /* main.js */,
 				D33699BB1E36B78900FEB7BF /* Info.plist */,
+				D3CF9C27211B7F4800E92136 /* Malerei-PreferencePanes.plist */,
 				D3166F321E59068500DEE3A0 /* Malerei-DefaultValues.plist */,
 			);
 			name = "Supporting Files";
@@ -1493,59 +1457,11 @@
 				D3369A6C1E36BEED00FEB7BF /* IDEMainWindowController.m */,
 				D3369A691E36BEED00FEB7BF /* IDEMainWindow.h */,
 				D3369A6A1E36BEED00FEB7BF /* IDEMainWindow.m */,
-				D3166F6B1E590B7F00DEE3A0 /* IDEBasePreferences.h */,
-				D3166F6C1E590B7F00DEE3A0 /* IDEBasePreferences.m */,
 				D3369AD21E36BF9D00FEB7BF /* UberView */,
-				D3369A7B1E36BEED00FEB7BF /* OAPreferences */,
 			);
 			name = IDEKit;
 			path = lib/IDEKit;
 			sourceTree = SOURCE_ROOT;
-		};
-		D3369A7B1E36BEED00FEB7BF /* OAPreferences */ = {
-			isa = PBXGroup;
-			children = (
-				D3166EB31E57C54400DEE3A0 /* OAPreferencesWindow.xib */,
-				D3369A7C1E36BEED00FEB7BF /* NSArray-OFExtensions.h */,
-				D3369A7D1E36BEED00FEB7BF /* NSArray-OFExtensions.m */,
-				D3369A7E1E36BEED00FEB7BF /* NSBundle-OAExtensions.h */,
-				D3369A7F1E36BEED00FEB7BF /* NSBundle-OAExtensions.m */,
-				D3369A801E36BEED00FEB7BF /* NSImage-OAExtensions.h */,
-				D3369A811E36BEED00FEB7BF /* NSImage-OAExtensions.m */,
-				D3369A821E36BEED00FEB7BF /* NSMutableArray-OFExtensions.h */,
-				D3369A831E36BEED00FEB7BF /* NSMutableArray-OFExtensions.m */,
-				D3369A841E36BEED00FEB7BF /* NSObject-OFExtensions.h */,
-				D3369A851E36BEED00FEB7BF /* NSObject-OFExtensions.m */,
-				D3369A861E36BEED00FEB7BF /* NSString-OFReplacement.h */,
-				D3369A871E36BEED00FEB7BF /* NSString-OFReplacement.m */,
-				D3369A881E36BEED00FEB7BF /* NSString-OFSimpleMatching.h */,
-				D3369A891E36BEED00FEB7BF /* NSString-OFSimpleMatching.m */,
-				D3369A8A1E36BEED00FEB7BF /* NSToolbar-OAExtensions.h */,
-				D3369A8B1E36BEED00FEB7BF /* NSToolbar-OAExtensions.m */,
-				D3369A8C1E36BEED00FEB7BF /* OAPreferenceClient.h */,
-				D3369A8D1E36BEED00FEB7BF /* OAPreferenceClient.m */,
-				D3369A8E1E36BEED00FEB7BF /* OAPreferenceClientRecord.h */,
-				D3369A8F1E36BEED00FEB7BF /* OAPreferenceClientRecord.m */,
-				D3369A901E36BEED00FEB7BF /* OAPreferenceController.h */,
-				D3369A911E36BEED00FEB7BF /* OAPreferenceController.m */,
-				D3369A921E36BEED00FEB7BF /* OAPreferencesIconView.h */,
-				D3369A931E36BEED00FEB7BF /* OAPreferencesIconView.m */,
-				D3369A941E36BEED00FEB7BF /* OAPreferencesNextButton.png */,
-				D3369A951E36BEED00FEB7BF /* OAPreferencesPreviousButton.png */,
-				D3369A961E36BEED00FEB7BF /* OAPreferencesToolbar.h */,
-				D3369A971E36BEED00FEB7BF /* OAPreferencesToolbar.m */,
-				D3369A981E36BEED00FEB7BF /* OAPreferencesWindow.h */,
-				D3369A991E36BEED00FEB7BF /* OAPreferencesWindow.m */,
-				D3369A9A1E36BEED00FEB7BF /* OBDefines.h */,
-				D3369A9B1E36BEED00FEB7BF /* OBObject.h */,
-				D3369A9C1E36BEED00FEB7BF /* OBObject.m */,
-				D3369A9D1E36BEED00FEB7BF /* OFObject.h */,
-				D3369A9E1E36BEED00FEB7BF /* OFObject.m */,
-				D3369A9F1E36BEED00FEB7BF /* OFPreference.h */,
-				D3369AA01E36BEED00FEB7BF /* OFPreference.m */,
-			);
-			path = OAPreferences;
-			sourceTree = "<group>";
 		};
 		D3369AD21E36BF9D00FEB7BF /* UberView */ = {
 			isa = PBXGroup;
@@ -1581,13 +1497,13 @@
 				D3369B111E36C25A00FEB7BF /* TKTabsListViewController.m */,
 				D3369B121E36C25A00FEB7BF /* TKTabsListViewControllerView.h */,
 				D3369B131E36C25A00FEB7BF /* TKTabsListViewControllerView.m */,
+				D3CF9C29211B803800E92136 /* TKTabsListViewController.xib */,
 				D3369B0E1E36C25A00FEB7BF /* TKTabsListView.h */,
 				D3369B0F1E36C25A00FEB7BF /* TKTabsListView.m */,
-				D31670F61E5A1E8700DEE3A0 /* TKTabsListView.xib */,
 				D3369AFC1E36C25A00FEB7BF /* TKTabListItem.h */,
 				D3369AFD1E36C25A00FEB7BF /* TKTabListItem.m */,
-				D3369AFA1E36C25A00FEB7BF /* TKOverflowButton.h */,
-				D3369AFB1E36C25A00FEB7BF /* TKOverflowButton.m */,
+				D3CF9C18211B7D4A00E92136 /* TKButton.h */,
+				D3CF9C17211B7D4900E92136 /* TKButton.m */,
 				D31670F91E5A1EEE00DEE3A0 /* Buttons */,
 				D3369B291E36C29A00FEB7BF /* Styles */,
 			);
@@ -1597,14 +1513,9 @@
 		D3369B291E36C29A00FEB7BF /* Styles */ = {
 			isa = PBXGroup;
 			children = (
+				D3CF9C2C211B80F100E92136 /* TabStyle */,
 				D3369B021E36C25A00FEB7BF /* TKTabListItemStyle.h */,
 				D3369B031E36C25A00FEB7BF /* TKTabListItemStyle.m */,
-				D3369B041E36C25A00FEB7BF /* TKTabListItemStyleBrowser.h */,
-				D3369B051E36C25A00FEB7BF /* TKTabListItemStyleBrowser.m */,
-				D3369B061E36C25A00FEB7BF /* TKTabListItemStyleFlat.h */,
-				D3369B071E36C25A00FEB7BF /* TKTabListItemStyleFlat.m */,
-				D3369B081E36C25A00FEB7BF /* TKTabListItemStyleMerged.h */,
-				D3369B091E36C25A00FEB7BF /* TKTabListItemStyleMerged.m */,
 			);
 			name = Styles;
 			sourceTree = "<group>";
@@ -1753,6 +1664,21 @@
 				D37CFCB41EC8B90600068FEB /* FNBezier.m */,
 			);
 			name = Functions;
+			sourceTree = "<group>";
+		};
+		D3CF9C2C211B80F100E92136 /* TabStyle */ = {
+			isa = PBXGroup;
+			children = (
+				D3CF9C2D211B80F100E92136 /* FlatTabStyle.m */,
+				D3CF9C2E211B80F100E92136 /* FlatStyleExtraButton.h */,
+				D3CF9C2F211B80F100E92136 /* FlatStyleCloseButton.h */,
+				D3CF9C30211B80F100E92136 /* FlatStyleCloseImageButton.m */,
+				D3CF9C31211B80F100E92136 /* FlatTabStyle.h */,
+				D3CF9C32211B80F100E92136 /* FlatStyleExtraButton.m */,
+				D3CF9C33211B80F100E92136 /* FlatStyleCloseImageButton.h */,
+				D3CF9C34211B80F100E92136 /* FlatStyleCloseButton.m */,
+			);
+			path = TabStyle;
 			sourceTree = "<group>";
 		};
 		D3DA17C81E77701200492A04 /* Products */ = {
@@ -1962,10 +1888,10 @@
 				D31670641E59FD6F00DEE3A0 /* EDProjectWindow.xib in Resources */,
 				D31670A61E5A167B00DEE3A0 /* EDFileEncodingDialog.xib in Resources */,
 				D33699B71E36B78900FEB7BF /* Assets.xcassets in Resources */,
+				D3CF9C3B211B82F000E92136 /* TDPreferencesWindowController.xib in Resources */,
 				D31670BD1E5A184600DEE3A0 /* EDFilesystemView.xib in Resources */,
 				D309BCA71E5B657A002B3199 /* EDFindView.xib in Resources */,
 				D31671131E5B590100DEE3A0 /* EDMainMenu.xib in Resources */,
-				D3369AC91E36BEED00FEB7BF /* OAPreferencesNextButton.png in Resources */,
 				D3166F5C1E5908FE00DEE3A0 /* EDGuidesPreferences.xib in Resources */,
 				D3369C071E36C75F00FEB7BF /* TDRegisterWindow.xib in Resources */,
 				D3166F361E59073D00DEE3A0 /* EDThemePreferences.xib in Resources */,
@@ -1976,16 +1902,15 @@
 				D3166F921E590DF600DEE3A0 /* css in Resources */,
 				D3166F701E590D7D00DEE3A0 /* EDGeneralPreferences.xib in Resources */,
 				D31E2C591E7CC4AA0023E924 /* EDCanvasView.xib in Resources */,
-				D3166EB91E57C54400DEE3A0 /* OAPreferencesWindow.xib in Resources */,
 				D31670E01E5A1A2C00DEE3A0 /* EDWebView.xib in Resources */,
 				D31670551E59FC0400DEE3A0 /* EDBreakpointListView.xib in Resources */,
+				D3CF9C28211B7F4900E92136 /* Malerei-PreferencePanes.plist in Resources */,
 				D316709C1E5A156900DEE3A0 /* EDWindow.xib in Resources */,
+				D3CF9C2B211B803900E92136 /* TKTabsListViewController.xib in Resources */,
 				D3166FB71E5927C300DEE3A0 /* EDWelcomeWindow.xib in Resources */,
 				D31670071E59F71500DEE3A0 /* EDStackTraceView.xib in Resources */,
-				D31670F81E5A1E8700DEE3A0 /* TKTabsListView.xib in Resources */,
 				D31671241E5B5D7D00DEE3A0 /* exedore_dsa_pub.pem in Resources */,
 				D3166FFE1E592CCC00DEE3A0 /* EDActionArgumentsFacet.xib in Resources */,
-				D3369ACA1E36BEED00FEB7BF /* OAPreferencesPreviousButton.png in Resources */,
 				D316703D1E59FAEC00DEE3A0 /* EDConsoleView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2004,7 +1929,6 @@
 				D31670B21E5A171500DEE3A0 /* NSString+Score.m in Sources */,
 				D3369BD71E36C73800FEB7BF /* TDComboFieldTextView.m in Sources */,
 				D38693741F9CF55100928048 /* TDLinkedQueue.m in Sources */,
-				D3369ACD1E36BEED00FEB7BF /* OBObject.m in Sources */,
 				D3369C011E36C73800FEB7BF /* TDViewControllerView.m in Sources */,
 				D34A55FB1E7E1AFE0064DF65 /* FNFill.m in Sources */,
 				D309BCC51E5B9E77002B3199 /* EDMemoryCodeRunner.m in Sources */,
@@ -2013,12 +1937,9 @@
 				D3166FBC1E5927DA00DEE3A0 /* EDWelcomeTableCellView.m in Sources */,
 				D31670961E5A152F00DEE3A0 /* EDMidControlBar.m in Sources */,
 				D3369AB41E36BEED00FEB7BF /* IDEMainWindowController.m in Sources */,
-				D3369ACB1E36BEED00FEB7BF /* OAPreferencesToolbar.m in Sources */,
 				D31670CB1E5A18B900DEE3A0 /* EDFilesystemItemCell.m in Sources */,
-				D3369ABD1E36BEED00FEB7BF /* NSArray-OFExtensions.m in Sources */,
 				D3166F391E59076200DEE3A0 /* EDFontPickerTextField.m in Sources */,
 				D3369AB81E36BEED00FEB7BF /* IDEUberView.m in Sources */,
-				D3369AC21E36BEED00FEB7BF /* NSString-OFReplacement.m in Sources */,
 				D34A566A1E7F7D0C0064DF65 /* FNStrokeCap.m in Sources */,
 				D3369B251E36C25A00FEB7BF /* TKTabsListView.m in Sources */,
 				D31670381E59F9EB00DEE3A0 /* EDFindView.m in Sources */,
@@ -2030,7 +1951,6 @@
 				D3166F591E5908F000DEE3A0 /* EDGuidesPreferences.m in Sources */,
 				D31670BA1E5A182900DEE3A0 /* EDNavigatorOutlineView.m in Sources */,
 				D3369BD61E36C73800FEB7BF /* TDComboFieldListView.m in Sources */,
-				D3369ACE1E36BEED00FEB7BF /* OFObject.m in Sources */,
 				D3166F1A1E59040D00DEE3A0 /* EDApplication.m in Sources */,
 				D3369BDD1E36C73800FEB7BF /* TDHintButton.m in Sources */,
 				D31670CA1E5A18B900DEE3A0 /* EDFilesystemItem.m in Sources */,
@@ -2053,6 +1973,7 @@
 				D3369B241E36C25A00FEB7BF /* TKTabModel+Scripting.m in Sources */,
 				D3369BFE1E36C73800FEB7BF /* TDUtils.m in Sources */,
 				D3369B191E36C25A00FEB7BF /* TKMainWindow.m in Sources */,
+				D3CF9C36211B80F100E92136 /* FlatStyleCloseImageButton.m in Sources */,
 				D3166F3F1E59079700DEE3A0 /* EDColorPickerButtonCell.m in Sources */,
 				D34A55F51E7E15B20064DF65 /* FNStroke.m in Sources */,
 				D3369ABA1E36BEED00FEB7BF /* IDEUserDefaults.m in Sources */,
@@ -2062,6 +1983,7 @@
 				D3E799D61E8B1D39001F9DC7 /* FNBackground.m in Sources */,
 				D34A56641E7F3FE80064DF65 /* FNLine.m in Sources */,
 				D31670B51E5A179900DEE3A0 /* EDMainWindowController.m in Sources */,
+				D3CF9C26211B7E2400E92136 /* TDPreferenceViewController.m in Sources */,
 				D3369BE31E36C73800FEB7BF /* TDListView.m in Sources */,
 				D3369BDE1E36C73800FEB7BF /* TDHintView.m in Sources */,
 				D31670241E59F7DC00DEE3A0 /* EDFileLocation.m in Sources */,
@@ -2083,12 +2005,9 @@
 				D31670901E5A151300DEE3A0 /* EDBackForwardButtonCell.m in Sources */,
 				D3369BEA1E36C73800FEB7BF /* TDStatusBarButton.m in Sources */,
 				D3369BEB1E36C73800FEB7BF /* TDStatusBarButtonCell.m in Sources */,
-				D3369AC01E36BEED00FEB7BF /* NSMutableArray-OFExtensions.m in Sources */,
 				D3166FEE1E592C5000DEE3A0 /* EDScheme.m in Sources */,
 				D3166FBF1E5928DF00DEE3A0 /* EDDocumentController.m in Sources */,
-				D3369ABE1E36BEED00FEB7BF /* NSBundle-OAExtensions.m in Sources */,
 				D31E2C931E7D87910023E924 /* SZMainWindowController.m in Sources */,
-				D3369B1B1E36C25A00FEB7BF /* TKOverflowButton.m in Sources */,
 				D31670891E5A14A400DEE3A0 /* EDToolbarStatusView.m in Sources */,
 				D3369B281E36C25A00FEB7BF /* TKUserDefaults.m in Sources */,
 				D3166F301E5905A100DEE3A0 /* EDWildcardPattern.m in Sources */,
@@ -2099,32 +2018,28 @@
 				D316701A1E59F76700DEE3A0 /* EDNavTabBarItem.m in Sources */,
 				D316704F1E59FB0400DEE3A0 /* EDConsoleViewController.m in Sources */,
 				D31670041E592CEF00DEE3A0 /* EDActionFacet.m in Sources */,
-				D3369B221E36C25A00FEB7BF /* TKTabListItemStyleMerged.m in Sources */,
 				D31E2C8F1E7D85F50023E924 /* EDMetrics.m in Sources */,
 				D31670831E5A14A400DEE3A0 /* EDToolbarButton.m in Sources */,
 				D3369B181E36C25A00FEB7BF /* TKDocumentController.m in Sources */,
-				D3369ABF1E36BEED00FEB7BF /* NSImage-OAExtensions.m in Sources */,
 				D3166F6A1E590A1300DEE3A0 /* EDModel.m in Sources */,
 				D34A55EB1E7E090D0064DF65 /* FNSize.m in Sources */,
 				D34A565E1E7F3CF70064DF65 /* FNEllipse.m in Sources */,
 				D3369BEC1E36C73800FEB7BF /* TDStatusBarPopUpView.m in Sources */,
-				D3369AC71E36BEED00FEB7BF /* OAPreferenceController.m in Sources */,
 				D3166FFB1E592CA200DEE3A0 /* EDEnvironmentVariable.m in Sources */,
 				D316704E1E59FB0400DEE3A0 /* EDConsoleOutlineView.m in Sources */,
 				D33699AF1E36B78900FEB7BF /* main.m in Sources */,
 				D3369B231E36C25A00FEB7BF /* TKTabModel.m in Sources */,
+				D3CF9C38211B80F100E92136 /* FlatStyleCloseButton.m in Sources */,
 				D31670731E59FE0500DEE3A0 /* EDFileWindowController.m in Sources */,
 				D316709F1E5A157B00DEE3A0 /* EDMainWindow.m in Sources */,
 				D309BCCC1E5BB861002B3199 /* TDSynchronousChannel.m in Sources */,
 				D31670361E59F9EB00DEE3A0 /* EDFindParameters.m in Sources */,
 				D3166F731E590D8C00DEE3A0 /* EDGeneralPreferences.m in Sources */,
-				D3369AC11E36BEED00FEB7BF /* NSObject-OFExtensions.m in Sources */,
 				D3369BD41E36C73800FEB7BF /* TDComboFieldCell.m in Sources */,
 				D31670F21E5A1A7B00DEE3A0 /* EDBackForwardPopUpButton.m in Sources */,
 				D31670E71E5A1A3E00DEE3A0 /* EDWebContainerView.m in Sources */,
 				D31670391E59F9EB00DEE3A0 /* EDFindViewController.m in Sources */,
 				D31670861E5A14A400DEE3A0 /* EDToolbarProgressItem.m in Sources */,
-				D3166F6D1E590B7F00DEE3A0 /* IDEBasePreferences.m in Sources */,
 				D3369B1A1E36C25A00FEB7BF /* TKMainWindowController.m in Sources */,
 				D3369BFF1E36C73800FEB7BF /* TDView.m in Sources */,
 				D34A565B1E7F3C010064DF65 /* FNScale.m in Sources */,
@@ -2135,18 +2050,14 @@
 				D3DE66041F01C899003EB91F /* FNLoop.m in Sources */,
 				D3DA17E81E77721700492A04 /* OKLanguageParser.m in Sources */,
 				D3369B161E36C25A00FEB7BF /* TKDocument.m in Sources */,
-				D3369ACC1E36BEED00FEB7BF /* OAPreferencesWindow.m in Sources */,
-				D3369AC41E36BEED00FEB7BF /* NSToolbar-OAExtensions.m in Sources */,
 				D3369AAC1E36BEED00FEB7BF /* IDEApplication.m in Sources */,
 				D31E2C8A1E7D85F50023E924 /* EDCanvasContainerView.m in Sources */,
-				D3369AC81E36BEED00FEB7BF /* OAPreferencesIconView.m in Sources */,
 				D316705E1E59FC2C00DEE3A0 /* EDBreakpointListContainerView.m in Sources */,
+				D3CF9C35211B80F100E92136 /* FlatTabStyle.m in Sources */,
 				D31670291E59F92400DEE3A0 /* EDHistory.m in Sources */,
 				D34A56071E7EF0200064DF65 /* SZApplication.m in Sources */,
-				D3369AC51E36BEED00FEB7BF /* OAPreferenceClient.m in Sources */,
 				D316701E1E59F76700DEE3A0 /* EDTabBarStackTraceButtonCell.m in Sources */,
 				D316701B1E59F76700DEE3A0 /* EDTabBarBreakpointButtonCell.m in Sources */,
-				D3369AC61E36BEED00FEB7BF /* OAPreferenceClientRecord.m in Sources */,
 				D3D705601E6F710D00D7EA61 /* EDBreakpointCollection.m in Sources */,
 				D31670E91E5A1A3E00DEE3A0 /* EDWebViewController.m in Sources */,
 				D31E2C781E7D82720023E924 /* SZDocument.m in Sources */,
@@ -2157,11 +2068,11 @@
 				D34A56041E7E313D0064DF65 /* FNPopStyle.m in Sources */,
 				D3DE65F81F01C799003EB91F /* FNNoLoop.m in Sources */,
 				D34A55FE1E7E30C20064DF65 /* FNStrokeWeight.m in Sources */,
+				D3CF9C37211B80F100E92136 /* FlatStyleExtraButton.m in Sources */,
 				D31670CC1E5A18B900DEE3A0 /* EDFilesystemNavBar.m in Sources */,
 				D31E2C8C1E7D85F50023E924 /* EDCanvasView.m in Sources */,
 				D3369AB31E36BEED00FEB7BF /* IDEMainWindow.m in Sources */,
 				D3369BD81E36C73800FEB7BF /* TDDraggableBar.m in Sources */,
-				D3369ACF1E36BEED00FEB7BF /* OFPreference.m in Sources */,
 				D316706C1E59FD9B00DEE3A0 /* EDNewProjectParams.m in Sources */,
 				D3369B1D1E36C25A00FEB7BF /* TKTabListItemFlatStyleCloseButton.m in Sources */,
 				D31E2C8B1E7D85F50023E924 /* EDCanvasPrintView.m in Sources */,
@@ -2172,6 +2083,7 @@
 				D316701C1E59F76700DEE3A0 /* EDTabBarButtonCell.m in Sources */,
 				D31670881E5A14A400DEE3A0 /* EDToolbarStatusItem.m in Sources */,
 				D3166F431E5907C900DEE3A0 /* EDUtils.m in Sources */,
+				D3CF9C24211B7E2400E92136 /* TDPreferenceModel.m in Sources */,
 				D3369B1F1E36C25A00FEB7BF /* TKTabListItemStyle.m in Sources */,
 				D31670871E5A14A400DEE3A0 /* EDToolbarProgressView.m in Sources */,
 				D37CFCB51EC8B90600068FEB /* FNBezier.m in Sources */,
@@ -2186,13 +2098,13 @@
 				D3369BD21E36C73800FEB7BF /* TDColorView.m in Sources */,
 				D316705F1E59FC2C00DEE3A0 /* EDBreakpointListViewController.m in Sources */,
 				D3369AB01E36BEED00FEB7BF /* IDEDocumentController.m in Sources */,
-				D3369AC31E36BEED00FEB7BF /* NSString-OFSimpleMatching.m in Sources */,
 				D31670C91E5A18B900DEE3A0 /* EDFilesystemContainerView.m in Sources */,
-				D3369B211E36C25A00FEB7BF /* TKTabListItemStyleFlat.m in Sources */,
 				D31E2C901E7D85F50023E924 /* EDToolTip.m in Sources */,
+				D3CF9C25211B7E2400E92136 /* TDPreferencesWindowController.m in Sources */,
 				D31E2C8D1E7D85F50023E924 /* EDCanvasViewController.m in Sources */,
 				D3166EEF1E5902A800DEE3A0 /* EDThemePreferences.m in Sources */,
 				D3369AAF1E36BEED00FEB7BF /* IDEDocument.m in Sources */,
+				D3CF9C19211B7D4A00E92136 /* TKButton.m in Sources */,
 				D31670F31E5A1A7B00DEE3A0 /* EDFaviconController.m in Sources */,
 				D393579C1F7DA2C6008AE4A8 /* FNRedraw.m in Sources */,
 				D3166F2F1E5905A100DEE3A0 /* EDRegexPattern.m in Sources */,
@@ -2256,15 +2168,6 @@
 			);
 			name = EDUpdatePreferences.xib;
 			path = ../lib/IDEKit;
-			sourceTree = "<group>";
-		};
-		D3166EB31E57C54400DEE3A0 /* OAPreferencesWindow.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				D3166EB41E57C54400DEE3A0 /* base */,
-			);
-			name = OAPreferencesWindow.xib;
-			path = ..;
 			sourceTree = "<group>";
 		};
 		D3166F341E59073D00DEE3A0 /* EDThemePreferences.xib */ = {
@@ -2387,14 +2290,6 @@
 			name = EDWebView.xib;
 			sourceTree = "<group>";
 		};
-		D31670F61E5A1E8700DEE3A0 /* TKTabsListView.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				D31670F71E5A1E8700DEE3A0 /* Base */,
-			);
-			name = TKTabsListView.xib;
-			sourceTree = "<group>";
-		};
 		D31671111E5B590100DEE3A0 /* EDMainMenu.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -2417,6 +2312,22 @@
 				D3369C061E36C75F00FEB7BF /* en */,
 			);
 			name = TDRegisterWindow.xib;
+			sourceTree = "<group>";
+		};
+		D3CF9C29211B803800E92136 /* TKTabsListViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D3CF9C2A211B803800E92136 /* Base */,
+			);
+			name = TKTabsListViewController.xib;
+			sourceTree = "<group>";
+		};
+		D3CF9C39211B82F000E92136 /* TDPreferencesWindowController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D3CF9C3A211B82F000E92136 /* Base */,
+			);
+			name = TDPreferencesWindowController.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

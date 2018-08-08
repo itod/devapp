@@ -13,4 +13,7 @@
 #ifndef APPSTORE
 - (void)removeUnlicensedMenuItems;
 #endif
+
+@property (nonatomic, copy) NSString *appSupportDirPath;
+@property (nonatomic, copy) NSString *resourcesDirPath;
 @end

@@ -1,25 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="14113" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="11762"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14113"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="EDGeneralPreferences">
             <connections>
-                <outlet property="controlBox" destination="1" id="2"/>
                 <outlet property="initialFirstResponder" destination="Z0J-6Q-Bza" id="s45-WB-sEP"/>
+                <outlet property="view" destination="1" id="0dE-gv-E86"/>
             </connections>
         </customObject>
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
         <customView misplaced="YES" id="1">
-            <rect key="frame" x="0.0" y="0.0" width="444" height="72"/>
+            <rect key="frame" x="0.0" y="0.0" width="444" height="90"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <subviews>
-                <textField verticalHuggingPriority="750" id="6YE-6m-lxV">
-                    <rect key="frame" x="182" y="0.0" width="242" height="22"/>
+                <textField verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="YES" id="6YE-6m-lxV">
+                    <rect key="frame" x="182" y="18" width="242" height="22"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="fct-Ao-Ihw">
                         <font key="font" metaFont="system"/>
@@ -34,8 +34,8 @@
                         </binding>
                     </connections>
                 </textField>
-                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="ZPa-Ca-kIQ">
-                    <rect key="frame" x="16" y="2" width="160" height="17"/>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="YES" id="ZPa-Ca-kIQ">
+                    <rect key="frame" x="16" y="20" width="160" height="17"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" title="Documentation home:" id="qY1-Dl-AHH">
                         <font key="font" metaFont="system"/>
@@ -43,8 +43,8 @@
                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                 </textField>
-                <textField verticalHuggingPriority="750" id="Neu-w1-heU">
-                    <rect key="frame" x="18" y="32" width="158" height="17"/>
+                <textField verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="YES" id="Neu-w1-heU">
+                    <rect key="frame" x="18" y="50" width="158" height="17"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" title="Exclude files matching:" id="fO4-Cz-UjX">
                         <font key="font" metaFont="system"/>
@@ -52,8 +52,8 @@
                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                 </textField>
-                <textField verticalHuggingPriority="750" id="Z0J-6Q-Bza">
-                    <rect key="frame" x="182" y="30" width="242" height="22"/>
+                <textField verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="YES" id="Z0J-6Q-Bza">
+                    <rect key="frame" x="182" y="48" width="242" height="22"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" alignment="left" drawsBackground="YES" id="jZu-8j-4JR">
                         <font key="font" metaFont="system"/>
@@ -70,7 +70,7 @@
                     </connections>
                 </textField>
             </subviews>
-            <point key="canvasLocation" x="139" y="151"/>
+            <point key="canvasLocation" x="139" y="160"/>
         </customView>
         <userDefaultsController representsSharedInstance="YES" id="75"/>
     </objects>

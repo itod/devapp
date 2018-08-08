@@ -1,44 +1,44 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="14113" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="11762"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14113"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="EDThemePreferences">
             <connections>
                 <outlet property="caretColorCell" destination="k9j-6F-GmD" id="ntd-Sv-ieV"/>
-                <outlet property="controlBox" destination="1" id="2"/>
                 <outlet property="initialFirstResponder" destination="FnV-qM-oVo" id="6Yh-qo-TYT"/>
                 <outlet property="lastKeyView" destination="hTN-JA-gsX" id="i6l-mJ-V8w"/>
                 <outlet property="selectedFontTextField" destination="jRk-YX-kAa" id="TEX-lM-g9v"/>
                 <outlet property="selectionColorCell" destination="ics-7N-9ls" id="0WL-ab-daa"/>
                 <outlet property="themeNamesTableView" destination="FnV-qM-oVo" id="JgB-lp-ZB4"/>
                 <outlet property="themeRulesTableView" destination="Cts-FZ-KWV" id="5iq-wL-ysC"/>
+                <outlet property="view" destination="1" id="VlU-3l-qxq"/>
             </connections>
         </customObject>
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
-        <customView id="1">
-            <rect key="frame" x="0.0" y="0.0" width="575" height="312"/>
+        <customView misplaced="YES" id="1">
+            <rect key="frame" x="0.0" y="0.0" width="575" height="329"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <scrollView horizontalLineScroll="19" horizontalPageScroll="10" verticalLineScroll="19" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" id="9sq-o0-yqi">
-                    <rect key="frame" x="20" y="1" width="149" height="291"/>
+                <scrollView misplaced="YES" horizontalLineScroll="19" horizontalPageScroll="10" verticalLineScroll="19" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" id="9sq-o0-yqi">
+                    <rect key="frame" x="20" y="17" width="149" height="292"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" heightSizable="YES"/>
                     <clipView key="contentView" id="UgI-vH-VG6">
-                        <rect key="frame" x="1" y="0.0" width="147" height="290"/>
+                        <rect key="frame" x="1" y="0.0" width="147" height="291"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnReordering="NO" columnResizing="NO" multipleSelection="NO" emptySelection="NO" autosaveColumns="NO" headerView="YvJ-kf-iH0" id="FnV-qM-oVo">
-                                <rect key="frame" x="0.0" y="0.0" width="147" height="273"/>
+                                <rect key="frame" x="0.0" y="0.0" width="147" height="274"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <size key="intercellSpacing" width="3" height="2"/>
                                 <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 <color key="gridColor" name="gridColor" catalog="System" colorSpace="catalog"/>
                                 <tableColumns>
-                                    <tableColumn editable="NO" width="143.93359375" minWidth="40" maxWidth="1000" id="xZS-HJ-MO9">
+                                    <tableColumn identifier="" editable="NO" width="143.93359375" minWidth="40" maxWidth="1000" id="xZS-HJ-MO9">
                                         <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left" title="Theme">
                                             <font key="font" metaFont="smallSystem"/>
                                             <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
@@ -64,7 +64,7 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </scroller>
                     <scroller key="verticalScroller" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="ujf-Gp-2b4">
-                        <rect key="frame" x="132" y="17" width="16" height="273"/>
+                        <rect key="frame" x="132" y="17" width="16" height="274"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </scroller>
                     <tableHeaderView key="headerView" id="YvJ-kf-iH0">
@@ -75,8 +75,8 @@
                         <outlet property="nextKeyView" destination="ISx-gi-Lhq" id="kzc-c3-XA0"/>
                     </connections>
                 </scrollView>
-                <button hidden="YES" verticalHuggingPriority="750" id="eb5-bq-MkF">
-                    <rect key="frame" x="43" y="0.0" width="24" height="24"/>
+                <button hidden="YES" verticalHuggingPriority="750" misplaced="YES" id="eb5-bq-MkF">
+                    <rect key="frame" x="43" y="14" width="24" height="24"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <buttonCell key="cell" type="smallSquare" bezelStyle="smallSquare" image="NSRemoveTemplate" imagePosition="overlaps" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="yBL-8y-9vO">
                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -86,8 +86,8 @@
                         <outlet property="nextKeyView" destination="Cts-FZ-KWV" id="BIb-k8-Ron"/>
                     </connections>
                 </button>
-                <button hidden="YES" verticalHuggingPriority="750" id="ISx-gi-Lhq">
-                    <rect key="frame" x="20" y="0.0" width="24" height="24"/>
+                <button hidden="YES" verticalHuggingPriority="750" misplaced="YES" id="ISx-gi-Lhq">
+                    <rect key="frame" x="20" y="14" width="24" height="24"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <buttonCell key="cell" type="smallSquare" bezelStyle="smallSquare" image="NSAddTemplate" imagePosition="overlaps" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="aTx-lS-dSw">
                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -97,15 +97,15 @@
                         <outlet property="nextKeyView" destination="eb5-bq-MkF" id="DGq-Al-tjd"/>
                     </connections>
                 </button>
-                <scrollView autohidesScrollers="YES" horizontalLineScroll="19" horizontalPageScroll="10" verticalLineScroll="19" verticalPageScroll="10" usesPredominantAxisScrolling="NO" id="IgL-Eg-nTL">
-                    <rect key="frame" x="177" y="31" width="378" height="201"/>
+                <scrollView misplaced="YES" autohidesScrollers="YES" horizontalLineScroll="19" horizontalPageScroll="10" verticalLineScroll="19" verticalPageScroll="10" usesPredominantAxisScrolling="NO" id="IgL-Eg-nTL">
+                    <rect key="frame" x="177" y="45" width="378" height="204"/>
                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" heightSizable="YES"/>
                     <clipView key="contentView" id="blg-j1-ffu">
-                        <rect key="frame" x="1" y="0.0" width="376" height="200"/>
+                        <rect key="frame" x="1" y="0.0" width="376" height="203"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnReordering="NO" columnResizing="NO" multipleSelection="NO" autosaveColumns="NO" rowHeight="19" headerView="Gxv-XR-BZw" id="Cts-FZ-KWV" customClass="EDThemeRulesTableView">
-                                <rect key="frame" x="0.0" y="0.0" width="376" height="183"/>
+                                <rect key="frame" x="0.0" y="0.0" width="376" height="186"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 <color key="gridColor" name="gridColor" catalog="System" colorSpace="catalog"/>
@@ -198,8 +198,8 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </tableHeaderView>
                 </scrollView>
-                <textField verticalHuggingPriority="750" id="cCw-KM-cJt">
-                    <rect key="frame" x="175" y="3" width="36" height="17"/>
+                <textField verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="YES" id="cCw-KM-cJt">
+                    <rect key="frame" x="175" y="20" width="36" height="17"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="left" title="Font:" id="A2p-54-BoG">
                         <font key="font" metaFont="system"/>
@@ -207,17 +207,8 @@
                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                 </textField>
-                <textField verticalHuggingPriority="750" id="jRk-YX-kAa" customClass="EDFontPickerTextField">
-                    <rect key="frame" x="217" y="0.0" width="252" height="22"/>
-                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="mrD-3z-Q9H">
-                        <font key="font" metaFont="system"/>
-                        <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
-                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                    </textFieldCell>
-                </textField>
                 <button verticalHuggingPriority="750" id="hTN-JA-gsX">
-                    <rect key="frame" x="471" y="-6" width="90" height="32"/>
+                    <rect key="frame" x="471" y="11" width="90" height="32"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <buttonCell key="cell" type="push" title="Select…" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="sov-wy-ws0">
                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -228,15 +219,15 @@
                     </connections>
                 </button>
                 <button verticalHuggingPriority="750" id="mr1-9P-K6Y">
-                    <rect key="frame" x="293" y="239" width="44" height="21"/>
+                    <rect key="frame" x="293" y="256" width="44" height="21"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <buttonCell key="cell" type="smallSquare" bezelStyle="smallSquare" imagePosition="overlaps" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="ics-7N-9ls" customClass="EDColorPickerButtonCell">
                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                         <font key="font" metaFont="system"/>
                     </buttonCell>
                 </button>
-                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="8qt-Gn-sLH">
-                    <rect key="frame" x="224" y="242" width="65" height="17"/>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="YES" id="8qt-Gn-sLH">
+                    <rect key="frame" x="224" y="259" width="65" height="17"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Selection:" id="odN-1N-mWk">
                         <font key="font" metaFont="system"/>
@@ -245,15 +236,15 @@
                     </textFieldCell>
                 </textField>
                 <button verticalHuggingPriority="750" id="0DI-nm-R6w">
-                    <rect key="frame" x="444" y="239" width="44" height="21"/>
+                    <rect key="frame" x="444" y="256" width="44" height="21"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <buttonCell key="cell" type="smallSquare" bezelStyle="smallSquare" imagePosition="overlaps" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="k9j-6F-GmD" customClass="EDColorPickerButtonCell">
                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                         <font key="font" metaFont="system"/>
                     </buttonCell>
                 </button>
-                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="KoB-V9-nRK">
-                    <rect key="frame" x="396" y="242" width="42" height="17"/>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="YES" id="KoB-V9-nRK">
+                    <rect key="frame" x="396" y="259" width="42" height="17"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Caret:" id="k6t-rt-RmD">
                         <font key="font" metaFont="system"/>
@@ -261,8 +252,8 @@
                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                 </textField>
-                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="TRZ-jD-DhI">
-                    <rect key="frame" x="185" y="275" width="363" height="17"/>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="YES" id="TRZ-jD-DhI">
+                    <rect key="frame" x="185" y="292" width="363" height="17"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Themes are currently read-only. A future version will allow editing." id="vSa-3h-2MN">
                         <font key="font" metaFont="smallSystem"/>
@@ -270,7 +261,17 @@
                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                 </textField>
+                <textField verticalHuggingPriority="750" misplaced="YES" allowsCharacterPickerTouchBarItem="YES" id="jRk-YX-kAa" customClass="EDFontPickerTextField">
+                    <rect key="frame" x="217" y="17" width="252" height="22"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="mrD-3z-Q9H">
+                        <font key="font" metaFont="system"/>
+                        <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
             </subviews>
+            <point key="canvasLocation" x="138.5" y="176.5"/>
         </customView>
         <userDefaultsController representsSharedInstance="YES" id="UDa-HI-LAB"/>
     </objects>

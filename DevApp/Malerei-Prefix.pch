@@ -78,6 +78,7 @@
 #define SUPPORT_URL @"http://groups.google.com/group/exedoreapp"
 
 #define DEFAULT_VALUES_FILENAME @"Malerei-DefaultValues"
+#define PREFERENCES_FILENAME @"Malerei-PreferencePanes"
 
 #define XFER_RAW_DATA 1
 

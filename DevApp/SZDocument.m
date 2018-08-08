@@ -266,10 +266,10 @@ CGRect TDCombineRects(CGRect r1, CGRect r2) {
 
 
 - (void)dealloc {
-    self.printInfoData = nil;
-    self.userGuides = nil;
-    self.metrics = nil;
-    self.printView = nil;
+    [_printInfoData release], _printInfoData = nil;
+    [_userGuides release], _userGuides = nil;
+    [_metrics release], _metrics = nil;
+    [_printView release], _printView = nil;
     [super dealloc];
 }
 

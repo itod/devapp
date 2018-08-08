@@ -6,9 +6,9 @@
 //  Copyright 2010 Todd Ditchendorf. All rights reserved.
 //
 
-#import <IDEKit/IDEBasePreferences.h>
+#import "TDPreferenceViewController.h"
 
-@interface EDGuidesPreferences : IDEBasePreferences
+@interface EDGuidesPreferences : TDPreferenceViewController
 
 - (IBAction)toggleRulersVisible:(id)sender;
 - (IBAction)toggleGuidesVisible:(id)sender;
