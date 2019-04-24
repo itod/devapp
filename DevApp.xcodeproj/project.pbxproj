@@ -1728,13 +1728,12 @@
 			};
 			buildConfigurationList = D33699A21E36B78800FEB7BF /* Build configuration list for PBXProject "DevApp" */;
 			compatibilityVersion = "Xcode 3.2";
-			developmentRegion = English;
+			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 				Base,
 				base,
-				English,
 			);
 			mainGroup = D336999E1E36B78800FEB7BF;
 			productRefGroup = D33699A81E36B78900FEB7BF /* Products */;
