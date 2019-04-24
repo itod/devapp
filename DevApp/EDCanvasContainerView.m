@@ -7,7 +7,7 @@
 //
 
 #import "EDCanvasContainerView.h"
-#import "EDStatusBar.h"
+#import "StatusBar.h"
 
 @implementation EDCanvasContainerView
 
@@ -105,7 +105,7 @@
 #pragma mark Private
 
 - (CGFloat)statusBarHeight {
-    return [[EDUserDefaults instance] statusBarVisible] ? [EDStatusBar defaultHeight] : 0.0;
+    return [[EDUserDefaults instance] statusBarVisible] ? [StatusBar defaultHeight] : 0.0;
 }
 
 

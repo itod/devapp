@@ -49,7 +49,7 @@
 		D3166FCD1E59292A00DEE3A0 /* AquaticPrime.m in Sources */ = {isa = PBXBuildFile; fileRef = D3166FC51E59292A00DEE3A0 /* AquaticPrime.m */; };
 		D3166FD81E592A5200DEE3A0 /* EDDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = D3166FD71E592A5200DEE3A0 /* EDDocument.m */; };
 		D3166FDE1E592B9400DEE3A0 /* EDTarget.m in Sources */ = {isa = PBXBuildFile; fileRef = D3166FDD1E592B9400DEE3A0 /* EDTarget.m */; };
-		D3166FEB1E592C3700DEE3A0 /* EDStatusBar.m in Sources */ = {isa = PBXBuildFile; fileRef = D3166FEA1E592C3700DEE3A0 /* EDStatusBar.m */; };
+		D3166FEB1E592C3700DEE3A0 /* StatusBar.m in Sources */ = {isa = PBXBuildFile; fileRef = D3166FEA1E592C3700DEE3A0 /* StatusBar.m */; };
 		D3166FEE1E592C5000DEE3A0 /* EDScheme.m in Sources */ = {isa = PBXBuildFile; fileRef = D3166FED1E592C5000DEE3A0 /* EDScheme.m */; };
 		D3166FF51E592C6A00DEE3A0 /* EDAction.m in Sources */ = {isa = PBXBuildFile; fileRef = D3166FF01E592C6A00DEE3A0 /* EDAction.m */; };
 		D3166FF61E592C6A00DEE3A0 /* EDRunAction.m in Sources */ = {isa = PBXBuildFile; fileRef = D3166FF21E592C6A00DEE3A0 /* EDRunAction.m */; };
@@ -117,19 +117,9 @@
 		D31670CB1E5A18B900DEE3A0 /* EDFilesystemItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D31670C41E5A18B900DEE3A0 /* EDFilesystemItemCell.m */; };
 		D31670CC1E5A18B900DEE3A0 /* EDFilesystemNavBar.m in Sources */ = {isa = PBXBuildFile; fileRef = D31670C61E5A18B900DEE3A0 /* EDFilesystemNavBar.m */; };
 		D31670CD1E5A18B900DEE3A0 /* EDFilesystemViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D31670C81E5A18B900DEE3A0 /* EDFilesystemViewController.m */; };
-		D31670E01E5A1A2C00DEE3A0 /* EDWebView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D31670DE1E5A1A2C00DEE3A0 /* EDWebView.xib */; };
-		D31670E71E5A1A3E00DEE3A0 /* EDWebContainerView.m in Sources */ = {isa = PBXBuildFile; fileRef = D31670E21E5A1A3E00DEE3A0 /* EDWebContainerView.m */; };
-		D31670E81E5A1A3E00DEE3A0 /* EDWebView.m in Sources */ = {isa = PBXBuildFile; fileRef = D31670E41E5A1A3E00DEE3A0 /* EDWebView.m */; };
-		D31670E91E5A1A3E00DEE3A0 /* EDWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D31670E61E5A1A3E00DEE3A0 /* EDWebViewController.m */; };
-		D31670F21E5A1A7B00DEE3A0 /* EDBackForwardPopUpButton.m in Sources */ = {isa = PBXBuildFile; fileRef = D31670EB1E5A1A7B00DEE3A0 /* EDBackForwardPopUpButton.m */; };
-		D31670F31E5A1A7B00DEE3A0 /* EDFaviconController.m in Sources */ = {isa = PBXBuildFile; fileRef = D31670ED1E5A1A7B00DEE3A0 /* EDFaviconController.m */; };
-		D31670F41E5A1A7B00DEE3A0 /* EDFindPanel.m in Sources */ = {isa = PBXBuildFile; fileRef = D31670EF1E5A1A7B00DEE3A0 /* EDFindPanel.m */; };
-		D31670F51E5A1A7B00DEE3A0 /* EDRecentURLController.m in Sources */ = {isa = PBXBuildFile; fileRef = D31670F11E5A1A7B00DEE3A0 /* EDRecentURLController.m */; };
 		D31671001E5A21F800DEE3A0 /* EDMainWindowController+NewProject.m in Sources */ = {isa = PBXBuildFile; fileRef = D31670661E59FD9B00DEE3A0 /* EDMainWindowController+NewProject.m */; };
 		D31671031E5A251000DEE3A0 /* EDBaseToolbarItem.m in Sources */ = {isa = PBXBuildFile; fileRef = D31671021E5A251000DEE3A0 /* EDBaseToolbarItem.m */; };
 		D31671051E5A599200DEE3A0 /* main.js in Resources */ = {isa = PBXBuildFile; fileRef = D31671041E5A599200DEE3A0 /* main.js */; };
-		D316710D1E5A5FB600DEE3A0 /* TDComboField.m in Sources */ = {isa = PBXBuildFile; fileRef = D316710C1E5A5FB600DEE3A0 /* TDComboField.m */; settings = {COMPILER_FLAGS = "-Wno-deprecated-declarations"; }; };
-		D31671101E5AB89300DEE3A0 /* DOMNode+TDAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = D316710F1E5AB89300DEE3A0 /* DOMNode+TDAdditions.m */; };
 		D31671131E5B590100DEE3A0 /* EDMainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = D31671111E5B590100DEE3A0 /* EDMainMenu.xib */; };
 		D31671241E5B5D7D00DEE3A0 /* exedore_dsa_pub.pem in Resources */ = {isa = PBXBuildFile; fileRef = D31671231E5B5D7D00DEE3A0 /* exedore_dsa_pub.pem */; };
 		D31E2C591E7CC4AA0023E924 /* EDCanvasView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D31E2C571E7CC4AA0023E924 /* EDCanvasView.xib */; };
@@ -178,10 +168,6 @@
 		D3369BCF1E36C73800FEB7BF /* TDBar.m in Sources */ = {isa = PBXBuildFile; fileRef = D3369B7F1E36C73700FEB7BF /* TDBar.m */; };
 		D3369BD01E36C73800FEB7BF /* TDBarItem.m in Sources */ = {isa = PBXBuildFile; fileRef = D3369B801E36C73700FEB7BF /* TDBarItem.m */; };
 		D3369BD21E36C73800FEB7BF /* TDColorView.m in Sources */ = {isa = PBXBuildFile; fileRef = D3369B831E36C73700FEB7BF /* TDColorView.m */; };
-		D3369BD41E36C73800FEB7BF /* TDComboFieldCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D3369B861E36C73700FEB7BF /* TDComboFieldCell.m */; };
-		D3369BD51E36C73800FEB7BF /* TDComboFieldListItem.m in Sources */ = {isa = PBXBuildFile; fileRef = D3369B881E36C73700FEB7BF /* TDComboFieldListItem.m */; };
-		D3369BD61E36C73800FEB7BF /* TDComboFieldListView.m in Sources */ = {isa = PBXBuildFile; fileRef = D3369B8A1E36C73800FEB7BF /* TDComboFieldListView.m */; };
-		D3369BD71E36C73800FEB7BF /* TDComboFieldTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = D3369B8C1E36C73800FEB7BF /* TDComboFieldTextView.m */; };
 		D3369BD81E36C73800FEB7BF /* TDDraggableBar.m in Sources */ = {isa = PBXBuildFile; fileRef = D3369B8D1E36C73800FEB7BF /* TDDraggableBar.m */; };
 		D3369BD91E36C73800FEB7BF /* TDDropTargetView.m in Sources */ = {isa = PBXBuildFile; fileRef = D3369B8E1E36C73800FEB7BF /* TDDropTargetView.m */; };
 		D3369BDA1E36C73800FEB7BF /* TDFlippedColorView.m in Sources */ = {isa = PBXBuildFile; fileRef = D3369B8F1E36C73800FEB7BF /* TDFlippedColorView.m */; };
@@ -204,7 +190,6 @@
 		D3369BFF1E36C73800FEB7BF /* TDView.m in Sources */ = {isa = PBXBuildFile; fileRef = D3369BBB1E36C73800FEB7BF /* TDView.m */; };
 		D3369C001E36C73800FEB7BF /* TDViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D3369BBC1E36C73800FEB7BF /* TDViewController.m */; };
 		D3369C011E36C73800FEB7BF /* TDViewControllerView.m in Sources */ = {isa = PBXBuildFile; fileRef = D3369BBD1E36C73800FEB7BF /* TDViewControllerView.m */; };
-		D3369C071E36C75F00FEB7BF /* TDRegisterWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = D3369C051E36C75F00FEB7BF /* TDRegisterWindow.xib */; };
 		D33C337D1F8A803500B59CA5 /* FNFrameRate.m in Sources */ = {isa = PBXBuildFile; fileRef = D33C337C1F8A803400B59CA5 /* FNFrameRate.m */; };
 		D34A55EB1E7E090D0064DF65 /* FNSize.m in Sources */ = {isa = PBXBuildFile; fileRef = D34A55EA1E7E090D0064DF65 /* FNSize.m */; };
 		D34A55EF1E7E13050064DF65 /* FNAbstractFunction.m in Sources */ = {isa = PBXBuildFile; fileRef = D34A55EE1E7E13050064DF65 /* FNAbstractFunction.m */; };
@@ -227,17 +212,18 @@
 		D38693741F9CF55100928048 /* TDLinkedQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = D38693691F9CF55000928048 /* TDLinkedQueue.m */; };
 		D393578C1F7C4D39008AE4A8 /* TDDispatcherGDC.m in Sources */ = {isa = PBXBuildFile; fileRef = D393578B1F7C4D39008AE4A8 /* TDDispatcherGDC.m */; };
 		D393579C1F7DA2C6008AE4A8 /* FNRedraw.m in Sources */ = {isa = PBXBuildFile; fileRef = D393579A1F7DA2C5008AE4A8 /* FNRedraw.m */; };
+		D3A36B402270FDDC00F37E4C /* TDRegisterWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = D3A36B3E2270FDDC00F37E4C /* TDRegisterWindow.xib */; };
+		D3A36B432270FE3200F37E4C /* TDPreferenceWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D3A36B412270FE3200F37E4C /* TDPreferenceWindowController.xib */; };
+		D3A36B4B2270FE7B00F37E4C /* TDPreferenceModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D3A36B482270FE7B00F37E4C /* TDPreferenceModel.m */; };
+		D3A36B4C2270FE7B00F37E4C /* TDPreferenceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D3A36B492270FE7B00F37E4C /* TDPreferenceViewController.m */; };
+		D3A36B4D2270FE7B00F37E4C /* TDPreferenceWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = D3A36B4A2270FE7B00F37E4C /* TDPreferenceWindowController.m */; };
 		D3CF9C19211B7D4A00E92136 /* TKButton.m in Sources */ = {isa = PBXBuildFile; fileRef = D3CF9C17211B7D4900E92136 /* TKButton.m */; };
-		D3CF9C24211B7E2400E92136 /* TDPreferenceModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D3CF9C1E211B7E2300E92136 /* TDPreferenceModel.m */; };
-		D3CF9C25211B7E2400E92136 /* TDPreferencesWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = D3CF9C1F211B7E2300E92136 /* TDPreferencesWindowController.m */; };
-		D3CF9C26211B7E2400E92136 /* TDPreferenceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D3CF9C21211B7E2300E92136 /* TDPreferenceViewController.m */; };
 		D3CF9C28211B7F4900E92136 /* Malerei-PreferencePanes.plist in Resources */ = {isa = PBXBuildFile; fileRef = D3CF9C27211B7F4800E92136 /* Malerei-PreferencePanes.plist */; };
 		D3CF9C2B211B803900E92136 /* TKTabsListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D3CF9C29211B803800E92136 /* TKTabsListViewController.xib */; };
 		D3CF9C35211B80F100E92136 /* FlatTabStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = D3CF9C2D211B80F100E92136 /* FlatTabStyle.m */; };
 		D3CF9C36211B80F100E92136 /* FlatStyleCloseImageButton.m in Sources */ = {isa = PBXBuildFile; fileRef = D3CF9C30211B80F100E92136 /* FlatStyleCloseImageButton.m */; };
 		D3CF9C37211B80F100E92136 /* FlatStyleExtraButton.m in Sources */ = {isa = PBXBuildFile; fileRef = D3CF9C32211B80F100E92136 /* FlatStyleExtraButton.m */; };
 		D3CF9C38211B80F100E92136 /* FlatStyleCloseButton.m in Sources */ = {isa = PBXBuildFile; fileRef = D3CF9C34211B80F100E92136 /* FlatStyleCloseButton.m */; };
-		D3CF9C3B211B82F000E92136 /* TDPreferencesWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D3CF9C39211B82F000E92136 /* TDPreferencesWindowController.xib */; };
 		D3D705601E6F710D00D7EA61 /* EDBreakpointCollection.m in Sources */ = {isa = PBXBuildFile; fileRef = D3D7055F1E6F710D00D7EA61 /* EDBreakpointCollection.m */; };
 		D3DA17D01E77702700492A04 /* OkudaKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3DA17CD1E77701200492A04 /* OkudaKit.framework */; };
 		D3DA17D31E77703E00492A04 /* OkudaKit.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = D3DA17CD1E77701200492A04 /* OkudaKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -468,8 +454,8 @@
 		D3166FD71E592A5200DEE3A0 /* EDDocument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EDDocument.m; sourceTree = "<group>"; };
 		D3166FDC1E592B9400DEE3A0 /* EDTarget.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EDTarget.h; sourceTree = "<group>"; };
 		D3166FDD1E592B9400DEE3A0 /* EDTarget.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EDTarget.m; sourceTree = "<group>"; };
-		D3166FE91E592C3700DEE3A0 /* EDStatusBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EDStatusBar.h; sourceTree = "<group>"; };
-		D3166FEA1E592C3700DEE3A0 /* EDStatusBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EDStatusBar.m; sourceTree = "<group>"; };
+		D3166FE91E592C3700DEE3A0 /* StatusBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StatusBar.h; sourceTree = "<group>"; };
+		D3166FEA1E592C3700DEE3A0 /* StatusBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StatusBar.m; sourceTree = "<group>"; };
 		D3166FEC1E592C5000DEE3A0 /* EDScheme.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EDScheme.h; sourceTree = "<group>"; };
 		D3166FED1E592C5000DEE3A0 /* EDScheme.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EDScheme.m; sourceTree = "<group>"; };
 		D3166FEF1E592C6A00DEE3A0 /* EDAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EDAction.h; sourceTree = "<group>"; };
@@ -761,7 +747,6 @@
 		D3369BBB1E36C73800FEB7BF /* TDView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TDView.m; path = lib/TDAppKit/src/TDView.m; sourceTree = SOURCE_ROOT; };
 		D3369BBC1E36C73800FEB7BF /* TDViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TDViewController.m; path = lib/TDAppKit/src/TDViewController.m; sourceTree = SOURCE_ROOT; };
 		D3369BBD1E36C73800FEB7BF /* TDViewControllerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TDViewControllerView.m; path = lib/TDAppKit/src/TDViewControllerView.m; sourceTree = SOURCE_ROOT; };
-		D3369C061E36C75F00FEB7BF /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = lib/TDAppKit/en.lproj/TDRegisterWindow.xib; sourceTree = SOURCE_ROOT; };
 		D33C33711F8A803400B59CA5 /* FNFrameRate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = FNFrameRate.h; path = lang/FNFrameRate.h; sourceTree = "<group>"; };
 		D33C337C1F8A803400B59CA5 /* FNFrameRate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = FNFrameRate.m; path = lang/FNFrameRate.m; sourceTree = "<group>"; };
 		D34A55E91E7E090D0064DF65 /* FNSize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FNSize.h; path = lang/FNSize.h; sourceTree = "<group>"; };
@@ -807,14 +792,16 @@
 		D393578B1F7C4D39008AE4A8 /* TDDispatcherGDC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TDDispatcherGDC.m; sourceTree = "<group>"; };
 		D393579A1F7DA2C5008AE4A8 /* FNRedraw.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = FNRedraw.m; path = lang/FNRedraw.m; sourceTree = "<group>"; };
 		D393579B1F7DA2C5008AE4A8 /* FNRedraw.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = FNRedraw.h; path = lang/FNRedraw.h; sourceTree = "<group>"; };
+		D3A36B3F2270FDDC00F37E4C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = lib/TDAppKit/Base.lproj/TDRegisterWindow.xib; sourceTree = SOURCE_ROOT; };
+		D3A36B422270FE3200F37E4C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = lib/TDAppKit/Base.lproj/TDPreferenceWindowController.xib; sourceTree = SOURCE_ROOT; };
+		D3A36B442270FE6000F37E4C /* TDPreferenceModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = TDPreferenceModel.h; path = lib/TDAppKit/include/TDAppKit/TDPreferenceModel.h; sourceTree = SOURCE_ROOT; };
+		D3A36B462270FE6000F37E4C /* TDPreferenceViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = TDPreferenceViewController.h; path = lib/TDAppKit/include/TDAppKit/TDPreferenceViewController.h; sourceTree = SOURCE_ROOT; };
+		D3A36B472270FE6100F37E4C /* TDPreferenceWindowController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = TDPreferenceWindowController.h; path = lib/TDAppKit/include/TDAppKit/TDPreferenceWindowController.h; sourceTree = SOURCE_ROOT; };
+		D3A36B482270FE7B00F37E4C /* TDPreferenceModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TDPreferenceModel.m; path = lib/TDAppKit/src/TDPreferenceModel.m; sourceTree = SOURCE_ROOT; };
+		D3A36B492270FE7B00F37E4C /* TDPreferenceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TDPreferenceViewController.m; path = lib/TDAppKit/src/TDPreferenceViewController.m; sourceTree = SOURCE_ROOT; };
+		D3A36B4A2270FE7B00F37E4C /* TDPreferenceWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TDPreferenceWindowController.m; path = lib/TDAppKit/src/TDPreferenceWindowController.m; sourceTree = SOURCE_ROOT; };
 		D3CF9C17211B7D4900E92136 /* TKButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TKButton.m; path = lib/TabKit/TKButton.m; sourceTree = SOURCE_ROOT; };
 		D3CF9C18211B7D4A00E92136 /* TKButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TKButton.h; path = lib/TabKit/TKButton.h; sourceTree = SOURCE_ROOT; };
-		D3CF9C1E211B7E2300E92136 /* TDPreferenceModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDPreferenceModel.m; sourceTree = "<group>"; };
-		D3CF9C1F211B7E2300E92136 /* TDPreferencesWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDPreferencesWindowController.m; sourceTree = "<group>"; };
-		D3CF9C20211B7E2300E92136 /* TDPreferenceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDPreferenceViewController.h; sourceTree = "<group>"; };
-		D3CF9C21211B7E2300E92136 /* TDPreferenceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDPreferenceViewController.m; sourceTree = "<group>"; };
-		D3CF9C22211B7E2400E92136 /* TDPreferenceModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDPreferenceModel.h; sourceTree = "<group>"; };
-		D3CF9C23211B7E2400E92136 /* TDPreferencesWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDPreferencesWindowController.h; sourceTree = "<group>"; };
 		D3CF9C27211B7F4800E92136 /* Malerei-PreferencePanes.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "Malerei-PreferencePanes.plist"; path = "res/Malerei-PreferencePanes.plist"; sourceTree = SOURCE_ROOT; };
 		D3CF9C2A211B803800E92136 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = lib/TabKit/Base.lproj/TKTabsListViewController.xib; sourceTree = SOURCE_ROOT; };
 		D3CF9C2D211B80F100E92136 /* FlatTabStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlatTabStyle.m; sourceTree = "<group>"; };
@@ -825,7 +812,6 @@
 		D3CF9C32211B80F100E92136 /* FlatStyleExtraButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlatStyleExtraButton.m; sourceTree = "<group>"; };
 		D3CF9C33211B80F100E92136 /* FlatStyleCloseImageButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlatStyleCloseImageButton.h; sourceTree = "<group>"; };
 		D3CF9C34211B80F100E92136 /* FlatStyleCloseButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlatStyleCloseButton.m; sourceTree = "<group>"; };
-		D3CF9C3A211B82F000E92136 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/TDPreferencesWindowController.xib; sourceTree = "<group>"; };
 		D3D7055E1E6F710D00D7EA61 /* EDBreakpointCollection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EDBreakpointCollection.h; sourceTree = "<group>"; };
 		D3D7055F1E6F710D00D7EA61 /* EDBreakpointCollection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EDBreakpointCollection.m; sourceTree = "<group>"; };
 		D3DA17C71E77701200492A04 /* OkudaKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = OkudaKit.xcodeproj; path = lib/OkudaKit/OkudaKit.xcodeproj; sourceTree = "<group>"; };
@@ -937,13 +923,6 @@
 		D3166F401E5907B100DEE3A0 /* Prefs */ = {
 			isa = PBXGroup;
 			children = (
-				D3CF9C23211B7E2400E92136 /* TDPreferencesWindowController.h */,
-				D3CF9C1F211B7E2300E92136 /* TDPreferencesWindowController.m */,
-				D3CF9C39211B82F000E92136 /* TDPreferencesWindowController.xib */,
-				D3CF9C20211B7E2300E92136 /* TDPreferenceViewController.h */,
-				D3CF9C21211B7E2300E92136 /* TDPreferenceViewController.m */,
-				D3CF9C22211B7E2400E92136 /* TDPreferenceModel.h */,
-				D3CF9C1E211B7E2300E92136 /* TDPreferenceModel.m */,
 				D3166F4F1E5908BB00DEE3A0 /* General */,
 				D3166F561E5908DA00DEE3A0 /* Text Editing */,
 				D3166EE21E5902A800DEE3A0 /* Theme */,
@@ -1213,8 +1192,8 @@
 				D316709A1E5A156900DEE3A0 /* EDWindow.xib */,
 				D31670971E5A154F00DEE3A0 /* EDWindowContainerView.h */,
 				D31670981E5A154F00DEE3A0 /* EDWindowContainerView.m */,
-				D3166FE91E592C3700DEE3A0 /* EDStatusBar.h */,
-				D3166FEA1E592C3700DEE3A0 /* EDStatusBar.m */,
+				D3166FE91E592C3700DEE3A0 /* StatusBar.h */,
+				D3166FEA1E592C3700DEE3A0 /* StatusBar.m */,
 				D31670911E5A152F00DEE3A0 /* EDMidContainerView.h */,
 				D31670921E5A152F00DEE3A0 /* EDMidContainerView.m */,
 				D31670931E5A152F00DEE3A0 /* EDMidControlBar.h */,
@@ -1532,6 +1511,14 @@
 		D3369B341E36C72300FEB7BF /* src */ = {
 			isa = PBXGroup;
 			children = (
+				D3A36B472270FE6100F37E4C /* TDPreferenceWindowController.h */,
+				D3A36B4A2270FE7B00F37E4C /* TDPreferenceWindowController.m */,
+				D3A36B462270FE6000F37E4C /* TDPreferenceViewController.h */,
+				D3A36B492270FE7B00F37E4C /* TDPreferenceViewController.m */,
+				D3A36B442270FE6000F37E4C /* TDPreferenceModel.h */,
+				D3A36B482270FE7B00F37E4C /* TDPreferenceModel.m */,
+				D3369B541E36C72E00FEB7BF /* TDRegisterWindowController.h */,
+				D3369B9A1E36C73800FEB7BF /* TDRegisterWindowController.m */,
 				D3369B381E36C72E00FEB7BF /* DOMNode+TDAdditions.h */,
 				D316710F1E5AB89300DEE3A0 /* DOMNode+TDAdditions.m */,
 				D3369B3D1E36C72E00FEB7BF /* NSBezierPath+TDAdditions.h */,
@@ -1575,8 +1562,6 @@
 				D3369B981E36C73800FEB7BF /* TDListItemQueue.m */,
 				D3369B531E36C72E00FEB7BF /* TDListView.h */,
 				D3369B991E36C73800FEB7BF /* TDListView.m */,
-				D3369B541E36C72E00FEB7BF /* TDRegisterWindowController.h */,
-				D3369B9A1E36C73800FEB7BF /* TDRegisterWindowController.m */,
 				D3369B591E36C72E00FEB7BF /* TDStatusBarButton.h */,
 				D3369BA11E36C73800FEB7BF /* TDStatusBarButton.m */,
 				D3369B5A1E36C72E00FEB7BF /* TDStatusBarButtonCell.h */,
@@ -1606,7 +1591,8 @@
 		D3369C041E36C74300FEB7BF /* res */ = {
 			isa = PBXGroup;
 			children = (
-				D3369C051E36C75F00FEB7BF /* TDRegisterWindow.xib */,
+				D3A36B412270FE3200F37E4C /* TDPreferenceWindowController.xib */,
+				D3A36B3E2270FDDC00F37E4C /* TDRegisterWindow.xib */,
 			);
 			name = res;
 			sourceTree = "<group>";
@@ -1888,12 +1874,11 @@
 				D31670641E59FD6F00DEE3A0 /* EDProjectWindow.xib in Resources */,
 				D31670A61E5A167B00DEE3A0 /* EDFileEncodingDialog.xib in Resources */,
 				D33699B71E36B78900FEB7BF /* Assets.xcassets in Resources */,
-				D3CF9C3B211B82F000E92136 /* TDPreferencesWindowController.xib in Resources */,
+				D3A36B432270FE3200F37E4C /* TDPreferenceWindowController.xib in Resources */,
 				D31670BD1E5A184600DEE3A0 /* EDFilesystemView.xib in Resources */,
 				D309BCA71E5B657A002B3199 /* EDFindView.xib in Resources */,
 				D31671131E5B590100DEE3A0 /* EDMainMenu.xib in Resources */,
 				D3166F5C1E5908FE00DEE3A0 /* EDGuidesPreferences.xib in Resources */,
-				D3369C071E36C75F00FEB7BF /* TDRegisterWindow.xib in Resources */,
 				D3166F361E59073D00DEE3A0 /* EDThemePreferences.xib in Resources */,
 				D3166F331E59068500DEE3A0 /* Malerei-DefaultValues.plist in Resources */,
 				D31671051E5A599200DEE3A0 /* main.js in Resources */,
@@ -1902,7 +1887,6 @@
 				D3166F921E590DF600DEE3A0 /* css in Resources */,
 				D3166F701E590D7D00DEE3A0 /* EDGeneralPreferences.xib in Resources */,
 				D31E2C591E7CC4AA0023E924 /* EDCanvasView.xib in Resources */,
-				D31670E01E5A1A2C00DEE3A0 /* EDWebView.xib in Resources */,
 				D31670551E59FC0400DEE3A0 /* EDBreakpointListView.xib in Resources */,
 				D3CF9C28211B7F4900E92136 /* Malerei-PreferencePanes.plist in Resources */,
 				D316709C1E5A156900DEE3A0 /* EDWindow.xib in Resources */,
@@ -1910,6 +1894,7 @@
 				D3166FB71E5927C300DEE3A0 /* EDWelcomeWindow.xib in Resources */,
 				D31670071E59F71500DEE3A0 /* EDStackTraceView.xib in Resources */,
 				D31671241E5B5D7D00DEE3A0 /* exedore_dsa_pub.pem in Resources */,
+				D3A36B402270FDDC00F37E4C /* TDRegisterWindow.xib in Resources */,
 				D3166FFE1E592CCC00DEE3A0 /* EDActionArgumentsFacet.xib in Resources */,
 				D316703D1E59FAEC00DEE3A0 /* EDConsoleView.xib in Resources */,
 			);
@@ -1927,7 +1912,6 @@
 				D3369BE41E36C73800FEB7BF /* TDRegisterWindowController.m in Sources */,
 				D34A56551E7F3B4E0064DF65 /* FNRotate.m in Sources */,
 				D31670B21E5A171500DEE3A0 /* NSString+Score.m in Sources */,
-				D3369BD71E36C73800FEB7BF /* TDComboFieldTextView.m in Sources */,
 				D38693741F9CF55100928048 /* TDLinkedQueue.m in Sources */,
 				D3369C011E36C73800FEB7BF /* TDViewControllerView.m in Sources */,
 				D34A55FB1E7E1AFE0064DF65 /* FNFill.m in Sources */,
@@ -1937,6 +1921,7 @@
 				D3166FBC1E5927DA00DEE3A0 /* EDWelcomeTableCellView.m in Sources */,
 				D31670961E5A152F00DEE3A0 /* EDMidControlBar.m in Sources */,
 				D3369AB41E36BEED00FEB7BF /* IDEMainWindowController.m in Sources */,
+				D3A36B4B2270FE7B00F37E4C /* TDPreferenceModel.m in Sources */,
 				D31670CB1E5A18B900DEE3A0 /* EDFilesystemItemCell.m in Sources */,
 				D3166F391E59076200DEE3A0 /* EDFontPickerTextField.m in Sources */,
 				D3369AB81E36BEED00FEB7BF /* IDEUberView.m in Sources */,
@@ -1950,19 +1935,17 @@
 				D3369BDC1E36C73800FEB7BF /* TDGutterView.m in Sources */,
 				D3166F591E5908F000DEE3A0 /* EDGuidesPreferences.m in Sources */,
 				D31670BA1E5A182900DEE3A0 /* EDNavigatorOutlineView.m in Sources */,
-				D3369BD61E36C73800FEB7BF /* TDComboFieldListView.m in Sources */,
 				D3166F1A1E59040D00DEE3A0 /* EDApplication.m in Sources */,
 				D3369BDD1E36C73800FEB7BF /* TDHintButton.m in Sources */,
+				D3A36B4C2270FE7B00F37E4C /* TDPreferenceViewController.m in Sources */,
 				D31670CA1E5A18B900DEE3A0 /* EDFilesystemItem.m in Sources */,
 				D31E2C8E1E7D85F50023E924 /* EDGuide.m in Sources */,
 				D3166EF01E5902A800DEE3A0 /* EDThemeRulesNameTableCell.m in Sources */,
 				D3369BDB1E36C73800FEB7BF /* TDFlippedView.m in Sources */,
-				D31670E81E5A1A3E00DEE3A0 /* EDWebView.m in Sources */,
 				D316706D1E59FD9B00DEE3A0 /* EDProjectWindowController.m in Sources */,
 				D3369BC81E36C73800FEB7BF /* NSBezierPath+TDAdditions.m in Sources */,
 				D3166F551E5908D700DEE3A0 /* EDTextEditingPreferences.m in Sources */,
 				D3166F3C1E59078000DEE3A0 /* EDColorPickerCell.m in Sources */,
-				D316710D1E5A5FB600DEE3A0 /* TDComboField.m in Sources */,
 				D3E799F21E8B443F001F9DC7 /* FNNoFill.m in Sources */,
 				D3369BEE1E36C73800FEB7BF /* TDTabBarController.m in Sources */,
 				D3166EF11E5902A800DEE3A0 /* EDThemeRulesTableView.m in Sources */,
@@ -1983,7 +1966,6 @@
 				D3E799D61E8B1D39001F9DC7 /* FNBackground.m in Sources */,
 				D34A56641E7F3FE80064DF65 /* FNLine.m in Sources */,
 				D31670B51E5A179900DEE3A0 /* EDMainWindowController.m in Sources */,
-				D3CF9C26211B7E2400E92136 /* TDPreferenceViewController.m in Sources */,
 				D3369BE31E36C73800FEB7BF /* TDListView.m in Sources */,
 				D3369BDE1E36C73800FEB7BF /* TDHintView.m in Sources */,
 				D31670241E59F7DC00DEE3A0 /* EDFileLocation.m in Sources */,
@@ -1994,14 +1976,12 @@
 				D3369B1E1E36C25A00FEB7BF /* TKTabListItemFlatStyleOverflowButton.m in Sources */,
 				D31670031E592CEF00DEE3A0 /* EDActionArgumentsFacet.m in Sources */,
 				D33C337D1F8A803500B59CA5 /* FNFrameRate.m in Sources */,
-				D31671101E5AB89300DEE3A0 /* DOMNode+TDAdditions.m in Sources */,
 				D3166EED1E5902A800DEE3A0 /* EDTheme.m in Sources */,
-				D3166FEB1E592C3700DEE3A0 /* EDStatusBar.m in Sources */,
+				D3166FEB1E592C3700DEE3A0 /* StatusBar.m in Sources */,
 				D31670991E5A154F00DEE3A0 /* EDWindowContainerView.m in Sources */,
 				D3166FF61E592C6A00DEE3A0 /* EDRunAction.m in Sources */,
 				D3369BCF1E36C73800FEB7BF /* TDBar.m in Sources */,
 				D3166F241E5904D600DEE3A0 /* EDUserDefaults.m in Sources */,
-				D3369BD51E36C73800FEB7BF /* TDComboFieldListItem.m in Sources */,
 				D31670901E5A151300DEE3A0 /* EDBackForwardButtonCell.m in Sources */,
 				D3369BEA1E36C73800FEB7BF /* TDStatusBarButton.m in Sources */,
 				D3369BEB1E36C73800FEB7BF /* TDStatusBarButtonCell.m in Sources */,
@@ -2014,7 +1994,6 @@
 				D3166F2E1E5905A100DEE3A0 /* EDPattern.m in Sources */,
 				D316700D1E59F71F00DEE3A0 /* EDStackTraceViewController.m in Sources */,
 				D3369BCA1E36C73800FEB7BF /* NSEvent+TDAdditions.m in Sources */,
-				D31670F51E5A1A7B00DEE3A0 /* EDRecentURLController.m in Sources */,
 				D316701A1E59F76700DEE3A0 /* EDNavTabBarItem.m in Sources */,
 				D316704F1E59FB0400DEE3A0 /* EDConsoleViewController.m in Sources */,
 				D31670041E592CEF00DEE3A0 /* EDActionFacet.m in Sources */,
@@ -2035,9 +2014,6 @@
 				D309BCCC1E5BB861002B3199 /* TDSynchronousChannel.m in Sources */,
 				D31670361E59F9EB00DEE3A0 /* EDFindParameters.m in Sources */,
 				D3166F731E590D8C00DEE3A0 /* EDGeneralPreferences.m in Sources */,
-				D3369BD41E36C73800FEB7BF /* TDComboFieldCell.m in Sources */,
-				D31670F21E5A1A7B00DEE3A0 /* EDBackForwardPopUpButton.m in Sources */,
-				D31670E71E5A1A3E00DEE3A0 /* EDWebContainerView.m in Sources */,
 				D31670391E59F9EB00DEE3A0 /* EDFindViewController.m in Sources */,
 				D31670861E5A14A400DEE3A0 /* EDToolbarProgressItem.m in Sources */,
 				D3369B1A1E36C25A00FEB7BF /* TKMainWindowController.m in Sources */,
@@ -2048,6 +2024,7 @@
 				D309BCE81E60B362002B3199 /* EDShellViewController.m in Sources */,
 				D3166FF51E592C6A00DEE3A0 /* EDAction.m in Sources */,
 				D3DE66041F01C899003EB91F /* FNLoop.m in Sources */,
+				D3A36B4D2270FE7B00F37E4C /* TDPreferenceWindowController.m in Sources */,
 				D3DA17E81E77721700492A04 /* OKLanguageParser.m in Sources */,
 				D3369B161E36C25A00FEB7BF /* TKDocument.m in Sources */,
 				D3369AAC1E36BEED00FEB7BF /* IDEApplication.m in Sources */,
@@ -2059,7 +2036,6 @@
 				D316701E1E59F76700DEE3A0 /* EDTabBarStackTraceButtonCell.m in Sources */,
 				D316701B1E59F76700DEE3A0 /* EDTabBarBreakpointButtonCell.m in Sources */,
 				D3D705601E6F710D00D7EA61 /* EDBreakpointCollection.m in Sources */,
-				D31670E91E5A1A3E00DEE3A0 /* EDWebViewController.m in Sources */,
 				D31E2C781E7D82720023E924 /* SZDocument.m in Sources */,
 				D3369BEF1E36C73800FEB7BF /* TDTabBarControllerView.m in Sources */,
 				D3369BCB1E36C73800FEB7BF /* NSImage+TDAdditions.m in Sources */,
@@ -2083,7 +2059,6 @@
 				D316701C1E59F76700DEE3A0 /* EDTabBarButtonCell.m in Sources */,
 				D31670881E5A14A400DEE3A0 /* EDToolbarStatusItem.m in Sources */,
 				D3166F431E5907C900DEE3A0 /* EDUtils.m in Sources */,
-				D3CF9C24211B7E2400E92136 /* TDPreferenceModel.m in Sources */,
 				D3369B1F1E36C25A00FEB7BF /* TKTabListItemStyle.m in Sources */,
 				D31670871E5A14A400DEE3A0 /* EDToolbarProgressView.m in Sources */,
 				D37CFCB51EC8B90600068FEB /* FNBezier.m in Sources */,
@@ -2100,12 +2075,10 @@
 				D3369AB01E36BEED00FEB7BF /* IDEDocumentController.m in Sources */,
 				D31670C91E5A18B900DEE3A0 /* EDFilesystemContainerView.m in Sources */,
 				D31E2C901E7D85F50023E924 /* EDToolTip.m in Sources */,
-				D3CF9C25211B7E2400E92136 /* TDPreferencesWindowController.m in Sources */,
 				D31E2C8D1E7D85F50023E924 /* EDCanvasViewController.m in Sources */,
 				D3166EEF1E5902A800DEE3A0 /* EDThemePreferences.m in Sources */,
 				D3369AAF1E36BEED00FEB7BF /* IDEDocument.m in Sources */,
 				D3CF9C19211B7D4A00E92136 /* TKButton.m in Sources */,
-				D31670F31E5A1A7B00DEE3A0 /* EDFaviconController.m in Sources */,
 				D393579C1F7DA2C6008AE4A8 /* FNRedraw.m in Sources */,
 				D3166F2F1E5905A100DEE3A0 /* EDRegexPattern.m in Sources */,
 				D3166FDE1E592B9400DEE3A0 /* EDTarget.m in Sources */,
@@ -2116,7 +2089,6 @@
 				D31670951E5A152F00DEE3A0 /* EDMidContainerView.m in Sources */,
 				D3369BD91E36C73800FEB7BF /* TDDropTargetView.m in Sources */,
 				D34A56581E7F3BB80064DF65 /* FNTranslate.m in Sources */,
-				D31670F41E5A1A7B00DEE3A0 /* EDFindPanel.m in Sources */,
 				D316704B1E59FB0400DEE3A0 /* EDConsoleControlBar.m in Sources */,
 				D3369B261E36C25A00FEB7BF /* TKTabsListViewController.m in Sources */,
 				D3166FD81E592A5200DEE3A0 /* EDDocument.m in Sources */,
@@ -2306,12 +2278,20 @@
 			name = EDCanvasView.xib;
 			sourceTree = "<group>";
 		};
-		D3369C051E36C75F00FEB7BF /* TDRegisterWindow.xib */ = {
+		D3A36B3E2270FDDC00F37E4C /* TDRegisterWindow.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
-				D3369C061E36C75F00FEB7BF /* en */,
+				D3A36B3F2270FDDC00F37E4C /* Base */,
 			);
 			name = TDRegisterWindow.xib;
+			sourceTree = "<group>";
+		};
+		D3A36B412270FE3200F37E4C /* TDPreferenceWindowController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D3A36B422270FE3200F37E4C /* Base */,
+			);
+			name = TDPreferenceWindowController.xib;
 			sourceTree = "<group>";
 		};
 		D3CF9C29211B803800E92136 /* TKTabsListViewController.xib */ = {
@@ -2320,14 +2300,6 @@
 				D3CF9C2A211B803800E92136 /* Base */,
 			);
 			name = TKTabsListViewController.xib;
-			sourceTree = "<group>";
-		};
-		D3CF9C39211B82F000E92136 /* TDPreferencesWindowController.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				D3CF9C3A211B82F000E92136 /* Base */,
-			);
-			name = TDPreferencesWindowController.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

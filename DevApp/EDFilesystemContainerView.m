@@ -7,7 +7,7 @@
 //
 
 #import "EDFilesystemContainerView.h"
-#import "EDStatusBar.h"
+#import "StatusBar.h"
 
 //#define NAVBAR_HEIGHT 24.0
 #define NAVBAR_HEIGHT 0.0
@@ -123,7 +123,7 @@
 #pragma mark Private
 
 - (CGFloat)statusBarHeight {
-    return [[EDUserDefaults instance] statusBarVisible] ? [EDStatusBar defaultHeight] : 0.0;
+    return [[EDUserDefaults instance] statusBarVisible] ? [StatusBar defaultHeight] : 0.0;
 }
 
 

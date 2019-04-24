@@ -6,7 +6,7 @@
 //  Copyright (c) 2013 Todd Ditchendorf. All rights reserved.
 //
 
-#import "EDStatusBar.h"
+#import "StatusBar.h"
 #import <TDAppKit/TDUtils.h>
 
 static NSColor *sBorderColor = nil;
@@ -18,10 +18,10 @@ static NSColor *sNonMainBevelColor = nil;
 static NSGradient *sBgGradient = nil;
 static NSGradient *sNonMainBgGradient = nil;
 
-@implementation EDStatusBar
+@implementation StatusBar
 
 + (void)initialize {
-    if ([EDStatusBar class] == self) {
+    if ([StatusBar class] == self) {
         
         sBorderColor = [[NSColor darkGrayColor] retain];
         sNonMainBorderColor = [TDHexColor(0xaaaaaa) retain];

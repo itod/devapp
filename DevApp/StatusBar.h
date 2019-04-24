@@ -8,7 +8,7 @@
 
 #import <TDAppKit/TDDraggableBar.h>
 
-@interface EDStatusBar : TDDraggableBar
+@interface StatusBar : TDDraggableBar
 
 + (CGFloat)defaultHeight;
 + (NSColor *)mainTopBorderColor;

@@ -7,7 +7,7 @@
 //
 
 #import "EDWebContainerView.h"
-#import "EDStatusBar.h"
+#import "StatusBar.h"
 #import "EDFindPanel.h"
 
 #define COMBO_MARGIN_RIGHT 12.0
@@ -135,7 +135,7 @@
 #pragma mark Private
 
 - (CGFloat)statusBarHeight {
-    return [[EDUserDefaults instance] statusBarVisible] ? [EDStatusBar defaultHeight] : 0.0;
+    return [[EDUserDefaults instance] statusBarVisible] ? [StatusBar defaultHeight] : 0.0;
 }
 
 

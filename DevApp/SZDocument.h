@@ -59,7 +59,6 @@ CGPoint TDRectGetBotMidPoint(CGRect r);
 CGPoint TDRectGetBotRitPoint(CGRect r);
 
 CGPoint TDRectGetCornerPoint(CGRect r, TDRectCorner corner);
-CGRect TDCombineRects(CGRect r1, CGRect r2);
 
 @interface SZDocument : EDDocument
 

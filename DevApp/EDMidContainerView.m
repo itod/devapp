@@ -7,7 +7,7 @@
 //
 
 #import "EDMidContainerView.h"
-#import "EDStatusBar.h"
+#import "StatusBar.h"
 #import "EDMidControlBar.h"
 
 @implementation EDMidContainerView
@@ -121,7 +121,7 @@
 #pragma mark Private
 
 - (CGFloat)statusBarHeight {
-    return [[EDUserDefaults instance] statusBarVisible] ? [EDStatusBar defaultHeight] : 0.0;
+    return [[EDUserDefaults instance] statusBarVisible] ? [StatusBar defaultHeight] : 0.0;
 }
 
 

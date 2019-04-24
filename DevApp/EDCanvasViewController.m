@@ -12,7 +12,7 @@
 #import "EDMetrics.h"
 #import "EDGuide.h"
 #import "SZDocument.h"
-#import "EDStatusBar.h"
+#import "StatusBar.h"
 #import <TDAppKit/TDStatusBarPopUpView.h>
 #import <TDAppKit/TDStatusBarButton.h>
 #import <TDAppKit/TDViewControllerView.h>
@@ -98,16 +98,16 @@
     _gridPopUpView.labelText = NSLocalizedString(@"            ", @"");
     _zoomPopUpView.labelText = NSLocalizedString(@"Zoom:", @"");
     
-    _gridPopUpView.mainTopBorderColor = [EDStatusBar mainTopBorderColor];
-    _gridPopUpView.nonMainTopBorderColor = [EDStatusBar nonMainTopBorderColor];
+    _gridPopUpView.mainTopBorderColor = [StatusBar mainTopBorderColor];
+    _gridPopUpView.nonMainTopBorderColor = [StatusBar nonMainTopBorderColor];
     _gridPopUpView.mainBgGradient = grad;
 
-    _zoomPopUpView.mainTopBorderColor = [EDStatusBar mainTopBorderColor];
-    _zoomPopUpView.nonMainTopBorderColor = [EDStatusBar nonMainTopBorderColor];
+    _zoomPopUpView.mainTopBorderColor = [StatusBar mainTopBorderColor];
+    _zoomPopUpView.nonMainTopBorderColor = [StatusBar nonMainTopBorderColor];
     _zoomPopUpView.mainBgGradient = grad;
     
-    _metricsButton.mainTopBorderColor = [EDStatusBar mainTopBorderColor];
-    _metricsButton.nonMainTopBorderColor = [EDStatusBar nonMainTopBorderColor];
+    _metricsButton.mainTopBorderColor = [StatusBar mainTopBorderColor];
+    _metricsButton.nonMainTopBorderColor = [StatusBar nonMainTopBorderColor];
     _metricsButton.mainBgGradient = grad;
     
     TDPerformOnMainThreadAfterDelay(0.0, ^{

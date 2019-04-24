@@ -25,7 +25,7 @@
 #import "EDEnvironmentVariable.h"
 #import "EDToolbarButtonItem.h"
 #import "EDFileLocation.h"
-#import "EDWebViewController.h"
+//#import "EDWebViewController.h"
 #import "EDThemeManager.h"
 #import "EDTheme.h"
 #import "EDFileEncodingDetector.h"
@@ -568,6 +568,7 @@
     EDTabModel *tm = (EDTabModel *)[self tabModelAtIndex:i];
     
     if ([tm.type isEqualToString:EDTabModelTypeWebLocation]) {
+        TDAssert(0);
         [tm bind:@"title" toObject:tm.representedObject withKeyPath:@"title" options:nil];
         [tm bind:@"URLString" toObject:tm.representedObject withKeyPath:@"URLString" options:nil];
     } else if ([tm.type isEqualToString:EDTabModelTypeREPL]) {
@@ -646,20 +647,22 @@
 
 - (id)newRepresentedObjectWithContentsOfURLString:(NSString *)URLString type:(NSString *)type error:(NSError **)outErr {
     if ([type isEqualToString:EDTabModelTypeWebLocation]) {
-        if (!URLString) {
-            URLString = [self documentationHomeURLString];
-        }
-        EDAssert([URLString length]);
+        TDAssert(0);
+//        if (!URLString) {
+//            URLString = [self documentationHomeURLString];
+//        }
+//        EDAssert([URLString length]);
+//
+//        EDWebViewController *wvc = [[EDWebViewController alloc] init]; // +1
+//        wvc.initialURLString = URLString;
+//
+//        // listen for title changes
+//        NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
+//        [nc addObserver:self selector:@selector(webViewControllerTitleDidChange:) name:EDWebViewControllerTitleDidChangeNotification object:wvc];
+//
+//        return wvc;
 
-        EDWebViewController *wvc = [[EDWebViewController alloc] init]; // +1
-        wvc.initialURLString = URLString;
-        
-        // listen for title changes
-        NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
-        [nc addObserver:self selector:@selector(webViewControllerTitleDidChange:) name:EDWebViewControllerTitleDidChangeNotification object:wvc];
-        
-        return wvc;
-
+        return nil;
     } else if ([type isEqualToString:EDTabModelTypeSourceCodeFile]) {
         OKViewController *okvc = [[OKViewController alloc] initWithDefaultNib]; // +1
         [okvc loadView];
@@ -1708,9 +1711,10 @@
 
     NSError *err = nil;
     if ([self addTabWithContentsOfURLString:URLString type:EDTabModelTypeWebLocation error:&err]) {
-        EDWebViewController *wvc = self.selectedTabModel.representedObject;
-        EDAssert([wvc isKindOfClass:[EDWebViewController class]]);
-        wvc.initialFindPanelTerm = tokStr;
+        TDAssert(0);
+//        EDWebViewController *wvc = self.selectedTabModel.representedObject;
+//        EDAssert([wvc isKindOfClass:[EDWebViewController class]]);
+//        wvc.initialFindPanelTerm = tokStr;
     } else {
         if (err) NSLog(@"%@", err);
     }
@@ -2467,8 +2471,9 @@
                 OKTextView *tv = self.selectedSourceViewController.textView;
                 [tv performFindPanelAction:sender];
             } else if ([type isEqualToString:EDTabModelTypeWebLocation]) {
-                EDWebViewController *wvc = self.selectedTabModel.representedObject;
-                [wvc performFindPanelAction:sender];
+                TDAssert(0);
+//                EDWebViewController *wvc = self.selectedTabModel.representedObject;
+//                [wvc performFindPanelAction:sender];
             }
             
         } break;
@@ -2507,9 +2512,9 @@
         }
     
     } else if ([type isEqualToString:EDTabModelTypeWebLocation]) {
-        EDWebViewController *wvc = tm.representedObject;
-        [wvc performFindPanelAction:sender];
-
+        TDAssert(0);
+//        EDWebViewController *wvc = tm.representedObject;
+//        [wvc performFindPanelAction:sender];
     } else {
         EDAssert(0);
     }
@@ -2517,31 +2522,32 @@
 
 
 - (IBAction)showReference:(id)sender {
-    NSString *path = [self documentationHomeURLString];
-    
-    EDTabModel *seltm = nil;
-    
-    for (EDTabModel *tm in self.tabModels) {
-        if ([EDTabModelTypeWebLocation isEqualToString:tm.type] && [tm.URLString hasSuffix:path]) {
-            self.selectedTabIndex = tm.index;
-            seltm = tm;
-            break;
-        }
-    }
-
-    if (!seltm) {
-        NSError *err = nil;
-        if (![self addTabWithContentsOfURLString:path type:EDTabModelTypeWebLocation error:&err]) {
-            NSLog(@"%@", err);
-        }
-        seltm = self.selectedEDTabModel;
-    }
-    
-    if (seltm) {
-        EDWebViewController *wvc = seltm.representedObject;
-        EDAssert([wvc isKindOfClass:[EDWebViewController class]]);
-        [wvc openLocation:nil];
-    }
+    TDAssert(0);
+//    NSString *path = [self documentationHomeURLString];
+//
+//    EDTabModel *seltm = nil;
+//
+//    for (EDTabModel *tm in self.tabModels) {
+//        if ([EDTabModelTypeWebLocation isEqualToString:tm.type] && [tm.URLString hasSuffix:path]) {
+//            self.selectedTabIndex = tm.index;
+//            seltm = tm;
+//            break;
+//        }
+//    }
+//
+//    if (!seltm) {
+//        NSError *err = nil;
+//        if (![self addTabWithContentsOfURLString:path type:EDTabModelTypeWebLocation error:&err]) {
+//            NSLog(@"%@", err);
+//        }
+//        seltm = self.selectedEDTabModel;
+//    }
+//
+//    if (seltm) {
+//        EDWebViewController *wvc = seltm.representedObject;
+//        EDAssert([wvc isKindOfClass:[EDWebViewController class]]);
+//        [wvc openLocation:nil];
+//    }
 }
 
 
@@ -3328,11 +3334,11 @@ done:
 
 - (BOOL)isTypingInFindPanel {
     BOOL result = NO;
-    TKTabModel *tm = self.selectedTabModel;
-    if ([tm.type isEqualToString:EDTabModelTypeWebLocation]) {
-        EDWebViewController *wvc = tm.representedObject;
-        result = wvc.isTypingInFindPanel;
-    }
+//    TKTabModel *tm = self.selectedTabModel;
+//    if ([tm.type isEqualToString:EDTabModelTypeWebLocation]) {
+//        EDWebViewController *wvc = tm.representedObject;
+//        result = wvc.isTypingInFindPanel;
+//    }
     return result;
 }
 
