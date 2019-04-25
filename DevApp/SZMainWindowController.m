@@ -56,6 +56,8 @@
 
     EDAssert(self.canvasViewController);
     [self.canvasViewController clear];
+
+    [self.selectedSourceViewController highlightLineNumber:0 scrollToVisible:NO];
 }
 
 
