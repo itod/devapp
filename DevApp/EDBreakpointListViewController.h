@@ -19,7 +19,7 @@
 
 @interface EDBreakpointListViewController : TDViewController <NSOutlineViewDataSource, NSOutlineViewDelegate, NSMenuDelegate>
 
-- (id)init; // use me
+- (instancetype)init; // use me
 
 - (void)reloadData;
 

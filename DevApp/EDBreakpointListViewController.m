@@ -30,13 +30,13 @@
 
 @implementation EDBreakpointListViewController
 
-- (id)init {
+- (instancetype)init {
     self = [self initWithNibName:@"EDBreakpointListView" bundle:nil];
     return self;
 }
 
 
-- (id)initWithNibName:(NSString *)name bundle:(NSBundle *)b {
+- (instancetype)initWithNibName:(NSString *)name bundle:(NSBundle *)b {
     self = [super initWithNibName:name bundle:b];
     if (self) {
         self.title = NSLocalizedString(@"Breakpoints", @"");
