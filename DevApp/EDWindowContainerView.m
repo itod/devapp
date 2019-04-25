@@ -8,25 +8,14 @@
 
 #import "EDWindowContainerView.h"
 #import "EDMainWindowController.h"
+#import "StatusBar.h"
 #import <TDAppKit/TDUtils.h>
 
 #define TAB_BORDER_HEIGHT 1.0
 
-static NSColor *sTabsBorderColor = nil;
-static NSColor *sNonMainTabsBorderColor = nil;
-
 @implementation EDWindowContainerView
 
-+ (void)initialize {
-    if ([EDWindowContainerView class] == self) {
-        
-        sTabsBorderColor = [TDHexColor(0x7a7a7a) retain];
-        sNonMainTabsBorderColor = [TDHexColor(0xaaaaaa) retain];
-    }
-}
-
-
-- (id)initWithFrame:(NSRect)frame {
+- (instancetype)initWithFrame:(NSRect)frame {
     self = [super initWithFrame:frame];
     if (self) {
     }
@@ -53,28 +42,17 @@ static NSColor *sNonMainTabsBorderColor = nil;
 - (void)drawRect:(NSRect)dirtyRect {
     EDAssert([self isFlipped]);
     CGRect bounds = [self bounds];
-    
+
+    NSColor *strokeColor = [[self window] isMainWindow] ? [StatusBar mainTopBorderColor] : [StatusBar nonMainTopBorderColor];
+    [strokeColor setFill];
+    NSRectFill(bounds);
+
 //    [[NSColor redColor] setFill];
 //    NSRectFill([self uberViewRectForBounds:bounds]);
 //    
 //    [[NSColor blueColor] setFill];
 //    NSRectFill([self statusBarRectForBounds:bounds]);
     
-    if ([self isTabsListViewVisible]) {
-        CGContextRef ctx = [[NSGraphicsContext currentContext] graphicsPort];
-
-        CGRect tabsRect = [self tabsListViewRectForBounds:bounds];
-        CGFloat y = TDFloorAlign(NSMaxY(tabsRect));
-
-        CGContextSetLineWidth(ctx, TAB_BORDER_HEIGHT);
-        CGContextBeginPath(ctx);
-        CGContextMoveToPoint(ctx, NSMinX(tabsRect), y);
-        CGContextAddLineToPoint(ctx, NSMaxX(tabsRect), y);
-        
-        NSColor *strokeColor = [[self window] isMainWindow] ? sTabsBorderColor : sNonMainTabsBorderColor;
-        [strokeColor setStroke];
-        CGContextStrokePath(ctx);
-    }
 }
 
 
@@ -98,8 +76,8 @@ static NSColor *sNonMainTabsBorderColor = nil;
 - (CGRect)tabsListViewRectForBounds:(CGRect)bounds {
     CGFloat x = 0.0;
     CGFloat y = 0.0;
-    CGFloat w = bounds.size.width;
-    CGFloat h = [self currentTabsListViewHeight];
+    CGFloat w = 0.0; //bounds.size.width;
+    CGFloat h = 0.0; //[self currentTabsListViewHeight];
     
     CGRect r = CGRectMake(x, y, w, h);
     return r;
@@ -128,12 +106,12 @@ static NSColor *sNonMainTabsBorderColor = nil;
 
 
 - (CGFloat)currentTabsListViewHeight {
-    return [self isTabsListViewVisible] ? _tabsListViewHeight : 1.0;
+    return [self isTabsListViewVisible] ? _tabsListViewHeight : TAB_BORDER_HEIGHT;
 }
 
 
 - (CGFloat)totalCurrentTabsListViewHeight {
-    return [self isTabsListViewVisible] ? _tabsListViewHeight + TAB_BORDER_HEIGHT : 1.0;
+    return [self isTabsListViewVisible] ? _tabsListViewHeight + TAB_BORDER_HEIGHT : TAB_BORDER_HEIGHT;
 }
 
 
