@@ -111,12 +111,6 @@
 		D31670B21E5A171500DEE3A0 /* NSString+Score.m in Sources */ = {isa = PBXBuildFile; fileRef = D31670B01E5A171500DEE3A0 /* NSString+Score.m */; };
 		D31670B51E5A179900DEE3A0 /* EDMainWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = D31670B41E5A179900DEE3A0 /* EDMainWindowController.m */; };
 		D31670BA1E5A182900DEE3A0 /* EDNavigatorOutlineView.m in Sources */ = {isa = PBXBuildFile; fileRef = D31670B91E5A182900DEE3A0 /* EDNavigatorOutlineView.m */; };
-		D31670BD1E5A184600DEE3A0 /* EDFilesystemView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D31670BB1E5A184600DEE3A0 /* EDFilesystemView.xib */; };
-		D31670C91E5A18B900DEE3A0 /* EDFilesystemContainerView.m in Sources */ = {isa = PBXBuildFile; fileRef = D31670C01E5A18B900DEE3A0 /* EDFilesystemContainerView.m */; };
-		D31670CA1E5A18B900DEE3A0 /* EDFilesystemItem.m in Sources */ = {isa = PBXBuildFile; fileRef = D31670C21E5A18B900DEE3A0 /* EDFilesystemItem.m */; };
-		D31670CB1E5A18B900DEE3A0 /* EDFilesystemItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D31670C41E5A18B900DEE3A0 /* EDFilesystemItemCell.m */; };
-		D31670CC1E5A18B900DEE3A0 /* EDFilesystemNavBar.m in Sources */ = {isa = PBXBuildFile; fileRef = D31670C61E5A18B900DEE3A0 /* EDFilesystemNavBar.m */; };
-		D31670CD1E5A18B900DEE3A0 /* EDFilesystemViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D31670C81E5A18B900DEE3A0 /* EDFilesystemViewController.m */; };
 		D31671001E5A21F800DEE3A0 /* EDMainWindowController+NewProject.m in Sources */ = {isa = PBXBuildFile; fileRef = D31670661E59FD9B00DEE3A0 /* EDMainWindowController+NewProject.m */; };
 		D31671031E5A251000DEE3A0 /* EDBaseToolbarItem.m in Sources */ = {isa = PBXBuildFile; fileRef = D31671021E5A251000DEE3A0 /* EDBaseToolbarItem.m */; };
 		D31671051E5A599200DEE3A0 /* main.js in Resources */ = {isa = PBXBuildFile; fileRef = D31671041E5A599200DEE3A0 /* main.js */; };
@@ -1874,7 +1868,6 @@
 				D31670A61E5A167B00DEE3A0 /* EDFileEncodingDialog.xib in Resources */,
 				D33699B71E36B78900FEB7BF /* Assets.xcassets in Resources */,
 				D3A36B432270FE3200F37E4C /* TDPreferenceWindowController.xib in Resources */,
-				D31670BD1E5A184600DEE3A0 /* EDFilesystemView.xib in Resources */,
 				D309BCA71E5B657A002B3199 /* EDFindView.xib in Resources */,
 				D31671131E5B590100DEE3A0 /* EDMainMenu.xib in Resources */,
 				D3166F5C1E5908FE00DEE3A0 /* EDGuidesPreferences.xib in Resources */,
@@ -1921,7 +1914,6 @@
 				D31670961E5A152F00DEE3A0 /* EDMidControlBar.m in Sources */,
 				D3369AB41E36BEED00FEB7BF /* IDEMainWindowController.m in Sources */,
 				D3A36B4B2270FE7B00F37E4C /* TDPreferenceModel.m in Sources */,
-				D31670CB1E5A18B900DEE3A0 /* EDFilesystemItemCell.m in Sources */,
 				D3166F391E59076200DEE3A0 /* EDFontPickerTextField.m in Sources */,
 				D3369AB81E36BEED00FEB7BF /* IDEUberView.m in Sources */,
 				D34A566A1E7F7D0C0064DF65 /* FNStrokeCap.m in Sources */,
@@ -1937,7 +1929,6 @@
 				D3166F1A1E59040D00DEE3A0 /* EDApplication.m in Sources */,
 				D3369BDD1E36C73800FEB7BF /* TDHintButton.m in Sources */,
 				D3A36B4C2270FE7B00F37E4C /* TDPreferenceViewController.m in Sources */,
-				D31670CA1E5A18B900DEE3A0 /* EDFilesystemItem.m in Sources */,
 				D31E2C8E1E7D85F50023E924 /* EDGuide.m in Sources */,
 				D3166EF01E5902A800DEE3A0 /* EDThemeRulesNameTableCell.m in Sources */,
 				D3369BDB1E36C73800FEB7BF /* TDFlippedView.m in Sources */,
@@ -1960,7 +1951,6 @@
 				D34A55F51E7E15B20064DF65 /* FNStroke.m in Sources */,
 				D3369ABA1E36BEED00FEB7BF /* IDEUserDefaults.m in Sources */,
 				D309BCD11E5BB873002B3199 /* TDSemaphore.m in Sources */,
-				D31670CD1E5A18B900DEE3A0 /* EDFilesystemViewController.m in Sources */,
 				D34A55F21E7E14900064DF65 /* FNRect.m in Sources */,
 				D3E799D61E8B1D39001F9DC7 /* FNBackground.m in Sources */,
 				D34A56641E7F3FE80064DF65 /* FNLine.m in Sources */,
@@ -2044,7 +2034,6 @@
 				D3DE65F81F01C799003EB91F /* FNNoLoop.m in Sources */,
 				D34A55FE1E7E30C20064DF65 /* FNStrokeWeight.m in Sources */,
 				D3CF9C37211B80F100E92136 /* FlatStyleExtraButton.m in Sources */,
-				D31670CC1E5A18B900DEE3A0 /* EDFilesystemNavBar.m in Sources */,
 				D31E2C8C1E7D85F50023E924 /* EDCanvasView.m in Sources */,
 				D3369AB31E36BEED00FEB7BF /* IDEMainWindow.m in Sources */,
 				D3369BD81E36C73800FEB7BF /* TDDraggableBar.m in Sources */,
@@ -2072,7 +2061,6 @@
 				D3369BD21E36C73800FEB7BF /* TDColorView.m in Sources */,
 				D316705F1E59FC2C00DEE3A0 /* EDBreakpointListViewController.m in Sources */,
 				D3369AB01E36BEED00FEB7BF /* IDEDocumentController.m in Sources */,
-				D31670C91E5A18B900DEE3A0 /* EDFilesystemContainerView.m in Sources */,
 				D31E2C901E7D85F50023E924 /* EDToolTip.m in Sources */,
 				D31E2C8D1E7D85F50023E924 /* EDCanvasViewController.m in Sources */,
 				D3166EEF1E5902A800DEE3A0 /* EDThemePreferences.m in Sources */,
