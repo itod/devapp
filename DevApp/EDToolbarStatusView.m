@@ -22,8 +22,8 @@ static NSGradient *sNonMainBgGrad = nil;
 static NSColor *sStrokeColor = nil;
 static NSColor *sNonMainStrokeColor = nil;
 
-static NSShadow *sStrokeShadow = nil;
-static NSShadow *sNonMainStrokeShadow = nil;
+//static NSShadow *sStrokeShadow = nil;
+//static NSShadow *sNonMainStrokeShadow = nil;
 
 static NSDictionary *sTextAttrs = nil;
 static NSDictionary *sNonMainTextAttrs = nil;
@@ -38,15 +38,15 @@ static NSDictionary *sNonMainTextAttrs = nil;
         sStrokeColor = [TDHexColor(0x999999) retain];
         sNonMainStrokeColor = [TDHexColor(0xcccccc) retain];
         
-        sStrokeShadow = [[NSShadow alloc] init];
-        [sStrokeShadow setShadowColor:[NSColor colorWithCalibratedWhite:0.0 alpha:0.3]];
-        [sStrokeShadow setShadowOffset:NSMakeSize(0.0, 0.0)];
-        [sStrokeShadow setShadowBlurRadius:2.0];
-        
-        sNonMainStrokeShadow = [[NSShadow alloc] init];
-        [sNonMainStrokeShadow setShadowColor:[NSColor colorWithCalibratedWhite:0.0 alpha:0.15]];
-        [sNonMainStrokeShadow setShadowOffset:NSMakeSize(0.0, 0.0)];
-        [sNonMainStrokeShadow setShadowBlurRadius:2.0];
+//        sStrokeShadow = [[NSShadow alloc] init];
+//        [sStrokeShadow setShadowColor:[NSColor colorWithCalibratedWhite:0.0 alpha:0.3]];
+//        [sStrokeShadow setShadowOffset:NSMakeSize(0.0, 0.0)];
+//        [sStrokeShadow setShadowBlurRadius:2.0];
+//
+//        sNonMainStrokeShadow = [[NSShadow alloc] init];
+//        [sNonMainStrokeShadow setShadowColor:[NSColor colorWithCalibratedWhite:0.0 alpha:0.15]];
+//        [sNonMainStrokeShadow setShadowOffset:NSMakeSize(0.0, 0.0)];
+//        [sNonMainStrokeShadow setShadowBlurRadius:2.0];
         
         NSMutableParagraphStyle *paraStyle = [[[NSParagraphStyle defaultParagraphStyle] mutableCopy] autorelease];
         [paraStyle setAlignment:NSLeftTextAlignment];
@@ -74,7 +74,7 @@ static NSDictionary *sNonMainTextAttrs = nil;
 }
 
 
-- (id)initWithFrame:(NSRect)frame {
+- (instancetype)initWithFrame:(NSRect)frame {
     self = [super initWithFrame:frame];
     if (self) {
 
@@ -105,7 +105,7 @@ static NSDictionary *sNonMainTextAttrs = nil;
 
     NSGradient *bgGrad = isMain ? sBgGrad : sNonMainBgGrad;
     NSColor *strokeColor = isMain ? sStrokeColor : sNonMainStrokeColor;
-    NSShadow *shadow = isMain ? sStrokeShadow : nil;
+//    NSShadow *shadow = isMain ? sStrokeShadow : nil;
     EDAssert(bgGrad);
     EDAssert(strokeColor);
     //EDAssert(shadow);
@@ -115,7 +115,7 @@ static NSDictionary *sNonMainTextAttrs = nil;
     NSBezierPath *path = TDGetRoundRect(statusRect, STROKE_CORNER_RADIUS, 1.0);
     [path setClip];
     
-    [shadow set];
+//    [shadow set];
     TDDrawRoundRect(statusRect, STROKE_CORNER_RADIUS, 2.0, bgGrad, strokeColor);
 
     CGContextRestoreGState(ctx);
