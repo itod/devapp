@@ -195,8 +195,10 @@
         }
     }
     
+    TDAssert(_sourceViewController);
     NSDictionary *attrs = [_sourceViewController defaultAttributes];
     NSAttributedString *attrStr = [[[NSAttributedString alloc] initWithString:msg attributes:attrs] autorelease];
+    TDAssert(_textView);
     [[_textView textStorage] appendAttributedString:attrStr];
 
     [[_textView undoManager] removeAllActionsWithTarget:_textView]; // clear undo stack after every auto-appended message
