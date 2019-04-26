@@ -26,7 +26,6 @@
 		D3166F2E1E5905A100DEE3A0 /* EDPattern.m in Sources */ = {isa = PBXBuildFile; fileRef = D3166F291E5905A100DEE3A0 /* EDPattern.m */; };
 		D3166F2F1E5905A100DEE3A0 /* EDRegexPattern.m in Sources */ = {isa = PBXBuildFile; fileRef = D3166F2B1E5905A100DEE3A0 /* EDRegexPattern.m */; };
 		D3166F301E5905A100DEE3A0 /* EDWildcardPattern.m in Sources */ = {isa = PBXBuildFile; fileRef = D3166F2D1E5905A100DEE3A0 /* EDWildcardPattern.m */; };
-		D3166F331E59068500DEE3A0 /* Malerei-DefaultValues.plist in Resources */ = {isa = PBXBuildFile; fileRef = D3166F321E59068500DEE3A0 /* Malerei-DefaultValues.plist */; };
 		D3166F361E59073D00DEE3A0 /* EDThemePreferences.xib in Resources */ = {isa = PBXBuildFile; fileRef = D3166F341E59073D00DEE3A0 /* EDThemePreferences.xib */; };
 		D3166F391E59076200DEE3A0 /* EDFontPickerTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = D3166F381E59076200DEE3A0 /* EDFontPickerTextField.m */; };
 		D3166F3C1E59078000DEE3A0 /* EDColorPickerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D3166F3B1E59078000DEE3A0 /* EDColorPickerCell.m */; };
@@ -202,6 +201,8 @@
 		D34A7050227355F70055F933 /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D34A704F227355F70055F933 /* Sparkle.framework */; };
 		D34A7051227356130055F933 /* Sparkle.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = D34A704F227355F70055F933 /* Sparkle.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D34A7052227356540055F933 /* SZMainWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = D31E2C921E7D87910023E924 /* SZMainWindowController.m */; };
+		D34A705322735CF00055F933 /* Konsol-PreferencePanes.plist in Resources */ = {isa = PBXBuildFile; fileRef = D3CF9C27211B7F4800E92136 /* Konsol-PreferencePanes.plist */; };
+		D34A705422735CF00055F933 /* Konsol-DefaultValues.plist in Resources */ = {isa = PBXBuildFile; fileRef = D3166F321E59068500DEE3A0 /* Konsol-DefaultValues.plist */; };
 		D37CFCB51EC8B90600068FEB /* FNBezier.m in Sources */ = {isa = PBXBuildFile; fileRef = D37CFCB41EC8B90600068FEB /* FNBezier.m */; };
 		D38693741F9CF55100928048 /* TDLinkedQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = D38693691F9CF55000928048 /* TDLinkedQueue.m */; };
 		D393578C1F7C4D39008AE4A8 /* TDDispatcherGDC.m in Sources */ = {isa = PBXBuildFile; fileRef = D393578B1F7C4D39008AE4A8 /* TDDispatcherGDC.m */; };
@@ -212,7 +213,6 @@
 		D3A36B4C2270FE7B00F37E4C /* TDPreferenceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D3A36B492270FE7B00F37E4C /* TDPreferenceViewController.m */; };
 		D3A36B4D2270FE7B00F37E4C /* TDPreferenceWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = D3A36B4A2270FE7B00F37E4C /* TDPreferenceWindowController.m */; };
 		D3CF9C19211B7D4A00E92136 /* TKButton.m in Sources */ = {isa = PBXBuildFile; fileRef = D3CF9C17211B7D4900E92136 /* TKButton.m */; };
-		D3CF9C28211B7F4900E92136 /* Malerei-PreferencePanes.plist in Resources */ = {isa = PBXBuildFile; fileRef = D3CF9C27211B7F4800E92136 /* Malerei-PreferencePanes.plist */; };
 		D3CF9C2B211B803900E92136 /* TKTabsListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D3CF9C29211B803800E92136 /* TKTabsListViewController.xib */; };
 		D3CF9C35211B80F100E92136 /* FlatTabStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = D3CF9C2D211B80F100E92136 /* FlatTabStyle.m */; };
 		D3CF9C36211B80F100E92136 /* FlatStyleCloseImageButton.m in Sources */ = {isa = PBXBuildFile; fileRef = D3CF9C30211B80F100E92136 /* FlatStyleCloseImageButton.m */; };
@@ -408,7 +408,7 @@
 		D3166F2B1E5905A100DEE3A0 /* EDRegexPattern.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EDRegexPattern.m; sourceTree = "<group>"; };
 		D3166F2C1E5905A100DEE3A0 /* EDWildcardPattern.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EDWildcardPattern.h; sourceTree = "<group>"; };
 		D3166F2D1E5905A100DEE3A0 /* EDWildcardPattern.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EDWildcardPattern.m; sourceTree = "<group>"; };
-		D3166F321E59068500DEE3A0 /* Malerei-DefaultValues.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Malerei-DefaultValues.plist"; sourceTree = "<group>"; };
+		D3166F321E59068500DEE3A0 /* Konsol-DefaultValues.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Konsol-DefaultValues.plist"; sourceTree = "<group>"; };
 		D3166F351E59073D00DEE3A0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = DevApp/Base.lproj/EDThemePreferences.xib; sourceTree = SOURCE_ROOT; };
 		D3166F371E59076200DEE3A0 /* EDFontPickerTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EDFontPickerTextField.h; sourceTree = "<group>"; };
 		D3166F381E59076200DEE3A0 /* EDFontPickerTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EDFontPickerTextField.m; sourceTree = "<group>"; };
@@ -621,7 +621,7 @@
 		D31E2C891E7D85F50023E924 /* EDToolTip.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EDToolTip.m; sourceTree = "<group>"; };
 		D31E2C911E7D87910023E924 /* SZMainWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SZMainWindowController.h; sourceTree = "<group>"; };
 		D31E2C921E7D87910023E924 /* SZMainWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SZMainWindowController.m; sourceTree = "<group>"; };
-		D33699A71E36B78900FEB7BF /* Malerei.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Malerei.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D33699A71E36B78900FEB7BF /* Konsol.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Konsol.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D33699AE1E36B78900FEB7BF /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		D33699B61E36B78900FEB7BF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D33699BB1E36B78900FEB7BF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -675,7 +675,7 @@
 		D3369B131E36C25A00FEB7BF /* TKTabsListViewControllerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TKTabsListViewControllerView.m; path = lib/TabKit/TKTabsListViewControllerView.m; sourceTree = SOURCE_ROOT; };
 		D3369B141E36C25A00FEB7BF /* TKUserDefaults.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TKUserDefaults.h; path = lib/TabKit/TKUserDefaults.h; sourceTree = SOURCE_ROOT; };
 		D3369B151E36C25A00FEB7BF /* TKUserDefaults.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TKUserDefaults.m; path = lib/TabKit/TKUserDefaults.m; sourceTree = SOURCE_ROOT; };
-		D3369B311E36C61F00FEB7BF /* Malerei-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Malerei-Prefix.pch"; sourceTree = "<group>"; };
+		D3369B311E36C61F00FEB7BF /* Konsol-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Konsol-Prefix.pch"; sourceTree = "<group>"; };
 		D3369B381E36C72E00FEB7BF /* DOMNode+TDAdditions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "DOMNode+TDAdditions.h"; path = "lib/TDAppKit/include/TDAppKit/DOMNode+TDAdditions.h"; sourceTree = SOURCE_ROOT; };
 		D3369B3D1E36C72E00FEB7BF /* NSBezierPath+TDAdditions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "NSBezierPath+TDAdditions.h"; path = "lib/TDAppKit/include/TDAppKit/NSBezierPath+TDAdditions.h"; sourceTree = SOURCE_ROOT; };
 		D3369B3F1E36C72E00FEB7BF /* NSEvent+TDAdditions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "NSEvent+TDAdditions.h"; path = "lib/TDAppKit/include/TDAppKit/NSEvent+TDAdditions.h"; sourceTree = SOURCE_ROOT; };
@@ -796,7 +796,7 @@
 		D3A36B4A2270FE7B00F37E4C /* TDPreferenceWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TDPreferenceWindowController.m; path = lib/TDAppKit/src/TDPreferenceWindowController.m; sourceTree = SOURCE_ROOT; };
 		D3CF9C17211B7D4900E92136 /* TKButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TKButton.m; path = lib/TabKit/TKButton.m; sourceTree = SOURCE_ROOT; };
 		D3CF9C18211B7D4A00E92136 /* TKButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TKButton.h; path = lib/TabKit/TKButton.h; sourceTree = SOURCE_ROOT; };
-		D3CF9C27211B7F4800E92136 /* Malerei-PreferencePanes.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "Malerei-PreferencePanes.plist"; path = "res/Malerei-PreferencePanes.plist"; sourceTree = SOURCE_ROOT; };
+		D3CF9C27211B7F4800E92136 /* Konsol-PreferencePanes.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "Konsol-PreferencePanes.plist"; path = "res/Konsol-PreferencePanes.plist"; sourceTree = SOURCE_ROOT; };
 		D3CF9C2A211B803800E92136 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = lib/TabKit/Base.lproj/TKTabsListViewController.xib; sourceTree = SOURCE_ROOT; };
 		D3CF9C2D211B80F100E92136 /* FlatTabStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlatTabStyle.m; sourceTree = "<group>"; };
 		D3CF9C2E211B80F100E92136 /* FlatStyleExtraButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlatStyleExtraButton.h; sourceTree = "<group>"; };
@@ -1319,7 +1319,7 @@
 		D33699A81E36B78900FEB7BF /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				D33699A71E36B78900FEB7BF /* Malerei.app */,
+				D33699A71E36B78900FEB7BF /* Konsol.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -1366,12 +1366,12 @@
 				D34A704F227355F70055F933 /* Sparkle.framework */,
 				D33699B61E36B78900FEB7BF /* Assets.xcassets */,
 				D31671231E5B5D7D00DEE3A0 /* exedore_dsa_pub.pem */,
-				D3369B311E36C61F00FEB7BF /* Malerei-Prefix.pch */,
+				D3369B311E36C61F00FEB7BF /* Konsol-Prefix.pch */,
 				D33699AE1E36B78900FEB7BF /* main.m */,
 				D31671041E5A599200DEE3A0 /* main.js */,
 				D33699BB1E36B78900FEB7BF /* Info.plist */,
-				D3CF9C27211B7F4800E92136 /* Malerei-PreferencePanes.plist */,
-				D3166F321E59068500DEE3A0 /* Malerei-DefaultValues.plist */,
+				D3CF9C27211B7F4800E92136 /* Konsol-PreferencePanes.plist */,
+				D3166F321E59068500DEE3A0 /* Konsol-DefaultValues.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -1682,9 +1682,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		D33699A61E36B78900FEB7BF /* Malerei */ = {
+		D33699A61E36B78900FEB7BF /* Konsol */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = D33699BE1E36B78900FEB7BF /* Build configuration list for PBXNativeTarget "Malerei" */;
+			buildConfigurationList = D33699BE1E36B78900FEB7BF /* Build configuration list for PBXNativeTarget "Konsol" */;
 			buildPhases = (
 				D33699A31E36B78900FEB7BF /* Sources */,
 				D33699A41E36B78900FEB7BF /* Frameworks */,
@@ -1699,9 +1699,9 @@
 				D33699F81E36B8DD00FEB7BF /* PBXTargetDependency */,
 				D33699FA1E36B8DD00FEB7BF /* PBXTargetDependency */,
 			);
-			name = Malerei;
+			name = Konsol;
 			productName = DevApp;
-			productReference = D33699A71E36B78900FEB7BF /* Malerei.app */;
+			productReference = D33699A71E36B78900FEB7BF /* Konsol.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -1752,7 +1752,7 @@
 			);
 			projectRoot = "";
 			targets = (
-				D33699A61E36B78900FEB7BF /* Malerei */,
+				D33699A61E36B78900FEB7BF /* Konsol */,
 			);
 		};
 /* End PBXProject section */
@@ -1867,12 +1867,13 @@
 				D31670641E59FD6F00DEE3A0 /* EDProjectWindow.xib in Resources */,
 				D31670A61E5A167B00DEE3A0 /* EDFileEncodingDialog.xib in Resources */,
 				D33699B71E36B78900FEB7BF /* Assets.xcassets in Resources */,
+				D34A705322735CF00055F933 /* Konsol-PreferencePanes.plist in Resources */,
+				D34A705422735CF00055F933 /* Konsol-DefaultValues.plist in Resources */,
 				D3A36B432270FE3200F37E4C /* TDPreferenceWindowController.xib in Resources */,
 				D309BCA71E5B657A002B3199 /* EDFindView.xib in Resources */,
 				D31671131E5B590100DEE3A0 /* EDMainMenu.xib in Resources */,
 				D3166F5C1E5908FE00DEE3A0 /* EDGuidesPreferences.xib in Resources */,
 				D3166F361E59073D00DEE3A0 /* EDThemePreferences.xib in Resources */,
-				D3166F331E59068500DEE3A0 /* Malerei-DefaultValues.plist in Resources */,
 				D31671051E5A599200DEE3A0 /* main.js in Resources */,
 				D3166EB51E57C54400DEE3A0 /* EDUpdatePreferences.xib in Resources */,
 				D3166F521E5908CA00DEE3A0 /* EDTextEditingPreferences.xib in Resources */,
@@ -1880,7 +1881,6 @@
 				D3166F701E590D7D00DEE3A0 /* EDGeneralPreferences.xib in Resources */,
 				D31E2C591E7CC4AA0023E924 /* EDCanvasView.xib in Resources */,
 				D31670551E59FC0400DEE3A0 /* EDBreakpointListView.xib in Resources */,
-				D3CF9C28211B7F4900E92136 /* Malerei-PreferencePanes.plist in Resources */,
 				D316709C1E5A156900DEE3A0 /* EDWindow.xib in Resources */,
 				D3CF9C2B211B803900E92136 /* TKTabsListViewController.xib in Resources */,
 				D3166FB71E5927C300DEE3A0 /* EDWelcomeWindow.xib in Resources */,
@@ -2408,7 +2408,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/lib/Sparkle",
 				);
-				GCC_PREFIX_HEADER = "DevApp/Malerei-Prefix.pch";
+				GCC_PREFIX_HEADER = "DevApp/Konsol-Prefix.pch";
 				HEADER_SEARCH_PATHS = (
 					lib,
 					lib/TDAppKit/include,
@@ -2421,7 +2421,7 @@
 				);
 				INFOPLIST_FILE = DevApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.celestialteapot.Malerei;
+				PRODUCT_BUNDLE_IDENTIFIER = com.celestialteapot.Konsol;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -2437,7 +2437,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/lib/Sparkle",
 				);
-				GCC_PREFIX_HEADER = "DevApp/Malerei-Prefix.pch";
+				GCC_PREFIX_HEADER = "DevApp/Konsol-Prefix.pch";
 				HEADER_SEARCH_PATHS = (
 					lib,
 					lib/TDAppKit/include,
@@ -2450,7 +2450,7 @@
 				);
 				INFOPLIST_FILE = DevApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.celestialteapot.Malerei;
+				PRODUCT_BUNDLE_IDENTIFIER = com.celestialteapot.Konsol;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -2467,7 +2467,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		D33699BE1E36B78900FEB7BF /* Build configuration list for PBXNativeTarget "Malerei" */ = {
+		D33699BE1E36B78900FEB7BF /* Build configuration list for PBXNativeTarget "Konsol" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				D33699BF1E36B78900FEB7BF /* Debug */,

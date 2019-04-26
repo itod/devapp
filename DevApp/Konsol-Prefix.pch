@@ -54,37 +54,37 @@
 
 #define REFRESH_AFTER_SCROLL 0
 
-#define APP_NAME @"Malerei"
-#define MY_BUNDLE_ID @"com.celestialteapot.Malerei"
+#define APP_NAME @"Konsol"
+#define MY_BUNDLE_ID @"com.celestialteapot.Konsol"
 
-#define FILE_DOC_EXT @"malerei"
+#define FILE_DOC_EXT @"konsol"
 
-#define FILE_DOC_TYPE @"com.celestialteapot.malereidoc"
+#define FILE_DOC_TYPE @"com.celestialteapot.konsoldoc"
 
 #define MULTI_FILE_ENABLED 0
 
-#define EditorTabPboardType @"com.celestialteapot.malerei.tab"
+#define EditorTabPboardType @"com.celestialteapot.konsol.tab"
 
 #define DOC_ICON_NAME @"DocIcon"
-#define EDProjectSettingsURL @"malerei://Project Settings"
+#define EDProjectSettingsURL @"konsol://Project Settings"
 
 #define MAX_NUM_BREAKPOINTS 10000
 
-#define LICENSE_EXT @"malereilicense"
+#define LICENSE_EXT @"konsollicense"
 
-#define LICENSE_FILENAME @"MalereiLicense"
+#define LICENSE_FILENAME @"KonsolLicense"
 
 #define PURCHASE_URL @"http://celestialteapot.com/exedore"
 #define SUPPORT_URL @"http://groups.google.com/group/exedoreapp"
 
-#define DEFAULT_VALUES_FILENAME @"Malerei-DefaultValues"
-#define PREFERENCES_FILENAME @"Malerei-PreferencePanes"
+#define DEFAULT_VALUES_FILENAME @"Konsol-DefaultValues"
+#define PREFERENCES_FILENAME @"Konsol-PreferencePanes"
 
 #define XFER_RAW_DATA 1
 
 #define SQUARE_PROGRESS_COMBO_FIELD 1
 
-#define PROJ_PLIST_NAME @"malerei_project"
+#define PROJ_PLIST_NAME @"konsol_project"
 #define SRC_DIR_NAME @"source"
 #define MAIN_FILE_BASE @"main"
 #define MAIN_FILE_EXT @"js"

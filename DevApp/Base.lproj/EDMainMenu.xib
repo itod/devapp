@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="14113" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14113"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14490.70"/>
     </dependencies>
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="NSApplication"/>
@@ -14,10 +14,10 @@
         </customObject>
         <menu title="AMainMenu" systemMenu="main" id="29">
             <items>
-                <menuItem title="Malerei" id="56">
-                    <menu key="submenu" title="Malerei" systemMenu="apple" id="57">
+                <menuItem title="Konsol" id="56">
+                    <menu key="submenu" title="Konsol" systemMenu="apple" id="57">
                         <items>
-                            <menuItem title="About Malerei" id="58">
+                            <menuItem title="About Konsol" id="58">
                                 <modifierMask key="keyEquivalentModifierMask"/>
                                 <connections>
                                     <action selector="orderFrontStandardAboutPanel:" target="-2" id="142"/>
@@ -58,7 +58,7 @@
                             <menuItem isSeparatorItem="YES" id="144">
                                 <modifierMask key="keyEquivalentModifierMask" command="YES"/>
                             </menuItem>
-                            <menuItem title="Hide Malerei" keyEquivalent="h" id="134">
+                            <menuItem title="Hide Konsol" keyEquivalent="h" id="134">
                                 <connections>
                                     <action selector="hide:" target="-1" id="367"/>
                                 </connections>
@@ -77,7 +77,7 @@
                             <menuItem isSeparatorItem="YES" id="149">
                                 <modifierMask key="keyEquivalentModifierMask" command="YES"/>
                             </menuItem>
-                            <menuItem title="Quit Malerei" keyEquivalent="q" id="136">
+                            <menuItem title="Quit Konsol" keyEquivalent="q" id="136">
                                 <connections>
                                     <action selector="terminate:" target="-3" id="448"/>
                                 </connections>
@@ -990,7 +990,7 @@
                             <menuItem isSeparatorItem="YES" hidden="YES" id="ueW-K3-56E">
                                 <modifierMask key="keyEquivalentModifierMask" command="YES"/>
                             </menuItem>
-                            <menuItem title="Welcome to Malerei" keyEquivalent="1" id="5">
+                            <menuItem title="Welcome to Konsol" keyEquivalent="1" id="5">
                                 <modifierMask key="keyEquivalentModifierMask" shift="YES" command="YES"/>
                                 <connections>
                                     <action selector="showWelcomeWindow:" target="vbL-oh-XuP" id="TrO-gK-gH8"/>
@@ -1023,7 +1023,7 @@
                     <modifierMask key="keyEquivalentModifierMask"/>
                     <menu key="submenu" title="Help" systemMenu="help" id="492">
                         <items>
-                            <menuItem title="Malerei Help" keyEquivalent="?" id="493">
+                            <menuItem title="Konsol Help" keyEquivalent="?" id="493">
                                 <connections>
                                     <action selector="showHelp:" target="-1" id="494"/>
                                 </connections>

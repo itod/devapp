@@ -9,12 +9,12 @@
 		<dict>
 			<key>CFBundleTypeExtensions</key>
 			<array>
-				<string>malerei</string>
+				<string>konsol</string>
 			</array>
 			<key>CFBundleTypeIconFile</key>
 			<string>DocIcon</string>
 			<key>CFBundleTypeName</key>
-			<string>Malerei Document</string>
+			<string>Konsol Document</string>
 			<key>CFBundleTypeOSTypes</key>
 			<array>
 				<string>????</string>
@@ -23,7 +23,7 @@
 			<string>Editor</string>
 			<key>LSItemContentTypes</key>
 			<array>
-				<string>com.celestialteapot.malereidoc</string>
+				<string>com.celestialteapot.konsoldoc</string>
 			</array>
 			<key>LSTypeIsPackage</key>
 			<integer>1</integer>
@@ -33,13 +33,13 @@
 		<dict>
 			<key>CFBundleTypeExtensions</key>
 			<array>
-				<string>malereilicense</string>
+				<string>konsollicense</string>
 				<string>xml</string>
 			</array>
 			<key>CFBundleTypeIconFile</key>
 			<string>DocIcon</string>
 			<key>CFBundleTypeName</key>
-			<string>Malerei License</string>
+			<string>Konsol License</string>
 			<key>CFBundleTypeRole</key>
 			<string>Editor</string>
 			<key>LSTypeIsPackage</key>
@@ -86,16 +86,16 @@
 				<string>com.apple.package</string>
 			</array>
 			<key>UTTypeDescription</key>
-			<string>Malerei Document</string>
+			<string>Konsol Document</string>
 			<key>UTTypeIconFile</key>
 			<string>DocIcon</string>
 			<key>UTTypeIdentifier</key>
-			<string>com.celestialteapot.malereidoc</string>
+			<string>com.celestialteapot.konsoldoc</string>
 			<key>UTTypeTagSpecification</key>
 			<dict>
 				<key>public.filename-extension</key>
 				<array>
-					<string>malerei</string>
+					<string>konsol</string>
 				</array>
 			</dict>
 		</dict>
