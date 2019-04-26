@@ -16,8 +16,6 @@
 		D3166EB51E57C54400DEE3A0 /* EDUpdatePreferences.xib in Resources */ = {isa = PBXBuildFile; fileRef = D3166EAB1E57C54400DEE3A0 /* EDUpdatePreferences.xib */; };
 		D3166ED31E57C6FF00DEE3A0 /* Language.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3166ECE1E57C6E900DEE3A0 /* Language.framework */; };
 		D3166ED41E57C70B00DEE3A0 /* Language.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = D3166ECE1E57C6E900DEE3A0 /* Language.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		D3166ED61E57C96D00DEE3A0 /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3166ED51E57C96D00DEE3A0 /* Sparkle.framework */; };
-		D3166ED71E57C97B00DEE3A0 /* Sparkle.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = D3166ED51E57C96D00DEE3A0 /* Sparkle.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D3166EED1E5902A800DEE3A0 /* EDTheme.m in Sources */ = {isa = PBXBuildFile; fileRef = D3166EE41E5902A800DEE3A0 /* EDTheme.m */; };
 		D3166EEE1E5902A800DEE3A0 /* EDThemeManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D3166EE61E5902A800DEE3A0 /* EDThemeManager.m */; };
 		D3166EEF1E5902A800DEE3A0 /* EDThemePreferences.m in Sources */ = {isa = PBXBuildFile; fileRef = D3166EE81E5902A800DEE3A0 /* EDThemePreferences.m */; };
@@ -125,7 +123,6 @@
 		D31E2C8E1E7D85F50023E924 /* EDGuide.m in Sources */ = {isa = PBXBuildFile; fileRef = D31E2C851E7D85F50023E924 /* EDGuide.m */; };
 		D31E2C8F1E7D85F50023E924 /* EDMetrics.m in Sources */ = {isa = PBXBuildFile; fileRef = D31E2C871E7D85F50023E924 /* EDMetrics.m */; };
 		D31E2C901E7D85F50023E924 /* EDToolTip.m in Sources */ = {isa = PBXBuildFile; fileRef = D31E2C891E7D85F50023E924 /* EDToolTip.m */; };
-		D31E2C931E7D87910023E924 /* SZMainWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = D31E2C921E7D87910023E924 /* SZMainWindowController.m */; };
 		D33699AF1E36B78900FEB7BF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D33699AE1E36B78900FEB7BF /* main.m */; };
 		D33699B71E36B78900FEB7BF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D33699B61E36B78900FEB7BF /* Assets.xcassets */; };
 		D33699FE1E36B8ED00FEB7BF /* PEGKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D33699D41E36B8AE00FEB7BF /* PEGKit.framework */; };
@@ -202,6 +199,9 @@
 		D34A56641E7F3FE80064DF65 /* FNLine.m in Sources */ = {isa = PBXBuildFile; fileRef = D34A56631E7F3FE80064DF65 /* FNLine.m */; };
 		D34A566A1E7F7D0C0064DF65 /* FNStrokeCap.m in Sources */ = {isa = PBXBuildFile; fileRef = D34A56691E7F7D0C0064DF65 /* FNStrokeCap.m */; };
 		D34A566D1E7F7DC00064DF65 /* FNStrokeJoin.m in Sources */ = {isa = PBXBuildFile; fileRef = D34A566C1E7F7DC00064DF65 /* FNStrokeJoin.m */; };
+		D34A7050227355F70055F933 /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D34A704F227355F70055F933 /* Sparkle.framework */; };
+		D34A7051227356130055F933 /* Sparkle.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = D34A704F227355F70055F933 /* Sparkle.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		D34A7052227356540055F933 /* SZMainWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = D31E2C921E7D87910023E924 /* SZMainWindowController.m */; };
 		D37CFCB51EC8B90600068FEB /* FNBezier.m in Sources */ = {isa = PBXBuildFile; fileRef = D37CFCB41EC8B90600068FEB /* FNBezier.m */; };
 		D38693741F9CF55100928048 /* TDLinkedQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = D38693691F9CF55000928048 /* TDLinkedQueue.m */; };
 		D393578C1F7C4D39008AE4A8 /* TDDispatcherGDC.m in Sources */ = {isa = PBXBuildFile; fileRef = D393578B1F7C4D39008AE4A8 /* TDDispatcherGDC.m */; };
@@ -365,8 +365,8 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				D34A7051227356130055F933 /* Sparkle.framework in Copy Frameworks */,
 				D3DA17D31E77703E00492A04 /* OkudaKit.framework in Copy Frameworks */,
-				D3166ED71E57C97B00DEE3A0 /* Sparkle.framework in Copy Frameworks */,
 				D3166ED41E57C70B00DEE3A0 /* Language.framework in Copy Frameworks */,
 				D3369A011E36B92300FEB7BF /* TDTemplateEngine.framework in Copy Frameworks */,
 				D3369A021E36B92A00FEB7BF /* PEGKit.framework in Copy Frameworks */,
@@ -388,7 +388,6 @@
 		D309BCD01E5BB873002B3199 /* TDSemaphore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TDSemaphore.m; path = lib/TDThreadUtils/src/TDSemaphore.m; sourceTree = SOURCE_ROOT; };
 		D3166EAC1E57C54400DEE3A0 /* base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = base; path = base.lproj/EDUpdatePreferences.xib; sourceTree = "<group>"; };
 		D3166EC81E57C6E900DEE3A0 /* Language.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Language.xcodeproj; path = lib/Language/Language.xcodeproj; sourceTree = "<group>"; };
-		D3166ED51E57C96D00DEE3A0 /* Sparkle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Sparkle.framework; path = lib/Sparkle/Sparkle.framework; sourceTree = SOURCE_ROOT; };
 		D3166EE31E5902A800DEE3A0 /* EDTheme.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EDTheme.h; sourceTree = "<group>"; };
 		D3166EE41E5902A800DEE3A0 /* EDTheme.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EDTheme.m; sourceTree = "<group>"; };
 		D3166EE51E5902A800DEE3A0 /* EDThemeManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EDThemeManager.h; sourceTree = "<group>"; };
@@ -777,6 +776,7 @@
 		D34A56691E7F7D0C0064DF65 /* FNStrokeCap.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FNStrokeCap.m; path = lang/FNStrokeCap.m; sourceTree = "<group>"; };
 		D34A566B1E7F7DC00064DF65 /* FNStrokeJoin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FNStrokeJoin.h; path = lang/FNStrokeJoin.h; sourceTree = "<group>"; };
 		D34A566C1E7F7DC00064DF65 /* FNStrokeJoin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FNStrokeJoin.m; path = lang/FNStrokeJoin.m; sourceTree = "<group>"; };
+		D34A704F227355F70055F933 /* Sparkle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Sparkle.framework; path = lib/Sparkle/Sparkle.framework; sourceTree = SOURCE_ROOT; };
 		D37CFCB31EC8B90600068FEB /* FNBezier.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FNBezier.h; path = lang/FNBezier.h; sourceTree = "<group>"; };
 		D37CFCB41EC8B90600068FEB /* FNBezier.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FNBezier.m; path = lang/FNBezier.m; sourceTree = "<group>"; };
 		D38693691F9CF55000928048 /* TDLinkedQueue.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = TDLinkedQueue.m; path = lib/TDThreadUtils/src/TDLinkedQueue.m; sourceTree = SOURCE_ROOT; };
@@ -830,8 +830,8 @@
 			files = (
 				D3DA17D01E77702700492A04 /* OkudaKit.framework in Frameworks */,
 				D3166ED31E57C6FF00DEE3A0 /* Language.framework in Frameworks */,
+				D34A7050227355F70055F933 /* Sparkle.framework in Frameworks */,
 				D33699FF1E36B8ED00FEB7BF /* TDTemplateEngine.framework in Frameworks */,
-				D3166ED61E57C96D00DEE3A0 /* Sparkle.framework in Frameworks */,
 				D33699FE1E36B8ED00FEB7BF /* PEGKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1363,7 +1363,7 @@
 		D33699AD1E36B78900FEB7BF /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				D3166ED51E57C96D00DEE3A0 /* Sparkle.framework */,
+				D34A704F227355F70055F933 /* Sparkle.framework */,
 				D33699B61E36B78900FEB7BF /* Assets.xcassets */,
 				D31671231E5B5D7D00DEE3A0 /* exedore_dsa_pub.pem */,
 				D3369B311E36C61F00FEB7BF /* Malerei-Prefix.pch */,
@@ -1932,6 +1932,7 @@
 				D31E2C8E1E7D85F50023E924 /* EDGuide.m in Sources */,
 				D3166EF01E5902A800DEE3A0 /* EDThemeRulesNameTableCell.m in Sources */,
 				D3369BDB1E36C73800FEB7BF /* TDFlippedView.m in Sources */,
+				D34A7052227356540055F933 /* SZMainWindowController.m in Sources */,
 				D316706D1E59FD9B00DEE3A0 /* EDProjectWindowController.m in Sources */,
 				D3369BC81E36C73800FEB7BF /* NSBezierPath+TDAdditions.m in Sources */,
 				D3166F551E5908D700DEE3A0 /* EDTextEditingPreferences.m in Sources */,
@@ -1976,7 +1977,6 @@
 				D3369BEB1E36C73800FEB7BF /* TDStatusBarButtonCell.m in Sources */,
 				D3166FEE1E592C5000DEE3A0 /* EDScheme.m in Sources */,
 				D3166FBF1E5928DF00DEE3A0 /* EDDocumentController.m in Sources */,
-				D31E2C931E7D87910023E924 /* SZMainWindowController.m in Sources */,
 				D31670891E5A14A400DEE3A0 /* EDToolbarStatusView.m in Sources */,
 				D3369B281E36C25A00FEB7BF /* TKUserDefaults.m in Sources */,
 				D3166F301E5905A100DEE3A0 /* EDWildcardPattern.m in Sources */,

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
     <dependencies>
+        <deployment identifier="macosx"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14490.70"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -8,7 +9,6 @@
         <customObject id="-2" userLabel="File's Owner" customClass="EDMainWindowController">
             <connections>
                 <outlet property="breakpointsEnabledToolbarItem" destination="jVl-iA-Q3X" id="o3z-OG-79a"/>
-                <outlet property="confirmTabCloseSheet" destination="owr-zC-U2f" id="KSy-fl-3YQ"/>
                 <outlet property="midContainerView" destination="JSC-ht-mF2" id="dsb-ut-44L"/>
                 <outlet property="window" destination="5" id="18"/>
                 <outlet property="windowContainerView" destination="eNf-sT-fOm" id="KTY-VD-JWB"/>

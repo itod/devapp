@@ -1,1 +1,1 @@
-Version: Sparkle-1.13.1
+Version: Sparkle-1.21.3
