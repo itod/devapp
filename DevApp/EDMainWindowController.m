@@ -1095,6 +1095,8 @@
     if (okvc) [okvc highlightLineNumber:0 scrollToVisible:NO];
     [_stackTraceViewController clearDebugInfo];
     [self clearLocalVarsDebugInfo];
+    
+    [_consoleViewController removePrompt];
 }
 
 
@@ -2353,7 +2355,6 @@
     [self clearDebugInfo];
     
     self.statusText = NSLocalizedString(@"Stopped.", @"");
-    [_consoleViewController removePrompt];
 
     self.canStop = NO;
     self.busy = NO;

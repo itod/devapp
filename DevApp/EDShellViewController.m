@@ -376,7 +376,7 @@
 - (BOOL)isMoveLeftSelector:(SEL)sel {
     return
 
-    @selector(deleteBackward:) == sel ||
+    //@selector(deleteBackward:) == sel ||
     
     @selector(moveLeft:) == sel ||
     @selector(moveLeftAndModifySelection:) == sel ||
