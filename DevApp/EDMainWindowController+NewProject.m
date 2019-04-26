@@ -58,14 +58,6 @@
         self.projectWindowController = nil;
         if (alsoClose) {
             [self close];
-        } else {
-            TDPerformOnMainThreadAfterDelay(0.0, ^{
-                EDAssert([self document]);
-                EDAssert([[self document] fileURL]);
-                EDAssert([[self window] isVisible]);
-                [[self window] makeKeyAndOrderFront:nil];
-                [[self window] makeFirstResponder:self.selectedSourceViewController.textView];
-            });
         }
     });
 }
@@ -219,7 +211,13 @@
                 NSLog(@"%@", err);
             }
             
+            self.selectedTabIndex = 0;
             [self navigateToSourceDir];
+
+            EDAssert([self document]);
+            EDAssert([[self document] fileURL]);
+            EDAssert([[self window] isVisible]);
+            [[self window] makeKeyAndOrderFront:nil];
         }];
     });
     

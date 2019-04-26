@@ -53,11 +53,11 @@
 - (void)dealloc {
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 
-    self.breakpoints = nil;
-    self.targets = nil;
-    self.selectedTargetName = nil;
+    [_breakpoints release]; _breakpoints = nil;
+    [_targets release]; _targets = nil;
+    [_selectedTargetName release]; _selectedTargetName = nil;
     
-    self.tempTabModels = nil;
+    [_tempTabModels release]; _tempTabModels = nil;
     [super dealloc];
 }
 

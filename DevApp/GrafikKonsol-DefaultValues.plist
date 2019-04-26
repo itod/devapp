@@ -7,7 +7,7 @@
 	<key>EDShowWelcomeWindowOnLaunch</key>
 	<true/>
 	<key>EDDocumentationHomeURLString</key>
-	<string>http://docs.python.org/2/</string>
+	<string>https://github.com/itod/GraphikKonsolDocumentation</string>
 	<key>EDRulersVisible</key>
 	<true/>
 	<key>EDGridVisible</key>

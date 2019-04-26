@@ -9,12 +9,12 @@
 		<dict>
 			<key>CFBundleTypeExtensions</key>
 			<array>
-				<string>konsol</string>
+				<string>grafikkonsol</string>
 			</array>
 			<key>CFBundleTypeIconFile</key>
 			<string>DocIcon</string>
 			<key>CFBundleTypeName</key>
-			<string>Konsol Document</string>
+			<string>Grafik Konsol Document</string>
 			<key>CFBundleTypeOSTypes</key>
 			<array>
 				<string>????</string>
@@ -23,7 +23,7 @@
 			<string>Editor</string>
 			<key>LSItemContentTypes</key>
 			<array>
-				<string>com.celestialteapot.konsoldoc</string>
+				<string>com.celestialteapot.grafikkonsoldoc</string>
 			</array>
 			<key>LSTypeIsPackage</key>
 			<integer>1</integer>
@@ -33,13 +33,13 @@
 		<dict>
 			<key>CFBundleTypeExtensions</key>
 			<array>
-				<string>konsollicense</string>
+				<string>grafikkonsollicense</string>
 				<string>xml</string>
 			</array>
 			<key>CFBundleTypeIconFile</key>
 			<string>DocIcon</string>
 			<key>CFBundleTypeName</key>
-			<string>Konsol License</string>
+			<string>Grafik Konsol License</string>
 			<key>CFBundleTypeRole</key>
 			<string>Editor</string>
 			<key>LSTypeIsPackage</key>
@@ -75,7 +75,7 @@
 	<key>NSRequiresAquaSystemAppearance</key>
 	<true/>
 	<key>SUFeedURL</key>
-	<string>https://celestialteapot.com/konsol/appcast/exedore.rss</string>
+	<string>https://fluidapp.com/graphikkonsol/appcast/graphikkonsol.rss</string>
 	<key>SUPublicEDKey</key>
 	<string>C0amdRr+QAjVv0VEtXmwRdgqEJ4bH6vR+xXbmFA0/m8=</string>
 	<key>UTExportedTypeDeclarations</key>
@@ -86,16 +86,16 @@
 				<string>com.apple.package</string>
 			</array>
 			<key>UTTypeDescription</key>
-			<string>Konsol Document</string>
+			<string>Grafik Konsol Document</string>
 			<key>UTTypeIconFile</key>
 			<string>DocIcon</string>
 			<key>UTTypeIdentifier</key>
-			<string>com.celestialteapot.konsoldoc</string>
+			<string>com.celestialteapot.grafikkonsoldoc</string>
 			<key>UTTypeTagSpecification</key>
 			<dict>
 				<key>public.filename-extension</key>
 				<array>
-					<string>konsol</string>
+					<string>grafikkonsol</string>
 				</array>
 			</dict>
 		</dict>

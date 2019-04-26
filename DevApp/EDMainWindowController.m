@@ -830,7 +830,7 @@
     EDAssertMainThread();
     EDAssert(okvc);
     
-    [okvc setGrammarName:@"js" attributeProvider:[EDThemeManager instance]];
+    [okvc setGrammarName:MAIN_FILE_EXT attributeProvider:[EDThemeManager instance]];
 }
 
 
@@ -984,7 +984,7 @@
     
     // handle syntax highlighting concerns
     NSString *ext = [newAbsPath pathExtension];
-    BOOL isScript = [ext isEqualToString:@"js"];
+    BOOL isScript = [ext isEqualToString:MAIN_FILE_EXT];
     
     if (!isScript) {
         okvc.useDefaultAttributes = YES;
@@ -1500,7 +1500,7 @@
 
 
 + (NSString *)grammarName {
-    return @"js";
+    return MAIN_FILE_EXT;
 }
 
 
@@ -1759,7 +1759,7 @@
 - (NSAttributedString *)console:(EDConsoleViewController *)cvc highlightedStringForString:(NSString *)str {
     EDAssertMainThread();
     OKViewController *okvc = self.selectedSourceViewController;
-    NSAttributedString *attrStr = [okvc.highlighter highlightedStringForString:str ofGrammar:@"js"];
+    NSAttributedString *attrStr = [okvc.highlighter highlightedStringForString:str ofGrammar:MAIN_FILE_EXT];
     return attrStr;
 }
 
@@ -2647,7 +2647,7 @@
     if (ok) {
         NSString *filename = _fileWindowController.filename;
         EDAssert([filename length]);
-        EDAssert([[filename pathExtension] isEqualToString:@"js"]);
+        EDAssert([[filename pathExtension] isEqualToString:MAIN_FILE_EXT]);
         
         NSFileManager *mgr = [NSFileManager defaultManager];
         
@@ -2792,7 +2792,7 @@
     TKTabModel *tm = self.selectedTabModel;
     NSString *filePath = tm.URLString;
 
-    if ([tm.type isEqualToString:EDTabModelTypeSourceCodeFile] && [[filePath pathExtension] isEqualToString:@"js"]) {
+    if ([tm.type isEqualToString:EDTabModelTypeSourceCodeFile] && [[filePath pathExtension] isEqualToString:MAIN_FILE_EXT]) {
         EDAssert([filePath hasSuffix:[bp.file lastPathComponent]]);
         
         EDDocument *doc = [self document];

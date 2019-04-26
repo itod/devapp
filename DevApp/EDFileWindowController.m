@@ -83,8 +83,8 @@
         return;
     }
     
-    if (![[_filename pathExtension] isEqualToString:@"js"]) {
-        self.filename = [_filename stringByAppendingPathExtension:@"js"];
+    if (![[_filename pathExtension] isEqualToString:MAIN_FILE_EXT]) {
+        self.filename = [_filename stringByAppendingPathExtension:MAIN_FILE_EXT];
     }
     
     [self endSheet:[sender tag]];
