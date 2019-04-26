@@ -112,7 +112,6 @@
 		D31671031E5A251000DEE3A0 /* EDBaseToolbarItem.m in Sources */ = {isa = PBXBuildFile; fileRef = D31671021E5A251000DEE3A0 /* EDBaseToolbarItem.m */; };
 		D31671051E5A599200DEE3A0 /* main.js in Resources */ = {isa = PBXBuildFile; fileRef = D31671041E5A599200DEE3A0 /* main.js */; };
 		D31671131E5B590100DEE3A0 /* EDMainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = D31671111E5B590100DEE3A0 /* EDMainMenu.xib */; };
-		D31671241E5B5D7D00DEE3A0 /* exedore_dsa_pub.pem in Resources */ = {isa = PBXBuildFile; fileRef = D31671231E5B5D7D00DEE3A0 /* exedore_dsa_pub.pem */; };
 		D31E2C591E7CC4AA0023E924 /* EDCanvasView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D31E2C571E7CC4AA0023E924 /* EDCanvasView.xib */; };
 		D31E2C781E7D82720023E924 /* SZDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = D31E2C771E7D82720023E924 /* SZDocument.m */; };
 		D31E2C8A1E7D85F50023E924 /* EDCanvasContainerView.m in Sources */ = {isa = PBXBuildFile; fileRef = D31E2C7D1E7D85F50023E924 /* EDCanvasContainerView.m */; };
@@ -601,7 +600,6 @@
 		D316710E1E5A5FC200DEE3A0 /* TDComboField.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = TDComboField.h; path = lib/TDAppKit/include/TDAppKit/TDComboField.h; sourceTree = SOURCE_ROOT; };
 		D316710F1E5AB89300DEE3A0 /* DOMNode+TDAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "DOMNode+TDAdditions.m"; path = "lib/TDAppKit/src/DOMNode+TDAdditions.m"; sourceTree = SOURCE_ROOT; };
 		D31671121E5B590100DEE3A0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/EDMainMenu.xib; sourceTree = "<group>"; };
-		D31671231E5B5D7D00DEE3A0 /* exedore_dsa_pub.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = exedore_dsa_pub.pem; path = res/exedore_dsa_pub.pem; sourceTree = SOURCE_ROOT; };
 		D31E2C581E7CC4AA0023E924 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/EDCanvasView.xib; sourceTree = "<group>"; };
 		D31E2C761E7D82720023E924 /* SZDocument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SZDocument.h; sourceTree = "<group>"; };
 		D31E2C771E7D82720023E924 /* SZDocument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SZDocument.m; sourceTree = "<group>"; };
@@ -1365,7 +1363,6 @@
 			children = (
 				D34A704F227355F70055F933 /* Sparkle.framework */,
 				D33699B61E36B78900FEB7BF /* Assets.xcassets */,
-				D31671231E5B5D7D00DEE3A0 /* exedore_dsa_pub.pem */,
 				D3369B311E36C61F00FEB7BF /* Konsol-Prefix.pch */,
 				D33699AE1E36B78900FEB7BF /* main.m */,
 				D31671041E5A599200DEE3A0 /* main.js */,
@@ -1885,7 +1882,6 @@
 				D3CF9C2B211B803900E92136 /* TKTabsListViewController.xib in Resources */,
 				D3166FB71E5927C300DEE3A0 /* EDWelcomeWindow.xib in Resources */,
 				D31670071E59F71500DEE3A0 /* EDStackTraceView.xib in Resources */,
-				D31671241E5B5D7D00DEE3A0 /* exedore_dsa_pub.pem in Resources */,
 				D3A36B402270FDDC00F37E4C /* TDRegisterWindow.xib in Resources */,
 				D3166FFE1E592CCC00DEE3A0 /* EDActionArgumentsFacet.xib in Resources */,
 				D316703D1E59FAEC00DEE3A0 /* EDConsoleView.xib in Resources */,
