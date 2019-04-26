@@ -48,7 +48,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="450" height="254"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <outlineView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" selectionHighlightStyle="sourceList" columnReordering="NO" multipleSelection="NO" autosaveName="stackTraceOutlineView" rowHeight="15" headerView="Y9Y-Qj-UMQ" autosaveExpandedItems="YES" outlineTableColumn="iGF-yP-3yY" id="fDW-6s-CwD" customClass="EDNavigatorOutlineView">
+                            <outlineView focusRingType="none" verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" selectionHighlightStyle="sourceList" columnReordering="NO" multipleSelection="NO" autosaveName="stackTraceOutlineView" rowHeight="15" headerView="Y9Y-Qj-UMQ" autosaveExpandedItems="YES" outlineTableColumn="iGF-yP-3yY" id="fDW-6s-CwD" customClass="EDNavigatorOutlineView">
                                 <rect key="frame" x="0.0" y="0.0" width="450" height="237"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <size key="intercellSpacing" width="1" height="4"/>
