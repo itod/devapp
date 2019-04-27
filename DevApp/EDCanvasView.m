@@ -864,7 +864,7 @@ static CGColorSpaceRef sPatternColorSpace = NULL;
     if (([evt type] == NSLeftMouseDown && [evt isControlKeyPressed]) || [evt type] == NSRightMouseDown) {
         [self rulerView:rv handleRightClick:evt];
     } else {
-        [self rulerView:rv handleLeftClick:evt];
+        //[self rulerView:rv handleLeftClick:evt];
     }
 }
 
