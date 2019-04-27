@@ -258,11 +258,6 @@ static CGColorSpaceRef sPatternColorSpace = NULL;
            
         } CGContextRestoreGState(ctx); // after scale
         
-        // draw Grid
-        CGContextSaveGState(ctx); {
-            [self drawGridInContext:ctx dirtyRect:[self convertRectToComposition:dirtyRect]];
-        } CGContextRestoreGState(ctx); // after grid
-        
         // draw user guides
         if ([[EDUserDefaults instance] guidesVisible]) {
             for (EDGuide *g in _document.userGuides) {
@@ -320,82 +315,6 @@ static void EDDrawPatternFunc(void *info, CGContextRef ctx) {
     const CGFloat comps[1] = {0.92};
     CGContextSetFillPattern(ctx, _gridPattern, comps);
     CGContextFillRect(ctx, compBounds);
-}
-
-
-- (void)drawGridInContext:(CGContextRef)ctx dirtyRect:(CGRect)drect {
-    if (!_document.isGridEnabled || ![[EDUserDefaults instance] gridVisible]) return;
-    
-    CGFloat scale = [_document zoomScale];
-    CGFloat fudge = 0.5;//[self fudge];
-    
-    [NSBezierPath setDefaultLineWidth:1.0]; // / scale];
-    
-    CGRect frame = [self scaledCompositionBounds]; //compositionBounds];
-    
-    CGFloat dist = scale * _document.gridTolerance;
-    if (dist < MIN_TOLERANCE || dist > MAX_TOLERANCE) return;
-    
-    CGFloat minX = floor(NSMinX(frame)) + fudge;
-    CGFloat maxX = floor(NSMaxX(frame)) + fudge;
-    CGFloat minY = floor(NSMinY(frame)) + fudge;
-    CGFloat maxY = floor(NSMaxY(frame)) + fudge;
-    
-    NSInteger i = 0;
-    
-    NSInteger high = (NSInteger)ceil(frame.size.width / dist / 8.0);
-
-    for (CGFloat x = NSMinX(frame); x <= NSMaxX(frame); x += dist, i++) {
-        [((i % high == 0) ? sGridHighlightColor : sGridColor) setStroke];
-        
-        CGPoint p1 = CGPointMake(floor(x) + fudge, minY);
-        CGPoint p2 = CGPointMake(floor(x) + fudge, maxY);
-        [NSBezierPath strokeLineFromPoint:p1 toPoint:p2];
-    }
-    
-    i = 0;
-    for (CGFloat y = NSMinY(frame); y <= NSMaxY(frame); y += dist, i++) {
-        [((i % high == 0) ? sGridHighlightColor : sGridColor) setStroke];
-        CGPoint p1 = CGPointMake(minX, floor(y) + fudge);
-        CGPoint p2 = CGPointMake(maxX, floor(y) + fudge);
-        [NSBezierPath strokeLineFromPoint:p1 toPoint:p2];
-    }
-    
-//    for (CGFloat x = NSMidX(frame); x <= NSMaxX(frame); x += dist, i++) {
-//        [((i % high == 0) ? sGridHighlightColor : sGridColor) setStroke];
-//        
-//        CGPoint p1 = CGPointMake(floor(x) + fudge, minY);
-//        CGPoint p2 = CGPointMake(floor(x) + fudge, maxY);
-//        [NSBezierPath strokeLineFromPoint:p1 toPoint:p2];
-//    }
-//    
-//    i = 0;
-//    for (CGFloat x = NSMidX(frame); x >= NSMinX(frame); x -= dist, i++) {
-//        if (i == 0) continue;
-//        [((i % high == 0) ? sGridHighlightColor : sGridColor) setStroke];
-//        
-//        CGPoint p1 = CGPointMake(floor(x) + fudge, minY);
-//        CGPoint p2 = CGPointMake(floor(x) + fudge, maxY);
-//        [NSBezierPath strokeLineFromPoint:p1 toPoint:p2];
-//    }
-//    
-//    i = 0;
-//    for (CGFloat y = NSMidY(frame); y <= NSMaxY(frame); y += dist, i++) {
-//        [((i % high == 0) ? sGridHighlightColor : sGridColor) setStroke];
-//        CGPoint p1 = CGPointMake(minX, floor(y) + fudge);
-//        CGPoint p2 = CGPointMake(maxX, floor(y) + fudge);
-//        [NSBezierPath strokeLineFromPoint:p1 toPoint:p2];
-//    }
-//    
-//    i = 0;
-//    for (CGFloat y = NSMidY(frame); y >= NSMinY(frame); y -= dist, i++) {
-//        if (i == 0) continue;
-//        [((i % high == 0) ? sGridHighlightColor : sGridColor) setStroke];
-//        CGPoint p1 = CGPointMake(minX, floor(y) + fudge);
-//        CGPoint p2 = CGPointMake(maxX, floor(y) + fudge);
-//        [NSBezierPath strokeLineFromPoint:p1 toPoint:p2];
-//    }
-    
 }
 
 
@@ -852,14 +771,14 @@ static void EDDrawPatternFunc(void *info, CGContextRef ctx) {
     CGFloat y = 0.0;
     
     if (viewBounds.size.width > compBounds.size.width) {
-        x = viewBounds.size.width / 2.0 - compBounds.size.width / 2.0;
+        x = viewBounds.size.width * 0.5 - compBounds.size.width * 0.5;
     } else {
-        x = compBounds.size.width / 2.0 - viewBounds.size.width / 2.0;
+        x = compBounds.size.width * 0.5 - viewBounds.size.width * 0.5;
     }
     if (viewBounds.size.height > compBounds.size.height) {
-        y = viewBounds.size.height / 2.0 - compBounds.size.height / 2.0;
+        y = viewBounds.size.height * 0.5 - compBounds.size.height * 0.5;
     } else {
-        y = compBounds.size.height / 2.0 - viewBounds.size.height / 2.0;
+        y = compBounds.size.height * 0.5 - viewBounds.size.height * 0.5;
     }
     
     // NOTE : do not align this rect. That will throw off the alignment in Python space.
