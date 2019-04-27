@@ -462,8 +462,21 @@ static NSDictionary *sHiPreviewAttrs = nil;
             attrStr = [[fileLoc.preview mutableCopy] autorelease];
 
             if ([_replaceText length]) {
-                [attrStr replaceCharactersInRange:fileLoc.previewReplaceRange withString:_replaceText];
-                [attrStr setAttributes:sHiPreviewAttrs range:NSMakeRange(fileLoc.previewReplaceRange.location, [_replaceText length])];
+                NSString *repTxt = _replaceText;
+                BOOL useRegex = [[EDUserDefaults instance] findInProjectUseRegex];
+
+                if (useRegex) {
+                    NSUInteger opts = 0;
+                    opts |= NSRegularExpressionSearch;
+
+                    NSString *searchPat = _searchText;
+                    NSString *subPat = _replaceText;
+                    NSString *srcStr = [[attrStr string] substringWithRange:fileLoc.previewReplaceRange];
+                    repTxt = [srcStr stringByReplacingOccurrencesOfString:searchPat withString:subPat options:opts range:NSMakeRange(0, [srcStr length])];
+                }
+
+                [attrStr replaceCharactersInRange:fileLoc.previewReplaceRange withString:repTxt];
+                [attrStr setAttributes:sHiPreviewAttrs range:NSMakeRange(fileLoc.previewReplaceRange.location, [repTxt length])];
             }
             if (attrStr) {
                 [cell setAttributedStringValue:attrStr];
@@ -899,6 +912,7 @@ done:
 
 - (void)performRegexReplace:(EDFindParameters *)params inFileLocations:(NSArray *)fileLocs inString:(NSMutableString *)str {    
     EDAssert(params.useRegex);
+    TDAssert(0); // TD shouldn't you be looping thru the file locs here???????
 
     NSUInteger opts = 0;
     if (!params.matchCase) opts |= NSCaseInsensitiveSearch;
