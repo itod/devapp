@@ -1274,6 +1274,8 @@
     self.statusText = NSLocalizedString(@"Finished Running.", @"");
 
     [[self window] makeFirstResponder:self.selectedSourceViewController.textView];
+    
+    [self checkWantsReRun];
 }
 
 
@@ -1349,13 +1351,8 @@
     self.statusText = txt;
 
     [[self window] makeFirstResponder:self.selectedSourceViewController.textView];
-    
-    if (self.wantsReRun) {
-        self.wantsReRun = NO;
-        TDPerformOnMainThreadAfterDelay(0.0, ^{
-            [self doRun];
-        });
-    }
+
+    [self checkWantsReRun];
 }
 
 
@@ -2277,6 +2274,16 @@
 }
 
 
+- (void)checkWantsReRun {
+    if (self.wantsReRun) {
+        self.wantsReRun = NO;
+        TDPerformOnMainThreadAfterDelay(0.0, ^{
+            [self doRun];
+        });
+    }
+}
+
+
 - (void)doRun {
     self.canStop = YES;
     self.busy = YES;
@@ -2292,7 +2299,7 @@
     
     [self.selectedSourceViewController refresh:nil];
     
-    TDPerformOnMainThread(^{
+    TDPerformOnMainThreadAfterDelay(0.0, ^{
         EDAssertMainThread();
 
         BOOL bpEnabled = doc.breakpointsEnabled;
