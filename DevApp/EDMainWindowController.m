@@ -2087,9 +2087,22 @@
         } else {
             OKViewController *okvc = tm.representedObject;
             NSString *oldStr = okvc.sourceString;
+            NSString *newStr = source.text;
             NSRange oldRange = NSMakeRange(0, [oldStr length]);
-            NSRange selRange = NSMakeRange(0, 0);
+            NSRange newRange = NSMakeRange(0, [newStr length]);
+            NSRange selRange = NSMakeRange([okvc.textView selectedRange].location, 0); // collapse selection
+            
+            TDAssert(NSNotFound != newRange.location);
+            TDAssert(NSNotFound != newRange.length);
+
+            if (NSNotFound == selRange.location || 0 == newRange.length) {
+                selRange = NSMakeRange(0, 0);
+            } else if (!NSLocationInRange(NSMaxRange(selRange), newRange)) {
+                selRange = NSMakeRange(newRange.length-1, 0);
+            }
+            TDAssert(NSLocationInRange(NSMaxRange(selRange), newRange));
             [okvc.textView ok_replaceCharactersInRange:oldRange withString:source.text andSelectRange:selRange];
+            [okvc refresh:nil];
             //[okvc setSourceString:source.text encoding:source.encoding clearUndo:NO];
         }
     }
