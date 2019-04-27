@@ -200,27 +200,25 @@
     EDAssert(doc);
     EDAssert([[doc fileType] isEqualToString:FILE_DOC_TYPE]);
     
-    TDPerformOnMainThreadAfterDelay(0.0, ^{
-        EDAssert(![doc fileURL]);
-        [doc moveToURL:docFileURL completionHandler:^(NSError *err) {
-            if (err) NSLog(@"%@", err);
-            EDAssert([doc fileURL]);
-                        
-            err = nil;
-            if (![self addTabWithContentsOfURLString:[self mainSourceFilePath] type:EDTabModelTypeSourceCodeFile error:&err]) {
-                NSLog(@"%@", err);
-            }
-            
-            self.selectedTabIndex = 0;
-            [self navigateToSourceDir];
-            [self saveAllDirtyFiles];
+    EDAssert(![doc fileURL]);
+    [doc moveToURL:docFileURL completionHandler:^(NSError *err) {
+        if (err) NSLog(@"%@", err);
+        EDAssert([doc fileURL]);
+        
+        err = nil;
+        if (![self addTabWithContentsOfURLString:[self mainSourceFilePath] type:EDTabModelTypeSourceCodeFile error:&err]) {
+            NSLog(@"%@", err);
+        }
+        
+        self.selectedTabIndex = 0;
+        [self navigateToSourceDir];
+        [self saveSelectedTabModel];
 
-            EDAssert([self document]);
-            EDAssert([[self document] fileURL]);
-            EDAssert([[self window] isVisible]);
-            [[self window] makeKeyAndOrderFront:nil];
-        }];
-    });
+        EDAssert([self document]);
+        EDAssert([[self document] fileURL]);
+        EDAssert([[self window] isVisible]);
+        [[self window] makeKeyAndOrderFront:nil];
+    }];
     
     return YES;
 }

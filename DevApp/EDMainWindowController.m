@@ -43,7 +43,6 @@
 #import <TDAppKit/TDTabBarController.h>
 #import <OkudaKit/OKBreakpoint.h>
 #import "EDBreakpointCollection.h"
-#import "EDMainWindowController+NewProject.h"
 
 #import "NSString+EDAdditions.h"
 #import "NSString+Score.h"
@@ -2603,11 +2602,6 @@
 }
 
 
-- (IBAction)editProject:(id)sender {
-    [self runNewProjectSheet];
-}
-
-
 #pragma mark -
 #pragma mark New File Sheet
 
@@ -3307,6 +3301,8 @@ done:
     if (furl) {
         result = [[furl relativePath] stringByAppendingPathComponent:SRC_DIR_NAME];
         EDAssert([result length]);
+    } else {
+        TDAssert(0);
     }
     
     if (result && ![result hasSuffix:@"/"]) {

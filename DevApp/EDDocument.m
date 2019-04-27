@@ -16,6 +16,7 @@
 #import <OkudaKit/OKViewController.h>
 #import <OkudaKit/OKTextView.h>
 #import "EDBreakpointCollection.h"
+#import "EDMainWindowController+NewProject.h"
 
 @interface NSDocument ()
 - (BOOL)_shouldShowAutosaveButtonForWindow:(NSWindow *)win;
@@ -170,7 +171,7 @@
         self.tempTabModels = nil;
     } else {
         TDPerformOnMainThreadAfterDelay(0.0, ^{
-            [mwc editProject:nil];
+            [mwc runNewProjectSheet];
         });
     }
 }
