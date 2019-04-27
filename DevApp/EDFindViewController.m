@@ -24,7 +24,7 @@ static NSDictionary *sLineNumAttrs = nil;
 static NSDictionary *sHiPreviewAttrs = nil;
 
 @interface EDFindViewController ()
-
+@property (nonatomic, assign) BOOL editingReplaceText;
 @end
 
 @implementation EDFindViewController
@@ -205,7 +205,6 @@ static NSDictionary *sHiPreviewAttrs = nil;
 }
 
 
-
 - (IBAction)next:(id)sender {
     [self performNextPrev:YES];
 }
@@ -270,6 +269,38 @@ static NSDictionary *sHiPreviewAttrs = nil;
     EDAssert(row <= [results count]);
     [_outlineView selectRowIndexes:[NSIndexSet indexSetWithIndex:row] byExtendingSelection:NO];
     [_outlineView scrollRowToVisible:row];
+}
+
+
+#pragma mark -
+#pragma mark NSControlTextEditingDelegate
+
+- (BOOL)control:(NSControl *)c textShouldBeginEditing:(NSText *)fe {
+    return YES;
+}
+
+
+- (void)controlTextDidBeginEditing:(NSNotification *)n {
+    self.editingReplaceText = YES;
+    TDAssert(_outlineView);
+    [_outlineView reloadData];
+}
+
+
+- (void)controlTextDidEndEditing:(NSNotification *)n {
+    self.editingReplaceText = NO;
+    TDAssert(_outlineView);
+    [_outlineView reloadData];
+}
+
+
+- (void)controlTextDidChange:(NSNotification *)n {
+    NSControl *c = [n object];
+    if (c == _replaceComboBox) {
+        TDAssert(!_replaceText || [_replaceText isEqualToString:[c stringValue]])
+        TDAssert(_outlineView);
+        [_outlineView reloadData];
+    }
 }
 
 
@@ -410,18 +441,32 @@ static NSDictionary *sHiPreviewAttrs = nil;
     // highlight attributed preview string to white
     if ([identifier isEqualToString:@"title"]) {
         id attrStr = nil;
-
+        
 //        if ([item isKindOfClass:[NSString class]]) {
 //            NSString *filename = [[item copy] autorelease];
 //            NSString *projPath = [NSString stringWithFormat:@"%@/", [[[[[[[self view] window] windowController] document] fileURL] relativePath] stringByDeletingLastPathComponent]];
 //            filename = [filename stringByReplacingOccurrencesOfString:projPath withString:@""];
 //            attrStr = [[[NSAttributedString alloc] initWithString:filename attributes:sFilePathAttrs] autorelease];
 //        }
+        
+        if (_editingReplaceText && [item isKindOfClass:[EDFileLocation class]]) {
+            EDFileLocation *fileLoc = (EDFileLocation *)item;
+            attrStr = [[fileLoc.preview mutableCopy] autorelease];
+
+            if ([_replaceText length]) {
+                [attrStr replaceCharactersInRange:fileLoc.previewReplaceRange withString:_replaceText];
+                [attrStr setAttributes:sHiPreviewAttrs range:NSMakeRange(fileLoc.previewReplaceRange.location, [_replaceText length])];
+            }
+            if (attrStr) {
+                [cell setAttributedStringValue:attrStr];
+            }
+        }
 
         if ([cell isHighlighted] && [[[self view] window] firstResponder] == _outlineView) {
             if ([item isKindOfClass:[EDFileLocation class]]) {
                 EDFileLocation *fileLoc = (EDFileLocation *)item;
-                attrStr = [[fileLoc.preview mutableCopy] autorelease];
+                if (!attrStr) attrStr = [[fileLoc.preview mutableCopy] autorelease];
+
                 NSRange range = NSMakeRange(0, [attrStr length]);
                 [attrStr addAttribute:NSForegroundColorAttributeName value:[NSColor whiteColor] range:range];
             } else {
@@ -670,10 +715,12 @@ done:
                 }
                 
                 // insert the line num
-                [as insertAttributedString:[[[NSAttributedString alloc] initWithString:[NSString stringWithFormat:lineNumFmtStr, lineNum] attributes:sLineNumAttrs] autorelease] atIndex:0];
+                NSString *lineNumStr = [NSString stringWithFormat:lineNumFmtStr, lineNum];
+                [as insertAttributedString:[[[NSAttributedString alloc] initWithString:lineNumStr attributes:sLineNumAttrs] autorelease] atIndex:0];
                 
                 // set preview
                 fileLoc.preview = as;
+                fileLoc.previewReplaceRange = NSMakeRange([lineNumStr length] + hiRangeInPreview.location, hiRangeInPreview.length);
 
                 // insert into position 0 in the results (this is a backwards search)
                 if (fileLocs) {

@@ -22,6 +22,7 @@
 @property (nonatomic, assign) NSUInteger lineNumber;
 @property (nonatomic, assign) NSRange selectedRange;
 @property (nonatomic, assign) NSRange visibleRange;
+@property (nonatomic, assign) NSRange previewReplaceRange;
 
 @property (nonatomic, assign, readonly) BOOL hasSelectedRange;
 @property (nonatomic, assign, readonly) BOOL hasVisibleRange;
