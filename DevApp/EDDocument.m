@@ -11,6 +11,7 @@
 #import "EDTabModel.h"
 #import "EDTarget.h"
 #import "EDUtils.h"
+#import <TDAppKit/TDUtils.h>
 #import <TabKit/TKTabModel.h>
 #import <OkudaKit/OKViewController.h>
 #import <OkudaKit/OKTextView.h>
@@ -153,10 +154,9 @@
     
     EDAssert(self.mainWindowController);
     EDAssert(wc == self.mainWindowController);
-    
-    if ([_tempTabModels count]) {
-        EDMainWindowController *mwc = self.mainWindowController;
 
+    EDMainWindowController *mwc = self.mainWindowController;
+    if ([_tempTabModels count]) {
         for (TKTabModel *tm in _tempTabModels) {
             NSError *err = nil;
             NSString *URLString = [mwc absolutePathForTabModel:tm];
@@ -168,6 +168,10 @@
         
         mwc.selectedTabIndex = _tempSelectedTabIndex;
         self.tempTabModels = nil;
+    } else {
+        TDPerformOnMainThreadAfterDelay(0.0, ^{
+            [mwc editProject:nil];
+        });
     }
 }
 

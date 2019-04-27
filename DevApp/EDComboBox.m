@@ -10,6 +10,7 @@
 //#import <TDAppKit/TDUtils.h>
 
 NSString * const EDComboBoxDidBecomeFirstResponderNotification = @"EDComboBoxDidBecomeFirstResponderNotification";
+NSString * const EDComboBoxDidResignFirstResponderNotification = @"EDComboBoxDidResignFirstResponderNotification";
 
 @implementation EDComboBox
 
@@ -27,7 +28,10 @@ NSString * const EDComboBoxDidBecomeFirstResponderNotification = @"EDComboBoxDid
 
 - (BOOL)resignFirstResponder {
     BOOL status = [super resignFirstResponder];
-    //if (status) [self.cellView textFieldDidResignFirstResponder:self];
+    if (status) {
+        //[self.cellView textFieldDidResignFirstResponder:self];
+        [[NSNotificationCenter defaultCenter] postNotificationName:EDComboBoxDidResignFirstResponderNotification object:self];
+    }
     return status;
 }
 

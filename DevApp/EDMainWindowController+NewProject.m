@@ -213,6 +213,7 @@
             
             self.selectedTabIndex = 0;
             [self navigateToSourceDir];
+            [self saveAllDirtyFiles];
 
             EDAssert([self document]);
             EDAssert([[self document] fileURL]);

@@ -209,17 +209,6 @@
 
     [[self document] windowControllerDidLoadNib:self];
     [self setUpNavigatorTabBarController];
-
-    [self afterWindowDidLoad];
-}
-
-
-- (void)afterWindowDidLoad {
-    if (![self.tabModels count]) {
-        TDPerformOnMainThreadAfterDelay(0.4, ^{
-            [self editProject:nil];
-        });
-    }
 }
 
 

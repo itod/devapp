@@ -9,6 +9,7 @@
 #import <Cocoa/Cocoa.h>
 
 extern NSString * const EDComboBoxDidBecomeFirstResponderNotification;
+extern NSString * const EDComboBoxDidResignFirstResponderNotification;
 
 @interface EDComboBox : NSComboBox
 

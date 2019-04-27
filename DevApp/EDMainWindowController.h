@@ -67,6 +67,7 @@
 @property (nonatomic, assign) BOOL busy;
 @property (nonatomic, assign) BOOL paused;
 
+- (IBAction)editProject:(id)sender;
 - (IBAction)editProjectSettings:(id)sender;
 
 - (IBAction)newREPLTab:(id)sender;

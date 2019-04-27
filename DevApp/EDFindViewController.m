@@ -120,10 +120,11 @@ static NSDictionary *sHiPreviewAttrs = nil;
     [_closeButton setImage:img];
     [_closeButton setAlternateImage:altImg];
     
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(edComboBoxDidBecomeFirstResponder:)
-                                                 name:EDComboBoxDidBecomeFirstResponderNotification
-                                               object:_replaceComboBox];
+    NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
+    [nc addObserver:self
+           selector:@selector(edComboBoxDidBecomeFirstResponder:)
+               name:EDComboBoxDidBecomeFirstResponderNotification
+             object:_replaceComboBox];
 }
 
 
