@@ -20,7 +20,7 @@
 @implementation EDFileWindowController
 
 - (id)init {
-    self = [self initWithWindowNibName:@"EDFileWindow"];
+    self = [self initWithWindowNibName:@"EDFileWindowController"];
     return self;
 }
 

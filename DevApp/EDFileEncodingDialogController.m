@@ -29,7 +29,7 @@
 @implementation EDFileEncodingDialogController
 
 - (id)init {
-    self = [self initWithWindowNibName:@"EDFileEncodingDialog"];
+    self = [self initWithWindowNibName:@"EDFileEncodingDialogController"];
     return self;
 }
 

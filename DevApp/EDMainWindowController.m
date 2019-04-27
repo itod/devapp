@@ -88,7 +88,7 @@
 
 
 - (id)init {
-    self = [self initWithWindowNibName:@"EDWindow"];
+    self = [self initWithWindowNibName:@"EDMainWindowController"];
     return self;
 }
 

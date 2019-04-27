@@ -16,7 +16,7 @@
 @implementation EDWelcomeWindowController
 
 - (id)init {
-    self = [self initWithWindowNibName:@"EDWelcomeWindow"];
+    self = [self initWithWindowNibName:@"EDWelcomeWindowController"];
     return self;
 }
 

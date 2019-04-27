@@ -39,7 +39,7 @@
 		D3166F701E590D7D00DEE3A0 /* EDGeneralPreferences.xib in Resources */ = {isa = PBXBuildFile; fileRef = D3166F6E1E590D7D00DEE3A0 /* EDGeneralPreferences.xib */; };
 		D3166F731E590D8C00DEE3A0 /* EDGeneralPreferences.m in Sources */ = {isa = PBXBuildFile; fileRef = D3166F721E590D8C00DEE3A0 /* EDGeneralPreferences.m */; };
 		D3166F921E590DF600DEE3A0 /* css in Resources */ = {isa = PBXBuildFile; fileRef = D3166F911E590DF600DEE3A0 /* css */; };
-		D3166FB71E5927C300DEE3A0 /* EDWelcomeWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = D3166FB51E5927C300DEE3A0 /* EDWelcomeWindow.xib */; };
+		D3166FB71E5927C300DEE3A0 /* EDWelcomeWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D3166FB51E5927C300DEE3A0 /* EDWelcomeWindowController.xib */; };
 		D3166FBC1E5927DA00DEE3A0 /* EDWelcomeTableCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = D3166FB91E5927DA00DEE3A0 /* EDWelcomeTableCellView.m */; };
 		D3166FBD1E5927DA00DEE3A0 /* EDWelcomeWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = D3166FBB1E5927DA00DEE3A0 /* EDWelcomeWindowController.m */; };
 		D3166FBF1E5928DF00DEE3A0 /* EDDocumentController.m in Sources */ = {isa = PBXBuildFile; fileRef = D3166FB21E59277400DEE3A0 /* EDDocumentController.m */; };
@@ -84,8 +84,6 @@
 		D31670641E59FD6F00DEE3A0 /* EDProjectWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D31670621E59FD6F00DEE3A0 /* EDProjectWindowController.xib */; };
 		D316706C1E59FD9B00DEE3A0 /* EDNewProjectParams.m in Sources */ = {isa = PBXBuildFile; fileRef = D31670681E59FD9B00DEE3A0 /* EDNewProjectParams.m */; };
 		D316706D1E59FD9B00DEE3A0 /* EDProjectWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = D316706A1E59FD9B00DEE3A0 /* EDProjectWindowController.m */; };
-		D31670701E59FDF000DEE3A0 /* EDFileWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = D316706E1E59FDF000DEE3A0 /* EDFileWindow.xib */; };
-		D31670731E59FE0500DEE3A0 /* EDFileWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = D31670721E59FE0500DEE3A0 /* EDFileWindowController.m */; };
 		D31670831E5A14A400DEE3A0 /* EDToolbarButton.m in Sources */ = {isa = PBXBuildFile; fileRef = D31670761E5A14A400DEE3A0 /* EDToolbarButton.m */; };
 		D31670841E5A14A400DEE3A0 /* EDToolbarButtonCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D31670781E5A14A400DEE3A0 /* EDToolbarButtonCell.m */; };
 		D31670851E5A14A400DEE3A0 /* EDToolbarButtonItem.m in Sources */ = {isa = PBXBuildFile; fileRef = D316707A1E5A14A400DEE3A0 /* EDToolbarButtonItem.m */; };
@@ -98,10 +96,10 @@
 		D31670951E5A152F00DEE3A0 /* EDMidContainerView.m in Sources */ = {isa = PBXBuildFile; fileRef = D31670921E5A152F00DEE3A0 /* EDMidContainerView.m */; };
 		D31670961E5A152F00DEE3A0 /* EDMidControlBar.m in Sources */ = {isa = PBXBuildFile; fileRef = D31670941E5A152F00DEE3A0 /* EDMidControlBar.m */; };
 		D31670991E5A154F00DEE3A0 /* EDWindowContainerView.m in Sources */ = {isa = PBXBuildFile; fileRef = D31670981E5A154F00DEE3A0 /* EDWindowContainerView.m */; };
-		D316709C1E5A156900DEE3A0 /* EDWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = D316709A1E5A156900DEE3A0 /* EDWindow.xib */; };
+		D316709C1E5A156900DEE3A0 /* EDMainWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D316709A1E5A156900DEE3A0 /* EDMainWindowController.xib */; };
 		D316709F1E5A157B00DEE3A0 /* EDMainWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = D316709E1E5A157B00DEE3A0 /* EDMainWindow.m */; };
 		D31670A21E5A15F100DEE3A0 /* EDTabModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D31670A11E5A15F100DEE3A0 /* EDTabModel.m */; };
-		D31670A61E5A167B00DEE3A0 /* EDFileEncodingDialog.xib in Resources */ = {isa = PBXBuildFile; fileRef = D31670A41E5A167B00DEE3A0 /* EDFileEncodingDialog.xib */; };
+		D31670A61E5A167B00DEE3A0 /* EDFileEncodingDialogController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D31670A41E5A167B00DEE3A0 /* EDFileEncodingDialogController.xib */; };
 		D31670AB1E5A169200DEE3A0 /* EDFileEncodingDetector.m in Sources */ = {isa = PBXBuildFile; fileRef = D31670A81E5A169200DEE3A0 /* EDFileEncodingDetector.m */; };
 		D31670AC1E5A169200DEE3A0 /* EDFileEncodingDialogController.m in Sources */ = {isa = PBXBuildFile; fileRef = D31670AA1E5A169200DEE3A0 /* EDFileEncodingDialogController.m */; };
 		D31670B11E5A171500DEE3A0 /* NSString+EDAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = D31670AE1E5A171500DEE3A0 /* NSString+EDAdditions.m */; };
@@ -112,7 +110,7 @@
 		D31671031E5A251000DEE3A0 /* EDBaseToolbarItem.m in Sources */ = {isa = PBXBuildFile; fileRef = D31671021E5A251000DEE3A0 /* EDBaseToolbarItem.m */; };
 		D31671051E5A599200DEE3A0 /* main.js in Resources */ = {isa = PBXBuildFile; fileRef = D31671041E5A599200DEE3A0 /* main.js */; };
 		D31671131E5B590100DEE3A0 /* EDMainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = D31671111E5B590100DEE3A0 /* EDMainMenu.xib */; };
-		D31E2C591E7CC4AA0023E924 /* EDCanvasView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D31E2C571E7CC4AA0023E924 /* EDCanvasView.xib */; };
+		D31E2C591E7CC4AA0023E924 /* EDCanvasViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D31E2C571E7CC4AA0023E924 /* EDCanvasViewController.xib */; };
 		D31E2C781E7D82720023E924 /* SZDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = D31E2C771E7D82720023E924 /* SZDocument.m */; };
 		D31E2C8A1E7D85F50023E924 /* EDCanvasContainerView.m in Sources */ = {isa = PBXBuildFile; fileRef = D31E2C7D1E7D85F50023E924 /* EDCanvasContainerView.m */; };
 		D31E2C8B1E7D85F50023E924 /* EDCanvasPrintView.m in Sources */ = {isa = PBXBuildFile; fileRef = D31E2C7F1E7D85F50023E924 /* EDCanvasPrintView.m */; };
@@ -202,6 +200,8 @@
 		D34A7052227356540055F933 /* SZMainWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = D31E2C921E7D87910023E924 /* SZMainWindowController.m */; };
 		D34A705322735CF00055F933 /* GrafikKonsol-PreferencePanes.plist in Resources */ = {isa = PBXBuildFile; fileRef = D3CF9C27211B7F4800E92136 /* GrafikKonsol-PreferencePanes.plist */; };
 		D34A705422735CF00055F933 /* GrafikKonsol-DefaultValues.plist in Resources */ = {isa = PBXBuildFile; fileRef = D3166F321E59068500DEE3A0 /* GrafikKonsol-DefaultValues.plist */; };
+		D34FF7162273E9FC009889A2 /* EDFileWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = D31670721E59FE0500DEE3A0 /* EDFileWindowController.m */; };
+		D34FF7172273E9FE009889A2 /* EDFileWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D316706E1E59FDF000DEE3A0 /* EDFileWindowController.xib */; };
 		D37CFCB51EC8B90600068FEB /* FNBezier.m in Sources */ = {isa = PBXBuildFile; fileRef = D37CFCB41EC8B90600068FEB /* FNBezier.m */; };
 		D38693741F9CF55100928048 /* TDLinkedQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = D38693691F9CF55000928048 /* TDLinkedQueue.m */; };
 		D393578C1F7C4D39008AE4A8 /* TDDispatcherGDC.m in Sources */ = {isa = PBXBuildFile; fileRef = D393578B1F7C4D39008AE4A8 /* TDDispatcherGDC.m */; };
@@ -435,7 +435,7 @@
 		D3166F911E590DF600DEE3A0 /* css */ = {isa = PBXFileReference; lastKnownFileType = folder; path = css; sourceTree = "<group>"; };
 		D3166FB11E59277400DEE3A0 /* EDDocumentController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EDDocumentController.h; sourceTree = "<group>"; };
 		D3166FB21E59277400DEE3A0 /* EDDocumentController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EDDocumentController.m; sourceTree = "<group>"; };
-		D3166FB61E5927C300DEE3A0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/EDWelcomeWindow.xib; sourceTree = "<group>"; };
+		D3166FB61E5927C300DEE3A0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/EDWelcomeWindowController.xib; sourceTree = "<group>"; };
 		D3166FB81E5927DA00DEE3A0 /* EDWelcomeTableCellView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EDWelcomeTableCellView.h; sourceTree = "<group>"; };
 		D3166FB91E5927DA00DEE3A0 /* EDWelcomeTableCellView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EDWelcomeTableCellView.m; sourceTree = "<group>"; };
 		D3166FBA1E5927DA00DEE3A0 /* EDWelcomeWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EDWelcomeWindowController.h; sourceTree = "<group>"; };
@@ -521,7 +521,7 @@
 		D31670681E59FD9B00DEE3A0 /* EDNewProjectParams.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EDNewProjectParams.m; sourceTree = "<group>"; };
 		D31670691E59FD9B00DEE3A0 /* EDProjectWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EDProjectWindowController.h; sourceTree = "<group>"; };
 		D316706A1E59FD9B00DEE3A0 /* EDProjectWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EDProjectWindowController.m; sourceTree = "<group>"; };
-		D316706F1E59FDF000DEE3A0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/EDFileWindow.xib; sourceTree = "<group>"; };
+		D316706F1E59FDF000DEE3A0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/EDFileWindowController.xib; sourceTree = "<group>"; };
 		D31670711E59FE0500DEE3A0 /* EDFileWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EDFileWindowController.h; sourceTree = "<group>"; };
 		D31670721E59FE0500DEE3A0 /* EDFileWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EDFileWindowController.m; sourceTree = "<group>"; };
 		D31670751E5A14A400DEE3A0 /* EDToolbarButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EDToolbarButton.h; sourceTree = "<group>"; };
@@ -548,12 +548,12 @@
 		D31670941E5A152F00DEE3A0 /* EDMidControlBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EDMidControlBar.m; sourceTree = "<group>"; };
 		D31670971E5A154F00DEE3A0 /* EDWindowContainerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EDWindowContainerView.h; sourceTree = "<group>"; };
 		D31670981E5A154F00DEE3A0 /* EDWindowContainerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EDWindowContainerView.m; sourceTree = "<group>"; };
-		D316709B1E5A156900DEE3A0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/EDWindow.xib; sourceTree = "<group>"; };
+		D316709B1E5A156900DEE3A0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/EDMainWindowController.xib; sourceTree = "<group>"; };
 		D316709D1E5A157B00DEE3A0 /* EDMainWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EDMainWindow.h; sourceTree = "<group>"; };
 		D316709E1E5A157B00DEE3A0 /* EDMainWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EDMainWindow.m; sourceTree = "<group>"; };
 		D31670A01E5A15F100DEE3A0 /* EDTabModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EDTabModel.h; sourceTree = "<group>"; };
 		D31670A11E5A15F100DEE3A0 /* EDTabModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EDTabModel.m; sourceTree = "<group>"; };
-		D31670A51E5A167B00DEE3A0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/EDFileEncodingDialog.xib; sourceTree = "<group>"; };
+		D31670A51E5A167B00DEE3A0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/EDFileEncodingDialogController.xib; sourceTree = "<group>"; };
 		D31670A71E5A169200DEE3A0 /* EDFileEncodingDetector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EDFileEncodingDetector.h; sourceTree = "<group>"; };
 		D31670A81E5A169200DEE3A0 /* EDFileEncodingDetector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EDFileEncodingDetector.m; sourceTree = "<group>"; };
 		D31670A91E5A169200DEE3A0 /* EDFileEncodingDialogController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EDFileEncodingDialogController.h; sourceTree = "<group>"; };
@@ -600,7 +600,7 @@
 		D316710E1E5A5FC200DEE3A0 /* TDComboField.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = TDComboField.h; path = lib/TDAppKit/include/TDAppKit/TDComboField.h; sourceTree = SOURCE_ROOT; };
 		D316710F1E5AB89300DEE3A0 /* DOMNode+TDAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "DOMNode+TDAdditions.m"; path = "lib/TDAppKit/src/DOMNode+TDAdditions.m"; sourceTree = SOURCE_ROOT; };
 		D31671121E5B590100DEE3A0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/EDMainMenu.xib; sourceTree = "<group>"; };
-		D31E2C581E7CC4AA0023E924 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/EDCanvasView.xib; sourceTree = "<group>"; };
+		D31E2C581E7CC4AA0023E924 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/EDCanvasViewController.xib; sourceTree = "<group>"; };
 		D31E2C761E7D82720023E924 /* SZDocument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SZDocument.h; sourceTree = "<group>"; };
 		D31E2C771E7D82720023E924 /* SZDocument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SZDocument.m; sourceTree = "<group>"; };
 		D31E2C7C1E7D85F50023E924 /* EDCanvasContainerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EDCanvasContainerView.h; sourceTree = "<group>"; };
@@ -853,6 +853,7 @@
 				D3166FD71E592A5200DEE3A0 /* EDDocument.m */,
 				D31670B31E5A179900DEE3A0 /* EDMainWindowController.h */,
 				D31670B41E5A179900DEE3A0 /* EDMainWindowController.m */,
+				D316709A1E5A156900DEE3A0 /* EDMainWindowController.xib */,
 			);
 			name = App;
 			sourceTree = "<group>";
@@ -981,7 +982,7 @@
 			children = (
 				D3166FBA1E5927DA00DEE3A0 /* EDWelcomeWindowController.h */,
 				D3166FBB1E5927DA00DEE3A0 /* EDWelcomeWindowController.m */,
-				D3166FB51E5927C300DEE3A0 /* EDWelcomeWindow.xib */,
+				D3166FB51E5927C300DEE3A0 /* EDWelcomeWindowController.xib */,
 				D3166FB81E5927DA00DEE3A0 /* EDWelcomeTableCellView.h */,
 				D3166FB91E5927DA00DEE3A0 /* EDWelcomeTableCellView.m */,
 			);
@@ -1132,7 +1133,7 @@
 			children = (
 				D31670711E59FE0500DEE3A0 /* EDFileWindowController.h */,
 				D31670721E59FE0500DEE3A0 /* EDFileWindowController.m */,
-				D316706E1E59FDF000DEE3A0 /* EDFileWindow.xib */,
+				D316706E1E59FDF000DEE3A0 /* EDFileWindowController.xib */,
 			);
 			name = "New File";
 			sourceTree = "<group>";
@@ -1181,7 +1182,6 @@
 				D31670A11E5A15F100DEE3A0 /* EDTabModel.m */,
 				D316709D1E5A157B00DEE3A0 /* EDMainWindow.h */,
 				D316709E1E5A157B00DEE3A0 /* EDMainWindow.m */,
-				D316709A1E5A156900DEE3A0 /* EDWindow.xib */,
 				D31670971E5A154F00DEE3A0 /* EDWindowContainerView.h */,
 				D31670981E5A154F00DEE3A0 /* EDWindowContainerView.m */,
 				D3166FE91E592C3700DEE3A0 /* StatusBar.h */,
@@ -1203,7 +1203,7 @@
 			children = (
 				D31670A91E5A169200DEE3A0 /* EDFileEncodingDialogController.h */,
 				D31670AA1E5A169200DEE3A0 /* EDFileEncodingDialogController.m */,
-				D31670A41E5A167B00DEE3A0 /* EDFileEncodingDialog.xib */,
+				D31670A41E5A167B00DEE3A0 /* EDFileEncodingDialogController.xib */,
 				D31670A71E5A169200DEE3A0 /* EDFileEncodingDetector.h */,
 				D31670A81E5A169200DEE3A0 /* EDFileEncodingDetector.m */,
 			);
@@ -1284,7 +1284,7 @@
 				D31E2C921E7D87910023E924 /* SZMainWindowController.m */,
 				D31E2C821E7D85F50023E924 /* EDCanvasViewController.h */,
 				D31E2C831E7D85F50023E924 /* EDCanvasViewController.m */,
-				D31E2C571E7CC4AA0023E924 /* EDCanvasView.xib */,
+				D31E2C571E7CC4AA0023E924 /* EDCanvasViewController.xib */,
 				D31E2C7C1E7D85F50023E924 /* EDCanvasContainerView.h */,
 				D31E2C7D1E7D85F50023E924 /* EDCanvasContainerView.m */,
 				D31E2C801E7D85F50023E924 /* EDCanvasView.h */,
@@ -1860,9 +1860,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D31670701E59FDF000DEE3A0 /* EDFileWindow.xib in Resources */,
 				D31670641E59FD6F00DEE3A0 /* EDProjectWindowController.xib in Resources */,
-				D31670A61E5A167B00DEE3A0 /* EDFileEncodingDialog.xib in Resources */,
+				D31670A61E5A167B00DEE3A0 /* EDFileEncodingDialogController.xib in Resources */,
 				D33699B71E36B78900FEB7BF /* Assets.xcassets in Resources */,
 				D34A705322735CF00055F933 /* GrafikKonsol-PreferencePanes.plist in Resources */,
 				D34A705422735CF00055F933 /* GrafikKonsol-DefaultValues.plist in Resources */,
@@ -1876,11 +1875,12 @@
 				D3166F521E5908CA00DEE3A0 /* EDTextEditingPreferences.xib in Resources */,
 				D3166F921E590DF600DEE3A0 /* css in Resources */,
 				D3166F701E590D7D00DEE3A0 /* EDGeneralPreferences.xib in Resources */,
-				D31E2C591E7CC4AA0023E924 /* EDCanvasView.xib in Resources */,
+				D34FF7172273E9FE009889A2 /* EDFileWindowController.xib in Resources */,
+				D31E2C591E7CC4AA0023E924 /* EDCanvasViewController.xib in Resources */,
 				D31670551E59FC0400DEE3A0 /* EDBreakpointListViewController.xib in Resources */,
-				D316709C1E5A156900DEE3A0 /* EDWindow.xib in Resources */,
+				D316709C1E5A156900DEE3A0 /* EDMainWindowController.xib in Resources */,
 				D3CF9C2B211B803900E92136 /* TKTabsListViewController.xib in Resources */,
-				D3166FB71E5927C300DEE3A0 /* EDWelcomeWindow.xib in Resources */,
+				D3166FB71E5927C300DEE3A0 /* EDWelcomeWindowController.xib in Resources */,
 				D31670071E59F71500DEE3A0 /* EDStackTraceViewController.xib in Resources */,
 				D3A36B402270FDDC00F37E4C /* TDRegisterWindow.xib in Resources */,
 				D3166FFE1E592CCC00DEE3A0 /* EDActionArgumentsFacet.xib in Resources */,
@@ -1927,6 +1927,7 @@
 				D3A36B4C2270FE7B00F37E4C /* TDPreferenceViewController.m in Sources */,
 				D31E2C8E1E7D85F50023E924 /* EDGuide.m in Sources */,
 				D3166EF01E5902A800DEE3A0 /* EDThemeRulesNameTableCell.m in Sources */,
+				D34FF7162273E9FC009889A2 /* EDFileWindowController.m in Sources */,
 				D3369BDB1E36C73800FEB7BF /* TDFlippedView.m in Sources */,
 				D34A7052227356540055F933 /* SZMainWindowController.m in Sources */,
 				D316706D1E59FD9B00DEE3A0 /* EDProjectWindowController.m in Sources */,
@@ -1994,7 +1995,6 @@
 				D33699AF1E36B78900FEB7BF /* main.m in Sources */,
 				D3369B231E36C25A00FEB7BF /* TKTabModel.m in Sources */,
 				D3CF9C38211B80F100E92136 /* FlatStyleCloseButton.m in Sources */,
-				D31670731E59FE0500DEE3A0 /* EDFileWindowController.m in Sources */,
 				D316709F1E5A157B00DEE3A0 /* EDMainWindow.m in Sources */,
 				D309BCCC1E5BB861002B3199 /* TDSynchronousChannel.m in Sources */,
 				D31670361E59F9EB00DEE3A0 /* EDFindParameters.m in Sources */,
@@ -2157,12 +2157,12 @@
 			name = EDGeneralPreferences.xib;
 			sourceTree = "<group>";
 		};
-		D3166FB51E5927C300DEE3A0 /* EDWelcomeWindow.xib */ = {
+		D3166FB51E5927C300DEE3A0 /* EDWelcomeWindowController.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
 				D3166FB61E5927C300DEE3A0 /* Base */,
 			);
-			name = EDWelcomeWindow.xib;
+			name = EDWelcomeWindowController.xib;
 			sourceTree = "<group>";
 		};
 		D3166FFC1E592CCC00DEE3A0 /* EDActionArgumentsFacet.xib */ = {
@@ -2205,28 +2205,28 @@
 			name = EDProjectWindowController.xib;
 			sourceTree = "<group>";
 		};
-		D316706E1E59FDF000DEE3A0 /* EDFileWindow.xib */ = {
+		D316706E1E59FDF000DEE3A0 /* EDFileWindowController.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
 				D316706F1E59FDF000DEE3A0 /* Base */,
 			);
-			name = EDFileWindow.xib;
+			name = EDFileWindowController.xib;
 			sourceTree = "<group>";
 		};
-		D316709A1E5A156900DEE3A0 /* EDWindow.xib */ = {
+		D316709A1E5A156900DEE3A0 /* EDMainWindowController.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
 				D316709B1E5A156900DEE3A0 /* Base */,
 			);
-			name = EDWindow.xib;
+			name = EDMainWindowController.xib;
 			sourceTree = "<group>";
 		};
-		D31670A41E5A167B00DEE3A0 /* EDFileEncodingDialog.xib */ = {
+		D31670A41E5A167B00DEE3A0 /* EDFileEncodingDialogController.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
 				D31670A51E5A167B00DEE3A0 /* Base */,
 			);
-			name = EDFileEncodingDialog.xib;
+			name = EDFileEncodingDialogController.xib;
 			sourceTree = "<group>";
 		};
 		D31670BB1E5A184600DEE3A0 /* EDFilesystemViewController.xib */ = {
@@ -2253,12 +2253,12 @@
 			name = EDMainMenu.xib;
 			sourceTree = "<group>";
 		};
-		D31E2C571E7CC4AA0023E924 /* EDCanvasView.xib */ = {
+		D31E2C571E7CC4AA0023E924 /* EDCanvasViewController.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
 				D31E2C581E7CC4AA0023E924 /* Base */,
 			);
-			name = EDCanvasView.xib;
+			name = EDCanvasViewController.xib;
 			sourceTree = "<group>";
 		};
 		D3A36B3E2270FDDC00F37E4C /* TDRegisterWindow.xib */ = {

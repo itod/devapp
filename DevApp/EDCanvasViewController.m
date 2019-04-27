@@ -25,7 +25,7 @@
 @implementation EDCanvasViewController
 
 - (id)init {
-    self = [self initWithNibName:@"EDCanvasView" bundle:nil];
+    self = [self initWithNibName:@"EDCanvasViewController" bundle:nil];
     return self;
 }
 
