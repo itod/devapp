@@ -7,7 +7,7 @@
 //
 
 #import "EDComboBox.h"
-#import <TDAppKit/TDUtils.h>
+//#import <TDAppKit/TDUtils.h>
 
 NSString * const EDComboBoxDidBecomeFirstResponderNotification = @"EDComboBoxDidBecomeFirstResponderNotification";
 
@@ -17,9 +17,9 @@ NSString * const EDComboBoxDidBecomeFirstResponderNotification = @"EDComboBoxDid
     BOOL status = [super becomeFirstResponder];
     if (status) {
         //[self.cellView textFieldDidBecomeFirstResponder:self];
-        TDPerformOnMainThreadAfterDelay(0.0, ^{
+        //TDPerformOnMainThreadAfterDelay(0.0, ^{
             [[NSNotificationCenter defaultCenter] postNotificationName:EDComboBoxDidBecomeFirstResponderNotification object:self];
-        });
+        //});
     }
     return status;
 }
