@@ -729,7 +729,8 @@
                                 <modifierMask key="keyEquivalentModifierMask"/>
                                 <menu key="submenu" title="Navigators" id="Kpz-MD-CbD">
                                     <items>
-                                        <menuItem title="Show Project Navigator" hidden="YES" keyEquivalent="1" id="Zj5-vc-itr">
+                                        <menuItem title="Show Project Navigator" hidden="YES" id="Zj5-vc-itr">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
                                             <connections>
                                                 <action selector="showFilesystemNavigator:" target="-1" id="a2Y-3Z-OVH"/>
                                             </connections>

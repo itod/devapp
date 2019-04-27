@@ -2569,7 +2569,7 @@
         [[EDDocumentController instance] toggleNavigatorVisible:nil];
     }
     
-    [self.navigatorTabBarController setSelectedIndex:1];
+    [self.navigatorTabBarController setSelectedIndex:0];
 }
 
 
@@ -2578,7 +2578,7 @@
         [[EDDocumentController instance] toggleNavigatorVisible:nil];
     }
     
-    [self.navigatorTabBarController setSelectedIndex:2];
+    [self.navigatorTabBarController setSelectedIndex:1];
 }
 
 
