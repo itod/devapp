@@ -2070,7 +2070,7 @@
         if (!tm) continue;
         
         NSError *err = nil;
-        OKSource *source = [self loadSourceForFileAtPath:absPath error:&err];
+        OKSource *source = [self loadSourceForFileAtPath:absPath forceFromDisk:YES error:&err];
         if (!source) {
             if (err) NSLog(@"%@", err);
         } else {
@@ -3004,6 +3004,11 @@
 
 
 - (OKSource *)loadSourceForFileAtPath:(NSString *)absPath error:(NSError **)outErr {
+    return [self loadSourceForFileAtPath:absPath forceFromDisk:NO error:outErr];
+}
+
+
+- (OKSource *)loadSourceForFileAtPath:(NSString *)absPath forceFromDisk:(BOOL)forceFromDisk error:(NSError **)outErr {
     EDAssertMainThread();
     EDAssert([absPath length]);
     EDAssert([absPath isAbsolutePath]);
@@ -3011,7 +3016,7 @@
     OKSource *source = nil;
     NSString *srcDirPath = [self sourceDirPath];
     
-    if ([absPath hasPrefix:srcDirPath]) {
+    if (!forceFromDisk && [absPath hasPrefix:srcDirPath]) {
         // first, look in dirtySet
         id obj = [self dirtySourceForFilePath:absPath];
 
