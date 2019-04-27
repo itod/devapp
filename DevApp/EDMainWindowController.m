@@ -2086,7 +2086,11 @@
             if (err) NSLog(@"%@", err);
         } else {
             OKViewController *okvc = tm.representedObject;
-            [okvc setSourceString:source.text encoding:source.encoding clearUndo:YES];
+            NSString *oldStr = okvc.sourceString;
+            NSRange oldRange = NSMakeRange(0, [oldStr length]);
+            NSRange selRange = NSMakeRange(0, 0);
+            [okvc.textView ok_replaceCharactersInRange:oldRange withString:source.text andSelectRange:selRange];
+            //[okvc setSourceString:source.text encoding:source.encoding clearUndo:NO];
         }
     }
 }
