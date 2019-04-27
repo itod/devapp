@@ -560,8 +560,6 @@ void TDPerformAfterDelay(dispatch_queue_t q, double delay, void (^block)(void)) 
                     if (didDraw) {
                         if ([[SZApplication instance] loopForIdentifier:self.identifier]) {
                             [self scheduleDraw];
-                        } else {
-                            break; // noLoop()
                         }
                     } else {
                         [[SZApplication instance] setLoop:NO forIdentifier:self.identifier];
