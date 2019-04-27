@@ -1482,6 +1482,17 @@
                      [OKTrigger triggerWithTemplate:@"bezier(${point1Array}, ${point2Array}, ${point3Array}, ${point4Array})" specifier:@"bezier"],
                      [OKTrigger triggerWithTemplate:@"bezier(${x1}, ${y1}, ${x2}, ${y2}, ${x3}, ${y3}, ${x4}, ${y4})" specifier:@"bezier"],
 
+                     [OKTrigger triggerWithTemplate:@"mouseDown()" specifier:@"mouseDown"],
+                     [OKTrigger triggerWithTemplate:@"mouseUp()" specifier:@"mouseUp"],
+                     [OKTrigger triggerWithTemplate:@"mouseDragged()" specifier:@"mouseDragged"],
+                     [OKTrigger triggerWithTemplate:@"mouseMoved()" specifier:@"mouseMoved"],
+                     [OKTrigger triggerWithTemplate:@"mouseEntered()" specifier:@"mouseEntered"],
+                     [OKTrigger triggerWithTemplate:@"mouseExited()" specifier:@"mouseExited"],
+
+                     [OKTrigger triggerWithTemplate:@"mouseX" specifier:@"mouseX"],
+                     [OKTrigger triggerWithTemplate:@"mouseY" specifier:@"mouseY"],
+                     [OKTrigger triggerWithTemplate:@"pmouseX" specifier:@"pmouseX"],
+                     [OKTrigger triggerWithTemplate:@"pmouseY" specifier:@"pmouseY"],
                      nil];
     }
     return sTriggers;
