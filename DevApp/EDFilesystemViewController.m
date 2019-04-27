@@ -50,7 +50,7 @@
 @implementation EDFilesystemViewController
 
 - (id)init {
-    self = [self initWithNibName:@"EDFilesystemView" bundle:nil];
+    self = [self initWithNibName:@"EDFilesystemViewController" bundle:nil];
     return self;
 }
 

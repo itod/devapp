@@ -21,7 +21,7 @@
 }
 
 - (id)init {
-    self = [super initWithWindowNibName:@"EDProjectWindow"];
+    self = [super initWithWindowNibName:@"EDProjectWindowController"];
     if (self) {
         self.projParams = [[[EDNewProjectParams alloc] init] autorelease];
     }

@@ -33,7 +33,7 @@ NSString *const EDWebViewControllerTitleDidChangeNotification = @"EDWebViewContr
 }
 
 - (id)init {
-    self = [self initWithNibName:@"EDWebView" bundle:nil];
+    self = [self initWithNibName:@"EDWebViewController" bundle:nil];
     return self;
 }
 

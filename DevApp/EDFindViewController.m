@@ -55,7 +55,7 @@ static NSDictionary *sHiPreviewAttrs = nil;
 
 
 - (id)init {
-    self = [self initWithNibName:@"EDFindView" bundle:nil];
+    self = [self initWithNibName:@"EDFindViewController" bundle:nil];
     return self;
 }
 

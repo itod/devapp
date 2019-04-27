@@ -142,7 +142,7 @@ static NSRegularExpression *sRegex = nil;
 
 
 - (id)init {
-    self = [self initWithNibName:@"EDStackTraceView" bundle:nil];
+    self = [self initWithNibName:@"EDStackTraceViewController" bundle:nil];
     return self;
 }
 

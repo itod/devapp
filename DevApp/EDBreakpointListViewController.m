@@ -31,7 +31,7 @@
 @implementation EDBreakpointListViewController
 
 - (instancetype)init {
-    self = [self initWithNibName:@"EDBreakpointListView" bundle:nil];
+    self = [self initWithNibName:@"EDBreakpointListViewController" bundle:nil];
     return self;
 }
 

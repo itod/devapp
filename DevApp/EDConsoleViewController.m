@@ -51,7 +51,7 @@ static NSDictionary *sValueAttrs = nil;
 
 
 - (id)init {
-    self = [self initWithNibName:@"EDConsoleView" bundle:nil];
+    self = [self initWithNibName:@"EDConsoleViewController" bundle:nil];
     return self;
 }
 

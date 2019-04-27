@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		D309BCA71E5B657A002B3199 /* EDFindView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D309BCA51E5B657A002B3199 /* EDFindView.xib */; };
+		D309BCA71E5B657A002B3199 /* EDFindViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D309BCA51E5B657A002B3199 /* EDFindViewController.xib */; };
 		D309BCC51E5B9E77002B3199 /* EDMemoryCodeRunner.m in Sources */ = {isa = PBXBuildFile; fileRef = D309BCC41E5B9E77002B3199 /* EDMemoryCodeRunner.m */; };
 		D309BCCB1E5BB861002B3199 /* TDInterpreterSync.m in Sources */ = {isa = PBXBuildFile; fileRef = D309BCC91E5BB861002B3199 /* TDInterpreterSync.m */; };
 		D309BCCC1E5BB861002B3199 /* TDSynchronousChannel.m in Sources */ = {isa = PBXBuildFile; fileRef = D309BCCA1E5BB861002B3199 /* TDSynchronousChannel.m */; };
@@ -55,7 +55,7 @@
 		D3166FFE1E592CCC00DEE3A0 /* EDActionArgumentsFacet.xib in Resources */ = {isa = PBXBuildFile; fileRef = D3166FFC1E592CCC00DEE3A0 /* EDActionArgumentsFacet.xib */; };
 		D31670031E592CEF00DEE3A0 /* EDActionArgumentsFacet.m in Sources */ = {isa = PBXBuildFile; fileRef = D31670001E592CEF00DEE3A0 /* EDActionArgumentsFacet.m */; };
 		D31670041E592CEF00DEE3A0 /* EDActionFacet.m in Sources */ = {isa = PBXBuildFile; fileRef = D31670021E592CEF00DEE3A0 /* EDActionFacet.m */; };
-		D31670071E59F71500DEE3A0 /* EDStackTraceView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D31670051E59F71500DEE3A0 /* EDStackTraceView.xib */; };
+		D31670071E59F71500DEE3A0 /* EDStackTraceViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D31670051E59F71500DEE3A0 /* EDStackTraceViewController.xib */; };
 		D316700C1E59F71F00DEE3A0 /* EDStackTraceContainerView.m in Sources */ = {isa = PBXBuildFile; fileRef = D31670091E59F71F00DEE3A0 /* EDStackTraceContainerView.m */; };
 		D316700D1E59F71F00DEE3A0 /* EDStackTraceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D316700B1E59F71F00DEE3A0 /* EDStackTraceViewController.m */; };
 		D316701A1E59F76700DEE3A0 /* EDNavTabBarItem.m in Sources */ = {isa = PBXBuildFile; fileRef = D31670111E59F76700DEE3A0 /* EDNavTabBarItem.m */; };
@@ -70,18 +70,18 @@
 		D31670371E59F9EB00DEE3A0 /* EDFindResultsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D31670301E59F9EB00DEE3A0 /* EDFindResultsCell.m */; };
 		D31670381E59F9EB00DEE3A0 /* EDFindView.m in Sources */ = {isa = PBXBuildFile; fileRef = D31670321E59F9EB00DEE3A0 /* EDFindView.m */; };
 		D31670391E59F9EB00DEE3A0 /* EDFindViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D31670341E59F9EB00DEE3A0 /* EDFindViewController.m */; };
-		D316703D1E59FAEC00DEE3A0 /* EDConsoleView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D316703B1E59FAEC00DEE3A0 /* EDConsoleView.xib */; };
+		D316703D1E59FAEC00DEE3A0 /* EDConsoleViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D316703B1E59FAEC00DEE3A0 /* EDConsoleViewController.xib */; };
 		D316704A1E59FB0400DEE3A0 /* EDConsoleContainerView.m in Sources */ = {isa = PBXBuildFile; fileRef = D316703F1E59FB0400DEE3A0 /* EDConsoleContainerView.m */; };
 		D316704B1E59FB0400DEE3A0 /* EDConsoleControlBar.m in Sources */ = {isa = PBXBuildFile; fileRef = D31670411E59FB0400DEE3A0 /* EDConsoleControlBar.m */; };
 		D316704C1E59FB0400DEE3A0 /* EDConsoleControlButton.m in Sources */ = {isa = PBXBuildFile; fileRef = D31670431E59FB0400DEE3A0 /* EDConsoleControlButton.m */; };
 		D316704D1E59FB0400DEE3A0 /* EDConsoleControlButtonCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D31670451E59FB0400DEE3A0 /* EDConsoleControlButtonCell.m */; };
 		D316704E1E59FB0400DEE3A0 /* EDConsoleOutlineView.m in Sources */ = {isa = PBXBuildFile; fileRef = D31670471E59FB0400DEE3A0 /* EDConsoleOutlineView.m */; };
 		D316704F1E59FB0400DEE3A0 /* EDConsoleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D31670491E59FB0400DEE3A0 /* EDConsoleViewController.m */; };
-		D31670551E59FC0400DEE3A0 /* EDBreakpointListView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D31670531E59FC0400DEE3A0 /* EDBreakpointListView.xib */; };
+		D31670551E59FC0400DEE3A0 /* EDBreakpointListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D31670531E59FC0400DEE3A0 /* EDBreakpointListViewController.xib */; };
 		D316705D1E59FC2C00DEE3A0 /* EDBreakpointCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D31670581E59FC2C00DEE3A0 /* EDBreakpointCell.m */; };
 		D316705E1E59FC2C00DEE3A0 /* EDBreakpointListContainerView.m in Sources */ = {isa = PBXBuildFile; fileRef = D316705A1E59FC2C00DEE3A0 /* EDBreakpointListContainerView.m */; };
 		D316705F1E59FC2C00DEE3A0 /* EDBreakpointListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D316705C1E59FC2C00DEE3A0 /* EDBreakpointListViewController.m */; };
-		D31670641E59FD6F00DEE3A0 /* EDProjectWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = D31670621E59FD6F00DEE3A0 /* EDProjectWindow.xib */; };
+		D31670641E59FD6F00DEE3A0 /* EDProjectWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D31670621E59FD6F00DEE3A0 /* EDProjectWindowController.xib */; };
 		D316706C1E59FD9B00DEE3A0 /* EDNewProjectParams.m in Sources */ = {isa = PBXBuildFile; fileRef = D31670681E59FD9B00DEE3A0 /* EDNewProjectParams.m */; };
 		D316706D1E59FD9B00DEE3A0 /* EDProjectWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = D316706A1E59FD9B00DEE3A0 /* EDProjectWindowController.m */; };
 		D31670701E59FDF000DEE3A0 /* EDFileWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = D316706E1E59FDF000DEE3A0 /* EDFileWindow.xib */; };
@@ -376,7 +376,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		D309BCA61E5B657A002B3199 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/EDFindView.xib; sourceTree = "<group>"; };
+		D309BCA61E5B657A002B3199 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/EDFindViewController.xib; sourceTree = "<group>"; };
 		D309BCC31E5B9E77002B3199 /* EDMemoryCodeRunner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EDMemoryCodeRunner.h; sourceTree = "<group>"; };
 		D309BCC41E5B9E77002B3199 /* EDMemoryCodeRunner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EDMemoryCodeRunner.m; sourceTree = "<group>"; };
 		D309BCC91E5BB861002B3199 /* TDInterpreterSync.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TDInterpreterSync.m; path = lib/TDThreadUtils/src/TDInterpreterSync.m; sourceTree = SOURCE_ROOT; };
@@ -463,7 +463,7 @@
 		D31670001E592CEF00DEE3A0 /* EDActionArgumentsFacet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EDActionArgumentsFacet.m; sourceTree = "<group>"; };
 		D31670011E592CEF00DEE3A0 /* EDActionFacet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EDActionFacet.h; sourceTree = "<group>"; };
 		D31670021E592CEF00DEE3A0 /* EDActionFacet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EDActionFacet.m; sourceTree = "<group>"; };
-		D31670061E59F71500DEE3A0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/EDStackTraceView.xib; sourceTree = "<group>"; };
+		D31670061E59F71500DEE3A0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/EDStackTraceViewController.xib; sourceTree = "<group>"; };
 		D31670081E59F71F00DEE3A0 /* EDStackTraceContainerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EDStackTraceContainerView.h; sourceTree = "<group>"; };
 		D31670091E59F71F00DEE3A0 /* EDStackTraceContainerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EDStackTraceContainerView.m; sourceTree = "<group>"; };
 		D316700A1E59F71F00DEE3A0 /* EDStackTraceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EDStackTraceViewController.h; sourceTree = "<group>"; };
@@ -492,7 +492,7 @@
 		D31670321E59F9EB00DEE3A0 /* EDFindView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EDFindView.m; sourceTree = "<group>"; };
 		D31670331E59F9EB00DEE3A0 /* EDFindViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EDFindViewController.h; sourceTree = "<group>"; };
 		D31670341E59F9EB00DEE3A0 /* EDFindViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EDFindViewController.m; sourceTree = "<group>"; };
-		D316703C1E59FAEC00DEE3A0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/EDConsoleView.xib; sourceTree = "<group>"; };
+		D316703C1E59FAEC00DEE3A0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/EDConsoleViewController.xib; sourceTree = "<group>"; };
 		D316703E1E59FB0400DEE3A0 /* EDConsoleContainerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EDConsoleContainerView.h; sourceTree = "<group>"; };
 		D316703F1E59FB0400DEE3A0 /* EDConsoleContainerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EDConsoleContainerView.m; sourceTree = "<group>"; };
 		D31670401E59FB0400DEE3A0 /* EDConsoleControlBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EDConsoleControlBar.h; sourceTree = "<group>"; };
@@ -507,14 +507,14 @@
 		D31670491E59FB0400DEE3A0 /* EDConsoleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EDConsoleViewController.m; sourceTree = "<group>"; };
 		D31670501E59FB7800DEE3A0 /* EDShellViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EDShellViewController.h; sourceTree = "<group>"; };
 		D31670511E59FB7800DEE3A0 /* EDShellViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EDShellViewController.m; sourceTree = "<group>"; };
-		D31670541E59FC0400DEE3A0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/EDBreakpointListView.xib; sourceTree = "<group>"; };
+		D31670541E59FC0400DEE3A0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/EDBreakpointListViewController.xib; sourceTree = "<group>"; };
 		D31670571E59FC2C00DEE3A0 /* EDBreakpointCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EDBreakpointCell.h; sourceTree = "<group>"; };
 		D31670581E59FC2C00DEE3A0 /* EDBreakpointCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EDBreakpointCell.m; sourceTree = "<group>"; };
 		D31670591E59FC2C00DEE3A0 /* EDBreakpointListContainerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EDBreakpointListContainerView.h; sourceTree = "<group>"; };
 		D316705A1E59FC2C00DEE3A0 /* EDBreakpointListContainerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EDBreakpointListContainerView.m; sourceTree = "<group>"; };
 		D316705B1E59FC2C00DEE3A0 /* EDBreakpointListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EDBreakpointListViewController.h; sourceTree = "<group>"; };
 		D316705C1E59FC2C00DEE3A0 /* EDBreakpointListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EDBreakpointListViewController.m; sourceTree = "<group>"; };
-		D31670631E59FD6F00DEE3A0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/EDProjectWindow.xib; sourceTree = "<group>"; };
+		D31670631E59FD6F00DEE3A0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/EDProjectWindowController.xib; sourceTree = "<group>"; };
 		D31670651E59FD9B00DEE3A0 /* EDMainWindowController+NewProject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "EDMainWindowController+NewProject.h"; sourceTree = "<group>"; };
 		D31670661E59FD9B00DEE3A0 /* EDMainWindowController+NewProject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "EDMainWindowController+NewProject.m"; sourceTree = "<group>"; };
 		D31670671E59FD9B00DEE3A0 /* EDNewProjectParams.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EDNewProjectParams.h; sourceTree = "<group>"; };
@@ -567,7 +567,7 @@
 		D31670B61E5A17D900DEE3A0 /* EDCodeRunner.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EDCodeRunner.h; sourceTree = "<group>"; };
 		D31670B81E5A182900DEE3A0 /* EDNavigatorOutlineView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EDNavigatorOutlineView.h; sourceTree = "<group>"; };
 		D31670B91E5A182900DEE3A0 /* EDNavigatorOutlineView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EDNavigatorOutlineView.m; sourceTree = "<group>"; };
-		D31670BC1E5A184600DEE3A0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/EDFilesystemView.xib; sourceTree = "<group>"; };
+		D31670BC1E5A184600DEE3A0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/EDFilesystemViewController.xib; sourceTree = "<group>"; };
 		D31670BF1E5A18B900DEE3A0 /* EDFilesystemContainerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EDFilesystemContainerView.h; sourceTree = "<group>"; };
 		D31670C01E5A18B900DEE3A0 /* EDFilesystemContainerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EDFilesystemContainerView.m; sourceTree = "<group>"; };
 		D31670C11E5A18B900DEE3A0 /* EDFilesystemItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EDFilesystemItem.h; sourceTree = "<group>"; };
@@ -578,7 +578,7 @@
 		D31670C61E5A18B900DEE3A0 /* EDFilesystemNavBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EDFilesystemNavBar.m; sourceTree = "<group>"; };
 		D31670C71E5A18B900DEE3A0 /* EDFilesystemViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EDFilesystemViewController.h; sourceTree = "<group>"; };
 		D31670C81E5A18B900DEE3A0 /* EDFilesystemViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EDFilesystemViewController.m; sourceTree = "<group>"; };
-		D31670DF1E5A1A2C00DEE3A0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/EDWebView.xib; sourceTree = "<group>"; };
+		D31670DF1E5A1A2C00DEE3A0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/EDWebViewController.xib; sourceTree = "<group>"; };
 		D31670E11E5A1A3E00DEE3A0 /* EDWebContainerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EDWebContainerView.h; sourceTree = "<group>"; };
 		D31670E21E5A1A3E00DEE3A0 /* EDWebContainerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EDWebContainerView.m; sourceTree = "<group>"; };
 		D31670E31E5A1A3E00DEE3A0 /* EDWebView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EDWebView.h; sourceTree = "<group>"; };
@@ -1027,7 +1027,7 @@
 			children = (
 				D316700A1E59F71F00DEE3A0 /* EDStackTraceViewController.h */,
 				D316700B1E59F71F00DEE3A0 /* EDStackTraceViewController.m */,
-				D31670051E59F71500DEE3A0 /* EDStackTraceView.xib */,
+				D31670051E59F71500DEE3A0 /* EDStackTraceViewController.xib */,
 				D31670081E59F71F00DEE3A0 /* EDStackTraceContainerView.h */,
 				D31670091E59F71F00DEE3A0 /* EDStackTraceContainerView.m */,
 			);
@@ -1076,7 +1076,7 @@
 			children = (
 				D31670331E59F9EB00DEE3A0 /* EDFindViewController.h */,
 				D31670341E59F9EB00DEE3A0 /* EDFindViewController.m */,
-				D309BCA51E5B657A002B3199 /* EDFindView.xib */,
+				D309BCA51E5B657A002B3199 /* EDFindViewController.xib */,
 				D31670311E59F9EB00DEE3A0 /* EDFindView.h */,
 				D31670321E59F9EB00DEE3A0 /* EDFindView.m */,
 				D316702D1E59F9EB00DEE3A0 /* EDFindParameters.h */,
@@ -1096,7 +1096,7 @@
 				D31670511E59FB7800DEE3A0 /* EDShellViewController.m */,
 				D31670481E59FB0400DEE3A0 /* EDConsoleViewController.h */,
 				D31670491E59FB0400DEE3A0 /* EDConsoleViewController.m */,
-				D316703B1E59FAEC00DEE3A0 /* EDConsoleView.xib */,
+				D316703B1E59FAEC00DEE3A0 /* EDConsoleViewController.xib */,
 				D316703E1E59FB0400DEE3A0 /* EDConsoleContainerView.h */,
 				D316703F1E59FB0400DEE3A0 /* EDConsoleContainerView.m */,
 				D31670461E59FB0400DEE3A0 /* EDConsoleOutlineView.h */,
@@ -1116,7 +1116,7 @@
 			children = (
 				D316705B1E59FC2C00DEE3A0 /* EDBreakpointListViewController.h */,
 				D316705C1E59FC2C00DEE3A0 /* EDBreakpointListViewController.m */,
-				D31670531E59FC0400DEE3A0 /* EDBreakpointListView.xib */,
+				D31670531E59FC0400DEE3A0 /* EDBreakpointListViewController.xib */,
 				D31670591E59FC2C00DEE3A0 /* EDBreakpointListContainerView.h */,
 				D316705A1E59FC2C00DEE3A0 /* EDBreakpointListContainerView.m */,
 				D31670571E59FC2C00DEE3A0 /* EDBreakpointCell.h */,
@@ -1142,7 +1142,7 @@
 			children = (
 				D31670691E59FD9B00DEE3A0 /* EDProjectWindowController.h */,
 				D316706A1E59FD9B00DEE3A0 /* EDProjectWindowController.m */,
-				D31670621E59FD6F00DEE3A0 /* EDProjectWindow.xib */,
+				D31670621E59FD6F00DEE3A0 /* EDProjectWindowController.xib */,
 				D31670651E59FD9B00DEE3A0 /* EDMainWindowController+NewProject.h */,
 				D31670661E59FD9B00DEE3A0 /* EDMainWindowController+NewProject.m */,
 				D31670671E59FD9B00DEE3A0 /* EDNewProjectParams.h */,
@@ -1228,7 +1228,7 @@
 			children = (
 				D31670C71E5A18B900DEE3A0 /* EDFilesystemViewController.h */,
 				D31670C81E5A18B900DEE3A0 /* EDFilesystemViewController.m */,
-				D31670BB1E5A184600DEE3A0 /* EDFilesystemView.xib */,
+				D31670BB1E5A184600DEE3A0 /* EDFilesystemViewController.xib */,
 				D31670BF1E5A18B900DEE3A0 /* EDFilesystemContainerView.h */,
 				D31670C01E5A18B900DEE3A0 /* EDFilesystemContainerView.m */,
 				D31670C51E5A18B900DEE3A0 /* EDFilesystemNavBar.h */,
@@ -1246,7 +1246,7 @@
 			children = (
 				D31670E51E5A1A3E00DEE3A0 /* EDWebViewController.h */,
 				D31670E61E5A1A3E00DEE3A0 /* EDWebViewController.m */,
-				D31670DE1E5A1A2C00DEE3A0 /* EDWebView.xib */,
+				D31670DE1E5A1A2C00DEE3A0 /* EDWebViewController.xib */,
 				D31670E11E5A1A3E00DEE3A0 /* EDWebContainerView.h */,
 				D31670E21E5A1A3E00DEE3A0 /* EDWebContainerView.m */,
 				D31670E31E5A1A3E00DEE3A0 /* EDWebView.h */,
@@ -1861,13 +1861,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				D31670701E59FDF000DEE3A0 /* EDFileWindow.xib in Resources */,
-				D31670641E59FD6F00DEE3A0 /* EDProjectWindow.xib in Resources */,
+				D31670641E59FD6F00DEE3A0 /* EDProjectWindowController.xib in Resources */,
 				D31670A61E5A167B00DEE3A0 /* EDFileEncodingDialog.xib in Resources */,
 				D33699B71E36B78900FEB7BF /* Assets.xcassets in Resources */,
 				D34A705322735CF00055F933 /* GrafikKonsol-PreferencePanes.plist in Resources */,
 				D34A705422735CF00055F933 /* GrafikKonsol-DefaultValues.plist in Resources */,
 				D3A36B432270FE3200F37E4C /* TDPreferenceWindowController.xib in Resources */,
-				D309BCA71E5B657A002B3199 /* EDFindView.xib in Resources */,
+				D309BCA71E5B657A002B3199 /* EDFindViewController.xib in Resources */,
 				D31671131E5B590100DEE3A0 /* EDMainMenu.xib in Resources */,
 				D3166F5C1E5908FE00DEE3A0 /* EDGuidesPreferences.xib in Resources */,
 				D3166F361E59073D00DEE3A0 /* EDThemePreferences.xib in Resources */,
@@ -1877,14 +1877,14 @@
 				D3166F921E590DF600DEE3A0 /* css in Resources */,
 				D3166F701E590D7D00DEE3A0 /* EDGeneralPreferences.xib in Resources */,
 				D31E2C591E7CC4AA0023E924 /* EDCanvasView.xib in Resources */,
-				D31670551E59FC0400DEE3A0 /* EDBreakpointListView.xib in Resources */,
+				D31670551E59FC0400DEE3A0 /* EDBreakpointListViewController.xib in Resources */,
 				D316709C1E5A156900DEE3A0 /* EDWindow.xib in Resources */,
 				D3CF9C2B211B803900E92136 /* TKTabsListViewController.xib in Resources */,
 				D3166FB71E5927C300DEE3A0 /* EDWelcomeWindow.xib in Resources */,
-				D31670071E59F71500DEE3A0 /* EDStackTraceView.xib in Resources */,
+				D31670071E59F71500DEE3A0 /* EDStackTraceViewController.xib in Resources */,
 				D3A36B402270FDDC00F37E4C /* TDRegisterWindow.xib in Resources */,
 				D3166FFE1E592CCC00DEE3A0 /* EDActionArgumentsFacet.xib in Resources */,
-				D316703D1E59FAEC00DEE3A0 /* EDConsoleView.xib in Resources */,
+				D316703D1E59FAEC00DEE3A0 /* EDConsoleViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2108,12 +2108,12 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		D309BCA51E5B657A002B3199 /* EDFindView.xib */ = {
+		D309BCA51E5B657A002B3199 /* EDFindViewController.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
 				D309BCA61E5B657A002B3199 /* Base */,
 			);
-			name = EDFindView.xib;
+			name = EDFindViewController.xib;
 			sourceTree = "<group>";
 		};
 		D3166EAB1E57C54400DEE3A0 /* EDUpdatePreferences.xib */ = {
@@ -2173,36 +2173,36 @@
 			name = EDActionArgumentsFacet.xib;
 			sourceTree = "<group>";
 		};
-		D31670051E59F71500DEE3A0 /* EDStackTraceView.xib */ = {
+		D31670051E59F71500DEE3A0 /* EDStackTraceViewController.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
 				D31670061E59F71500DEE3A0 /* Base */,
 			);
-			name = EDStackTraceView.xib;
+			name = EDStackTraceViewController.xib;
 			sourceTree = "<group>";
 		};
-		D316703B1E59FAEC00DEE3A0 /* EDConsoleView.xib */ = {
+		D316703B1E59FAEC00DEE3A0 /* EDConsoleViewController.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
 				D316703C1E59FAEC00DEE3A0 /* Base */,
 			);
-			name = EDConsoleView.xib;
+			name = EDConsoleViewController.xib;
 			sourceTree = "<group>";
 		};
-		D31670531E59FC0400DEE3A0 /* EDBreakpointListView.xib */ = {
+		D31670531E59FC0400DEE3A0 /* EDBreakpointListViewController.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
 				D31670541E59FC0400DEE3A0 /* Base */,
 			);
-			name = EDBreakpointListView.xib;
+			name = EDBreakpointListViewController.xib;
 			sourceTree = "<group>";
 		};
-		D31670621E59FD6F00DEE3A0 /* EDProjectWindow.xib */ = {
+		D31670621E59FD6F00DEE3A0 /* EDProjectWindowController.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
 				D31670631E59FD6F00DEE3A0 /* Base */,
 			);
-			name = EDProjectWindow.xib;
+			name = EDProjectWindowController.xib;
 			sourceTree = "<group>";
 		};
 		D316706E1E59FDF000DEE3A0 /* EDFileWindow.xib */ = {
@@ -2229,20 +2229,20 @@
 			name = EDFileEncodingDialog.xib;
 			sourceTree = "<group>";
 		};
-		D31670BB1E5A184600DEE3A0 /* EDFilesystemView.xib */ = {
+		D31670BB1E5A184600DEE3A0 /* EDFilesystemViewController.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
 				D31670BC1E5A184600DEE3A0 /* Base */,
 			);
-			name = EDFilesystemView.xib;
+			name = EDFilesystemViewController.xib;
 			sourceTree = "<group>";
 		};
-		D31670DE1E5A1A2C00DEE3A0 /* EDWebView.xib */ = {
+		D31670DE1E5A1A2C00DEE3A0 /* EDWebViewController.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
 				D31670DF1E5A1A2C00DEE3A0 /* Base */,
 			);
-			name = EDWebView.xib;
+			name = EDWebViewController.xib;
 			sourceTree = "<group>";
 		};
 		D31671111E5B590100DEE3A0 /* EDMainMenu.xib */ = {
