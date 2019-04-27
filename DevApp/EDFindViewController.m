@@ -904,8 +904,6 @@ done:
     // iterate in reverse
     for (EDFileLocation *fileLoc in [fileLocs reverseObjectEnumerator]) {
         if (!fileLoc.selected) continue;
-        
-        
         [str replaceCharactersInRange:fileLoc.selectedRange withString:params.replaceText];
     }
 }
@@ -913,13 +911,15 @@ done:
 
 - (void)performRegexReplace:(EDFindParameters *)params inFileLocations:(NSArray *)fileLocs inString:(NSMutableString *)str {    
     EDAssert(params.useRegex);
-    TDAssert(0); // TD shouldn't you be looping thru the file locs here???????
 
-    NSUInteger opts = 0;
+    NSUInteger opts = NSRegularExpressionSearch;
     if (!params.matchCase) opts |= NSCaseInsensitiveSearch;
-    if (params.useRegex) opts |= NSRegularExpressionSearch;
 
-    [str replaceOccurrencesOfString:params.searchText withString:params.replaceText options:opts range:NSMakeRange(0, [str length])];
+    // iterate in reverse
+    for (EDFileLocation *fileLoc in [fileLocs reverseObjectEnumerator]) {
+        if (!fileLoc.selected) continue;
+        [str replaceOccurrencesOfString:params.searchText withString:params.replaceText options:opts range:fileLoc.selectedRange];
+    }
 }
 
 
