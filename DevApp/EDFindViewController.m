@@ -10,6 +10,7 @@
 #import "EDFindParameters.h"
 #import "EDFileLocation.h"
 #import "EDPattern.h"
+#import "EDComboBox.h"
 #import <TDAppKit/TDViewControllerView.h>
 #import <TDAppKit/TDUtils.h>
 #import <OkudaKit/OKUtils.h>
@@ -118,6 +119,11 @@ static NSDictionary *sHiPreviewAttrs = nil;
     EDAssert(_closeButton);
     [_closeButton setImage:img];
     [_closeButton setAlternateImage:altImg];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(edComboBoxDidBecomeFirstResponder:)
+                                                 name:EDComboBoxDidBecomeFirstResponderNotification
+                                               object:_replaceComboBox];
 }
 
 
@@ -275,8 +281,10 @@ static NSDictionary *sHiPreviewAttrs = nil;
 #pragma mark -
 #pragma mark NSControlTextEditingDelegate
 
-- (BOOL)control:(NSControl *)c textShouldBeginEditing:(NSText *)fe {
-    return YES;
+- (void)edComboBoxDidBecomeFirstResponder:(NSNotification *)n {
+    self.editingReplaceText = YES;
+    TDAssert(_outlineView);
+    [_outlineView reloadData];
 }
 
 

@@ -122,7 +122,7 @@
                         <outlet property="nextKeyView" destination="mLw-hv-LK2" id="v5p-6j-qGf"/>
                     </connections>
                 </comboBox>
-                <comboBox verticalHuggingPriority="750" id="20">
+                <comboBox verticalHuggingPriority="750" id="20" customClass="EDComboBox">
                     <rect key="frame" x="66" y="330" width="371" height="22"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                     <comboBoxCell key="cell" controlSize="small" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" continuous="YES" borderStyle="bezel" drawsBackground="YES" usesDataSource="YES" numberOfVisibleItems="5" id="21">
