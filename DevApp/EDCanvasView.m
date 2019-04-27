@@ -156,7 +156,7 @@ static CGColorSpaceRef sPatternColorSpace = NULL;
     // space key
 	if ([evt isSpaceKeyDown]) {
         if (![evt isARepeat]) {
-            [self pushCursor:[NSCursor openHandCursor]];
+            [self setCursor:[NSCursor openHandCursor]];
         }
         _isDragScroll = YES;
         handled = YES;
@@ -170,7 +170,7 @@ static CGColorSpaceRef sPatternColorSpace = NULL;
 
 - (void)keyUp:(NSEvent *)evt {
     if (_isDragScroll) {
-        [self popCursor];
+        [self setCursor:[NSCursor arrowCursor]];
         _isDragScroll = NO;
     }
     [super keyUp:evt];
@@ -348,7 +348,7 @@ static CGColorSpaceRef sPatternColorSpace = NULL;
     if ([evt isControlKeyPressed]) {
         [self rightMouseDown:evt];
     } else if (_isDragScroll) {
-        [self pushCursor:[NSCursor closedHandCursor]];
+        [self setCursor:[NSCursor closedHandCursor]];
     } else {
         [self leftMouseDownSingleClick:evt];
     }
@@ -374,7 +374,7 @@ static CGColorSpaceRef sPatternColorSpace = NULL;
     }
     
     if (_isDragScroll) {
-        [self popCursor];
+        [self setCursor:[NSCursor openHandCursor]];
     } else {
         [self.delegate canvas:self mouseUp:evt];
     }
@@ -433,14 +433,8 @@ static CGColorSpaceRef sPatternColorSpace = NULL;
 }
 
 
-- (void)pushCursor:(NSCursor *)cursor {
-    [cursor push];
-    [[self enclosingScrollView] setDocumentCursor:[NSCursor currentCursor]];
-}
-
-
-- (void)popCursor {
-    [[NSCursor currentCursor] pop];
+- (void)setCursor:(NSCursor *)cursor {
+    [cursor set];
     [[self enclosingScrollView] setDocumentCursor:[NSCursor currentCursor]];
 }
 
