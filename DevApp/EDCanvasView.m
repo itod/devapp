@@ -269,53 +269,53 @@ static CGColorSpaceRef sPatternColorSpace = NULL;
 }
 
 
-static void EDDrawPatternFunc(void *info, CGContextRef ctx) {
-    assert([[NSThread currentThread] isMainThread]);
-    assert(ctx);
-
-    CGRect rectA = CGRectMake(0.0, 0.0, 1.0, 1.0);
-    CGRect rectB = CGRectMake(1.0, 1.0, 1.0, 1.0);
-    const CGRect rects[2] = {rectA, rectB};
-    CGContextFillRects(ctx, rects, 2);
-}
-
-
-- (void)updateGridPattern {
-    EDAssertMainThread();
-    EDAssert(_document);
-    
-    CGPatternCallbacks callbacks;
-    callbacks.version = 0;
-    callbacks.drawPattern = EDDrawPatternFunc;
-    callbacks.releaseInfo = NULL;
-    
-    CGRect patRect = CGRectMake(0.0, 0.0, 2.0, 2.0);
-    CGFloat gridSide = _document.gridTolerance;
-    EDAssert(gridSide >= 1.0);
-    
-    CGAffineTransform xform = CGAffineTransformMakeScale(gridSide, gridSide);
-    CGPatternRef pat = CGPatternCreate(NULL, patRect, xform, patRect.size.width, patRect.size.height, kCGPatternTilingConstantSpacingMinimalDistortion, false, &callbacks);
-    EDAssert(pat);
-    [self setGridPattern:pat];
-    CGPatternRelease(pat);
-}
-
-
-- (void)drawBackgroundPatternInContext:(CGContextRef)ctx compFrame:(CGRect)compFrame compBounds:(CGRect)compBounds {
-    EDAssertMainThread();
-    if (!_gridPattern) return;
-    
-    CGPoint locInWin = [self convertPoint:compFrame.origin toView:nil];
-    CGContextSetPatternPhase(ctx, CGSizeMake(locInWin.x, locInWin.y));
-    
-    EDAssert(sPatternColorSpace);
-    CGContextSetFillColorSpace(ctx, sPatternColorSpace);
-    
-    EDAssert(_gridPattern);
-    const CGFloat comps[1] = {0.92};
-    CGContextSetFillPattern(ctx, _gridPattern, comps);
-    CGContextFillRect(ctx, compBounds);
-}
+//static void EDDrawPatternFunc(void *info, CGContextRef ctx) {
+//    assert([[NSThread currentThread] isMainThread]);
+//    assert(ctx);
+//
+//    CGRect rectA = CGRectMake(0.0, 0.0, 1.0, 1.0);
+//    CGRect rectB = CGRectMake(1.0, 1.0, 1.0, 1.0);
+//    const CGRect rects[2] = {rectA, rectB};
+//    CGContextFillRects(ctx, rects, 2);
+//}
+//
+//
+//- (void)updateGridPattern {
+//    EDAssertMainThread();
+//    EDAssert(_document);
+//
+//    CGPatternCallbacks callbacks;
+//    callbacks.version = 0;
+//    callbacks.drawPattern = EDDrawPatternFunc;
+//    callbacks.releaseInfo = NULL;
+//
+//    CGRect patRect = CGRectMake(0.0, 0.0, 2.0, 2.0);
+//    CGFloat gridSide = _document.gridTolerance;
+//    EDAssert(gridSide >= 1.0);
+//
+//    CGAffineTransform xform = CGAffineTransformMakeScale(gridSide, gridSide);
+//    CGPatternRef pat = CGPatternCreate(NULL, patRect, xform, patRect.size.width, patRect.size.height, kCGPatternTilingConstantSpacingMinimalDistortion, false, &callbacks);
+//    EDAssert(pat);
+//    [self setGridPattern:pat];
+//    CGPatternRelease(pat);
+//}
+//
+//
+//- (void)drawBackgroundPatternInContext:(CGContextRef)ctx compFrame:(CGRect)compFrame compBounds:(CGRect)compBounds {
+//    EDAssertMainThread();
+//    if (!_gridPattern) return;
+//
+//    CGPoint locInWin = [self convertPoint:compFrame.origin toView:nil];
+//    CGContextSetPatternPhase(ctx, CGSizeMake(locInWin.x, locInWin.y));
+//
+//    EDAssert(sPatternColorSpace);
+//    CGContextSetFillColorSpace(ctx, sPatternColorSpace);
+//
+//    EDAssert(_gridPattern);
+//    const CGFloat comps[1] = {0.92};
+//    CGContextSetFillPattern(ctx, _gridPattern, comps);
+//    CGContextFillRect(ctx, compBounds);
+//}
 
 
 #pragma mark -
@@ -1027,7 +1027,7 @@ static void EDDrawPatternFunc(void *info, CGContextRef ctx) {
 - (void)compositionGridDidChange:(NSNotification *)n {
     SZDocument *doc = [n object];
     if (doc == _document) {
-        [self updateGridPattern];
+//        [self updateGridPattern];
         [self setNeedsDisplay:YES];
     }
 }
@@ -1088,7 +1088,7 @@ static void EDDrawPatternFunc(void *info, CGContextRef ctx) {
             }
 
             [self updateRulersOrigin];
-            [self updateGridPattern];
+//            [self updateGridPattern];
             [self scrollToCenter];
         }
     }
