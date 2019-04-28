@@ -45,6 +45,8 @@
 #define kEDEventMouseLocationKey @"mouseLocation"
 #define kEDEventButtonNumberKey @"buttonNumber"
 
+#define TD_INF (-(1e23f))
+
 typedef NS_ENUM(NSUInteger, EDEventCategory) {
     EDEventCategoryInputDevice = 0, // mouse, keyboard, trackpad
     EDEventCategoryStop,
@@ -512,7 +514,7 @@ void TDPerformAfterDelay(dispatch_queue_t q, double delay, void (^block)(void)) 
     if (!err) {
         [self fireDelegateWillResume];
         
-        _mouseLocation = CGPointMake(-INFINITY, -INFINITY);
+        _mouseLocation = CGPointMake(TD_INF, TD_INF);
         [self updateMouseLocation:_mouseLocation button:-1];
         
         // EVENT LOOP
