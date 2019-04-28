@@ -608,7 +608,8 @@
     BOOL dragOK = YES;
 
     for (EDFilesystemItem *fsItem in items) {
-        if ([[fsItem.fullPath lastPathComponent] isEqualToString:@"main.js"]) {
+        NSString *mainFileName = [NSString stringWithFormat:@"%@.%@", MAIN_FILE_BASE, MAIN_FILE_EXT];
+        if ([[fsItem.fullPath lastPathComponent] isEqualToString:mainFileName]) {
             dragOK = NO;
             break;
         }

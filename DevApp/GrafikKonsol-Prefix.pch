@@ -87,4 +87,4 @@
 #define PROJ_PLIST_NAME @"grafikkonsol_project"
 #define SRC_DIR_NAME @"source"
 #define MAIN_FILE_BASE @"main"
-#define MAIN_FILE_EXT @"js"
+#define MAIN_FILE_EXT @"ks"

@@ -216,7 +216,7 @@
     // add source dir
     NSFileWrapper *srcDirWrap = [wrapTab objectForKey:SRC_DIR_NAME];
     if (!srcDirWrap) {
-        // load main.js
+        // load main.ks
         NSString *mainFilePath = [[NSBundle mainBundle] pathForResource:MAIN_FILE_BASE ofType:MAIN_FILE_EXT];
         TDAssert([mainFilePath length]);
         NSData *mainFileData = [NSData dataWithContentsOfFile:mainFilePath options:0 error:nil];
@@ -226,7 +226,7 @@
         srcDirWrap = [[[NSFileWrapper alloc] initDirectoryWithFileWrappers:@{}] autorelease];
         srcDirWrap.preferredFilename = SRC_DIR_NAME;
         
-        // add main.js
+        // add main.ks
         [srcDirWrap addRegularFileWithContents:mainFileData preferredFilename:[MAIN_FILE_BASE stringByAppendingPathExtension:MAIN_FILE_EXT]];
         
         // add src dir

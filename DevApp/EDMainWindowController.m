@@ -212,7 +212,7 @@
 
 
 - (void)windowWillClose:(NSNotification *)n {
-    if ([self document]) {
+    if ([[self document] fileURL]) {
         // don't need to call -saveDocument: as that has triggered this method call.
         [self saveAllDirtyFiles];
     }

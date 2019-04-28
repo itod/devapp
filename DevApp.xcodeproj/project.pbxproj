@@ -108,7 +108,7 @@
 		D31670BA1E5A182900DEE3A0 /* EDNavigatorOutlineView.m in Sources */ = {isa = PBXBuildFile; fileRef = D31670B91E5A182900DEE3A0 /* EDNavigatorOutlineView.m */; };
 		D31671001E5A21F800DEE3A0 /* EDMainWindowController+NewProject.m in Sources */ = {isa = PBXBuildFile; fileRef = D31670661E59FD9B00DEE3A0 /* EDMainWindowController+NewProject.m */; };
 		D31671031E5A251000DEE3A0 /* EDBaseToolbarItem.m in Sources */ = {isa = PBXBuildFile; fileRef = D31671021E5A251000DEE3A0 /* EDBaseToolbarItem.m */; };
-		D31671051E5A599200DEE3A0 /* main.js in Resources */ = {isa = PBXBuildFile; fileRef = D31671041E5A599200DEE3A0 /* main.js */; };
+		D31671051E5A599200DEE3A0 /* main.ks in Resources */ = {isa = PBXBuildFile; fileRef = D31671041E5A599200DEE3A0 /* main.ks */; };
 		D31671131E5B590100DEE3A0 /* EDMainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = D31671111E5B590100DEE3A0 /* EDMainMenu.xib */; };
 		D31E2C591E7CC4AA0023E924 /* EDCanvasViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D31E2C571E7CC4AA0023E924 /* EDCanvasViewController.xib */; };
 		D31E2C781E7D82720023E924 /* SZDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = D31E2C771E7D82720023E924 /* SZDocument.m */; };
@@ -596,7 +596,7 @@
 		D31670F11E5A1A7B00DEE3A0 /* EDRecentURLController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EDRecentURLController.m; sourceTree = "<group>"; };
 		D31671011E5A251000DEE3A0 /* EDBaseToolbarItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EDBaseToolbarItem.h; sourceTree = "<group>"; };
 		D31671021E5A251000DEE3A0 /* EDBaseToolbarItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EDBaseToolbarItem.m; sourceTree = "<group>"; };
-		D31671041E5A599200DEE3A0 /* main.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; name = main.js; path = ../res/main.js; sourceTree = "<group>"; };
+		D31671041E5A599200DEE3A0 /* main.ks */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = main.ks; path = ../res/main.ks; sourceTree = "<group>"; };
 		D316710C1E5A5FB600DEE3A0 /* TDComboField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TDComboField.m; path = lib/TDAppKit/src/TDComboField.m; sourceTree = SOURCE_ROOT; };
 		D316710E1E5A5FC200DEE3A0 /* TDComboField.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = TDComboField.h; path = lib/TDAppKit/include/TDAppKit/TDComboField.h; sourceTree = SOURCE_ROOT; };
 		D316710F1E5AB89300DEE3A0 /* DOMNode+TDAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "DOMNode+TDAdditions.m"; path = "lib/TDAppKit/src/DOMNode+TDAdditions.m"; sourceTree = SOURCE_ROOT; };
@@ -1370,7 +1370,7 @@
 				D33699B61E36B78900FEB7BF /* Assets.xcassets */,
 				D3369B311E36C61F00FEB7BF /* GrafikKonsol-Prefix.pch */,
 				D33699AE1E36B78900FEB7BF /* main.m */,
-				D31671041E5A599200DEE3A0 /* main.js */,
+				D31671041E5A599200DEE3A0 /* main.ks */,
 				D33699BB1E36B78900FEB7BF /* Info.plist */,
 				D3CF9C27211B7F4800E92136 /* GrafikKonsol-PreferencePanes.plist */,
 				D3166F321E59068500DEE3A0 /* GrafikKonsol-DefaultValues.plist */,
@@ -1875,7 +1875,7 @@
 				D31671131E5B590100DEE3A0 /* EDMainMenu.xib in Resources */,
 				D3166F5C1E5908FE00DEE3A0 /* EDGuidesPreferences.xib in Resources */,
 				D3166F361E59073D00DEE3A0 /* EDThemePreferences.xib in Resources */,
-				D31671051E5A599200DEE3A0 /* main.js in Resources */,
+				D31671051E5A599200DEE3A0 /* main.ks in Resources */,
 				D3166EB51E57C54400DEE3A0 /* EDUpdatePreferences.xib in Resources */,
 				D3166F521E5908CA00DEE3A0 /* EDTextEditingPreferences.xib in Resources */,
 				D3166F921E590DF600DEE3A0 /* css in Resources */,

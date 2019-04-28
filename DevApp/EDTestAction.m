@@ -34,7 +34,8 @@
 - (id)init {
     self = [super init];
     if (self) {
-        self.commandString = @"$(PROJECT_SOURCE_DIR)/test.js"; // TODO
+        NSString *cmdStr = [NSString stringWithFormat:@"$(PROJECT_SOURCE_DIR)/test.%@", MAIN_FILE_EXT];
+        self.commandString = cmdStr; // TODO
     }
     return self;
 }

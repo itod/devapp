@@ -59,7 +59,7 @@
 
     _formContainerView.color = [NSColor windowBackgroundColor];
     
-    self.filename = @".js";
+    self.filename = [NSString stringWithFormat:@".%@", MAIN_FILE_EXT];
     [[_filenameTextField currentEditor] setSelectedRange:NSMakeRange(0, 0)];
     
     TDPerformOnMainThread(^{
