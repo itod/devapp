@@ -22,6 +22,10 @@
 static NSDictionary *sNameAttrs = nil;
 static NSDictionary *sValueAttrs = nil;
 
+@interface EDShellViewController ()
+@property (nonatomic, assign, getter=isAtPrompt) BOOL atPrompt;
+@end
+
 @interface EDConsoleViewController ()
 @property (nonatomic, retain) NSArray *debugInfo;
 @end
@@ -164,7 +168,8 @@ static NSDictionary *sValueAttrs = nil;
 - (IBAction)clear:(id)sender {
     EDAssert(self.textView);
     [self.textView setString:@""];
-    
+    self.atPrompt = NO;
+
     if ([_delegate isConsolePaused:self] && ![[EDUserDefaults instance] suppressConsolePrompt]) {
         [self appendPrompt];
     }

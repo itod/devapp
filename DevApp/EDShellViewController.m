@@ -117,6 +117,7 @@
     EDAssertMainThread();
     EDAssert(_textView);
     [_textView setString:@""];
+    self.atPrompt = NO;
     [self appendPrompt];
 }
 
