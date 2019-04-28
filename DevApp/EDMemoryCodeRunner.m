@@ -516,7 +516,7 @@ void TDPerformAfterDelay(dispatch_queue_t q, double delay, void (^block)(void)) 
         [self updateMouseLocation:_mouseLocation button:-1];
         
         // EVENT LOOP
-        NSError *err = nil;
+        err = nil;
         id evtTab = @{kEDEventCategoryKey: @(EDEventCategoryDraw)};
 
         do {
