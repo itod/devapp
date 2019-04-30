@@ -18,11 +18,12 @@ NSString * const SZGraphicsContextDidChangeSizeNotification = @"SZGraphicsContex
 @property (nonatomic, retain) NSMutableDictionary *loopTab;
 @property (nonatomic, retain) NSMutableDictionary *redrawTab;
 @property (nonatomic, retain) NSMutableDictionary *frameRateTab;
+@property (nonatomic, retain) NSMutableDictionary *shapeModeTab;
 @end
 
 @implementation SZApplication
 
-- (id)init {
+- (instancetype)init {
     self = [super init];
     if (self) {
         self.contextTab = [NSMutableDictionary dictionary];
@@ -31,6 +32,7 @@ NSString * const SZGraphicsContextDidChangeSizeNotification = @"SZGraphicsContex
         self.loopTab = [NSMutableDictionary dictionary];
         self.redrawTab = [NSMutableDictionary dictionary];
         self.frameRateTab = [NSMutableDictionary dictionary];
+        self.shapeModeTab = [NSMutableDictionary dictionary];
     }
     return self;
 }
@@ -43,6 +45,7 @@ NSString * const SZGraphicsContextDidChangeSizeNotification = @"SZGraphicsContex
     self.loopTab = nil;
     self.redrawTab = nil;
     self.frameRateTab = nil;
+    self.shapeModeTab = nil;
     [super dealloc];
 }
 
@@ -194,6 +197,28 @@ NSString * const SZGraphicsContextDidChangeSizeNotification = @"SZGraphicsContex
     id val = @(frameRate);
     @synchronized(_frameRateTab) {
         [_frameRateTab setObject:val forKey:identifier];
+    }
+}
+
+
+- (NSInteger)shapeModeForIdentifier:(NSString *)identifier {
+    TDAssert([identifier length]);
+    TDAssert(_shapeModeTab);
+    id val = nil;
+    @synchronized(_shapeModeTab) {
+        val = [_shapeModeTab objectForKey:identifier];
+    }
+    TDAssert(val);
+    return [val doubleValue];
+}
+
+
+- (void)setShapeMode:(NSInteger)shapeMode forIdentifier:(NSString *)identifier {
+    TDAssert([identifier length]);
+    TDAssert(_shapeModeTab);
+    id val = @(shapeMode);
+    @synchronized(_shapeModeTab) {
+        [_shapeModeTab setObject:val forKey:identifier];
     }
 }
 

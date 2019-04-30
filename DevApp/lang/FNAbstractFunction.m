@@ -181,6 +181,7 @@ NSString * const FNCanvasDidDebugUpdateNotification = @"FNCanvasDidDebugUpdateNo
     [[SZApplication instance] setStrokeWeightStack:[NSMutableArray arrayWithObject:@1] forIdentifier:identifier]; // default is 1
     [[SZApplication instance] setLoop:YES forIdentifier:identifier]; // default is YES
     [[SZApplication instance] setFrameRate:60.0 forIdentifier:identifier]; // default is 60 fps
+    [[SZApplication instance] setShapeMode:FNShapeModeFlagCorner forIdentifier:identifier]; // default is CORNER
 }
 
 
@@ -235,6 +236,18 @@ NSString * const FNCanvasDidDebugUpdateNotification = @"FNCanvasDidDebugUpdateNo
 - (void)setFrameRate:(double)frameRate {
     TDAssertExecuteThread();
     [[SZApplication instance] setFrameRate:frameRate forIdentifier:[[self class] identifier]];
+}
+
+
+- (FNShapeModeFlag)shapeMode {
+    TDAssertExecuteThread();
+    return [[SZApplication instance] shapeModeForIdentifier:[[self class] identifier]];
+}
+
+
+- (void)setShapeMode:(FNShapeModeFlag)shapeMode {
+    TDAssertExecuteThread();
+    [[SZApplication instance] setShapeMode:shapeMode forIdentifier:[[self class] identifier]];
 }
 
 @end
