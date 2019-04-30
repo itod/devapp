@@ -8,6 +8,14 @@
 
 #import "XPFunctionBody.h"
 
+typedef NS_ENUM(NSUInteger, FNShapeModeFlag) {
+    FNShapeModeFlagCorner,
+    FNShapeModeFlagCorners,
+    FNShapeModeFlagCenter,
+    FNShapeModeFlagRadius,
+};
+
+
 extern NSString * const FNCanvasDidDebugUpdateNotification;
 
 typedef void(^FNRenderBlock)(CGContextRef ctx, NSInteger strokeWeight);
@@ -27,4 +35,5 @@ typedef void(^FNRenderBlock)(CGContextRef ctx, NSInteger strokeWeight);
 @property (nonatomic, assign) BOOL loop;
 @property (nonatomic, assign) BOOL redraw;
 @property (nonatomic, assign) double frameRate;
+@property (nonatomic, assign) FNShapeModeFlag shapeMode;
 @end

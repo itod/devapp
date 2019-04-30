@@ -19,6 +19,7 @@
 #import "FNFrameRate.h"
 #import "FNRedraw.h"
 #import "FNLoop.h"
+#import "FNShapeMode.h"
 #import "FNNoStroke.h"
 #import "FNNoFill.h"
 #import "FNSize.h"
@@ -696,6 +697,7 @@ void TDPerformAfterDelay(dispatch_queue_t q, double delay, void (^block)(void)) 
     [i declareNativeFunction:[FNFrameRate class]];
     [i declareNativeFunction:[FNRedraw class]];
     [i declareNativeFunction:[FNLoop class]];
+    [i declareNativeFunction:[FNShapeMode class]];
     [i declareNativeFunction:[FNNoStroke class]];
     [i declareNativeFunction:[FNNoFill class]];
     [i declareNativeFunction:[FNSize class]];
@@ -721,6 +723,11 @@ void TDPerformAfterDelay(dispatch_queue_t q, double delay, void (^block)(void)) 
     [i declareNativeVariable:[XPObject number:M_PI_2] forName:@"HALF_PI"];
     [i declareNativeVariable:[XPObject number:M_PI_4] forName:@"QUARTER_PI"];
     [i declareNativeVariable:[XPObject number:M_PI*2.0] forName:@"TWO_PI"];
+
+    [i declareNativeVariable:[XPObject number:0] forName:@"CORNER"];
+    [i declareNativeVariable:[XPObject number:1] forName:@"CORNERS"];
+    [i declareNativeVariable:[XPObject number:2] forName:@"CENTER"];
+    [i declareNativeVariable:[XPObject number:3] forName:@"RADIUS"];
 }
 
 
