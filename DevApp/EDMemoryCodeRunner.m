@@ -19,7 +19,6 @@
 #import "FNFrameRate.h"
 #import "FNRedraw.h"
 #import "FNLoop.h"
-#import "FNNoLoop.h"
 #import "FNNoStroke.h"
 #import "FNNoFill.h"
 #import "FNSize.h"
@@ -697,7 +696,6 @@ void TDPerformAfterDelay(dispatch_queue_t q, double delay, void (^block)(void)) 
     [i declareNativeFunction:[FNFrameRate class]];
     [i declareNativeFunction:[FNRedraw class]];
     [i declareNativeFunction:[FNLoop class]];
-    [i declareNativeFunction:[FNNoLoop class]];
     [i declareNativeFunction:[FNNoStroke class]];
     [i declareNativeFunction:[FNNoFill class]];
     [i declareNativeFunction:[FNSize class]];

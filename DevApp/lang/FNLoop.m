@@ -22,12 +22,19 @@
 - (XPFunctionSymbol *)symbol {
     XPFunctionSymbol *funcSym = [XPFunctionSymbol symbolWithName:[[self class] name] enclosingScope:nil];
     funcSym.nativeBody = self;
+
+    XPSymbol *yn = [XPSymbol symbolWithName:@"shouldLoop"];
+    funcSym.orderedParams = [NSMutableArray arrayWithObjects:yn, nil];
+    funcSym.params = [NSMutableDictionary dictionaryWithObjectsAndKeys:
+                      yn, @"shouldLoop",
+                      nil];
     return funcSym;
 }
 
 
 - (XPObject *)callWithWalker:(XPTreeWalker *)walker functionSpace:(XPMemorySpace *)space argc:(NSUInteger)argc {
-    self.loop = YES;
+    XPObject *yn = [space objectForName:@"shouldLoop"];
+    self.loop = [yn boolValue];
     return nil;
 }
 
