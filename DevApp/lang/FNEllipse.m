@@ -46,32 +46,61 @@
 
 
 - (XPObject *)callWithWalker:(XPTreeWalker *)walker functionSpace:(XPMemorySpace *)space argc:(NSUInteger)argc {
-    XPObject *x = [space objectForName:@"x"];
-    XPObject *y = [space objectForName:@"y"];
-    XPObject *w = [space objectForName:@"width"];
-    XPObject *h = [space objectForName:@"height"];
+    XPObject *xObj = [space objectForName:@"x"];
+    XPObject *yObj = [space objectForName:@"y"];
+    XPObject *wObj = [space objectForName:@"width"];
+    XPObject *hObj = [space objectForName:@"height"];
     
     if (1 == argc) {
-        if (x.isArrayObject && 4 == [x.value count]) {
-            NSArray *v = x.value;
-            x = [v objectAtIndex:0];
-            y = [v objectAtIndex:1];
-            w = [v objectAtIndex:2];
-            h = [v objectAtIndex:3];
+        if (xObj.isArrayObject && 4 == [xObj.value count]) {
+            NSArray *v = xObj.value;
+            xObj = [v objectAtIndex:0];
+            yObj = [v objectAtIndex:1];
+            wObj = [v objectAtIndex:2];
+            hObj = [v objectAtIndex:3];
         } else {
             [self raise:XPTypeError format:@"when calling `%@()` with one argument, argument must be a rectangle Array object: [x, y, width, height]", [[self class] name]];
         }
     }
     
-    TDAssert(x);
-    TDAssert(y);
-    TDAssert(w);
-    TDAssert(h);
-
+    TDAssert(xObj);
+    TDAssert(yObj);
+    TDAssert(wObj);
+    TDAssert(hObj);
+    
+    double x = xObj.doubleValue;
+    double y = yObj.doubleValue;
+    double w = wObj.doubleValue;
+    double h = hObj.doubleValue;
+    
+    switch (self.shapeMode) {
+        case FNShapeModeFlagCorner: {
+            // noop
+        } break;
+        case FNShapeModeFlagCorners: {
+            w = w - x;
+            h = h - y;
+        } break;
+        case FNShapeModeFlagCenter: {
+            x -= w * 0.5;
+            y -= h * 0.5;
+        } break;
+        case FNShapeModeFlagRadius: {
+            x -= w;
+            y -= h;
+            w *= 2.0;
+            h *= 2.0;
+        } break;
+            
+        default:
+            TDAssert(0);
+            break;
+    }
+    
     [self render:^(CGContextRef ctx, NSInteger strokeWeight) {
         // FILL
         {
-            CGRect fillRect = CGRectMake(x.doubleValue, y.doubleValue, w.doubleValue, h.doubleValue);
+            CGRect fillRect = CGRectMake(x, y, w, h);
             CGContextFillEllipseInRect(ctx, fillRect);
         }
         
@@ -82,9 +111,9 @@
                 
 //                BOOL isOdd = (weight & 1);
 //                if (isOdd) {
-//                    strokeRect = CGRectMake(x.doubleValue+0.5, y.doubleValue+0.5, w.doubleValue, h.doubleValue);
+//                    strokeRect = CGRectMake(x+0.5, y+0.5, w, h);
 //                } else {
-                    strokeRect = CGRectMake(x.doubleValue, y.doubleValue, w.doubleValue, h.doubleValue);
+                    strokeRect = CGRectMake(x, y, w, h);
 //                }
                 
                 CGContextStrokeEllipseInRect(ctx, strokeRect);

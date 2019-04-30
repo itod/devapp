@@ -93,6 +93,7 @@
         } break;
             
         default:
+            TDAssert(0);
             break;
     }
     
