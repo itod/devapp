@@ -1447,6 +1447,7 @@
                      [OKTrigger triggerWithTemplate:@"sort(${array})" specifier:@"sort"],
                      [OKTrigger triggerWithTemplate:@"sort(${array}, ${sub})" specifier:@"sort"],
                      [OKTrigger triggerWithTemplate:@"reverse(${array})" specifier:@"reverse"],
+                     [OKTrigger triggerWithTemplate:@"append(${array}, ${object})" specifier:@"append"],
                      [OKTrigger triggerWithTemplate:@"extend(${array}, ${additionArray})" specifier:@"extend"],
                      [OKTrigger triggerWithTemplate:@"map(${array}, ${sub})" specifier:@"map"],
                      [OKTrigger triggerWithTemplate:@"filter(${array}, ${sub})" specifier:@"filter"],
