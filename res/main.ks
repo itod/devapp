@@ -1,12 +1,13 @@
 
 sub setup() {
-    noLoop()
+    loop(false)
+    shapeMode(CENTER)
     size(480.0, 640.0)
 }
 
 sub draw() {
     background('white')
-    line([0,0], [mouseX, mouseY])
+    rect(mouseX, mouseY, 20, 20)
 }
 
 sub mouseDragged() {
