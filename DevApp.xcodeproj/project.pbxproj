@@ -204,7 +204,7 @@
 		D34FF7172273E9FE009889A2 /* EDFileWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D316706E1E59FDF000DEE3A0 /* EDFileWindowController.xib */; };
 		D34FF71A22749BF8009889A2 /* EDComboBox.m in Sources */ = {isa = PBXBuildFile; fileRef = D34FF71922749BF8009889A2 /* EDComboBox.m */; };
 		D34FF73E2278DB04009889A2 /* FNShapeMode.m in Sources */ = {isa = PBXBuildFile; fileRef = D34FF73C2278DB04009889A2 /* FNShapeMode.m */; };
-		D36B295F227A0A8B00BC53DD /* FNRectContainsPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = D36B295E227A0A8B00BC53DD /* FNRectContainsPoint.m */; };
+		D36B295F227A0A8B00BC53DD /* FNContains.m in Sources */ = {isa = PBXBuildFile; fileRef = D36B295E227A0A8B00BC53DD /* FNContains.m */; };
 		D37CFCB51EC8B90600068FEB /* FNBezier.m in Sources */ = {isa = PBXBuildFile; fileRef = D37CFCB41EC8B90600068FEB /* FNBezier.m */; };
 		D38693741F9CF55100928048 /* TDLinkedQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = D38693691F9CF55000928048 /* TDLinkedQueue.m */; };
 		D393578C1F7C4D39008AE4A8 /* TDDispatcherGDC.m in Sources */ = {isa = PBXBuildFile; fileRef = D393578B1F7C4D39008AE4A8 /* TDDispatcherGDC.m */; };
@@ -781,8 +781,8 @@
 		D34FF71922749BF8009889A2 /* EDComboBox.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EDComboBox.m; sourceTree = "<group>"; };
 		D34FF73C2278DB04009889A2 /* FNShapeMode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FNShapeMode.m; path = lang/FNShapeMode.m; sourceTree = "<group>"; };
 		D34FF73D2278DB04009889A2 /* FNShapeMode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FNShapeMode.h; path = lang/FNShapeMode.h; sourceTree = "<group>"; };
-		D36B2953227A0A8B00BC53DD /* FNRectContainsPoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FNRectContainsPoint.h; path = lang/FNRectContainsPoint.h; sourceTree = "<group>"; };
-		D36B295E227A0A8B00BC53DD /* FNRectContainsPoint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FNRectContainsPoint.m; path = lang/FNRectContainsPoint.m; sourceTree = "<group>"; };
+		D36B2953227A0A8B00BC53DD /* FNContains.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FNContains.h; path = lang/FNContains.h; sourceTree = "<group>"; };
+		D36B295E227A0A8B00BC53DD /* FNContains.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FNContains.m; path = lang/FNContains.m; sourceTree = "<group>"; };
 		D37CFCB31EC8B90600068FEB /* FNBezier.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FNBezier.h; path = lang/FNBezier.h; sourceTree = "<group>"; };
 		D37CFCB41EC8B90600068FEB /* FNBezier.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FNBezier.m; path = lang/FNBezier.m; sourceTree = "<group>"; };
 		D38693691F9CF55000928048 /* TDLinkedQueue.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = TDLinkedQueue.m; path = lib/TDThreadUtils/src/TDLinkedQueue.m; sourceTree = SOURCE_ROOT; };
@@ -1647,8 +1647,8 @@
 				D37CFCB41EC8B90600068FEB /* FNBezier.m */,
 				D34FF73D2278DB04009889A2 /* FNShapeMode.h */,
 				D34FF73C2278DB04009889A2 /* FNShapeMode.m */,
-				D36B2953227A0A8B00BC53DD /* FNRectContainsPoint.h */,
-				D36B295E227A0A8B00BC53DD /* FNRectContainsPoint.m */,
+				D36B2953227A0A8B00BC53DD /* FNContains.h */,
+				D36B295E227A0A8B00BC53DD /* FNContains.m */,
 			);
 			name = Functions;
 			sourceTree = "<group>";
@@ -2024,7 +2024,7 @@
 				D3DA17E81E77721700492A04 /* OKLanguageParser.m in Sources */,
 				D3369B161E36C25A00FEB7BF /* TKDocument.m in Sources */,
 				D3369AAC1E36BEED00FEB7BF /* IDEApplication.m in Sources */,
-				D36B295F227A0A8B00BC53DD /* FNRectContainsPoint.m in Sources */,
+				D36B295F227A0A8B00BC53DD /* FNContains.m in Sources */,
 				D31E2C8A1E7D85F50023E924 /* EDCanvasContainerView.m in Sources */,
 				D316705E1E59FC2C00DEE3A0 /* EDBreakpointListContainerView.m in Sources */,
 				D3CF9C35211B80F100E92136 /* FlatTabStyle.m in Sources */,

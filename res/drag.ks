@@ -1,8 +1,8 @@
 var mode = CENTER
-var drag = false
 var side = 20.0
 var loc = [100.0, 100.0]
 var offset = [0.0, 0.0]
+var drag = false
 
 sub setup() {
     loop(false)
@@ -12,7 +12,8 @@ sub setup() {
 
 sub draw() {
     background('white')
-    stroke('green')
+    fill('red')
+    stroke('black')
     rect(loc[1], loc[2], side, side)
 }
 

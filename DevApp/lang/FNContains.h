@@ -1,5 +1,5 @@
 //
-//  FNRectContainsPoint.h
+//  FNContains.h
 //  Language
 //
 //  Created by Todd Ditchendorf on 2/14/17.
@@ -8,6 +8,6 @@
 
 #import "FNAbstractFunction.h"
 
-@interface FNRectContainsPoint : FNAbstractFunction
+@interface FNContains : FNAbstractFunction
 
 @end

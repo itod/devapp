@@ -1,22 +1,22 @@
 //
-//  FNRectContainsPoint.m
+//  FNContains.m
 //  Language
 //
 //  Created by Todd Ditchendorf on 2/14/17.
 //  Copyright © 2017 Celestial Teapot. All rights reserved.
 //
 
-#import "FNRectContainsPoint.h"
+#import "FNContains.h"
 #import <Language/XPObject.h>
 #import <Language/XPTreeWalker.h>
 #import <Language/XPException.h>
 #import "XPFunctionSymbol.h"
 #import "XPMemorySpace.h"
 
-@implementation FNRectContainsPoint
+@implementation FNContains
 
 + (NSString *)name {
-    return @"rectContainsPoint";
+    return @"contains";
 }
 
 
