@@ -1450,6 +1450,8 @@
                      [OKTrigger triggerWithTemplate:@"extend(${array}, ${additionArray})" specifier:@"extend"],
                      [OKTrigger triggerWithTemplate:@"map(${array}, ${sub})" specifier:@"map"],
                      [OKTrigger triggerWithTemplate:@"filter(${array}, ${sub})" specifier:@"filter"],
+                     [OKTrigger triggerWithTemplate:@"hasKey(${dictionary}, ${key})" specifier:@"hasKey"],
+                     [OKTrigger triggerWithTemplate:@"removeKey(${dictionary}, ${key})" specifier:@"removeKey"],
                      [OKTrigger triggerWithTemplate:@"locals()" specifier:@"locals"],
                      [OKTrigger triggerWithTemplate:@"globals()" specifier:@"globals"],
                      
@@ -1485,6 +1487,8 @@
                      [OKTrigger triggerWithTemplate:@"line(${x1}, ${y1}, ${x2}, ${y2})" specifier:@"line"],
                      [OKTrigger triggerWithTemplate:@"bezier(${point1Array}, ${point2Array}, ${point3Array}, ${point4Array})" specifier:@"bezier"],
                      [OKTrigger triggerWithTemplate:@"bezier(${x1}, ${y1}, ${x2}, ${y2}, ${x3}, ${y3}, ${x4}, ${y4})" specifier:@"bezier"],
+                     [OKTrigger triggerWithTemplate:@"contains(${rectArray}, ${pointArray})" specifier:@"contains"],
+                     [OKTrigger triggerWithTemplate:@"contains(${rectArray}, ${pointArray}, ${shapeMode})" specifier:@"contains"],
 
                      [OKTrigger triggerWithTemplate:@"mouseDown()" specifier:@"mouseDown"],
                      [OKTrigger triggerWithTemplate:@"mouseUp()" specifier:@"mouseUp"],
