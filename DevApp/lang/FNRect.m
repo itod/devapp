@@ -46,10 +46,10 @@
 
 
 - (XPObject *)callWithWalker:(XPTreeWalker *)walker functionSpace:(XPMemorySpace *)space argc:(NSUInteger)argc {
-    XPObject *xObj = [space objectForName:@"x"];
-    XPObject *yObj = [space objectForName:@"y"];
-    XPObject *wObj = [space objectForName:@"width"];
-    XPObject *hObj = [space objectForName:@"height"];
+    XPObject *xObj = [space objectForName:@"x"]; TDAssert(xObj);
+    XPObject *yObj = [space objectForName:@"y"]; TDAssert(yObj);
+    XPObject *wObj = [space objectForName:@"width"]; TDAssert(wObj);
+    XPObject *hObj = [space objectForName:@"height"]; TDAssert(hObj);
     
     if (1 == argc) {
         if (xObj.isArrayObject && 4 == [xObj.value count]) {
@@ -62,11 +62,6 @@
             [self raise:XPTypeError format:@"when calling `%@()` with one argument, argument must be a rectangle Array object: [x, y, width, height]", [[self class] name]];
         }
     }
-    
-    TDAssert(xObj);
-    TDAssert(yObj);
-    TDAssert(wObj);
-    TDAssert(hObj);
     
     double x = xObj.doubleValue;
     double y = yObj.doubleValue;
