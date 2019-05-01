@@ -15,7 +15,6 @@ typedef NS_ENUM(NSUInteger, FNShapeModeFlag) {
     FNShapeModeFlagRadius,
 };
 
-
 extern NSString * const FNCanvasDidDebugUpdateNotification;
 
 typedef void(^FNRenderBlock)(CGContextRef ctx, NSInteger strokeWeight);
@@ -29,6 +28,8 @@ typedef void(^FNRenderBlock)(CGContextRef ctx, NSInteger strokeWeight);
 - (void)render:(FNRenderBlock)block;
 
 - (void)postCanvasDebugUpdate;
+
+- (CGRect)rectWithX:(double)x y:(double)y width:(double)w height:(double)h mode:(FNShapeModeFlag)mode;
 
 @property (nonatomic, assign) NSGraphicsContext *canvasGraphicsContext;
 @property (nonatomic, assign, readonly) NSMutableArray *strokeWeightStack;

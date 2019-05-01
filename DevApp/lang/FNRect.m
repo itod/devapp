@@ -67,35 +67,13 @@
     double y = yObj.doubleValue;
     double w = wObj.doubleValue;
     double h = hObj.doubleValue;
-
-    switch (self.shapeMode) {
-        case FNShapeModeFlagCorner: {
-            // noop
-        } break;
-        case FNShapeModeFlagCorners: {
-            w = w - x;
-            h = h - y;
-        } break;
-        case FNShapeModeFlagCenter: {
-            x -= w * 0.5;
-            y -= h * 0.5;
-        } break;
-        case FNShapeModeFlagRadius: {
-            x -= w;
-            y -= h;
-            w *= 2.0;
-            h *= 2.0;
-        } break;
-            
-        default:
-            TDAssert(0);
-            break;
-    }
+    
+    CGRect r = [self rectWithX:x y:y width:w height:h mode:self.shapeMode];
     
     [self render:^(CGContextRef ctx, NSInteger strokeWeight) {
         // FILL
         {
-            CGRect fillRect = CGRectMake(x, y, w, h);
+            CGRect fillRect = r;
             CGContextFillRect(ctx, fillRect);
         }
         
@@ -108,7 +86,7 @@
 //                if (isOdd) {
 //                    strokeRect = CGRectMake(x+0.5, y+0.5, w, h);
 //                } else {
-                    strokeRect = CGRectMake(x, y, w, h);
+                    strokeRect = r;
 //                }
                 
                 CGContextStrokeRect(ctx, strokeRect);

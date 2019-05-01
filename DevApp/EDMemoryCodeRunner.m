@@ -39,6 +39,7 @@
 #import "FNArc.h"
 #import "FNLine.h"
 #import "FNBezier.h"
+#import "FNRectContainsPoint.h"
 
 #define kEDEventCategoryKey @"catetory"
 #define kEDEventTypeKey @"type"
@@ -717,7 +718,8 @@ void TDPerformAfterDelay(dispatch_queue_t q, double delay, void (^block)(void)) 
     [i declareNativeFunction:[FNArc class]];
     [i declareNativeFunction:[FNLine class]];
     [i declareNativeFunction:[FNBezier class]];
-    
+    [i declareNativeFunction:[FNRectContainsPoint class]];
+
     TDAssert(i.globals);
     [i declareNativeVariable:[XPObject number:M_PI] forName:@"PI"];
     [i declareNativeVariable:[XPObject number:M_PI_2] forName:@"HALF_PI"];

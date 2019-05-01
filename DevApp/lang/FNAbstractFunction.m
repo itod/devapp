@@ -165,6 +165,35 @@ NSString * const FNCanvasDidDebugUpdateNotification = @"FNCanvasDidDebugUpdateNo
 }
 
 
+- (CGRect)rectWithX:(double)x y:(double)y width:(double)w height:(double)h mode:(FNShapeModeFlag)mode {
+    switch (mode) {
+        case FNShapeModeFlagCorner: {
+            // noop
+        } break;
+        case FNShapeModeFlagCorners: {
+            w = w - x;
+            h = h - y;
+        } break;
+        case FNShapeModeFlagCenter: {
+            x -= w * 0.5;
+            y -= h * 0.5;
+        } break;
+        case FNShapeModeFlagRadius: {
+            x -= w;
+            y -= h;
+            w *= 2.0;
+            h *= 2.0;
+        } break;
+            
+        default:
+            TDAssert(0);
+            break;
+    }
+
+    return CGRectMake(x, y, w, h);
+}
+
+
 #pragma mark -
 #pragma mark Properties
 

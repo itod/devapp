@@ -44,15 +44,47 @@
 
 
 - (XPObject *)callWithWalker:(XPTreeWalker *)walker functionSpace:(XPMemorySpace *)space argc:(NSUInteger)argc {
-    XPObject *x = [space objectForName:@"x"]; TDAssert(x);
-    XPObject *y = [space objectForName:@"y"]; TDAssert(y);
-    XPObject *radius = [space objectForName:@"radius"]; TDAssert(radius);
-    XPObject *startAngle = [space objectForName:@"startAngle"]; TDAssert(startAngle);
-    XPObject *endAngle = [space objectForName:@"endAngle"]; TDAssert(endAngle);
-    XPObject *clockwise = [space objectForName:@"clockwise"]; TDAssert(clockwise);
+    XPObject *xObj = [space objectForName:@"x"]; TDAssert(xObj);
+    XPObject *yObj = [space objectForName:@"y"]; TDAssert(yObj);
+    XPObject *radiusObj = [space objectForName:@"radius"]; TDAssert(radiusObj);
+    XPObject *startAngleObj = [space objectForName:@"startAngle"]; TDAssert(startAngleObj);
+    XPObject *endAngleObj = [space objectForName:@"endAngle"]; TDAssert(endAngleObj);
+    XPObject *clockwiseObj = [space objectForName:@"clockwise"]; TDAssert(clockwiseObj);
+    
+    double x = xObj.doubleValue;
+    double y = yObj.doubleValue;
+    double radius = radiusObj.doubleValue;
+    double startAngle = startAngleObj.doubleValue;
+    double endAngle = endAngleObj.doubleValue;
+    BOOL clockwise = clockwiseObj.boolValue;
+
+//    switch (self.shapeMode) {
+//        case FNShapeModeFlagCorner: {
+//            // noop
+//        } break;
+//        case FNShapeModeFlagCorners: {
+//            w = w - x;
+//            h = h - y;
+//        } break;
+//        case FNShapeModeFlagCenter: {
+//            x -= w * 0.5;
+//            y -= h * 0.5;
+//        } break;
+//        case FNShapeModeFlagRadius: {
+//            x -= w;
+//            y -= h;
+//            w *= 2.0;
+//            h *= 2.0;
+//        } break;
+//
+//        default:
+//            TDAssert(0);
+//            break;
+//    }
+
     
     [self render:^(CGContextRef ctx, NSInteger strokeWeight) {
-        CGContextAddArc(ctx, x.doubleValue, y.doubleValue, radius.doubleValue, startAngle.doubleValue, endAngle.doubleValue, clockwise.doubleValue);
+        CGContextAddArc(ctx, x, y, radius, startAngle, endAngle, clockwise);
     }];
     
     return nil;
