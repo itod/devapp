@@ -38,7 +38,12 @@
     XPObject *mode = [space objectForName:@"mode"];
     TDAssert(mode);
     
-    FNShapeModeFlag flag = lround([[mode asNumberObject] doubleValue]);
+    if (!mode.isNumericObject) {
+        [self raise:XPTypeError format:@"invalid shape mode : %@", [mode reprValue]];
+        return nil;
+    }
+    
+    FNShapeModeFlag flag = [mode integerValue];
     
     switch (flag) {
         case FNShapeModeFlagCorner:

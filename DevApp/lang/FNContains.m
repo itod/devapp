@@ -74,7 +74,7 @@
             double w = wObj.doubleValue;
             double h = hObj.doubleValue;
             
-            NSInteger shapeMode = lround(mode.doubleValue);
+            NSInteger shapeMode = mode.integerValue;
             
             [self rectWithX:x y:y width:w height:h mode:shapeMode];
         });
