@@ -68,12 +68,13 @@
     double w = wObj.doubleValue;
     double h = hObj.doubleValue;
     
-    CGRect r = [self rectWithX:x y:y width:w height:h mode:self.shapeMode];
+    FNShapeModeFlag mode = self.shapeMode;
+    CGRect r = [self rectWithX:x y:y width:w height:h mode:mode];
     
     [self render:^(CGContextRef ctx, NSInteger strokeWeight) {
         // FILL
         {
-            CGRect fillRect = r;
+            CGRect fillRect = CGRectMake(r.origin.x, r.origin.y, r.size.width, r.size.height);
             CGContextFillRect(ctx, fillRect);
         }
         
@@ -82,11 +83,14 @@
             if (strokeWeight > 0) {
                 CGRect strokeRect;
                 
-//                BOOL isOdd = (weight & 1);
+//                BOOL isOdd = (strokeWeight & 1);
 //                if (isOdd) {
 //                    strokeRect = CGRectMake(x+0.5, y+0.5, w, h);
 //                } else {
-                    strokeRect = r;
+                
+                CGFloat trim = 0.0;//ceil(0.5 * strokeWeight);
+                strokeRect = CGRectMake(r.origin.x, r.origin.y, r.size.width-trim, r.size.height-trim);
+                
 //                }
                 
                 CGContextStrokeRect(ctx, strokeRect);

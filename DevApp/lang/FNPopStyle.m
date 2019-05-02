@@ -32,6 +32,7 @@
     CGContextRestoreGState(ctx);
     
     [self.strokeWeightStack removeLastObject];
+    [self.noStrokeStack removeLastObject];
 
     return nil;
 }

@@ -21,6 +21,9 @@ extern NSString * const SZGraphicsContextDidChangeSizeNotification;
 - (NSMutableArray *)strokeWeightStackForIdentifier:(NSString *)identifier;
 - (void)setStrokeWeightStack:(NSMutableArray *)stack forIdentifier:(NSString *)identifier;
 
+- (NSMutableArray *)noStrokeStackForIdentifier:(NSString *)identifier;
+- (void)setNoStrokeStack:(NSMutableArray *)stack forIdentifier:(NSString *)identifier;
+
 - (BOOL)loopForIdentifier:(NSString *)identifier;
 - (void)setLoop:(BOOL)yn forIdentifier:(NSString *)identifier;
 

@@ -1419,8 +1419,8 @@
                      [OKTrigger triggerWithTemplate:@"ceil(${number})" specifier:@"ceil"],
                      [OKTrigger triggerWithTemplate:@"sqrt(${number})" specifier:@"sqrt"],
                      [OKTrigger triggerWithTemplate:@"pow(${number})" specifier:@"pow"],
-                     [OKTrigger triggerWithTemplate:@"max(${number})" specifier:@"max"],
-                     [OKTrigger triggerWithTemplate:@"min(${number})" specifier:@"min"],
+                     [OKTrigger triggerWithTemplate:@"max(${a}, ${b})" specifier:@"max"],
+                     [OKTrigger triggerWithTemplate:@"min(${a}, ${b})" specifier:@"min"],
                      [OKTrigger triggerWithTemplate:@"log(${number})" specifier:@"log"],
                      [OKTrigger triggerWithTemplate:@"acos(${number})" specifier:@"acos"],
                      [OKTrigger triggerWithTemplate:@"asin(${number})" specifier:@"asin"],
@@ -1458,7 +1458,6 @@
                      
                      // graphics funcs
                      [OKTrigger triggerWithTemplate:@"frameRate(${rate})" specifier:@"frameRate"],
-                     [OKTrigger triggerWithTemplate:@"noStroke()" specifier:@"noStroke"],
                      [OKTrigger triggerWithTemplate:@"redraw()" specifier:@"redraw"],
                      [OKTrigger triggerWithTemplate:@"loop(${shouldLoop})" specifier:@"loop"],
                      [OKTrigger triggerWithTemplate:@"shapeMode(${mode})" specifier:@"shapeMode"],

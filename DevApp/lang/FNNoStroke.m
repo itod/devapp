@@ -27,10 +27,11 @@
 
 
 - (XPObject *)callWithWalker:(XPTreeWalker *)walker functionSpace:(XPMemorySpace *)space argc:(NSUInteger)argc {
-    CGContextRef ctx = [self.canvasGraphicsContext graphicsPort];
+    BOOL yn = NO;
     
-    CGContextSetLineWidth(ctx, 0.0); // TODO
-
+    [self.noStrokeStack removeLastObject];
+    [self.noStrokeStack addObject:@(yn)];
+    
     return nil;
 }
 

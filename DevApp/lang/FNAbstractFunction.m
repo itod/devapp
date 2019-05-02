@@ -145,13 +145,19 @@ NSString * const FNCanvasDidDebugUpdateNotification = @"FNCanvasDidDebugUpdateNo
     CGContextRef ctx = [self.canvasGraphicsContext graphicsPort];
 
     NSInteger strokeWeight = [[self.strokeWeightStack lastObject] integerValue];
-    
+//    BOOL noStroke = [[self.noStrokeStack lastObject] boolValue];
+
     CGContextSaveGState(ctx); {
-        BOOL isOdd = (strokeWeight & 1);
-        if (isOdd) {
-            CGContextTranslateCTM(ctx, 0.5, 0.5);
-        }
+//        BOOL isOdd = (strokeWeight & 1);
+//        if (isOdd) {
+//            CGContextTranslateCTM(ctx, 0.5, 0.5);
+//        }
         
+//        if (noStroke) {
+//            CGContextSetLineWidth(ctx, 0.0);
+//        } else {
+//            CGContextSetLineWidth(ctx, strokeWeight);
+//        }
         block(ctx, strokeWeight);
     } CGContextRestoreGState(ctx);
     
@@ -208,6 +214,7 @@ NSString * const FNCanvasDidDebugUpdateNotification = @"FNCanvasDidDebugUpdateNo
     [[[NSThread currentThread] threadDictionary] setObject:identifier forKey:@"EDIdentifier"];
 
     [[SZApplication instance] setStrokeWeightStack:[NSMutableArray arrayWithObject:@1] forIdentifier:identifier]; // default is 1
+    [[SZApplication instance] setNoStrokeStack:[NSMutableArray arrayWithObject:@0] forIdentifier:identifier]; // default is 0
     [[SZApplication instance] setLoop:YES forIdentifier:identifier]; // default is YES
     [[SZApplication instance] setFrameRate:60.0 forIdentifier:identifier]; // default is 60 fps
     [[SZApplication instance] setShapeMode:FNShapeModeFlagCorner forIdentifier:identifier]; // default is CORNER
@@ -229,6 +236,12 @@ NSString * const FNCanvasDidDebugUpdateNotification = @"FNCanvasDidDebugUpdateNo
 - (NSMutableArray *)strokeWeightStack {
     TDAssertExecuteThread();
     return [[SZApplication instance] strokeWeightStackForIdentifier:[[self class] identifier]];
+}
+
+
+- (NSMutableArray *)noStrokeStack {
+    TDAssertExecuteThread();
+    return [[SZApplication instance] noStrokeStackForIdentifier:[[self class] identifier]];
 }
 
 

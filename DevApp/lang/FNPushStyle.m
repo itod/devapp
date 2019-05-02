@@ -32,7 +32,8 @@
     CGContextSaveGState(ctx);
     
     [self.strokeWeightStack addObject:[self.strokeWeightStack lastObject]];
-    
+    [self.noStrokeStack addObject:[self.noStrokeStack lastObject]];
+
     return nil;
 }
 

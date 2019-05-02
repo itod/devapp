@@ -14,7 +14,8 @@ NSString * const SZGraphicsContextDidChangeSizeNotification = @"SZGraphicsContex
 @interface SZApplication ()
 @property (nonatomic, retain) NSMutableDictionary *contextTab;
 @property (nonatomic, retain) NSMutableDictionary *imageTab;
-@property (nonatomic, retain) NSMutableDictionary *stackTab;
+@property (nonatomic, retain) NSMutableDictionary *strokeWeightStackTab;
+@property (nonatomic, retain) NSMutableDictionary *noStrokeStackTab;
 @property (nonatomic, retain) NSMutableDictionary *loopTab;
 @property (nonatomic, retain) NSMutableDictionary *redrawTab;
 @property (nonatomic, retain) NSMutableDictionary *frameRateTab;
@@ -28,7 +29,8 @@ NSString * const SZGraphicsContextDidChangeSizeNotification = @"SZGraphicsContex
     if (self) {
         self.contextTab = [NSMutableDictionary dictionary];
         self.imageTab = [NSMutableDictionary dictionary];
-        self.stackTab = [NSMutableDictionary dictionary];
+        self.strokeWeightStackTab = [NSMutableDictionary dictionary];
+        self.noStrokeStackTab = [NSMutableDictionary dictionary];
         self.loopTab = [NSMutableDictionary dictionary];
         self.redrawTab = [NSMutableDictionary dictionary];
         self.frameRateTab = [NSMutableDictionary dictionary];
@@ -41,7 +43,8 @@ NSString * const SZGraphicsContextDidChangeSizeNotification = @"SZGraphicsContex
 - (void)dealloc {
     self.contextTab = nil;
     self.imageTab = nil;
-    self.stackTab = nil;
+    self.strokeWeightStackTab = nil;
+    self.noStrokeStackTab = nil;
     self.loopTab = nil;
     self.redrawTab = nil;
     self.frameRateTab = nil;
@@ -115,10 +118,10 @@ NSString * const SZGraphicsContextDidChangeSizeNotification = @"SZGraphicsContex
 
 - (NSMutableArray *)strokeWeightStackForIdentifier:(NSString *)identifier {
     TDAssert([identifier length]);
-    TDAssert(_stackTab);
+    TDAssert(_strokeWeightStackTab);
     id res = nil;
-    @synchronized(_stackTab) {
-        res = [_stackTab objectForKey:identifier];
+    @synchronized(_strokeWeightStackTab) {
+        res = [_strokeWeightStackTab objectForKey:identifier];
     }
     TDAssert(res);
     return res;
@@ -128,9 +131,31 @@ NSString * const SZGraphicsContextDidChangeSizeNotification = @"SZGraphicsContex
 - (void)setStrokeWeightStack:(NSMutableArray *)stack forIdentifier:(NSString *)identifier {
     TDAssert([identifier length]);
     TDAssert(stack);
-    TDAssert(_stackTab);
-    @synchronized(_stackTab) {
-        [_stackTab setObject:stack forKey:identifier];
+    TDAssert(_strokeWeightStackTab);
+    @synchronized(_strokeWeightStackTab) {
+        [_strokeWeightStackTab setObject:stack forKey:identifier];
+    }
+}
+
+
+- (NSMutableArray *)noStrokeStackForIdentifier:(NSString *)identifier {
+    TDAssert([identifier length]);
+    TDAssert(_noStrokeStackTab);
+    id res = nil;
+    @synchronized(_noStrokeStackTab) {
+        res = [_noStrokeStackTab objectForKey:identifier];
+    }
+    TDAssert(res);
+    return res;
+}
+
+
+- (void)setNoStrokeStack:(NSMutableArray *)stack forIdentifier:(NSString *)identifier {
+    TDAssert([identifier length]);
+    TDAssert(stack);
+    TDAssert(_noStrokeStackTab);
+    @synchronized(_noStrokeStackTab) {
+        [_noStrokeStackTab setObject:stack forKey:identifier];
     }
 }
 
