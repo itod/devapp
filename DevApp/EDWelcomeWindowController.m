@@ -8,6 +8,7 @@
 
 #import "EDWelcomeWindowController.h"
 #import "EDWelcomeTableCellView.h"
+#import "EDDocumentController.h"
 
 @interface EDWelcomeWindowController ()
 
@@ -24,7 +25,7 @@
 - (instancetype)initWithWindowNibName:(NSString *)name {
     self = [super initWithWindowNibName:name];
     if (self) {
-        self.wantsExampleProjButton = YES;
+        self.wantsExampleProjButton = NO;
     }
     return self;
 }
@@ -103,8 +104,8 @@
 
 
 - (IBAction)openSampleProject:(id)sender {
-    //[[EDDocumentController instance] openSampleProject:sender];
-    //[self close];
+//    [[EDDocumentController instance] openSampleProject:sender];
+//    [self close];
     NSBeep();
 }
 

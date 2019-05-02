@@ -51,7 +51,7 @@
                             <outlet property="nextKeyView" destination="dtS-P0-jY8" id="AtN-dU-9cI"/>
                         </connections>
                     </button>
-                    <button hidden="YES" verticalHuggingPriority="750" id="dtS-P0-jY8">
+                    <button verticalHuggingPriority="750" id="dtS-P0-jY8">
                         <rect key="frame" x="20" y="51" width="202" height="32"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <buttonCell key="cell" type="push" title="Open a Sample Project" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="A9k-n4-DuO">

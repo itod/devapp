@@ -25,6 +25,8 @@
 - (IBAction)toggleConsoleViewVisible:(id)sender;
 - (IBAction)toggleDebugLocalVaraiblesVisible:(id)sender;
 
+- (IBAction)openSampleProject:(id)sender;
+
 // license
 #ifndef APPSTORE
 - (IBAction)showWelcomeWindow:(id)sender;

@@ -8,7 +8,10 @@
 
 #import "EDApplication.h"
 #import "EDDocumentController.h"
+#import "EDDocument.h"
+#import "EDMainWindowController.h"
 #import <TDAppKit/TDUtils.h>
+#import <OkudaKit/OKSource.h>
 
 #ifndef APPSTORE
 #import <TDAppKit/TDRegisterWindowController.h>
@@ -333,6 +336,34 @@ static BOOL sIsLicensed = NO;
 - (IBAction)toggleDebugLocalVaraiblesVisible:(id)sender {
     [[EDUserDefaults instance] setDebugLocalVariablesVisible:![[EDUserDefaults instance] debugLocalVariablesVisible]];
     [[NSNotificationCenter defaultCenter] postNotificationName:EDDebugLocalVariablesVisibleDidChangeNotification object:nil];
+}
+
+
+- (IBAction)openSampleProject:(id)sender {
+    // doesn't work
+    NSError *err = nil;
+    EDDocument *doc = [self openUntitledDocumentAndDisplay:NO error:&err];
+    TDAssert(doc);
+    TDAssert(!err);
+    
+    [doc makeWindowControllers];
+    TDAssert(doc.mainWindowController);
+    
+    NSString *path = [[NSBundle mainBundle] pathForResource:@"bounce" ofType:@"ks"];
+    if (![path length]) {
+        NSBeep();
+        return;
+    }
+    
+    NSString *src = [NSString stringWithContentsOfFile:path encoding:NSUTF8StringEncoding error:&err];
+    TDAssert(!err);
+    if (!src) {
+        NSBeep();
+        return;
+    }
+    
+    [doc.mainWindowController.selectedSourceViewController setSourceString:src encoding:NSUTF8StringEncoding clearUndo:YES];
+    [doc.mainWindowController.window makeKeyAndOrderFront:nil];
 }
 
 
