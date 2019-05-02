@@ -53,6 +53,8 @@ typedef NS_ENUM(NSUInteger, EDEventCategory) {
     EDEventCategoryStop,
     EDEventCategoryPause,
     EDEventCategoryDraw,
+    EDEventCategoryEnterDebug,
+    EDEventCategoryExitDebug,
 };
 
 void TDPerformAfterDelay(dispatch_queue_t q, double delay, void (^block)(void)) {
@@ -176,11 +178,26 @@ void TDPerformAfterDelay(dispatch_queue_t q, double delay, void (^block)(void)) 
 
 
 - (void)setAllBreakpoints:(id)bpPlist identifier:(NSString *)identifier {
-    [_interp updateBreakpoints:[XPBreakpointCollection fromPlist:bpPlist]];
+    TDAssertMainThread();
+    
+    XPBreakpointCollection *bpColl = nil;
+    EDEventCategory evtCat = EDEventCategoryExitDebug;
+    
+    if (bpPlist) {
+        bpColl = [XPBreakpointCollection fromPlist:bpPlist];
+        evtCat = EDEventCategoryEnterDebug;
+    }
+    
+    [_interp updateBreakpoints:bpColl];
+
+    id evt = @{kEDEventCategoryKey: @(evtCat)};
+    TDAssert(_eventQueue);
+    [_eventQueue put:evt];
 }
 
 
 - (void)clearAllBreakpoints:(NSString *)identifier {
+    TDAssertMainThread();
     [_interp updateBreakpoints:nil];
 }
 
@@ -489,11 +506,8 @@ void TDPerformAfterDelay(dispatch_queue_t q, double delay, void (^block)(void)) 
     _interp.stdErr = _stdErrPipe.fileHandleForWriting;
 
     if (bpPlist) {
-        _interp.debug = YES;
-        _interp.debugDelegate = self;
-        _interp.breakpointCollection = [XPBreakpointCollection fromPlist:bpPlist];
-        
-        [self startObservingCanvasDebugUpdate];
+        [_interp updateBreakpoints:[XPBreakpointCollection fromPlist:bpPlist]];
+        [self enterDebug];
     }
     
     // default "setup()" - just create reasonably-sized context
@@ -550,6 +564,14 @@ void TDPerformAfterDelay(dispatch_queue_t q, double delay, void (^block)(void)) 
                     wantsDraw = YES;
                 }
                 
+                else if (EDEventCategoryEnterDebug == evtCat) {
+                    [self enterDebug];
+                }
+                
+                else if (EDEventCategoryExitDebug == evtCat) {
+                    [self exitDebug];
+                }
+                
                 else {
                     TDAssert(0);
                 }
@@ -590,6 +612,26 @@ void TDPerformAfterDelay(dispatch_queue_t q, double delay, void (^block)(void)) 
         [info setObject:@0 forKey:kEDCodeRunnerReturnCodeKey];
         [self pauseWithInfo:info];
     }
+}
+
+
+- (void)enterDebug {
+    // only called on EXECUTE-THREAD
+    TDAssertExecuteThread();
+    _interp.debug = YES;
+    _interp.debugDelegate = self;
+
+    [self startObservingCanvasDebugUpdate];
+}
+
+
+- (void)exitDebug {
+    // only called on EXECUTE-THREAD
+    TDAssertExecuteThread();
+    _interp.debug = NO;
+    _interp.debugDelegate = nil;
+    
+    [self stopObservingCanvasDebugUpdate];
 }
 
 
