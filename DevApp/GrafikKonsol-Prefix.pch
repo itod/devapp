@@ -74,8 +74,8 @@
 
 #define LICENSE_FILENAME @"Grafik Konsol License"
 
-#define PURCHASE_URL @"http://celestialteapot.com/graphikkonsol"
-#define SUPPORT_URL @"http://celestialteapot.com/graphikkonsol"
+#define PURCHASE_URL @"http://celestialteapot.com/grafikkonsol"
+#define SUPPORT_URL @"http://celestialteapot.com/grafikkonsol"
 
 #define DEFAULT_VALUES_FILENAME @"GrafikKonsol-DefaultValues"
 #define PREFERENCES_FILENAME @"GrafikKonsol-PreferencePanes"
