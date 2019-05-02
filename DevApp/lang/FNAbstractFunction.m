@@ -144,6 +144,8 @@ NSString * const FNCanvasDidDebugUpdateNotification = @"FNCanvasDidDebugUpdateNo
     
     CGContextRef ctx = [self.canvasGraphicsContext graphicsPort];
 
+    BOOL noFill = [[self.noFillStack lastObject] boolValue];
+
     NSInteger strokeWeight = [[self.strokeWeightStack lastObject] integerValue];
     BOOL noStroke = [[self.noStrokeStack lastObject] boolValue];
 
@@ -152,6 +154,10 @@ NSString * const FNCanvasDidDebugUpdateNotification = @"FNCanvasDidDebugUpdateNo
     }
     
     CGContextSaveGState(ctx); {
+        if (noFill) {
+            CGContextSetRGBFillColor(ctx, 0.0, 0.0, 0.0, 0.0);
+        }
+        
         CGContextSetLineWidth(ctx, strokeWeight);
         BOOL isOdd = (strokeWeight & 1);
         if (isOdd) {
@@ -213,8 +219,9 @@ NSString * const FNCanvasDidDebugUpdateNotification = @"FNCanvasDidDebugUpdateNo
     TDAssert([identifier length]);
     [[[NSThread currentThread] threadDictionary] setObject:identifier forKey:@"EDIdentifier"];
 
+    [[SZApplication instance] setNoFillStack:[NSMutableArray arrayWithObject:@NO] forIdentifier:identifier]; // default is false
+    [[SZApplication instance] setNoStrokeStack:[NSMutableArray arrayWithObject:@NO] forIdentifier:identifier]; // default is false
     [[SZApplication instance] setStrokeWeightStack:[NSMutableArray arrayWithObject:@1] forIdentifier:identifier]; // default is 1
-    [[SZApplication instance] setNoStrokeStack:[NSMutableArray arrayWithObject:@0] forIdentifier:identifier]; // default is 0
     [[SZApplication instance] setLoop:YES forIdentifier:identifier]; // default is YES
     [[SZApplication instance] setFrameRate:60.0 forIdentifier:identifier]; // default is 60 fps
     [[SZApplication instance] setShapeMode:FNShapeModeFlagCorner forIdentifier:identifier]; // default is CORNER
@@ -233,15 +240,21 @@ NSString * const FNCanvasDidDebugUpdateNotification = @"FNCanvasDidDebugUpdateNo
 }
 
 
-- (NSMutableArray *)strokeWeightStack {
+- (NSMutableArray *)noFillStack {
     TDAssertExecuteThread();
-    return [[SZApplication instance] strokeWeightStackForIdentifier:[[self class] identifier]];
+    return [[SZApplication instance] noFillStackForIdentifier:[[self class] identifier]];
 }
 
 
 - (NSMutableArray *)noStrokeStack {
     TDAssertExecuteThread();
     return [[SZApplication instance] noStrokeStackForIdentifier:[[self class] identifier]];
+}
+
+
+- (NSMutableArray *)strokeWeightStack {
+    TDAssertExecuteThread();
+    return [[SZApplication instance] strokeWeightStackForIdentifier:[[self class] identifier]];
 }
 
 

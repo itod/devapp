@@ -27,10 +27,8 @@
 
 
 - (XPObject *)callWithWalker:(XPTreeWalker *)walker functionSpace:(XPMemorySpace *)space argc:(NSUInteger)argc {
-    CGContextRef ctx = [self.canvasGraphicsContext graphicsPort];
-    
-    CGContextSetRGBFillColor(ctx, 0.0, 0.0, 0.0, 0.0); // TODO
-
+    [self.noFillStack removeLastObject];
+    [self.noFillStack addObject:@YES];
     return nil;
 }
 

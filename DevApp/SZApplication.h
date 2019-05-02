@@ -18,11 +18,14 @@ extern NSString * const SZGraphicsContextDidChangeSizeNotification;
 - (NSImage *)sharedImageForIdentifier:(NSString *)identifier;
 - (void)setSharedImage:(NSImage *)img forIdentifier:(NSString *)identifier;
 
-- (NSMutableArray *)strokeWeightStackForIdentifier:(NSString *)identifier;
-- (void)setStrokeWeightStack:(NSMutableArray *)stack forIdentifier:(NSString *)identifier;
+- (NSMutableArray *)noFillStackForIdentifier:(NSString *)identifier;
+- (void)setNoFillStack:(NSMutableArray *)stack forIdentifier:(NSString *)identifier;
 
 - (NSMutableArray *)noStrokeStackForIdentifier:(NSString *)identifier;
 - (void)setNoStrokeStack:(NSMutableArray *)stack forIdentifier:(NSString *)identifier;
+
+- (NSMutableArray *)strokeWeightStackForIdentifier:(NSString *)identifier;
+- (void)setStrokeWeightStack:(NSMutableArray *)stack forIdentifier:(NSString *)identifier;
 
 - (BOOL)loopForIdentifier:(NSString *)identifier;
 - (void)setLoop:(BOOL)yn forIdentifier:(NSString *)identifier;
