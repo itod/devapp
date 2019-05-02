@@ -74,26 +74,15 @@
     [self render:^(CGContextRef ctx, NSInteger strokeWeight) {
         // FILL
         {
-            CGRect fillRect = CGRectMake(r.origin.x, r.origin.y, r.size.width, r.size.height);
-            CGContextFillRect(ctx, fillRect);
+            //CGRect fillRect = CGRectMake(r.origin.x, r.origin.y, r.size.width, r.size.height);
+            CGContextFillRect(ctx, r);
         }
         
         // STROKE
         {
             if (strokeWeight > 0) {
-                CGRect strokeRect;
-                
-//                BOOL isOdd = (strokeWeight & 1);
-//                if (isOdd) {
-//                    strokeRect = CGRectMake(x+0.5, y+0.5, w, h);
-//                } else {
-                
-                CGFloat trim = 0.0;//ceil(0.5 * strokeWeight);
-                strokeRect = CGRectMake(r.origin.x, r.origin.y, r.size.width-trim, r.size.height-trim);
-                
-//                }
-                
-                CGContextStrokeRect(ctx, strokeRect);
+                //CGRect strokeRect = CGRectMake(r.origin.x, r.origin.y, r.size.width, r.size.height);
+                CGContextStrokeRect(ctx, r);
             }
         }
     }];

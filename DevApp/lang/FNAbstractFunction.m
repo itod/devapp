@@ -147,15 +147,15 @@ NSString * const FNCanvasDidDebugUpdateNotification = @"FNCanvasDidDebugUpdateNo
     NSInteger strokeWeight = [[self.strokeWeightStack lastObject] integerValue];
     BOOL noStroke = [[self.noStrokeStack lastObject] boolValue];
 
+    if (noStroke) {
+        strokeWeight = 0.0;
+    }
+    
     CGContextSaveGState(ctx); {
-        if (noStroke) {
-            CGContextSetLineWidth(ctx, 0.0);
-        } else {
-            CGContextSetLineWidth(ctx, strokeWeight);
-            BOOL isOdd = (strokeWeight & 1);
-            if (isOdd) {
-                CGContextTranslateCTM(ctx, 0.5, 0.5);
-            }
+        CGContextSetLineWidth(ctx, strokeWeight);
+        BOOL isOdd = (strokeWeight & 1);
+        if (isOdd) {
+            CGContextTranslateCTM(ctx, 0.5, 0.5);
         }
 
         block(ctx, strokeWeight);
