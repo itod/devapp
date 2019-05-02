@@ -13,7 +13,7 @@
 - (instancetype)init {
     self = [super init];
     if (self) {
-        self.name = [NSString stringWithFormat:@".%@", FILE_DOC_EXT];
+        //self.name = [NSString stringWithFormat:@".%@", FILE_DOC_EXT];
     }
     return self;
 }
