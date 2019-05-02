@@ -145,19 +145,19 @@ NSString * const FNCanvasDidDebugUpdateNotification = @"FNCanvasDidDebugUpdateNo
     CGContextRef ctx = [self.canvasGraphicsContext graphicsPort];
 
     NSInteger strokeWeight = [[self.strokeWeightStack lastObject] integerValue];
-//    BOOL noStroke = [[self.noStrokeStack lastObject] boolValue];
+    BOOL noStroke = [[self.noStrokeStack lastObject] boolValue];
 
     CGContextSaveGState(ctx); {
-//        BOOL isOdd = (strokeWeight & 1);
-//        if (isOdd) {
-//            CGContextTranslateCTM(ctx, 0.5, 0.5);
-//        }
-        
-//        if (noStroke) {
-//            CGContextSetLineWidth(ctx, 0.0);
-//        } else {
-//            CGContextSetLineWidth(ctx, strokeWeight);
-//        }
+        if (noStroke) {
+            CGContextSetLineWidth(ctx, 0.0);
+        } else {
+            CGContextSetLineWidth(ctx, strokeWeight);
+            BOOL isOdd = (strokeWeight & 1);
+            if (isOdd) {
+                CGContextTranslateCTM(ctx, 0.5, 0.5);
+            }
+        }
+
         block(ctx, strokeWeight);
     } CGContextRestoreGState(ctx);
     

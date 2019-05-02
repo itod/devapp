@@ -27,11 +27,8 @@
 
 
 - (XPObject *)callWithWalker:(XPTreeWalker *)walker functionSpace:(XPMemorySpace *)space argc:(NSUInteger)argc {
-    BOOL yn = NO;
-    
     [self.noStrokeStack removeLastObject];
-    [self.noStrokeStack addObject:@(yn)];
-    
+    [self.noStrokeStack addObject:@YES];
     return nil;
 }
 

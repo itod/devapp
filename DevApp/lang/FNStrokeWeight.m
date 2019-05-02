@@ -37,8 +37,8 @@
     XPObject *weightObj = [space objectForName:@"weight"]; TDAssert(weightObj);
     double weight = weightObj.doubleValue;
     
-    CGContextRef ctx = [self.canvasGraphicsContext graphicsPort];
-    CGContextSetLineWidth(ctx, weight);
+//    CGContextRef ctx = [self.canvasGraphicsContext graphicsPort];
+//    CGContextSetLineWidth(ctx, weight);
     
     [self.strokeWeightStack removeLastObject];
     [self.strokeWeightStack addObject:@(weight)];
