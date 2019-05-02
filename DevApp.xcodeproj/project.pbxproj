@@ -783,6 +783,7 @@
 		D34FF73D2278DB04009889A2 /* FNShapeMode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FNShapeMode.h; path = lang/FNShapeMode.h; sourceTree = "<group>"; };
 		D36B2953227A0A8B00BC53DD /* FNContains.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FNContains.h; path = lang/FNContains.h; sourceTree = "<group>"; };
 		D36B295E227A0A8B00BC53DD /* FNContains.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FNContains.m; path = lang/FNContains.m; sourceTree = "<group>"; };
+		D36B2989227B713600BC53DD /* drag.ks */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = drag.ks; path = res/drag.ks; sourceTree = SOURCE_ROOT; };
 		D37CFCB31EC8B90600068FEB /* FNBezier.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FNBezier.h; path = lang/FNBezier.h; sourceTree = "<group>"; };
 		D37CFCB41EC8B90600068FEB /* FNBezier.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FNBezier.m; path = lang/FNBezier.m; sourceTree = "<group>"; };
 		D38693691F9CF55000928048 /* TDLinkedQueue.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = TDLinkedQueue.m; path = lib/TDThreadUtils/src/TDLinkedQueue.m; sourceTree = SOURCE_ROOT; };
@@ -1374,6 +1375,7 @@
 				D3369B311E36C61F00FEB7BF /* GrafikKonsol-Prefix.pch */,
 				D33699AE1E36B78900FEB7BF /* main.m */,
 				D31671041E5A599200DEE3A0 /* main.ks */,
+				D36B2989227B713600BC53DD /* drag.ks */,
 				D33699BB1E36B78900FEB7BF /* Info.plist */,
 				D3CF9C27211B7F4800E92136 /* GrafikKonsol-PreferencePanes.plist */,
 				D3166F321E59068500DEE3A0 /* GrafikKonsol-DefaultValues.plist */,

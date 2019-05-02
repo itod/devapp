@@ -1008,7 +1008,7 @@
                         </items>
                     </menu>
                 </menuItem>
-                <menuItem image="ScriptMenu" tag="447" id="zUL-VC-RAG">
+                <menuItem image="ScriptMenu" tag="447" hidden="YES" id="zUL-VC-RAG">
                     <menu key="submenu" id="Jdo-lr-mFQ">
                         <items>
                             <menuItem title="Open Script Editor" id="p6l-0h-8On">

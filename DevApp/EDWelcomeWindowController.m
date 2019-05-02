@@ -15,13 +15,13 @@
 
 @implementation EDWelcomeWindowController
 
-- (id)init {
+- (instancetype)init {
     self = [self initWithWindowNibName:@"EDWelcomeWindowController"];
     return self;
 }
 
 
-- (id)initWithWindowNibName:(NSString *)name {
+- (instancetype)initWithWindowNibName:(NSString *)name {
     self = [super initWithWindowNibName:name];
     if (self) {
         self.wantsExampleProjButton = YES;
@@ -104,7 +104,8 @@
 
 - (IBAction)openSampleProject:(id)sender {
     //[[EDDocumentController instance] openSampleProject:sender];
-    [self close];
+    //[self close];
+    NSBeep();
 }
 
 
