@@ -99,9 +99,9 @@
 		</dict>
 		<dict>
 			<key>width</key>
-			<real>300</real>
+			<integer>480</integer>
 			<key>height</key>
-			<real>300</real>
+			<integer>640</integer>
 			<key>unitType</key>
 			<integer>0</integer>
 			<key>group</key>

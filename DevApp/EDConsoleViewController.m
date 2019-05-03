@@ -119,7 +119,7 @@ static NSDictionary *sValueAttrs = nil;
     _uberView.midView = self.sourceViewController.view;
     
     _uberView.leftTopView = _varsContainerView;
-    _uberView.preferredLeftSplitWidth = 360.0;
+    _uberView.preferredLeftSplitWidth = 300.0;
     
     [self clearDebugInfo];
 

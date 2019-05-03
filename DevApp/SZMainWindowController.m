@@ -26,7 +26,7 @@
 #define PDF_EXT @"pdf"
 #define GIF_EXT @"gif"
 
-#define CANVAS_MARGIN 120.0
+#define CANVAS_MARGIN 40.0
 
 @interface SZMainWindowController ()
 @end
