@@ -1311,7 +1311,8 @@
         NSString *srcStr = [NSString stringWithFormat:@"%@\n", [okvc.textView string]]; // ensure final terminator, like interpreter does
 
         NSRange lineRange = [okvc.textView rangeOfLine:lineNum];
-        NSString *line = [srcStr substringWithRange:lineRange];
+        NSMutableString *line = [[[srcStr substringWithRange:lineRange] mutableCopy] autorelease];
+        CFStringTrimWhitespace((CFMutableStringRef)line);
         [_consoleViewController append:[NSString stringWithFormat:@"\n%@", line]];
         
         if (err.userInfo[kEDCodeRunnerRangeKey]) {
@@ -1323,9 +1324,9 @@
                 //            [_consoleViewController append:[NSString stringWithFormat:@"\n%@", errStr]];
                 
                 NSMutableString *buf = [NSMutableString stringWithString:@"\n"];
-                for (NSUInteger i = lineRange.location; i < errRange.location; ++i) {
-                    [buf appendString:@" "];
-                }
+                //                for (NSUInteger i = lineRange.location; i < errRange.location; ++i) {
+                //                    [buf appendString:@" "];
+                //                }
                 [buf appendString:@"^"];
                 
                 [_consoleViewController append:buf];
