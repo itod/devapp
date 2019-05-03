@@ -120,7 +120,7 @@ static CGColorSpaceRef sPatternColorSpace = NULL;
     self.toolTipObject = nil;
     self.draggingUserGuide = nil;
 
-    [self setGridPattern:NULL];
+//    [self setGridPattern:NULL];
     
     [super dealloc];
 }
