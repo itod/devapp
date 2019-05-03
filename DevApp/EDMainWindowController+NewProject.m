@@ -175,9 +175,10 @@
     NSError *err = nil;
     NSFileManager *mgr = [NSFileManager defaultManager];
     
-    if ([mgr fileExistsAtPath:docFilePath]) {
+    NSString *rmFilePath = [docFilePath stringByAppendingPathExtension:FILE_DOC_EXT];
+    if ([mgr fileExistsAtPath:rmFilePath]) {
         
-        NSURL *furl = [NSURL fileURLWithPath:docFilePath];
+        NSURL *furl = [NSURL fileURLWithPath:rmFilePath];
         if (![mgr trashItemAtURL:furl resultingItemURL:nil error:&err]) {
             if (err) NSLog(@"%@", err);
             
