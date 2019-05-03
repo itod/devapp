@@ -237,10 +237,10 @@
     [nc addObserver:self selector:@selector(guidesVisibleDidChange:) name:EDGuidesVisibleDidChangeNotification object:nil];
     [nc addObserver:self selector:@selector(compositionZoomScaleDidChange:) name:EDCompositionZoomScaleDidChangeNotification object:nil];
     
-    [_scrollView setHasHorizontalRuler:YES];
-    [_scrollView setHasVerticalRuler:YES];
+    _scrollView.hasHorizontalRuler = YES;
+    _scrollView.hasVerticalRuler = YES;
     
-    NSArray *rulerViews = @[[_scrollView horizontalRulerView], [_scrollView verticalRulerView]];
+    NSArray *rulerViews = @[_scrollView.horizontalRulerView, _scrollView.verticalRulerView];
     for (NSRulerView *rv in rulerViews) {
         [rv setReservedThicknessForMarkers:0.0];
         [rv setReservedThicknessForAccessoryView:0.0];
