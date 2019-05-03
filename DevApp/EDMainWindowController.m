@@ -2564,8 +2564,15 @@
 
 
 - (IBAction)showReference:(id)sender {
-    TDAssert(0);
-//    NSString *path = [self documentationHomeURLString];
+    NSString *path = [self documentationHomeURLString];
+    @try {
+        NSURL *url = [NSURL URLWithString:path];
+        [[NSWorkspace sharedWorkspace] openURL:url];
+    }
+    @catch (NSException *ex) {
+        NSBeep();
+        NSLog(@"invalid documentation URL : %@", path);
+    }
 //
 //    EDTabModel *seltm = nil;
 //

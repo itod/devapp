@@ -1024,9 +1024,15 @@
                     <modifierMask key="keyEquivalentModifierMask"/>
                     <menu key="submenu" title="Help" systemMenu="help" id="492">
                         <items>
-                            <menuItem title="Grafik Konsol Help" keyEquivalent="?" id="493">
+                            <menuItem title="Grafik Konsol Help" hidden="YES" keyEquivalent="?" id="493">
                                 <connections>
                                     <action selector="showHelp:" target="-1" id="494"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="Grafik Konsol Documentation" id="2eA-hv-uub">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <connections>
+                                    <action selector="showReference:" target="-1" id="3ji-Hd-L23"/>
                                 </connections>
                             </menuItem>
                         </items>
