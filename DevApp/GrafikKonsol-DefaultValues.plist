@@ -9,7 +9,7 @@
 	<key>EDDocumentationHomeURLString</key>
 	<string>https://github.com/itod/GrafikKonsolDocumentation</string>
 	<key>EDRulersVisible</key>
-	<true/>
+	<false/>
 	<key>EDGridVisible</key>
 	<true/>
 	<key>EDFlipped</key>
