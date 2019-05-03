@@ -10,6 +10,7 @@
 #import <Language/XPObject.h>
 #import "XPFunctionSymbol.h"
 #import "XPMemorySpace.h"
+#import "XPNullClass.h"
 
 @implementation FNFrameRate
 
@@ -21,6 +22,7 @@
 - (XPFunctionSymbol *)symbol {
     XPFunctionSymbol *funcSym = [XPFunctionSymbol symbolWithName:[[self class] name] enclosingScope:nil];
     funcSym.nativeBody = self;
+    funcSym.returnType = [XPNullClass classInstance];
     
     XPSymbol *frameRate = [XPSymbol symbolWithName:@"frameRate"];
     funcSym.orderedParams = [NSMutableArray arrayWithObjects:frameRate, nil];

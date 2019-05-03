@@ -12,6 +12,7 @@
 #import <Language/XPException.h>
 #import "XPFunctionSymbol.h"
 #import "XPMemorySpace.h"
+#import "XPBooleanClass.h"
 
 @implementation FNContains
 
@@ -23,6 +24,7 @@
 - (XPFunctionSymbol *)symbol {
     XPFunctionSymbol *funcSym = [XPFunctionSymbol symbolWithName:[[self class] name] enclosingScope:nil];
     funcSym.nativeBody = self;
+    funcSym.returnType = [XPBooleanClass classInstance];
     
     XPSymbol *rect = [XPSymbol symbolWithName:@"rectArray"];
     XPSymbol *point = [XPSymbol symbolWithName:@"pointArray"];
