@@ -24,6 +24,7 @@
 - (IBAction)toggleCanvasViewVisible:(id)sender;
 - (IBAction)toggleConsoleViewVisible:(id)sender;
 - (IBAction)toggleDebugLocalVaraiblesVisible:(id)sender;
+- (IBAction)toggleRulersVisible:(id)sender;
 
 - (IBAction)openSampleProject:(id)sender;
 

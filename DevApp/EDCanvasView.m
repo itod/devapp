@@ -47,8 +47,8 @@ static CGColorSpaceRef sPatternColorSpace = NULL;
 @end
 
 @interface EDCanvasView ()
-- (CGPatternRef)gridPattern;
-- (void)setGridPattern:(CGPatternRef)gridPattern;
+//- (CGPatternRef)gridPattern;
+//- (void)setGridPattern:(CGPatternRef)gridPattern;
 @end
 
 @implementation EDCanvasView {
@@ -58,7 +58,7 @@ static CGColorSpaceRef sPatternColorSpace = NULL;
     BOOL _isDragScroll;
     
     CGPoint _lastClickedPoint;
-    CGPatternRef _gridPattern;
+//    CGPatternRef _gridPattern;
 }
 
 
@@ -991,7 +991,7 @@ static CGColorSpaceRef sPatternColorSpace = NULL;
     if (!CGRectContainsRect(visRect, objRect)) {
         if (EDSizeContainsSize(visRect.size, objRect.size)) {
             CGPoint p = EDRectGetMidMidPoint(objRect);
-            objRect = CGRectMake(p.x - visRect.size.width / 2.0, p.y - visRect.size.height / 2.0, visRect.size.width, visRect.size.height);
+            objRect = CGRectMake(p.x - visRect.size.width*0.5, p.y - visRect.size.height*0.5, visRect.size.width, visRect.size.height);
         }
         
         [self scrollRectToVisible:objRect];
@@ -1089,16 +1089,16 @@ static CGColorSpaceRef sPatternColorSpace = NULL;
 }
 
 
-- (CGPatternRef)gridPattern {
-    return _gridPattern;
-}
-
-
-- (void)setGridPattern:(CGPatternRef)gridPattern {
-    if (_gridPattern != gridPattern) {
-        CGPatternRelease(_gridPattern);
-        _gridPattern = CGPatternRetain(gridPattern);
-    }
-}
+//- (CGPatternRef)gridPattern {
+//    return _gridPattern;
+//}
+//
+//
+//- (void)setGridPattern:(CGPatternRef)gridPattern {
+//    if (_gridPattern != gridPattern) {
+//        CGPatternRelease(_gridPattern);
+//        _gridPattern = CGPatternRetain(gridPattern);
+//    }
+//}
 
 @end

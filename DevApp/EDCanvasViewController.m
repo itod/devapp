@@ -257,7 +257,12 @@
     EDAssert(_scrollView);
 
     BOOL visible = [[EDUserDefaults instance] rulersVisible];
-    [_scrollView setRulersVisible:visible];
+    _scrollView.rulersVisible = visible;
+//    _scrollView.hasHorizontalRuler = YES;
+//    _scrollView.hasVerticalRuler = YES;
+//    _scrollView.automaticallyAdjustsContentInsets = YES;
+//    _scrollView.contentInsets = NSEdgeInsetsZero;
+//    _scrollView.scrollerInsets = NSEdgeInsetsZero;
 }
 
 

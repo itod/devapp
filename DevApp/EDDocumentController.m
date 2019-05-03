@@ -339,6 +339,12 @@ static BOOL sIsLicensed = NO;
 }
 
 
+- (IBAction)toggleRulersVisible:(id)sender {
+    [[EDUserDefaults instance] setRulersVisible:![[EDUserDefaults instance] rulersVisible]];
+    [[NSNotificationCenter defaultCenter] postNotificationName:EDRulersVisibleDidChangeNotification object:nil];
+}
+
+
 - (IBAction)openSampleProject:(id)sender {
     // doesn't work
     NSError *err = nil;
@@ -382,6 +388,8 @@ static BOOL sIsLicensed = NO;
         title = [[EDUserDefaults instance] consoleViewVisible] ? NSLocalizedString(@"Hide Debug Area", @"") : NSLocalizedString(@"Show Debug Area", @"");
     } else if (@selector(toggleDebugLocalVaraiblesVisible:) == action) {
         title = [[EDUserDefaults instance] debugLocalVariablesVisible] ? NSLocalizedString(@"Hide Local Variables", @"") : NSLocalizedString(@"Show Local Variables", @"");
+    } else if (@selector(toggleRulersVisible:) == action) {
+        title = [[EDUserDefaults instance] rulersVisible] ? NSLocalizedString(@"Hide Rulers", @"") : NSLocalizedString(@"Show Rulers", @"");
     }
 
     if (title) {
