@@ -1400,6 +1400,9 @@
                      //[OKTrigger triggerWithTemplate:@"import ${module} as ${foo}" specifier:@"importas"],
                      [OKTrigger triggerWithTemplate:@"true" specifier:@"true"],
                      [OKTrigger triggerWithTemplate:@"false" specifier:@"false"],
+                     [OKTrigger triggerWithTemplate:@"NaN" specifier:@"NaN"],
+                     [OKTrigger triggerWithTemplate:@"Infinity" specifier:@"Infinity"],
+                     [OKTrigger triggerWithTemplate:@"null" specifier:@"null"],
 
                      // builtin functions
                      [OKTrigger triggerWithTemplate:@"print(${object})" specifier:@"print"],
@@ -2431,6 +2434,11 @@
     [b setState:newVal ? NSOnState : NSOffState];
     
     [self fireBreakpointsDidChange];
+}
+
+
+- (IBAction)cancel:(id)sender {
+    [self hideFindView:nil];
 }
 
 
