@@ -205,6 +205,7 @@
 		D34FF71A22749BF8009889A2 /* EDComboBox.m in Sources */ = {isa = PBXBuildFile; fileRef = D34FF71922749BF8009889A2 /* EDComboBox.m */; };
 		D3538DE42280CD4100349C56 /* FNRectMode.m in Sources */ = {isa = PBXBuildFile; fileRef = D3538DE22280CD4000349C56 /* FNRectMode.m */; };
 		D3538DE72280CD4B00349C56 /* FNEllipseMode.m in Sources */ = {isa = PBXBuildFile; fileRef = D3538DE52280CD4B00349C56 /* FNEllipseMode.m */; };
+		D3538DEA2280FB7800349C56 /* KonsolSkriptParser.m in Sources */ = {isa = PBXBuildFile; fileRef = D3538DE82280FB7800349C56 /* KonsolSkriptParser.m */; };
 		D36B295F227A0A8B00BC53DD /* FNContains.m in Sources */ = {isa = PBXBuildFile; fileRef = D36B295E227A0A8B00BC53DD /* FNContains.m */; };
 		D36B29A4227B891700BC53DD /* bounce.ks in Resources */ = {isa = PBXBuildFile; fileRef = D36B2999227B891700BC53DD /* bounce.ks */; };
 		D37CFCB51EC8B90600068FEB /* FNBezier.m in Sources */ = {isa = PBXBuildFile; fileRef = D37CFCB41EC8B90600068FEB /* FNBezier.m */; };
@@ -785,6 +786,8 @@
 		D3538DE32280CD4000349C56 /* FNRectMode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FNRectMode.h; path = lang/FNRectMode.h; sourceTree = "<group>"; };
 		D3538DE52280CD4B00349C56 /* FNEllipseMode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FNEllipseMode.m; path = lang/FNEllipseMode.m; sourceTree = "<group>"; };
 		D3538DE62280CD4B00349C56 /* FNEllipseMode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FNEllipseMode.h; path = lang/FNEllipseMode.h; sourceTree = "<group>"; };
+		D3538DE82280FB7800349C56 /* KonsolSkriptParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KonsolSkriptParser.m; sourceTree = "<group>"; };
+		D3538DE92280FB7800349C56 /* KonsolSkriptParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KonsolSkriptParser.h; sourceTree = "<group>"; };
 		D36B2953227A0A8B00BC53DD /* FNContains.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FNContains.h; path = lang/FNContains.h; sourceTree = "<group>"; };
 		D36B295E227A0A8B00BC53DD /* FNContains.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FNContains.m; path = lang/FNContains.m; sourceTree = "<group>"; };
 		D36B2989227B713600BC53DD /* drag.ks */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = drag.ks; path = res/drag.ks; sourceTree = SOURCE_ROOT; };
@@ -1208,6 +1211,8 @@
 				D316708C1E5A151300DEE3A0 /* EDBackForwardButton.m */,
 				D316708D1E5A151300DEE3A0 /* EDBackForwardButtonCell.h */,
 				D316708E1E5A151300DEE3A0 /* EDBackForwardButtonCell.m */,
+				D3538DE92280FB7800349C56 /* KonsolSkriptParser.h */,
+				D3538DE82280FB7800349C56 /* KonsolSkriptParser.m */,
 			);
 			name = "Main Window";
 			sourceTree = "<group>";
@@ -1923,6 +1928,7 @@
 				D31670B21E5A171500DEE3A0 /* NSString+Score.m in Sources */,
 				D38693741F9CF55100928048 /* TDLinkedQueue.m in Sources */,
 				D3369C011E36C73800FEB7BF /* TDViewControllerView.m in Sources */,
+				D3538DEA2280FB7800349C56 /* KonsolSkriptParser.m in Sources */,
 				D34A55FB1E7E1AFE0064DF65 /* FNFill.m in Sources */,
 				D309BCC51E5B9E77002B3199 /* EDMemoryCodeRunner.m in Sources */,
 				D31670A21E5A15F100DEE3A0 /* EDTabModel.m in Sources */,

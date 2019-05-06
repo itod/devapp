@@ -1,0 +1,201 @@
+@before {
+        self.statementTerminator = @";";
+        self.singleLineCommentMarker = @"//";
+		self.blockStartMarker = @"{";
+		self.blockEndMarker = @"}";
+        self.braces = @"( ) [ ]";
+
+		PKTokenizer *t = self.tokenizer;
+	
+        [t.symbolState add:@"!="];
+        [t.symbolState add:@"!=="];
+        [t.symbolState add:@"=="];
+        [t.symbolState add:@"==="];
+        [t.symbolState add:@"<="];
+        [t.symbolState add:@">="];
+        [t.symbolState add:@"++"];
+        [t.symbolState add:@"--"];
+        [t.symbolState add:@"+="];
+        [t.symbolState add:@"-="];
+        [t.symbolState add:@"*="];
+        [t.symbolState add:@"/="];
+        [t.symbolState add:@"%="];
+        [t.symbolState add:@"<<"];
+        [t.symbolState add:@">>"];
+        [t.symbolState add:@">>>"];
+        [t.symbolState add:@"<<="];
+        [t.symbolState add:@">>="];
+        [t.symbolState add:@">>>="];
+        [t.symbolState add:@"&="];
+        [t.symbolState add:@"^="];
+        [t.symbolState add:@"|="];
+
+        // setup comments
+        t.commentState.reportsCommentTokens = YES;
+        [t setTokenizerState:t.commentState from:'/' to:'/'];
+        [t.commentState addSingleLineStartMarker:@"//"];
+        [t.commentState addMultiLineStartMarker:@"/*" endMarker:@"*/"];
+        
+        // comment state should fallback to symbol state to match divison op
+        t.commentState.fallbackState = t.symbolState;
+}
+
+program       = element+;
+
+element       = reserved | builtin | identifier | string | number | comment | specialSymbol | symbol;
+identifier    = Word;
+string        = QuotedString;
+number        = Number;
+specialSymbol = openCurly | closeCurly | openParen | closeParen | openBracket | closeBracket | semi | comma | dot | colon;
+symbol        = Symbol;
+comment       = Comment;
+
+openCurly     = '{';
+closeCurly    = '}';
+openBracket   = '[';
+closeBracket  = ']';
+openParen     = '(';
+closeParen    = ')';
+semi          = ';';
+comma         = ',';
+dot           = '.';
+colon         = ':';
+
+reserved
+	= "synchronized"
+    | "await"
+    | "import"
+    | "switch"
+    | "case"
+    | "default"
+    | "for"
+    | "in"
+    | "is"
+    | "while"
+    | "do"
+    | "if"
+    | "else"
+    | "break"
+    | "continue"
+    | "return"
+    | "and"
+    | "or"
+    | "not"
+    | "sub"
+    | "var"
+    | "let"
+    | "const"
+    | "del"
+    | "new"
+    | "class"
+    | "extends"
+    | "implements"
+    | "static"
+    | "interface"
+    | "public"
+    | "private"
+    | "abstract"
+    | "this"
+    | "super"
+    | "throws"
+    | "throw"
+    | "try"
+    | "catch"
+    | "finally"
+    ;
+
+builtin
+	= "print"
+    | "true"
+    | "false"
+    | "null"
+    | "NaN"
+	| "Infinity"
+    
+    | "Object"
+    | "Boolean"
+    | "Number"
+    | "String"
+    | "Array"
+    | "Dictionary"
+    | "type"
+
+    | "repr"
+    | "print"
+    | "assert"
+    | "copy"
+    | "description"
+    | "sleep"
+    | "exit"
+    | "locals"
+    | "globals"
+    | "count"
+    | "position"
+    | "range"
+    | "sum"
+    | "sort"
+    | "map"
+    | "filter"
+    | "ord"
+    | "chr"
+    | "trim"
+    | "lowercase"
+    | "uppercase"
+    | "matches"
+    | "replace"
+    | "compare"
+    | "isNan"
+    | "random"
+    | "abs"
+    | "round"
+    | "floor"
+    | "ceil"
+    | "max"
+    | "min"
+    | "sqrt"
+    | "log"
+    | "acos"
+    | "asin"
+    | "atan"
+    | "atan2"
+    | "cos"
+    | "degrees"
+    | "radians"
+    | "sin"
+    | "tan"
+    
+    | "PI"
+    | "HALF_PI"
+    | "QUARTER_PI"
+    | "TWO_PI"
+    | "CORNER"
+    | "CORNERS"
+    | "CENTER"
+    | "RADIUS"
+    
+    | "frameRate"
+    | "redraw"
+    | "loop"
+    | "rectMode"
+    | "ellipseMode"
+    | "noStroke"
+    | "noFill"
+    | "size"
+    | "pushStyle"
+    | "popStyle"
+    | "translate"
+    | "scale"
+    | "rotate"
+    | "background"
+    | "stroke"
+    | "strokeWeight"
+    | "strokeCap"
+    | "strokeJoin"
+    | "fill"
+    | "rect"
+    | "ellipse"
+    | "arc"
+    | "line"
+    | "bezier"
+    | "contains"
+	;

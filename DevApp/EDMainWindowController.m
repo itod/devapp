@@ -1513,6 +1513,16 @@
                      [OKTrigger triggerWithTemplate:@"mouseY" specifier:@"mouseY"],
                      [OKTrigger triggerWithTemplate:@"pmouseX" specifier:@"pmouseX"],
                      [OKTrigger triggerWithTemplate:@"pmouseY" specifier:@"pmouseY"],
+                     
+                     [OKTrigger triggerWithTemplate:@"PI" specifier:@"PI"],
+                     [OKTrigger triggerWithTemplate:@"HALF_PI" specifier:@"HALF_PI"],
+                     [OKTrigger triggerWithTemplate:@"QUARTER_PI" specifier:@"QUARTER_PI"],
+                     [OKTrigger triggerWithTemplate:@"TWO_PI" specifier:@"TWO_PI"],
+                     [OKTrigger triggerWithTemplate:@"CORNER" specifier:@"CORNER"],
+                     [OKTrigger triggerWithTemplate:@"CORNERS" specifier:@"CORNERS"],
+                     [OKTrigger triggerWithTemplate:@"CENTER" specifier:@"CENTER"],
+                     [OKTrigger triggerWithTemplate:@"RADIUS" specifier:@"RADIUS"],
+
                      nil];
     }
     return sTriggers;
