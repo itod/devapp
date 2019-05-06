@@ -2396,6 +2396,8 @@
     [_codeRunner stop:self.identifier];
     [self clearDebugInfo];
     
+    [self.selectedSourceViewController.textView removeListWindow];
+
     self.statusText = NSLocalizedString(@"Stopped.", @"");
 
     self.canStop = NO;
