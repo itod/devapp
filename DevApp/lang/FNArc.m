@@ -60,7 +60,8 @@
     double endAngle = endAngleObj.doubleValue;
     BOOL clockwise = clockwiseObj.boolValue;
 
-//    switch (self.shapeMode) {
+//    FNShapeModeFlag mode = self.ellipseMode;
+//    switch (mode) {
 //        case FNShapeModeFlagCorner: {
 //            // noop
 //        } break;

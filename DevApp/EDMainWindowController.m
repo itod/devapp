@@ -1471,7 +1471,8 @@
                      [OKTrigger triggerWithTemplate:@"frameRate(${rate})" specifier:@"frameRate"],
                      [OKTrigger triggerWithTemplate:@"redraw()" specifier:@"redraw"],
                      [OKTrigger triggerWithTemplate:@"loop(${shouldLoop})" specifier:@"loop"],
-                     [OKTrigger triggerWithTemplate:@"shapeMode(${mode})" specifier:@"shapeMode"],
+                     [OKTrigger triggerWithTemplate:@"rectMode(${mode})" specifier:@"rectMode"],
+                     [OKTrigger triggerWithTemplate:@"ellipseMode(${mode})" specifier:@"ellipseMode"],
                      [OKTrigger triggerWithTemplate:@"noStroke()" specifier:@"noStroke"],
                      [OKTrigger triggerWithTemplate:@"noFill()" specifier:@"noFill"],
                      [OKTrigger triggerWithTemplate:@"size(${sizeArray})" specifier:@"size"],
@@ -1499,7 +1500,7 @@
                      [OKTrigger triggerWithTemplate:@"bezier(${point1Array}, ${point2Array}, ${point3Array}, ${point4Array})" specifier:@"bezier"],
                      [OKTrigger triggerWithTemplate:@"bezier(${x1}, ${y1}, ${x2}, ${y2}, ${x3}, ${y3}, ${x4}, ${y4})" specifier:@"bezier"],
                      [OKTrigger triggerWithTemplate:@"contains(${rectArray}, ${pointArray})" specifier:@"contains"],
-                     [OKTrigger triggerWithTemplate:@"contains(${rectArray}, ${pointArray}, ${shapeMode})" specifier:@"contains"],
+                     [OKTrigger triggerWithTemplate:@"contains(${rectArray}, ${pointArray}, ${rectMode})" specifier:@"contains"],
 
                      [OKTrigger triggerWithTemplate:@"mouseDown()" specifier:@"mouseDown"],
                      [OKTrigger triggerWithTemplate:@"mouseUp()" specifier:@"mouseUp"],

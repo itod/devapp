@@ -203,7 +203,8 @@
 		D34FF7162273E9FC009889A2 /* EDFileWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = D31670721E59FE0500DEE3A0 /* EDFileWindowController.m */; };
 		D34FF7172273E9FE009889A2 /* EDFileWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D316706E1E59FDF000DEE3A0 /* EDFileWindowController.xib */; };
 		D34FF71A22749BF8009889A2 /* EDComboBox.m in Sources */ = {isa = PBXBuildFile; fileRef = D34FF71922749BF8009889A2 /* EDComboBox.m */; };
-		D34FF73E2278DB04009889A2 /* FNShapeMode.m in Sources */ = {isa = PBXBuildFile; fileRef = D34FF73C2278DB04009889A2 /* FNShapeMode.m */; };
+		D3538DE42280CD4100349C56 /* FNRectMode.m in Sources */ = {isa = PBXBuildFile; fileRef = D3538DE22280CD4000349C56 /* FNRectMode.m */; };
+		D3538DE72280CD4B00349C56 /* FNEllipseMode.m in Sources */ = {isa = PBXBuildFile; fileRef = D3538DE52280CD4B00349C56 /* FNEllipseMode.m */; };
 		D36B295F227A0A8B00BC53DD /* FNContains.m in Sources */ = {isa = PBXBuildFile; fileRef = D36B295E227A0A8B00BC53DD /* FNContains.m */; };
 		D36B29A4227B891700BC53DD /* bounce.ks in Resources */ = {isa = PBXBuildFile; fileRef = D36B2999227B891700BC53DD /* bounce.ks */; };
 		D37CFCB51EC8B90600068FEB /* FNBezier.m in Sources */ = {isa = PBXBuildFile; fileRef = D37CFCB41EC8B90600068FEB /* FNBezier.m */; };
@@ -780,8 +781,10 @@
 		D34A704F227355F70055F933 /* Sparkle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Sparkle.framework; path = lib/Sparkle/Sparkle.framework; sourceTree = SOURCE_ROOT; };
 		D34FF71822749BF8009889A2 /* EDComboBox.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EDComboBox.h; sourceTree = "<group>"; };
 		D34FF71922749BF8009889A2 /* EDComboBox.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EDComboBox.m; sourceTree = "<group>"; };
-		D34FF73C2278DB04009889A2 /* FNShapeMode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FNShapeMode.m; path = lang/FNShapeMode.m; sourceTree = "<group>"; };
-		D34FF73D2278DB04009889A2 /* FNShapeMode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FNShapeMode.h; path = lang/FNShapeMode.h; sourceTree = "<group>"; };
+		D3538DE22280CD4000349C56 /* FNRectMode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FNRectMode.m; path = lang/FNRectMode.m; sourceTree = "<group>"; };
+		D3538DE32280CD4000349C56 /* FNRectMode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FNRectMode.h; path = lang/FNRectMode.h; sourceTree = "<group>"; };
+		D3538DE52280CD4B00349C56 /* FNEllipseMode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FNEllipseMode.m; path = lang/FNEllipseMode.m; sourceTree = "<group>"; };
+		D3538DE62280CD4B00349C56 /* FNEllipseMode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FNEllipseMode.h; path = lang/FNEllipseMode.h; sourceTree = "<group>"; };
 		D36B2953227A0A8B00BC53DD /* FNContains.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FNContains.h; path = lang/FNContains.h; sourceTree = "<group>"; };
 		D36B295E227A0A8B00BC53DD /* FNContains.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FNContains.m; path = lang/FNContains.m; sourceTree = "<group>"; };
 		D36B2989227B713600BC53DD /* drag.ks */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = drag.ks; path = res/drag.ks; sourceTree = SOURCE_ROOT; };
@@ -1650,10 +1653,12 @@
 				D34A56631E7F3FE80064DF65 /* FNLine.m */,
 				D37CFCB31EC8B90600068FEB /* FNBezier.h */,
 				D37CFCB41EC8B90600068FEB /* FNBezier.m */,
-				D34FF73D2278DB04009889A2 /* FNShapeMode.h */,
-				D34FF73C2278DB04009889A2 /* FNShapeMode.m */,
 				D36B2953227A0A8B00BC53DD /* FNContains.h */,
 				D36B295E227A0A8B00BC53DD /* FNContains.m */,
+				D3538DE32280CD4000349C56 /* FNRectMode.h */,
+				D3538DE22280CD4000349C56 /* FNRectMode.m */,
+				D3538DE62280CD4B00349C56 /* FNEllipseMode.h */,
+				D3538DE52280CD4B00349C56 /* FNEllipseMode.m */,
 			);
 			name = Functions;
 			sourceTree = "<group>";
@@ -1950,6 +1955,7 @@
 				D3369BC81E36C73800FEB7BF /* NSBezierPath+TDAdditions.m in Sources */,
 				D3166F551E5908D700DEE3A0 /* EDTextEditingPreferences.m in Sources */,
 				D3166F3C1E59078000DEE3A0 /* EDColorPickerCell.m in Sources */,
+				D3538DE72280CD4B00349C56 /* FNEllipseMode.m in Sources */,
 				D3E799F21E8B443F001F9DC7 /* FNNoFill.m in Sources */,
 				D3369BEE1E36C73800FEB7BF /* TDTabBarController.m in Sources */,
 				D3166EF11E5902A800DEE3A0 /* EDThemeRulesTableView.m in Sources */,
@@ -2001,6 +2007,7 @@
 				D316704F1E59FB0400DEE3A0 /* EDConsoleViewController.m in Sources */,
 				D31670041E592CEF00DEE3A0 /* EDActionFacet.m in Sources */,
 				D31E2C8F1E7D85F50023E924 /* EDMetrics.m in Sources */,
+				D3538DE42280CD4100349C56 /* FNRectMode.m in Sources */,
 				D31670831E5A14A400DEE3A0 /* EDToolbarButton.m in Sources */,
 				D3369B181E36C25A00FEB7BF /* TKDocumentController.m in Sources */,
 				D3166F6A1E590A1300DEE3A0 /* EDModel.m in Sources */,
@@ -2082,7 +2089,6 @@
 				D393579C1F7DA2C6008AE4A8 /* FNRedraw.m in Sources */,
 				D3166F2F1E5905A100DEE3A0 /* EDRegexPattern.m in Sources */,
 				D3166FDE1E592B9400DEE3A0 /* EDTarget.m in Sources */,
-				D34FF73E2278DB04009889A2 /* FNShapeMode.m in Sources */,
 				D31670351E59F9EB00DEE3A0 /* EDFindOutlineView.m in Sources */,
 				D3369B1C1E36C25A00FEB7BF /* TKTabListItem.m in Sources */,
 				D3166FBD1E5927DA00DEE3A0 /* EDWelcomeWindowController.m in Sources */,

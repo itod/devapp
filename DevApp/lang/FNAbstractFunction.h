@@ -38,5 +38,6 @@ typedef void(^FNRenderBlock)(CGContextRef ctx, NSInteger strokeWeight);
 @property (nonatomic, assign) BOOL loop;
 @property (nonatomic, assign) BOOL redraw;
 @property (nonatomic, assign) double frameRate;
-@property (nonatomic, assign) FNShapeModeFlag shapeMode;
+@property (nonatomic, assign) FNShapeModeFlag rectMode;
+@property (nonatomic, assign) FNShapeModeFlag ellipseMode;
 @end

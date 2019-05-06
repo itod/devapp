@@ -70,7 +70,8 @@
     double w = wObj.doubleValue;
     double h = hObj.doubleValue;
     
-    CGRect r = [self rectWithX:x y:y width:w height:h mode:self.shapeMode];
+    FNShapeModeFlag mode = self.ellipseMode;
+    CGRect r = [self rectWithX:x y:y width:w height:h mode:mode];
 
     [self render:^(CGContextRef ctx, NSInteger strokeWeight) {
         // FILL

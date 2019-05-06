@@ -1,7 +1,7 @@
 
 sub setup() {
     loop(false)
-    shapeMode(CENTER)
+    rectMode(CENTER)
     size(480.0, 640.0)
 }
 

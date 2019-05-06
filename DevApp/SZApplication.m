@@ -20,7 +20,8 @@ NSString * const SZGraphicsContextDidChangeSizeNotification = @"SZGraphicsContex
 @property (nonatomic, retain) NSMutableDictionary *loopTab;
 @property (nonatomic, retain) NSMutableDictionary *redrawTab;
 @property (nonatomic, retain) NSMutableDictionary *frameRateTab;
-@property (nonatomic, retain) NSMutableDictionary *shapeModeTab;
+@property (nonatomic, retain) NSMutableDictionary *rectModeTab;
+@property (nonatomic, retain) NSMutableDictionary *ellipseModeTab;
 @end
 
 @implementation SZApplication
@@ -36,7 +37,8 @@ NSString * const SZGraphicsContextDidChangeSizeNotification = @"SZGraphicsContex
         self.loopTab = [NSMutableDictionary dictionary];
         self.redrawTab = [NSMutableDictionary dictionary];
         self.frameRateTab = [NSMutableDictionary dictionary];
-        self.shapeModeTab = [NSMutableDictionary dictionary];
+        self.rectModeTab = [NSMutableDictionary dictionary];
+        self.ellipseModeTab = [NSMutableDictionary dictionary];
     }
     return self;
 }
@@ -51,7 +53,8 @@ NSString * const SZGraphicsContextDidChangeSizeNotification = @"SZGraphicsContex
     self.loopTab = nil;
     self.redrawTab = nil;
     self.frameRateTab = nil;
-    self.shapeModeTab = nil;
+    self.rectModeTab = nil;
+    self.ellipseModeTab = nil;
     [super dealloc];
 }
 
@@ -251,24 +254,46 @@ NSString * const SZGraphicsContextDidChangeSizeNotification = @"SZGraphicsContex
 }
 
 
-- (NSInteger)shapeModeForIdentifier:(NSString *)identifier {
+- (NSInteger)rectModeForIdentifier:(NSString *)identifier {
     TDAssert([identifier length]);
-    TDAssert(_shapeModeTab);
+    TDAssert(_rectModeTab);
     id val = nil;
-    @synchronized(_shapeModeTab) {
-        val = [_shapeModeTab objectForKey:identifier];
+    @synchronized(_rectModeTab) {
+        val = [_rectModeTab objectForKey:identifier];
     }
     TDAssert(val);
     return [val doubleValue];
 }
 
 
-- (void)setShapeMode:(NSInteger)shapeMode forIdentifier:(NSString *)identifier {
+- (void)setRectMode:(NSInteger)mode forIdentifier:(NSString *)identifier {
     TDAssert([identifier length]);
-    TDAssert(_shapeModeTab);
-    id val = @(shapeMode);
-    @synchronized(_shapeModeTab) {
-        [_shapeModeTab setObject:val forKey:identifier];
+    TDAssert(_rectModeTab);
+    id val = @(mode);
+    @synchronized(_rectModeTab) {
+        [_rectModeTab setObject:val forKey:identifier];
+    }
+}
+
+
+- (NSInteger)ellipseModeForIdentifier:(NSString *)identifier {
+    TDAssert([identifier length]);
+    TDAssert(_ellipseModeTab);
+    id val = nil;
+    @synchronized(_ellipseModeTab) {
+        val = [_ellipseModeTab objectForKey:identifier];
+    }
+    TDAssert(val);
+    return [val doubleValue];
+}
+
+
+- (void)setEllipseMode:(NSInteger)mode forIdentifier:(NSString *)identifier {
+    TDAssert([identifier length]);
+    TDAssert(_ellipseModeTab);
+    id val = @(mode);
+    @synchronized(_ellipseModeTab) {
+        [_ellipseModeTab setObject:val forKey:identifier];
     }
 }
 

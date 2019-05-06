@@ -1,12 +1,12 @@
 //
-//  FNShapeMode.m
+//  FNEllipseMode.m
 //  Language
 //
 //  Created by Todd Ditchendorf on 2/14/17.
 //  Copyright © 2017 Celestial Teapot. All rights reserved.
 //
 
-#import "FNShapeMode.h"
+#import "FNEllipseMode.h"
 #import <Language/XPObject.h>
 #import <Language/XPTreeWalker.h>
 #import <Language/XPException.h>
@@ -14,10 +14,10 @@
 #import "XPMemorySpace.h"
 #import "XPNullClass.h"
 
-@implementation FNShapeMode
+@implementation FNEllipseMode
 
 + (NSString *)name {
-    return @"shapeMode";
+    return @"ellipseMode";
 }
 
 
@@ -60,7 +60,7 @@
             break;
     }
     
-    self.shapeMode = flag;
+    self.ellipseMode = flag;
     
     return nil;
 }

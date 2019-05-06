@@ -36,7 +36,10 @@ extern NSString * const SZGraphicsContextDidChangeSizeNotification;
 - (double)frameRateForIdentifier:(NSString *)identifier;
 - (void)setFrameRate:(double)frameRate forIdentifier:(NSString *)identifier;
 
-- (NSInteger)shapeModeForIdentifier:(NSString *)identifier;
-- (void)setShapeMode:(NSInteger)flag forIdentifier:(NSString *)identifier;
+- (NSInteger)rectModeForIdentifier:(NSString *)identifier;
+- (void)setRectMode:(NSInteger)flag forIdentifier:(NSString *)identifier;
+
+- (NSInteger)ellipseModeForIdentifier:(NSString *)identifier;
+- (void)setEllipseMode:(NSInteger)flag forIdentifier:(NSString *)identifier;
 
 @end

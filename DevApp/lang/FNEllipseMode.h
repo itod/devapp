@@ -1,5 +1,5 @@
 //
-//  FNShapeMode.h
+//  FNEllipseMode.h
 //  Language
 //
 //  Created by Todd Ditchendorf on 2/14/17.
@@ -8,6 +8,6 @@
 
 #import "FNAbstractFunction.h"
 
-@interface FNShapeMode : FNAbstractFunction
+@interface FNEllipseMode : FNAbstractFunction
 
 @end

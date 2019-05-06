@@ -28,15 +28,15 @@
     
     XPSymbol *rect = [XPSymbol symbolWithName:@"rectArray"];
     XPSymbol *point = [XPSymbol symbolWithName:@"pointArray"];
-    XPSymbol *mode = [XPSymbol symbolWithName:@"shapeMode"];
+    XPSymbol *mode = [XPSymbol symbolWithName:@"rectMode"];
     funcSym.orderedParams = [NSMutableArray arrayWithObjects:rect, point, mode, nil];
     funcSym.defaultParamObjects = [NSMutableDictionary dictionaryWithObjectsAndKeys:
-                                   [XPObject nullObject], @"shapeMode",
+                                   [XPObject nullObject], @"rectMode",
                                    nil];
     funcSym.params = [NSMutableDictionary dictionaryWithObjectsAndKeys:
                       rect, @"rectArray",
                       point, @"pointArray",
-                      mode, @"shapeMode",
+                      mode, @"rectMode",
                       nil];
     
     return funcSym;
@@ -48,7 +48,7 @@
     TDAssert(rectObj);
     XPObject *pointObj = [space objectForName:@"pointArray"];
     TDAssert(pointObj);
-    XPObject *modeObj = [space objectForName:@"shapeMode"];
+    XPObject *modeObj = [space objectForName:@"rectMode"];
     TDAssert(modeObj);
     
     BOOL res = NO;
@@ -77,15 +77,15 @@
     }
     
     // GET SHAPE MODE
-    NSInteger shapeMode = 0;
+    NSInteger mode = 0;
     {
         if ([XPObject nullObject] == modeObj) {
-            shapeMode = self.shapeMode;
+            mode = self.rectMode;
         } else if (!modeObj.isNumericObject) {
-            [self raise:XPTypeError format:@"optional third argument to `contains()` must be a Shape Mode: CORNER, CENTER, RADIUS, CORNERS"];
+            [self raise:XPTypeError format:@"optional third argument to `contains()` must be a Rect Mode: CORNER, CENTER, RADIUS, CORNERS"];
             return nil;
         } else {
-            shapeMode = modeObj.integerValue;
+            mode = modeObj.integerValue;
         }
     }
     
@@ -96,7 +96,7 @@
         double w = [[v objectAtIndex:2] doubleValue];
         double h = [[v objectAtIndex:3] doubleValue];
 
-        [self rectWithX:x y:y width:w height:h mode:shapeMode];
+        [self rectWithX:x y:y width:w height:h mode:mode];
     });
     
     CGPoint p = ({

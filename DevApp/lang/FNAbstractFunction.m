@@ -224,7 +224,8 @@ NSString * const FNCanvasDidDebugUpdateNotification = @"FNCanvasDidDebugUpdateNo
     [[SZApplication instance] setStrokeWeightStack:[NSMutableArray arrayWithObject:@1] forIdentifier:identifier]; // default is 1
     [[SZApplication instance] setLoop:YES forIdentifier:identifier]; // default is YES
     [[SZApplication instance] setFrameRate:60.0 forIdentifier:identifier]; // default is 60 fps
-    [[SZApplication instance] setShapeMode:FNShapeModeFlagCorner forIdentifier:identifier]; // default is CORNER
+    [[SZApplication instance] setRectMode:FNShapeModeFlagCorner forIdentifier:identifier]; // default is CORNER
+    [[SZApplication instance] setEllipseMode:FNShapeModeFlagCenter forIdentifier:identifier]; // default is CENTER
 }
 
 
@@ -294,15 +295,27 @@ NSString * const FNCanvasDidDebugUpdateNotification = @"FNCanvasDidDebugUpdateNo
 }
 
 
-- (FNShapeModeFlag)shapeMode {
+- (FNShapeModeFlag)rectMode {
     TDAssertExecuteThread();
-    return [[SZApplication instance] shapeModeForIdentifier:[[self class] identifier]];
+    return [[SZApplication instance] rectModeForIdentifier:[[self class] identifier]];
 }
 
 
-- (void)setShapeMode:(FNShapeModeFlag)shapeMode {
+- (void)setRectMode:(FNShapeModeFlag)mode {
     TDAssertExecuteThread();
-    [[SZApplication instance] setShapeMode:shapeMode forIdentifier:[[self class] identifier]];
+    [[SZApplication instance] setRectMode:mode forIdentifier:[[self class] identifier]];
+}
+
+
+- (FNShapeModeFlag)ellipseMode {
+    TDAssertExecuteThread();
+    return [[SZApplication instance] ellipseModeForIdentifier:[[self class] identifier]];
+}
+
+
+- (void)setEllipseMode:(FNShapeModeFlag)mode {
+    TDAssertExecuteThread();
+    [[SZApplication instance] setEllipseMode:mode forIdentifier:[[self class] identifier]];
 }
 
 @end

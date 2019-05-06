@@ -6,7 +6,7 @@ var drag = false
 
 sub setup() {
     loop(false)
-    shapeMode(mode)
+    rectMode(mode)
     strokeWeight(4.0)
     size(480.0, 640.0)
 }
