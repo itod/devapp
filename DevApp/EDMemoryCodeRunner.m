@@ -15,6 +15,7 @@
 
 #import <Language/Language.h>
 #import "XPMemorySpace.h"
+#import "XPFunctionSymbol.h"
 
 #import "FNFrameRate.h"
 #import "FNRedraw.h"
@@ -66,6 +67,10 @@ void TDPerformAfterDelay(dispatch_queue_t q, double delay, void (^block)(void)) 
     dispatch_after(popTime, q, block);
 }
 
+@interface PKToken ()
+@property (nonatomic, readwrite) NSUInteger lineNumber;
+@end
+
 @interface EDMemoryCodeRunner ()
 @property (assign) id <EDCodeRunnerDelegate>delegate; // weakref
 @property (retain) XPInterpreter *interp;
@@ -80,6 +85,9 @@ void TDPerformAfterDelay(dispatch_queue_t q, double delay, void (^block)(void)) 
 @property (retain) TDLinkedQueue *eventQueue;
 
 @property (nonatomic, assign) BOOL waiting;
+
+@property (nonatomic, retain) XPNode *drawBlockNode;
+@property (nonatomic, retain) NSMutableDictionary *callBlockNodeCache;
 @end
 
 @implementation EDMemoryCodeRunner {
@@ -125,6 +133,9 @@ void TDPerformAfterDelay(dispatch_queue_t q, double delay, void (^block)(void)) 
     
     self.dispatcher = nil;
     self.eventQueue = nil;
+    
+    self.drawBlockNode = nil;
+    self.callBlockNodeCache = nil;
 }
 
 
@@ -227,6 +238,9 @@ void TDPerformAfterDelay(dispatch_queue_t q, double delay, void (^block)(void)) 
 
     self.stdOutPipe = [NSPipe pipe];
     self.stdErrPipe = [NSPipe pipe];
+    
+    self.drawBlockNode = nil;
+    self.callBlockNodeCache = [NSMutableDictionary dictionary];
     
     _stdOutPipe.fileHandleForReading.readabilityHandler = ^(NSFileHandle *fh) {
         NSString *msg = [[[NSString alloc] initWithData:fh.availableData encoding:NSUTF8StringEncoding] autorelease];
@@ -520,9 +534,9 @@ void TDPerformAfterDelay(dispatch_queue_t q, double delay, void (^block)(void)) 
         [self fireDelegateWillCallSetup];
         
         TDAssert(!err);
-        XPObject *setup = [_interp.globals objectForName:@"setup"];
-        if (setup && setup.isFunctionObject) {
-            [_interp interpretString:@"setup()" filePath:path error:&err];
+        XPNode *setupBlockNode = [self callBlockNodeForFunctionNamed:@"setup"];
+        if (setupBlockNode) {
+            [_interp eval:setupBlockNode filePath:path error:&err];
         }
     }
     
@@ -659,13 +673,70 @@ void TDPerformAfterDelay(dispatch_queue_t q, double delay, void (^block)(void)) 
     [self updateMouseLocation:loc button:button];
     
     TDAssert(_interp);
-    XPObject *handler = [_interp.globals objectForName:type];
-    if (handler && handler.isFunctionObject) {
-        [_interp interpretString:[NSString stringWithFormat:@"%@()", type] filePath:self.filePath error:outErr];
+    XPNode *blockNode = [self callBlockNodeForFunctionNamed:type];
+    if (blockNode) {
+        [_interp eval:blockNode filePath:self.filePath error:outErr];
         didHandle = YES;
     }
 
     return didHandle;
+}
+
+
+- (XPNode *)drawBlockNode {
+    if (!_drawBlockNode) {
+        self.drawBlockNode = [self callBlockNodeForFunctionNamed:@"draw"];
+    }
+    return _drawBlockNode;
+}
+
+
+- (XPNode *)callBlockNodeForFunctionNamed:(NSString *)name {
+    XPNode *result = [_callBlockNodeCache objectForKey:name];
+    if (result) {
+        return result;
+    }
+    
+    XPObject *handler = [_interp.globals objectForName:name];
+    if (handler && handler.isFunctionObject) {
+        // (BLOCK (CALL (LOAD draw)))
+        NSError *err = nil;
+        NSString *input = [NSString stringWithFormat:@"%@()", name];
+        result = [_interp parseInput:input error:&err];
+        TDAssert(result);
+        TDAssert(!err);
+        
+        [_callBlockNodeCache setObject:result forKey:name];
+        //        PKToken *drawTok = [PKToken tokenWithTokenType:PKTokenTypeSymbol stringValue:@"draw" doubleValue:0.0];
+        //        drawTok.tokenKind = TOKEN_KIND_BUILTIN_SYMBOL;
+        //        XPNode *drawNode = [XPNode nodeWithToken:drawTok];
+        //
+        //        PKToken *loadTok = [PKToken tokenWithTokenType:PKTokenTypeSymbol stringValue:@"LOAD" doubleValue:0.0];
+        //        loadTok.tokenKind = XP_TOKEN_KIND_LOAD;
+        //        XPNode *loadNode = [XPNode nodeWithToken:loadTok];
+        //
+        //        PKToken *callTok = [PKToken tokenWithTokenType:PKTokenTypeSymbol stringValue:@"CALL" doubleValue:0.0];
+        //        callTok.tokenKind = XP_TOKEN_KIND_CALL;
+        //        XPNode *callNode = [XPNode nodeWithToken:callTok];
+        //
+        //        PKToken *blockTok = [PKToken tokenWithTokenType:PKTokenTypeSymbol stringValue:@"BLOCK" doubleValue:0.0];
+        //        blockTok.tokenKind = XP_TOKEN_KIND_BLOCK;
+        //        self.drawBlockNode = [XPNode nodeWithToken:blockTok];
+        //
+        //        // build
+        //        [loadNode addChild:drawNode];
+        //        [callNode addChild:loadNode];
+        //        [_drawBlockNode addChild:callNode];
+        //
+        //        // line number
+        //        XPObject *handler = [_interp.globals objectForName:@"draw"];
+        //        TDAssert(handler && handler.isFunctionObject);
+        //
+        XPFunctionSymbol *sym = handler.value;
+        NSInteger lineNumber = sym.blockNode.lineNumberNode.token.lineNumber;
+        result.token.lineNumber = lineNumber;
+    }
+    return result;
 }
 
 
@@ -676,9 +747,9 @@ void TDPerformAfterDelay(dispatch_queue_t q, double delay, void (^block)(void)) 
     
     [[SZApplication instance] setRedraw:NO forIdentifier:self.identifier];
 
-    XPObject *handler = [_interp.globals objectForName:@"draw"];
-    if (handler && handler.isFunctionObject) {
-        [_interp interpretString:@"draw()" filePath:self.filePath error:outErr];
+    if (self.drawBlockNode) {
+        [_interp eval:self.drawBlockNode filePath:self.filePath error:outErr];
+        //[_interp interpretString:@"draw()" filePath:self.filePath error:outErr];
         didDraw = YES;
     }
     
