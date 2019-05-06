@@ -15,7 +15,6 @@
 
 #import <Language/Language.h>
 #import "XPMemorySpace.h"
-#import "XPFunctionSymbol.h"
 
 #import "FNFrameRate.h"
 #import "FNRedraw.h"
@@ -66,10 +65,6 @@ void TDPerformAfterDelay(dispatch_queue_t q, double delay, void (^block)(void)) 
     dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
     dispatch_after(popTime, q, block);
 }
-
-@interface PKToken ()
-@property (nonatomic, readwrite) NSUInteger lineNumber;
-@end
 
 @interface EDMemoryCodeRunner ()
 @property (assign) id <EDCodeRunnerDelegate>delegate; // weakref
@@ -727,14 +722,6 @@ void TDPerformAfterDelay(dispatch_queue_t q, double delay, void (^block)(void)) 
         //        [loadNode addChild:drawNode];
         //        [callNode addChild:loadNode];
         //        [_drawBlockNode addChild:callNode];
-        //
-        //        // line number
-        //        XPObject *handler = [_interp.globals objectForName:@"draw"];
-        //        TDAssert(handler && handler.isFunctionObject);
-        //
-        XPFunctionSymbol *sym = handler.value;
-        NSInteger lineNumber = sym.blockNode.lineNumberNode.token.lineNumber;
-        result.token.lineNumber = lineNumber;
     }
     return result;
 }
