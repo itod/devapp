@@ -702,9 +702,9 @@ void TDPerformAfterDelay(dispatch_queue_t q, double delay, void (^block)(void)) 
         TDAssert(!err);
         
         [_callBlockNodeCache setObject:result forKey:name];
-        //        PKToken *drawTok = [PKToken tokenWithTokenType:PKTokenTypeSymbol stringValue:@"draw" doubleValue:0.0];
-        //        drawTok.tokenKind = TOKEN_KIND_BUILTIN_SYMBOL;
-        //        XPNode *drawNode = [XPNode nodeWithToken:drawTok];
+        //        PKToken *nameTok = [PKToken tokenWithTokenType:PKTokenTypeSymbol stringValue:name doubleValue:0.0];
+        //        nameTok.tokenKind = TOKEN_KIND_BUILTIN_SYMBOL;
+        //        XPNode *nameNode = [XPNode nodeWithToken:nameTok];
         //
         //        PKToken *loadTok = [PKToken tokenWithTokenType:PKTokenTypeSymbol stringValue:@"LOAD" doubleValue:0.0];
         //        loadTok.tokenKind = XP_TOKEN_KIND_LOAD;
@@ -716,12 +716,12 @@ void TDPerformAfterDelay(dispatch_queue_t q, double delay, void (^block)(void)) 
         //
         //        PKToken *blockTok = [PKToken tokenWithTokenType:PKTokenTypeSymbol stringValue:@"BLOCK" doubleValue:0.0];
         //        blockTok.tokenKind = XP_TOKEN_KIND_BLOCK;
-        //        self.drawBlockNode = [XPNode nodeWithToken:blockTok];
+        //        XPNode *blockNode = [XPNode nodeWithToken:blockTok];
         //
         //        // build
-        //        [loadNode addChild:drawNode];
+        //        [loadNode addChild:nameNode];
         //        [callNode addChild:loadNode];
-        //        [_drawBlockNode addChild:callNode];
+        //        [blockNode addChild:callNode];
     }
     return result;
 }
