@@ -31,7 +31,7 @@
     XPSymbol *mode = [XPSymbol symbolWithName:@"shapeMode"];
     funcSym.orderedParams = [NSMutableArray arrayWithObjects:rect, point, mode, nil];
     funcSym.defaultParamObjects = [NSMutableDictionary dictionaryWithObjectsAndKeys:
-                                   [XPObject number:FNShapeModeFlagCorner], @"shapeMode",
+                                   [XPObject nullObject], @"shapeMode",
                                    nil];
     funcSym.params = [NSMutableDictionary dictionaryWithObjectsAndKeys:
                       rect, @"rectArray",
@@ -48,55 +48,66 @@
     TDAssert(rectObj);
     XPObject *pointObj = [space objectForName:@"pointArray"];
     TDAssert(pointObj);
-    XPObject *mode = [space objectForName:@"shapeMode"];
-    TDAssert(mode);
+    XPObject *modeObj = [space objectForName:@"shapeMode"];
+    TDAssert(modeObj);
     
     BOOL res = NO;
     
-    if (rectObj.isArrayObject) {
+    // TYPE CHECK ARGS
+    {
+        if (!rectObj.isArrayObject) {
+            [self raise:XPTypeError format:@"first argument to `contains()` must be a RectArray"];
+            return nil;
+        }
+        
         if (4 != [rectObj.value count]) {
-            [self raise:XPTypeError format:@"rectArray argument to `rectDontainsPoint()` must be a rectangle Array object: [x, y, width, height]"];
+            [self raise:XPTypeError format:@"first argument to `contains()` must be a RectArray object: [x, y, width, height]"];
+            return nil;
+        }
+        
+        if (!pointObj.isArrayObject) {
+            [self raise:XPTypeError format:@"second argument to `contains()` must be a PointArray"];
             return nil;
         }
         
         if (2 != [pointObj.value count]) {
-            [self raise:XPTypeError format:@"pointArray argument to `rectDontainsPoint()` must be a point Array object: [x, y]"];
+            [self raise:XPTypeError format:@"second argument to `contains()` must be a PointArray object: [x, y]"];
             return nil;
         }
-    
-        CGRect r = ({
-            NSArray *v = rectObj.value;
-            XPObject *xObj = [v objectAtIndex:0];
-            XPObject *yObj = [v objectAtIndex:1];
-            XPObject *wObj = [v objectAtIndex:2];
-            XPObject *hObj = [v objectAtIndex:3];
-            
-            double x = xObj.doubleValue;
-            double y = yObj.doubleValue;
-            double w = wObj.doubleValue;
-            double h = hObj.doubleValue;
-            
-            NSInteger shapeMode = mode.integerValue;
-            
-            [self rectWithX:x y:y width:w height:h mode:shapeMode];
-        });
-        
-        CGPoint p = ({
-            NSArray *v = pointObj.value;
-            XPObject *xObj = [v objectAtIndex:0];
-            XPObject *yObj = [v objectAtIndex:1];
-            
-            double x = xObj.doubleValue;
-            double y = yObj.doubleValue;
-            
-            CGPointMake(x, y);
-        });
-        
-        res = CGRectContainsPoint(r, p);
-
-    } else {
-        [self raise:XPTypeError format:@"first argument to `rectDontainsPoint()` must be a RectArray object"];
     }
+    
+    // GET SHAPE MODE
+    NSInteger shapeMode = 0;
+    {
+        if ([XPObject nullObject] == modeObj) {
+            shapeMode = self.shapeMode;
+        } else if (!modeObj.isNumericObject) {
+            [self raise:XPTypeError format:@"optional third argument to `contains()` must be a Shape Mode: CORNER, CENTER, RADIUS, CORNERS"];
+            return nil;
+        } else {
+            shapeMode = modeObj.integerValue;
+        }
+    }
+    
+    CGRect r = ({
+        NSArray *v = rectObj.value;
+        double x = [[v objectAtIndex:0] doubleValue];
+        double y = [[v objectAtIndex:1] doubleValue];
+        double w = [[v objectAtIndex:2] doubleValue];
+        double h = [[v objectAtIndex:3] doubleValue];
+
+        [self rectWithX:x y:y width:w height:h mode:shapeMode];
+    });
+    
+    CGPoint p = ({
+        NSArray *v = pointObj.value;
+        double x = [[v objectAtIndex:0] doubleValue];
+        double y = [[v objectAtIndex:1] doubleValue];
+
+        CGPointMake(x, y);
+    });
+    
+    res = CGRectContainsPoint(r, p);
     
     return [XPObject boolean:res];
 }
