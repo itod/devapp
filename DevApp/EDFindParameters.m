@@ -14,7 +14,7 @@
     EDFindParameters *params = [[[EDFindParameters alloc] init] autorelease];
     params.rootPath = root;
     params.searchText = search;
-    params.replaceText = replace;
+    params.replaceText = replace ? replace : @"";
     params.matchCase = matchCase;
     params.useRegex = useRegex;
     return params;

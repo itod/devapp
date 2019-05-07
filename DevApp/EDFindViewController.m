@@ -178,7 +178,7 @@ static NSDictionary *sHiPreviewAttrs = nil;
 
 - (IBAction)replace:(id)sender {
     EDAssertMainThread();
-    if (![_searchText length] || ![_replaceText length] || ![_searchResults count] || ![_searchResultFilenames count] || self.busy) {
+    if (![_searchText length] || ![_searchResults count] || ![_searchResultFilenames count] || self.busy) {
         NSBeep();
         return;
     }
@@ -187,10 +187,12 @@ static NSDictionary *sHiPreviewAttrs = nil;
     self.canReplace = NO;
     
     EDAssert(_replaceTextHistory);
-    EDAssert(_replaceText);
     
-    if (![_replaceTextHistory count] || ![[_replaceTextHistory objectAtIndex:0] isEqualToString:_replaceText]) {
-        [_replaceTextHistory insertObject:_replaceText atIndex:0];
+    NSString *repTxt = _replaceText ? _replaceText : @"";
+    EDAssert(repTxt);
+    
+    if ([repTxt length] && (![_replaceTextHistory count] || ![[_replaceTextHistory objectAtIndex:0] isEqualToString:repTxt])) {
+        [_replaceTextHistory insertObject:repTxt atIndex:0];
     }
 
     EDFindParameters *params = [self currentFindParameters];
@@ -462,24 +464,23 @@ static NSDictionary *sHiPreviewAttrs = nil;
             EDFileLocation *fileLoc = (EDFileLocation *)item;
             attrStr = [[fileLoc.preview mutableCopy] autorelease];
 
-            if ([_replaceText length]) {
-                NSString *repTxt = _replaceText;
-                BOOL useRegex = [[EDUserDefaults instance] findInProjectUseRegex];
+            NSString *repTxt = _replaceText ? _replaceText : @"";
+            BOOL useRegex = [[EDUserDefaults instance] findInProjectUseRegex];
 
-                if (useRegex) {
-                    NSUInteger opts = 0;
-                    opts |= NSRegularExpressionSearch;
+            if (useRegex) {
+                NSUInteger opts = 0;
+                opts |= NSRegularExpressionSearch;
 
-                    NSString *searchPat = _searchText;
-                    NSString *subPat = _replaceText;
-                    NSString *srcStr = [[attrStr string] substringWithRange:fileLoc.previewReplaceRange];
-                    repTxt = [srcStr stringByReplacingOccurrencesOfString:searchPat withString:subPat options:opts range:NSMakeRange(0, [srcStr length])];
-                }
-
-                TDAssert(NSMaxRange(fileLoc.previewReplaceRange) <= [attrStr length]);
-                [attrStr replaceCharactersInRange:fileLoc.previewReplaceRange withString:repTxt];
-                [attrStr setAttributes:sHiPreviewAttrs range:NSMakeRange(fileLoc.previewReplaceRange.location, [repTxt length])];
+                NSString *searchPat = _searchText;
+                NSString *subPat = _replaceText;
+                NSString *srcStr = [[attrStr string] substringWithRange:fileLoc.previewReplaceRange];
+                repTxt = [srcStr stringByReplacingOccurrencesOfString:searchPat withString:subPat options:opts range:NSMakeRange(0, [srcStr length])];
             }
+
+            TDAssert(NSMaxRange(fileLoc.previewReplaceRange) <= [attrStr length]);
+            [attrStr replaceCharactersInRange:fileLoc.previewReplaceRange withString:repTxt];
+            [attrStr setAttributes:sHiPreviewAttrs range:NSMakeRange(fileLoc.previewReplaceRange.location, [repTxt length])];
+
             if (attrStr) {
                 [cell setAttributedStringValue:attrStr];
             }
