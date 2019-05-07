@@ -38,6 +38,21 @@
         
         // comment state should fallback to symbol state to match divison op
         t.commentState.fallbackState = t.symbolState;
+        
+        // identifiers
+        [t setTokenizerState:t.wordState from:'_' to:'_'];
+        [t.wordState setWordChars:YES from:'_' to:'_'];
+        [t.wordState setWordChars:NO from:'-' to:'-'];
+        [t.wordState setWordChars:NO from:'.' to:'.'];
+        
+        [t setTokenizerState:t.numberState from:'#' to:'#'];
+        [t setTokenizerState:t.numberState from:'$' to:'$'];
+        [t.numberState addPrefix:@"#" forRadix:16];
+        [t.numberState addPrefix:@"$" forRadix:2];
+        [t.numberState addGroupingSeparator:'_' forRadix:16];
+        [t.numberState addGroupingSeparator:'_' forRadix:10];
+        [t.numberState addGroupingSeparator:'_' forRadix:2];
+        t.numberState.allowsTrailingDecimalSeparator = YES;
 }
 
 program       = element+;
@@ -45,7 +60,7 @@ program       = element+;
 element       = reserved | builtin | identifier | string | number | comment | specialSymbol | symbol;
 identifier    = Word;
 string        = QuotedString;
-number        = Number;
+number        = Number | ('$' Number) | ('#' Number);
 specialSymbol = openCurly | closeCurly | openParen | closeParen | openBracket | closeBracket | semi | comma | dot | colon;
 symbol        = Symbol;
 comment       = Comment;
@@ -172,6 +187,9 @@ builtin
     | "CORNERS"
     | "CENTER"
     | "RADIUS"
+    
+    | "width"
+    | "height"
     
     | "frameRate"
     | "redraw"

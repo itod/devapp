@@ -1513,7 +1513,10 @@
                      [OKTrigger triggerWithTemplate:@"mouseY" specifier:@"mouseY"],
                      [OKTrigger triggerWithTemplate:@"pmouseX" specifier:@"pmouseX"],
                      [OKTrigger triggerWithTemplate:@"pmouseY" specifier:@"pmouseY"],
-                     
+
+                     [OKTrigger triggerWithTemplate:@"width" specifier:@"width"],
+                     [OKTrigger triggerWithTemplate:@"height" specifier:@"height"],
+
                      [OKTrigger triggerWithTemplate:@"PI" specifier:@"PI"],
                      [OKTrigger triggerWithTemplate:@"HALF_PI" specifier:@"HALF_PI"],
                      [OKTrigger triggerWithTemplate:@"QUARTER_PI" specifier:@"QUARTER_PI"],
