@@ -472,7 +472,7 @@ static NSDictionary *sHiPreviewAttrs = nil;
                 opts |= NSRegularExpressionSearch;
 
                 NSString *searchPat = _searchText;
-                NSString *subPat = _replaceText;
+                NSString *subPat = repTxt;
                 NSString *srcStr = [[attrStr string] substringWithRange:fileLoc.previewReplaceRange];
                 repTxt = [srcStr stringByReplacingOccurrencesOfString:searchPat withString:subPat options:opts range:NSMakeRange(0, [srcStr length])];
             }
