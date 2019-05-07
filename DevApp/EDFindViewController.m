@@ -476,6 +476,7 @@ static NSDictionary *sHiPreviewAttrs = nil;
                     repTxt = [srcStr stringByReplacingOccurrencesOfString:searchPat withString:subPat options:opts range:NSMakeRange(0, [srcStr length])];
                 }
 
+                TDAssert(NSMaxRange(fileLoc.previewReplaceRange) <= [attrStr length]);
                 [attrStr replaceCharactersInRange:fileLoc.previewReplaceRange withString:repTxt];
                 [attrStr setAttributes:sHiPreviewAttrs range:NSMakeRange(fileLoc.previewReplaceRange.location, [repTxt length])];
             }
@@ -742,7 +743,7 @@ done:
                 
                 // set preview
                 fileLoc.preview = as;
-                fileLoc.previewReplaceRange = NSMakeRange([lineNumStr length] + hiRangeInPreview.location, hiRangeInPreview.length);
+                fileLoc.previewReplaceRange = NSMakeRange([lineNumStr length] + hiRangeInPreview.location - spaceLen, hiRangeInPreview.length);
 
                 // insert into position 0 in the results (this is a backwards search)
                 if (fileLocs) {
