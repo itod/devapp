@@ -660,9 +660,6 @@ done:
 - (void)performSearch:(EDFindParameters *)params inFiles:(NSArray *)filePaths {
     NSFileManager *mgr = [NSFileManager defaultManager];
 
-    NSAttributedString *emptyAttrStr = [[[NSAttributedString alloc] initWithString:@""] autorelease];
-    NSCharacterSet *whitespaceSet = [NSCharacterSet whitespaceAndNewlineCharacterSet];
-
     NSRegularExpression *regex = nil;
     BOOL anchorOnlySearch = NO;
     if (params.useRegex) {

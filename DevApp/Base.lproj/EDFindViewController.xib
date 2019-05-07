@@ -103,7 +103,7 @@
                     </connections>
                 </button>
                 <comboBox verticalHuggingPriority="750" tag="7" id="18">
-                    <rect key="frame" x="66" y="355" width="285" height="22"/>
+                    <rect key="frame" x="66" y="355" width="283" height="22"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                     <comboBoxCell key="cell" controlSize="small" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" borderStyle="bezel" drawsBackground="YES" completes="NO" usesDataSource="YES" numberOfVisibleItems="5" id="19">
                         <font key="font" metaFont="smallSystem"/>
@@ -152,7 +152,7 @@
                     </textFieldCell>
                 </textField>
                 <textField verticalHuggingPriority="750" id="24">
-                    <rect key="frame" x="12" y="334" width="49" height="14"/>
+                    <rect key="frame" x="7" y="334" width="54" height="14"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <textFieldCell key="cell" controlSize="small" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" title="Replace:" id="25">
                         <font key="font" metaFont="smallSystem"/>
@@ -161,7 +161,7 @@
                     </textFieldCell>
                 </textField>
                 <button verticalHuggingPriority="750" id="28">
-                    <rect key="frame" x="259" y="6" width="115" height="28"/>
+                    <rect key="frame" x="257" y="6" width="117" height="28"/>
                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
                     <buttonCell key="cell" type="push" title="Replace Selected" bezelStyle="rounded" alignment="center" controlSize="small" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="29">
                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -174,7 +174,7 @@
                     </connections>
                 </button>
                 <button verticalHuggingPriority="750" id="30">
-                    <rect key="frame" x="11" y="6" width="49" height="28"/>
+                    <rect key="frame" x="11" y="6" width="53" height="28"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <buttonCell key="cell" type="push" title="Prev" bezelStyle="rounded" alignment="center" controlSize="small" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="31">
                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -200,35 +200,8 @@
                         <outlet property="nextKeyView" destination="32" id="58"/>
                     </connections>
                 </button>
-                <button verticalHuggingPriority="750" id="32">
-                    <rect key="frame" x="58" y="6" width="51" height="28"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <buttonCell key="cell" type="push" title="Next" bezelStyle="rounded" alignment="center" controlSize="small" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="33">
-                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                        <font key="font" metaFont="smallSystem"/>
-                        <string key="keyEquivalent">g</string>
-                        <modifierMask key="keyEquivalentModifierMask" command="YES"/>
-                    </buttonCell>
-                    <connections>
-                        <action selector="next:" target="-2" id="66"/>
-                        <binding destination="-2" name="enabled" keyPath="busy" id="113">
-                            <dictionary key="options">
-                                <string key="NSValueTransformerName">NSNegateBoolean</string>
-                            </dictionary>
-                        </binding>
-                        <binding destination="-2" name="enabled2" keyPath="canReplace" previousBinding="113" id="122">
-                            <dictionary key="options">
-                                <integer key="NSMultipleValuesPlaceholder" value="-1"/>
-                                <integer key="NSNoSelectionPlaceholder" value="-1"/>
-                                <integer key="NSNotApplicablePlaceholder" value="-1"/>
-                                <integer key="NSNullPlaceholder" value="-1"/>
-                            </dictionary>
-                        </binding>
-                        <outlet property="nextKeyView" destination="28" id="59"/>
-                    </connections>
-                </button>
                 <button id="34">
-                    <rect key="frame" x="63" y="311" width="81" height="18"/>
+                    <rect key="frame" x="63" y="311" width="83" height="18"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <buttonCell key="cell" type="check" title="Match case" bezelStyle="regularSquare" imagePosition="left" controlSize="small" state="on" inset="2" id="35">
                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
@@ -240,7 +213,7 @@
                     </connections>
                 </button>
                 <button id="36">
-                    <rect key="frame" x="199" y="311" width="55" height="18"/>
+                    <rect key="frame" x="202" y="311" width="55" height="18"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <buttonCell key="cell" type="check" title="Regex" bezelStyle="regularSquare" imagePosition="left" controlSize="small" state="on" inset="2" id="37">
                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
@@ -252,14 +225,14 @@
                     </connections>
                 </button>
                 <progressIndicator horizontalHuggingPriority="750" verticalHuggingPriority="750" maxValue="100" displayedWhenStopped="NO" bezeled="NO" indeterminate="YES" controlSize="small" style="spinning" id="69">
-                    <rect key="frame" x="240" y="12" width="16" height="16"/>
+                    <rect key="frame" x="238" y="13" width="16" height="16"/>
                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
                     <connections>
                         <binding destination="-2" name="animate" keyPath="busy" id="71"/>
                     </connections>
                 </progressIndicator>
                 <textField verticalHuggingPriority="750" id="72">
-                    <rect key="frame" x="262" y="313" width="175" height="14"/>
+                    <rect key="frame" x="261" y="313" width="176" height="14"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                     <textFieldCell key="cell" controlSize="small" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" id="73">
                         <font key="font" metaFont="smallSystem"/>
@@ -271,7 +244,7 @@
                     </connections>
                 </textField>
                 <button id="94">
-                    <rect key="frame" x="147" y="311" width="49" height="18"/>
+                    <rect key="frame" x="149" y="311" width="50" height="18"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <buttonCell key="cell" type="check" title="Wrap" bezelStyle="regularSquare" imagePosition="left" controlSize="small" state="on" inset="2" id="95">
                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
@@ -283,7 +256,7 @@
                     </connections>
                 </button>
                 <popUpButton verticalHuggingPriority="750" id="mLw-hv-LK2">
-                    <rect key="frame" x="353" y="355" width="84" height="22"/>
+                    <rect key="frame" x="351" y="356" width="86" height="22"/>
                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
                     <popUpButtonCell key="cell" type="push" title="in file" bezelStyle="rounded" alignment="left" controlSize="small" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="d3U-eS-LPR" id="eL1-Mg-MUB">
                         <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
@@ -312,6 +285,33 @@
                     <connections>
                         <action selector="hideFindView:" target="-1" id="JAD-da-ab4"/>
                         <outlet property="nextKeyView" destination="18" id="JfG-aR-UDC"/>
+                    </connections>
+                </button>
+                <button verticalHuggingPriority="750" id="32">
+                    <rect key="frame" x="62" y="6" width="51" height="28"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <buttonCell key="cell" type="push" title="Next" bezelStyle="rounded" alignment="center" controlSize="small" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="33">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="smallSystem"/>
+                        <string key="keyEquivalent">g</string>
+                        <modifierMask key="keyEquivalentModifierMask" command="YES"/>
+                    </buttonCell>
+                    <connections>
+                        <action selector="next:" target="-2" id="66"/>
+                        <binding destination="-2" name="enabled" keyPath="busy" id="113">
+                            <dictionary key="options">
+                                <string key="NSValueTransformerName">NSNegateBoolean</string>
+                            </dictionary>
+                        </binding>
+                        <binding destination="-2" name="enabled2" keyPath="canReplace" previousBinding="113" id="122">
+                            <dictionary key="options">
+                                <integer key="NSMultipleValuesPlaceholder" value="-1"/>
+                                <integer key="NSNoSelectionPlaceholder" value="-1"/>
+                                <integer key="NSNotApplicablePlaceholder" value="-1"/>
+                                <integer key="NSNullPlaceholder" value="-1"/>
+                            </dictionary>
+                        </binding>
+                        <outlet property="nextKeyView" destination="28" id="59"/>
                     </connections>
                 </button>
             </subviews>
