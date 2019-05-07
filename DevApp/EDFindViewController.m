@@ -664,6 +664,7 @@ done:
     NSCharacterSet *whitespaceSet = [NSCharacterSet whitespaceAndNewlineCharacterSet];
 
     NSRegularExpression *regex = nil;
+    BOOL anchorOnlySearch = NO;
     if (params.useRegex) {
         NSError *err = nil;
         NSUInteger regexOpts = NSRegularExpressionCaseInsensitive|NSRegularExpressionAnchorsMatchLines;
@@ -673,6 +674,10 @@ done:
             self.searchErrorText = [NSString stringWithFormat:@"Invalid Regex: %@", err.localizedFailureReason];
             NSBeep();
             return;
+        }
+        
+        if ([params.searchText isEqualToString:@"^"] || [params.searchText isEqualToString:@"$"]) {
+            anchorOnlySearch = YES;
         }
         TDAssert(regex);
         TDAssert(!err);
@@ -729,7 +734,8 @@ done:
             }
             
             // if found ...
-            if (foundRange.length) {
+            NSRange lineRange = NSMakeRange(NSNotFound, 0);
+            if (NSNotFound != foundRange.location) {
                 EDAssert(NSNotFound != foundRange.length);
                 EDAssert(NSNotFound != foundRange.location);
                 
@@ -738,24 +744,13 @@ done:
                 EDFileLocation *fileLoc = [EDFileLocation fileLocationWithURLString:filePath selectedRange:foundRange];
                 
                 // build preview
-                NSRange lineRange = [str lineRangeForRange:foundRange];
+                lineRange = [str lineRangeForRange:foundRange];
                 NSString *previewStr = [str substringWithRange:lineRange];
                 NSMutableAttributedString *as = [[[NSMutableAttributedString alloc] initWithString:previewStr attributes:sPreviewAttrs] autorelease];
 
                 // highlight the search text
                 NSRange hiRangeInPreview = NSMakeRange(foundRange.location - lineRange.location, foundRange.length);
                 [as setAttributes:sHiPreviewAttrs range:hiRangeInPreview];
-
-                // trim the whitespace
-                previewStr = [as string];
-                NSUInteger spaceLen = 0;
-                for ( ; spaceLen < lineRange.length; ++spaceLen) {
-                    unichar c = [previewStr characterAtIndex:spaceLen];
-                    if (![whitespaceSet characterIsMember:c]) {
-                        break;
-                    }
-                }
-                [as replaceCharactersInRange:NSMakeRange(0, spaceLen) withAttributedString:emptyAttrStr];
                 
                 if (!lineNumFmtStr) {
                     NSUInteger numDigits = floor(log10(lineNum)) + 1;
@@ -769,7 +764,7 @@ done:
                 
                 // set preview
                 fileLoc.preview = as;
-                fileLoc.previewReplaceRange = NSMakeRange([lineNumStr length] + hiRangeInPreview.location - spaceLen, hiRangeInPreview.length);
+                fileLoc.previewReplaceRange = NSMakeRange([lineNumStr length] + hiRangeInPreview.location, hiRangeInPreview.length);
 
                 // insert into position 0 in the results (this is a backwards search)
                 if (fileLocs) {
@@ -781,7 +776,13 @@ done:
             }
             
             // increment
-            startLoc = NSMaxRange(foundRange);
+            if (NSNotFound != foundRange.location && foundRange.length == 0 && anchorOnlySearch) {
+                TDAssert(NSNotFound != lineRange.location);
+                TDAssert(NSNotFound != lineRange.length);
+                startLoc = NSMaxRange(lineRange);
+            } else {
+                startLoc = NSMaxRange(foundRange);
+            }
         }
 
         // notify incremental results for this file into the results tab
