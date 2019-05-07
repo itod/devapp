@@ -26,6 +26,7 @@ static NSDictionary *sHiPreviewAttrs = nil;
 
 @interface EDFindViewController ()
 @property (nonatomic, assign) BOOL editingReplaceText;
+@property (retain) NSString *searchErrorText;
 @end
 
 @implementation EDFindViewController
@@ -661,6 +662,21 @@ done:
 
     NSAttributedString *emptyAttrStr = [[[NSAttributedString alloc] initWithString:@""] autorelease];
     NSCharacterSet *whitespaceSet = [NSCharacterSet whitespaceAndNewlineCharacterSet];
+
+    NSRegularExpression *regex = nil;
+    if (params.useRegex) {
+        NSError *err = nil;
+        NSUInteger regexOpts = NSRegularExpressionCaseInsensitive|NSRegularExpressionAnchorsMatchLines;
+        regex = [NSRegularExpression regularExpressionWithPattern:params.searchText options:regexOpts error:&err];
+        if (!regex) {
+            TDAssert(err);
+            self.searchErrorText = [NSString stringWithFormat:@"Invalid Regex: %@", err.localizedFailureReason];
+            NSBeep();
+            return;
+        }
+        TDAssert(regex);
+        TDAssert(!err);
+    }
     
     for (NSString *filePath in filePaths) {
         
@@ -694,14 +710,23 @@ done:
         // build opts
         NSUInteger opts = 0;
         if (!params.matchCase) opts |= NSCaseInsensitiveSearch;
-        if (params.useRegex) opts |= NSRegularExpressionSearch;
+        //if (params.useRegex) opts |= NSRegularExpressionSearch;
         
         while (startLoc < strLen) {
             // build range
             NSRange searchRange = NSMakeRange(startLoc, strLen - startLoc);
             
             // search
-            NSRange foundRange = [str rangeOfString:params.searchText options:opts range:searchRange];
+            NSRange foundRange = NSMakeRange(NSNotFound, 0);
+            
+            if (params.useRegex) {
+                // unforutnately, we can't use -[NSString rangeOfString:options:range:] with NSRegularExpressionSearch option
+                // for regex search becuase that doesn't support line matching via ^,$
+                TDAssert(regex);
+                foundRange = [regex rangeOfFirstMatchInString:str options:NSMatchingWithoutAnchoringBounds range:searchRange];
+            } else {
+                foundRange = [str rangeOfString:params.searchText options:opts range:searchRange];
+            }
             
             // if found ...
             if (foundRange.length) {
@@ -812,8 +837,14 @@ done:
         NSArray *fileLocs = _searchResults[filename];
         c += [fileLocs count];
     }
-
-    NSString *txt = c > 0 ? [NSString stringWithFormat:NSLocalizedString(@"%d Results", @""), (int)c] : NSLocalizedString(@"No Results", @"");
+    
+    NSString *txt = [[self.searchErrorText copy] autorelease];
+    self.searchErrorText = nil;
+    
+    if (!txt) {
+        txt = c > 0 ? [NSString stringWithFormat:NSLocalizedString(@"%d Results", @""), (int)c] : NSLocalizedString(@"No Results", @"");
+    }
+    
     [_resultCountLabel setStringValue:txt];
 }
 
