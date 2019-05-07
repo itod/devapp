@@ -2135,6 +2135,7 @@
             }
             TDAssert(NSLocationInRange(NSMaxRange(selRange), newRange));
             [okvc.textView ok_replaceCharactersInRange:oldRange withString:source.text andSelectRange:selRange];
+            okvc.refreshType = OKTextViewRefreshTypeFullRange;
             [okvc refresh:nil];
             //[okvc setSourceString:source.text encoding:source.encoding clearUndo:NO];
         }
