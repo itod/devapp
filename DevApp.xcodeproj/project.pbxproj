@@ -205,7 +205,7 @@
 		D34FF71A22749BF8009889A2 /* EDComboBox.m in Sources */ = {isa = PBXBuildFile; fileRef = D34FF71922749BF8009889A2 /* EDComboBox.m */; };
 		D3538DE42280CD4100349C56 /* FNRectMode.m in Sources */ = {isa = PBXBuildFile; fileRef = D3538DE22280CD4000349C56 /* FNRectMode.m */; };
 		D3538DE72280CD4B00349C56 /* FNEllipseMode.m in Sources */ = {isa = PBXBuildFile; fileRef = D3538DE52280CD4B00349C56 /* FNEllipseMode.m */; };
-		D3538DEA2280FB7800349C56 /* KonsolSkriptParser.m in Sources */ = {isa = PBXBuildFile; fileRef = D3538DE82280FB7800349C56 /* KonsolSkriptParser.m */; };
+		D3538DEA2280FB7800349C56 /* KonsolSkriptParser.m in Sources */ = {isa = PBXBuildFile; fileRef = D3538DE82280FB7800349C56 /* KonsolSkriptParser.m */; settings = {COMPILER_FLAGS = "-Wno-undeclared-selector"; }; };
 		D36B295F227A0A8B00BC53DD /* FNContains.m in Sources */ = {isa = PBXBuildFile; fileRef = D36B295E227A0A8B00BC53DD /* FNContains.m */; };
 		D36B29A4227B891700BC53DD /* bounce.ks in Resources */ = {isa = PBXBuildFile; fileRef = D36B2999227B891700BC53DD /* bounce.ks */; };
 		D37CFCB51EC8B90600068FEB /* FNBezier.m in Sources */ = {isa = PBXBuildFile; fileRef = D37CFCB41EC8B90600068FEB /* FNBezier.m */; };
