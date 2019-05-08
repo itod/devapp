@@ -1,3 +1,6 @@
+var side = 20
+var r = [100, 100, side, side]
+var dragging = false
 
 sub setup() {
     loop(false)
@@ -6,10 +9,29 @@ sub setup() {
 }
 
 sub draw() {
-    background('white')
-    rect(mouseX, mouseY, 20, 20)
+    // you can specify a color via…
+    background('white') // keyword
+    stroke(#FF0000)     // hex value
+    fill(0, 255, 0)     // or rgb
+    strokeWeight(2)
+    rect(r)
+}
+
+sub mouseDown() {
+    var p = [mouseX, mouseY]
+    if contains(r, p) {
+        dragging = true
+    }
 }
 
 sub mouseDragged() {
+    if dragging {
+        r[1] = mouseX
+        r[2] = mouseY
+    }
     redraw()
+}
+
+sub mouseUp() {
+    dragging = false
 }
