@@ -69,7 +69,7 @@ span {display:inline-block;}
 #dl-cell a:link, #dl-cell a:visited, #big-buy-button {
     display:block;
     margin:5px; padding:8px 12px;
-    border:2px solid #01a003;
+    border:2px solid rgb(255, 204, 0);
     border-radius:5px;
     font:17px Helvetica, Arial, sans-serif;
 }
@@ -180,6 +180,7 @@ span {display:inline-block;}
     #big-buttons {
         grid-template-columns:auto auto;
         justify-content:center;
+        margin-bottom:20px;
     }
     
     #foot .gc {
