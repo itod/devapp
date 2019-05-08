@@ -15,15 +15,15 @@
         <div class="inhalt">
             <div id="nav" class="gc">
                 <a class="gi" href="/grafikkonsol/"><img id="small-icon" src="/grafikkonsol/i/icon_32x32.png" srcset="/grafikkonsol/i/icon_32x32@2x.png 2x" alt="Fluid Icon" border="0"/>Grafik Konsol</a>
-                <a class="gi" href="https://github.com/itod/GrafikKonsolDocumentation">Developer</a>
                 <a class="gi" href="http://fluidapp.com/about/">About</a>
+                <a class="gi" href="https://github.com/itod/GrafikKonsolDocumentation">Documentation</a>
             </div>
         </div> <!-- .inhalt -->
     </div>
 
     <div class="inhalt">
         <div id="large-icon-wrap"><img id="large-icon" src="/grafikkonsol/i/icon_128x128.png" srcset="/grafikkonsol/i/icon_128x128@2x.png 2x" alt="Grafik Konsol Icon" border="0"/></div>
-        <div id="tagline"><span>Learn to code with</span> <span>a native graphics console for Mac OS</span></div>
+        <div id="tagline"><span>Learn to code with</span> <span>a native graphics console for Mac</span></div>
         
         <div id="big-buttons" class="gc">
             <div id="dl-cell" class="gi"><a href="https://fluidapp.com/grafikkonsol/GrafikKonsol_0.3.zip">Free Download</a></div>
