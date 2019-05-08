@@ -1,3 +1,7 @@
 <?php include "header.php"; ?>
-    <img width="659" height="467" border="0" src="/grafikkonsol/i/screen.png" srcset="/grafikkonsol/i/screen@2x.png 2x" alt="Grafik Konsol Screenshot"/>
+<div id="screen-wrap">
+    <a href="/grafikkonsol/i/screen@2x.png">
+        <img id="screen" width="516" height="428" src="/grafikkonsol/i/screen.png" srcset="/grafikkonsol/i/screen@2x.png 2x" alt="Grafik Konsol Screenshot" border="0"/>
+    </a>
+</div>
 <?php include "footer.php"; ?>

@@ -106,17 +106,12 @@ span {display:inline-block;}
     padding:40px 20px;
     background:white;
 }
-#screencast {
-    float:right;
-}
-#dock-wrap {
+#screen-wrap {
+    margin:0; padding:0;
     text-align:center;
 }
-#dock {
+#screen {
     max-width:100%;
-    margin:20px 0 0;
-    padding:10px;
-    border:1px solid #ccc;
 }
 
 #foot {
