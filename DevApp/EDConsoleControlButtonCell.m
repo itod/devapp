@@ -146,7 +146,7 @@ static NSColor *sNonMainIconStroke = nil;
             //    destRect.origin.y -= 1.0;
             
             CGFloat alpha = [self imageAlphaInView:cv];
-            [img drawInRect:imgRect fromRect:srcRect operation:NSCompositeSourceOver fraction:alpha respectFlipped:YES hints:nil];
+            [img drawInRect:imgRect fromRect:srcRect operation:NSCompositingOperationSourceOver fraction:alpha respectFlipped:YES hints:nil];
         }
     }
 }

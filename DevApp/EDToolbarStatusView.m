@@ -49,7 +49,7 @@ static NSDictionary *sNonMainTextAttrs = nil;
 //        [sNonMainStrokeShadow setShadowBlurRadius:2.0];
         
         NSMutableParagraphStyle *paraStyle = [[[NSParagraphStyle defaultParagraphStyle] mutableCopy] autorelease];
-        [paraStyle setAlignment:NSLeftTextAlignment];
+        [paraStyle setAlignment:NSTextAlignmentLeft];
         [paraStyle setLineBreakMode:NSLineBreakByTruncatingTail];
         
 //        NSShadow *textShadow = [[[NSShadow alloc] init] autorelease];

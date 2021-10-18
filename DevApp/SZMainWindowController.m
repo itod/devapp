@@ -437,12 +437,12 @@
         if (![data writeToFile:s options:NSDataWritingAtomic error:&err]) {
             if (err) {
                 NSLog(@"%@", err);
-                NSString *title = NSLocalizedString(@"Could not export image", @"");
-                NSString *msg = [err localizedDescription];
-                NSString *defaultBtn = NSLocalizedString(@"OK", @"");
-                NSString *altBtn = nil;
-                NSString *otherBtn = nil;
-                NSRunAlertPanel(title, @"%@", defaultBtn, altBtn, otherBtn, msg);
+                NSAlert *alert = [[[NSAlert alloc] init] autorelease];
+                alert.alertStyle = NSAlertStyleCritical;
+                alert.messageText = NSLocalizedString(@"Could not export image", @"");
+                alert.informativeText = [err localizedDescription];
+                [alert addButtonWithTitle:NSLocalizedString(@"OK", @"")];
+                [alert runModal];
             }
         }
         
@@ -478,7 +478,7 @@
     
     id hints = @{NSImageHintInterpolation: @(NSImageInterpolationHigh)};
     
-    [image drawInRect:mediaBox fromRect:mediaBox operation:NSCompositeSourceOver fraction:1.0 respectFlipped:YES hints:hints];
+    [image drawInRect:mediaBox fromRect:mediaBox operation:NSCompositingOperationSourceOver fraction:1.0 respectFlipped:YES hints:hints];
     
     [NSGraphicsContext setCurrentContext:oldGc];
     CGContextRestoreGState(ctx);

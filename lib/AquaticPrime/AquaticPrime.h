@@ -1,8 +1,8 @@
 //
 // AquaticPrime.h
-// AquaticPrime Framework
+// AquaticPrime Core Foundation Implementation
 //
-// Copyright (c) 2005, Lucas Newman
+// Copyright (c) 2005-2009 Lucas Newman and other contributors
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without modification,
@@ -12,7 +12,7 @@
 //	¥Redistributions in binary form must reproduce the above copyright notice,
 //	 this list of conditions and the following disclaimer in the documentation and/or
 //	 other materials provided with the distribution.
-//	¥Neither the name of Aquatic nor the names of its contributors may be used to 
+//	¥Neither the name of the Aquatic nor the names of its contributors may be used to 
 //	 endorse or promote products derived from this software without specific prior written permission.
 //
 // THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR
@@ -24,51 +24,24 @@
 // IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT 
 // OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-#import <Cocoa/Cocoa.h>
-//#include <openssl/rsa.h>
-//#include <openssl/sha.h>
-//#include <openssl/err.h>
+#include <CoreFoundation/CoreFoundation.h>
 
-@interface NString : NSObject {
-//	RSA *rsaKey;
-	
-	NSString *aqError;
-	NSString *hash;
-	NSArray *blacklist;
+#ifdef __cplusplus
+extern "C" {
+#endif
+// Set the key - must be called first
+Boolean APSetKey(CFStringRef key);
+
+// Validating & extracting licenses
+CFDictionaryRef APCreateDictionaryForLicenseData(CFDataRef data);
+CFDictionaryRef APCreateDictionaryForLicenseFile(CFURLRef path);
+Boolean APVerifyLicenseData(CFDataRef data);
+Boolean APVerifyLicenseFile(CFURLRef path);
+
+CFStringRef APCopyHash(void);
+void APBlacklistAdd(CFStringRef blacklistEntry);
+void APSetBlacklist(CFArrayRef hashArray);
+
+#ifdef __cplusplus
 }
-
-// Creation
-+ (id)stringWithKey:(NSString *)key;
-+ (id)stringWithKey:(NSString *)key privateKey:(NSString *)privateKey;
-- (id)initWithKey:(NSString *)key;
-- (id)initWithKey:(NSString *)key privateKey:(NSString *)privateKey;
-
-// Getters & Setters
-- (BOOL)setKey:(NSString *)key;
-- (BOOL)setKey:(NSString *)key privateKey:(NSString *)privateKey;
-- (NSString *)key;
-- (NSString *)privateKey;
-- (void)setHash:(NSString *)newHash;
-- (NSString *)hash;
-
-// Generating license data/files
-- (NSData*)licenseDataForDictionary:(NSDictionary *)dict;
-- (BOOL)writeLicenseFileForDictionary:(NSDictionary *)dict toPath:(NSString *)path;
-
-// Validating license data/files
-- (NSDictionary *)dictionaryForLicenseData:(NSData *)data;
-- (NSDictionary *)dictionaryForLicenseFile:(NSString *)path;
-- (BOOL)verifyLicenseData:(NSData *)data;
-- (BOOL)verifyLicenseFile:(NSString *)path;
-
-// Blacklisting
-- (void)setBlacklist:(NSArray *)hashArray;
-
-// Error handling
-- (NSString *)getLastError;
-
-@end
-
-@interface NString (Private)
-- (void)_setError:(NSString *)err;
-@end
+#endif

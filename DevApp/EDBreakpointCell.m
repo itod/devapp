@@ -32,7 +32,7 @@ static NSDictionary *sHiTitleAttrs = nil;
     if ([EDBreakpointCell class] == self) {
 
         NSMutableParagraphStyle *paraStyle = [[[NSParagraphStyle defaultParagraphStyle] mutableCopy] autorelease];
-        [paraStyle setAlignment:NSLeftTextAlignment];
+        [paraStyle setAlignment:NSTextAlignmentLeft];
         [paraStyle setLineBreakMode:NSLineBreakByTruncatingTail];
         
         sTitleAttrs = [[NSDictionary alloc] initWithObjectsAndKeys:
@@ -119,7 +119,7 @@ static NSDictionary *sHiTitleAttrs = nil;
             
             CGRect imgSrcRect = CGRectMake(0.0, 0.0, imgSize.width, imgSize.height);
             CGRect imgDestRect = [self imageRectForBounds:frame];
-            [image drawInRect:imgDestRect fromRect:imgSrcRect operation:NSCompositeSourceOver fraction:1.0 respectFlipped:YES hints:nil];
+            [image drawInRect:imgDestRect fromRect:imgSrcRect operation:NSCompositingOperationSourceOver fraction:1.0 respectFlipped:YES hints:nil];
         }
     }
     

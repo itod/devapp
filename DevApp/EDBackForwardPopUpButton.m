@@ -91,7 +91,7 @@
     }
     point = [self convertPoint:point toView:nil];
     
-    NSEvent *evt = [NSEvent mouseEventWithType:NSLeftMouseDown
+    NSEvent *evt = [NSEvent mouseEventWithType:NSEventTypeLeftMouseDown
                                       location:point
                                  modifierFlags:0
                                      timestamp:0

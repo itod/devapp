@@ -58,7 +58,7 @@ static NSRegularExpression *sRegex = nil;
         NSColor *selectedColor = [NSColor whiteColor];
         
         paraStyle = [[[NSParagraphStyle defaultParagraphStyle] mutableCopy] autorelease];
-        [paraStyle setAlignment:NSRightTextAlignment];
+        [paraStyle setAlignment:NSTextAlignmentRight];
         [paraStyle setLineBreakMode:NSLineBreakByClipping];
 
         sIndexAttrs
@@ -80,7 +80,7 @@ static NSRegularExpression *sRegex = nil;
         
 
         paraStyle = [[[NSParagraphStyle defaultParagraphStyle] mutableCopy] autorelease];
-        [paraStyle setAlignment:NSLeftTextAlignment];
+        [paraStyle setAlignment:NSTextAlignmentLeft];
         [paraStyle setLineBreakMode:NSLineBreakByTruncatingTail];
 
         sFuncNameAttrs
@@ -102,7 +102,7 @@ static NSRegularExpression *sRegex = nil;
         
 
         paraStyle = [[[NSParagraphStyle defaultParagraphStyle] mutableCopy] autorelease];
-        [paraStyle setAlignment:NSLeftTextAlignment];
+        [paraStyle setAlignment:NSTextAlignmentLeft];
         [paraStyle setLineBreakMode:NSLineBreakByTruncatingHead];
 
         sPathAttrs

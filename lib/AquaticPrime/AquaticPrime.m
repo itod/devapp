@@ -1,19 +1,19 @@
 //
-// AquaticPrime.m
-// AquaticPrime Framework
+// AquaticPrime.c
+// AquaticPrime Core Foundation Implementation
 //
-// Copyright (c) 2005, Lucas Newman
+// Copyright (c) 2005-2010 Lucas Newman and other contributors
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without modification,
 // are permitted provided that the following conditions are met:
-//	•Redistributions of source code must retain the above copyright notice,
-//	 this list of conditions and the following disclaimer.
-//	•Redistributions in binary form must reproduce the above copyright notice,
-//	 this list of conditions and the following disclaimer in the documentation and/or
-//	 other materials provided with the distribution.
-//	•Neither the name of Aquatic nor the names of its contributors may be used to 
-//	 endorse or promote products derived from this software without specific prior written permission.
+//  -Redistributions of source code must retain the above copyright notice,
+//   this list of conditions and the following disclaimer.
+//  -Redistributions in binary form must reproduce the above copyright notice,
+//   this list of conditions and the following disclaimer in the documentation and/or
+//   other materials provided with the distribution.
+//  -Neither the name of the Aquatic nor the names of its contributors may be used to 
+//   endorse or promote products derived from this software without specific prior written permission.
 //
 // THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR
 // IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND
@@ -24,337 +24,586 @@
 // IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT 
 // OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-#import "AquaticPrime.h"
+// This file adapted to use Security.framework instead of deprecated openssl
+// Code adapted from the Cocoa implementation by Mathew Waters
+// Portions of code from other sources are noted inline
 
-@implementation NString
+#include "AquaticPrime.h"
+#include <Security/Security.h>
+#include <sys/stat.h>
 
-- (id)init
+static SecKeyRef publicKeyRef;
+static __strong CFStringRef hash;
+static __strong CFMutableArrayRef blacklist;
+
+static void APSetHash(CFStringRef newHash);
+static CFStringRef APPEMKeyCreateFromHexKey(CFStringRef hexKey);
+static CFDataRef APCopyDataFromHexString(CFStringRef string);
+static CFStringRef APCopyHexStringFromData(CFDataRef data);
+
+
+Boolean APSetKey(CFStringRef key)
 {
-	return [self initWithKey:nil privateKey:nil];
-}
-
-- (id)initWithKey:(NSString *)key
-{	
-	return [self initWithKey:key privateKey:nil];
-}
-
-
-- (id)initWithKey:(NSString *)key privateKey:(NSString *)privateKey
-{
-//	ERR_load_crypto_strings();
-	
-    self = [super init];
-    if (self) {
-        
-        aqError = [[NSString alloc] init];
-        blacklist = [[NSArray alloc] init];
-        hash = [[NSString alloc] init];
-//        rsaKey = nil;
-        
-        [self setKey:key privateKey:privateKey];
+    hash = CFSTR("");
+    blacklist = CFArrayCreateMutable(kCFAllocatorDefault, 0, &kCFTypeArrayCallBacks);
+    
+    CFMutableStringRef mutableKey = CFStringCreateMutableCopy(kCFAllocatorDefault, 0, key);
+    CFStringRef preparedKey = CFStringCreateMutableCopy(kCFAllocatorDefault, 0, key);
+    CFLocaleRef currentLocale = CFLocaleCopyCurrent();
+    CFStringLowercase(mutableKey, currentLocale);
+    CFRelease(currentLocale);
+    
+    if (CFStringHasPrefix(mutableKey, CFSTR("0x")) && CFStringGetLength(mutableKey) > 2)
+    {
+        CFStringDelete(mutableKey, CFRangeMake(0, 2));
     }
-	
-	return self;
+    if (CFStringGetLength(mutableKey) == 1024/8*2)
+    {
+        CFRelease(preparedKey);
+        preparedKey = APPEMKeyCreateFromHexKey(mutableKey);
+    }
+    CFRelease(mutableKey);
+    
+    
+    SecItemImportExportKeyParameters params = {0};
+    params.version = SEC_KEY_IMPORT_EXPORT_PARAMS_VERSION;
+    params.flags = kSecKeyNoAccessControl;
+    SecExternalItemType itemType = kSecItemTypePublicKey;
+    SecExternalFormat externalFormat = kSecFormatPEMSequence;
+    CFArrayRef tempArray = NULL;
+    OSStatus oserr = noErr;
+    
+    // Set the key as extractable. Looking through the source code in SecImportExportUtils.cpp
+    // it looks like this isn't handled, yet it seems to be documented to me. One day the code
+    // may catch up, so I'm leaving this here to show the intention.
+    CFNumberRef attributeFlags[1];
+    uint32 flag0value = CSSM_KEYATTR_EXTRACTABLE;
+    CFNumberRef flag0 = CFNumberCreate(kCFAllocatorDefault, kCFNumberIntType, &flag0value);
+    attributeFlags[0] = flag0;
+    CFArrayRef keyAttributes = CFArrayCreate(kCFAllocatorDefault, (const void **)attributeFlags, 1, &kCFTypeArrayCallBacks);
+    CFRelease(flag0);
+    params.keyAttributes = keyAttributes;
+    
+    CFDataRef keyData = CFStringCreateExternalRepresentation(kCFAllocatorDefault, preparedKey, kCFStringEncodingUTF8, 0);
+    CFRelease(preparedKey);
+    
+    oserr = SecItemImport(keyData,
+                          NULL,
+                          &externalFormat,
+                          &itemType,
+                          0,
+                          &params,
+                          NULL,
+                          &tempArray);
+    CFRelease(keyAttributes);
+    CFRelease(keyData);
+    
+    if (oserr != noErr) {
+        CFStringRef errorString = CFStringCreateWithFormat(kCFAllocatorDefault, NULL, CFSTR("Unable to import key. Error %d"), oserr);
+        CFShow(errorString);
+        CFRelease(errorString);
+        return FALSE;
+    }
+    
+    publicKeyRef = (SecKeyRef)CFArrayGetValueAtIndex(tempArray, 0);
+    CFRetain(publicKeyRef);
+    CFRelease(tempArray);
+    
+    return TRUE;
 }
 
-- (void)dealloc
-{	
-//	ERR_free_strings();
-//	
-//	if (rsaKey)
-//		RSA_free(rsaKey);
-
-	[blacklist release];
-	[aqError release];
-	[hash release];
-	
-	[super dealloc];
-}
-
-+ (id)stringWithKey:(NSString *)key privateKey:(NSString *)privateKey
+CFStringRef APPEMKeyCreateFromHexKey(CFStringRef hexKey)
 {
-	return [[[NString alloc] initWithKey:key privateKey:privateKey] autorelease];
+    // Convert a raw 1024 bit key to a PEM formatted string that includes the headers
+    // -----BEGIN RSA PUBLIC KEY-----
+    // (base64 ASN1 encoded data here)
+    // -----END RSA PUBLIC KEY-----
+    uint8_t raw1[] = {
+        0x30, 0x81, 0x9F,                                                    // SEQUENCE length 0x9F
+        0x30, 0x0D,                                                            // SEQUENCE length 0x0D
+        0x06, 0x09, 0x2A, 0x86, 0x48, 0x86, 0xF7, 0x0D, 0x01, 0x01, 0x01,    // rsaEncryption, PKCS #1
+        0x05, 0x00,                                                            // NULL
+        0x03, 0x81, 0x8D, 0x00,                                                // BIT STRING, length 0x8D
+        0x30, 0x81, 0x89,                                                    // SEQUENCE length 0x89
+        0x02, 0x81, 0x81,                                                    // INTEGER length 0x81
+        0x00                                                                // MSB = zero to make sure INTEGER is positively signed
+    };
+    
+    uint8_t raw2[] = {
+        0x02, 0x03, 0x00, 0x00, 0x03                                        // INTEGER length 3, value = 0x03 (RSA exponent)
+    };
+    
+    
+    // Munch through the hex string, taking two characters at a time for each byte
+    // to append as the key data
+    CFDataRef rawKey = APCopyDataFromHexString(hexKey);
+    if (rawKey == NULL) {
+        // Failed to import the key (bad hex digit?)
+        CFShow(CFSTR("Bad public key?"));
+        return NULL;
+    }
+    
+    CFMutableDataRef keyData = CFDataCreateMutable(kCFAllocatorDefault, 0);
+    CFDataAppendBytes(keyData, raw1, sizeof(raw1)/sizeof(uint8_t));
+    
+    const UInt8 *rawKeyBuffer = CFDataGetBytePtr(rawKey);
+    CFDataAppendBytes(keyData, rawKeyBuffer, CFDataGetLength(rawKey));
+    CFRelease(rawKey);
+    
+    CFDataAppendBytes(keyData, raw2, sizeof(raw2)/sizeof(uint8_t));
+    
+    
+    // Just need to base64 encode this data now and wrap the string
+    // in the BEGIN/END RSA PUBLIC KEY
+    CFErrorRef error = NULL;
+    SecTransformRef encoder = SecEncodeTransformCreate(kSecBase64Encoding, &error);
+    if (error != NULL) {
+        CFShow(error);
+        if (encoder) {
+            CFRelease(encoder);
+        }
+        if (keyData) {
+            CFRelease(keyData);
+        }
+        return NULL;
+    }
+    SecTransformSetAttribute(encoder,
+                             kSecTransformInputAttributeName,
+                             keyData,
+                             &error);
+    if (error != NULL) {
+        CFRelease(encoder);
+        if (keyData) {
+            CFRelease(keyData);
+        }
+        CFShow(error);
+        return NULL;
+    }
+    CFDataRef encodedKeyData = SecTransformExecute(encoder, &error);
+    const UInt8 *keyDataBuffer = CFDataGetBytePtr(encodedKeyData);
+    CFStringRef keyDataString = CFStringCreateWithBytes(kCFAllocatorDefault,
+                                                        keyDataBuffer,
+                                                        CFDataGetLength(encodedKeyData),
+                                                        kCFStringEncodingUTF8,
+                                                        false);
+    CFRelease(encodedKeyData);
+    CFRelease(encoder);
+    CFRelease(keyData);
+    
+    
+    CFStringRef beginRSAKey = CFSTR("-----BEGIN RSA PUBLIC KEY-----");
+    CFStringRef endRSAKey = CFSTR("-----END RSA PUBLIC KEY-----");
+    
+    CFStringRef pemKey = CFStringCreateWithFormat(kCFAllocatorDefault,
+                                                  NULL,
+                                                  CFSTR("%@\n%@\n%@"),
+                                                  beginRSAKey,
+                                                  keyDataString,
+                                                  endRSAKey);
+    CFRelease(keyDataString);
+    
+    return pemKey;
 }
 
-+ (id)stringWithKey:(NSString *)key
+CFDataRef APCreateHashFromDictionary(CFDictionaryRef dict)
 {
-	return [[[NString alloc] initWithKey:key privateKey:nil] autorelease];
+    __block CFErrorRef error = NULL;
+    __block SecTransformRef hashFunction = NULL;
+    
+    void(^cleanup)(void) = ^(void) {
+        if (error != NULL) {
+            CFShow(error);
+            CFRelease(error);
+            error = NULL;
+        }
+        if (hashFunction != NULL) {
+            CFRelease(hashFunction);
+            hashFunction = NULL;
+        }
+    };
+    
+    
+    // Get the number of elements
+    CFIndex count = CFDictionaryGetCount(dict);
+    
+    // Load the keys and build up the key array
+    CFMutableArrayRef keyArray = CFArrayCreateMutable(kCFAllocatorDefault, count, NULL);
+    CFStringRef keys[count];
+    CFDictionaryGetKeysAndValues(dict, (const void**)&keys, NULL);
+    for (int idx = 0; idx < count; idx++)
+    {
+        // Skip the signature key
+        if (CFStringCompare(keys[idx], CFSTR("Signature"), 0) == kCFCompareEqualTo) {
+            continue;
+        }
+        CFArrayAppendValue(keyArray, keys[idx]);
+    }
+    
+    // Sort the array
+    CFStringCompareFlags context = kCFCompareCaseInsensitive;
+    CFArraySortValues(keyArray, CFRangeMake(0, count-1), (CFComparatorFunction)CFStringCompare, (void*)context);
+    
+    
+    // Build the data
+    CFMutableDataRef dictData = CFDataCreateMutable(kCFAllocatorDefault, 0);
+    long keyCount = CFArrayGetCount(keyArray);
+    for (int keyIndex = 0; keyIndex < keyCount; keyIndex++)
+    {
+        CFStringRef key = CFArrayGetValueAtIndex(keyArray, keyIndex);
+        CFStringRef value = CFDictionaryGetValue(dict, key);
+        
+        CFDataRef valueData = CFStringCreateExternalRepresentation(kCFAllocatorDefault,
+                                                                   value,
+                                                                   kCFStringEncodingUTF8,
+                                                                   0);
+        const UInt8 *valueBuffer = CFDataGetBytePtr(valueData);
+        CFDataAppendBytes(dictData, valueBuffer, CFDataGetLength(valueData));
+        CFRelease(valueData);
+    }
+    
+    
+    // Hash the data
+    hashFunction = SecDigestTransformCreate(kSecDigestSHA1, 0, &error);
+    if (error != NULL) {
+        CFRelease(dictData);
+        cleanup();
+        return NULL;
+    }
+    
+    SecTransformSetAttribute(hashFunction,
+                             kSecTransformInputAttributeName,
+                             dictData,
+                             &error);
+    CFDataRef hashData = SecTransformExecute(hashFunction, &error);
+    CFRelease(dictData);
+    
+    if (error != NULL) {
+        cleanup();
+        if (hashData) {
+            CFRelease(hashData);
+        }
+        return NULL;
+    }
+    
+    cleanup();
+    
+    return hashData;
 }
 
-- (BOOL)setKey:(NSString *)key 
+CFStringRef APCopyHash(void)
 {
-	return [self setKey:key privateKey:nil];
+    return CFStringCreateCopy(kCFAllocatorDefault, hash);
 }
 
-- (BOOL)setKey:(NSString *)key privateKey:(NSString *)privateKey
+void APSetHash(CFStringRef newHash)
 {
-	// Must have public modulus, private key is optional
-	if (!key || [key isEqualToString:@""]) {
-		[self _setError:@"Empty public key parameter"];
-		return NO;
-	}
-	
-//	if (rsaKey)
-//		RSA_free(rsaKey);
-//		
-//	rsaKey = RSA_new();
-//	
-//	// We are using the constant public exponent e = 3
-//	BN_dec2bn(&rsaKey->e, "3");
-//	
-//	// Determine if we have hex or decimal values
-//	int result;
-//	if ([[key lowercaseString] hasPrefix:@"0x"])
-//		result = BN_hex2bn(&rsaKey->n, (const char *)[[key substringFromIndex:2] UTF8String]);
-//	else
-//		result = BN_dec2bn(&rsaKey->n, (const char *)[key UTF8String]);
-//		
-//	if (!result) {
-//		[self _setError:[NSString stringWithUTF8String:(char*)ERR_error_string(ERR_get_error(), NULL)]];
-//		return NO;
-//	}
-//	
-//	// Do the private portion if it exists
-//	if (privateKey && ![privateKey isEqualToString:@""]) {
-//		if ([[privateKey lowercaseString] hasPrefix:@"0x"])
-//			result = BN_hex2bn(&rsaKey->d, (const char *)[[privateKey substringFromIndex:2] UTF8String]);
-//		else
-//			result = BN_dec2bn(&rsaKey->d, (const char *)[privateKey UTF8String]);
-//			
-//		if (!result) {
-//			[self _setError:[NSString stringWithUTF8String:(char*)ERR_error_string(ERR_get_error(), NULL)]];
-//			return NO;
-//		}
-//	}
-	
-	return YES;
+    if (hash != NULL)
+        CFRelease(hash);
+    hash = CFStringCreateCopy(kCFAllocatorDefault, newHash);
 }
 
-- (NSString *)key
+// Set the entire blacklist array, removing any existing entries
+void APSetBlacklist(CFArrayRef hashArray)
 {
-    return nil;
-//	if (!rsaKey || !rsaKey->n)
-//		return nil;
-//	
-//	char *cString = BN_bn2hex(rsaKey->n);
-//	
-//	NSString *nString = [NSString stringWithUTF8String:cString];
-//	OPENSSL_free(cString);
-//	
-//	return nString;
+    if (blacklist != NULL)
+        CFRelease(blacklist);
+    blacklist = CFArrayCreateMutableCopy(kCFAllocatorDefault, 0, hashArray);
 }
 
-- (NSString *)privateKey
+// Add a single entry to the blacklist-- provided because CFArray doesn't have an equivalent
+// for NSArray's +arrayWithObjects, which means it may be easier to pass blacklist entries
+// one at a time rather than building an array first and passing the whole thing.
+void APBlacklistAdd(CFStringRef blacklistEntry)
 {
-    return nil;
-//	if (!rsaKey || !rsaKey->d)
-//		return nil;
-//	
-//	char *cString = BN_bn2hex(rsaKey->d);
-//	
-//	NSString *dString = [NSString stringWithUTF8String:cString];
-//	OPENSSL_free(cString);
-//	
-//	return dString;
+    CFArrayAppendValue(blacklist, blacklistEntry);
 }
 
-- (void)setHash:(NSString *)newHash
+
+CFDictionaryRef APCreateDictionaryForLicenseData(CFDataRef data)
 {
-	[hash release];
-	hash = [newHash retain];
+    __block CFPropertyListRef propertyList = NULL;
+    __block CFDataRef hashData = NULL;
+    __block CFErrorRef error = NULL;
+    __block SecTransformRef verifyFunction = NULL;
+    __block CFBooleanRef valid = NULL;
+    
+    void(^cleanup)(void) = ^(void) {
+        if (propertyList != NULL) {
+            CFRelease(propertyList);
+            propertyList = NULL;
+        }
+        if (hashData != NULL) {
+            CFRelease(hashData);
+            hashData = NULL;
+        }
+        if (error != NULL) {
+            CFShow(error);
+            CFRelease(error);
+            error = NULL;
+        }
+        if (verifyFunction != NULL) {
+            CFRelease(verifyFunction);
+            verifyFunction = NULL;
+        }
+        if (valid != NULL) {
+            CFRelease(valid);
+            valid = NULL;
+        }
+    };
+    
+    if (!publicKeyRef) {
+        CFShow(CFSTR("Public key is invalid"));
+        return NULL;
+    }
+    
+    
+    // Make the property list from the data
+    CFStringRef errorString = NULL;
+#if (MAC_OS_X_VERSION_MAX_ALLOWED >= MAC_OS_X_VERSION_10_11)
+    propertyList = CFPropertyListCreateWithData(kCFAllocatorDefault,
+                                                data,
+                                                kCFPropertyListMutableContainers,
+                                                NULL,
+                                                &error);
+    
+    if (error != NULL)
+    {
+        CFShow(error);
+        CFRelease(error);
+        error = NULL;
+    }
+#else
+    propertyList = CFPropertyListCreateFromXMLData(kCFAllocatorDefault,
+                                                   data,
+                                                   kCFPropertyListMutableContainers,
+                                                   &errorString);
+#endif
+    
+    if (errorString || NULL == propertyList || CFDictionaryGetTypeID() != CFGetTypeID(propertyList) || !CFPropertyListIsValid(propertyList, kCFPropertyListXMLFormat_v1_0)) {
+        if (propertyList)
+            CFRelease(propertyList);
+        return NULL;
+    }
+    CFMutableDictionaryRef licenseDictionary = (CFMutableDictionaryRef)propertyList;
+    
+    
+    CFDataRef signature = CFDictionaryGetValue(licenseDictionary, CFSTR("Signature"));
+    if (!signature) {
+        CFShow(CFSTR("No signature"));
+        cleanup();
+        return NULL;
+    }
+    
+    
+    hashData = APCreateHashFromDictionary(licenseDictionary);
+    CFStringRef hashCheck = APCopyHexStringFromData(hashData);
+    APSetHash(hashCheck);
+    CFRelease(hashCheck);
+    
+    
+    // Check the hash against license blacklist
+    if (blacklist && CFArrayContainsValue(blacklist, CFRangeMake(0, CFArrayGetCount(blacklist)), hash)) {
+        cleanup();
+        return NULL;
+    }
+    
+    
+    // Verify the signed hash using the public key, passing the raw hash data as the input
+    verifyFunction = SecVerifyTransformCreate(publicKeyRef, signature, &error);
+    if (error) {
+        cleanup();
+        return NULL;
+    }
+    
+    SecTransformSetAttribute(verifyFunction,
+                             kSecTransformInputAttributeName,
+                             hashData,
+                             &error);
+    if (error) {
+        cleanup();
+        return NULL;
+    }
+    
+    SecTransformSetAttribute(verifyFunction,
+                             kSecInputIsAttributeName,
+                             kSecInputIsRaw,
+                             &error);
+    if (error) {
+        cleanup();
+        return NULL;
+    }
+    
+    valid = SecTransformExecute(verifyFunction, &error);
+    if (error) {
+        cleanup();
+        return NULL;
+    }
+    
+    if (valid != kCFBooleanTrue) {
+        cleanup();
+        return NULL;
+    }
+    
+    CFDictionaryRef resultDict = CFDictionaryCreateCopy(kCFAllocatorDefault, licenseDictionary);
+    cleanup();
+    return resultDict;
 }
 
-- (NSString *)hash
+long long GetFileSize(CFURLRef fileURL)
 {
-	return hash;
+    const long long failed = -1;
+    
+    UInt8 filePath[PATH_MAX];
+    Boolean pathConvert = CFURLGetFileSystemRepresentation(fileURL, false, filePath, PATH_MAX);
+    
+    if(pathConvert == false)
+    {
+        return failed;
+    }
+    
+    struct stat stat1;
+    const char* cFilePath = (const char*)filePath;
+    if( stat(cFilePath, &stat1) )
+    {
+        return failed;
+    }
+    
+    const long long fileSize = stat1.st_size;
+    
+    return fileSize;
 }
 
-#pragma mark Blacklisting
-
-// This array should contain a list of NSStrings representing hexadecimal hashcodes for blacklisted licenses
-- (void)setBlacklist:(NSArray*)hashArray
+CFDictionaryRef APCreateDictionaryForLicenseFile(CFURLRef path)
 {
-	[blacklist release];
-	blacklist = [hashArray retain];
+    // Read the XML file
+    CFDataRef data = NULL;
+#if (MAC_OS_X_VERSION_MAX_ALLOWED >= MAC_OS_X_VERSION_10_10)
+    CFReadStreamRef fileStream = CFReadStreamCreateWithFile(NULL, path);
+    if (fileStream)
+    {
+        if (CFReadStreamOpen(fileStream))
+        {
+            CFIndex bufferLength = GetFileSize(path);
+            
+            if (bufferLength > 0)
+            {
+                UInt8* dataBytes = malloc(bufferLength);
+                if (dataBytes)
+                {
+                    CFIndex bytesRead = CFReadStreamRead(fileStream, dataBytes, bufferLength);
+                    if (bytesRead > 0)
+                    {
+                        data = CFDataCreate(kCFAllocatorDefault, dataBytes, bytesRead);
+                    }
+                    
+                    free(dataBytes);
+                    dataBytes = NULL;
+                }        
+            }
+            
+            CFReadStreamClose(fileStream);
+        }
+        
+        CFRelease(fileStream);
+        fileStream = NULL;
+    }
+    
+    
+#else
+    SInt32 errorCode;
+    Boolean status;
+    status = CFURLCreateDataAndPropertiesFromResource(kCFAllocatorDefault, path, &data, NULL, NULL, &errorCode);
+    
+    if (errorCode || status != true)
+        return NULL;
+#endif
+    
+    CFDictionaryRef licenseDictionary = APCreateDictionaryForLicenseData(data);
+    if(data != NULL)
+    {
+        CFRelease(data);
+        data = NULL;
+    }
+    return licenseDictionary;
 }
 
-#pragma mark Signing
-
-- (NSData*)licenseDataForDictionary:(NSDictionary*)dict
-{	
-//	// Make sure we have a good key
-//	if (!rsaKey || !rsaKey->n || !rsaKey->d) {
-//		[self _setError:@"RSA key is invalid"];
-//		return nil;
-//	}
-//	
-//	// Grab all values from the dictionary
-//	NSMutableArray *keyArray = [NSMutableArray arrayWithArray:[dict allKeys]];
-//	NSMutableData *dictData = [NSMutableData data];
-//	
-//	// Sort the keys so we always have a uniform order
-//	[keyArray sortUsingSelector:@selector(caseInsensitiveCompare:)];
-//	
-//	int i;
-//	for (i = 0; i < [keyArray count]; i++)
-//	{
-//		id curValue = [dict objectForKey:[keyArray objectAtIndex:i]];
-//		char *desc = (char *)[[curValue description] UTF8String];
-//		// We use strlen instead of [string length] so we can get all the bytes of accented characters
-//		[dictData appendBytes:desc length:strlen(desc)];
-//	}
-//	
-//	// Hash the data
-//	unsigned char digest[20];
-//	SHA1([dictData bytes], [dictData length], digest);
-//	
-//	// Create the signature from 20 byte hash
-//	int rsaLength = RSA_size(rsaKey);
-//	unsigned char *signature = (unsigned char*)malloc(rsaLength);
-//	int bytes = RSA_private_encrypt(20, digest, signature, rsaKey, RSA_PKCS1_PADDING);
-//	
-//	if (bytes == -1) {
-//		[self _setError:[NSString stringWithUTF8String:(char*)ERR_error_string(ERR_get_error(), NULL)]];
-//		return nil;
-//	}
-	
-	// Create the license dictionary
-	NSMutableDictionary *licenseDict = [NSMutableDictionary dictionaryWithDictionary:dict];
-//	[licenseDict setObject:[NSData dataWithBytes:signature length:bytes]  forKey:@"Signature"];
-	
-	// Create the data from the dictionary
-	NSString *error;
-	NSData *licenseFile = [NSPropertyListSerialization dataFromPropertyList:licenseDict 
-                                                                     format:NSPropertyListXMLFormat_v1_0 
-                                                           errorDescription:&error];
-	
-	if (!licenseFile) {
-		[self _setError:error];
-		return nil;
-	}
-	
-	return licenseFile;
-}
-
-- (BOOL)writeLicenseFileForDictionary:(NSDictionary*)dict toPath:(NSString *)path
+Boolean APVerifyLicenseData(CFDataRef data)
 {
-	NSData *licenseFile = [self licenseDataForDictionary:dict];
-	
-	if (!licenseFile)
-		return NO;
-	
-	return [licenseFile writeToFile:path atomically:YES];
+    CFDictionaryRef licenseDictionary = APCreateDictionaryForLicenseData(data);
+    if (licenseDictionary) {
+        CFRelease(licenseDictionary);
+        return TRUE;
+    } else {
+        return FALSE;
+    }
 }
 
-// This method only logs errors on developer problems, so don't expect to grab an error message if it's just an invalid license
-- (NSDictionary*)dictionaryForLicenseData:(NSData *)data
-{	
-//	// Make sure public key is set up
-//	if (!rsaKey || !rsaKey->n) {
-//		[self _setError:@"RSA key is invalid"];
-//		return nil;
-//	}
-
-	// Create a dictionary from the data
-	NSPropertyListFormat format;
-	NSString *error;
-	NSMutableDictionary *licenseDict = [NSPropertyListSerialization propertyListFromData:data mutabilityOption:NSPropertyListMutableContainersAndLeaves format:&format errorDescription:&error];
-	if (error)
-		return nil;
-		
-//	NSData *signature = [licenseDict objectForKey:@"Signature"];
-//	if (!signature)
-//		return nil;
-//	
-//	// Decrypt the signature - should get 20 bytes back
-//	unsigned char checkDigest[20];
-//	if (RSA_public_decrypt((int)[signature length], [signature bytes], checkDigest, rsaKey, RSA_PKCS1_PADDING) != 20)
-//		return nil;
-//	
-//	// Make sure the license hash isn't on the blacklist
-//	NSMutableString *hashCheck = [NSMutableString string];
-//	int hashIndex;
-//	for (hashIndex = 0; hashIndex < 20; hashIndex++)
-//		[hashCheck appendFormat:@"%02x", checkDigest[hashIndex]];
-//	
-//	// Store the license hash in case we need it later
-//	[self setHash:hashCheck];
-//	
-//	if (blacklist && [blacklist containsObject:hashCheck])
-//			return nil;
-	
-	// Remove the signature element
-	[licenseDict removeObjectForKey:@"Signature"];
-	
-	// Grab all values from the dictionary
-	NSMutableArray *keyArray = [NSMutableArray arrayWithArray:[licenseDict allKeys]];
-	NSMutableData *dictData = [NSMutableData data];
-	
-	// Sort the keys so we always have a uniform order
-	[keyArray sortUsingSelector:@selector(caseInsensitiveCompare:)];
-	
-	int objectIndex;
-	for (objectIndex = 0; objectIndex < [keyArray count]; objectIndex++)
-	{
-		id currentValue = [licenseDict objectForKey:[keyArray objectAtIndex:objectIndex]];
-		char *description = (char *)[[currentValue description] UTF8String];
-		// We use strlen instead of [string length] so we can get all the bytes of accented characters
-		[dictData appendBytes:description length:strlen(description)];
-	}
-	
-//	// Hash the data
-//	unsigned char digest[20];
-//	SHA1([dictData bytes], [dictData length], digest);
-//	
-//	// Check if the signature is a match	
-//	int checkIndex;
-//	for (checkIndex = 0; checkIndex < 20; checkIndex++) {
-//		if (checkDigest[checkIndex] ^ digest[checkIndex])
-//			return nil;
-//	}
-	
-	return [NSDictionary dictionaryWithDictionary:licenseDict];
-}
-
-- (NSDictionary*)dictionaryForLicenseFile:(NSString *)path
+Boolean APVerifyLicenseFile(CFURLRef path)
 {
-	NSData *licenseFile = [NSData dataWithContentsOfFile:path];
-	
-	if (!licenseFile)
-		return nil;
-	
-	return [self dictionaryForLicenseData:licenseFile];
+    CFDictionaryRef licenseDictionary = APCreateDictionaryForLicenseFile(path);
+    if (licenseDictionary) {
+        CFRelease(licenseDictionary);
+        return TRUE;
+    } else {
+        return FALSE;
+    }
 }
 
-- (BOOL)verifyLicenseData:(NSData *)data
+
+#pragma mark Internal
+
+/* Adapted from StackOverflow: */
+/* http://stackoverflow.com/a/12535482 */
+static CFDataRef APCopyDataFromHexString(CFStringRef string)
 {
-	if ([self dictionaryForLicenseData:data])
-		return YES;
-	else
-		return NO;
+    CFIndex length = CFStringGetLength(string);
+    CFIndex maxSize =CFStringGetMaximumSizeForEncoding(length, kCFStringEncodingUTF8);
+    char *cString = (char *)malloc(maxSize);
+    CFStringGetCString(string, cString, maxSize, kCFStringEncodingUTF8);
+    
+    
+    /* allocate the buffer */
+    UInt8 * buffer = malloc((strlen(cString) / 2));
+    
+    char *h = cString; /* this will walk through the hex string */
+    UInt8 *b = buffer; /* point inside the buffer */
+    
+    /* offset into this string is the numeric value */
+    char translate[] = "0123456789abcdef";
+    
+    for ( ; *h; h += 2, ++b) /* go by twos through the hex string */
+        *b = ((strchr(translate, *h) - translate) * 16) /* multiply leading digit by 16 */
+        + ((strchr(translate, *(h+1)) - translate));
+    
+    CFDataRef data = CFDataCreate(kCFAllocatorDefault, buffer, (strlen(cString) / 2));
+    free(cString);
+    free(buffer);
+    
+    return data;
 }
 
-- (BOOL)verifyLicenseFile:(NSString *)path
+
+/*
+ From Apple open source: SecTrustSettings.c (APSL license)
+ Return a (hex)string representation of a CFDataRef.
+ */
+static CFStringRef APCopyHexStringFromData(CFDataRef data)
 {
-	NSData *data = [NSData dataWithContentsOfFile:path];
-	return [self verifyLicenseData:data];
+    CFIndex ix, length;
+    const UInt8 *bytes;
+    CFMutableStringRef string;
+    
+    if (data) {
+        length = CFDataGetLength(data);
+        bytes = CFDataGetBytePtr(data);
+    } else {
+        length = 0;
+        bytes = NULL;
+    }
+    string = CFStringCreateMutable(kCFAllocatorDefault, length * 2);
+    for (ix = 0; ix < length; ++ix)
+        CFStringAppendFormat(string, NULL, CFSTR("%02X"), bytes[ix]);
+    
+    return string;
 }
 
-#pragma mark Error Handling
-
-- (NSString*)getLastError
-{
-	return aqError;
-}
-
-@end
-
-@implementation NString (Private)
-
-- (void)_setError:(NSString *)err
-{
-	[aqError release];
-	aqError = [err retain];
-}
-
-@end

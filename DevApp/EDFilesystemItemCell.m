@@ -38,7 +38,7 @@ static NSDictionary *sHiProjTitleAttrs = nil;
     if ([EDFilesystemItemCell class] == self) {
 
         NSMutableParagraphStyle *paraStyle = [[[NSParagraphStyle defaultParagraphStyle] mutableCopy] autorelease];
-        [paraStyle setAlignment:NSLeftTextAlignment];
+        [paraStyle setAlignment:NSTextAlignmentLeft];
         [paraStyle setLineBreakMode:NSLineBreakByTruncatingTail];
         
         sTitleAttrs = [[NSDictionary alloc] initWithObjectsAndKeys:
@@ -191,7 +191,7 @@ static NSDictionary *sHiProjTitleAttrs = nil;
     NSSize imgSize = [image size];
     NSRect imgSrcRect = NSMakeRect(0.0, 0.0, imgSize.width, imgSize.height);
     
-    [image drawInRect:imgDestRect fromRect:imgSrcRect operation:NSCompositeSourceOver fraction:1.0 respectFlipped:YES hints:nil];
+    [image drawInRect:imgDestRect fromRect:imgSrcRect operation:NSCompositingOperationSourceOver fraction:1.0 respectFlipped:YES hints:nil];
 
     [title drawInRect:titleRect withAttributes:attrs];
 }

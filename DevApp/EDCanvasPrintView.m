@@ -82,7 +82,7 @@
 
     CGRect srcRect = CGRectMake(0.0, 0.0, imgSize.width, imgSize.height);
     CGRect destRect = _pageRect;
-    [img drawInRect:destRect fromRect:srcRect operation:NSCompositeSourceOver fraction:1.0 respectFlipped:YES hints:nil];
+    [img drawInRect:destRect fromRect:srcRect operation:NSCompositingOperationSourceOver fraction:1.0 respectFlipped:YES hints:nil];
     
 //    CGContextSetLineWidth(ctx, 4.0);
 //    CGContextStrokeRect(ctx, [self bounds]);

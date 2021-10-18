@@ -253,7 +253,7 @@ static CGColorSpaceRef sPatternColorSpace = NULL;
                 CGRect srcRect = CGRectMake(0.0, 0.0, imgSize.width, imgSize.height);
                 CGRect destRect = CGRectMake(0.0, 0.0, imgSize.width, imgSize.height);
 
-                [_image drawInRect:destRect fromRect:srcRect operation:NSCompositeSourceOver fraction:1.0 respectFlipped:YES hints:sHints];
+                [_image drawInRect:destRect fromRect:srcRect operation:NSCompositingOperationSourceOver fraction:1.0 respectFlipped:YES hints:sHints];
             }
            
         } CGContextRestoreGState(ctx); // after scale
@@ -855,7 +855,7 @@ static CGColorSpaceRef sPatternColorSpace = NULL;
 
 
 - (void)rulerView:(NSRulerView *)rv handleMouseDown:(NSEvent *)evt {
-    if (([evt type] == NSLeftMouseDown && [evt isControlKeyPressed]) || [evt type] == NSRightMouseDown) {
+    if (([evt type] == NSEventTypeLeftMouseDown && [evt isControlKeyPressed]) || [evt type] == NSEventTypeRightMouseDown) {
         //[self rulerView:rv handleRightClick:evt];
     } else {
         //[self rulerView:rv handleLeftClick:evt];
@@ -870,7 +870,7 @@ static CGColorSpaceRef sPatternColorSpace = NULL;
                                        modifierFlags:[evt modifierFlags]
                                            timestamp:[evt timestamp]
                                         windowNumber:[evt windowNumber]
-                                             context:[evt context]
+                                             context:nil
                                          eventNumber:[evt eventNumber]
                                           clickCount:[evt clickCount]
                                             pressure:[evt pressure]];
@@ -937,13 +937,13 @@ static CGColorSpaceRef sPatternColorSpace = NULL;
     [self addUserGuide:_draggingUserGuide];
     
     while (1) {
-        NSEvent *evt = [NSApp nextEventMatchingMask:NSLeftMouseDraggedMask|NSLeftMouseUpMask 
+        NSEvent *evt = [NSApp nextEventMatchingMask:NSEventMaskLeftMouseDragged|NSEventMaskLeftMouseUp
                                           untilDate:[NSDate distantFuture] 
                                              inMode:NSEventTrackingRunLoopMode 
                                             dequeue:YES];
         
         CGPoint p = [self convertPoint:[evt locationInWindow] fromView:nil];
-        if ([evt type] == NSLeftMouseDragged) {
+        if ([evt type] == NSEventTypeLeftMouseDragged) {
             [self userGuideDraggedEvent:evt atPoint:[self convertPointToComposition:p]];
         } else {
             [self userGuideMouseUp:evt atPoint:p];

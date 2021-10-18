@@ -255,7 +255,7 @@
     [panel setAllowedFileTypes:@[@"app"]];
     
     [panel beginSheetModalForWindow:win completionHandler:^(NSInteger result) {
-        if (NSOKButton == result) {
+        if (NSModalResponseOK == result) {
             NSString *appPath = [[panel URL] relativePath];
             
             [[NSWorkspace sharedWorkspace] openFile:fsItem.fullPath withApplication:appPath andDeactivate:YES];

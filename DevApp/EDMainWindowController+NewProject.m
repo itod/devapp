@@ -37,7 +37,7 @@
     EDAssert(self.projectWindowController);
     EDAssert([self.projectWindowController window] == sheet);
     
-    BOOL ok = NSOKButton == returnCode;
+    BOOL ok = NSModalResponseOK == returnCode;
     
     if (ok) {
         EDNewProjectParams *params = self.projectWindowController.projParams;

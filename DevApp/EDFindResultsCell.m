@@ -65,7 +65,7 @@
             NSSize imgSize = [image size];
             NSRect imgSrcRect = NSMakeRect(0.0, 0.0, imgSize.width, imgSize.height);
             NSRect imgDestRect = [self imageRectForBounds:cellFrame];
-            [image drawInRect:imgDestRect fromRect:imgSrcRect operation:NSCompositeSourceOver fraction:1.0 respectFlipped:YES hints:nil];
+            [image drawInRect:imgDestRect fromRect:imgSrcRect operation:NSCompositingOperationSourceOver fraction:1.0 respectFlipped:YES hints:nil];
         }
     }
 

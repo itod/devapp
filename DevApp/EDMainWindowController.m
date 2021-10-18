@@ -1128,7 +1128,7 @@
         _fileEncodingDialogController.filePath = absPath;
 
         [[self window] beginSheet:[_fileEncodingDialogController window] completionHandler:^(NSModalResponse returnCode) {
-            if (NSOKButton == returnCode) {
+            if (NSModalResponseOK == returnCode) {
                 EDAssert(0 != _userSelectedStringEncoding);
                 EDAssert(NSNotFound != _userSelectedStringEncoding);
 
@@ -1159,7 +1159,7 @@
     EDAssert([_fileEncodingDialogController window]);
     
     self.userSelectedStringEncoding = 0;
-    [self dismissFileEncodingDialog:NSCancelButton];
+    [self dismissFileEncodingDialog:NSModalResponseCancel];
 }
 
 
@@ -1169,7 +1169,7 @@
     EDAssert([_fileEncodingDialogController window]);
 
     self.userSelectedStringEncoding = enc;
-    [self dismissFileEncodingDialog:NSOKButton];
+    [self dismissFileEncodingDialog:NSModalResponseOK];
 }
 
 
@@ -2712,7 +2712,7 @@
     
     [dirPath autorelease]; // -1
     
-    BOOL ok = NSOKButton == returnCode;
+    BOOL ok = NSModalResponseOK == returnCode;
     if (ok) {
         NSString *filename = _fileWindowController.filename;
         EDAssert([filename length]);

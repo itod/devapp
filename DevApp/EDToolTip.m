@@ -57,7 +57,7 @@
             NSFont *font = [NSFont fontWithName:DEFAULT_FONT_NAME size:DEFAULT_FONT_SIZE];
             
             NSMutableParagraphStyle *paraStyle = [[[NSParagraphStyle defaultParagraphStyle] mutableCopy] autorelease];
-            [paraStyle setAlignment:NSCenterTextAlignment];
+            [paraStyle setAlignment:NSTextAlignmentCenter];
             [paraStyle setLineBreakMode:NSLineBreakByWordWrapping];
             [paraStyle setMaximumLineHeight:DEFAULT_FONT_SIZE * DEFAULT_LINE_HEIGHT_MULTIPLE];
             

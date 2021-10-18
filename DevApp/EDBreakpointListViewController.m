@@ -222,7 +222,7 @@
                                    modifierFlags:[evt modifierFlags]
                                        timestamp:[evt timestamp]
                                     windowNumber:[evt windowNumber]
-                                         context:[evt context]
+                                         context:nil
                                      eventNumber:[evt eventNumber]
                                       clickCount:[evt clickCount]
                                         pressure:[evt pressure]];

@@ -333,7 +333,7 @@ NSImage *EDDirtyIconForFile(NSString *absPath) {
 
         [icon lockFocus];
         [[NSColor colorWithDeviceWhite:0.0 alpha:0.33] setFill];
-        NSRectFillUsingOperation(imgRect, NSCompositeSourceAtop);
+        NSRectFillUsingOperation(imgRect, NSCompositingOperationSourceAtop);
         [icon unlockFocus];
         
         assert(icon);

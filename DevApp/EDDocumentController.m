@@ -120,12 +120,15 @@ static BOOL sIsLicensed = NO;
 
 
 - (BOOL)installLicenseAtPath:(NSString *)srcPath {
-    NString *licenseValidator = [NString stringWithKey:[self publicKey]];
-    NSDictionary *d = [licenseValidator dictionaryForLicenseFile:srcPath];
+    APSetKey((CFStringRef)[self publicKey]);
+    NSURL *srcURL = [NSURL fileURLWithPath:srcPath];
+    NSDictionary *d = (id)APCreateDictionaryForLicenseFile((CFURLRef)srcURL);
+//    NString *licenseValidator = [NString stringWithKey:[self publicKey]];
+//    NSDictionary *d = [licenseValidator dictionaryForLicenseFile:srcPath];
     if (!d) {
         return NO;
     }
-    
+
     NSString *destPath = [self licensePath];
     //BOOL result = [licenseValidator writeLicenseFileForDictionary:d toPath:destPath];
     
@@ -153,13 +156,14 @@ static BOOL sIsLicensed = NO;
 
 
 - (void)runInvalidLicenseDialog {
-    NSString *title = NSLocalizedString(@"Invalid License File.", @"");
-    NSString *msg = [NSString stringWithFormat:NSLocalizedString(@"Sorry, that doesn't appear to be a valid %@ License.\n\nPlease contact support for help.\n", @""), APP_NAME];
-    NSString *defaultBtn = NSLocalizedString(@"Online Support", @"");
-    NSString *altBtn = NSLocalizedString(@"Cancel", @"");
-    NSString *otherBtn = nil;
-    NSInteger button = NSRunInformationalAlertPanel(title, @"%@", defaultBtn, altBtn, otherBtn, msg);
-    if (NSAlertDefaultReturn == button) {
+    NSAlert *alert = [[[NSAlert alloc] init] autorelease];
+    alert.alertStyle = NSAlertStyleWarning;
+    alert.messageText = NSLocalizedString(@"Invalid License File.", @"");
+    alert.informativeText = [NSString stringWithFormat:NSLocalizedString(@"Sorry, that doesn't appear to be a valid %@ License.\n\nPlease contact support for help.\n", @""), APP_NAME];
+    [alert addButtonWithTitle:NSLocalizedString(@"Online Support", @"")];
+    [alert addButtonWithTitle:NSLocalizedString(@"Cancel", @"")];
+    NSModalResponse button = [alert runModal];
+    if (NSAlertFirstButtonReturn == button) {
         [[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:SUPPORT_URL]];
     }
 }
@@ -173,12 +177,12 @@ static BOOL sIsLicensed = NO;
                                 
 - (void)runThankYouDialog {
     NSString *allowances = [self allowances];
-    NSString *title = [NSString stringWithFormat:NSLocalizedString(@"Thank You for Purchasing %@!", @""), APP_NAME];
-    NSString *msg = [NSString stringWithFormat:NSLocalizedString(@"You have successfully registered your copy of %@. Now you can:%@\nEnjoy!", @""), APP_NAME, allowances];
-    NSString *defaultBtn = NSLocalizedString(@"OK", @"");
-    NSString *altBtn = nil;
-    NSString *otherBtn = nil;
-    NSRunInformationalAlertPanel(title, @"%@", defaultBtn, altBtn, otherBtn, msg);
+    NSAlert *alert = [[[NSAlert alloc] init] autorelease];
+    alert.alertStyle = NSAlertStyleInformational;
+    alert.messageText = [NSString stringWithFormat:NSLocalizedString(@"Thank You for Purchasing %@!", @""), APP_NAME];
+    alert.informativeText = [NSString stringWithFormat:NSLocalizedString(@"You have successfully registered your copy of %@. Now you can:%@\nEnjoy!", @""), APP_NAME, allowances];
+    [alert addButtonWithTitle:NSLocalizedString(@"OK", @"")];
+    [alert runModal];
 }
 
 
@@ -191,13 +195,14 @@ static BOOL sIsLicensed = NO;
 
 - (void)runNagDialog {
     if (![self isLicensed]) {
-        NSString *title = NSLocalizedString(@"Feature Not Available in Free Trial Version", @"");
-        NSString *msg = [self nagText];
-        NSString *defaultBtn = NSLocalizedString(@"Purchase Online", @"");
-        NSString *altBtn = NSLocalizedString(@"Cancel", @"");
-        NSString *otherBtn = nil;
-        NSInteger button = NSRunAlertPanel(title, @"%@", defaultBtn, altBtn, otherBtn, msg);
-        if (NSAlertDefaultReturn == button) {
+        NSAlert *alert = [[[NSAlert alloc] init] autorelease];
+        alert.alertStyle = NSAlertStyleWarning;
+        alert.messageText = NSLocalizedString(@"Feature Not Available in Free Trial Version", @"");
+        alert.informativeText = [self nagText];
+        [alert addButtonWithTitle:NSLocalizedString(@"Purchase Online", @"")];
+        [alert addButtonWithTitle:NSLocalizedString(@"Cancel", @"")];
+        NSModalResponse button = [alert runModal];
+        if (NSAlertFirstButtonReturn == button) {
             [[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:PURCHASE_URL]];
         }
     }
@@ -216,11 +221,17 @@ static BOOL sIsLicensed = NO;
 
 
 - (NSDictionary *)licenseDictionary {
-    NString *licenseValidator = [NString stringWithKey:[self publicKey]];
-    
     // Get the dictionary from the license file
     // If the license is invalid, we get nil back instead of a dictionary
-    return [licenseValidator dictionaryForLicenseFile:[self licensePath]];
+    
+    APSetKey((CFStringRef)[self publicKey]);
+    NSURL *srcURL = [NSURL fileURLWithPath:[self licensePath]];
+    NSDictionary *d = (id)APCreateDictionaryForLicenseFile((CFURLRef)srcURL);
+
+//    NString *licenseValidator = [NString stringWithKey:[self publicKey]];
+//    NSDictionary *d = [licenseValidator dictionaryForLicenseFile:[self licensePath]];
+    
+    return d;
 }
 
 
@@ -277,17 +288,20 @@ static BOOL sIsLicensed = NO;
 
 
 - (IBAction)showLicenseInfo:(id)sender {
-    NSString *title = [NSString stringWithFormat:NSLocalizedString(@"This copy of %@ is licensed to", @""), APP_NAME];
-    //    NSString *msgFmt = NSLocalizedString(@"%@ <%@>\n\nIf that's not you, please purchase online.", @"");
-    NSString *msgFmt = NSLocalizedString(@"%@\n\nIf that's not you, please purchase online.", @"");
-    NSString *defaultButton = NSLocalizedString(@"OK", @"");
-    NSString *altButton = NSLocalizedString(@"Purchase Online", @"");
     NSDictionary *d = [self licenseDictionary];
     NSString *name = [d objectForKey:LICENSE_NAME_KEY];
     //    NSString *email = [d objectForKey:LICENSE_EMAIL_KEY];
+
+    NSAlert *alert = [[[NSAlert alloc] init] autorelease];
+    alert.alertStyle = NSAlertStyleInformational;
+    alert.messageText = [NSString stringWithFormat:NSLocalizedString(@"This copy of %@ is licensed to", @""), APP_NAME];
+    //    NSString *msgFmt = NSLocalizedString(@"%@ <%@>\n\nIf that's not you, please purchase online.", @"");
+    alert.informativeText = [NSString stringWithFormat:NSLocalizedString(@"%@\n\nIf that's not you, please purchase online.", @""), name];
+    [alert addButtonWithTitle:NSLocalizedString(@"OK", @"")];
+    [alert addButtonWithTitle:NSLocalizedString(@"Purchase Online", @"")];
     //    NSInteger result = NSRunInformationalAlertPanel(title, msgFmt, defaultButton, altButton, nil, name, email);
-    NSInteger result = NSRunInformationalAlertPanel(title, msgFmt, defaultButton, altButton, nil, name);
-    if (NSAlertAlternateReturn == result) {
+    NSModalResponse button = [alert runModal];
+    if (NSAlertSecondButtonReturn == button) {
         [self purchase:nil];
     }
 }

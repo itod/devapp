@@ -127,7 +127,7 @@
 - (NSString *)displayName {
     NSString *str = nil;
     if ([self wantsCustomDisplayName]) {
-        NSString *docTitle = [[[[self fileURL] relativeString] lastPathComponent] stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+        NSString *docTitle = [[[[self fileURL] relativeString] lastPathComponent] stringByRemovingPercentEncoding];
         NSString *tabTitle = self.mainWindowController.selectedTabModel.title;
         
         if ([tabTitle length]) {

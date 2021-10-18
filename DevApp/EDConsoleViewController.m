@@ -36,7 +36,7 @@ static NSDictionary *sValueAttrs = nil;
     if ([EDConsoleViewController class] == self) {
         
         NSMutableParagraphStyle *paraStyle = [[[NSParagraphStyle defaultParagraphStyle] mutableCopy] autorelease];
-        [paraStyle setAlignment:NSLeftTextAlignment];
+        [paraStyle setAlignment:NSTextAlignmentLeft];
         [paraStyle setLineBreakMode:NSLineBreakByTruncatingMiddle];
         
         sNameAttrs = [[NSDictionary alloc] initWithObjectsAndKeys:
@@ -419,7 +419,7 @@ static NSDictionary *sValueAttrs = nil;
                                    modifierFlags:[evt modifierFlags]
                                        timestamp:[evt timestamp]
                                     windowNumber:[evt windowNumber]
-                                         context:[evt context]
+                                         context:nil
                                      eventNumber:[evt eventNumber]
                                       clickCount:[evt clickCount]
                                         pressure:[evt pressure]];

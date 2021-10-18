@@ -30,8 +30,8 @@ void PerformOnMainThread(void (^block)(void)) {
 
 
 - (void)dealloc {
-    if (_controlThread) {dispatch_release(_controlThread), _controlThread = NULL;}
-    if (_executeThread) {dispatch_release(_executeThread), _executeThread = NULL;}
+    if (_controlThread) {dispatch_release(_controlThread); _controlThread = NULL;}
+    if (_executeThread) {dispatch_release(_executeThread); _executeThread = NULL;}
 
     [super dealloc];
 }
