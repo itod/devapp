@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="20037" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14490.70"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="20037"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -22,15 +22,15 @@
             <rect key="frame" x="0.0" y="0.0" width="450" height="388"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" heightSizable="YES"/>
             <subviews>
-                <box autoresizesSubviews="NO" verticalHuggingPriority="750" boxType="separator" id="53">
+                <box autoresizesSubviews="NO" verticalHuggingPriority="750" fixedFrame="YES" boxType="separator" translatesAutoresizingMaskIntoConstraints="NO" id="53">
                     <rect key="frame" x="0.0" y="303" width="450" height="4"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                 </box>
-                <box autoresizesSubviews="NO" verticalHuggingPriority="750" boxType="separator" id="40">
+                <box autoresizesSubviews="NO" verticalHuggingPriority="750" fixedFrame="YES" boxType="separator" translatesAutoresizingMaskIntoConstraints="NO" id="40">
                     <rect key="frame" x="0.0" y="36" width="450" height="4"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                 </box>
-                <scrollView focusRingType="none" borderType="none" autohidesScrollers="YES" horizontalLineScroll="16" horizontalPageScroll="10" verticalLineScroll="16" verticalPageScroll="10" usesPredominantAxisScrolling="NO" id="3">
+                <scrollView focusRingType="none" fixedFrame="YES" borderType="none" autohidesScrollers="YES" horizontalLineScroll="16" horizontalPageScroll="10" verticalLineScroll="16" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3">
                     <rect key="frame" x="0.0" y="39" width="450" height="266"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                     <clipView key="contentView" id="xk4-r9-lZ9">
@@ -39,14 +39,13 @@
                         <subviews>
                             <outlineView identifier="FindInProjectList" focusRingType="none" verticalHuggingPriority="750" allowsExpansionToolTips="YES" alternatingRowBackgroundColors="YES" columnReordering="NO" columnResizing="NO" multipleSelection="NO" autosaveName="FindInProject" rowHeight="16" indentationPerLevel="20" autosaveExpandedItems="YES" autoresizesOutlineColumn="YES" outlineTableColumn="7" id="6" customClass="EDFindOutlineView">
                                 <rect key="frame" x="0.0" y="0.0" width="450" height="266"/>
-                                <autoresizingMask key="autoresizingMask"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <size key="intercellSpacing" width="3" height="0.0"/>
                                 <color key="backgroundColor" name="_sourceListBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 <color key="gridColor" name="gridColor" catalog="System" colorSpace="catalog"/>
                                 <tableColumns>
                                     <tableColumn identifier="selected" width="56" minWidth="56" maxWidth="56" id="7">
                                         <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="center">
-                                            <font key="font" metaFont="smallSystem"/>
                                             <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                             <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
                                         </tableHeaderCell>
@@ -56,9 +55,8 @@
                                         </buttonCell>
                                         <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                     </tableColumn>
-                                    <tableColumn identifier="title" width="388" minWidth="48" maxWidth="100000" id="8">
+                                    <tableColumn identifier="title" width="359" minWidth="48" maxWidth="100000" id="8">
                                         <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left">
-                                            <font key="font" metaFont="smallSystem"/>
                                             <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                             <color key="backgroundColor" white="0.33333298560000002" alpha="1" colorSpace="calibratedWhite"/>
                                         </tableHeaderCell>
@@ -85,7 +83,7 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </scroller>
                 </scrollView>
-                <button verticalHuggingPriority="750" id="26">
+                <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="26">
                     <rect key="frame" x="372" y="6" width="67" height="28"/>
                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
                     <buttonCell key="cell" type="push" title="Find All" bezelStyle="rounded" alignment="center" controlSize="small" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="27">
@@ -102,7 +100,7 @@
                         <outlet property="nextKeyView" destination="HqA-Lt-xMa" id="fPk-Ji-emI"/>
                     </connections>
                 </button>
-                <comboBox verticalHuggingPriority="750" tag="7" id="18">
+                <comboBox verticalHuggingPriority="750" fixedFrame="YES" tag="7" translatesAutoresizingMaskIntoConstraints="NO" id="18">
                     <rect key="frame" x="66" y="355" width="283" height="22"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                     <comboBoxCell key="cell" controlSize="small" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" borderStyle="bezel" drawsBackground="YES" completes="NO" usesDataSource="YES" numberOfVisibleItems="5" id="19">
@@ -122,7 +120,7 @@
                         <outlet property="nextKeyView" destination="mLw-hv-LK2" id="v5p-6j-qGf"/>
                     </connections>
                 </comboBox>
-                <comboBox verticalHuggingPriority="750" id="20" customClass="EDComboBox">
+                <comboBox verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="20" customClass="EDComboBox">
                     <rect key="frame" x="66" y="330" width="371" height="22"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                     <comboBoxCell key="cell" controlSize="small" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" continuous="YES" borderStyle="bezel" drawsBackground="YES" usesDataSource="YES" numberOfVisibleItems="5" id="21">
@@ -142,7 +140,7 @@
                         <outlet property="nextKeyView" destination="34" id="55"/>
                     </connections>
                 </comboBox>
-                <textField verticalHuggingPriority="750" id="22">
+                <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="22">
                     <rect key="frame" x="13" y="359" width="48" height="14"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <textFieldCell key="cell" controlSize="small" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" title="Find:" id="23">
@@ -151,7 +149,7 @@
                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                 </textField>
-                <textField verticalHuggingPriority="750" id="24">
+                <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="24">
                     <rect key="frame" x="7" y="334" width="54" height="14"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <textFieldCell key="cell" controlSize="small" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" title="Replace:" id="25">
@@ -160,7 +158,7 @@
                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                 </textField>
-                <button verticalHuggingPriority="750" id="28">
+                <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="28">
                     <rect key="frame" x="257" y="6" width="117" height="28"/>
                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
                     <buttonCell key="cell" type="push" title="Replace Selected" bezelStyle="rounded" alignment="center" controlSize="small" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="29">
@@ -173,7 +171,7 @@
                         <outlet property="nextKeyView" destination="26" id="60"/>
                     </connections>
                 </button>
-                <button verticalHuggingPriority="750" id="30">
+                <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="30">
                     <rect key="frame" x="11" y="6" width="53" height="28"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <buttonCell key="cell" type="push" title="Prev" bezelStyle="rounded" alignment="center" controlSize="small" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="31">
@@ -200,7 +198,7 @@
                         <outlet property="nextKeyView" destination="32" id="58"/>
                     </connections>
                 </button>
-                <button id="34">
+                <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="34">
                     <rect key="frame" x="63" y="311" width="83" height="18"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <buttonCell key="cell" type="check" title="Match case" bezelStyle="regularSquare" imagePosition="left" controlSize="small" state="on" inset="2" id="35">
@@ -212,7 +210,7 @@
                         <outlet property="nextKeyView" destination="94" id="109"/>
                     </connections>
                 </button>
-                <button id="36">
+                <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="36">
                     <rect key="frame" x="202" y="311" width="55" height="18"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <buttonCell key="cell" type="check" title="Regex" bezelStyle="regularSquare" imagePosition="left" controlSize="small" state="on" inset="2" id="37">
@@ -224,14 +222,14 @@
                         <outlet property="nextKeyView" destination="6" id="VPA-nT-QG8"/>
                     </connections>
                 </button>
-                <progressIndicator horizontalHuggingPriority="750" verticalHuggingPriority="750" maxValue="100" displayedWhenStopped="NO" bezeled="NO" indeterminate="YES" controlSize="small" style="spinning" id="69">
+                <progressIndicator horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" maxValue="100" displayedWhenStopped="NO" bezeled="NO" indeterminate="YES" controlSize="small" style="spinning" translatesAutoresizingMaskIntoConstraints="NO" id="69">
                     <rect key="frame" x="238" y="13" width="16" height="16"/>
                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
                     <connections>
                         <binding destination="-2" name="animate" keyPath="busy" id="71"/>
                     </connections>
                 </progressIndicator>
-                <textField verticalHuggingPriority="750" id="72">
+                <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="72">
                     <rect key="frame" x="261" y="313" width="175" height="14"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                     <textFieldCell key="cell" controlSize="small" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" id="73">
@@ -243,7 +241,7 @@
                         <binding destination="-2" name="hidden" keyPath="busy" id="t30-Zt-yTo"/>
                     </connections>
                 </textField>
-                <button id="94">
+                <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="94">
                     <rect key="frame" x="149" y="311" width="50" height="18"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <buttonCell key="cell" type="check" title="Wrap" bezelStyle="regularSquare" imagePosition="left" controlSize="small" state="on" inset="2" id="95">
@@ -255,7 +253,7 @@
                         <outlet property="nextKeyView" destination="36" id="107"/>
                     </connections>
                 </button>
-                <popUpButton verticalHuggingPriority="750" id="mLw-hv-LK2">
+                <popUpButton verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mLw-hv-LK2">
                     <rect key="frame" x="351" y="356" width="86" height="22"/>
                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
                     <popUpButtonCell key="cell" type="push" title="in file" bezelStyle="rounded" alignment="left" controlSize="small" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="d3U-eS-LPR" id="eL1-Mg-MUB">
@@ -275,7 +273,7 @@
                         <outlet property="nextKeyView" destination="20" id="3q9-nZ-LPa"/>
                     </connections>
                 </popUpButton>
-                <button id="HqA-Lt-xMa">
+                <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HqA-Lt-xMa">
                     <rect key="frame" x="9" y="359" width="22" height="15"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <buttonCell key="cell" type="bevel" bezelStyle="rounded" imagePosition="below" alignment="center" controlSize="small" inset="2" id="W19-Wd-voN">
@@ -287,7 +285,7 @@
                         <outlet property="nextKeyView" destination="18" id="JfG-aR-UDC"/>
                     </connections>
                 </button>
-                <button verticalHuggingPriority="750" id="32">
+                <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="32">
                     <rect key="frame" x="62" y="6" width="51" height="28"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <buttonCell key="cell" type="push" title="Next" bezelStyle="rounded" alignment="center" controlSize="small" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="33">
@@ -325,6 +323,7 @@
                 <outlet property="searchButton" destination="26" id="102"/>
                 <outlet property="searchComboBox" destination="18" id="100"/>
             </connections>
+            <point key="canvasLocation" x="140" y="154"/>
         </customView>
         <userDefaultsController representsSharedInstance="YES" id="79"/>
     </objects>
